@@ -1,0 +1,34 @@
+{
+  "schema": "agent-bootstrap-observation-1",
+  "status": "stopped",
+  "scope": "fresh_hosted_windows_bootstrap_only;not_WoW_update_or_install",
+  "utc": "2026-10-15T23:57:17.225101+00:00",
+  "installer": {},
+  "samples": [],
+  "file_observations": {},
+  "agent_binaries": [],
+  "log_markers": {},
+  "cleanup_attempted": false,
+  "error_code": "bounded_probe_failed",
+  "limits": {
+    "observation_seconds": 150,
+    "installer_body_bytes": 134217728,
+    "bootstrapper_child_network_hard_byte_cap": false
+  },
+  "safety": {
+    "account_login_attempted": false,
+    "game_download_requested": false,
+    "game_installation_modified": false,
+    "CASC_writes_requested": false,
+    "raw_logs_exported": false,
+    "binaries_exported": false,
+    "github_tokens_passed_in_child_environment": false
+  },
+  "interpretation": {
+    "installation_complete_proven": false,
+    "agent_bootstrap_observation_only": true,
+    "no_agent_observed_does_not_prove_agent_absent": true,
+    "endpoint_sampling_is_not_full_network_capture": true,
+    "log_keyword_counts_do_not_prove_operation_execution": true
+  }
+}
