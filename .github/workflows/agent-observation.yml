@@ -1,0 +1,58 @@
+name: Bounded Battle.net Agent observation
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/agent-observation.yml'
+      - 'scripts/**'
+      - 'tests/**'
+permissions: {}
+concurrency:
+  group: agent-observation-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  observe:
+    runs-on: windows-2025
+    timeout-minutes: 8
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout source without persistent git credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Test safety and sanitization rules
+        run: python -m unittest discover -s tests -q
+      - name: Observe signed bootstrapper without login or game download
+        run: python scripts/observe_agent.py --output output
+      - name: Validate the public-schema report
+        if: always()
+        run: python scripts/validate_report.py --input output/agent-observation-to-share.json --output sanitized/agent-observation-to-share.json
+      - name: Upload only validated JSON, never logs or binaries
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: agent-observation-sanitized
+          path: sanitized/agent-observation-to-share.json
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: observe
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout on separate clean reporting runner
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+      - name: Retrieve only the sanitized report
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: agent-observation-sanitized
+          path: incoming
+      - name: Revalidate and commit structured evidence only
+        run: python scripts/publish_report.py

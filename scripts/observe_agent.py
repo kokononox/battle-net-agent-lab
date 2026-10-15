@@ -1,0 +1,304 @@
+"""Bounded bootstrap observation on a fresh GitHub-hosted Windows runner only.
+No login, GUI clicking, game/product request, raw-log upload or CASC access.
+"""
+import argparse
+import collections
+import datetime
+import hashlib
+import ipaddress
+import json
+import os
+from pathlib import Path
+import re
+import stat
+import subprocess
+import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+
+SETUP_URL = 'https://downloader.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe'
+MAX_SETUP = 128 * 1024**2
+MAX_REPORT = 256 * 1024
+NAMES = {'agent.exe', 'battle.net.exe', 'battle.net launcher.exe', 'battle.net-setup.exe',
+         'battle.net helper.exe', 'blizzarderror.exe'}
+PUBLISHERS = {'Blizzard Entertainment, Inc.', 'Blizzard Entertainment, Inc',
+              'Blizzard Entertainment Inc.', 'Blizzard Entertainment'}
+MARKERS = ('initializ', 'download', 'patch', 'install', 'repair', 'error', 'login', 'auth')
+ROOT_KEYS = ('agent', 'app', 'local_app', 'temporary_install')
+CLEAN_ENV_KEYS = {'SYSTEMROOT','WINDIR','PATH','PATHEXT','COMSPEC','TEMP','TMP',
+    'USERPROFILE','HOMEDRIVE','HOMEPATH','APPDATA','LOCALAPPDATA','PROGRAMDATA',
+    'PROGRAMFILES','PROGRAMFILES(X86)','COMMONPROGRAMFILES','COMMONPROGRAMFILES(X86)',
+    'ALLUSERSPROFILE','PROCESSOR_ARCHITECTURE','PROCESSOR_IDENTIFIER',
+    'NUMBER_OF_PROCESSORS','OS','SYSTEMDRIVE','SYSTEMDIRECTORY'}
+
+
+class LabError(Exception):
+    pass
+
+
+def clean_environment(source):
+    return {k:v for k,v in source.items() if k.upper() in CLEAN_ENV_KEYS}
+
+
+def safe_url(url):
+    p = urllib.parse.urlsplit(url)
+    host = (p.hostname or '').lower()
+    allowed = (host in {'battle.net','blizzard.com','blzddist1-a.akamaihd.net'} or
+               host.endswith('.battle.net') or host.endswith('.blizzard.com'))
+    if p.scheme != 'https' or not allowed or p.username or p.password or p.port not in (None,443):
+        raise LabError('installer_url_outside_https_allowlist')
+    return url
+
+
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+
+
+def fetch_setup(destination):
+    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
+    url = SETUP_URL; started = time.monotonic(); count = 0
+    temp = destination.with_suffix('.part')
+    try:
+        for redirects in range(7):
+            safe_url(url)
+            req = urllib.request.Request(url,headers={'User-Agent':'AgentLab/0.1','Accept-Encoding':'identity'})
+            try:
+                response = opener.open(req,timeout=20)
+            except urllib.error.HTTPError as exc:
+                if exc.code in (301,302,303,307,308):
+                    location = exc.headers.get('Location',''); exc.close()
+                    if not location: raise LabError('installer_redirect_without_location')
+                    url = urllib.parse.urljoin(url,location); continue
+                raise LabError('installer_http_error') from None
+            with response:
+                if response.status != 200: raise LabError('installer_http_status_not_200')
+                length = response.headers.get('Content-Length')
+                if length and (not length.isdigit() or int(length)>MAX_SETUP):
+                    raise LabError('installer_declared_body_limit')
+                digest=hashlib.sha256()
+                with temp.open('xb') as sink:
+                    while True:
+                        if time.monotonic()-started>120: raise LabError('installer_download_deadline')
+                        chunk=response.read(65536)
+                        if not chunk:break
+                        count+=len(chunk)
+                        if count>MAX_SETUP:raise LabError('installer_body_limit')
+                        digest.update(chunk);sink.write(chunk)
+                    sink.flush();os.fsync(sink.fileno())
+                if length and count!=int(length):raise LabError('installer_body_length_mismatch')
+                with temp.open('rb') as f:
+                    if f.read(2)!=b'MZ':raise LabError('installer_not_windows_pe')
+                os.replace(temp,destination)
+                return {'bytes':count,'sha256':digest.hexdigest(),'redirects':redirects}
+        raise LabError('installer_redirect_limit')
+    finally:
+        if temp.exists():temp.unlink()
+
+
+def powershell(command, env, timeout=25):
+    exe=Path(os.environ['SystemRoot'])/'System32'/'WindowsPowerShell'/'v1.0'/'powershell.exe'
+    result=subprocess.run([str(exe),'-NoLogo','-NoProfile','-NonInteractive','-Command',
+                           "$ErrorActionPreference='Stop';"+command],
+                          env=env,capture_output=True,timeout=timeout,check=False)
+    if result.returncode or len(result.stdout)>1024**2:
+        raise LabError('windows_probe_failed')
+    try:return json.loads(result.stdout.decode('utf-8-sig'))
+    except (UnicodeError,ValueError):raise LabError('windows_probe_invalid_json') from None
+
+
+def signature(path, env):
+    local_env=dict(env,BNET_LAB_VERIFY_PATH=str(path))
+    result=powershell("$s=Get-AuthenticodeSignature -LiteralPath $env:BNET_LAB_VERIFY_PATH;"
+        "$p='';if($s.SignerCertificate){$p=$s.SignerCertificate.GetNameInfo('SimpleName',$false)};"
+        "@{status=[string]$s.Status;publisher=$p}|ConvertTo-Json -Compress",local_env)
+    valid=result.get('status')=='Valid' and result.get('publisher') in PUBLISHERS
+    return {'authenticode_valid':result.get('status')=='Valid',
+            'expected_blizzard_publisher':result.get('publisher') in PUBLISHERS,
+            'accepted_for_execution':valid}
+
+
+def snapshot(env):
+    # No command lines, window titles, process environment or owner identities.
+    return powershell("$p=@(Get-CimInstance Win32_Process|Where-Object {"
+        "$_.Name -in @('Agent.exe','Battle.net.exe','Battle.net Launcher.exe','Battle.net-Setup.exe','Battle.net Helper.exe','BlizzardError.exe')}|"
+        "Select-Object Name,ProcessId,ParentProcessId,ExecutablePath);"
+        "$ids=@($p|ForEach-Object {$_.ProcessId});$c=@();"
+        "if($ids.Count){$c=@(Get-NetTCPConnection -ErrorAction SilentlyContinue|Where-Object {$_.OwningProcess -in $ids}|"
+        "Select-Object OwningProcess,RemoteAddress,RemotePort,State)};"
+        "@{processes=$p;connections=$c}|ConvertTo-Json -Depth 4 -Compress",env)
+
+
+def safe_snapshot(raw, elapsed):
+    processes=[];ids=set()
+    for item in (raw.get('processes') or [])[:24]:
+        name=str(item.get('Name','')).lower()
+        if name not in NAMES:continue
+        pid=item.get('ProcessId');parent=item.get('ParentProcessId')
+        if type(pid) is not int or not 0<pid<2**32:continue
+        ids.add(pid)
+        processes.append({'name':name,'pid':pid,'parent_pid':parent if type(parent) is int else 0})
+    connections=[]
+    states={'Closed','Listen','SynSent','SynReceived','Established','FinWait1','FinWait2',
+            'CloseWait','Closing','LastAck','TimeWait','DeleteTCB','Bound'}
+    for item in (raw.get('connections') or [])[:24]:
+        if item.get('OwningProcess') not in ids:continue
+        try:address=ipaddress.ip_address(item['RemoteAddress'])
+        except (KeyError,ValueError,TypeError):continue
+        port=item.get('RemotePort');state_name=str(item.get('State',''))
+        if type(port) is not int or not 0<=port<=65535:continue
+        # Public destination address only; private/internal addresses are labeled.
+        connections.append({'pid':item['OwningProcess'],'remote_address':str(address) if address.is_global else 'nonpublic',
+                            'remote_port':port,'state':state_name if state_name in states else 'other'})
+    return {'elapsed_seconds':elapsed,'processes':processes,'connections':connections}
+
+
+def file_metadata(roots):
+    groups={};agents=[];logs=[]
+    deadline=time.monotonic()+8
+    for category,root in roots.items():
+        count=total=skipped=0;exts=collections.Counter()
+        if root.exists():
+            for folder,dirs,files in os.walk(root,followlinks=False):
+                # Explicitly skip junctions/reparse points, not just symlinks.
+                dirs[:]=[d for d in dirs if not is_reparse(Path(folder)/d)]
+                for name in files:
+                    if count>=10000 or time.monotonic()>deadline:break
+                    path=Path(folder)/name
+                    try:
+                        info=path.lstat()
+                        if not stat.S_ISREG(info.st_mode) or is_reparse(path):skipped+=1;continue
+                        count+=1;total+=info.st_size
+                        ext=path.suffix.lower();exts[ext if re.fullmatch(r'\.[a-z0-9]{1,10}',ext) else 'other']+=1
+                        if name.lower()=='agent.exe' and len(agents)<4:agents.append(path)
+                        if ext in ('.log','.txt') and len(logs)<24:logs.append(path)
+                    except OSError:skipped+=1
+                if count>=10000 or time.monotonic()>deadline:break
+        groups[category]={'files_observed':count,'bytes_on_disk_observed':total,
+                          'skipped_files':skipped,'extensions':dict(exts.most_common(32))}
+    return groups,agents,logs
+
+
+def is_reparse(path):
+    try:
+        s=path.lstat();return stat.S_ISLNK(s.st_mode) or bool(getattr(s,'st_file_attributes',0)&1024)
+    except OSError:return True
+
+
+def log_marker_counts(paths):
+    result=dict.fromkeys(MARKERS,0);read=0
+    for p in paths:
+        try:
+            if is_reparse(p):continue
+            with p.open('rb') as f:b=f.read(min(2*1024**2,32*1024**2-read))
+            read+=len(b);text=b.decode('utf-8',errors='ignore').lower()
+            for key in MARKERS:result[key]+=text.count(key)
+            if read>=32*1024**2:break
+        except OSError:continue
+    return {'bytes_read':read,'keyword_occurrences_only':result,'raw_log_content_exported':False}
+
+
+def stop_observed(raw, env):
+    """Only on a fresh hosted VM; never called for a user/self-hosted machine."""
+    pids=[]
+    for item in raw.get('processes') or []:
+        if str(item.get('Name','')).lower() in NAMES and type(item.get('ProcessId')) is int:
+            pids.append(item['ProcessId'])
+    for pid in sorted(set(pids),reverse=True)[:16]:
+        subprocess.run([str(Path(os.environ['SystemRoot'])/'System32'/'taskkill.exe'),'/PID',str(pid),'/T','/F'],
+                       env=env,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=5,check=False)
+
+
+def initial_report():
+    return {'schema':'agent-bootstrap-observation-1','status':'not_started',
+      'scope':'fresh_hosted_windows_bootstrap_only;not_WoW_update_or_install',
+      'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+      'installer':{},'samples':[],'file_observations':{},'agent_binaries':[],
+      'log_markers':{},'cleanup_attempted':False,'error_code':None,
+      'limits':{'observation_seconds':150,'installer_body_bytes':MAX_SETUP,
+                'bootstrapper_child_network_hard_byte_cap':False},
+      'safety':{'account_login_attempted':False,'game_download_requested':False,
+        'game_installation_modified':False,'CASC_writes_requested':False,
+        'raw_logs_exported':False,'binaries_exported':False,
+        'github_tokens_passed_in_child_environment':False},
+      'interpretation':{'installation_complete_proven':False,'agent_bootstrap_observation_only':True,
+        'no_agent_observed_does_not_prove_agent_absent':True,
+        'endpoint_sampling_is_not_full_network_capture':True,
+        'log_keyword_counts_do_not_prove_operation_execution':True}}
+
+
+def observe(out_dir, seconds=150):
+    report=initial_report();report['limits']['observation_seconds']=seconds
+    work=None;env=clean_environment(os.environ);raw={'processes':[]};launched=False;process=None
+    try:
+        if sys.platform!='win32' or os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('RUNNER_OS')!='Windows' or os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted':
+            raise LabError('fresh_github_hosted_windows_required')
+        run_id=os.environ.get('GITHUB_RUN_ID','');attempt=os.environ.get('GITHUB_RUN_ATTEMPT','')
+        if not run_id.isdigit() or not attempt.isdigit():raise LabError('invalid_run_identity')
+        temp=Path(os.environ['RUNNER_TEMP']).resolve()
+        if is_reparse(temp):raise LabError('runner_temp_reparse_not_allowed')
+        work=temp/('bnet-observe-'+run_id+'-'+attempt);work.mkdir(exist_ok=False)
+        roots={'agent':Path(os.environ['ProgramData'])/'Battle.net'/'Agent',
+               'app':Path(os.environ['ProgramFiles(x86)'])/'Battle.net',
+               'local_app':Path(os.environ['LOCALAPPDATA'])/'Battle.net',
+               'temporary_install':work/'app'}
+        raw=snapshot(env)
+        if raw.get('processes') or any(r.exists() for r in roots.values()):
+            raise LabError('preexisting_battlenet_state_refused')
+        setup=work/'Battle.net-Setup.exe'
+        report['installer'].update(fetch_setup(setup));report['installer'].update(signature(setup,env))
+        if not report['installer']['accepted_for_execution']:raise LabError('installer_signature_or_publisher_not_accepted')
+        # No silent/EULA/login flags are guessed; no button or legal consent is
+        # clicked. If the wizard waits for interaction, this is an honest limit.
+        process=subprocess.Popen([str(setup)],cwd=work,env=env,stdin=subprocess.DEVNULL,
+                              stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+        launched=True;started=time.monotonic()
+        while time.monotonic()-started<seconds:
+            raw=snapshot(env)
+            report['samples'].append(safe_snapshot(raw,round(time.monotonic()-started,2)))
+            if len(report['samples'])>=30:break
+            time.sleep(5)
+        groups,agents,logs=file_metadata(roots);report['file_observations']=groups
+        for path in agents:
+            if path.stat().st_size>128*1024**2:continue
+            sig=signature(path,env)
+            report['agent_binaries'].append({'name':'agent.exe','bytes':path.stat().st_size,
+                'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),**sig})
+        report['log_markers']=log_marker_counts(logs)
+        observed=any(p['name']=='agent.exe' for s in report['samples'] for p in s['processes'])
+        report['status']='agent_process_observed' if observed else 'bootstrapper_observed_agent_not_observed'
+        report['cleanup_attempted']=True
+        raw=snapshot(env);stop_observed(raw,env)
+        if process.poll() is None:
+            subprocess.run(['taskkill','/PID',str(process.pid),'/T','/F'],env=env,
+                stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=5,check=False)
+        try:process.wait(timeout=10)
+        except subprocess.TimeoutExpired:process.kill()
+    except Exception as exc:
+        report['status']='stopped'
+        report['error_code']=str(exc) if isinstance(exc,LabError) and re.fullmatch('[a-z0-9_]{1,100}',str(exc)) else 'bounded_probe_failed'
+    finally:
+        if launched and not report['cleanup_attempted']:
+            report['cleanup_attempted']=True
+            try:stop_observed(snapshot(env),env)
+            except Exception:pass
+        if process is not None and process.poll() is None:
+            try:
+                subprocess.run(['taskkill','/PID',str(process.pid),'/T','/F'],env=env,
+                    stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=5,check=False)
+            except Exception:pass
+        out_dir.mkdir(parents=True,exist_ok=True)
+        payload=json.dumps(report,indent=2).encode()
+        if len(payload)>MAX_REPORT:raise LabError('sanitized_report_size_limit')
+        path=out_dir/'agent-observation-to-share.json';path.write_bytes(payload)
+        # Console contains no exception strings, paths, logs or download URLs.
+        print(json.dumps({'status':report['status'],'error_code':report['error_code'],
+                          'sanitized_report_written':True}))
+    return report
+
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True)
+    args=p.parse_args();observe(args.output)
