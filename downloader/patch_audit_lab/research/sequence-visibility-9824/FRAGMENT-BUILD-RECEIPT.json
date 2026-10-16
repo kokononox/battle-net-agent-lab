@@ -1,0 +1,252 @@
+{
+  "format": "agent-sequence-visibility-fragment-build-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "fragments": [
+    {
+      "name": "header_publish",
+      "start": "0x71c119",
+      "end_exclusive": "0x71c18e",
+      "bytes": 117,
+      "sha256": "be43a42c01053441d85d0498475203d1df017239d6ccc89052643a342cbeaeb3"
+    },
+    {
+      "name": "header_reader",
+      "start": "0x71c555",
+      "end_exclusive": "0x71c59d",
+      "bytes": 72,
+      "sha256": "b94757dd9d55f61200a0c7953f6f9d6a5e63ea02e757085efd6844c18bbf683b"
+    },
+    {
+      "name": "writer",
+      "start": "0x71e887",
+      "end_exclusive": "0x71e9c1",
+      "bytes": 314,
+      "sha256": "1c45a297ee61d05c15f45b8da625041d7400c5088f6800acb840b247207aff2c"
+    },
+    {
+      "name": "reader",
+      "start": "0x71ec75",
+      "end_exclusive": "0x71edd7",
+      "bytes": 354,
+      "sha256": "ffe6123bd4df817d49d3b478a989dcbb5ffd6986e9d0e7b24fc91a5ebdd4867e"
+    }
+  ],
+  "original_fragment_bytes": 857,
+  "direct_call_graph": [
+    {
+      "function": "header_publish",
+      "site": "0x71c145",
+      "target": "0x71e887",
+      "mocked": false
+    },
+    {
+      "function": "header_publish",
+      "site": "0x71c151",
+      "target": "0x702e71",
+      "mocked": true
+    },
+    {
+      "function": "header_publish",
+      "site": "0x71c16c",
+      "target": "0x8c3843",
+      "mocked": true
+    },
+    {
+      "function": "header_reader",
+      "site": "0x71c58d",
+      "target": "0x71ec75",
+      "mocked": false
+    },
+    {
+      "function": "writer",
+      "site": "0x71e891",
+      "target": "0x87606b",
+      "mocked": true
+    },
+    {
+      "function": "writer",
+      "site": "0x71e8bc",
+      "target": "0x72f5c4",
+      "mocked": true
+    },
+    {
+      "function": "writer",
+      "site": "0x71e8dc",
+      "target": "0x71f126",
+      "mocked": true
+    },
+    {
+      "function": "writer",
+      "site": "0x71e909",
+      "target": "0x72bda3",
+      "mocked": true
+    },
+    {
+      "function": "writer",
+      "site": "0x71e911",
+      "target": "0x72bbbc",
+      "mocked": true
+    },
+    {
+      "function": "writer",
+      "site": "0x71e93c",
+      "target": "0x71f1f1",
+      "mocked": true
+    },
+    {
+      "function": "writer",
+      "site": "0x71e965",
+      "target": "0x864c85",
+      "mocked": true
+    },
+    {
+      "function": "writer",
+      "site": "0x71e97d",
+      "target": "0x72b84f",
+      "mocked": true
+    },
+    {
+      "function": "writer",
+      "site": "0x71e989",
+      "target": "0x702e71",
+      "mocked": true
+    },
+    {
+      "function": "writer",
+      "site": "0x71e9a4",
+      "target": "0x8c3843",
+      "mocked": true
+    },
+    {
+      "function": "writer",
+      "site": "0x71e9b2",
+      "target": "0x864c4a",
+      "mocked": true
+    },
+    {
+      "function": "writer",
+      "site": "0x71e9b9",
+      "target": "0x87601a",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71ec7f",
+      "target": "0x87606b",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71ecc7",
+      "target": "0x8c3843",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71ecde",
+      "target": "0x71f0d3",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71ecf1",
+      "target": "0x50045e",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71ed0c",
+      "target": "0x72f5c4",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71ed26",
+      "target": "0x864f87",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71ed3c",
+      "target": "0x71f07a",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71ed42",
+      "target": "0x717221",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71ed6d",
+      "target": "0x864c85",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71ed8e",
+      "target": "0x72b84f",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71ed9a",
+      "target": "0x702e71",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71edba",
+      "target": "0x8c3843",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71edc8",
+      "target": "0x864c4a",
+      "mocked": true
+    },
+    {
+      "function": "reader",
+      "site": "0x71edcf",
+      "target": "0x87601a",
+      "mocked": true
+    }
+  ],
+  "helper_stubs": {
+    "join": "0x50045e",
+    "error_string": "0x702e71",
+    "convert_error": "0x717221",
+    "filename": "0x71f0d3",
+    "errorpath": "0x71f07a",
+    "tempname": "0x71f126",
+    "flush": "0x71f1f1",
+    "bind": "0x72b84f",
+    "serialize_full": "0x72bbbc",
+    "serialize_some": "0x72bda3",
+    "constructor": "0x72f5c4",
+    "destroy": "0x864c4a",
+    "move": "0x864c85",
+    "open": "0x864f87",
+    "epilog": "0x87601a",
+    "prolog": "0x87606b",
+    "logger": "0x8c3843"
+  },
+  "helper_behavior": "mocked nonthrowing helpers; custom stack-frame setup; no SEH or Windows I/O",
+  "linux_elf_i386": true,
+  "all_original_fragment_elf_bytes_verified": true,
+  "no_rwx_load_segments": true,
+  "nonexecutable_stack": true,
+  "no_dynamic_linker_or_imports": true,
+  "source_sha256": {
+    "harness.s": "9d2cce30df18a17c7329656068912870f7015ee95a2d4e3aeb0ab1017abb2f54",
+    "build.py": "8a83c10641aad97a065aa62176263e903b10bd0b30e39d21b0f78b4a2aa5c5e3"
+  },
+  "binary_sha256": "18d15c12a8638c5c1c9c6a0170c14a6c3853856bd369b5b3a162128cadc0f873",
+  "windows_agent_process_executed": false,
+  "windows_apis_executed": false,
+  "power_loss_proven": false,
+  "installation_ready": false,
+  "binaries_or_original_fragments_published": false
+}

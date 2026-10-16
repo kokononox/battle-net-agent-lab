@@ -55,3 +55,8 @@ companion code ZIP از کد پژوهشی و گزارش‌ها ساخته می�
 ## جدیدترین مرحله: چرخهٔ تک‌آبجکتی با حفظ مبدأ
 
 [retail-update-cycle](../downloader/patch_audit_lab/research/retail-update-cycle/README-fa.md) یک source واقعی را حفظ می‌کند، patch را اعمال و target را append می‌کند، سپس sequence ایندکس را در control پژوهشی منتشر می‌کند. ۹ توقف subprocess با resume و native readback موفق؛ suite فعلی ۴۹۰/صفر skip. journal/قفل/انتشار این آزمایش معادل اجرای Windows Agent نیستند؛ activation کامل نداریم. ZIP اصلی و companion قدیمی عوض نشده‌اند؛ source آخر شاخه و دستورهای گزارش جدید را استفاده کنید. هیچ اسکن یا دانلود گستردهٔ جدید لازم نیست.
+
+
+## نتیجهٔ جدید sequence visibility
+
+[sequence-visibility-9824](../downloader/patch_audit_lab/research/sequence-visibility-9824/README-fa.md): چهار تابع اصلی Agent در harness محدود با helperهای mock بررسی شدند. بازگشت صفر reader در خطای bind تزریقی، سلامت target را اثبات نمی‌کند؛ cache ممکن است جلو رفته باشد و refresh بعدی retry نکند. گیت مستقل native مرحلهٔ قبلی لازم می‌ماند. ۱۴۴۰ بردار parity و ۵۲۰ تست/صفر skip؛ این اجرای Windows Agent یا نصب واقعی نیست. باینری/fragment خام و ZIP جدید منتشر نشده‌اند؛ source شاخه به‌روز است.

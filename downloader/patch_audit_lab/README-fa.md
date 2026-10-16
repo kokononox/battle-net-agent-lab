@@ -1,6 +1,6 @@
 # ممیزی پچ WoW — آزمایش مستقل، نه آپدیتر آماده
 
-> تازه‌ترین milestone: [چرخهٔ پچ واقعی، append، انتشار sequence و resume](research/retail-update-cycle/README-fa.md). مجموع ۴۹۰ آزمون؛ ۹ قطع subprocess و ادامهٔ موفق، بازخوانی native مبدأ و هدف با EKey/CKey، اجرای دوبارهٔ بی‌تغییر. فقط کپی تازهٔ پژوهشی Linux است؛ Windows Agent، activation کامل یا نصب بازی اثبات نشده‌اند. checkpointهای قدیمی زیر تاریخی‌اند.
+> تازه‌ترین milestone: [توابع اصلی انتشار/refresh sequence با helperهای mock](research/sequence-visibility-9824/README-fa.md). ۴ تابع اصلی/۸۵۷ بایت، ۱۴۴۰ بردار parity، مجموع ۵۲۰ آزمون. reader در مسیر محدود خطای bind ممکن است صفر بدهد و cache را جلو ببرد؛ return صفر معیار سلامت نیست. Windows I/O، SEH واقعی و activation نصب هنوز اثبات نشده‌اند. checkpointهای قدیمی زیر تاریخی‌اند.
 
 
 ## به‌روزرسانی مرحلهٔ دوم: اتصال به شواهد قبلی

@@ -1,0 +1,55 @@
+{
+  "format": "agent-sequence-visibility-static-notes-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "prerequisite_publication_audit_passed": true,
+  "anchors": {
+    "reader_cached_sequence_updated_before_bind": {
+      "address": "0x71ed5a",
+      "bytes": "897cc80c"
+    },
+    "reader_status_ebx_initial_zero": {
+      "address": "0x71ed11",
+      "bytes": "33db"
+    },
+    "reader_returns_ebx_not_esi": {
+      "address": "0x71edcd",
+      "bytes": "8bc3"
+    },
+    "reader_bind_error_test": {
+      "address": "0x71ed95",
+      "bytes": "85f6"
+    },
+    "reader_bind_error_log_cleanup": {
+      "address": "0x71edbf",
+      "bytes": "83c424"
+    },
+    "reader_backwards_error_return_one": {
+      "address": "0x71eccc",
+      "bytes": "33c083c41c40"
+    },
+    "reader_unsigned_order_branch": {
+      "address": "0x71ecb1",
+      "bytes": "7624"
+    },
+    "writer_cache_advanced_before_bind": {
+      "address": "0x71e95a",
+      "bytes": "8944fb0c"
+    },
+    "writer_returns_bind_status_esi": {
+      "address": "0x71e9b7",
+      "bytes": "8bc6"
+    }
+  },
+  "reader_bind_call": {
+    "site": "0x71ed8e",
+    "target": "0x72b84f"
+  },
+  "reader_bind_error_log_call": {
+    "site": "0x71edba",
+    "target": "0x8c3843"
+  },
+  "nonthrowing_helper_boundary_only": true,
+  "whole_program_reachability_or_runtime_error_handling_proven": false,
+  "windows_agent_process_executed": false,
+  "installation_ready": false
+}
