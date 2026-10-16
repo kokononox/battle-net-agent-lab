@@ -1,8 +1,95 @@
 {
-  "schema": "agent-bootstrap-observation-1",
+  "schema": "agent-bootstrap-observation-2",
   "status": "bootstrapper_observed_agent_not_observed",
   "scope": "fresh_hosted_windows_bootstrap_only;not_WoW_update_or_install",
-  "utc": "2026-10-16T00:07:16.790493+00:00",
+  "utc": "2026-10-16T00:37:33.507537+00:00",
+  "source_commit": "c8abd46d9dbcc251aa29ccbb187f8934822a27a7",
+  "run_id": "38830493104",
+  "run_attempt": "1",
+  "gui_observations": [
+    {
+      "elapsed_seconds": 5.0,
+      "observer_session_id": 2,
+      "process_sessions": [
+        {
+          "pid": 2936,
+          "session_id": 2
+        }
+      ],
+      "window_station_visible": true,
+      "input_desktop_accessible": true,
+      "input_desktop_error": null,
+      "windows": [
+        {
+          "class": "other",
+          "visible": true,
+          "enabled": true,
+          "label": "not_read",
+          "markers": [],
+          "controls": []
+        },
+        {
+          "class": "other",
+          "visible": false,
+          "enabled": false,
+          "label": "not_read",
+          "markers": [],
+          "controls": []
+        },
+        {
+          "class": "other",
+          "visible": false,
+          "enabled": false,
+          "label": "not_read",
+          "markers": [],
+          "controls": []
+        }
+      ],
+      "enumeration_truncated": false,
+      "probe_errors": 0
+    },
+    {
+      "elapsed_seconds": 45.12,
+      "observer_session_id": 2,
+      "process_sessions": [
+        {
+          "pid": 2936,
+          "session_id": 2
+        }
+      ],
+      "window_station_visible": true,
+      "input_desktop_accessible": true,
+      "input_desktop_error": null,
+      "windows": [
+        {
+          "class": "other",
+          "visible": true,
+          "enabled": true,
+          "label": "not_read",
+          "markers": [],
+          "controls": []
+        },
+        {
+          "class": "other",
+          "visible": false,
+          "enabled": false,
+          "label": "not_read",
+          "markers": [],
+          "controls": []
+        },
+        {
+          "class": "other",
+          "visible": false,
+          "enabled": false,
+          "label": "not_read",
+          "markers": [],
+          "controls": []
+        }
+      ],
+      "enumeration_truncated": false,
+      "probe_errors": 0
+    }
+  ],
   "installer": {
     "bytes": 4896464,
     "sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
@@ -13,23 +100,23 @@
   },
   "samples": [
     {
-      "elapsed_seconds": 0.02,
+      "elapsed_seconds": 0.0,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
+          "pid": 2936,
+          "parent_pid": 744
         }
       ],
       "connections": []
     },
     {
-      "elapsed_seconds": 5.02,
+      "elapsed_seconds": 5.0,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
+          "pid": 2936,
+          "parent_pid": 744
         }
       ],
       "connections": []
@@ -39,305 +126,74 @@
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
+          "pid": 2936,
+          "parent_pid": 744
         }
       ],
       "connections": []
     },
     {
-      "elapsed_seconds": 15.05,
+      "elapsed_seconds": 15.06,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
+          "pid": 2936,
+          "parent_pid": 744
         }
       ],
       "connections": []
     },
     {
-      "elapsed_seconds": 20.06,
+      "elapsed_seconds": 20.08,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
+          "pid": 2936,
+          "parent_pid": 744
         }
       ],
       "connections": []
     },
     {
-      "elapsed_seconds": 25.08,
+      "elapsed_seconds": 25.09,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
+          "pid": 2936,
+          "parent_pid": 744
         }
       ],
       "connections": []
     },
     {
-      "elapsed_seconds": 30.08,
+      "elapsed_seconds": 30.11,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
+          "pid": 2936,
+          "parent_pid": 744
         }
       ],
       "connections": []
     },
     {
-      "elapsed_seconds": 35.08,
+      "elapsed_seconds": 35.12,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
+          "pid": 2936,
+          "parent_pid": 744
         }
       ],
       "connections": []
     },
     {
-      "elapsed_seconds": 40.08,
+      "elapsed_seconds": 40.12,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 45.09,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 50.09,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 55.09,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 60.11,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 65.11,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 70.11,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 75.12,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 80.12,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 85.14,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 90.16,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 95.16,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 100.16,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 105.16,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 110.17,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 115.17,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 120.19,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 125.19,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 130.19,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 135.2,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 140.2,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
-        }
-      ],
-      "connections": []
-    },
-    {
-      "elapsed_seconds": 145.22,
-      "processes": [
-        {
-          "name": "battle.net-setup.exe",
-          "pid": 1800,
-          "parent_pid": 1140
+          "pid": 2936,
+          "parent_pid": 744
         }
       ],
       "connections": []
@@ -391,7 +247,7 @@
   "underlying_error_type": null,
   "numeric_error_code": null,
   "limits": {
-    "observation_seconds": 150,
+    "observation_seconds": 45,
     "installer_body_bytes": 134217728,
     "bootstrapper_child_network_hard_byte_cap": false
   },
