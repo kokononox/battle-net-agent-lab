@@ -12,6 +12,8 @@ import validate_report as val
 import test_gui
 
 class AccessibilityTests(unittest.TestCase):
+    def setUp(self):
+        self.helper_patch=patch.object(uia,'_HELPER',(Path('UiaReadOnly.exe'),None));self.helper_patch.start();self.addCleanup(self.helper_patch.stop)
     def targets(self):return [{'hwnd':123,'pid':42}]
     def report(self):
         return {'status':'ok','top_windows_requested':1,'errors':0,'truncated':False,'elements':[
@@ -65,7 +67,7 @@ class AccessibilityTests(unittest.TestCase):
             kw=call.call_args.kwargs
             self.assertNotIn('GITHUB_TOKEN',kw['env']);self.assertNotIn('ACTIONS_RUNTIME_TOKEN',kw['env'])
             self.assertEqual(kw['timeout'],12);self.assertEqual(kw['stdin'],subprocess.DEVNULL);self.assertEqual(kw['stderr'],subprocess.DEVNULL)
-            self.assertNotIn('-ExecutionPolicy',call.call_args.args[0]);self.assertIn('-STA',call.call_args.args[0])
+            self.assertEqual(len(call.call_args.args[0]),1);self.assertNotIn('powershell',call.call_args.args[0][0].lower())
     def test_timeout_exports_no_partial_stdout_or_message(self):
         err=subprocess.TimeoutExpired('SECRET',12,output=b'SECRET')
         with patch.object(uia.sys,'platform','win32'),self.mocked_probe(exception=err):
@@ -89,18 +91,15 @@ class AccessibilityTests(unittest.TestCase):
         g=test_gui.GuiTests().fixture();g['accessibility']=self.report();g['accessibility']['elements'][0]['name']='SECRET'
         with self.assertRaises(val.ReportError):val.validate_gui(g)
     def test_script_only_reads_named_properties_tree(self):
-        s=Path(uia.__file__).with_name('uia_readonly.ps1').read_text()
+        s=Path(uia.__file__).with_name('uia_readonly.cs').read_text()
         for forbidden in ('.Invoke(','.Select(','.SetValue(','.SetFocus(','.Expand(','.GetText(','.ValuePattern','TextPattern','SendInput','GetClickablePoint'):
             self.assertNotIn(forbidden,s)
-        self.assertIn('$current.IsPassword',s);self.assertIn('$current.IsOffscreen',s)
-        self.assertIn('$current.ProcessId -ne [int]$target.pid',s)
-        self.assertLess(s.index('$current.IsPassword'),s.index('$current.Name'))
+        self.assertIn('current.IsPassword',s);self.assertIn('current.IsOffscreen',s)
+        self.assertIn('current.ProcessId!=pid',s)
+        self.assertLess(s.index('current.IsPassword'),s.index('current.Name'))
         self.assertIn('FromHandle',s);self.assertNotIn('RootElement',s)
     @unittest.skipUnless(sys.platform=='win32','native Windows UIA empty-target smoke test')
     def test_actual_windows_helper_with_no_targets(self):
-        from observe_agent import clean_environment
-        env=clean_environment(os.environ);env['BNET_LAB_UIA_CONFIG']=json.dumps({'targets':[],'labels':uia.LABELS,'markers':uia.MARKERS,'types':sorted(uia.TYPES),'readable_types':sorted(uia.READABLE)})
-        exe=Path(os.environ['SystemRoot'])/'System32'/'WindowsPowerShell'/'v1.0'/'powershell.exe'
-        command=Path(uia.__file__).with_name('uia_readonly.ps1').read_text()
-        response=subprocess.run([str(exe),'-NoProfile','-NonInteractive','-STA','-Command',command],env=env,stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=12)
-        self.assertEqual(response.returncode,0);r=json.loads(response.stdout.decode('utf-8-sig'));uia.validate(r,[]);self.assertEqual(r['status'],'ok')
+        # Deliberately undo the transport mock: this test must really compile/run on Windows.
+        with patch.object(uia,'_HELPER',None):
+            result=uia.smoke_check();self.assertEqual(result['status'],'ok');self.assertEqual(result['elements'],[])

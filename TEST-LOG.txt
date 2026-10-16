@@ -1,5 +1,4 @@
-Linux: 57 discovered; 56 passed, 1 skipped (native Windows UIA smoke).
-New UIA tests: 19.
-Python 3.9 AST compatibility checked.
-No downloader/Lab or game asset scan.
-Windows runtime result pending.
+Linux: 67 discovered; 66 passed; 1 native Windows test skipped only on Linux.
+Mandatory native compiler/runtime smoke test retained on Windows.
+Safety failure still blocks Setup; sanitized failure report added.
+No new user Lab/game test or downloader change.

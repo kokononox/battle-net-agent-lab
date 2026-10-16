@@ -35,11 +35,16 @@
     "previous_status": "bootstrapper_observed_agent_not_observed",
     "installation_complete_proven": false,
     "agent_not_observed_reason_proven": false,
-    "next_probe": "Read-only UI Automation tree for native HWND/PID allowlist; fixed labels only; no actions; one bounded workflow run",
-    "next_probe_result": "pending; schema3 source_commit/run identity must match this change",
+    "next_probe": "Direct .NET read-only UIA helper; mandatory native smoke retained; structured failure reporting",
+    "next_probe_result": "pending; schema4 source_commit/run must match timeout-fix change",
     "scheduled_watcher": false,
     "previous_gui_result": "Setup same session 2; input desktop accessible; one visible unknown-class window; no native child controls; no Agent observed; cause not proven",
-    "probe_document": "docs/UIA-PROBE.fa.md"
+    "probe_document": "docs/UIA-TIMEOUT-FIX.fa.md",
+    "failed_run": "38834184617",
+    "failed_source_commit": "f6718d4f2e95ff4eeb14d16f0bdbf5eeb075e460",
+    "failed_phase": "safety_tests",
+    "failed_reason": "PowerShell UIA smoke subprocess timed out after 12 seconds; exact internal stall stage unknown",
+    "Setup_executed_in_failed_run": false
   },
   "telemetry": {
     "actual_in_world_capture_complete": false,

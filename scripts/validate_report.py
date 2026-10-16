@@ -29,7 +29,7 @@ def validate(r):
     need(type(r['utc']) is str and len(r['utc'])<40)
     datetime.datetime.fromisoformat(r['utc'])
     need(r['error_code'] is None or (type(r['error_code']) is str and re.fullmatch('[a-z0-9_]{1,100}',r['error_code'])))
-    need(r['phase'] in {'environment_check','directory_prepare','baseline_snapshot','installer_download','installer_signature','bootstrapper_launch','sampling','gui_inspection','filesystem_observation','agent_binary_signature','cleanup','complete'})
+    need(r['phase'] in {'environment_check','directory_prepare','baseline_snapshot','installer_download','installer_signature','bootstrapper_launch','sampling','gui_inspection','filesystem_observation','agent_binary_signature','cleanup','complete','safety_tests'})
     for field in ('error_type','underlying_error_type'):
         need(r[field] is None or (type(r[field]) is str and re.fullmatch('[A-Za-z0-9_]{1,64}',r[field])))
     need(r['numeric_error_code'] is None or (type(r['numeric_error_code']) is int and -2**31<=r['numeric_error_code']<2**31))
@@ -42,6 +42,10 @@ def validate(r):
         need(r[field] is None or (type(r[field]) is str and re.fullmatch('[0-9]{1,24}',r[field])))
     need(type(r['gui_observations']) is list and len(r['gui_observations'])<=2)
     for gui in r['gui_observations']:validate_gui(gui)
+    if r['safety_test_result']:
+        from run_safety_tests import validate_summary
+        try:validate_summary(r['safety_test_result'])
+        except (ValueError,TypeError,KeyError):raise ReportError('report_schema_rejected') from None
     if r['installer']:
         need(set(r['installer']) in ({'bytes','sha256','redirects'}, {'bytes','sha256','redirects','authenticode_valid','expected_blizzard_publisher','accepted_for_execution'}))
         integer(r['installer']['bytes'],MAX_SETUP);hashval(r['installer']['sha256']);integer(r['installer']['redirects'],6)

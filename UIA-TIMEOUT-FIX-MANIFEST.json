@@ -1,0 +1,75 @@
+{
+  "base_commit": "f6718d4f2e95ff4eeb14d16f0bdbf5eeb075e460",
+  "utc": "2026-10-16T01:33:37.870753+00:00",
+  "observed_failure_run": "38834184617",
+  "tests": {
+    "scope": "Agent/UIA timeout fix; not downloader",
+    "unit_tests_discovered": 67,
+    "unit_tests_passed_Linux": 66,
+    "unit_tests_skipped_Linux": 1,
+    "native_Windows_smoke_test_required": true,
+    "native_Windows_smoke_test_skipped_on_Windows": false,
+    "native_Windows_result": "pending",
+    "python39_syntax_check": true,
+    "new_failure_reporting_tests": 10,
+    "PowerShell_removed_from_UIA_backend": true,
+    "PowerShell_Authenticode_signature_check_preserved": true,
+    "native_compiler_timeout_seconds": 30,
+    "native_UIA_timeout_seconds": 12,
+    "failed_safety_test_still_blocks_Setup": true,
+    "raw_exception_or_provider_text_exported": false,
+    "downloader_modified": false,
+    "downloader_tests_rerun_this_change": false,
+    "previous_downloader_release_tests": 446
+  },
+  "files": [
+    {
+      "path": ".github/workflows/agent-observation.yml",
+      "sha256": "bee075b98e3c13c7d4daa7124dae309c4cd1f8ff1a5920ce5a81e2c4966df16b"
+    },
+    {
+      "path": "scripts/observe_agent.py",
+      "sha256": "60d860215e3b0dfaece39550dd4b43ec0daaba0bd29499082abb4b8ac0983da0"
+    },
+    {
+      "path": "scripts/validate_report.py",
+      "sha256": "0a7d6ef90c7ba0d2bd07b7ed6ed11bc9723455df35b6dd357b722d1c10dd183c"
+    },
+    {
+      "path": "scripts/ui_accessibility.py",
+      "sha256": "aa0e00adf2ec9138e882cbdcef74d427bdd44c2372265c84c00327480e8fb145"
+    },
+    {
+      "path": "scripts/uia_readonly.cs",
+      "sha256": "e344d6456f499f3b6c81dbc6e90463b21cfb3084a4222fe7d59e435629927ca7"
+    },
+    {
+      "path": "scripts/run_safety_tests.py",
+      "sha256": "20b9e3cf27b05f89f5f7084bb1deb447a5a9a2c74ce85d07333680c23f07414e"
+    },
+    {
+      "path": "tests/test_accessibility.py",
+      "sha256": "7917f6a44f811c3b7fd96ddeec0791f34793eda904fc180c0c62783e110b7ae1"
+    },
+    {
+      "path": "tests/test_safety_runner.py",
+      "sha256": "0666c3613eb6e461a1c5c085b4d674a65d728a1c4a1ae42b6533b4cbc8cf982f"
+    },
+    {
+      "path": "docs/UIA-TIMEOUT-FIX.fa.md",
+      "sha256": "00b218da041b297ba1752b2cf9bfad645564fca9b788fc465b70bd347749af4f"
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "bbd842f21f42a11a7c4550835dc02b5d6ac96cf1dadb4458a30c1e3e69e59ddd"
+    },
+    {
+      "path": "TEST-RESULTS.json",
+      "sha256": "415a8496dd8dc3aef814245c97f647207fdda2b994c684665265dc94ac6c8e67"
+    },
+    {
+      "path": "TEST-LOG.txt",
+      "sha256": "f9d482780b80b5de0ff4960f87cc27bec2cd0d258253b2ed6783efa64bf439ec"
+    }
+  ]
+}

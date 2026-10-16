@@ -23,7 +23,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Test safety and sanitization rules
-        run: python -m unittest discover -s tests -q
+        run: python scripts/run_safety_tests.py --output output
       - name: Observe signed bootstrapper without login or game download
         run: python scripts/observe_agent.py --output output --observation-seconds 45
       - name: Validate the public-schema report

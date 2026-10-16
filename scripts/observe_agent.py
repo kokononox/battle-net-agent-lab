@@ -208,13 +208,13 @@ def stop_observed(raw, env):
 
 
 def initial_report():
-    return {'schema':'agent-bootstrap-observation-3','status':'not_started',
+    return {'schema':'agent-bootstrap-observation-4','status':'not_started',
       'scope':'fresh_hosted_windows_bootstrap_only;not_WoW_update_or_install',
       'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
       'source_commit':os.environ.get('GITHUB_SHA') if re.fullmatch('[0-9a-f]{40}',os.environ.get('GITHUB_SHA','')) else None,
       'run_id':os.environ.get('GITHUB_RUN_ID') if os.environ.get('GITHUB_RUN_ID','').isdigit() else None,
       'run_attempt':os.environ.get('GITHUB_RUN_ATTEMPT') if os.environ.get('GITHUB_RUN_ATTEMPT','').isdigit() else None,
-      'gui_observations':[],
+      'gui_observations':[],'safety_test_result':{},
       'installer':{},'samples':[],'file_observations':{},'agent_binaries':[],
       'log_markers':{},'cleanup_attempted':False,'error_code':None,
       'phase':'environment_check','error_type':None,'underlying_error_type':None,'numeric_error_code':None,
@@ -237,6 +237,12 @@ def observe(out_dir, seconds=150):
     try:
         if sys.platform!='win32' or os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('RUNNER_OS')!='Windows' or os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted':
             raise LabError('fresh_github_hosted_windows_required')
+        test_summary=out_dir/'safety-test-summary.json'
+        if test_summary.exists():
+            from run_safety_tests import validate_summary
+            summary=validate_summary(json.loads(test_summary.read_text(encoding='utf-8')))
+            report['safety_test_result']=summary
+            if summary['result']!='passed':raise LabError('safety_test_suite_failed')
         run_id=os.environ.get('GITHUB_RUN_ID','');attempt=os.environ.get('GITHUB_RUN_ATTEMPT','')
         if not run_id.isdigit() or not attempt.isdigit():raise LabError('invalid_run_identity')
         report['phase']='directory_prepare'
