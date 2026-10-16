@@ -1,6 +1,6 @@
 {
   "scope": "source safety/schema unit tests on Linux; actual signed installer and Agent observation pending GitHub Windows execution",
-  "unit_tests_passed": 24,
+  "unit_tests_passed": 25,
   "linux_test_seconds": 0.02,
   "python39_ast_parse": true,
   "workflow_yaml_valid": true,
@@ -10,5 +10,8 @@
   "account_secrets_configured": false,
   "game_download_requested": false,
   "native_windows_observation_executed_locally": false,
-  "current_user_Lab_or_game_files_touched": false
+  "current_user_Lab_or_game_files_touched": false,
+  "powershell_helpers_stdin_closed": true,
+  "windows_baseline_WMI_timeout_observed": true,
+  "native_process_API_runtime_verification_pending": true
 }

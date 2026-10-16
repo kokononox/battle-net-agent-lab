@@ -102,7 +102,7 @@ def powershell(command, env, timeout=25):
     exe=Path(os.environ['SystemRoot'])/'System32'/'WindowsPowerShell'/'v1.0'/'powershell.exe'
     result=subprocess.run([str(exe),'-NoLogo','-NoProfile','-NonInteractive','-Command',
                            "$ErrorActionPreference='Stop';"+command],
-                          env=env,capture_output=True,timeout=timeout,check=False)
+                          env=env,stdin=subprocess.DEVNULL,capture_output=True,timeout=timeout,check=False)
     if result.returncode or len(result.stdout)>1024**2:
         raise LabError('windows_probe_failed')
     try:return json.loads(result.stdout.decode('utf-8-sig'))

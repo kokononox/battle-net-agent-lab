@@ -111,4 +111,11 @@ class LabTests(unittest.TestCase):
             with self.assertRaisesRegex(obs.LabError,'not_windows_pe'):obs.fetch_setup(dest)
             self.assertFalse(dest.exists());self.assertFalse(dest.with_suffix('.part').exists())
 
+    def test_powershell_probe_cannot_wait_for_runner_stdin(self):
+        from unittest.mock import Mock
+        response=Mock(returncode=0,stdout=b'{}')
+        with patch.dict(os.environ,{'SystemRoot':'C:/Windows'}),patch.object(obs.subprocess,'run',return_value=response) as call:
+            self.assertEqual(obs.powershell('1',{}),{})
+            self.assertEqual(call.call_args.kwargs['stdin'],obs.subprocess.DEVNULL)
+
 if __name__=='__main__':unittest.main()
