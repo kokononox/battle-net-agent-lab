@@ -42,6 +42,12 @@ def validate(r):
     except (ValueError,TypeError,KeyError):raise ReportError('report_schema_rejected') from None
     if r['language_step']['helper_started']:
         need(r['installer'].get('accepted_for_execution') is True)
+    from install_step import validate as validate_install
+    try:validate_install(r['install_step'])
+    except (ValueError,TypeError,KeyError):raise ReportError('report_schema_rejected') from None
+    if r['install_step']['helper_started']:
+        need(r['installer'].get('accepted_for_execution') is True)
+        need(r['language_step']['status']=='continued' and not r['language_step']['outcome_uncertain'])
     need(r['status'] in ('not_started','stopped','agent_process_observed','bootstrapper_observed_agent_not_observed'))
     need(type(r['utc']) is str and len(r['utc'])<40)
     datetime.datetime.fromisoformat(r['utc'])
@@ -57,7 +63,7 @@ def validate(r):
     need(r['source_commit'] is None or (type(r['source_commit']) is str and re.fullmatch('[0-9a-f]{40}',r['source_commit'])))
     for field in ('run_id','run_attempt'):
         need(r[field] is None or (type(r[field]) is str and re.fullmatch('[0-9]{1,24}',r[field])))
-    need(type(r['gui_observations']) is list and len(r['gui_observations'])<=2)
+    need(type(r['gui_observations']) is list and len(r['gui_observations'])<=3)
     for gui in r['gui_observations']:validate_gui(gui)
     if r['safety_test_result']:
         from run_safety_tests import validate_summary

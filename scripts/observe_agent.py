@@ -193,13 +193,13 @@ def stop_observed(raw, env):
 
 
 def initial_report():
-    return {'schema':'agent-bootstrap-observation-8','status':'not_started',
+    return {'schema':'agent-bootstrap-observation-9','status':'not_started',
       'scope':'fresh_hosted_windows_bootstrap_only;not_WoW_update_or_install',
       'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
       'source_commit':os.environ.get('GITHUB_SHA') if re.fullmatch('[0-9a-f]{40}',os.environ.get('GITHUB_SHA','')) else None,
       'run_id':os.environ.get('GITHUB_RUN_ID') if os.environ.get('GITHUB_RUN_ID','').isdigit() else None,
       'run_attempt':os.environ.get('GITHUB_RUN_ATTEMPT') if os.environ.get('GITHUB_RUN_ATTEMPT','').isdigit() else None,
-      'language_step':__import__('language_step').blank(),'gui_observations':[],'safety_test_result':{},'signature_backend':'Windows_WinVerifyTrust_Authenticode',
+      'install_step':__import__('install_step').blank(),'language_step':__import__('language_step').blank(),'gui_observations':[],'safety_test_result':{},'signature_backend':'Windows_WinVerifyTrust_Authenticode',
       'installer':{},'samples':[],'file_observations':{},'agent_binaries':[],
       'log_markers':{},'setup_visual':__import__('setup_visual').blank(),'agent_state':__import__('agent_state').blank(),'cleanup_attempted':False,'error_code':None,
       'phase':'environment_check','error_type':None,'underlying_error_type':None,'numeric_error_code':None,
@@ -215,15 +215,22 @@ def initial_report():
         'log_keyword_counts_do_not_prove_operation_execution':True}}
 
 
-def observe(out_dir, seconds=150, advance_language=False):
+def observe(out_dir, seconds=150, advance_language=False, advance_install=False):
     if type(seconds) is not int or not 30<=seconds<=150:raise LabError('observation_seconds_out_of_range')
     report=initial_report();report['limits']['observation_seconds']=seconds
     from language_step import blank as language_blank, run as language_run
+    if advance_install and not advance_language:raise LabError('language_authorization_required')
+    from install_step import blank as install_blank, run as install_run
+    report['install_step']=install_blank(advance_install)
     report['language_step']=language_blank(advance_language)
+    install_checked=False
     def advance(targets):
         # The callback is used only for the first read-only snapshot, never repeated.
         report['language_step']['outcome_uncertain']=True # retained if an unexpected wrapper failure interrupts
         report['language_step']=language_run(targets,process.pid,setup,authorized=True)
+    def install(targets):
+        report['install_step']['outcome_uncertain']=True
+        report['install_step']=install_run(targets,process.pid,setup,authorized=True)
     work=None;env=clean_environment(os.environ);raw={'processes':[]};launched=False;process=None
     try:
         if sys.platform!='win32' or os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('RUNNER_OS')!='Windows' or os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted':
@@ -254,8 +261,8 @@ def observe(out_dir, seconds=150, advance_language=False):
         report['phase']='installer_signature'
         report['installer'].update(signature(setup,env))
         if not report['installer']['accepted_for_execution']:raise LabError('installer_signature_or_publisher_not_accepted')
-        # No silent/EULA/login flags. The optional approved language-only action
-        # is separately bounded; legal/account/installation screens are never driven.
+        # No silent/EULA/login flags. Only separately approved language and
+        # exact setup-options Continue; no legal/account or other wizard actions.
         report['phase']='bootstrapper_launch'
         process=subprocess.Popen([str(setup)],cwd=work,env=env,stdin=subprocess.DEVNULL,
                               stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
@@ -270,6 +277,12 @@ def observe(out_dir, seconds=150, advance_language=False):
                 pids={p['pid'] for p in report['samples'][-1]['processes']}
                 report['gui_observations'].append(native_gui.inspect(pids,round(time.monotonic()-started,2),on_visible_targets=advance) if advance_language else native_gui.inspect(pids,round(time.monotonic()-started,2)))
                 report['phase']='sampling'
+            if advance_install and not install_checked and time.monotonic()-started>=30:
+                install_checked=True # One attempt only, including mismatch or uncertainty.
+                if report['language_step']['status']=='continued' and not report['language_step']['outcome_uncertain']:
+                    import native_gui
+                    pids={p['pid'] for p in report['samples'][-1]['processes']}
+                    report['gui_observations'].append(native_gui.inspect(pids,round(time.monotonic()-started,2),on_visible_targets=install))
             if len(report['samples'])>=30:break
             time.sleep(5)
         report['phase']='gui_inspection'
@@ -278,7 +291,7 @@ def observe(out_dir, seconds=150, advance_language=False):
         def capture_visual(targets):
             import setup_visual
             report['setup_visual']=setup_visual.capture(targets)
-        report['gui_observations'].append(native_gui.inspect(pids,round(time.monotonic()-started,2),on_visible_targets=capture_visual) if advance_language else native_gui.inspect(pids,round(time.monotonic()-started,2)))
+        report['gui_observations'].append(native_gui.inspect(pids,round(time.monotonic()-started,2),on_visible_targets=capture_visual) if advance_language and not advance_install else native_gui.inspect(pids,round(time.monotonic()-started,2)))
         report['phase']='filesystem_observation'
         groups,agents,logs=file_metadata(roots);report['file_observations']=groups
         for path in agents[:1]:
@@ -338,4 +351,6 @@ if __name__=='__main__':
     args=p.parse_args()
     from language_step import authorized_environment
     approved=authorized_environment(os.environ)
-    observe(args.output,120 if approved else args.observation_seconds,advance_language=approved)
+    from install_step import authorized_environment as install_authorized
+    install_approved=install_authorized(os.environ)
+    observe(args.output,150 if install_approved else (120 if approved else args.observation_seconds),advance_language=approved,advance_install=install_approved)
