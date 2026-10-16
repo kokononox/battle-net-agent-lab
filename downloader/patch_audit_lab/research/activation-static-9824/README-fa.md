@@ -1,5 +1,8 @@
 # Agent 9824: شواهد ایستای control، sequence و flush
 
+> checkpoint بعدی: [publication، مصرف sequence و قفل‌ها](../publication-static-9824/README-fa.md)، مجموع ۳۱۸ آزمون. این گزارش ۳۰۸تایی برای سابقه حفظ شده است.
+
+
 ## نتیجهٔ این checkpoint
 
 ممیزی خودکار بر باینری واقعیِ hash-pinned اجرا شد: **۲۴ byte anchor، هفت فراخوانی مستقیم و چهار فراخوانی API از import table** تأیید شدند. ممیزی executable را اجرا نمی‌کند. مشاهده‌گر محدود و فقط‌خواندنی `shmem_readonly.py` نیز اضافه شد؛ آزمون آن فقط روی فایل‌های ساختگی است، چون shmem واقعی کاربر در بستهٔ portable وجود ندارد.

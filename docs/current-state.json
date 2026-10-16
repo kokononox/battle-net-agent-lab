@@ -77,24 +77,24 @@
     "historical_binary_findings_reverified_in_this_sync": false
   },
   "user_action_now": "preserve existing Lab; no new metadata prepare/full asset scan/broad download requested",
-  "sync_scope": "structured current-session handoff, source, sanitized evidence; no raw transcripts or PRIVATE. Original portable fixture intended as private release asset, pending until receipt says uploaded.",
+  "sync_scope": "structured source, sanitized research receipts and handoff; no raw transcripts, PRIVATE, credentials or user installation paths. Original portable fixture and companion are already verified private release assets.",
   "patch_audit_20261016": {
     "branch": "patch-audit-20261016",
-    "last_research_commit_before_sync": "8d29a53f9c09c1a80506c16380799db1936764b1",
+    "last_research_commit_before_sync": "29933e92f499781eda21c25461f606cd57f16df6",
     "installed_version": "12.1.0.69933",
     "pinned_target": "12.1.5.70391",
     "actual_retail_sample_reconstructed": true,
     "target_encoded_full_ekey_and_size_verified": true,
     "independent_official_target_binary_comparison": false,
     "synthetic_storage_experiment": true,
-    "unit_tests": 308,
+    "unit_tests": 318,
     "skipped": 0,
     "errors": 0,
     "failures": 0,
     "crash_points": 9,
     "native_casclib_capture_accepted_multi_entry_index": true,
     "real_CASC_writer_or_activation_ready": false,
-    "activation_research": "pinned_static_mapping_flush_paths_verified_and_generated_readonly_observer_tested",
+    "activation_research": "bounded_publication_header_store_reader_and_lock_mode_paths_verified",
     "power_loss_or_Windows_storage_tested": false,
     "portable_release_status": "uploaded_verified",
     "asset_manifest": "evidence/portable/ASSET-MANIFEST.json",
@@ -108,6 +108,16 @@
     "release_companion_snapshot_tests": 278,
     "new_activation_source": "downloader/patch_audit_lab/agent_activation_audit.py",
     "new_shmem_observer": "downloader/patch_audit_lab/shmem_readonly.py",
-    "activation_report": "downloader/patch_audit_lab/research/activation-static-9824/README-fa.md"
+    "activation_report": "downloader/patch_audit_lab/research/activation-static-9824/README-fa.md",
+    "publication_report": "downloader/patch_audit_lab/research/publication-static-9824/README-fa.md",
+    "publication_new_receipts": {
+      "anchors": 32,
+      "direct_calls": 17,
+      "branch_edges": 13,
+      "import_api_calls": 6
+    },
+    "publication_runtime_trace": false,
+    "real_installation_lock_name_or_mode_proven": false,
+    "new_publication_source": "downloader/patch_audit_lab/agent_publication_audit.py"
   }
 }

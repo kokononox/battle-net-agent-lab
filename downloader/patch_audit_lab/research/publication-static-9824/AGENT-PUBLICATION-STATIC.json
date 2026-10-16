@@ -1,0 +1,229 @@
+{
+  "format": "agent-9824-publication-static-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "status": "bounded_publication_paths_verified",
+  "prerequisite_mapping_audit_passed": true,
+  "binary_executed": false,
+  "network_requests": 0,
+  "game_or_lab_written": false,
+  "evidence": {
+    "anchors": {
+      "control_object_output": "0x71c620",
+      "control_output_argument": "0x71c652",
+      "control_wrapper_forward_output": "0x71e0bd",
+      "bulk_mode2_reject": "0x71bb99",
+      "bulk_mode4_reject": "0x71bbac",
+      "bulk_outer_lock_object": "0x71bbb6",
+      "bulk_bucket_lock_array": "0x71bbdd",
+      "bulk_bucket_lock_count": "0x71bbff",
+      "bulk_publish_args": "0x71bdfe",
+      "publish_output_local": "0x71c11e",
+      "publish_table_object": "0x71c133",
+      "publish_result_test": "0x71c14c",
+      "header_sequence_store": "0x71c178",
+      "cache_sequence_store_before_bind": "0x71e958",
+      "bind_result_test": "0x71e984",
+      "refresh_mode_skips": "0x71c55b",
+      "refresh_header_sequence_read": "0x71c56d",
+      "refresh_cached_sequence_compare": "0x71ec9b",
+      "refresh_equal_zero": "0x71eca9",
+      "refresh_backward_error": "0x71eccc",
+      "lock_mode_dispatch": "0x722362",
+      "wait_infinite_handle": "0x72219d",
+      "wait_abandoned_compare": "0x7221ac",
+      "wait_failure_false": "0x7221fe",
+      "wait_success_or_abandoned_true": "0x72221c",
+      "unlock_mode_dispatch": "0x7223f6",
+      "bulk_unlock_array": "0x71b8a2",
+      "bulk_unlock_count": "0x71b8b1",
+      "helper_output_before_rename": "0x71f27a",
+      "helper_error_accumulator_init": "0x71f26b",
+      "helper_error_accumulator_set": "0x71f305",
+      "helper_return_accumulator": "0x71f342"
+    },
+    "direct_calls": {
+      "open_control_wrapper": {
+        "call": "0x71c65a",
+        "target": "0x71e0a2"
+      },
+      "open_control_bind": {
+        "call": "0x71e0d3",
+        "target": "0x71e0dd"
+      },
+      "bulk_outer_lock": {
+        "call": "0x71bbc1",
+        "target": "0x722362"
+      },
+      "bulk_bucket_lock": {
+        "call": "0x71bbe7",
+        "target": "0x8660ec"
+      },
+      "bulk_refresh": {
+        "call": "0x71bbf0",
+        "target": "0x71c555"
+      },
+      "bulk_publish": {
+        "call": "0x71be06",
+        "target": "0x71c119"
+      },
+      "bulk_unlock_all": {
+        "call": "0x71be47",
+        "target": "0x71b87a"
+      },
+      "bulk_outer_unlock": {
+        "call": "0x71be59",
+        "target": "0x7223f6"
+      },
+      "unlock_array_element": {
+        "call": "0x71b8ac",
+        "target": "0x86610a"
+      },
+      "publish_orchestrator": {
+        "call": "0x71c145",
+        "target": "0x71e887"
+      },
+      "orchestrator_flush": {
+        "call": "0x71e93c",
+        "target": "0x71f1f1"
+      },
+      "orchestrator_bind": {
+        "call": "0x71e97d",
+        "target": "0x72b84f"
+      },
+      "refresh_by_sequence": {
+        "call": "0x71c58d",
+        "target": "0x71ec75"
+      },
+      "refresh_filename_builder": {
+        "call": "0x71ecde",
+        "target": "0x71f0d3"
+      },
+      "local_outer_enter": {
+        "call": "0x72236f",
+        "target": "0x773690"
+      },
+      "named_outer_release": {
+        "call": "0x7223ff",
+        "target": "0x86dda5"
+      },
+      "local_outer_leave": {
+        "call": "0x72240a",
+        "target": "0x7736d0"
+      }
+    },
+    "conditional_or_jump_edges": {
+      "publish_only_on_zero": {
+        "instruction": "0x71c14e",
+        "opcode": "74",
+        "target": "0x71c178"
+      },
+      "publish_error_bypasses_store": {
+        "instruction": "0x71c176",
+        "opcode": "eb",
+        "target": "0x71c187"
+      },
+      "helper_error_bypasses_cache_bind": {
+        "instruction": "0x71e948",
+        "opcode": "75",
+        "target": "0x71e9ac"
+      },
+      "bind_zero_returns": {
+        "instruction": "0x71e986",
+        "opcode": "74",
+        "target": "0x71e9ac"
+      },
+      "cached_equal_no_open": {
+        "instruction": "0x71eca7",
+        "opcode": "75",
+        "target": "0x71ecb0"
+      },
+      "cached_not_greater_open": {
+        "instruction": "0x71ecb1",
+        "opcode": "76",
+        "target": "0x71ecd7"
+      },
+      "named_lock_dispatch": {
+        "instruction": "0x722365",
+        "opcode": "0f85",
+        "target": "0x72219d"
+      },
+      "named_wait_object_success": {
+        "instruction": "0x7221aa",
+        "opcode": "74",
+        "target": "0x72221c"
+      },
+      "named_wait_abandoned_logged": {
+        "instruction": "0x7221b1",
+        "opcode": "74",
+        "target": "0x722201"
+      },
+      "local_unlock_dispatch": {
+        "instruction": "0x7223f9",
+        "opcode": "74",
+        "target": "0x722406"
+      },
+      "rename_success_returns_accumulator": {
+        "instruction": "0x71f2bb",
+        "opcode": "0f84",
+        "target": "0x71f342"
+      },
+      "bulk_acquire_loop": {
+        "instruction": "0x71bc03",
+        "opcode": "72",
+        "target": "0x71bbdd"
+      },
+      "bulk_release_loop": {
+        "instruction": "0x71b8b8",
+        "opcode": "72",
+        "target": "0x71b8a2"
+      }
+    },
+    "import_calls": {
+      "bucket_enter": {
+        "call": "0x8660f2",
+        "iat": "0x8fb3b0",
+        "dll": "KERNEL32.dll",
+        "name": "AcquireSRWLockExclusive"
+      },
+      "bucket_leave": {
+        "call": "0x866110",
+        "iat": "0x8fb3a8",
+        "dll": "KERNEL32.dll",
+        "name": "ReleaseSRWLockExclusive"
+      },
+      "named_wait": {
+        "call": "0x7221a2",
+        "iat": "0x8fb254",
+        "dll": "KERNEL32.dll",
+        "name": "WaitForSingleObject"
+      },
+      "named_release": {
+        "call": "0x86ddad",
+        "iat": "0x8fb56c",
+        "dll": "KERNEL32.dll",
+        "name": "ReleaseMutex"
+      },
+      "local_enter": {
+        "call": "0x773696",
+        "iat": "0x8fb358",
+        "dll": "KERNEL32.dll",
+        "name": "EnterCriticalSection"
+      },
+      "local_leave": {
+        "call": "0x7736d6",
+        "iat": "0x8fb35c",
+        "dll": "KERNEL32.dll",
+        "name": "LeaveCriticalSection"
+      }
+    }
+  },
+  "activation_contract_complete": false,
+  "installation_ready": false,
+  "limitations": [
+    "Byte/branch receipts are not a whole-program CFG or runtime trace",
+    "Outer lock mode is runtime-dependent; no proof a particular installation selects named mutex mode",
+    "No process-shared SRW lock claim, no Windows execution or power-loss proof",
+    "No full payload/extension layout, .build.info writer, or complete-build activation proof",
+    "No real user shmem in fixture; no live installation observed"
+  ]
+}

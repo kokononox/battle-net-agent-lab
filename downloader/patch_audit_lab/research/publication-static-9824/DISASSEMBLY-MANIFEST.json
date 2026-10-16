@@ -1,0 +1,86 @@
+{
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "tool": "GNU objdump version 2.41-50.amzn2023.0.5",
+  "regions": {
+    "bulk-publish": {
+      "start_va": "0x71bb82",
+      "stop_va_exclusive": "0x71be6d",
+      "sha256": "80ead9c2ae1fb8aded5ecfde93361b6fbdaee9efae050d60fa6f3f4096e90295"
+    },
+    "bulk-unlock": {
+      "start_va": "0x71b87a",
+      "stop_va_exclusive": "0x71b8c9",
+      "sha256": "ec9ec5e155784659524d03784e2848925465dcaee2f07e2d2ff2b0dd13387cc5"
+    },
+    "header-publish": {
+      "start_va": "0x71c119",
+      "stop_va_exclusive": "0x71c18e",
+      "sha256": "6d365c8e588b8f03d468d5a9e606ce0da68e9d58d783739f2e9b4df7ded3c324"
+    },
+    "header-reader": {
+      "start_va": "0x71c555",
+      "stop_va_exclusive": "0x71c59d",
+      "sha256": "f772aab26d7e4c9acc70f152e27cf23044c1aa87a373a1a194338087c5603e5e"
+    },
+    "sequence-refresh": {
+      "start_va": "0x71ec75",
+      "stop_va_exclusive": "0x71edd7",
+      "sha256": "0c803e8ba7f189f682404652b922497c2e8f8aafae0faace60d97d32f8cd6c2a"
+    },
+    "outer-wait": {
+      "start_va": "0x72219d",
+      "stop_va_exclusive": "0x72221f",
+      "sha256": "20bd93b188989d3e7f377d8d4438c1af824ba56b8f300aaaa3ab5b2abb14a933"
+    },
+    "outer-mode-dispatch": {
+      "start_va": "0x722362",
+      "stop_va_exclusive": "0x722378",
+      "sha256": "ff86b96b4f98bd76144c31866249d1030a6499e3173054fc968d2de8d39789b5"
+    },
+    "outer-release": {
+      "start_va": "0x7223f6",
+      "stop_va_exclusive": "0x722411",
+      "sha256": "655d5c5e6cd7f59beecdaa93b921acfb8cc9f277c8537d15aa6bcdf653a59efa"
+    },
+    "srw-enter-leave": {
+      "start_va": "0x8660ec",
+      "stop_va_exclusive": "0x866118",
+      "sha256": "9a608fe1ac246248fbeabba1c37f20a4673e41050bdcbe3906cb65b27de047d0"
+    },
+    "critical-section-enter": {
+      "start_va": "0x773690",
+      "stop_va_exclusive": "0x77369e",
+      "sha256": "0963f314d37800f38b126d34f8bfe2d66490068f7b9e32c42d7c6f3fb1e1c5f7"
+    },
+    "critical-section-leave": {
+      "start_va": "0x7736d0",
+      "stop_va_exclusive": "0x7736de",
+      "sha256": "38b78139fd8f9c5731ff7f206e097919cd63a68a1b214f939551b160cb9dbfac"
+    },
+    "mutex-release": {
+      "start_va": "0x86dda5",
+      "stop_va_exclusive": "0x86ddb5",
+      "sha256": "c0abe3351b21183b95fc4e87a70545440e6fe5ce4bed11f3e79dd611b0474daf"
+    },
+    "control-bind-forwarder": {
+      "start_va": "0x71e0a2",
+      "stop_va_exclusive": "0x71e0dd",
+      "sha256": "0eb85d3eb9f05fdd0f764729f0da5328fcaf3f94cacbfb1407b480c55cfef613"
+    },
+    "control-open-output": {
+      "start_va": "0x71c59d",
+      "stop_va_exclusive": "0x71c6cd",
+      "sha256": "d531aea1474bceaf4c8f7069cdee8ad6285dcc984133ce42e4db9044e02c7f71"
+    },
+    "flush-bind-return": {
+      "start_va": "0x71e887",
+      "stop_va_exclusive": "0x71e9c1",
+      "sha256": "9dc41c1d206ac139c0b44152823ea8648070977469a3b0643e6ce002eb0e0df8"
+    },
+    "rename-return-accumulator": {
+      "start_va": "0x71f1f1",
+      "stop_va_exclusive": "0x71f353",
+      "sha256": "814ff56796ef92e64feacad9df5a86394df1844f8b5c82234aa446e23a7bc604"
+    }
+  }
+}

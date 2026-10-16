@@ -1,0 +1,28 @@
+{
+  "format": "publication-static-tests-1",
+  "previous_tests": 308,
+  "new_test_methods": 10,
+  "tests": 318,
+  "seconds": 3.98,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "actual_pinned_agent_static_audit_passed": true,
+  "prerequisite_mapping_audit_passed": true,
+  "new_receipt_counts": {
+    "anchors": 32,
+    "direct_calls": 17,
+    "conditional_or_jump_edges": 13,
+    "import_calls": 6
+  },
+  "agent_executed": false,
+  "user_shmem_tested": false,
+  "game_or_lab_written": false,
+  "windows_or_power_loss_tested": false,
+  "installation_ready": false,
+  "test_scope": "Generated verifier images and rejection mutations; real pinned Agent audit executed separately, binary itself never executed",
+  "code_sha256": {
+    "agent_publication_audit.py": "6277e5f54776601b1d8c8d53042235756a45befc21eea043da1582f3033ad6c8",
+    "tests/test_publication_audit.py": "984a24f9d3b86fe84c0fa57555e2ebbc9942aceeb11cc1d99047481bf5eb4780"
+  }
+}

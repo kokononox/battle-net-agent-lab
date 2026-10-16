@@ -1,0 +1,121 @@
+{
+  "format": "publication-sync-1",
+  "previous_commit": "29933e92f499781eda21c25461f606cd57f16df6",
+  "branch": "patch-audit-20261016",
+  "tests": 318,
+  "new_test_methods": 10,
+  "agent_executed": false,
+  "user_shmem_tested": false,
+  "game_or_lab_written": false,
+  "release_assets_modified": false,
+  "files": [
+    {
+      "path": "downloader/patch_audit_lab/agent_publication_audit.py",
+      "sha256": "6277e5f54776601b1d8c8d53042235756a45befc21eea043da1582f3033ad6c8"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_publication_audit.py",
+      "sha256": "984a24f9d3b86fe84c0fa57555e2ebbc9942aceeb11cc1d99047481bf5eb4780"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/README-fa.md",
+      "sha256": "39eeda709030da7c4a41abc05cc0794da97424c15c24826bf0d3f44875157d98"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/AGENT-PUBLICATION-STATIC.json",
+      "sha256": "ec1a79799a031687360d2bb1190647547ec49037bf3ed4455abafd61804727c7"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/ALL-TESTS.log",
+      "sha256": "84eaa32a9842c56591c115f741b2557bafd128cde41c6ad4cc6cb16a0bde5358"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/DISASSEMBLY-MANIFEST.json",
+      "sha256": "7b7bba7e817a5b5353a13ae464d356988974bb3856217fbcda62df38bd9ec7cc"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/README-fa.md",
+      "sha256": "9d6e20ae1524dc774e3068270a468a90cdf7de8c07ddcd5ab0fcea1d2e7cfe51"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/TEST-RESULTS.json",
+      "sha256": "dadf27d924427a0844efc3de586193b7179eee9f40eac5e05e8030b53884cf96"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/bulk-publish.asm",
+      "sha256": "80ead9c2ae1fb8aded5ecfde93361b6fbdaee9efae050d60fa6f3f4096e90295"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/bulk-unlock.asm",
+      "sha256": "ec9ec5e155784659524d03784e2848925465dcaee2f07e2d2ff2b0dd13387cc5"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/control-bind-forwarder.asm",
+      "sha256": "0eb85d3eb9f05fdd0f764729f0da5328fcaf3f94cacbfb1407b480c55cfef613"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/control-open-output.asm",
+      "sha256": "d531aea1474bceaf4c8f7069cdee8ad6285dcc984133ce42e4db9044e02c7f71"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/critical-section-enter.asm",
+      "sha256": "0963f314d37800f38b126d34f8bfe2d66490068f7b9e32c42d7c6f3fb1e1c5f7"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/critical-section-leave.asm",
+      "sha256": "38b78139fd8f9c5731ff7f206e097919cd63a68a1b214f939551b160cb9dbfac"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/flush-bind-return.asm",
+      "sha256": "9dc41c1d206ac139c0b44152823ea8648070977469a3b0643e6ce002eb0e0df8"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/header-publish.asm",
+      "sha256": "6d365c8e588b8f03d468d5a9e606ce0da68e9d58d783739f2e9b4df7ded3c324"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/header-reader.asm",
+      "sha256": "f772aab26d7e4c9acc70f152e27cf23044c1aa87a373a1a194338087c5603e5e"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/mutex-release.asm",
+      "sha256": "c0abe3351b21183b95fc4e87a70545440e6fe5ce4bed11f3e79dd611b0474daf"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/outer-mode-dispatch.asm",
+      "sha256": "ff86b96b4f98bd76144c31866249d1030a6499e3173054fc968d2de8d39789b5"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/outer-release.asm",
+      "sha256": "655d5c5e6cd7f59beecdaa93b921acfb8cc9f277c8537d15aa6bcdf653a59efa"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/outer-wait.asm",
+      "sha256": "20bd93b188989d3e7f377d8d4438c1af824ba56b8f300aaaa3ab5b2abb14a933"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/rename-return-accumulator.asm",
+      "sha256": "814ff56796ef92e64feacad9df5a86394df1844f8b5c82234aa446e23a7bc604"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/sequence-refresh.asm",
+      "sha256": "0c803e8ba7f189f682404652b922497c2e8f8aafae0faace60d97d32f8cd6c2a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/srw-enter-leave.asm",
+      "sha256": "9a608fe1ac246248fbeabba1c37f20a4673e41050bdcbe3906cb65b27de047d0"
+    },
+    {
+      "path": "README.md",
+      "sha256": "117c60f5dc6adb29e1748dd0dcdf14f0a47f6021364aa3cf833196368b5928f5"
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "bea93505ce57a7751d48917807527ba83465f7ec2ac58153fbf22bc35730d5b7"
+    },
+    {
+      "path": "docs/SESSION-2026-10-16.fa.md",
+      "sha256": "37161347b64c4cd4d7eab7a99e2b58e39ec547a497308bfdfc4cc20c4760b517"
+    }
+  ]
+}
