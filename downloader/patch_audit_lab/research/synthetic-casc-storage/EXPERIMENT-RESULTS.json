@@ -1,0 +1,172 @@
+{
+  "format": "synthetic-storage-research-1",
+  "real_game_written": false,
+  "payloads": "generated strings only",
+  "platform": "linux",
+  "reference_commit": "38a34665624b8775bb875274b36191b21c38d97b",
+  "crash_matrix": [
+    {
+      "phase": "stage_data_written",
+      "child_exit": 91,
+      "expected": "old",
+      "actual": "old",
+      "old_generation_unchanged": true,
+      "repeat_recovery_stable": true,
+      "recovery_reports": [
+        "committed",
+        "preparation_incomplete_retained"
+      ]
+    },
+    {
+      "phase": "stage_indexes_written",
+      "child_exit": 91,
+      "expected": "old",
+      "actual": "old",
+      "old_generation_unchanged": true,
+      "repeat_recovery_stable": true,
+      "recovery_reports": [
+        "committed",
+        "preparation_incomplete_retained"
+      ]
+    },
+    {
+      "phase": "stage_manifest_written",
+      "child_exit": 91,
+      "expected": "old",
+      "actual": "old",
+      "old_generation_unchanged": true,
+      "repeat_recovery_stable": true,
+      "recovery_reports": [
+        "committed",
+        "preparation_incomplete_retained"
+      ]
+    },
+    {
+      "phase": "prepared",
+      "child_exit": 91,
+      "expected": "old",
+      "actual": "old",
+      "old_generation_unchanged": true,
+      "repeat_recovery_stable": true,
+      "recovery_reports": [
+        "committed",
+        "rolled_back"
+      ]
+    },
+    {
+      "phase": "generation_renamed",
+      "child_exit": 91,
+      "expected": "old",
+      "actual": "old",
+      "old_generation_unchanged": true,
+      "repeat_recovery_stable": true,
+      "recovery_reports": [
+        "committed",
+        "rolled_back"
+      ]
+    },
+    {
+      "phase": "publishing_recorded",
+      "child_exit": 91,
+      "expected": "old",
+      "actual": "old",
+      "old_generation_unchanged": true,
+      "repeat_recovery_stable": true,
+      "recovery_reports": [
+        "committed",
+        "rolled_back"
+      ]
+    },
+    {
+      "phase": "pointer_replaced",
+      "child_exit": 91,
+      "expected": "old",
+      "actual": "old",
+      "old_generation_unchanged": true,
+      "repeat_recovery_stable": true,
+      "recovery_reports": [
+        "committed",
+        "rolled_back"
+      ]
+    },
+    {
+      "phase": "readback_verified",
+      "child_exit": 91,
+      "expected": "old",
+      "actual": "old",
+      "old_generation_unchanged": true,
+      "repeat_recovery_stable": true,
+      "recovery_reports": [
+        "committed",
+        "rolled_back"
+      ]
+    },
+    {
+      "phase": "committed_recorded",
+      "child_exit": 91,
+      "expected": "new",
+      "actual": "new",
+      "old_generation_unchanged": true,
+      "repeat_recovery_stable": true,
+      "recovery_reports": [
+        "committed",
+        "committed"
+      ]
+    }
+  ],
+  "native_index_checks": [
+    {
+      "case": "valid",
+      "exit": 0,
+      "result": {
+        "accepted": true,
+        "entry_length": 18,
+        "entries": 3,
+        "segment_bits": 30
+      },
+      "index_sha256": "7ca194dc202ac24a190f44071e856ae5031ec1382d1002a4212e69defbb2425a"
+    },
+    {
+      "case": "header_hash_corruption",
+      "exit": 4,
+      "result": {
+        "accepted": false,
+        "phase": "header"
+      },
+      "index_sha256": "edfc4d47a78e21a37dc8817de73b4cb3103a34fccf42cbb76e9b72c4a96c0907"
+    },
+    {
+      "case": "entry_hash_corruption",
+      "exit": 5,
+      "result": {
+        "accepted": false,
+        "phase": "entries"
+      },
+      "index_sha256": "8bc0263be019141fd135e14c88ed0df630e8dc442cb60b9752754de295bf3072"
+    },
+    {
+      "case": "entry_payload_corruption",
+      "exit": 5,
+      "result": {
+        "accepted": false,
+        "phase": "entries"
+      },
+      "index_sha256": "438da8e28dd58a7e555368a985cf16d90a16e3e9c304b61f694fdd6218504260"
+    }
+  ],
+  "scope_limits": [
+    "custom active.json, not vendor activation",
+    "community span checksum-B not proven for Agent 9824",
+    "CascLib capture functions only; not full CascOpenStorage",
+    "Linux process-exit experiments; not Windows or power-loss proof"
+  ],
+  "rollover": {
+    "archives": 2,
+    "objects": 2,
+    "archive_bytes": [
+      289,
+      289
+    ]
+  },
+  "passed": true
+}
