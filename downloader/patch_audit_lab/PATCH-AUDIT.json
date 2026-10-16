@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "checked_at_utc": "2026-10-16T18:10:44.985477+00:00",
+  "status": "official_metadata_and_patch_verified_not_applied",
+  "target": {
+    "version": "12.1.5.70391",
+    "build_config": "334a36cf5f3c32a5f7a167405487fa14",
+    "cdn_config": "fcab7fec2ccc6b8158b56b6938ec4551",
+    "region": "eu"
+  },
+  "manifest": {
+    "header_checksum_verified": true,
+    "all_block_checksums_verified": true,
+    "blocks": 28,
+    "targets": 27154,
+    "patch_options": 27994,
+    "ordinal_values_raw": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "hash_scope": "header+table; each block used records + optional zero terminator; padding checked separately",
+    "encoding_ckey": "8d0576391f8e80ce55940381fc3f674a",
+    "encoding_ekey": "f5c0cb46457284412ca5838dd156e90f"
+  },
+  "patch_index": {
+    "encoded_ekey_verified": true,
+    "decoded_ckey_verified": true,
+    "all_chunk_hashes_verified": true,
+    "chunks": 7,
+    "decoded_bytes": 1689024,
+    "semantic_parser_implemented": false
+  },
+  "loose_index": {
+    "full_footer_name_checksum_verified": true,
+    "footer_checksum_verified": true,
+    "toc_checksum_verified": true,
+    "all_block_checksums_verified": true,
+    "all_record_order_and_bounds_checked": true,
+    "index_records": 6140,
+    "target_size_conflicts": 0
+  },
+  "advertised_matching_patch_options": 2,
+  "sample": {
+    "target_ckey": "b45469cd10e1e39841843c14771b1db8",
+    "target_size": 7067050,
+    "source_ekey": "7d00d478c6ed31b512cf18b9b3046658",
+    "source_size": 7012600,
+    "patch_key": "a56b3fe67a775fe9f4e86d6cbb688b5d",
+    "patch_size": 2273969,
+    "ordinal": 2,
+    "format": "ZBSDIFF1",
+    "output_bytes": 7067050,
+    "control_triples": 370,
+    "negative_seek_entries": 122,
+    "integers": "little-endian sign-magnitude",
+    "patch_hash_verified": true,
+    "stream_sizes_reconciled": true
+  },
+  "network_body_bytes": 5833277,
+  "receipts": [
+    {
+      "url": "https://us.version.battle.net/v2/products/wow/versions",
+      "file": "versions.txt",
+      "body_bytes": 1220,
+      "sha256": "b3f0934fe025ca2eb58c34124adf67cfdeb327241e3a5ef018613afa99e55972"
+    },
+    {
+      "url": "https://us.version.battle.net/v2/products/wow/cdns",
+      "file": "cdns.txt",
+      "body_bytes": 1338,
+      "sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+    },
+    {
+      "url": "https://level3.ssl.blizzard.com/tpr/wow/config/33/4a/334a36cf5f3c32a5f7a167405487fa14",
+      "file": "build.config",
+      "body_bytes": 87836,
+      "sha256": "f30cdd30bcbb613795557606c0015411640ffa4a2710f7419ea75dae345c964d"
+    },
+    {
+      "url": "https://level3.ssl.blizzard.com/tpr/wow/config/fc/ab/fcab7fec2ccc6b8158b56b6938ec4551",
+      "file": "cdn.config",
+      "body_bytes": 59257,
+      "sha256": "56ec0775976db5dd441f05e6c5f03ea011a343739bbc8f45a690a4918bf75b5e"
+    },
+    {
+      "url": "https://level3.ssl.blizzard.com/tpr/wow/patch/bd/28/bd288551b88fecba6209f8d90b4d04d2",
+      "file": "manifest.pa",
+      "body_bytes": 1778091,
+      "sha256": "4859e0893ce2764910ef7e2d35bce1c7cd785edd29ad8b99361dd02056d8f480"
+    },
+    {
+      "url": "https://level3.ssl.blizzard.com/tpr/wow/data/79/5f/795f0b7c462cd8f712a8455e65e1b6ce",
+      "file": "patch-index.blte",
+      "body_bytes": 1503818,
+      "sha256": "47e8271b8dbd43a7ef348fac77c1d95196cc00d072d691e4d8609007ad92a97c"
+    },
+    {
+      "url": "https://level3.ssl.blizzard.com/tpr/wow/patch/4d/67/4d6702ff7b2ca2b7fcf5005ae514e4e1.index",
+      "file": "patch-loose.index",
+      "body_bytes": 127748,
+      "sha256": "04a6a058a83f9f472b3630ba817631dd46551acf2735c94ac424f63b0af74f6f"
+    },
+    {
+      "url": "https://level3.ssl.blizzard.com/tpr/wow/patch/a5/6b/a56b3fe67a775fe9f4e86d6cbb688b5d",
+      "file": "sample.zbsdiff",
+      "body_bytes": 2273969,
+      "sha256": "c798dd3f7779a707a96765283d83bfae4d687835222b6d6883a3508ff0f0e301"
+    }
+  ],
+  "source_game_files_read": false,
+  "game_files_modified": false,
+  "patch_applied": false,
+  "source_for_retail_sample_available": false,
+  "source_ekey_is_not_a_decoded_ckey": true,
+  "patch_ordinal_policy_proven": false,
+  "patch_savings_for_user_installation": null,
+  "required_network_download_bytes": null,
+  "installation_ready": false,
+  "limitations": [
+    "Retail source not supplied or decoded; no reconstruction claimed for this sample.",
+    "Only observed PA2 variant supported; patch-index semantics and ordinal/chaining unresolved.",
+    "Classic reference-fixture reconstruction, if run separately, does not prove Retail CASC installation.",
+    "Body-byte count excludes TLS/HTTP overhead, previous runs and failed responses.",
+    "MD5 is TACT identity validation over HTTPS, not publisher-signature verification."
+  ]
+}
