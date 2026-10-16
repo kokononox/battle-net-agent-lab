@@ -1,0 +1,462 @@
+{
+  "format": 1,
+  "scope": "Files added/updated by this sync; existing reports remain in repository. Not a raw session archive.",
+  "utc": "2026-10-16T00:36:55.907490+00:00",
+  "release_zip_sha256": "c26e5f9416e7aadef0f9f7dc36c06c2e8975ae65f8f1ac3bfca0abd67fa81001",
+  "downloader_release_files_unchanged": true,
+  "tests": {
+    "scope": "bounded Agent bootstrap safety, schema2 GUI privacy and sanitization; separate from downloader tests",
+    "unit_tests": 38,
+    "passed": 38,
+    "new_gui_regression_tests": 13,
+    "duration_seconds": 0.023,
+    "platform": "Linux",
+    "python39_syntax_check": true,
+    "native_gui_runtime_tested_locally": false,
+    "actual_Windows_probe_result": "pending: source commit/run provenance required",
+    "observation_seconds_current_workflow": 45,
+    "GUI_clicks_or_input_implemented": false,
+    "raw_window_text_or_screenshots_exported": false,
+    "downloader_unit_tests_rerun": 446,
+    "downloader_unit_tests_passed": 446,
+    "downloader_test_duration_seconds": 8.804,
+    "full_manifest_scale_test_rerun": false
+  },
+  "files": [
+    {
+      "path": ".github/workflows/agent-observation.yml",
+      "bytes": 2088,
+      "sha256": "cba8afb9a46987ba6e7643694594f0581b70c977215b991ef79d27aec362450e"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 319,
+      "sha256": "41b8c015a5f72093f330d5e84295430b1028964bec77107f7b5f30674e715ff9"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5761,
+      "sha256": "f34ada45778ae3f56e0eb3c85343da17a32da730f0f21e6db0b283f08d595699"
+    },
+    {
+      "path": "TEST-LOG.txt",
+      "bytes": 200,
+      "sha256": "78859a205d40581cd37127fbe6ff219782f2bf1e8da75ba0733963c52e47ad5e"
+    },
+    {
+      "path": "TEST-RESULTS.json",
+      "bytes": 709,
+      "sha256": "102d03d048fa9220644f288c9b2c1a553b12d407fabd6f3635b9e6e88303122d"
+    },
+    {
+      "path": "action-pins.json",
+      "bytes": 306,
+      "sha256": "de48b6c2e16e62c90386ef9a79c9fa1d981397d72a2e0f54a4ad84356bab4ab5"
+    },
+    {
+      "path": "docs/ARCHITECTURE.fa.md",
+      "bytes": 6670,
+      "sha256": "1ab3cb94871b935cce6beead6300e3eddadcf1e7b81d19254eb5db1628eb528b"
+    },
+    {
+      "path": "docs/EVIDENCE-AND-LIMITS.fa.md",
+      "bytes": 4684,
+      "sha256": "c2d863ccf2db2bbfebfaa71e2c2024f3c6fd705911e5838b2c6e9984190ccef8"
+    },
+    {
+      "path": "docs/HISTORY.fa.md",
+      "bytes": 5045,
+      "sha256": "fbdab37060e0cefb9ca785b31fd08d2621f8d766f298784bf646e18347313df8"
+    },
+    {
+      "path": "docs/NEXT-STEPS.fa.md",
+      "bytes": 3580,
+      "sha256": "af91e7066a37c7ea8ad805d77f006a3c7872d92668186100c3ce165076d046ce"
+    },
+    {
+      "path": "docs/SESSION-HANDOFF.fa.md",
+      "bytes": 9945,
+      "sha256": "4ccb0492d57ee067da236263b79bfec09281e962af884fc5e03c2f106096a995"
+    },
+    {
+      "path": "docs/SYNC-SCOPE.fa.md",
+      "bytes": 3224,
+      "sha256": "2b745d624bf18d76b15c4d75e4fae3c2946de77667602a30cd2b344296fce80c"
+    },
+    {
+      "path": "docs/current-state.json",
+      "bytes": 2091,
+      "sha256": "77e9d647fe06009e822b5383fe36e4902938ce635725a892e3a34de9ac7876ab"
+    },
+    {
+      "path": "downloader/CORRECTED-RANGE-SAMPLE-TEST.json",
+      "bytes": 1358,
+      "sha256": "71bcab6a5055bd69572f7d0989b8d5d92c2ce03f8fd254ccd11aabad9bf2f355"
+    },
+    {
+      "path": "downloader/ENGINEERING-NOTES.md",
+      "bytes": 14472,
+      "sha256": "ae18e124db72d13c46afdf04d976debcee3b273fce130ffecff33f40f3c43ec2"
+    },
+    {
+      "path": "downloader/LIVE-ACQUISITION-TEST.json",
+      "bytes": 1000,
+      "sha256": "26c7df574a179bd5b30f4e8f296f9c3ef7e2dc585b7f56ba9ee9fb15b23425fc"
+    },
+    {
+      "path": "downloader/LIVE-METADATA-TEST.json",
+      "bytes": 2520,
+      "sha256": "61088b397b422fd3993ba1a22250e8b3cf16a5be7f9e76c1e3b5439d7516eaf2"
+    },
+    {
+      "path": "downloader/LIVE-PLAN-TEST.json",
+      "bytes": 3042,
+      "sha256": "0493303ff448ca70f61dbffc32662563929108cc75a13320a18dd9649641a4ed"
+    },
+    {
+      "path": "downloader/LOCAL-CASC-TESTS.json",
+      "bytes": 2023,
+      "sha256": "88d59d7e65e8a768c9e17db96974999cab8e9918be68b5c2a3abb00c42d957ff"
+    },
+    {
+      "path": "downloader/LOCAL-CASC-fa.md",
+      "bytes": 8797,
+      "sha256": "9d3f33a98d2e2384db775f0f633c8f7dc39e72521db3b7e3fe6bf93e3543c265"
+    },
+    {
+      "path": "downloader/LOCAL-CDN-SAMPLE-ATTEMPT.json",
+      "bytes": 622,
+      "sha256": "f0e59da8c061366b3ff0e09267f5be246a06f2d9ca182f3bc33a92fb4af04ec5"
+    },
+    {
+      "path": "downloader/METADATA-DELTA-FULL-MANIFEST-TEST.json",
+      "bytes": 614,
+      "sha256": "f2c43da984e86f69ae2980b4d32fba22929be0f7d86d785da729f679cb7f46a4"
+    },
+    {
+      "path": "downloader/METADATA-DELTA-fa.md",
+      "bytes": 8054,
+      "sha256": "ebd5b2f9581d5d2883adaf939dff3e06785f9c9bffc316946860e25607fd04da"
+    },
+    {
+      "path": "downloader/OFFLINE-LOCAL-REVIEW-TEST.json",
+      "bytes": 751,
+      "sha256": "1ab111c4a2f77062058da19d8ae8a1f6d08fa6d358ad32e4cb14681bbc655dad"
+    },
+    {
+      "path": "downloader/OFFLINE-LOCAL-REVIEW-fa.md",
+      "bytes": 7792,
+      "sha256": "625699b499b65f02f3a5640228062eac0539dafee46524f5895e0dbee64dd7f0"
+    },
+    {
+      "path": "downloader/PACKAGE-MANIFEST.json",
+      "bytes": 9303,
+      "sha256": "940023f505afa23c566a671d7e7a4e38647d3ec2f2e933bf66f1dc5ccd82d282"
+    },
+    {
+      "path": "downloader/README-fa.md",
+      "bytes": 21990,
+      "sha256": "d16fab8a17513c5585cd7cb995a65a845edb83def00f04b638db778ef755901c"
+    },
+    {
+      "path": "downloader/REUSE-QUEUE-fa.md",
+      "bytes": 10147,
+      "sha256": "20702ba126dd39590745a650e81aef6ff5ccfa7b7ae42b4865c0f22c36751907"
+    },
+    {
+      "path": "downloader/START-WINDOWS.cmd",
+      "bytes": 355,
+      "sha256": "48bd13332907f72d4063c194b88e7109bacd0f216639235a0d09fb07ac00493b"
+    },
+    {
+      "path": "downloader/TAG-SYNTAX-FIX-TEST.json",
+      "bytes": 787,
+      "sha256": "8ddb84e403eddf92cec287f348548daf5be19f86ad849a3ea6c29a62392da740"
+    },
+    {
+      "path": "downloader/TEST-LOG.txt",
+      "bytes": 100,
+      "sha256": "5a8060a5f8a889763d89f9821c1c2db45d7287be0765a7b1f929cbe9d60c8e99"
+    },
+    {
+      "path": "downloader/TEST-RESULTS.json",
+      "bytes": 2003,
+      "sha256": "bd2259ca67096da2be81f7140fc5657546216cb4af7523afb9b9d3be2daf5feb"
+    },
+    {
+      "path": "downloader/UNIFIED-REUSE-TEST.json",
+      "bytes": 1493,
+      "sha256": "0f2012029f7be59a148803f5d06c7ff9c8578e490773ec5fa6905bc04047bae5"
+    },
+    {
+      "path": "downloader/UPDATE-SCOPE-TEST.json",
+      "bytes": 918,
+      "sha256": "9114083278dce4e56e4c72c4cd66b828a5af07874c6ad1327628ed1296c6e77e"
+    },
+    {
+      "path": "downloader/UPDATE-SCOPE-fa.md",
+      "bytes": 7016,
+      "sha256": "f696916454732fcdc26c915bb0ee7714d6ebcc1e8fa400e41f1fc96297615706"
+    },
+    {
+      "path": "downloader/WINDOWS-PREVIEW-fa.md",
+      "bytes": 7797,
+      "sha256": "2c3f93961c42ec7f200d2e35ad78a2fd78884bbe2c89172fc584fa56b496b783"
+    },
+    {
+      "path": "downloader/acquisition_runner.py",
+      "bytes": 16747,
+      "sha256": "a727021b42d3e50035db96790bec27e7dce335fa3504c3ebc0b093951c627d76"
+    },
+    {
+      "path": "downloader/cache_evidence.py",
+      "bytes": 10026,
+      "sha256": "d6db458d159dfc44e904f4950c347f9fe75f395e886bdb0bac9a24f646890690"
+    },
+    {
+      "path": "downloader/catalog_inventory.py",
+      "bytes": 11898,
+      "sha256": "f44155e9d17fb390bd76352de00bbd599393753ffd91f461a9e2463bdc444ee1"
+    },
+    {
+      "path": "downloader/cdn_catalog.py",
+      "bytes": 2770,
+      "sha256": "276de46e6582d5272d222c93be70c82532c4ac2947fa599a2711b9bb477c9d77"
+    },
+    {
+      "path": "downloader/content_plan.py",
+      "bytes": 9379,
+      "sha256": "a2120f312f3ad10564240da9b1b36bb932385b8d6e01fccdefc99a3d0ea80338"
+    },
+    {
+      "path": "downloader/decoded_payload.py",
+      "bytes": 4302,
+      "sha256": "408428f62f190ce13b6bd61e1763f247f6e4dc0f381fbbeeee61a3ae3f740062"
+    },
+    {
+      "path": "downloader/demo.py",
+      "bytes": 3976,
+      "sha256": "b19915f74928cc518fc0e5c313ca7154ddd9ce3d5b0112edc25ec95347d3e46c"
+    },
+    {
+      "path": "downloader/download_inventory.py",
+      "bytes": 12320,
+      "sha256": "f676c34bdaad30db417c3062fd3e714a671a6f5e44eba7417d8eca88dc477b49"
+    },
+    {
+      "path": "downloader/downloader_controller.py",
+      "bytes": 6856,
+      "sha256": "6066a0c171913cb5c4273ba9f235a996027ec7a455e1045b8874327ada9b3373"
+    },
+    {
+      "path": "downloader/encoding_inventory.py",
+      "bytes": 5892,
+      "sha256": "0f9fdcf55161c22c1beb64cf184f4f8fef83f17aa8e2d13998961f019eddb9a1"
+    },
+    {
+      "path": "downloader/encoding_readonly.py",
+      "bytes": 3423,
+      "sha256": "5f157839d6403c068279d6f56eda977cf821a075f981b502efdfadb033ae0896"
+    },
+    {
+      "path": "downloader/installed_metadata.py",
+      "bytes": 5420,
+      "sha256": "4bbca82e4a9612c52a3e9b2ee505877a84d32e28eb753a6c8f4bd8d4ea72fc32"
+    },
+    {
+      "path": "downloader/legacy_reuse.py",
+      "bytes": 7271,
+      "sha256": "3ffc7551ac1d201c9dabc06bcc3d69dd6901157d4d3fcfde68c0f84f8d43a181"
+    },
+    {
+      "path": "downloader/local_casc.py",
+      "bytes": 20845,
+      "sha256": "76faf4ec0c9b560cc517946dec358e8d6b68d0d0d079bedda44a7593f4012fea"
+    },
+    {
+      "path": "downloader/local_casc_demo.py",
+      "bytes": 3887,
+      "sha256": "f69e5ee464b88790a3613a8dd52e89ba4db66cd9d4581fe4e227994e9db98cc2"
+    },
+    {
+      "path": "downloader/local_review.py",
+      "bytes": 16099,
+      "sha256": "f068169130406cb87971b8f3d6ace63b72da6dade8b7d0dc9a32a5f12953cd9c"
+    },
+    {
+      "path": "downloader/lookup3.py",
+      "bytes": 1329,
+      "sha256": "1d897baef2fb5ae81fca8c55291cad557d0dbd8392ebea6545d5d0cd44aa8dd9"
+    },
+    {
+      "path": "downloader/metadata_delta.py",
+      "bytes": 16262,
+      "sha256": "deb4866a99ca1641b2b0390381119c9c31e0f5e8b0fe5879753ed4bbad44d08f"
+    },
+    {
+      "path": "downloader/plan_pipeline.py",
+      "bytes": 2406,
+      "sha256": "9da99b02e80a07520c54d99084dfdfc9226728e8292c346c055f1b1eff385c9b"
+    },
+    {
+      "path": "downloader/plan_storage.py",
+      "bytes": 3790,
+      "sha256": "aaaa64555775bd9e15ce99983b54184ed5eb98462f3a2f8454c66eb620e438ab"
+    },
+    {
+      "path": "downloader/repair_core.py",
+      "bytes": 24753,
+      "sha256": "b41b314a0821bfa6c5dfcc700fa6420f198fca516f395721bcfa34074ff27974"
+    },
+    {
+      "path": "downloader/reuse_coordinator.py",
+      "bytes": 21233,
+      "sha256": "68a97ce6aa4d3e6e95fa50186456ec6153c69bf8421fa1123d645231d3897f17"
+    },
+    {
+      "path": "downloader/target_metadata.py",
+      "bytes": 8552,
+      "sha256": "2b47301e7bae04411ca0fdd828d23f6feb9ec62d6172c74d816aae88484d3f7d"
+    },
+    {
+      "path": "downloader/tests/lookup3-c-reference-vectors.json",
+      "bytes": 34676,
+      "sha256": "4a220bd7f2e40fea1ec4ea4bed45b6c78af8464dd3326e4ca4c735cfffde87a2"
+    },
+    {
+      "path": "downloader/tests/test_acquisition_runner.py",
+      "bytes": 19579,
+      "sha256": "3b09a966d1fa5aeea2f08b9bf507beef7d303e20698de622053fab0ec246750f"
+    },
+    {
+      "path": "downloader/tests/test_content_plan.py",
+      "bytes": 29029,
+      "sha256": "96e596d3d5871dfd30f72680f616c8facba895570a4103654c169b7d92392cbb"
+    },
+    {
+      "path": "downloader/tests/test_download_inventory.py",
+      "bytes": 23083,
+      "sha256": "e48ee0360f02685f47aa4473ec339000a81e2c00a8e9b026fd3fc2571b6bc442"
+    },
+    {
+      "path": "downloader/tests/test_local_casc.py",
+      "bytes": 21753,
+      "sha256": "7d000a8ef89b62a22c2163ec002f946c1dfa5d7431fbe20511f9b139f05b4ef7"
+    },
+    {
+      "path": "downloader/tests/test_local_review.py",
+      "bytes": 14768,
+      "sha256": "e1f3c2e332be4b29027f5e88a0fdddf18adcd64be00ce171ac49794bca84c780"
+    },
+    {
+      "path": "downloader/tests/test_metadata_delta.py",
+      "bytes": 19225,
+      "sha256": "e9c3da1c427a1af1b2cf582e6152459badbb403eaf10362dbfbf79b4445755ff"
+    },
+    {
+      "path": "downloader/tests/test_repair_core.py",
+      "bytes": 31564,
+      "sha256": "fa3f9f0a449d361f016588fc2b072dd36c62b5f1183b614795a5f8f7ea989c7c"
+    },
+    {
+      "path": "downloader/tests/test_reuse_coordinator.py",
+      "bytes": 20401,
+      "sha256": "32603ff6089fe1f2885788f0230849c97d896891d6bb548c7edcc0bd3d757b4d"
+    },
+    {
+      "path": "downloader/tests/test_update_scope.py",
+      "bytes": 17494,
+      "sha256": "7c789c6f22c4626412890e580202d8f752ee65f9d368e75d489d3861379b8bb7"
+    },
+    {
+      "path": "downloader/tests/test_update_scope_tags.py",
+      "bytes": 7364,
+      "sha256": "ccedb61dc36c3777555a24c0ed3f5c0b251edc0244c53a9cdb335b1fee243bdd"
+    },
+    {
+      "path": "downloader/transfer_routes.py",
+      "bytes": 1909,
+      "sha256": "63d384c5fd668b292cff6f2a14f0d53a78909aa44d23f259e448f84930cc1835"
+    },
+    {
+      "path": "downloader/update_scope.py",
+      "bytes": 15446,
+      "sha256": "45c359a90d31a3245efb3992c19447ee5c9cbecc742178ebcd9b2b9d249a0891"
+    },
+    {
+      "path": "downloader/windows_app.py",
+      "bytes": 18908,
+      "sha256": "fbe541ed49eabe5d057e6ed88f0f8aceeabf60b05896e8fdf6d201b66e692af5"
+    },
+    {
+      "path": "evidence/INDEX.json",
+      "bytes": 1767,
+      "sha256": "aae419dcf838769567783d623b34a4999000de86a8c108b85aca7ff93bdc9b35"
+    },
+    {
+      "path": "evidence/github/bootstrap-observation-summary.json",
+      "bytes": 1117,
+      "sha256": "cf51f64d2016a6906a9b755dca9e18282aa39bd3281d3b8ba20e6ea86a7fea29"
+    },
+    {
+      "path": "evidence/user/Retail-Local-Review-to-share-a416e7a57e734dc28a04e71dba12670f.json",
+      "bytes": 1201,
+      "sha256": "4c19fc950c953d42e1ffe10b3c2422f616323ca62502a50fc44159967641392b"
+    },
+    {
+      "path": "evidence/user/Retail-Local-Review-to-share-ed5d0c636ff546c4ac12afbd00345ac9.json",
+      "bytes": 2163,
+      "sha256": "4266be302ebc9a9d682fa3502685aca3923f64bd1fe7ddc9d435e44b11b5f593"
+    },
+    {
+      "path": "evidence/user/Retail-Metadata-Plan-to-share-7133f04cd88840768dee2837fe2ce579.json",
+      "bytes": 1749,
+      "sha256": "679f22a8918bc4959eb1398887d1ee59b845d5acc873301aef16b5de642700de"
+    },
+    {
+      "path": "evidence/user/Retail-Queue-Prepare-to-share-dc8bb6b4f3c5480b9c70fed29f319f9f.json",
+      "bytes": 2206,
+      "sha256": "ae57c2ec35fbcc59cd8d980f0547daa309095894c78bf712698803ee9e69d46b"
+    },
+    {
+      "path": "evidence/user/Retail-Update-Scope-to-share-aa4c4175d21345b2b2eaca61ae36530c.json",
+      "bytes": 4339,
+      "sha256": "b2105b4db44d4ce2c77f5417aad9111a234eeb9c0a665ad2746f156e72f9dfc9"
+    },
+    {
+      "path": "scripts/native_gui.py",
+      "bytes": 6802,
+      "sha256": "425bfedf1606253ef03c081ded66ac0a621cf00520b1fa8486a8b06438c961e3"
+    },
+    {
+      "path": "scripts/native_windows.py",
+      "bytes": 4430,
+      "sha256": "d163b4d00bf81d85e7d1d55d25d88677de29dc843b1e42e210042e1e7ec61dc4"
+    },
+    {
+      "path": "scripts/observe_agent.py",
+      "bytes": 18031,
+      "sha256": "b6906cec64643f5c057ea75797820a2d11aeeb528271852096db9406ea555693"
+    },
+    {
+      "path": "scripts/publish_report.py",
+      "bytes": 1424,
+      "sha256": "6e06bc9485fb1f31530891c1fde416106b5b42d098b30b0f465b6e36193560c2"
+    },
+    {
+      "path": "scripts/validate_report.py",
+      "bytes": 8314,
+      "sha256": "bd3c1031315869ff9d5dbf901c0d8ff05d4630aa3bd860dc60f5f7fb339e1982"
+    },
+    {
+      "path": "tests/test_gui.py",
+      "bytes": 4152,
+      "sha256": "0304ca633e20742f8720131733de656a8903661d24bc19259630bbd4595d0840"
+    },
+    {
+      "path": "tests/test_lab.py",
+      "bytes": 10223,
+      "sha256": "1a7c97bbec22413619d1f79d7b94fe55e8f666d2082ccf7d51b6948582e1af20"
+    }
+  ]
+}

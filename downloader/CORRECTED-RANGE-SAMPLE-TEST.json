@@ -1,0 +1,30 @@
+{
+  "scope": "full official target plan + generated local indexes/archive with three small official CDN payloads; NOT the user installation",
+  "user_game_files_read_or_modified": 0,
+  "windows_tested": false,
+  "required_user_download_bytes": null,
+  "installation_ready": false,
+  "success": true,
+  "target_version": "12.1.5.70391",
+  "official_target_rechecked": true,
+  "full_target_plan_objects": 2881619,
+  "official_payload_samples_verified": 3,
+  "official_payload_encoded_bytes": 3453,
+  "generated_local_reference_rows": 6,
+  "normalized_local_candidates": 3,
+  "zero_budget_pause_verified": true,
+  "checkpoint_resume_verified": true,
+  "full_ekey_and_ckey_proofs_from_generated_archive": 3,
+  "source_files_unchanged": true,
+  "exactly_verified_objects_subtracted_from_conditional_remainder": true,
+  "elapsed_seconds": 5.54,
+  "prior_attempt_correction": {
+    "previous_http_status": 403,
+    "root_cause": "builder sample harness compared route_kind against archive instead of actual archive_range, then wrongly requested direct EKey",
+    "plan_catalog_route_data_was_correct": true,
+    "corrected_request_uses_advertised_archive_key_and_exact_Range": true,
+    "unknown_route_kind_now_stops_without_direct_fallback": true,
+    "insecure_host_proxy_or_http_fallback_used": false,
+    "previous_403_not_evidence_of_CDN_blocking": true
+  }
+}

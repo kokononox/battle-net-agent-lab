@@ -9,3 +9,23 @@ research/
 *.log
 *.pcap
 *.part
+
+# Never publish user runtime state, private evidence or game payloads
+PRIVATE*
+**/PRIVATE*
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.blte
+*.decoded
+*.idx
+*.index
+*.dmp
+*.pcapng
+.env
+.env.*
+WoW-Downloader-Lab/
+objects/
+Results/
+staging/

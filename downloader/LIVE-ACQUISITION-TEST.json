@@ -1,0 +1,25 @@
+{
+  "scope": "three official objects through new bounded queue runner on Linux; NOT Windows or user game storage",
+  "user_game_files_read_or_modified": 0,
+  "windows_gui_tested": false,
+  "required_user_download_bytes": null,
+  "installation_ready": false,
+  "success": false,
+  "error_family": "AssertionError",
+  "error_code": "unexpected_local_or_transport_error",
+  "elapsed_seconds": 16.23,
+  "observed_runner_stop": "queue_not_current_official_target_refresh_required",
+  "asset_body_bytes_read": 0,
+  "objects_verified_this_attempt": 0,
+  "target_recheck": {
+    "saved_target_version": "12.1.5.70391",
+    "current_official_version": "12.1.5.70391",
+    "binding_matches": false,
+    "changed_binding_fields": [
+      "cdn_config"
+    ],
+    "assets_requested": 0,
+    "game_files_modified": false
+  },
+  "note": "Harness expected a successful transfer and raised AssertionError; runner instead correctly blocked changed official CDNConfig. No stale-target bypass or retry was attempted."
+}

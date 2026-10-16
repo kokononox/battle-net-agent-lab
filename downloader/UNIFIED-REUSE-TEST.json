@@ -1,0 +1,36 @@
+{
+  "integration": {
+    "scope": "actual full official target plan and three official payloads in generated legacy/local fixtures; NOT user game storage",
+    "success": true,
+    "full_official_plan_objects": 2881619,
+    "official_payloads_from_prior_corrected_route_test": 3,
+    "official_payload_encoded_bytes": 3453,
+    "distinct_encoded_objects_reusable": 2,
+    "decoded_only_target_objects": 1,
+    "overlap_counted_once": true,
+    "decoded_only_bytes_not_subtracted": true,
+    "immutable_checkpoint_resume_verified": true,
+    "source_fingerprints_and_content_unchanged": true,
+    "old_absolute_paths_and_endpoints_ignored": true,
+    "new_network_requests": 0,
+    "user_game_files_read_or_modified": 0,
+    "windows_tested": false,
+    "required_user_download_bytes": null,
+    "installation_ready": false,
+    "elapsed_seconds": 11.9
+  },
+  "independent_all_row_reconciliation": {
+    "scope": "independent all-row queue reconciliation, not a user installation diff",
+    "full_plan_records": 2881619,
+    "queue_records": 2881619,
+    "source_property_or_route_mismatches": 0,
+    "availability_decision_mismatches": 0,
+    "conditional_transfer_flag_mismatches": 0,
+    "duplicate_full_ekeys": 0,
+    "required_user_download_bytes": null,
+    "installation_ready": false
+  },
+  "scope": "current official plan + three real official payloads in GENERATED legacy/local fixtures; NOT user installation",
+  "required_user_download_bytes": null,
+  "installation_ready": false
+}

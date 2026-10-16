@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import re
 import shutil
+from native_gui import LABELS, MARKERS as GUI_MARKERS, CLASS_NAMES
 from observe_agent import initial_report, NAMES, MARKERS, ROOT_KEYS, MAX_SETUP, MAX_REPORT
 
 class ReportError(ValueError):pass
@@ -28,12 +29,19 @@ def validate(r):
     need(type(r['utc']) is str and len(r['utc'])<40)
     datetime.datetime.fromisoformat(r['utc'])
     need(r['error_code'] is None or (type(r['error_code']) is str and re.fullmatch('[a-z0-9_]{1,100}',r['error_code'])))
-    need(r['phase'] in {'environment_check','directory_prepare','baseline_snapshot','installer_download','installer_signature','bootstrapper_launch','sampling','filesystem_observation','agent_binary_signature','cleanup','complete'})
+    need(r['phase'] in {'environment_check','directory_prepare','baseline_snapshot','installer_download','installer_signature','bootstrapper_launch','sampling','gui_inspection','filesystem_observation','agent_binary_signature','cleanup','complete'})
     for field in ('error_type','underlying_error_type'):
         need(r[field] is None or (type(r[field]) is str and re.fullmatch('[A-Za-z0-9_]{1,64}',r[field])))
     need(r['numeric_error_code'] is None or (type(r['numeric_error_code']) is int and -2**31<=r['numeric_error_code']<2**31))
     boolean(r['cleanup_attempted']);need(r['safety']==template['safety'] and r['interpretation']==template['interpretation'])
-    need(r['limits']==template['limits'])
+    keys(r['limits'],template['limits'])
+    integer(r['limits']['observation_seconds'],150);need(r['limits']['observation_seconds']>=30)
+    need(r['limits']['installer_body_bytes']==MAX_SETUP and r['limits']['bootstrapper_child_network_hard_byte_cap'] is False)
+    need(r['source_commit'] is None or (type(r['source_commit']) is str and re.fullmatch('[0-9a-f]{40}',r['source_commit'])))
+    for field in ('run_id','run_attempt'):
+        need(r[field] is None or (type(r[field]) is str and re.fullmatch('[0-9]{1,24}',r[field])))
+    need(type(r['gui_observations']) is list and len(r['gui_observations'])<=2)
+    for gui in r['gui_observations']:validate_gui(gui)
     if r['installer']:
         need(set(r['installer']) in ({'bytes','sha256','redirects'}, {'bytes','sha256','redirects','authenticode_valid','expected_blizzard_publisher','accepted_for_execution'}))
         integer(r['installer']['bytes'],MAX_SETUP);hashval(r['installer']['sha256']);integer(r['installer']['redirects'],6)
@@ -67,6 +75,35 @@ def validate(r):
         keys(r['log_markers']['keyword_occurrences_only'],MARKERS)
         for n in r['log_markers']['keyword_occurrences_only'].values():integer(n,32*1024**2)
     return r
+
+
+def validate_gui(g):
+    keys(g,('elapsed_seconds','observer_session_id','process_sessions','window_station_visible',
+            'input_desktop_accessible','input_desktop_error','windows','enumeration_truncated','probe_errors'))
+    need(type(g['elapsed_seconds']) in (int,float) and 0<=g['elapsed_seconds']<=300)
+    if g['observer_session_id'] is not None:integer(g['observer_session_id'],2**32-1)
+    need(type(g['process_sessions']) is list and len(g['process_sessions'])<=24)
+    for p in g['process_sessions']:
+        keys(p,('pid','session_id'));integer(p['pid'],2**32-1)
+        if p['session_id'] is not None:integer(p['session_id'],2**32-1)
+    need(g['window_station_visible'] is None or type(g['window_station_visible']) is bool)
+    boolean(g['input_desktop_accessible']);boolean(g['enumeration_truncated']);integer(g['probe_errors'])
+    if g['input_desktop_error'] is not None:integer(g['input_desktop_error'],2**32-1)
+    need(type(g['windows']) is list and len(g['windows'])<=8)
+    count=0
+    def item(i,top=False):
+        fields=('class','visible','enabled','label','markers')
+        keys(i,fields+('controls',) if top else fields)
+        need(i['class'] in set(CLASS_NAMES.values())|{'chromium','other'})
+        boolean(i['visible']);boolean(i['enabled'])
+        need(i['label'] in set(LABELS.values())|{'unrecognized','not_read'})
+        need(type(i['markers']) is list and len(i['markers'])<=len(GUI_MARKERS) and set(i['markers'])<=set(GUI_MARKERS))
+        if i['class'] not in ('dialog','button','static','combobox') or i['visible'] is False:
+            need(i['label']=='not_read' and i['markers']==[])
+    for window in g['windows']:
+        item(window,True);need(type(window['controls']) is list)
+        for control in window['controls']:item(control);count+=1
+    need(count<=32)
 
 
 def load(path):

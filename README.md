@@ -1,4 +1,20 @@
-# Battle.net Agent lab — private, bounded Windows observation
+# WoW project continuity + bounded Battle.net Agent lab
+
+## شروع ادامهٔ پروژه — فارسی
+
+هدف اصلی **اثبات تله‌متری WoW در سطح فیلد/درخواست/مقصد** است. دانلودر/تعمیر پیش‌نیاز موقت است؛ آزمایش Battle.net در GitHub مسیر تحقیق مستقل است.
+
+- [تحویل جامع جلسه و وضعیت آخر](docs/SESSION-HANDOFF.fa.md)
+- [معماری و اجرای تست‌ها](docs/ARCHITECTURE.fa.md)
+- [مسیر نسخه‌ها و تصمیم‌ها](docs/HISTORY.fa.md)
+- [شواهد، واقعیت‌ها و محدودیت‌ها](docs/EVIDENCE-AND-LIMITS.fa.md)
+- [گام بعد و شرط توقف](docs/NEXT-STEPS.fa.md)
+- [دامنهٔ sync و حریم خصوصی](docs/SYNC-SCOPE.fa.md) · [وضعیت ماشین‌خوان](docs/current-state.json)
+- [منبع آخرین دانلودر TagFix](downloader/README-fa.md) · [فهرست گزارش‌های کاربر](evidence/INDEX.json)
+
+منبع TagFix با ۴۴۶ تستِ انتشار در `downloader/` نگهداری می‌شود؛ محیط Linux و تست‌های واقعی Windows کاربر جدا مستندند. **هنوز CASC writer/نصب نهایی نداریم؛ حجم قطعی دانلود null است.** Lab فعلی را حفظ کنید؛ این sync درخواست تکرار prepare، اسکن کامل یا دانلود گسترده نیست. raw transcript، PRIVATE، فایل بازی و اطلاعات ورود منتقل نشده‌اند.
+
+## Independent GitHub experiment
 
 This repository is separate from the WoW downloader Lab and from the user's game.
 It requests **no account login, no game installation/download, no repair, no CASC
@@ -16,10 +32,11 @@ A manual run or a push changing the lab's scripts/tests/workflow starts one
    before executing it. No certificate validation is disabled.
 4. Launches the normal setup program **without guessed silent/EULA flags or GUI
    clicks**, with a reduced environment excluding GitHub/account credentials.
-5. Observes for up to about 150 seconds: known process names/PIDs, sampled public TCP
+5. Observes for 45 seconds in the current targeted run (configurable 30–150): known process names/PIDs, sampled public TCP
    destinations, bounded file metadata and log **keyword counts only**.
 6. Attempts to stop observed setup/Agent processes. The hosted VM is disposable.
-7. Exports only one strictly validated JSON report; no binaries, screenshots,
+7. Adds up to two bounded, read-only GUI/session inspections; no clicks, edit/hidden/unknown control text, raw captions or screenshots. Only fixed class/label/marker enums are exported. Schema2 includes source commit/run identity.
+8. Exports only one strictly validated JSON report; no binaries, screenshots,
    packet captures, raw logs, command lines, account/geoip values or user files.
 
 A separate clean Linux job (4-minute maximum) revalidates the JSON and commits it to

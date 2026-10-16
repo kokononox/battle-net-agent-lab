@@ -1,0 +1,50 @@
+{
+  "scope": "read-only local CASC index discovery, bounded complete payload proof, immutable checkpoints; not actual user game storage",
+  "synthetic_scale": {
+    "scope": "synthetic large local index scan, not actual game storage",
+    "success": true,
+    "target_objects": 100000,
+    "observed_reference_rows": 400000,
+    "normalized_candidates": 100000,
+    "reference_aliases_collapsed": 300000,
+    "archive_payload_bytes_read": 0,
+    "pause_preserved_all_candidates": true,
+    "elapsed_seconds": 3.7,
+    "required_user_download_bytes": null,
+    "installation_ready": false
+  },
+  "official_full_plan_with_deliberately_invalid_local_fixtures": {
+    "scope": "actual complete official plan + deliberately invalid generated local payloads and generated indexes; NOT actual game storage",
+    "success": true,
+    "full_official_plan_objects": 2881619,
+    "generated_local_reference_rows": 6,
+    "normalized_candidates": 3,
+    "generated_payloads_correctly_not_verified": 3,
+    "false_reusable_objects": 0,
+    "zero_budget_pause_verified": true,
+    "immutable_checkpoint_resume_verified": true,
+    "conditional_remainder_unchanged_for_invalid_content": true,
+    "generated_source_files_unchanged": true,
+    "user_game_files_read_or_modified": 0,
+    "network_requests": 0,
+    "elapsed_seconds": 3.92,
+    "required_user_download_bytes": null,
+    "installation_ready": false
+  },
+  "offline_full_content_reuse_demo": {
+    "scope": "generated offline local CASC reuse demonstration; NOT real game storage",
+    "success": true,
+    "normalized_candidates": 3,
+    "reference_aliases_collapsed": 9,
+    "fully_verified_reusable_objects": 2,
+    "damaged_fixture_not_subtracted": true,
+    "budget_pause_and_checkpoint_resume_verified": true,
+    "generated_source_files_unchanged": true,
+    "required_user_download_bytes": null,
+    "installation_ready": false
+  },
+  "actual_user_casc_tested": false,
+  "windows_tested": false,
+  "required_user_download_bytes": null,
+  "installation_ready": false
+}

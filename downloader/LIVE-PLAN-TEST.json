@@ -1,0 +1,79 @@
+{
+  "checked_at_utc": "2026-10-15T16:59:46.743728+00:00",
+  "scope": "official Encoding and CDN catalog metadata plus all-DL mapping; no user game access",
+  "user_game_files_read_or_modified": 0,
+  "user_profile_assumed": false,
+  "windows_tested": false,
+  "success": true,
+  "result": {
+    "target_version": "12.1.5.70391",
+    "official_target_rechecked": true,
+    "encoding": {
+      "content_records": 2882688,
+      "content_encoding_links": 2882706,
+      "encoded_size_records": 2882706,
+      "links_without_encoded_size": 0,
+      "all_ckey_and_ekey_page_checksums_verified": true,
+      "decoded_encoding_ckey_verified": true,
+      "installation_ready": false
+    },
+    "catalogs": {
+      "index_files_fully_verified": 1407,
+      "verified_route_rows": 5068222,
+      "archive_catalog_covered": true,
+      "loose_catalog_checked": true,
+      "catalogs_prove_current_http_availability": false,
+      "guessed_direct_routes": 0,
+      "installation_ready": false
+    },
+    "plan": {
+      "selected_manifest_records": 2881619,
+      "selected_unique_objects": 2881619,
+      "mapping_states": {
+        "mapped": 2881619
+      },
+      "mapped_objects_with_verified_candidate_route": 2881619,
+      "mapped_objects_without_route_in_checked_catalogs": 0,
+      "mapped_objects_outside_current_transfer_limits": 0,
+      "candidate_encoded_body_bytes_before_local_reuse": 188198540668,
+      "cache_checked_objects": 0,
+      "game_archive_payloads_checked": 0,
+      "required_network_download_bytes": null,
+      "current_route_http_availability_tested": false,
+      "tag_selection": {
+        "policy": "all_download_manifest_records",
+        "vendor_install_policy_proven": false,
+        "selected_record_bits": 2881619
+      },
+      "full_game_install_closure_proven": false,
+      "installation_ready": false
+    },
+    "game_assets_downloaded": false,
+    "game_files_modified": false,
+    "installation_ready": false
+  },
+  "elapsed_seconds": 231.86,
+  "final_plan_rebuilt_with_transfer_limits_and_input_watch": true,
+  "final_plan_rebuild_seconds": 53.66,
+  "independent_reconciliation": {
+    "scope": "all official Download records; not the user installation diff",
+    "verified_download_objects": 2881619,
+    "independent_mapped_objects": 2881619,
+    "plan_content_join_mismatches": 0,
+    "chosen_route_provenance_mismatches": 0,
+    "objects_without_catalog_route": 0,
+    "fully_checked_index_files": 1407,
+    "verified_catalog_route_rows": 5068222,
+    "conditional_body_bytes_before_local_reuse": 188198540668,
+    "mapped_objects_outside_current_transfer_limits": 0,
+    "required_user_download_bytes": null,
+    "user_profile_assumed": false,
+    "user_game_payloads_checked": 0,
+    "installation_ready": false
+  },
+  "resolved_initial_issue": {
+    "attempt": "remote archive-group request returned HTTP 403",
+    "correction": "archive-group is client-generated, not a remote CDN object; fetch and verify advertised individual archive indexes instead",
+    "insecure_fallback_used": false
+  }
+}

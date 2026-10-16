@@ -208,9 +208,13 @@ def stop_observed(raw, env):
 
 
 def initial_report():
-    return {'schema':'agent-bootstrap-observation-1','status':'not_started',
+    return {'schema':'agent-bootstrap-observation-2','status':'not_started',
       'scope':'fresh_hosted_windows_bootstrap_only;not_WoW_update_or_install',
       'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+      'source_commit':os.environ.get('GITHUB_SHA') if re.fullmatch('[0-9a-f]{40}',os.environ.get('GITHUB_SHA','')) else None,
+      'run_id':os.environ.get('GITHUB_RUN_ID') if os.environ.get('GITHUB_RUN_ID','').isdigit() else None,
+      'run_attempt':os.environ.get('GITHUB_RUN_ATTEMPT') if os.environ.get('GITHUB_RUN_ATTEMPT','').isdigit() else None,
+      'gui_observations':[],
       'installer':{},'samples':[],'file_observations':{},'agent_binaries':[],
       'log_markers':{},'cleanup_attempted':False,'error_code':None,
       'phase':'environment_check','error_type':None,'underlying_error_type':None,'numeric_error_code':None,
@@ -227,6 +231,7 @@ def initial_report():
 
 
 def observe(out_dir, seconds=150):
+    if type(seconds) is not int or not 30<=seconds<=150:raise LabError('observation_seconds_out_of_range')
     report=initial_report();report['limits']['observation_seconds']=seconds
     work=None;env=clean_environment(os.environ);raw={'processes':[]};launched=False;process=None
     try:
@@ -262,8 +267,18 @@ def observe(out_dir, seconds=150):
         while time.monotonic()-started<seconds:
             raw=snapshot(env)
             report['samples'].append(safe_snapshot(raw,round(time.monotonic()-started,2)))
+            if not report['gui_observations'] and time.monotonic()-started>=5:
+                report['phase']='gui_inspection'
+                import native_gui
+                pids={p['pid'] for p in report['samples'][-1]['processes']}
+                report['gui_observations'].append(native_gui.inspect(pids,round(time.monotonic()-started,2)))
+                report['phase']='sampling'
             if len(report['samples'])>=30:break
             time.sleep(5)
+        report['phase']='gui_inspection'
+        import native_gui
+        pids={p['pid'] for p in report['samples'][-1]['processes']}
+        report['gui_observations'].append(native_gui.inspect(pids,round(time.monotonic()-started,2)))
         report['phase']='filesystem_observation'
         groups,agents,logs=file_metadata(roots);report['file_observations']=groups
         for path in agents[:1]:
@@ -316,4 +331,5 @@ def observe(out_dir, seconds=150):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True)
-    args=p.parse_args();observe(args.output)
+    p.add_argument('--observation-seconds',type=int,default=150)
+    args=p.parse_args();observe(args.output,args.observation_seconds)
