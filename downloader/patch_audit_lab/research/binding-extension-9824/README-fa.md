@@ -1,5 +1,8 @@
 # Agent 9824: binding نام guard، directory افزونه و اصلاح header
 
+> checkpoint بعدی [payload و ورودی نام](../primary-payload-9824/README-fa.md) هندسهٔ آرایه‌ها و rollback را ردیابی و بخشی از شکاف normalizer را پر می‌کند. مشاهده‌گر جاری نسخهٔ ۳ و suite جاری ۳۶۰ است؛ receiptهای این پوشه تاریخچهٔ ۳۳۸تایی‌اند.
+
+
 ## نتیجه و اصلاح صریح
 
 ممیزی تازه روی Agent hash-pinned: **۳۲ byte anchor، ۹ call، ۷ branch و دو import** تأیید شد. ممیزی publication و mapping قبلی نیز پیش‌شرط اجرا شدند؛ اعداد تازه با شمارنده‌های قبلی جمع نمی‌شوند. **۳۳۸ آزمون با صفر failure/error/skip** شامل ۲۰ test method تازه گذشت؛ یک آزمون قبلی نیز به‌دلیل برداشت اشتباه header اصلاح شد.

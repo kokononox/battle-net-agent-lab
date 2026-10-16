@@ -36,3 +36,5 @@ companion code ZIP از کد پژوهشی و گزارش‌ها ساخته می�
 هیچ خروجی آزمایش را به پوشهٔ بازی کپی نکنید. این بسته مجوز تغییر `.build.info`، اجرای صف دانلود گسترده، تعمیر نصب یا فعال‌سازی واقعی نیست.
 
 اصلاح parser در checkpoint binding/extension: مقدار فیلد header در سازندهٔ v5 برابر `0x154` است؛ `0x258` طول copy حالت افزونه‌دار بود، نه مقدار مجاز دوم آن فیلد. [گزارش اصلاح و شواهد](../downloader/patch_audit_lab/research/binding-extension-9824/README-fa.md). fixture و assetهای Release تغییر نکردند.
+
+مشاهده‌گر جاری نسخهٔ ۳ و suite جاری ۳۶۰تایی است؛ [گزارش payload/rollback](../downloader/patch_audit_lab/research/primary-payload-9824/README-fa.md). payload واقعیِ shmem کاربر هنوز در fixture نیست؛ نمونه‌های جدید generated-only هستند و rollback اجرا نمی‌شود. ZIP companion همچنان snapshot تاریخی ۲۷۸تایی است؛ از آخر شاخه برای کد جدید استفاده کنید.

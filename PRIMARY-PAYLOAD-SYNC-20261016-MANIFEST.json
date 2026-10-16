@@ -1,0 +1,137 @@
+{
+  "format": "primary-payload-sync-1",
+  "previous_commit": "cd64420cd67119bf384704dc3f4f18efc2bd9a09",
+  "branch": "patch-audit-20261016",
+  "tests": 360,
+  "new_test_methods": 22,
+  "agent_executed": false,
+  "actual_user_shmem_tested": false,
+  "game_or_lab_written": false,
+  "release_assets_modified": false,
+  "files": [
+    {
+      "path": "downloader/patch_audit_lab/shmem_primary_readonly.py",
+      "sha256": "f28f54453ec65d38e9d1b9e4b7c2e5538c19c39688b1f5de5eb4873c1771bddc"
+    },
+    {
+      "path": "downloader/patch_audit_lab/agent_primary_payload_audit.py",
+      "sha256": "51c6707bdcb8bba75895e7eb25b7094742c966d4b8b3e9a9c2533d119ef2a28f"
+    },
+    {
+      "path": "downloader/patch_audit_lab/shmem_readonly.py",
+      "sha256": "4c55b6bc2a9d1067cb78bebfca7a89089f9a3e64de9084f836b914b4ea22411e"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_primary_payload.py",
+      "sha256": "a9e37309e6c0dce71b864fa17b29b567a89b763b1de1601c08d19a31c4ccba2c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/README-fa.md",
+      "sha256": "4f01f14fc86e2a32010327b255199aca8ba9760f1ec50eda15d6db0bdb947631"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/AGENT-PRIMARY-STATIC.json",
+      "sha256": "e1a0689bf824518cc4d424abbb1ed60731267dfdaae7729f8e4544055fb60361"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/ALL-TESTS.log",
+      "sha256": "0228066f23875ec2be5e51689877b1b78a13f7c2b041180170635f048453fe9f"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/DISASSEMBLY-MANIFEST.json",
+      "sha256": "b3a48e84b781b0ab81ab7db9dd891d683fe0212c234c389db0ae33c53dde850c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/GENERATED-OBSERVATIONS.json",
+      "sha256": "f6eef15ed28b13d9c9e09391aff456c903febdad35a7eccf85e3765eb1a8cf0a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/README-fa.md",
+      "sha256": "c96fcd6378c45f73b934ccf3dd5a60f33f4588ad3a7d10ac068997b004508242"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/TEST-RESULTS.json",
+      "sha256": "80b78e1929793fde9c5bd190581ab2d49b980a5ebd4bc14588da8e15883dfdf2"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/absolute-path-wrapper.asm",
+      "sha256": "692559edf34f64f541b544e40b7c2f3e80028195bd3e0d1b18f457b67f9ab46d"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/array-append.asm",
+      "sha256": "8e66c8daad8fa12b1ffef56154999b89111eb6376645f0296f4950ae31a98bea"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/array-rebuild.asm",
+      "sha256": "2bb45d5c35db817261ed857a18506d4ed3674de89f993e58f32aacfa80e123ff"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/big-endian-write.asm",
+      "sha256": "cbba377b01db7b966bbb89a6911a5968705f4a0b859f392d500ea862f78848b1"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/binding-output.asm",
+      "sha256": "27982f90f3632b82aa2f665d49492d488a7cd0a92332b9b995e47b53bbe219b5"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/binding-wrapper.asm",
+      "sha256": "0eb85d3eb9f05fdd0f764729f0da5328fcaf3f94cacbfb1407b480c55cfef613"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/control-output-call.asm",
+      "sha256": "1a6d390f7f949844d66bfb84f6594cb595d795f3e2490703fcbf5e4aa2554da3"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/current-directory.asm",
+      "sha256": "f5f567c28f0b886a95c775f9461a17f6fa5a4584b0b434ad5a80ee80e0cadadf"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/index-path-init.asm",
+      "sha256": "d10811342d0486760e80bb81cc8729e3935ca37f2a4d7282749babb9201162a5"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/join-and-normalize.asm",
+      "sha256": "b2ec7ec7f6e0518ca7ff225550ef534e1a8eca95224f7772b45d4b1f38274866"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/lexical-normalizer.asm",
+      "sha256": "5e06f9834b77a142f71b8b5a80b94b35c155b267f74e5c6d00ce76eeb2fa8a04"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/path-input-preparation.asm",
+      "sha256": "d5702bac2ba3a66bb06c53ebd8b059c3083ef07fc4fb4ea90eb9b1df7851fdcf"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/primary-consumer.asm",
+      "sha256": "6b11873032209e5542a0957e3dbc9c4382cbf6eb101956665e3235198f9e1067"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/recovery-caller.asm",
+      "sha256": "3a3c3af54b18124ff2f4ba348884f258d7eae94d8afae053cb4732adc4bb0635"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/relative-path-wrapper.asm",
+      "sha256": "23cab6056a95a827bd9dc849df805db1a91c06a64f0cf4e3b9387adc9eb8e137"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/reset-recover-update-read.asm",
+      "sha256": "8afc2e31ea32f1a5c294f0ab059d8d94954d2fec39c4c3d0e40f11ad5d6a6b13"
+    },
+    {
+      "path": "README.md",
+      "sha256": "7372058cdf27667768b259b0ad57e47b0946a9047c393369342bf4a2f82af5b5"
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "7a0a31486dc3ee9997864dc151b0f9a9cab343400ad709ee4706d4e88e3adfb9"
+    },
+    {
+      "path": "docs/SESSION-2026-10-16.fa.md",
+      "sha256": "07a31ab2d87a4e38d1cf4032228f0b5e3dd2fea2784877b06d44195a21728cab"
+    },
+    {
+      "path": "docs/PORTABLE-RESEARCH.fa.md",
+      "sha256": "274677875ac0cffdb0022e5e08e6a1cacce6f3b7478315eb694ffe43fbf0d290"
+    }
+  ]
+}

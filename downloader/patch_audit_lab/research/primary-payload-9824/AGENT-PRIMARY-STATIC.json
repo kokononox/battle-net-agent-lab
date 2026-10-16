@@ -1,0 +1,171 @@
+{
+  "format": "agent-9824-primary-static-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "status": "bounded_primary_paths_verified",
+  "prerequisite_binding_extension_passed": true,
+  "evidence": {
+    "anchors": {
+      "bound_primary_pointer": "0x71e280",
+      "path_string_output": "0x71c32b",
+      "object_control_output": "0x7120c9",
+      "primary_pointer_consumer": "0x7114f3",
+      "consumer_rebuild_arrays": "0x71169b",
+      "rebuild_capacity": "0x722c3c",
+      "rebuild_mark_zero": "0x722c6b",
+      "rebuild_fence_one": "0x722c8d",
+      "append_array_a": "0x722def",
+      "append_array_a_base": "0x722df7",
+      "append_array_b_base": "0x722e0c",
+      "append_increment_count": "0x722e1e",
+      "reset_leaves_word_c": "0x722e28",
+      "recovery_only_two": "0x722e42",
+      "recovery_index": "0x722e4a",
+      "recovery_b_base": "0x722e53",
+      "recovery_a_base": "0x722e6c",
+      "recovery_state_one": "0x722e77",
+      "save_index": "0x722e9e",
+      "save_old_b": "0x722eac",
+      "save_old_a": "0x722ebf",
+      "before_writes_state_two": "0x722ec8",
+      "after_writes_state_one": "0x722eed",
+      "read_big_endian_loop": "0x722f20",
+      "write_big_endian_loop": "0x7100e7",
+      "normalize_drive_shape": "0x863ae0",
+      "normalize_drive_lowercase": "0x863aec"
+    },
+    "direct_calls": {
+      "index_path_init": {
+        "call": "0x71c332",
+        "target": "0x712bc9"
+      },
+      "control_binding_wrapper": {
+        "call": "0x71e0d3",
+        "target": "0x71e0dd"
+      },
+      "absolute_normalizer": {
+        "call": "0x67a5e4",
+        "target": "0x86398b"
+      },
+      "control_output_init": {
+        "call": "0x7120fc",
+        "target": "0x71e0a2"
+      },
+      "primary_consumer_state": {
+        "call": "0x7114fb",
+        "target": "0x71db05"
+      },
+      "primary_consumer_rebuild": {
+        "call": "0x7116a4",
+        "target": "0x722bd6"
+      },
+      "build_first_pass": {
+        "call": "0x722c37",
+        "target": "0x722ca3"
+      },
+      "build_second_pass": {
+        "call": "0x722c84",
+        "target": "0x722ca3"
+      },
+      "append_write_a": {
+        "call": "0x722dfd",
+        "target": "0x7100d0"
+      },
+      "append_write_b": {
+        "call": "0x722e16",
+        "target": "0x7100d0"
+      },
+      "recover_write_b": {
+        "call": "0x722e5b",
+        "target": "0x7100d0"
+      },
+      "recover_write_a": {
+        "call": "0x722e72",
+        "target": "0x7100d0"
+      },
+      "save_read_b": {
+        "call": "0x722ea4",
+        "target": "0x722f00"
+      },
+      "save_read_a": {
+        "call": "0x722eb7",
+        "target": "0x722f00"
+      },
+      "update_write_a": {
+        "call": "0x722ed7",
+        "target": "0x7100d0"
+      },
+      "update_write_b": {
+        "call": "0x722ee5",
+        "target": "0x7100d0"
+      },
+      "caller_recover": {
+        "call": "0x722b29",
+        "target": "0x722e3f"
+      },
+      "path_rooted_predicate": {
+        "call": "0x712be6",
+        "target": "0x8637d1"
+      },
+      "path_absolute_normalizer_wrapper": {
+        "call": "0x712bf8",
+        "target": "0x67a5d6"
+      },
+      "path_relative_cwd": {
+        "call": "0x712c08",
+        "target": "0x69834c"
+      },
+      "path_relative_join_wrapper": {
+        "call": "0x712c57",
+        "target": "0x50045e"
+      },
+      "path_assign": {
+        "call": "0x712c7b",
+        "target": "0x86a429"
+      },
+      "path_join": {
+        "call": "0x50046f",
+        "target": "0x86367d"
+      },
+      "join_normalizer": {
+        "call": "0x863702",
+        "target": "0x86398b"
+      }
+    },
+    "branch_edges": {
+      "recovery_not_two_skip": {
+        "instruction": "0x722e45",
+        "target": "0x722e86"
+      },
+      "caller_not_two_skip": {
+        "instruction": "0x722b25",
+        "target": "0x722b34"
+      },
+      "path_not_rooted_use_cwd": {
+        "instruction": "0x712bee",
+        "target": "0x712c01"
+      }
+    },
+    "import_calls": {
+      "current_directory": {
+        "call": "0x86493e",
+        "iat": "0x8fb508",
+        "dll": "KERNEL32.dll",
+        "name": "GetCurrentDirectoryW"
+      }
+    }
+  },
+  "agent_executed": false,
+  "network_requests": 0,
+  "game_or_lab_written": false,
+  "actual_user_shmem_tested": false,
+  "allocation_semantics_complete": false,
+  "activation_contract_complete": false,
+  "installation_ready": false,
+  "limitations": [
+    "No actual installation snapshot or Windows test",
+    "Path normalizer statically traced, not a complete compatible port or actual name binding",
+    "State 1 alone is not health; state 2 recovery stores are not a durable transaction proof",
+    "Array names A/B intentionally avoid overclaiming complete allocation semantics",
+    ".build.info writer, full target closure and power-loss behavior remain unproved"
+  ]
+}

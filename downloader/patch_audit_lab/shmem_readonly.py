@@ -6,6 +6,7 @@ import argparse,json,re,struct
 from pathlib import Path
 import patch_audit as a
 import source_binding as b
+import shmem_primary_readonly as primary
 
 MAX_CONTROL=64*1024
 PATTERN=re.compile('[0-9a-f]{10}\\.idx')
@@ -53,7 +54,7 @@ def inspect(raw,index_names=None):
         name=f'{bucket:02x}{seq:08x}.idx'
         versions=[] if inventory is None else sorted(int(n[2:10],16) for n in inventory if int(n[:2],16)==bucket)
         rows.append({'bucket':bucket,'sequence':seq,'sequence_filename':name,'sequence_file_present':None if inventory is None else name in inventory,'max_inventory_sequence':max(versions,default=None),'inventory_has_newer_sequence':None if inventory is None else any(v>seq for v in versions)})
-    return {'format':'shmem-bounded-observation-2','status':'constructor_geometry_matches_static_evidence','protocol':version,'header_bytes':header,'declared_header_field':header,'constructor_copy_bytes':copy_bytes,'constructor_expected_file_bytes':expected_file_bytes,'observed_file_size_matches_constructor':len(raw)==expected_file_bytes,'extension_bitmap':bitmap,'extension_observations':extensions,'payload_layout_decoded':False,'name_source_binding_proven':False,'observed_file_bytes':len(raw),'sha256':a.sha256(raw),'payload_offset':offset,'payload_size':payload_size,'opaque_extra_bytes':len(raw)-offset-payload_size,'name_field_exported':False,'name_field_nonempty_terminated':True,'protocol5_flags_uninterpreted':flags,'protocol5_low_flag_special_path':bool(flags&1) if flags is not None else None,'sequence_observations':rows,'index_inventory_supplied':inventory is not None,'index_file_payloads_read':0,'coherent_live_snapshot_proven':False,'sequence_is_active_for_game_proven':False,'installation_ready':False}
+    return {'format':'shmem-bounded-observation-3','status':'constructor_geometry_matches_static_evidence','protocol':version,'header_bytes':header,'declared_header_field':header,'constructor_copy_bytes':copy_bytes,'constructor_expected_file_bytes':expected_file_bytes,'observed_file_size_matches_constructor':len(raw)==expected_file_bytes,'extension_bitmap':bitmap,'extension_observations':extensions,'payload_layout_decoded':False,'primary_payload_observation':primary.inspect(raw[offset:offset+payload_size]),'name_source_binding_proven':False,'observed_file_bytes':len(raw),'sha256':a.sha256(raw),'payload_offset':offset,'payload_size':payload_size,'opaque_extra_bytes':len(raw)-offset-payload_size,'name_field_exported':False,'name_field_nonempty_terminated':True,'protocol5_flags_uninterpreted':flags,'protocol5_low_flag_special_path':bool(flags&1) if flags is not None else None,'sequence_observations':rows,'index_inventory_supplied':inventory is not None,'index_file_payloads_read':0,'coherent_live_snapshot_proven':False,'sequence_is_active_for_game_proven':False,'installation_ready':False}
 
 def observe_file(path,index_names=None):
     path=Path(path);a.require(path.name=='shmem','explicit_shmem_filename_required')
