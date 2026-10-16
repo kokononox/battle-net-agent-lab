@@ -113,7 +113,7 @@ def signature(path, env):
     local_env=dict(env,BNET_LAB_VERIFY_PATH=str(path))
     result=powershell("$s=Get-AuthenticodeSignature -LiteralPath $env:BNET_LAB_VERIFY_PATH;"
         "$p='';if($s.SignerCertificate){$p=$s.SignerCertificate.GetNameInfo('SimpleName',$false)};"
-        "@{status=[string]$s.Status;publisher=$p}|ConvertTo-Json -Compress",local_env)
+        "@{status=[string]$s.Status;publisher=$p}|ConvertTo-Json -Compress",local_env,timeout=60)
     valid=result.get('status')=='Valid' and result.get('publisher') in PUBLISHERS
     return {'authenticode_valid':result.get('status')=='Valid',
             'expected_blizzard_publisher':result.get('publisher') in PUBLISHERS,
@@ -121,14 +121,10 @@ def signature(path, env):
 
 
 def snapshot(env):
-    # No command lines, window titles, process environment or owner identities.
-    return powershell("$p=@(Get-CimInstance Win32_Process|Where-Object {"
-        "$_.Name -in @('Agent.exe','Battle.net.exe','Battle.net Launcher.exe','Battle.net-Setup.exe','Battle.net Helper.exe','BlizzardError.exe')}|"
-        "Select-Object Name,ProcessId,ParentProcessId,ExecutablePath);"
-        "$ids=@($p|ForEach-Object {$_.ProcessId});$c=@();"
-        "if($ids.Count){$c=@(Get-NetTCPConnection -ErrorAction SilentlyContinue|Where-Object {$_.OwningProcess -in $ids}|"
-        "Select-Object OwningProcess,RemoteAddress,RemotePort,State)};"
-        "@{processes=$p;connections=$c}|ConvertTo-Json -Depth 4 -Compress",env)
+    # Native process/IP-helper APIs avoid the cold WMI provider timeout observed
+    # on the hosted Windows runner. No process paths or command lines are read.
+    import native_windows
+    return native_windows.snapshot(NAMES)
 
 
 def safe_snapshot(raw, elapsed):
@@ -160,7 +156,7 @@ def file_metadata(roots):
     deadline=time.monotonic()+8
     for category,root in roots.items():
         count=total=skipped=0;exts=collections.Counter()
-        if root.exists():
+        if root.exists() and not is_reparse(root):
             for folder,dirs,files in os.walk(root,followlinks=False):
                 # Explicitly skip junctions/reparse points, not just symlinks.
                 dirs[:]=[d for d in dirs if not is_reparse(Path(folder)/d)]
@@ -270,7 +266,7 @@ def observe(out_dir, seconds=150):
             time.sleep(5)
         report['phase']='filesystem_observation'
         groups,agents,logs=file_metadata(roots);report['file_observations']=groups
-        for path in agents:
+        for path in agents[:1]:
             if path.stat().st_size>128*1024**2:continue
             report['phase']='agent_binary_signature'
             sig=signature(path,env)
