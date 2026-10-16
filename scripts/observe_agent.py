@@ -98,26 +98,10 @@ def fetch_setup(destination):
         if temp.exists():temp.unlink()
 
 
-def powershell(command, env, timeout=25):
-    exe=Path(os.environ['SystemRoot'])/'System32'/'WindowsPowerShell'/'v1.0'/'powershell.exe'
-    result=subprocess.run([str(exe),'-NoLogo','-NoProfile','-NonInteractive','-Command',
-                           "$ErrorActionPreference='Stop';"+command],
-                          env=env,stdin=subprocess.DEVNULL,capture_output=True,timeout=timeout,check=False)
-    if result.returncode or len(result.stdout)>1024**2:
-        raise LabError('windows_probe_failed')
-    try:return json.loads(result.stdout.decode('utf-8-sig'))
-    except (UnicodeError,ValueError):raise LabError('windows_probe_invalid_json') from None
-
-
 def signature(path, env):
-    local_env=dict(env,BNET_LAB_VERIFY_PATH=str(path))
-    result=powershell("$s=Get-AuthenticodeSignature -LiteralPath $env:BNET_LAB_VERIFY_PATH;"
-        "$p='';if($s.SignerCertificate){$p=$s.SignerCertificate.GetNameInfo('SimpleName',$false)};"
-        "@{status=[string]$s.Status;publisher=$p}|ConvertTo-Json -Compress",local_env,timeout=60)
-    valid=result.get('status')=='Valid' and result.get('publisher') in PUBLISHERS
-    return {'authenticode_valid':result.get('status')=='Valid',
-            'expected_blizzard_publisher':result.get('publisher') in PUBLISHERS,
-            'accepted_for_execution':valid}
+    from native_authenticode import verify, NativeSignatureError
+    try:return verify(path,env)
+    except NativeSignatureError as exc:raise LabError(str(exc)) from None
 
 
 def snapshot(env):
@@ -208,13 +192,13 @@ def stop_observed(raw, env):
 
 
 def initial_report():
-    return {'schema':'agent-bootstrap-observation-4','status':'not_started',
+    return {'schema':'agent-bootstrap-observation-5','status':'not_started',
       'scope':'fresh_hosted_windows_bootstrap_only;not_WoW_update_or_install',
       'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
       'source_commit':os.environ.get('GITHUB_SHA') if re.fullmatch('[0-9a-f]{40}',os.environ.get('GITHUB_SHA','')) else None,
       'run_id':os.environ.get('GITHUB_RUN_ID') if os.environ.get('GITHUB_RUN_ID','').isdigit() else None,
       'run_attempt':os.environ.get('GITHUB_RUN_ATTEMPT') if os.environ.get('GITHUB_RUN_ATTEMPT','').isdigit() else None,
-      'gui_observations':[],'safety_test_result':{},
+      'gui_observations':[],'safety_test_result':{},'signature_backend':'Windows_WinVerifyTrust_Authenticode',
       'installer':{},'samples':[],'file_observations':{},'agent_binaries':[],
       'log_markers':{},'cleanup_attempted':False,'error_code':None,
       'phase':'environment_check','error_type':None,'underlying_error_type':None,'numeric_error_code':None,

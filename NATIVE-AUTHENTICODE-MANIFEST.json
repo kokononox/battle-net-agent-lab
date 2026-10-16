@@ -1,0 +1,76 @@
+{
+  "base_commit": "73a24c0f50297ebf8269508cb75c8cafabaf8c5e",
+  "utc": "2026-10-16T01:47:28.504191+00:00",
+  "tests": {
+    "scope": "Native Windows Authenticode verification backend; no downloader changes",
+    "tests_discovered": 82,
+    "tests_passed_Linux": 78,
+    "tests_skipped_Linux": 4,
+    "native_Windows_tests_required": 4,
+    "native_Windows_result": "pending",
+    "new_tests": 15,
+    "python39_syntax_check": true,
+    "native_verifier_timeout_seconds": 60,
+    "powershell_verification_removed": true,
+    "signature_and_exact_expected_publisher_still_required": true,
+    "revocation_checks_enabled": true,
+    "revocation_excludes_root": true,
+    "trust_store_modified_by_code": false,
+    "publisher_from_verified_signer_state": true,
+    "only_zero_winverifytrust_status_accepted": true,
+    "raw_certificate_subject_exported": false,
+    "downloader_modified": false,
+    "downloader_tests_rerun_this_change": false,
+    "installation_ready": false
+  },
+  "files": [
+    {
+      "path": "scripts/authenticode_native.cs",
+      "sha256": "4374681786d2a2ae8a74bfacb7a36d3d6d3b3606b45e132ac1f9ecf54ed0658d"
+    },
+    {
+      "path": "scripts/native_authenticode.py",
+      "sha256": "20db709922570121ac46fa7c8a48f1567599b4de154b89d8b9039ee526bb0530"
+    },
+    {
+      "path": "scripts/uia_readonly.cs",
+      "sha256": "ac11b8dc682784c06d3f5bd8aea146f1095b91eaa49eb24e641644f5871bec28"
+    },
+    {
+      "path": "scripts/ui_accessibility.py",
+      "sha256": "dbbcf3f5a893cdd3e023a17015790e0b3cc4fd64a6103ecc76afe6bfb4c2882c"
+    },
+    {
+      "path": "scripts/observe_agent.py",
+      "sha256": "a91f47df59b531d6cb9a90324c4802b53cd1738f9a23dfd3e8e914edc7e4dacb"
+    },
+    {
+      "path": "scripts/validate_report.py",
+      "sha256": "c337a7e3927357369568e5a93d70e99ca31b49d7307e66bd3d8f8e234580b672"
+    },
+    {
+      "path": "tests/test_lab.py",
+      "sha256": "876ef849a601a3be357975197c3b1c55aba767882cf278fa2b1ac67e55290d5d"
+    },
+    {
+      "path": "tests/test_native_authenticode.py",
+      "sha256": "d60c878fd868943d3522a2d829abadb435e256a95182be43f1e4218a418daf54"
+    },
+    {
+      "path": "docs/NATIVE-AUTHENTICODE.fa.md",
+      "sha256": "a10f133beaef9be4d7ce3dcba95341fbf56f6b03e1d1ccbe9b931c9e4092305b"
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "820d4f9ff5f5cde72a5b8e3ce1953265128863448728853801e7451061908645"
+    },
+    {
+      "path": "TEST-RESULTS.json",
+      "sha256": "ef0ffa0573d0c3865422f00970769154ef6182cc814e1cbaa4920826adf23cc9"
+    },
+    {
+      "path": "TEST-LOG.txt",
+      "sha256": "4e0c063b2117213f94c0bd9fac17f6588e03e402ecee3f5448ce7bb69b7a4845"
+    }
+  ]
+}

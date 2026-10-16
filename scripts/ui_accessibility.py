@@ -61,7 +61,7 @@ def native_helper(env):
     # An existing EXE is never trusted/reused across Python processes.
     with tempfile.TemporaryDirectory(prefix='uia-readonly-build-') as tmp:
         dest=Path(tmp)/'UiaReadOnly.exe'
-        command=[str(compiler),'/nologo','/warn:0','/target:exe','/out:'+str(dest),*[('/reference:'+str(p)) for p in refs],str(source)]
+        command=[str(compiler),'/nologo','/warn:0','/target:exe','/out:'+str(dest),*[('/reference:'+str(p)) for p in refs],str(source),str(source.with_name('authenticode_native.cs'))]
         try:compiled=subprocess.run(command,env=env,stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=30,check=False)
         except subprocess.TimeoutExpired:raise ToolchainError('uia_compile_timeout') from None
         except OSError:raise ToolchainError('uia_compile_failed') from None

@@ -15,8 +15,13 @@ public static class UiaReadOnly {
         return new Dictionary<string,object> { {"status","ok"},{"elements",new List<object>()},
             {"truncated",false},{"errors",0},{"top_windows_requested",n} }; }
     [STAThread]
-    public static int Main() {
+    public static int Main(string[] args) {
         try {
+            if(args.Length==1 && args[0]=="signature") {
+                Console.WriteLine(json.Serialize(AuthenticodeNative.Verify(Environment.GetEnvironmentVariable("BNET_LAB_VERIFY_PATH")))); return 0;
+            }
+            if(args.Length==1 && args[0]=="signature-abi") { Console.WriteLine(json.Serialize(AuthenticodeNative.Abi())); return 0; }
+            if(args.Length!=0) return 2;
             var cfg=(Dictionary<string,object>)json.DeserializeObject(Environment.GetEnvironmentVariable("BNET_LAB_UIA_CONFIG"));
             var targets=(object[])cfg["targets"];
             if(targets.Length>8) return 2;

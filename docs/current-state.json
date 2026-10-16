@@ -35,11 +35,11 @@
     "previous_status": "stopped",
     "installation_complete_proven": false,
     "agent_not_observed_reason_proven": false,
-    "next_probe": "Fix/investigate legacy Authenticode verifier without bypassing valid signature + expected publisher gate",
-    "next_probe_result": "native smoke passed; real window inspection not reached because signature verification timed out",
+    "next_probe": "Native WinVerifyTrust Authenticode + verified signer publisher; strict signature gate unchanged; then read-only UIA if accepted",
+    "next_probe_result": "pending; schema5 source_commit/run must match native verifier change",
     "scheduled_watcher": false,
     "previous_gui_result": "Setup same session 2; input desktop accessible; one visible unknown-class window; no native child controls; no Agent observed; cause not proven",
-    "probe_document": "docs/UIA-TIMEOUT-FIX.fa.md",
+    "probe_document": "docs/NATIVE-AUTHENTICODE.fa.md",
     "failed_run": "38834184617",
     "failed_source_commit": "f6718d4f2e95ff4eeb14d16f0bdbf5eeb075e460",
     "failed_phase": "safety_tests",
@@ -53,7 +53,8 @@
     "Windows_safety_tests_skipped": 0,
     "native_UIA_empty_scope_smoke_passed": true,
     "installer_launched_in_latest_run": false,
-    "result_document": "docs/UIA-TIMEOUT-FIX-RESULT.json"
+    "result_document": "docs/UIA-TIMEOUT-FIX-RESULT.json",
+    "signature_backend_configured": "Windows_WinVerifyTrust_Authenticode"
   },
   "telemetry": {
     "actual_in_world_capture_complete": false,

@@ -45,13 +45,13 @@ class LabTests(unittest.TestCase):
             p=Path(t)/'a.log';p.write_text('PASSWORD=SECRET\nDownload error install patch\n')
             r=obs.log_marker_counts([p]);self.assertNotIn('SECRET',json.dumps(r));self.assertEqual(r['keyword_occurrences_only']['download'],1)
     def test_signature_failure_is_not_authorization(self):
-        with patch.object(obs,'powershell',return_value={'status':'Valid','publisher':'Not Blizzard'}):
+        with patch('native_authenticode.read_native',return_value={'trust_status':0,'expected_blizzard_publisher':False}):
             self.assertFalse(obs.signature(Path('test.exe'),{})['accepted_for_execution'])
     def test_signature_valid_expected_publisher(self):
-        with patch.object(obs,'powershell',return_value={'status':'Valid','publisher':'Blizzard Entertainment, Inc.'}):
+        with patch('native_authenticode.read_native',return_value={'trust_status':0,'expected_blizzard_publisher':True}):
             self.assertTrue(obs.signature(Path('test.exe'),{})['accepted_for_execution'])
     def test_invalid_signature_with_right_name_still_refused(self):
-        with patch.object(obs,'powershell',return_value={'status':'HashMismatch','publisher':'Blizzard Entertainment, Inc.'}):
+        with patch('native_authenticode.read_native',return_value={'trust_status':-2146869232,'expected_blizzard_publisher':False}):
             self.assertFalse(obs.signature(Path('test.exe'),{})['accepted_for_execution'])
     def test_validator_rejects_nested_secret_field(self):
         r=obs.initial_report();r['samples']=[{'elapsed_seconds':1,'processes':[{'name':'agent.exe','pid':1,'parent_pid':0,'commandline':'SECRET'}],'connections':[]}]
@@ -111,11 +111,13 @@ class LabTests(unittest.TestCase):
             with self.assertRaisesRegex(obs.LabError,'not_windows_pe'):obs.fetch_setup(dest)
             self.assertFalse(dest.exists());self.assertFalse(dest.with_suffix('.part').exists())
 
-    def test_powershell_probe_cannot_wait_for_runner_stdin(self):
+    def test_native_signature_probe_cannot_wait_for_runner_stdin(self):
+        import native_authenticode as native
+        import ui_accessibility as uia
         from unittest.mock import Mock
-        response=Mock(returncode=0,stdout=b'{}')
-        with patch.dict(os.environ,{'SystemRoot':'C:/Windows'}),patch.object(obs.subprocess,'run',return_value=response) as call:
-            self.assertEqual(obs.powershell('1',{}),{})
+        response=Mock(returncode=0,stdout=b'{"trust_status":0,"expected_blizzard_publisher":true}')
+        with patch.object(uia,'_HELPER',(Path('helper.exe'),None)),patch.object(native.subprocess,'run',return_value=response) as call:
+            self.assertTrue(native.verify(Path('test.exe'),{})['accepted_for_execution'])
             self.assertEqual(call.call_args.kwargs['stdin'],obs.subprocess.DEVNULL)
 
 if __name__=='__main__':unittest.main()

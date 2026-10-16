@@ -18,13 +18,19 @@ def integer(value,cap=2**63-1):need(type(value) is int and 0<=value<=cap)
 def boolean(value):need(type(value) is bool)
 def hashval(value):need(type(value) is str and re.fullmatch('[0-9a-f]{64}',value) is not None)
 def sig(obj,base=()):
-    keys(obj,(*base,'authenticode_valid','expected_blizzard_publisher','accepted_for_execution'))
+    standard=(*base,'authenticode_valid','expected_blizzard_publisher','accepted_for_execution')
+    need(set(obj) in (set(standard),set(standard)|{'winverifytrust_status'}))
+    if 'winverifytrust_status' in obj:
+        need(type(obj['winverifytrust_status']) is int and -2**31<=obj['winverifytrust_status']<2**31)
+        need(obj['authenticode_valid']==(obj['winverifytrust_status']==0))
+        need(not obj['expected_blizzard_publisher'] or obj['winverifytrust_status']==0)
     for k in ('authenticode_valid','expected_blizzard_publisher','accepted_for_execution'):boolean(obj[k])
     need(obj['accepted_for_execution']==(obj['authenticode_valid'] and obj['expected_blizzard_publisher']))
 
 def validate(r):
     template=initial_report();keys(r,template)
     need(r['schema']==template['schema'] and r['scope']==template['scope'])
+    need(r['signature_backend']==template['signature_backend'])
     need(r['status'] in ('not_started','stopped','agent_process_observed','bootstrapper_observed_agent_not_observed'))
     need(type(r['utc']) is str and len(r['utc'])<40)
     datetime.datetime.fromisoformat(r['utc'])
@@ -47,7 +53,7 @@ def validate(r):
         try:validate_summary(r['safety_test_result'])
         except (ValueError,TypeError,KeyError):raise ReportError('report_schema_rejected') from None
     if r['installer']:
-        need(set(r['installer']) in ({'bytes','sha256','redirects'}, {'bytes','sha256','redirects','authenticode_valid','expected_blizzard_publisher','accepted_for_execution'}))
+        need(set(r['installer']) in ({'bytes','sha256','redirects'}, {'bytes','sha256','redirects','authenticode_valid','expected_blizzard_publisher','accepted_for_execution'}, {'bytes','sha256','redirects','authenticode_valid','expected_blizzard_publisher','accepted_for_execution','winverifytrust_status'}))
         integer(r['installer']['bytes'],MAX_SETUP);hashval(r['installer']['sha256']);integer(r['installer']['redirects'],6)
         if 'accepted_for_execution' in r['installer']:sig(r['installer'],('bytes','sha256','redirects'))
     need(type(r['samples']) is list and len(r['samples'])<=30)
