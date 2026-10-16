@@ -196,7 +196,9 @@ def bind(lab_root,audit_dir,*,time_limit=120,max_private=256,cancel=lambda:False
         bindings=[metadata(db,al,'target_binding') for al in ('p','q','i','e')]
         expected=validate_bindings(bindings,expected)
         pid=metadata(db,'p','plan_id')
-        need(isinstance(pid,str) and re.fullmatch('[0-9a-f]{32}',pid) and record.get('plan_id')==pid,'plan_id_conflict')
+        # content_plan.build persists out.path.stem, NOT the UUID alone.
+        # Bind that exact identity to the already validated, watched plan file.
+        need(isinstance(pid,str) and pid==plan.stem and record.get('plan_id')==pid,'plan_id_conflict')
         need(all(metadata(db,al,'source_plan_id')==pid for al in ('i','e','q')),'plan_id_conflict')
         sid=metadata(db,'i','source_snapshot_id')
         need(isinstance(sid,str) and metadata(db,'e','source_snapshot_id')==sid,'snapshot_id_conflict')

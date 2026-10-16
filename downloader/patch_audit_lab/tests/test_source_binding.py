@@ -29,7 +29,7 @@ class Fixture:
         self.queue=self.objects/('acquisition-queue-'+'2'*32+'.sqlite')
         self.inv=self.objects/('local-casc-inventory-'+'3'*32+'.sqlite')
         self.ev=self.objects/('local-casc-evidence-'+'4'*32+'.sqlite')
-        pid='5'*32;sid='6'*32
+        pid=self.plan.stem;sid='6'*32
         self.snapshot={'directory':str(self.game),'names':sorted(os.listdir(self.game)),'directory_identity':b.fp(self.game.stat()),'files':{'data.000':b.fp(self.archive.stat())}}
         common={'target_binding':BINDING,'source_plan_id':pid}
         ek=bytes.fromhex(option.source_ekey);ck=bytes.fromhex('77'*16)
@@ -131,6 +131,31 @@ class BindingTests(unittest.TestCase):
     def test_cross_plan_refused(self):
         self.f.meta(self.f.ev,'source_plan_id','9'*32)
         with self.assertRaisesRegex(b.BindingError,'plan_id'):self.f.run()
+    def test_real_plan_id_contract(self):
+        r,private=self.f.run()
+        self.assertEqual(private['plan_id'],self.f.plan.stem)
+        self.assertTrue(private['plan_id'].startswith('content-plan-'))
+    def test_bare_uuid_not_a_saved_plan_identity(self):
+        wrong=self.f.plan.stem.removeprefix('content-plan-')
+        self.f.meta(self.f.plan,'plan_id',wrong)
+        for p in (self.f.queue,self.f.inv,self.f.ev):self.f.meta(p,'source_plan_id',wrong)
+        self.f.record['plan_id']=wrong;self.f.refresh()
+        with self.assertRaisesRegex(b.BindingError,'plan_id_conflict'):self.f.run()
+    def test_consistent_id_of_different_plan_file_rejected(self):
+        wrong='content-plan-'+'a'*32
+        self.f.meta(self.f.plan,'plan_id',wrong)
+        for p in (self.f.queue,self.f.inv,self.f.ev):self.f.meta(p,'source_plan_id',wrong)
+        self.f.record['plan_id']=wrong;self.f.refresh()
+        with self.assertRaisesRegex(b.BindingError,'plan_id_conflict'):self.f.run()
+    def test_session_id_mismatch_rejected(self):
+        self.f.record['plan_id']='content-plan-'+'a'*32;self.f.refresh()
+        with self.assertRaisesRegex(b.BindingError,'plan_id_conflict'):self.f.run()
+    def test_each_linked_source_plan_id_mismatch_rejected(self):
+        for p in (self.f.queue,self.f.inv,self.f.ev):
+            with self.subTest(database=p.name):
+                self.f.meta(p,'source_plan_id','content-plan-'+'b'*32)
+                with self.assertRaisesRegex(b.BindingError,'plan_id_conflict'):self.f.run()
+                self.f.meta(p,'source_plan_id',self.f.plan.stem)
     def test_cross_snapshot_refused(self):
         self.f.meta(self.f.ev,'source_snapshot_id','9'*32)
         with self.assertRaisesRegex(b.BindingError,'snapshot_id'):self.f.run()
