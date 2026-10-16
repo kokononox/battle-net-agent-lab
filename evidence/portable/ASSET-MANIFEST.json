@@ -1,0 +1,56 @@
+{
+  "format": "portable-release-manifest-1",
+  "filename": "Portable-Retail-Sample.zip",
+  "bytes": 169779901,
+  "sha256": "9bd063f6dc6b8304df1fd939d24c01389abc0d4ff78f8c68463e4e0b2610bc0b",
+  "zip_crc_verified": true,
+  "zip_members": 19,
+  "original_upload_unchanged": true,
+  "release_status": "pending_manual_user_upload",
+  "release_tag": "retail-research-20261016",
+  "private_repository_required": true,
+  "contains_private_or_sqlite": false,
+  "contains_full_game_installation": false,
+  "contains_official_encoding_and_small_patch_sample": true,
+  "installation_ready": false,
+  "bundled_encoding_parser_needs_current_repo_code": true,
+  "trusted_runner": "downloader/patch_audit_lab/reproduce_portable.py",
+  "assets": [
+    {
+      "filename": "Portable-Retail-Sample.zip",
+      "bytes": 169779901,
+      "sha256": "9bd063f6dc6b8304df1fd939d24c01389abc0d4ff78f8c68463e4e0b2610bc0b",
+      "upload_status": "pending_manual_user_upload"
+    },
+    {
+      "filename": "Retail-Research-Code-20261016.zip",
+      "bytes": 1774264,
+      "sha256": "2569b87f3e22187827e5fae3c821bf0f252297c17fbbf9d99f3f92182d13313c",
+      "upload_status": "pending_manual_user_upload"
+    },
+    {
+      "filename": "Retail-Portable-Reproduction-Results.zip",
+      "bytes": 14732,
+      "sha256": "a9be77a1fa7f9ce78f857144fc97c474f47af00f05c5f4203caeb88a2f551185",
+      "upload_status": "pending_manual_user_upload"
+    },
+    {
+      "filename": "Retail-Synthetic-Storage-Research.zip",
+      "bytes": 23965,
+      "sha256": "580479af793213eee21c8178ee8458852c9a8230ecf7d6581c247419c25dd7f2",
+      "upload_status": "pending_manual_user_upload"
+    }
+  ],
+  "manual_release_page": "https://github.com/kokononox/battle-net-agent-lab/releases/new",
+  "target_branch": "patch-audit-20261016",
+  "release_prerelease": true,
+  "verified_remote_asset_urls": [],
+  "companion_zip_readback_test": {
+    "tests": 278,
+    "skipped": 0,
+    "errors": 0,
+    "failures": 0,
+    "native_oracle_available_on_research_host": true,
+    "file_hashes_verified": 46
+  }
+}

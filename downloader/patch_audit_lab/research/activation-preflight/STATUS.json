@@ -1,0 +1,55 @@
+{
+  "format": "activation-static-preflight-1",
+  "status": "in_progress_not_activation_contract",
+  "agent_version": "2.41.1.9824",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "agent_executed": false,
+  "new_network_downloads": 0,
+  "real_game_or_lab_written": false,
+  "xref_method": "PE32 literal VA operand byte matches; bounded objdump inspection, not full CFG",
+  "findings": [
+    {
+      "claim": "build mismatch, installed-build mismatch, missing active row have playable-false diagnostic branches",
+      "evidence": "build-playable.asm",
+      "range": [
+        "0x47d57c",
+        "0x47d81e"
+      ],
+      "limit": "not a recovered .build.info writer or global activation ordering"
+    },
+    {
+      "claim": "mapped-pointer path compares first dword unsigned with inclusive 4..5; outside goes to unsupported shmem diagnostic",
+      "evidence": "shmem-bind.asm",
+      "instructions": [
+        "0x71e18c",
+        "0x71e18e",
+        "0x71e194",
+        "0x71e196",
+        "0x71e249"
+      ],
+      "limit": "not proof that arbitrary shmem files begin with this dword; mapping base and mode paths need further tracing"
+    },
+    {
+      "claim": "following check compares dword at mapped pointer +0x108 to 0x2ab8",
+      "evidence": "shmem-bind.asm",
+      "instructions": [
+        "0x71e19c"
+      ],
+      "limit": "field semantics and full layout not recovered"
+    },
+    {
+      "claim": "flush create/sync/rename, sequence refresh and index-writer lock diagnostics have concrete literal references",
+      "evidence": "flush-xrefs.jsonl",
+      "limit": "strings and xrefs do not prove successful runtime ordering or crash safety"
+    }
+  ],
+  "casclib_reference": "38a34665624b8775bb875274b36191b21c38d97b",
+  "casclib_reader_selection": "IndexDirectory_OnFileFound tracks highest per-bucket filename versions; LoadLocalIndexFiles uses NewSubIndex; not equivalent to Agent shmem contract",
+  "next": "Trace mapped-pointer provenance, KMT flush/refresh updates and .build.info write ordering before any real writer",
+  "files_sha256": {
+    "initial-xrefs.jsonl": "5f80730dedcdf0e3cfde327bb7b23ff636292a10881d42d5934bfdba6bfd5f6b",
+    "flush-xrefs.jsonl": "b31f46c733f9fadabcff8ed699898bacaaca6a022a9dc38af1c7c22c6edeb4b6",
+    "build-playable.asm": "eae1cc408c629b3b179fed233f3b6953335cd3faccf578c9884cca0373ab6513",
+    "shmem-bind.asm": "361a0e365f604b2004bf29ace4da207212d1f027e360f69203b5d20b475e58d1"
+  }
+}
