@@ -34,11 +34,13 @@ public static class LanguageAdvance {
         using(var p=Process.GetProcessById(pid))return string.Equals(Path.GetFullPath(p.MainModule.FileName),setup,StringComparison.OrdinalIgnoreCase);
     }
     static List<AutomationElement> Tree(AutomationElement root,int pid) {
-        var result=new List<AutomationElement>();var seen=new HashSet<string>();var stack=new Stack<Node>();stack.Push(new Node(root,0));var watch=Stopwatch.StartNew();var walk=TreeWalker.RawViewWalker;
+        // Preserve structural occurrences: provider runtime IDs must not prune subtrees.
+        // Full traversal remains bounded; duplicate matching controls fail closed below.
+        var result=new List<AutomationElement>();var stack=new Stack<Node>();stack.Push(new Node(root,0));var watch=Stopwatch.StartNew();var walk=TreeWalker.RawViewWalker;
         while(stack.Count>0){
             if(result.Count>=64||watch.ElapsedMilliseconds>3000)throw new Stop("control_ambiguous");
             var n=stack.Pop();var c=n.E.Current;if(c.ProcessId!=pid)throw new Stop("process_mismatch");
-            string id=string.Join(",",Array.ConvertAll(n.E.GetRuntimeId(),x=>x.ToString()));if(!seen.Add(id))continue;
+            // Do not skip a node or its children on a repeated provider runtime ID.
             result.Add(n.E);
             if(n.D>=6){if(walk.GetFirstChild(n.E)!=null)throw new Stop("control_ambiguous");continue;}
             var child=walk.GetFirstChild(n.E);int count=0;

@@ -28,3 +28,9 @@ class GuardDiagnosticTests(unittest.TestCase):
         self.assertIn('if(groups.Count==0)throw',s);self.assertIn('if(groups.Count!=1)throw',s)
         self.assertIn('if(buttons.Count==0)throw',s);self.assertIn('if(buttons.Count!=1)throw',s)
         self.assertEqual(s.count('select.Select();'),1);self.assertEqual(s.count('invoke.Invoke();'),1)
+    def test_tree_never_prunes_subtree_by_runtime_id(self):
+        s=self.source().split('static List<AutomationElement> Tree(',1)[1].split('static AutomationElement[] Controls(',1)[0]
+        self.assertNotIn('GetRuntimeId()',s)
+        self.assertNotIn('seen.Add',s)
+        for guard in ('result.Count>=64','watch.ElapsedMilliseconds>3000','n.D>=6','count>64','stack.Count>=64','c.ProcessId!=pid'):
+            self.assertIn(guard,s)
