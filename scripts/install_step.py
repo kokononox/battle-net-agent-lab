@@ -6,7 +6,7 @@ import subprocess
 import sys
 import tempfile
 
-APPROVED_COMMIT='lab: approved client-install step 2026-10-16 75be1c94'
+APPROVED_COMMIT='lab: approved child-scoped client-install 2026-10-16 9d28c4a1'
 STATUSES={'not_requested','pending','no_targets','ambiguous_window','process_mismatch','page_mismatch','forbidden_text','signature_refused','pattern_unavailable','page_changed','page_confirmed','continue_attempted','continued','timeout','helper_failed','output_rejected','native_exception','journal_failed'}
 FLAGS=('authorized','helper_started','page_confirmed','continue_attempted','continue_returned','journal_recovered','outcome_uncertain')
 
@@ -37,6 +37,13 @@ def decode(raw):
             d[k]=v
         return d
     return validate(json.loads(raw.decode('utf-8-sig'),object_pairs_hook=unique))
+
+def setup_pid(processes,original_pid):
+    """Only the original setup or a directly observed child; never by name alone."""
+    candidates=[p['pid'] for p in processes if p.get('name')=='battle.net-setup.exe'
+                and (p.get('pid')==original_pid or p.get('parent_pid')==original_pid)
+                and type(p.get('pid')) is int and 0<p['pid']<2**32]
+    return candidates[0] if len(candidates)==1 else None
 
 def run(targets,pid,setup,authorized=False):
     result=blank(authorized)

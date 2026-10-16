@@ -8,7 +8,7 @@ On one exact, first-attempt source push on a fresh GitHub-hosted Windows runner:
 1. Download and validate the official Blizzard-signed bootstrapper under existing rules.
 2. Perform the already approved language selection and Continue once.
 3. At or after 30 seconds, attempt one scoped setup-options inspection only if the language action returned with no uncertainty.
-4. Verify original setup PID, HWND, executable path, Authenticode trust and Blizzard publisher. Require the exact bounded six-element setup-options tree, including exact startup-option name, Change and Continue. Reject extra roles, password/offscreen/disabled controls, known legal/account/error text or ambiguous controls.
+4. Verify original setup PID or its directly observed child PID, HWND, exact original executable path, Authenticode trust and Blizzard publisher. Require the exact bounded six-element setup-options tree, including exact startup-option name, Change and Continue. Reject extra roles, password/offscreen/disabled controls, known legal/account/error text or ambiguous controls.
 5. Recheck owner and exact same page/button; journal the attempt durably, then invoke Continue once. Never retry uncertain outcomes.
 6. Observe read-only for the remainder of the bounded 150-second period, then clean up processes. No account, legal, login, game or additional wizard actions exist. Startup checkbox and installation path are not changed.
 
@@ -19,3 +19,6 @@ Schema 9 adds strict install_step booleans/enums and permits the one additional 
 
 ## Before first execution
 Existing tests plus dedicated default-deny, scope, authorization, schema, journal, uncertain-timeout, signature/page-source guard and Windows denied-config tests must pass. Local Linux tests skip native Windows checks; the mandatory Windows suite runs before downloading Setup. Execution results are not yet known at this source commit.
+
+## First Windows execution and bounded correction
+Run 38934965151 (source cbfc187e47f2b32dcf0f2da462dee8dfabdf5ef1) passed all 181 Windows tests. The language action returned. The install wrapper returned no_targets before starting its native helper; no install Continue was attempted. The 31.39-second process sample shows setup PID 1272 with parent PID 3948 (the initial setup), while the options window belongs to PID 1272. The correction permits exactly one original-or-direct-child setup candidate from the observed process sample. It does NOT relax exact executable path, fresh-runner, HWND ownership, signature, publisher, page shape or once-only requirements. If the child executes a different file path, it is still refused.

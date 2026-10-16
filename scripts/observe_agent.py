@@ -220,7 +220,7 @@ def observe(out_dir, seconds=150, advance_language=False, advance_install=False)
     report=initial_report();report['limits']['observation_seconds']=seconds
     from language_step import blank as language_blank, run as language_run
     if advance_install and not advance_language:raise LabError('language_authorization_required')
-    from install_step import blank as install_blank, run as install_run
+    from install_step import blank as install_blank, run as install_run, setup_pid
     report['install_step']=install_blank(advance_install)
     report['language_step']=language_blank(advance_language)
     install_checked=False
@@ -230,7 +230,8 @@ def observe(out_dir, seconds=150, advance_language=False, advance_install=False)
         report['language_step']=language_run(targets,process.pid,setup,authorized=True)
     def install(targets):
         report['install_step']['outcome_uncertain']=True
-        report['install_step']=install_run(targets,process.pid,setup,authorized=True)
+        pid=setup_pid(report['samples'][-1]['processes'],process.pid)
+        report['install_step']=install_run(targets,pid,setup,authorized=True)
     work=None;env=clean_environment(os.environ);raw={'processes':[]};launched=False;process=None
     try:
         if sys.platform!='win32' or os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('RUNNER_OS')!='Windows' or os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted':

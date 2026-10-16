@@ -80,6 +80,18 @@ class InstallTests(unittest.TestCase):
         self.assertIn('advance_install and not install_checked',s);self.assertIn('install_checked=True',s)
         self.assertIn("report['language_step']['status']=='continued' and not report['language_step']['outcome_uncertain']",s)
         self.assertIn('advance_language and not advance_install',s)
+    def test_child_scope_requires_observed_parent_link(self):
+        self.assertEqual(step.setup_pid([{'name':'battle.net-setup.exe','pid':42,'parent_pid':1}],42),42)
+        self.assertEqual(step.setup_pid([{'name':'battle.net-setup.exe','pid':43,'parent_pid':42}],42),43)
+        self.assertIsNone(step.setup_pid([{'name':'battle.net-setup.exe','pid':43,'parent_pid':99}],42))
+        self.assertIsNone(step.setup_pid([{'name':'agent.exe','pid':43,'parent_pid':42}],42))
+        self.assertIsNone(step.setup_pid([],42))
+    def test_multiple_setup_candidates_refused(self):
+        self.assertIsNone(step.setup_pid([{'name':'battle.net-setup.exe','pid':43,'parent_pid':42},{'name':'battle.net-setup.exe','pid':44,'parent_pid':42}],42))
+    def test_child_scope_does_not_relax_executable_path_or_signature(self):
+        s=Path('scripts/install_advance.cs').read_text()
+        self.assertIn('Path.GetFullPath(proc.MainModule.FileName),setup',s)
+        self.assertIn('AuthenticodeNative.Verify(setup)',s)
     @unittest.skipUnless(sys.platform=='win32','native install denied-config check')
     def test_native_missing_config_no_action(self):
         env=obs.clean_environment(os.environ);helper,work=uia.native_helper(env)
