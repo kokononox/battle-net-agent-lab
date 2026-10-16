@@ -1,0 +1,30 @@
+{
+  "format": "portable-real-fixture-qa-1",
+  "status": "passed",
+  "zip_sha256": "9bd063f6dc6b8304df1fd939d24c01389abc0d4ff78f8c68463e4e0b2610bc0b",
+  "zip_bytes": 169779901,
+  "fixed_whitelist_members": 19,
+  "all_member_hashes_verified_before_and_after_tests": true,
+  "uploaded_members_modified": false,
+  "uploaded_code_compared_to_original_delivery": true,
+  "reviewed_local_parser_used_for_execution": true,
+  "parser_scale_fix": {
+    "old_spec_bytes_limit": 8388608,
+    "new_spec_bytes_limit": 16777216,
+    "observed_spec_bytes": 16030848,
+    "old_string_limit": 250000,
+    "new_string_limit": 500000,
+    "observed_strings": 317554,
+    "selected_recipe_length_limit": 4096,
+    "longest_recipe_observed": 3514
+  },
+  "tests_passed": 234,
+  "new_regression_tests": 4,
+  "platform": "Linux",
+  "python": "3.13",
+  "target_reencoding_verified_here": true,
+  "independent_header_patch_qa_passed": true,
+  "independent_compressor_implementation_tested": false,
+  "network_requests_during_reproduction": 0,
+  "whole_lab_or_activation_verified": false
+}

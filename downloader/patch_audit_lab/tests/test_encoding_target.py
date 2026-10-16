@@ -49,6 +49,32 @@ class LookupTests(unittest.TestCase):
             p=Path(d).resolve()/'encoding';p.write_bytes(raw)
             with self.assertRaises(b.BindingError):e.lookup_file(p,b.Watch(),a.md5(raw),len(raw)+1,ck.hex())
 
+class RealScaleSpecBoundsTests(unittest.TestCase):
+    def replace_specs(self,spec):
+        raw,ck,ek,enc=fixture()
+        old=int.from_bytes(raw[18:22],'big')
+        return raw[:18]+len(spec).to_bytes(4,'big')+spec+raw[22+old:],ck,ek
+    def test_more_than_8MiB_and_250000_specs(self):
+        # Regression for real Retail: 16,030,848 bytes / 317,554 recipes.
+        spec=(b'z:'+b'9'*45+b'\0')*317554
+        self.assertGreater(len(spec),8*1024**2)
+        raw,ck,ek=self.replace_specs(spec)
+        table=e.EncodingLookup(io.BytesIO(raw),len(raw))
+        self.assertEqual(len(table.specs),317554)
+        self.assertEqual(table.content(ck),(5,[ek]))
+    def test_over_16MiB_rejected(self):
+        raw,ck,ek=self.replace_specs(b'a'*(16*1024**2)+b'\0')
+        with self.assertRaises(b.BindingError):e.EncodingLookup(io.BytesIO(raw),len(raw))
+    def test_over_500000_specs_rejected(self):
+        raw,ck,ek=self.replace_specs(b'z\0'*500001)
+        with self.assertRaises(b.BindingError):e.EncodingLookup(io.BytesIO(raw),len(raw))
+    def test_long_realistic_recipe_is_retained_not_guessed(self):
+        raw,ck,ek=self.replace_specs(b'a'*3514+b'\0')
+        table=e.EncodingLookup(io.BytesIO(raw),len(raw))
+        self.assertEqual(len(table.encoded(ek)['espec']),3514)
+        report,generated=e.assess(b'hello',table.encoded(ek))
+        self.assertFalse(report['reencode_attempted']);self.assertIsNone(generated)
+
 class EncoderTests(unittest.TestCase):
     def roundtrip(self,spec,data=b'abcd'*100):
         raw=e.encode(data,spec);hs=int.from_bytes(raw[4:8],'big');key=a.md5(raw[:hs] if hs else raw)

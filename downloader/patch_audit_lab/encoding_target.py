@@ -32,14 +32,14 @@ class EncodingLookup:
         b.need(h[:5]==b'EN\x01\x10\x10' and h[17]==0,'encoding_header')
         self.cs=int.from_bytes(h[5:7],'big')*1024;self.es=int.from_bytes(h[7:9],'big')*1024
         self.cn=int.from_bytes(h[9:13],'big');self.en=int.from_bytes(h[13:17],'big');specsize=int.from_bytes(h[18:22],'big')
-        b.need(1024<=self.cs<=65536 and 1024<=self.es<=65536 and 0<self.cn<=500000 and 0<self.en<=500000 and 0<specsize<=8*1024**2,'encoding_geometry_limit')
+        b.need(1024<=self.cs<=65536 and 1024<=self.es<=65536 and 0<self.cn<=500000 and 0<self.en<=500000 and 0<specsize<=16*1024**2,'encoding_geometry_limit')
         ci=22+specsize;self.cp=ci+32*self.cn;ei=self.cp+self.cs*self.cn;self.ep=ei+32*self.en
         b.need(self.ep+self.es*self.en<=size,'encoding_geometry_bounds')
         spec=self.read(22,specsize)
         b.need(spec.endswith(b'\0'),'encoding_espec_terminator')
         try:self.specs=spec[:-1].decode('ascii').split('\0')
         except UnicodeError:raise b.BindingError('encoding_espec_ascii') from None
-        b.need(len(self.specs)<=250000,'encoding_spec_count_limit')
+        b.need(len(self.specs)<=500000,'encoding_spec_count_limit')
         self.cindex=self.index(ci,self.cn);self.eindex=self.index(ei,self.en)
         self.unparsed_tail=size-(self.ep+self.es*self.en)
     def read(self,at,n):
@@ -83,7 +83,7 @@ class EncodingLookup:
             b.need((last is not None or ek==first) and (last is None or last<ek) and (following is None or ek<following),'encoding_ekey_page_order')
             if ek==key:
                 index=int.from_bytes(raw[pos+16:pos+20],'big');size=int.from_bytes(raw[pos+20:pos+25],'big')
-                b.need(index<len(self.specs) and 0<len(self.specs[index])<=2048 and size>0,'encoding_espec_reference')
+                b.need(index<len(self.specs) and 0<len(self.specs[index])<=4096 and size>0,'encoding_espec_reference')
                 found={'ekey':key.hex(),'encoded_size':size,'espec_index':index,'espec':self.specs[index]}
             last=ek;used=pos+25
         b.need(not any(raw[used:]),'encoding_ekey_padding');return found
