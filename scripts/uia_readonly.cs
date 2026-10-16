@@ -14,9 +14,35 @@ public static class UiaReadOnly {
     static Dictionary<string,object> Report(int n) {
         return new Dictionary<string,object> { {"status","ok"},{"elements",new List<object>()},
             {"truncated",false},{"errors",0},{"top_windows_requested",n} }; }
+
+    const string CaptionWords="install installation location folder directory destination choose select path change battle.net start launch run startup automatically when windows computer desktop shortcut create account login sign log agreement license terms privacy accept agree continue update updating download downloading error failed retry network required space available disk recommended options additional open application";
+    static Dictionary<string,object> Caption(string raw) {
+        bool cut=raw.Length>512;string text=cut?raw.Substring(0,512):raw;
+        bool path=Regex.IsMatch(text,@"\b[a-z]:[\\/]|\\\\",RegexOptions.IgnoreCase);
+        text=Regex.Replace(text,@"\b[a-z]:[\\/][^\r\n]*|\\\\[^\r\n]*"," ",RegexOptions.IgnoreCase);
+        text=Regex.Replace(text,@"(?:https?|file)://\S+|[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}"," ",RegexOptions.IgnoreCase);
+        var allowed=new HashSet<string>(CaptionWords.Split(' '));var tokens=new List<string>();bool unknown=false;
+        foreach(Match m in Regex.Matches(text.ToLowerInvariant(),@"[a-z]+(?:\.[a-z]+)?")) {
+            if(allowed.Contains(m.Value)){if(!tokens.Contains(m.Value))tokens.Add(m.Value);}else unknown=true;
+        }
+        return new Dictionary<string,object>{{"tokens",tokens},{"has_path",path},{"has_unknown_words",unknown},{"truncated",cut},{"toggle_state","not_applicable"}};
+    }
+    static Dictionary<string,object> CaptionSelfTest() {
+        var path=Caption(@"Install Location: C:\Users\PRIVATE\Battle.net");
+        var words=(List<string>)path["tokens"];
+        var checkbox=Caption("Launch Battle.net when you start your computer.");
+        var hidden=Caption("private@example.invalid https://private.invalid/SECRET");
+        var longText=Caption(new string('x',600));
+        return new Dictionary<string,object>{
+            {"path_redacted",(bool)path["has_path"]&&words.Count==2&&words[0]=="install"&&words[1]=="location"},
+            {"startup_words",((List<string>)checkbox["tokens"]).Contains("launch")&&((List<string>)checkbox["tokens"]).Contains("computer")},
+            {"addresses_redacted",((List<string>)hidden["tokens"]).Count==0},
+            {"length_bounded",(bool)longText["truncated"]&&((List<string>)longText["tokens"]).Count==0}};
+    }
     [STAThread]
     public static int Main(string[] args) {
         try {
+            if(args.Length==1 && args[0]=="caption-selftest") { Console.WriteLine(json.Serialize(CaptionSelfTest())); return 0; }
             if(args.Length==1 && args[0]=="signature") {
                 Console.WriteLine(json.Serialize(AuthenticodeNative.Verify(Environment.GetEnvironmentVariable("BNET_LAB_VERIFY_PATH")))); return 0;
             }
@@ -56,9 +82,19 @@ public static class UiaReadOnly {
                         if(kind.StartsWith("ControlType.")) kind=kind.Substring(12);
                         if(!allowed.Contains(kind)) kind="Other";
                         bool password=current.IsPassword, offscreen=current.IsOffscreen, enabled=current.IsEnabled;
-                        string label="not_read"; var markers=new List<string>();
+                        string label="not_read"; var markers=new List<string>();Dictionary<string,object> caption=null;
                         if(!password && !offscreen && readable.Contains(kind)) {
                             string name=current.Name ?? "";
+                            if(kind=="Text"||kind=="CheckBox") {
+                                caption=Caption(name);
+                                if(kind=="CheckBox") {
+                                    caption["toggle_state"]="unavailable";object toggleObject;
+                                    if(node.Element.TryGetCurrentPattern(TogglePattern.Pattern,out toggleObject)) {
+                                        var toggle=(TogglePattern)toggleObject;
+                                        caption["toggle_state"]=toggle.Current.ToggleState.ToString().ToLowerInvariant();
+                                    }
+                                }
+                            }
                             if(name.Length>512) name=name.Substring(0,512);
                             name=Regex.Replace(name.Replace("&","").Trim(),@"\s+"," ").ToLowerInvariant();
                             object mapped; label=labels.TryGetValue(name,out mapped)?(string)mapped:"unrecognized";
@@ -68,7 +104,7 @@ public static class UiaReadOnly {
                             }
                         }
                         items.Add(new Dictionary<string,object> { {"pid",pid},{"depth",node.Depth},{"control_type",kind},
-                            {"enabled",enabled},{"offscreen",offscreen},{"password",password},{"label",label},{"markers",markers} });
+                            {"enabled",enabled},{"offscreen",offscreen},{"password",password},{"label",label},{"markers",markers},{"caption_features",caption} });
                         if(node.Depth>=6) { truncated=true; continue; }
                         var child=walker.GetFirstChild(node.Element); int siblings=0;
                         while(child!=null) {

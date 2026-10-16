@@ -28,7 +28,8 @@ def validate(report,targets,requested_count=None):
     if type(report['elements']) is not list or len(report['elements'])>64:raise ValueError('uia_limit')
     pids={x['pid'] for x in targets}
     for e in report['elements']:
-        if type(e) is not dict or set(e)!={'pid','depth','control_type','enabled','offscreen','password','label','markers'}:raise ValueError('uia_element')
+        base={'pid','depth','control_type','enabled','offscreen','password','label','markers'}
+        if type(e) is not dict or set(e) not in (base,base|{'caption_features'}):raise ValueError('uia_element')
         if type(e['pid']) is not int or e['pid'] not in pids:raise ValueError('uia_pid')
         if type(e['depth']) is not int or not 0<=e['depth']<=6:raise ValueError('uia_depth')
         if e['control_type'] not in TYPES:raise ValueError('uia_control_type')
@@ -36,6 +37,8 @@ def validate(report,targets,requested_count=None):
             if type(e[f]) is not bool:raise ValueError('uia_boolean')
         if e['label'] not in set(LABELS.values())|{'unrecognized','not_read'}:raise ValueError('uia_label')
         if type(e['markers']) is not list or len(e['markers'])>len(MARKERS) or any(type(m) is not str or m not in MARKERS for m in e['markers']):raise ValueError('uia_marker')
+        from caption_features import validate as validate_caption
+        validate_caption(e.get('caption_features'),e)
         if e['password'] or e['offscreen'] or e['control_type'] not in READABLE:
             if e['label']!='not_read' or e['markers']:raise ValueError('uia_sensitive_name')
     if n==0 and report['elements']:raise ValueError('uia_zero_scope')

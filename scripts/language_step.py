@@ -6,7 +6,7 @@ import subprocess
 import sys
 import tempfile
 
-APPROVED_COMMIT='lab: approved language-only Agent-state observation 2026-10-16 e39d62a1'
+APPROVED_COMMIT='lab: approved language-only caption observation 2026-10-16 f8a21d6c'
 STATUSES={'not_requested','pending','no_targets','ambiguous_window','process_mismatch','window_mismatch','page_not_language','control_ambiguous','pattern_unavailable','selection_failed','selection_attempted','selection_confirmed','continue_attempted','continued','timeout','helper_failed','output_rejected','native_exception','journal_failed'}
 STATUSES.update({'control_ambiguous', 'pattern_unavailable', 'forbidden_control', 'page_changed', 'process_mismatch', 'forbidden_text', 'window_mismatch', 'name_too_long', 'selection_failed', 'unsafe_name', 'language_group_missing', 'continue_ambiguous', 'continue_missing', 'journal_failed', 'language_group_ambiguous'})
 FLAGS=('authorized','helper_started','selection_attempted','selection_confirmed','continue_attempted','continue_returned','journal_recovered','outcome_uncertain')
