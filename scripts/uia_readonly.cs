@@ -93,8 +93,8 @@ public static class UiaReadOnly {
                                 if(kind=="Text"&&((List<string>)caption["tokens"]).Count==0&&!(bool)caption["has_path"]) {
                                     object textValue;
                                     if(node.Element.TryGetCurrentPattern(ValuePattern.Pattern,out textValue)) {
-                                        var value=(ValuePattern)textValue;
-                                        caption=Caption(value.Current.Value??"");
+                                        var staticValue=(ValuePattern)textValue;
+                                        caption=Caption(staticValue.Current.Value??"");
                                     }
                                     if(((List<string>)caption["tokens"]).Count==0&&!(bool)caption["has_path"]&&node.Element.TryGetCurrentPattern(TextPattern.Pattern,out textValue)) {
                                         var text=(TextPattern)textValue;

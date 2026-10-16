@@ -103,8 +103,8 @@ class AccessibilityTests(unittest.TestCase):
         self.assertIn('if(kind=="Text"&&',s)
         self.assertEqual(s.count('.GetText(512)'),1)
         self.assertNotIn('.GetText(-1)',s)
-        self.assertLess(s.index('if(kind=="Text"&&'),s.index('value.Current.Value'))
-        self.assertLess(s.index('current.IsPassword'),s.index('value.Current.Value'))
+        self.assertLess(s.index('if(kind=="Text"&&'),s.index('staticValue.Current.Value'))
+        self.assertLess(s.index('current.IsPassword'),s.index('staticValue.Current.Value'))
     @unittest.skipUnless(sys.platform=='win32','native Windows UIA empty-target smoke test')
     def test_actual_windows_helper_with_no_targets(self):
         # Deliberately undo the transport mock: this test must really compile/run on Windows.

@@ -71,9 +71,14 @@ class CaptionTests(unittest.TestCase):
         s=Path('scripts/uia_readonly.cs').read_text()
         block=s.split('if(kind=="Text"&&',1)[1].split('if(kind=="CheckBox")',1)[0]
         self.assertIn('ValuePattern.Pattern',block);self.assertIn('TextPattern.Pattern',block)
-        self.assertIn('Caption(value.Current.Value??"")',block)
+        self.assertIn('Caption(staticValue.Current.Value??"")',block)
         self.assertIn('Caption(text.DocumentRange.GetText(512)??"")',block)
         for action in ('.SetValue(','.Select(','.Invoke(','.Toggle(','.SetFocus('):self.assertNotIn(action,block)
+    def test_no_shadow_of_outer_target_value(self):
+        s=Path('scripts/uia_readonly.cs').read_text()
+        self.assertIn('foreach(var value in targets)',s)
+        self.assertNotIn('var value=(ValuePattern)',s)
+        self.assertIn('var staticValue=(ValuePattern)',s)
     @unittest.skipUnless(sys.platform=='win32','native caption redaction self-test')
     def test_native_real_classifier_selftest(self):
         env=obs.clean_environment(os.environ);helper,work=uia.native_helper(env)
