@@ -18,7 +18,7 @@ public static class LanguageAdvance {
     sealed class Node {public AutomationElement E;public int D;public Node(AutomationElement e,int d){E=e;D=d;}}
     static Dictionary<string,object> r;
     static string journal;
-    static string Name(AutomationElement e) {var c=e.Current;if(c.IsPassword||c.IsOffscreen)throw new Stop("page_not_language");string n=c.Name??"";if(n.Length>512)throw new Stop("page_not_language");return Regex.Replace(n.Replace("&","").Trim(),@"\s+"," ").ToLowerInvariant();}
+    static string Name(AutomationElement e) {var c=e.Current;if(c.IsPassword||c.IsOffscreen)throw new Stop("unsafe_name");string n=c.Name??"";if(n.Length>512)throw new Stop("name_too_long");return Regex.Replace(n.Replace("&","").Trim(),@"\s+"," ").ToLowerInvariant();}
     static bool Ready(AutomationElement e,int pid,ControlType t) {var c=e.Current;return c.ProcessId==pid&&c.ControlType==t&&c.IsEnabled&&!c.IsOffscreen&&!c.IsPassword;}
     static void Save() {
         try {
@@ -49,15 +49,18 @@ public static class LanguageAdvance {
         var groups=new List<AutomationElement>();var buttons=new List<AutomationElement>();
         foreach(var e in Tree(root,pid)){
             var c=e.Current;if(c.IsOffscreen)continue;
-            if(c.IsPassword||c.ControlType==ControlType.Edit||c.ControlType==ControlType.Document)throw new Stop("page_not_language");
+            if(c.IsPassword||c.ControlType==ControlType.Edit||c.ControlType==ControlType.Document)throw new Stop("forbidden_control");
             // Do not read Custom/ListItem/unknown provider text.
             if(c.ControlType!=ControlType.Window&&c.ControlType!=ControlType.Group&&c.ControlType!=ControlType.Text&&c.ControlType!=ControlType.Button&&c.ControlType!=ControlType.RadioButton&&c.ControlType!=ControlType.Pane)continue;
             string n=Name(e);
-            if(Regex.IsMatch(n,@"\b(license|licence|agreement|terms|eula|privacy|login|log[ -]?in|sign[ -]?in|password|error)\b"))throw new Stop("page_not_language");
+            if(Regex.IsMatch(n,@"\b(license|licence|agreement|terms|eula|privacy|login|log[ -]?in|sign[ -]?in|password|error)\b"))throw new Stop("forbidden_text");
             if(Ready(e,pid,ControlType.Group)&&n=="select a language")groups.Add(e);
             if(Ready(e,pid,ControlType.Button)&&n=="continue")buttons.Add(e);
         }
-        if(groups.Count!=1||buttons.Count!=1)throw new Stop("page_not_language");
+        if(groups.Count==0)throw new Stop("language_group_missing");
+        if(groups.Count!=1)throw new Stop("language_group_ambiguous");
+        if(buttons.Count==0)throw new Stop("continue_missing");
+        if(buttons.Count!=1)throw new Stop("continue_ambiguous");
         var radios=new List<AutomationElement>();var seen=new HashSet<string>();var walker=TreeWalker.RawViewWalker;var radio=walker.GetFirstChild(groups[0]);int limit=0;
         while(radio!=null){
             if(++limit>32)throw new Stop("control_ambiguous");
@@ -85,7 +88,7 @@ public static class LanguageAdvance {
             // Recheck page/owner and the exact same controls after selection, never a next-page Continue.
             if(!Owner(hwnd,pid,setup)||!Ready(root,pid,ControlType.Window)||Name(root)!="battle.net setup")throw new Stop("window_mismatch");
             var again=Controls(root,pid);
-            if(!Automation.Compare(controls[0],again[0])||!Automation.Compare(controls[1],again[1])||!select.Current.IsSelected)throw new Stop("page_not_language");
+            if(!Automation.Compare(controls[0],again[0])||!Automation.Compare(controls[1],again[1])||!select.Current.IsSelected)throw new Stop("page_changed");
             r["continue_attempted"]=true;r["status"]="continue_attempted";Save();invoke.Invoke();
             r["continue_returned"]=true;r["status"]="continued";Save();
         }catch(Stop e){r["status"]=e.Code;if((bool)r["selection_attempted"]||(bool)r["continue_attempted"])r["outcome_uncertain"]=true;}
