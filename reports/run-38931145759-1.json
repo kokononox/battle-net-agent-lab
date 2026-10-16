@@ -1,0 +1,133 @@
+{
+  "schema": "agent-bootstrap-observation-7",
+  "status": "stopped",
+  "scope": "fresh_hosted_windows_bootstrap_only;not_WoW_update_or_install",
+  "utc": "2026-10-16T16:20:36.836084+00:00",
+  "source_commit": "13b487bbba70f954209f56e2c68044546e1d036b",
+  "run_id": "38931145759",
+  "run_attempt": "1",
+  "language_step": {
+    "status": "not_requested",
+    "selection_already_set": null,
+    "authorized": false,
+    "helper_started": false,
+    "selection_attempted": false,
+    "selection_confirmed": false,
+    "continue_attempted": false,
+    "continue_returned": false,
+    "journal_recovered": false,
+    "outcome_uncertain": false
+  },
+  "gui_observations": [],
+  "safety_test_result": {
+    "result": "failed",
+    "discovered": 154,
+    "executed": 151,
+    "skipped": 0,
+    "failure_count": 4,
+    "failures": [
+      {
+        "test_id": "test_accessibility.AccessibilityTests.test_actual_windows_helper_with_no_targets",
+        "error_kind": "ToolchainError",
+        "toolchain_code": "uia_compile_failed",
+        "compiler_codes": [
+          "CS0136"
+        ]
+      },
+      {
+        "test_id": "test_caption_features.CaptionTests.test_native_real_classifier_selftest",
+        "error_kind": "ToolchainError",
+        "toolchain_code": "uia_compile_failed",
+        "compiler_codes": [
+          "CS0136"
+        ]
+      },
+      {
+        "test_id": "test_language_step.LanguageTests.test_actual_windows_denied_config_has_no_action",
+        "error_kind": "ToolchainError",
+        "toolchain_code": "uia_compile_failed",
+        "compiler_codes": [
+          "CS0136"
+        ]
+      },
+      {
+        "test_id": "unrecognized_test",
+        "error_kind": "ToolchainError",
+        "toolchain_code": "uia_compile_failed",
+        "compiler_codes": [
+          "CS0136"
+        ]
+      }
+    ],
+    "failure_list_truncated": false
+  },
+  "signature_backend": "Windows_WinVerifyTrust_Authenticode",
+  "installer": {},
+  "samples": [],
+  "file_observations": {},
+  "agent_binaries": [],
+  "log_markers": {},
+  "agent_state": {
+    "status": "not_collected",
+    "files_read": 0,
+    "files_skipped": 0,
+    "bytes_read": 0,
+    "lines_scanned": 0,
+    "oversized_lines_skipped": 0,
+    "partial_lines_skipped": 0,
+    "truncated": false,
+    "event_counts": {
+      "lifecycle": 0,
+      "agent_update": 0,
+      "configuration": 0,
+      "content_storage": 0,
+      "download": 0,
+      "patch": 0,
+      "ipc": 0,
+      "network": 0,
+      "timeout": 0,
+      "failure": 0,
+      "completion": 0,
+      "product": 0
+    },
+    "events": [],
+    "gui_signals": {
+      "language": false,
+      "legal": false,
+      "account": false,
+      "installation_options": false,
+      "progress": false,
+      "error": false
+    },
+    "log_mentions_are_not_operation_proof": true,
+    "gui_markers_are_not_page_proof": true,
+    "raw_text_exported": false
+  },
+  "cleanup_attempted": false,
+  "error_code": "safety_test_suite_failed",
+  "phase": "safety_tests",
+  "error_type": null,
+  "underlying_error_type": null,
+  "numeric_error_code": null,
+  "limits": {
+    "observation_seconds": 150,
+    "installer_body_bytes": 134217728,
+    "bootstrapper_child_network_hard_byte_cap": false
+  },
+  "safety": {
+    "account_login_attempted": false,
+    "game_download_requested": false,
+    "game_installation_modified": false,
+    "CASC_writes_requested": false,
+    "raw_logs_exported": false,
+    "binaries_exported": false,
+    "github_tokens_passed_in_child_environment": false
+  },
+  "interpretation": {
+    "installation_complete_proven": false,
+    "agent_bootstrap_observation_only": true,
+    "no_agent_observed_does_not_prove_agent_absent": true,
+    "endpoint_sampling_is_not_full_network_capture": true,
+    "log_keyword_counts_do_not_prove_operation_execution": true
+  }
+}
