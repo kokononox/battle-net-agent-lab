@@ -1,20 +1,20 @@
 {
   "schema": "agent-bootstrap-observation-6",
-  "status": "bootstrapper_observed_agent_not_observed",
+  "status": "agent_process_observed",
   "scope": "fresh_hosted_windows_bootstrap_only;not_WoW_update_or_install",
-  "utc": "2026-10-16T02:41:59.470737+00:00",
-  "source_commit": "b844fd4cdf2abe6f54a72c763f021682ab7c5ba2",
-  "run_id": "38841730984",
+  "utc": "2026-10-16T02:46:57.169654+00:00",
+  "source_commit": "71abe7a9bb2cb03e011a37a68bc33b8c293a65ed",
+  "run_id": "38842140500",
   "run_attempt": "1",
   "language_step": {
-    "status": "language_group_missing",
+    "status": "continued",
     "authorized": true,
     "helper_started": true,
-    "selection_already_set": null,
+    "selection_already_set": true,
     "selection_attempted": false,
-    "selection_confirmed": false,
-    "continue_attempted": false,
-    "continue_returned": false,
+    "selection_confirmed": true,
+    "continue_attempted": true,
+    "continue_returned": true,
     "journal_recovered": false,
     "outcome_uncertain": false
   },
@@ -24,7 +24,7 @@
       "observer_session_id": 2,
       "process_sessions": [
         {
-          "pid": 7936,
+          "pid": 1552,
           "session_id": 2
         }
       ],
@@ -47,365 +47,28 @@
           "label": "not_read",
           "markers": [],
           "controls": []
-        },
-        {
-          "class": "other",
-          "visible": false,
-          "enabled": false,
-          "label": "not_read",
-          "markers": [],
-          "controls": []
         }
       ],
       "enumeration_truncated": false,
       "probe_errors": 0,
       "accessibility": {
         "status": "ok",
-        "elements": [
-          {
-            "pid": 7936,
-            "depth": 0,
-            "control_type": "Window",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "battle_net_setup",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "english_us",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "Button",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "continue",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "Group",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "select_language",
-            "markers": [
-              "language"
-            ]
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "english_us",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          }
-        ],
-        "truncated": false,
+        "elements": [],
+        "truncated": true,
         "errors": 0,
         "top_windows_requested": 1
       }
     },
     {
-      "elapsed_seconds": 91.39,
+      "elapsed_seconds": 94.73,
       "observer_session_id": 2,
       "process_sessions": [
         {
-          "pid": 7936,
+          "pid": 1380,
+          "session_id": 2
+        },
+        {
+          "pid": 4116,
           "session_id": 2
         }
       ],
@@ -417,6 +80,30 @@
           "class": "other",
           "visible": true,
           "enabled": true,
+          "label": "not_read",
+          "markers": [],
+          "controls": []
+        },
+        {
+          "class": "other",
+          "visible": false,
+          "enabled": true,
+          "label": "not_read",
+          "markers": [],
+          "controls": []
+        },
+        {
+          "class": "other",
+          "visible": false,
+          "enabled": true,
+          "label": "not_read",
+          "markers": [],
+          "controls": []
+        },
+        {
+          "class": "other",
+          "visible": false,
+          "enabled": false,
           "label": "not_read",
           "markers": [],
           "controls": []
@@ -444,7 +131,7 @@
         "status": "ok",
         "elements": [
           {
-            "pid": 7936,
+            "pid": 4116,
             "depth": 0,
             "control_type": "Window",
             "enabled": true,
@@ -454,157 +141,7 @@
             "markers": []
           },
           {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "english_us",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 1,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
+            "pid": 4116,
             "depth": 1,
             "control_type": "Button",
             "enabled": true,
@@ -614,21 +151,9 @@
             "markers": []
           },
           {
-            "pid": 7936,
+            "pid": 4116,
             "depth": 1,
-            "control_type": "Group",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "select_language",
-            "markers": [
-              "language"
-            ]
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
+            "control_type": "Text",
             "enabled": true,
             "offscreen": false,
             "password": false,
@@ -636,9 +161,9 @@
             "markers": []
           },
           {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
+            "pid": 4116,
+            "depth": 1,
+            "control_type": "Text",
             "enabled": true,
             "offscreen": false,
             "password": false,
@@ -646,9 +171,9 @@
             "markers": []
           },
           {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
+            "pid": 4116,
+            "depth": 1,
+            "control_type": "CheckBox",
             "enabled": true,
             "offscreen": false,
             "password": false,
@@ -656,119 +181,9 @@
             "markers": []
           },
           {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "english_us",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
-            "enabled": true,
-            "offscreen": false,
-            "password": false,
-            "label": "unrecognized",
-            "markers": []
-          },
-          {
-            "pid": 7936,
-            "depth": 2,
-            "control_type": "RadioButton",
+            "pid": 4116,
+            "depth": 1,
+            "control_type": "Hyperlink",
             "enabled": true,
             "offscreen": false,
             "password": false,
@@ -784,8 +199,8 @@
   ],
   "safety_test_result": {
     "result": "passed",
-    "discovered": 105,
-    "executed": 105,
+    "discovered": 106,
+    "executed": 106,
     "skipped": 0,
     "failure_count": 0,
     "failures": [],
@@ -807,8 +222,8 @@
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 1552,
+          "parent_pid": 8704
         }
       ],
       "connections": []
@@ -818,195 +233,2008 @@
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 1552,
+          "parent_pid": 8704
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 1552,
+          "remote_address": "136.110.153.89",
+          "remote_port": 443,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 11.27,
+      "elapsed_seconds": 14.66,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 16.28,
+      "elapsed_seconds": 19.66,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 1120,
+          "state": "SynSent"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 21.28,
+      "elapsed_seconds": 24.66,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 1120,
+          "state": "SynSent"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 26.28,
+      "elapsed_seconds": 29.67,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 0,
+          "state": "Listen"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 1120,
+          "state": "SynSent"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "136.110.153.89",
+          "remote_port": 443,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 31.3,
+      "elapsed_seconds": 34.67,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 0,
+          "state": "Listen"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "136.110.153.89",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56299,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56298,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.106",
+          "remote_port": 80,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 36.3,
+      "elapsed_seconds": 39.69,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 0,
+          "state": "Listen"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "136.110.153.89",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56299,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56298,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.106",
+          "remote_port": 80,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 41.31,
+      "elapsed_seconds": 44.69,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 0,
+          "state": "Listen"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56299,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56298,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.106",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "136.110.153.89",
+          "remote_port": 443,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 46.31,
+      "elapsed_seconds": 49.69,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 0,
+          "state": "Listen"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56299,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56298,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.106",
+          "remote_port": 80,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 51.33,
+      "elapsed_seconds": 54.69,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 0,
+          "state": "Listen"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56299,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56298,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.106",
+          "remote_port": 80,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 56.34,
+      "elapsed_seconds": 59.7,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 0,
+          "state": "Listen"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56299,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56298,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.106",
+          "remote_port": 80,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 61.34,
+      "elapsed_seconds": 64.7,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 0,
+          "state": "Listen"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56299,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56298,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.106",
+          "remote_port": 80,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 66.34,
+      "elapsed_seconds": 69.7,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 0,
+          "state": "Listen"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56299,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56298,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.106",
+          "remote_port": 80,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 71.36,
+      "elapsed_seconds": 74.72,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 0,
+          "state": "Listen"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56299,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56298,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.106",
+          "remote_port": 80,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 76.36,
+      "elapsed_seconds": 79.72,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 0,
+          "state": "Listen"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56299,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56298,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.106",
+          "remote_port": 80,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 81.38,
+      "elapsed_seconds": 84.72,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 0,
+          "state": "Listen"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56299,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56298,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.106",
+          "remote_port": 80,
+          "state": "Established"
+        }
+      ]
     },
     {
-      "elapsed_seconds": 86.38,
+      "elapsed_seconds": 89.73,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 7936,
-          "parent_pid": 4656
+          "pid": 4116,
+          "parent_pid": 1552
+        },
+        {
+          "name": "agent.exe",
+          "pid": 1380,
+          "parent_pid": 6152
         }
       ],
-      "connections": []
+      "connections": [
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56246,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "nonpublic",
+          "remote_port": 56245,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.12",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.16",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 4116,
+          "remote_address": "23.11.232.18",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 0,
+          "state": "Listen"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.59",
+          "remote_port": 80,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56299,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "nonpublic",
+          "remote_port": 56298,
+          "state": "Established"
+        },
+        {
+          "pid": 1380,
+          "remote_address": "23.11.232.106",
+          "remote_port": 80,
+          "state": "Established"
+        }
+      ]
     }
   ],
   "file_observations": {
     "agent": {
-      "files_observed": 0,
-      "bytes_on_disk_observed": 0,
+      "files_observed": 129,
+      "bytes_on_disk_observed": 21909454,
       "skipped_files": 0,
-      "extensions": {}
+      "extensions": {
+        ".idx": 77,
+        "other": 17,
+        ".index": 16,
+        ".log": 9,
+        ".exe": 5,
+        ".db": 2,
+        ".result": 1,
+        ".dat": 1,
+        ".000": 1
+      }
     },
     "app": {
       "files_observed": 0,
@@ -1027,18 +2255,28 @@
       "extensions": {}
     }
   },
-  "agent_binaries": [],
+  "agent_binaries": [
+    {
+      "name": "agent.exe",
+      "bytes": 540880,
+      "sha256": "7d20ba6ef1d34a3cedbd7d3fd7c14228f173668a9a1e338351d529048de45079",
+      "authenticode_valid": true,
+      "expected_blizzard_publisher": true,
+      "accepted_for_execution": true,
+      "winverifytrust_status": 0
+    }
+  ],
   "log_markers": {
-    "bytes_read": 0,
+    "bytes_read": 25104,
     "keyword_occurrences_only": {
-      "initializ": 0,
-      "download": 0,
-      "patch": 0,
-      "install": 0,
+      "initializ": 5,
+      "download": 9,
+      "patch": 4,
+      "install": 15,
       "repair": 0,
-      "error": 0,
+      "error": 14,
       "login": 0,
-      "auth": 0
+      "auth": 3
     },
     "raw_log_content_exported": false
   },
