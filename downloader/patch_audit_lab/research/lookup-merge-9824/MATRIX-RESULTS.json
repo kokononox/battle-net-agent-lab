@@ -1,0 +1,181 @@
+{
+  "format": "original-lookup-merge-matrix-1",
+  "vectors": 3122,
+  "random_vectors": 3000,
+  "all_native_model_matched": true,
+  "all_buckets_and_flags_1_to_7": true,
+  "status_histogram": {
+    "4": 1256,
+    "2": 1184,
+    "0": 456,
+    "3": 226
+  },
+  "explicit_cases": [
+    {
+      "case": "primary",
+      "performed": true,
+      "status": 0,
+      "range": [
+        480,
+        188
+      ],
+      "value": [
+        480,
+        188
+      ],
+      "vector_destroy_calls": 1,
+      "iterator_destroy_calls": 1,
+      "warning_calls": 0
+    },
+    {
+      "case": "suffix",
+      "performed": true,
+      "status": 0,
+      "range": [
+        510,
+        158
+      ],
+      "value": [
+        480,
+        188
+      ],
+      "vector_destroy_calls": 1,
+      "iterator_destroy_calls": 1,
+      "warning_calls": 0
+    },
+    {
+      "case": "tail_only",
+      "performed": true,
+      "status": 0,
+      "range": [
+        480,
+        188
+      ],
+      "value": [
+        480,
+        188
+      ],
+      "vector_destroy_calls": 1,
+      "iterator_destroy_calls": 1,
+      "warning_calls": 0
+    },
+    {
+      "case": "clear",
+      "performed": true,
+      "status": 2,
+      "range": [
+        0,
+        0
+      ],
+      "value": [
+        0,
+        0
+      ],
+      "vector_destroy_calls": 1,
+      "iterator_destroy_calls": 1,
+      "warning_calls": 0
+    },
+    {
+      "case": "range_outside",
+      "performed": true,
+      "status": 4,
+      "range": [
+        0,
+        0
+      ],
+      "value": [
+        0,
+        0
+      ],
+      "vector_destroy_calls": 1,
+      "iterator_destroy_calls": 1,
+      "warning_calls": 0
+    },
+    {
+      "case": "hole",
+      "performed": true,
+      "status": 3,
+      "range": [
+        480,
+        188
+      ],
+      "value": [
+        0,
+        0
+      ],
+      "vector_destroy_calls": 1,
+      "iterator_destroy_calls": 1,
+      "warning_calls": 0
+    },
+    {
+      "case": "hole_prefix",
+      "performed": true,
+      "status": 0,
+      "range": [
+        480,
+        20
+      ],
+      "value": [
+        480,
+        188
+      ],
+      "vector_destroy_calls": 1,
+      "iterator_destroy_calls": 1,
+      "warning_calls": 0
+    },
+    {
+      "case": "hole_suffix",
+      "performed": true,
+      "status": 0,
+      "range": [
+        520,
+        148
+      ],
+      "value": [
+        480,
+        188
+      ],
+      "vector_destroy_calls": 1,
+      "iterator_destroy_calls": 1,
+      "warning_calls": 0
+    },
+    {
+      "case": "hole_refill",
+      "performed": true,
+      "status": 0,
+      "range": [
+        480,
+        188
+      ],
+      "value": [
+        480,
+        188
+      ],
+      "vector_destroy_calls": 1,
+      "iterator_destroy_calls": 1,
+      "warning_calls": 0
+    },
+    {
+      "case": "duplicate_gap",
+      "performed": true,
+      "status": 3,
+      "range": [
+        480,
+        188
+      ],
+      "value": [
+        0,
+        0
+      ],
+      "vector_destroy_calls": 1,
+      "iterator_destroy_calls": 1,
+      "warning_calls": 0
+    }
+  ],
+  "matching_record_limit": 7,
+  "total_primary_limit": 1024,
+  "total_tail_limit": 64,
+  "normal_path_frame_and_destructors_mocked": true,
+  "semantic_lookup_iterator_merge_range_are_original": true,
+  "whole_agent_io_or_windows_executed": false
+}

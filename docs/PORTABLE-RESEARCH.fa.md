@@ -70,3 +70,8 @@ companion code ZIP از کد پژوهشی و گزارش‌ها ساخته می�
 ## چرخهٔ V8 با گیت اجباری و resume
 
 [retail-v8-cycle](../downloader/patch_audit_lab/research/retail-v8-cycle/README-fa.md): چرخهٔ owned تازه با source واقعی، append هدف، binder اصلی پیش/پس publication و readback مستقل؛ ۹ توقف سخت/resume و خطای نگاشتِ مانع انتشار موفق بودند. ۶۰۱ آزمون/صفر skip. این writer Lab یا نصب اصلی نیست؛ فایل‌های fixture یا ZIP را تعویض نکنید. Windows واقعی و object read/merge کامل هنوز بررسی نشده‌اند.
+
+
+## مسیر اصلی lookup/merge تا offset و طول واقعی
+
+[lookup-merge-9824](../downloader/patch_audit_lab/research/lookup-merge-9824/README-fa.md): مسیر normal-path اصلی Agent، offset/span source و target واقعی را برگرداند و reader مستقل از همان range، EKey/checksum/CKey را تأیید کرد. گیت در چرخه اجباری، ۹ توقف سخت/resume، ۳۱۲۲ بردار و ۶۴۶ آزمون/صفر skip؛ archive I/O خود Agent و Windows هنوز اجرا نشده‌اند. ZIP/fixture اصلی را تغییر ندهید؛ کد جدید روی شاخه است.

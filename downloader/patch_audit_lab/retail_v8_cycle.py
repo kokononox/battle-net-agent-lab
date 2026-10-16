@@ -111,19 +111,25 @@ def locked(root):
    finally:fcntl.flock(f.fileno(),fcntl.LOCK_UN)
  return acquire()
 
-def status(root,oracle):
+def status(root,oracle,*,additional_gate=None):
  with locked(root) as p:
-  view=inspect(p);return result(view,gate(p,view,oracle))
+  view=inspect(p);proof=gate(p,view,oracle)
+  if additional_gate is not None:proof.update(additional_gate(p,view,False))
+  return result(view,proof)
 
-def advance(root,oracle,fail_after=None):
+def advance(root,oracle,fail_after=None,*,additional_gate=None):
  a.require(fail_after is None or fail_after in PHASES,'v8_failpoint');oracle_identity(oracle)
  with locked(root) as p:
   view=inspect(p)
   def phase(name):
    if fail_after==name:os._exit(91)
-  if view['updated'] and view['journal']['state']=='committed':return {**result(view,gate(p,view,oracle)),'idempotent_noop':True}
+  def verify(view,candidate=False):
+   proof=gate(p,view,oracle,candidate)
+   if additional_gate is not None:proof.update(additional_gate(p,view,candidate))
+   return proof
+  if view['updated'] and view['journal']['state']=='committed':return {**result(view,verify(view)),'idempotent_noop':True}
   # Validate currently published view even before starting or resuming a transaction.
-  gate(p,view,oracle)
+  verify(view)
   if view['journal'] is None:
    a.require(not ({view['new_name'],INDEX_TMP,CONTROL_TMP}&view['present']),'v8_unowned_transaction_files')
    fs.write_new(p/JOURNAL,old.canonical(legacy.journal_expected(view['marker_raw'],view['expected_data'],'prepared')));fs.sync_dir(p)
@@ -139,11 +145,11 @@ def advance(root,oracle,fail_after=None):
    phase('index_temp_synced');legacy.publish_index_noreplace(p/INDEX_TMP,p/view['new_name']);fs.sync_dir(p)
   phase('index_named')
   if (p/INDEX_TMP).exists():a.require(fs.read(p/INDEX_TMP,bind.LIMIT)==view['new_index'],'v8_temp_index_changed');(p/INDEX_TMP).unlink();fs.sync_dir(p)
-  gate(p,inspect(p),oracle,candidate=True);phase('index_bound')
+  verify(inspect(p),candidate=True);phase('index_bound')
   if not view['updated']:
    if not (p/CONTROL_TMP).exists():fs.write_new(p/CONTROL_TMP,legacy.control(True))
    phase('control_temp_synced');os.replace(p/CONTROL_TMP,p/'shmem');fs.sync_dir(p)
-  phase('control_published');checked=inspect(p);a.require(checked['updated'],'v8_publish_readback');proof=gate(p,checked,oracle)
+  phase('control_published');checked=inspect(p);a.require(checked['updated'],'v8_publish_readback');proof=verify(checked)
   fs.atomic(p/JOURNAL,old.canonical(legacy.journal_expected(checked['marker_raw'],checked['expected_data'],'committed')));phase('committed')
   return {**result(inspect(p),proof),'idempotent_noop':False}
 

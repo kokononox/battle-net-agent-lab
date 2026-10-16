@@ -1,0 +1,188 @@
+{
+  "format": "original-lookup-merge-sync-1",
+  "previous_commit": "b0000b396ae15411cbc65ddf61778e4838373f58",
+  "branch": "patch-audit-20261016",
+  "tests": 646,
+  "new_tests": 45,
+  "original_functions": 21,
+  "original_code_bytes": 6148,
+  "original_jump_table_bytes": 344,
+  "native_model_vectors": 3122,
+  "mandatory_original_lookup_gate": true,
+  "hard_exit_resume_boundaries": 9,
+  "actual_gap_status3_prevents_publish": true,
+  "gap_injection": "synthetic index input at lookup boundary, not actual candidate file mutation",
+  "semantic_lookup_merge_range_mocked": false,
+  "seh_frame_and_inline_memory_destructors_mocked": true,
+  "windows_and_agent_archive_io_executed": false,
+  "power_loss_proven": false,
+  "installation_ready": false,
+  "game_lab_original_portable_release_changed": false,
+  "binaries_raw_fragments_indexes_or_archives_published": false,
+  "files": [
+    {
+      "path": "downloader/patch_audit_lab/agent_lookup_merge.py",
+      "sha256": "032fb4eab94df8dce2f41afbe39f42813ce739d2c9c88bdef206f0b1d0e6c707"
+    },
+    {
+      "path": "downloader/patch_audit_lab/retail_lookup_cycle.py",
+      "sha256": "e402eaefc728df8a7a12ed27ed49a5543729d873d23bc84f4cb229c96246b2db"
+    },
+    {
+      "path": "downloader/patch_audit_lab/retail_v8_cycle.py",
+      "sha256": "001dcf4dbbdebb5fadeadc63e080625c34e49f294a9eed714630102e65068f82"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_lookup_merge.py",
+      "sha256": "4993cf58bb0bcf2acfdfd2e3627e818dc01e83a5f19a7b09a57b0b94429860bc"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_retail_lookup_cycle.py",
+      "sha256": "75290bad0e004d07ca195d89a71755192fa8a0a853dcef225c195d3a02a90361"
+    },
+    {
+      "path": "downloader/patch_audit_lab/README-fa.md",
+      "sha256": "232b6d77e4b0b78e5cbd56341a3977267d68ab071a4206aa85770a260d79e30a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-v8-cycle/README-fa.md",
+      "sha256": "0c7bfd7c4b841e530833f99a4782db78c6dfc1ca1dd432e3fcbe5c772ab9dcc7"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/ALL-TESTS.log",
+      "sha256": "b5fc3e05d001df1031e74517d878c978c80555a67c62f451aceaf5288b54bb9b"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/CYCLE-EXPERIMENT.json",
+      "sha256": "6baf644a669f10de8f425b8f5b69edae639366e1a855b45a92d0bec36dcf10fa"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/FRAGMENT-BUILD-RECEIPT.json",
+      "sha256": "34e5469993062f294a253a5b390afee690baf86283af7ecf80dafa6fe1ab9245"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/MATRIX-RESULTS.json",
+      "sha256": "af688bf51cfaa2173dd1441faf51f5347e0a98ba373e1bedc739c4c689905e08"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/README-fa.md",
+      "sha256": "5715aa20b10cadf9a22b9785109d2c3fb293b58a214248d43a70103b60ce874f"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/TEST-RESULTS.json",
+      "sha256": "57e8e23ed31eb72b7d5bec273b209abd4fadbc39971732c3731bf02749a9dace"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/add_events.asm",
+      "sha256": "0acd1701d70a01ee6208ca8fd0b11dd6cdeca4e7cccba2803a00dab01204a240"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/apply.asm",
+      "sha256": "8ad64dd981025862569c431308dda674ffc95faa505d85f1ec1e0d164d809554"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/bind_inner.asm",
+      "sha256": "41b517acfd180b6608ca3cedf70dc07e22178e90c6be8ec49aba45d2cf1886b1"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/cleanup.asm",
+      "sha256": "96fea07923891c27ff9972218b73df4e4c42f16484f54e80825c4c0dbc4f315b"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/collect.asm",
+      "sha256": "3943c5cb797a86f0db6475c0356aeb1545cd12a20bb8d07234cbfffb436cbe3f"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/coverage.asm",
+      "sha256": "e9d0cbf4c207b681054784b98e1f2c9203ae720f2bd9b8c9d68a9cfca61a233a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/equal.asm",
+      "sha256": "45dca249e707bdc1a11015a93e0ca7be5f24279f644c4e4b28d6747665d8847c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/hash1.asm",
+      "sha256": "2eb73700f675ae81c665b73819495f0692bb9b847085fec9e16cf1edaa648060"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/hash2.asm",
+      "sha256": "46d3e2668652e332515da95971faddb8e3cbc13298b6dbec043ac528754e18ae"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/iterator_init.asm",
+      "sha256": "3b4eb0c5745bc46faccd47747ea5ab6326378905304c7a536de21aa6a58a6dc5"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/iterator_load.asm",
+      "sha256": "19e75119764f6e337b553b26600d81df0aab95a85c00b669c49f8e1714e03fe9"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/lookup.asm",
+      "sha256": "2b2939a0a8dd9f0711eb2710c85982d6466b683451bea44062c121bd83611fdc"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/map_parse.asm",
+      "sha256": "af7048c4956cb3350fa3d7980e965af2b6dbf58cd4727b266c8b486491b8b7f1"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/merge_events.asm",
+      "sha256": "a9f9b0ff016c691c10e7a69c96c2b0425703ed7e187d5d5baa4c0d2d09bd7e55"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/native/build.py",
+      "sha256": "e7f14d681a819dc37cf74854b95d58705ca4d4b655bb093bd39e28b9d89f9f37"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/native/harness.s",
+      "sha256": "3acbbfcbd21bc7ecda2956d565c0dddd248c5e4b9c81bb56a27e4aced68dbf8f"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/parse.asm",
+      "sha256": "a8356d67e99517fefc8615ca13f91b25d9cacc8ff3c2f98094ef53d1d632759c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/primary.asm",
+      "sha256": "43831710b87776063737a6f8e9e67e3fc2d3889f1a25e7fbc645907d3a269dd7"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/range.asm",
+      "sha256": "a83ff64b84ac5b5ed14155417ae46a0a60af7c77f4e9c3fe89040cf4a10840d9"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/run_experiments.py",
+      "sha256": "245ebd196971737789c491fbcb434ae7a28d821b39cacae545e8f9d4f75bc5ac"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/search.asm",
+      "sha256": "d514852a3e9e662c6d9710b3fe431ff52f4c8fe1881510e130e55d2952f2c01c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/sort.asm",
+      "sha256": "a1ddec64b38879405a4ee39982a14d5d8cd9ce25a6581daea61861bea3e0baf3"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/tail.asm",
+      "sha256": "a6c3c1439887c1666d56496a0cb0a74fc25d13217bd737edd81f8947d5554a4e"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/vector_push.asm",
+      "sha256": "16bedf53dc8ed4043e9e7aad50ded86d30f8d1daeb0ffa7af20d40f2d8050cfc"
+    },
+    {
+      "path": "README.md",
+      "sha256": "af63e3d3d1fb5b1b735ba81b75f91b098c42a1e110c007fb793db281fd42be4c"
+    },
+    {
+      "path": "docs/SESSION-2026-10-16.fa.md",
+      "sha256": "6505cb8d38141fb16b68e0c03dc222e9a273a1e3265bc23354d8bd767fbc5ff4"
+    },
+    {
+      "path": "docs/PORTABLE-RESEARCH.fa.md",
+      "sha256": "9b4fafa25b7e8b01ae2b58506e71914bb59e6597e29f54a1409c8bf636a51125"
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "b5faed4aaebaac2940ca13a761a38a8cd16625dd106269169b9f972e14e2c1fa"
+    }
+  ]
+}

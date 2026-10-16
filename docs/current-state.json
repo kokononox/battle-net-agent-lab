@@ -80,21 +80,21 @@
   "sync_scope": "structured source, sanitized research receipts and handoff; no raw transcripts, PRIVATE, credentials or user installation paths. Original portable fixture and companion are already verified private release assets.",
   "patch_audit_20261016": {
     "branch": "patch-audit-20261016",
-    "last_research_commit_before_sync": "94906eb79b547d2a81fbcf6a41518cf19c4748ec",
+    "last_research_commit_before_sync": "b0000b396ae15411cbc65ddf61778e4838373f58",
     "installed_version": "12.1.0.69933",
     "pinned_target": "12.1.5.70391",
     "actual_retail_sample_reconstructed": true,
     "target_encoded_full_ekey_and_size_verified": true,
     "independent_official_target_binary_comparison": false,
     "synthetic_storage_experiment": true,
-    "unit_tests": 601,
+    "unit_tests": 646,
     "skipped": 0,
     "errors": 0,
     "failures": 0,
     "crash_points": 9,
     "native_casclib_capture_accepted_multi_entry_index": true,
     "real_CASC_writer_or_activation_ready": false,
-    "activation_research": "owned-V8-cycle-with-mandatory-original-inner-bind-and-fullkey-gate-before-after-publication-and-noop; custom-Linux-journal-and-publication; Windows-and-full-readmerge-unproven",
+    "activation_research": "original-bounded-normal-path-bind-lookup-iterator-merge-range-returns-real-source-target-offsets; mandatory-enhanced-cycle-gate; Agent-archive-io-and-Windows-unproven",
     "power_loss_or_Windows_storage_tested": false,
     "portable_release_status": "uploaded_verified",
     "asset_manifest": "evidence/portable/ASSET-MANIFEST.json",
@@ -173,7 +173,7 @@
     "archive_prefix_total_index_entries": 17,
     "archive_prefix_native_positive_seed_vectors": 16,
     "archive_prefix_native_negative_cases_rejected": 502,
-    "next_research_step": "Execute bounded iterator/merge and value-consumption path with real sample; then test Windows mapping/locking/publication on separate copy. No original-install writer yet.",
+    "next_research_step": "Trace returned-range consumption in numbered-archive open/read; then Windows mapping/locking/publication in separate copy. Original-install writer still not ready.",
     "name_seed_report": "downloader/patch_audit_lab/research/name-seed-9824/README-fa.md",
     "name_seed_ascii_success_formula": "MD5(GetComputerNameW converted ASCII bytes || canonical storage name ASCII bytes), without delimiter/NUL",
     "name_seed_static_receipts": {
@@ -262,6 +262,33 @@
     "value_range_caller_static_only": true,
     "value_range_full_readmerge_or_reachability_proven": false,
     "retail_v8_cycle_windows_agent_executed": false,
-    "retail_v8_cycle_power_loss_proven": false
+    "retail_v8_cycle_power_loss_proven": false,
+    "lookup_merge_report": "downloader/patch_audit_lab/research/lookup-merge-9824/README-fa.md",
+    "lookup_merge_original_functions": 21,
+    "lookup_merge_original_code_bytes": 6148,
+    "lookup_merge_original_jump_table_bytes": 344,
+    "lookup_merge_direct_call_sites": 70,
+    "lookup_merge_mocked_or_forbidden_helpers": 18,
+    "lookup_merge_matching_record_limit": 7,
+    "lookup_merge_new_tests": 45,
+    "lookup_merge_native_model_vectors": 3122,
+    "lookup_merge_original_caller_normal_path_executed": true,
+    "lookup_merge_semantic_functions_mocked": false,
+    "lookup_merge_frame_and_memory_boundaries_mocked": true,
+    "lookup_merge_returned_real_source_range": [
+      480,
+      188
+    ],
+    "lookup_merge_returned_real_target_range": [
+      668,
+      188
+    ],
+    "lookup_merge_returned_range_used_for_independent_python_readback": true,
+    "lookup_cycle_mandatory_gate_before_after_publish_and_noop": true,
+    "lookup_cycle_hard_exit_resume_boundaries": 9,
+    "lookup_cycle_injected_synthetic_gap_actual_status3_prevents_publish": true,
+    "lookup_cycle_gap_injection_was_input_boundary_not_real_file_mutation": true,
+    "lookup_merge_full_agent_archive_io_executed": false,
+    "lookup_merge_windows_agent_or_seh_executed": false
   }
 }

@@ -1,6 +1,6 @@
 # ممیزی پچ WoW — آزمایش مستقل، نه آپدیتر آماده
 
-> تازه‌ترین milestone: [چرخهٔ V8 با گیت اجباری bind اصلی و resume](research/retail-v8-cycle/README-fa.md). پیش/پس از publication و در no-op، binder اصلی و full-key search اجرا می‌شوند؛ span مستقل Python خوانده می‌شود. هر ۹ توقف سخت قابل‌بازیابی و خطای mapping مانع انتشار control شد. ۱۰۵ بایت primitive اصلی range، ۲۱۷۶ بردار؛ مجموع ۶۰۱ آزمون. Windows/publication واقعی و read/merge کامل هنوز اثبات نشده‌اند.
+> تازه‌ترین milestone: [lookup/iterator/merge/range اصلی تا محل target واقعی](research/lookup-merge-9824/README-fa.md). ۲۱ تابع اصلی/۶۱۴۸ بایت و ۳۴۴ بایت جدول پرش، offset/span source و target را برگرداندند؛ همان range مستقل خوانده شد. گیت تکمیلی قبل/بعد انتشار و در no-op اجباری است. ۳۱۲۲ بردار، ۹ توقف سخت/resume، مجموع ۶۴۶ آزمون. frame/حافظه mock؛ archive I/O خود Agent و Windows هنوز اجرا نشده‌اند.
 
 
 ## به‌روزرسانی مرحلهٔ دوم: اتصال به شواهد قبلی
