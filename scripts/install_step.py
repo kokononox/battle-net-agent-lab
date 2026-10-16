@@ -6,8 +6,8 @@ import subprocess
 import sys
 import tempfile
 
-APPROVED_COMMIT='lab: approved child-scoped client-install 2026-10-16 9d28c4a1'
-STATUSES={'not_requested','pending','no_targets','ambiguous_window','process_mismatch','page_mismatch','forbidden_text','signature_refused','pattern_unavailable','page_changed','page_confirmed','continue_attempted','continued','timeout','helper_failed','output_rejected','native_exception','journal_failed'}
+APPROVED_COMMIT='lab: approved identical-image client-install 2026-10-16 3b69a7d2'
+STATUSES={'not_requested','pending','no_targets','ambiguous_window','process_mismatch','page_mismatch','forbidden_text','signature_refused','executable_identity_refused','pattern_unavailable','page_changed','page_confirmed','continue_attempted','continued','timeout','helper_failed','output_rejected','native_exception','journal_failed'}
 FLAGS=('authorized','helper_started','page_confirmed','continue_attempted','continue_returned','journal_recovered','outcome_uncertain')
 
 def blank(authorized=False):

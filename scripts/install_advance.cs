@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
@@ -16,6 +17,27 @@ public static class InstallAdvance {
     static Dictionary<string,object> r;static string journal;
     static string Name(AutomationElement e){var c=e.Current;if(c.IsPassword||c.IsOffscreen)throw new Stop("page_mismatch");string n=c.Name??"";if(n.Length>512)throw new Stop("page_mismatch");return Regex.Replace(n.Replace("&","").Trim(),@"\s+"," ").ToLowerInvariant();}
     static bool Owner(IntPtr h,int pid,string setup){uint p;GetWindowThreadProcessId(h,out p);if(p!=(uint)pid||!IsWindowVisible(h))return false;using(var proc=Process.GetProcessById(pid))return string.Equals(Path.GetFullPath(proc.MainModule.FileName),setup,StringComparison.OrdinalIgnoreCase);}
+    static bool SameImage(string a,string b){
+        // A relocated child must be byte-for-byte the already trusted download.
+        var x=new FileInfo(a);var y=new FileInfo(b);
+        if(x.Length<=0||x.Length>128L*1024*1024||x.Length!=y.Length)return false;
+        using(var sha=SHA256.Create()){
+            byte[] first,second;
+            using(var f=File.Open(a,FileMode.Open,FileAccess.Read,FileShare.Read|FileShare.Delete))first=sha.ComputeHash(f);
+            using(var f=File.Open(b,FileMode.Open,FileAccess.Read,FileShare.Read|FileShare.Delete))second=sha.ComputeHash(f);
+            for(int i=0;i<first.Length;i++)if(first[i]!=second[i])return false;
+        }
+        return true;
+    }
+    static string VerifiedPath(IntPtr h,int pid,string setup){
+        uint owner;GetWindowThreadProcessId(h,out owner);
+        if(owner!=(uint)pid||!IsWindowVisible(h))throw new Stop("process_mismatch");
+        string actual;using(var p=Process.GetProcessById(pid))actual=Path.GetFullPath(p.MainModule.FileName);
+        if(!string.Equals(actual,setup,StringComparison.OrdinalIgnoreCase)&&!SameImage(actual,setup))throw new Stop("executable_identity_refused");
+        var signed=AuthenticodeNative.Verify(actual);
+        if((int)signed["trust_status"]!=0||!(bool)signed["expected_blizzard_publisher"])throw new Stop("signature_refused");
+        return actual;
+    }
     static void Save(){try{byte[] b=new UTF8Encoding(false).GetBytes(json.Serialize(r));string tmp=journal+".tmp";using(var f=new FileStream(tmp,FileMode.Create,FileAccess.Write,FileShare.None)){f.Write(b,0,b.Length);f.Flush(true);}if(File.Exists(journal))File.Replace(tmp,journal,null);else File.Move(tmp,journal);}catch{throw new Stop("journal_failed");}}
     static AutomationElement Page(AutomationElement root,int pid){
         var stack=new Stack<AutomationElement>();stack.Push(root);var watch=Stopwatch.StartNew();
@@ -45,13 +67,11 @@ public static class InstallAdvance {
         try{
             var cfg=(Dictionary<string,object>)json.DeserializeObject(Environment.GetEnvironmentVariable("BNET_LAB_INSTALL_CONFIG"));
             var target=(Dictionary<string,object>)cfg["target"];int pid=Convert.ToInt32(target["pid"]);var hwnd=new IntPtr(Convert.ToInt64(target["hwnd"]));string setup=Path.GetFullPath((string)cfg["setup"]);journal=(string)cfg["journal"];
-            if(!Owner(hwnd,pid,setup))throw new Stop("process_mismatch");
-            var signed=AuthenticodeNative.Verify(setup);
-            if((int)signed["trust_status"]!=0||!(bool)signed["expected_blizzard_publisher"])throw new Stop("signature_refused");
+            string verified=VerifiedPath(hwnd,pid,setup);
             var root=AutomationElement.FromHandle(hwnd);var button=Page(root,pid);object pattern;
             if(!button.TryGetCurrentPattern(InvokePattern.Pattern,out pattern))throw new Stop("pattern_unavailable");
             r["page_confirmed"]=true;r["status"]="page_confirmed";Save();
-            if(!Owner(hwnd,pid,setup))throw new Stop("process_mismatch");
+            if(!Owner(hwnd,pid,verified))throw new Stop("process_mismatch");
             if(!Automation.Compare(button,Page(AutomationElement.FromHandle(hwnd),pid)))throw new Stop("page_changed");
             r["continue_attempted"]=true;r["status"]="continue_attempted";Save();
             ((InvokePattern)pattern).Invoke();

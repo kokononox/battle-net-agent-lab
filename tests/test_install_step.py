@@ -70,10 +70,10 @@ class InstallTests(unittest.TestCase):
         self.assertIn('BNET_LAB_ADVANCE_INSTALL: >-',s)
     def test_native_exact_page_signature_and_one_invoke(self):
         s=Path('scripts/install_advance.cs').read_text()
-        for required in ('AuthenticodeNative.Verify(setup)','GetWindowThreadProcessId','MainModule.FileName','launch battle.net when you start your computer','count!=6||buttons!=1||changes!=1||boxes!=1||texts!=2','ControlType.Text','c.IsPassword','File.Replace','Flush(true)','Automation.Compare(button,Page('):self.assertIn(required,s)
+        for required in ('AuthenticodeNative.Verify(actual)','GetWindowThreadProcessId','MainModule.FileName','launch battle.net when you start your computer','count!=6||buttons!=1||changes!=1||boxes!=1||texts!=2','ControlType.Text','c.IsPassword','File.Replace','Flush(true)','Automation.Compare(button,Page('):self.assertIn(required,s)
         self.assertEqual(s.count('((InvokePattern)pattern).Invoke();'),1)
         for forbidden in ('SendInput','SendKeys','SetFocus','RootElement','GetClickablePoint','mouse_event','SetValue','.Toggle(','.Select('):self.assertNotIn(forbidden,s)
-        self.assertLess(s.index('AuthenticodeNative.Verify(setup)'),s.index('((InvokePattern)pattern).Invoke();'))
+        self.assertLess(s.index('string verified=VerifiedPath(hwnd,pid,setup);'),s.index('((InvokePattern)pattern).Invoke();'))
         self.assertLess(s.index('r["continue_attempted"]=true'),s.index('((InvokePattern)pattern).Invoke();'))
     def test_observer_only_one_guarded_install_callback(self):
         s=Path(obs.__file__).read_text();self.assertIn('advance_install=False',s);self.assertEqual(s.count('on_visible_targets=install)'),1)
@@ -88,10 +88,14 @@ class InstallTests(unittest.TestCase):
         self.assertIsNone(step.setup_pid([],42))
     def test_multiple_setup_candidates_refused(self):
         self.assertIsNone(step.setup_pid([{'name':'battle.net-setup.exe','pid':43,'parent_pid':42},{'name':'battle.net-setup.exe','pid':44,'parent_pid':42}],42))
-    def test_child_scope_does_not_relax_executable_path_or_signature(self):
+    def test_child_scope_requires_exact_path_or_identical_image_and_signature(self):
         s=Path('scripts/install_advance.cs').read_text()
         self.assertIn('Path.GetFullPath(proc.MainModule.FileName),setup',s)
-        self.assertIn('AuthenticodeNative.Verify(setup)',s)
+        self.assertIn('AuthenticodeNative.Verify(actual)',s)
+        self.assertIn('!SameImage(actual,setup)',s)
+        self.assertIn('SHA256.Create()',s)
+        self.assertIn('x.Length>128L*1024*1024',s)
+        self.assertIn('Owner(hwnd,pid,verified)',s)
     @unittest.skipUnless(sys.platform=='win32','native install denied-config check')
     def test_native_missing_config_no_action(self):
         env=obs.clean_environment(os.environ);helper,work=uia.native_helper(env)
