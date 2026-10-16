@@ -79,7 +79,7 @@ def validate(r):
 
 def validate_gui(g):
     keys(g,('elapsed_seconds','observer_session_id','process_sessions','window_station_visible',
-            'input_desktop_accessible','input_desktop_error','windows','enumeration_truncated','probe_errors'))
+            'input_desktop_accessible','input_desktop_error','windows','enumeration_truncated','probe_errors','accessibility'))
     need(type(g['elapsed_seconds']) in (int,float) and 0<=g['elapsed_seconds']<=300)
     if g['observer_session_id'] is not None:integer(g['observer_session_id'],2**32-1)
     need(type(g['process_sessions']) is list and len(g['process_sessions'])<=24)
@@ -104,6 +104,20 @@ def validate_gui(g):
         item(window,True);need(type(window['controls']) is list)
         for control in window['controls']:item(control);count+=1
     need(count<=32)
+    from ui_accessibility import validate as validate_accessibility
+    # UIA report does not export HWNDs; validate PID ownership against scoped native sample.
+    n=g['accessibility'].get('top_windows_requested') if type(g['accessibility']) is dict else None
+    need(type(n) is int and 0<=n<=8)
+    need(n<=sum(1 for w in g['windows'] if w['visible']))
+    targets=[{'pid':p['pid']} for p in g['process_sessions']]
+    # Exact HWND target count is enforced by the launcher; writer can check native PIDs and bounds.
+    need(not g['accessibility'].get('elements') or targets)
+    if n and not targets:raise ReportError('report_schema_rejected')
+    synthetic_targets=[{'pid':p['pid']} for p in g['process_sessions']]
+    try:
+        # validate accepts count separately when checking the sanitized publication schema.
+        validate_accessibility(g['accessibility'],synthetic_targets,requested_count=n)
+    except (ValueError,TypeError,KeyError):raise ReportError('report_schema_rejected') from None
 
 
 def load(path):

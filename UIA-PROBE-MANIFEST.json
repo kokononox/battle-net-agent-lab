@@ -1,0 +1,68 @@
+{
+  "format": 1,
+  "base_commit": "c56c0360e400fe14dc8ba518b37322938dc2b93e",
+  "utc": "2026-10-16T01:15:49.313044+00:00",
+  "tests": {
+    "scope": "Agent bootstrap lab: native GUI + read-only UIA safety/privacy schema3",
+    "tests_discovered": 57,
+    "tests_passed": 56,
+    "tests_skipped": 1,
+    "skipped_reason": "native Windows empty-target UIA smoke test; Linux environment",
+    "new_accessibility_tests": 19,
+    "local_platform": "Linux",
+    "python39_syntax_check": true,
+    "native_Windows_UIA_runtime_verified_locally": false,
+    "real_Windows_UIA_probe_result": "pending",
+    "downloader_code_changed": false,
+    "downloader_tests_rerun_this_change": false,
+    "previous_downloader_release_tests": 446,
+    "raw_provider_text_exported": false,
+    "UI_actions_implemented": false
+  },
+  "files": [
+    {
+      "path": "scripts/native_gui.py",
+      "sha256": "149688b568818ffdef40ab1d476c97e32190048e86709d5eccdcfe5bac596368"
+    },
+    {
+      "path": "scripts/observe_agent.py",
+      "sha256": "ff6adaceacf93f54e9918387f05b4040f1599ae7f9219ac2bac918a423807f67"
+    },
+    {
+      "path": "scripts/validate_report.py",
+      "sha256": "c4b43273830879febbd204d2a70e5523b19ad0775bd185a253d315429787bdaf"
+    },
+    {
+      "path": "scripts/ui_accessibility.py",
+      "sha256": "66a0657181b13eedcbb54a4b1fbff1f89021176425dcc84663b24ba68ce66e40"
+    },
+    {
+      "path": "scripts/uia_readonly.ps1",
+      "sha256": "e342ff235f20cf43f60f412f4ff457ea35558c57ba3426fa440f7ae9145bf9a6"
+    },
+    {
+      "path": "tests/test_gui.py",
+      "sha256": "6d5726813bbb74f8ff5852360fa38ce521440a77dc42ac40599ddb5e11e71d63"
+    },
+    {
+      "path": "tests/test_accessibility.py",
+      "sha256": "fd610dac03b8f46433c46d28d45c3561cfab1220027818051b695f8dc6221c6a"
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "b9ed339b55deb718df46de9c723d1811796420b6525b53a941539606571fb9ed"
+    },
+    {
+      "path": "docs/UIA-PROBE.fa.md",
+      "sha256": "e9c18146ff8d1a297c3f2ab4da0f39b1ced4361ae59915c6ffc0312d29fe9a2f"
+    },
+    {
+      "path": "TEST-RESULTS.json",
+      "sha256": "73029b999f7f23731d71e24932b08dcdc87ec3a4f48264e66bd12af933ac33b2"
+    },
+    {
+      "path": "TEST-LOG.txt",
+      "sha256": "01fa0c660c8a34f3a53c31bd399919d55279a8ff393e9c24f4c8c21047e4e829"
+    }
+  ]
+}

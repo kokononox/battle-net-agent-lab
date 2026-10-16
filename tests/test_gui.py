@@ -13,7 +13,8 @@ class GuiTests(unittest.TestCase):
                 'window_station_visible':True,'input_desktop_accessible':True,'input_desktop_error':None,
                 'windows':[{'class':'dialog','visible':True,'enabled':True,'label':'battle_net_setup','markers':[],
                 'controls':[{'class':'button','visible':True,'enabled':True,'label':'ok','markers':[]}]}],
-                'enumeration_truncated':False,'probe_errors':0}
+                'enumeration_truncated':False,'probe_errors':0,
+                'accessibility':{'status':'no_targets','elements':[],'truncated':False,'errors':0,'top_windows_requested':0}}
     def test_unknown_text_not_exported(self):
         x=gui.safe_text('private@example.invalid /private/local/file SECRET','static',True)
         self.assertEqual(x,{'label':'unrecognized','markers':[]})

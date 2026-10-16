@@ -79,7 +79,7 @@ def inspect(pids,elapsed):
     if desktop:
         result['input_desktop_accessible']=True;user.CloseDesktop(desktop)
     else:result['input_desktop_error']=int(ctypes.get_last_error())
-    deadline=time.monotonic()+4;control_count=0
+    deadline=time.monotonic()+4;control_count=0;uia_targets=[]
     def owned(hwnd):
         pid=w.DWORD();user.GetWindowThreadProcessId(hwnd,ctypes.byref(pid));return int(pid.value) in pids
     def item(hwnd):
@@ -102,6 +102,9 @@ def inspect(pids,elapsed):
                 result['enumeration_truncated']=True;return False
             if not owned(hwnd):return True
             window=item(hwnd);window['controls']=[]
+            if window['visible']:
+                process_id=w.DWORD();user.GetWindowThreadProcessId(hwnd,ctypes.byref(process_id))
+                uia_targets.append({'hwnd':int(hwnd),'pid':int(process_id.value)})
             @enum_callback
             def child(child_hwnd,child_param):
                 nonlocal control_count
@@ -117,4 +120,6 @@ def inspect(pids,elapsed):
         except Exception:result['probe_errors']+=1
         return True
     user.EnumWindows(top,0)
+    import ui_accessibility
+    result['accessibility']=ui_accessibility.inspect(uia_targets)
     return result

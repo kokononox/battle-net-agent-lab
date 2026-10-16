@@ -31,13 +31,15 @@
     "installation_ready": false
   },
   "github_experiment": {
-    "previous_report_commit": "9b2f3b3700b1a4619eda3db710f443185aa63ad7",
+    "previous_report_commit": "c56c0360e400fe14dc8ba518b37322938dc2b93e",
     "previous_status": "bootstrapper_observed_agent_not_observed",
     "installation_complete_proven": false,
     "agent_not_observed_reason_proven": false,
-    "next_probe": "read-only GUI/session inspection; no clicks/login/game; 45 seconds",
-    "next_probe_result": "pending; inspect schema2 report provenance",
-    "scheduled_watcher": false
+    "next_probe": "Read-only UI Automation tree for native HWND/PID allowlist; fixed labels only; no actions; one bounded workflow run",
+    "next_probe_result": "pending; schema3 source_commit/run identity must match this change",
+    "scheduled_watcher": false,
+    "previous_gui_result": "Setup same session 2; input desktop accessible; one visible unknown-class window; no native child controls; no Agent observed; cause not proven",
+    "probe_document": "docs/UIA-PROBE.fa.md"
   },
   "telemetry": {
     "actual_in_world_capture_complete": false,

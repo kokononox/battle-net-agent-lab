@@ -1,0 +1,79 @@
+"""Bounded read-only UIA helper. Sanitized enums only; never acts on a control."""
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+from native_gui import LABELS, MARKERS
+
+TYPES={'Window','Pane','Text','Button','ComboBox','Edit','Document','Group','CheckBox',
+       'RadioButton','List','ListItem','Hyperlink','ProgressBar','Custom','Other'}
+READABLE={'Window','Pane','Text','Button','ComboBox','Group','CheckBox','RadioButton','Hyperlink'}
+STATUSES={'ok','no_targets','timeout','probe_failed','output_rejected','not_windows'}
+MAX_OUTPUT=65536
+
+def blank(status,n=0):
+    return {'status':status,'elements':[],'truncated':False,'errors':0,'top_windows_requested':n}
+
+def validate(report,targets,requested_count=None):
+    if type(report) is not dict or set(report)!={'status','elements','truncated','errors','top_windows_requested'}:raise ValueError('uia_schema')
+    if report['status'] not in STATUSES:raise ValueError('uia_status')
+    if type(report['truncated']) is not bool:raise ValueError('uia_flag')
+    if type(report['errors']) is not int or not 0<=report['errors']<=1024:raise ValueError('uia_errors')
+    n=report['top_windows_requested']
+    if type(n) is not int or not 0<=n<=8 or n!=(len(targets) if requested_count is None else requested_count):raise ValueError('uia_targets')
+    if report['status']=='no_targets' and n!=0:raise ValueError('uia_empty_targets')
+    if type(report['elements']) is not list or len(report['elements'])>64:raise ValueError('uia_limit')
+    pids={x['pid'] for x in targets}
+    for e in report['elements']:
+        if type(e) is not dict or set(e)!={'pid','depth','control_type','enabled','offscreen','password','label','markers'}:raise ValueError('uia_element')
+        if type(e['pid']) is not int or e['pid'] not in pids:raise ValueError('uia_pid')
+        if type(e['depth']) is not int or not 0<=e['depth']<=6:raise ValueError('uia_depth')
+        if e['control_type'] not in TYPES:raise ValueError('uia_control_type')
+        for f in ('enabled','offscreen','password'):
+            if type(e[f]) is not bool:raise ValueError('uia_boolean')
+        if e['label'] not in set(LABELS.values())|{'unrecognized','not_read'}:raise ValueError('uia_label')
+        if type(e['markers']) is not list or len(e['markers'])>len(MARKERS) or any(type(m) is not str or m not in MARKERS for m in e['markers']):raise ValueError('uia_marker')
+        if e['password'] or e['offscreen'] or e['control_type'] not in READABLE:
+            if e['label']!='not_read' or e['markers']:raise ValueError('uia_sensitive_name')
+    if n==0 and report['elements']:raise ValueError('uia_zero_scope')
+    if report['status']!='ok' and (report['elements'] or report['truncated'] or report['errors']):raise ValueError('uia_error_payload')
+    return report
+
+def inspect(targets):
+    # HWNDs were collected by native_gui solely for observed allowed setup/Agent PIDs.
+    if type(targets) is not list:raise ValueError('uia_input')
+    for t in targets:
+        if type(t) is not dict or set(t)!={'hwnd','pid'}:raise ValueError('uia_input')
+        if any(type(t[f]) is not int for f in ('hwnd','pid')) or not 0<t['hwnd']<2**64 or not 0<t['pid']<2**32:raise ValueError('uia_input')
+    if len(targets)>8:raise ValueError('uia_input')
+    n=len(targets)
+    if not targets:return blank('no_targets')
+    if sys.platform!='win32':return blank('not_windows',n)
+    from observe_agent import clean_environment
+    env=clean_environment(os.environ)
+    config={'targets':targets,'labels':LABELS,'markers':MARKERS,'types':sorted(TYPES),'readable_types':sorted(READABLE)}
+    env['BNET_LAB_UIA_CONFIG']=json.dumps(config,separators=(',',':'))
+    helper=Path(__file__).with_name('uia_readonly.ps1').resolve()
+    # Execute trusted repository text as a command, not bypassing execution policy.
+    # File path is an explicit literal and never from provider/UI text.
+    command=helper.read_text(encoding='utf-8')
+    exe=Path(os.environ.get('SystemRoot','C:/Windows'))/'System32'/'WindowsPowerShell'/'v1.0'/'powershell.exe'
+    try:
+        response=subprocess.run([str(exe),'-NoLogo','-NoProfile','-NonInteractive','-STA','-Command',command],
+            env=env,stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,
+            timeout=12,check=False)
+        if response.returncode:return blank('probe_failed',n)
+        if len(response.stdout)>MAX_OUTPUT:return blank('output_rejected',n)
+        def pairs(items):
+            result={}
+            for k,v in items:
+                if k in result:raise ValueError('duplicate_key')
+                result[k]=v
+            return result
+        def constant(_):raise ValueError('nonfinite')
+        report=json.loads(response.stdout.decode('utf-8-sig'),object_pairs_hook=pairs,parse_constant=constant)
+        return validate(report,targets)
+    except subprocess.TimeoutExpired:return blank('timeout',n)
+    except (ValueError,UnicodeError,TypeError,KeyError):return blank('output_rejected',n)
+    except OSError:return blank('probe_failed',n)
