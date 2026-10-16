@@ -1,6 +1,6 @@
 # ممیزی پچ WoW — آزمایش مستقل، نه آپدیتر آماده
 
-> تازه‌ترین milestone: [bind اصلی Agent و ایندکس V8](research/bind-contract-9824/README-fa.md). V7 قبلی فقط با CascLib تأیید شده بود؛ Agent آن را رد کرد. حالا ۱۶ ایندکس V8/۱۸ رکورد در inner-bind اصلی پذیرفته و source/target با جست‌وجوی full key16 پیدا شدند. بازخوانی span مستقل Python است، نه read-path کامل Agent. ۱۴۲۴ بردار parity، ۵۶۳ آزمون؛ Windows/SEH بیرونی و نصب بازی اثبات نشده‌اند. checkpointهای پایین تاریخی‌اند.
+> تازه‌ترین milestone: [چرخهٔ V8 با گیت اجباری bind اصلی و resume](research/retail-v8-cycle/README-fa.md). پیش/پس از publication و در no-op، binder اصلی و full-key search اجرا می‌شوند؛ span مستقل Python خوانده می‌شود. هر ۹ توقف سخت قابل‌بازیابی و خطای mapping مانع انتشار control شد. ۱۰۵ بایت primitive اصلی range، ۲۱۷۶ بردار؛ مجموع ۶۰۱ آزمون. Windows/publication واقعی و read/merge کامل هنوز اثبات نشده‌اند.
 
 
 ## به‌روزرسانی مرحلهٔ دوم: اتصال به شواهد قبلی

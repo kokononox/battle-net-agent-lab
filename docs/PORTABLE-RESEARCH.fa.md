@@ -65,3 +65,8 @@ companion code ZIP از کد پژوهشی و گزارش‌ها ساخته می�
 ## قرارداد اصلی bind و V8
 
 [گزارش V8](../downloader/patch_audit_lab/research/bind-contract-9824/README-fa.md): V7 قبلی صرفاً با CascLib خوانده شده بود و bind خود Agent 9824 آن را رد کرد. اکنون ۱۶ ایندکس V8 در harness اصلی bind/parser پذیرفته شد؛ lookup کامل source/target موفق و spanها مستقل با Python بررسی شدند. این writer نصب نیست؛ ساخت V8 فقط در پوشهٔ owned تازه است و ZIP اصلی دست‌نخورده. ۵۶۳ آزمون/صفر skip، ۱۴۲۴ بردار؛ برای source جدید از شاخه استفاده کنید و فایل‌های fixture داخل ZIP را جایگزین نکنید.
+
+
+## چرخهٔ V8 با گیت اجباری و resume
+
+[retail-v8-cycle](../downloader/patch_audit_lab/research/retail-v8-cycle/README-fa.md): چرخهٔ owned تازه با source واقعی، append هدف، binder اصلی پیش/پس publication و readback مستقل؛ ۹ توقف سخت/resume و خطای نگاشتِ مانع انتشار موفق بودند. ۶۰۱ آزمون/صفر skip. این writer Lab یا نصب اصلی نیست؛ فایل‌های fixture یا ZIP را تعویض نکنید. Windows واقعی و object read/merge کامل هنوز بررسی نشده‌اند.

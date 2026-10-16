@@ -1,0 +1,105 @@
+{
+  "format": "retail-v8-cycle-sync-1",
+  "previous_commit": "94906eb79b547d2a81fbcf6a41518cf19c4748ec",
+  "branch": "patch-audit-20261016",
+  "tests": 601,
+  "new_tests": 38,
+  "mandatory_original_bind_gate": true,
+  "oracle_binary_identity_checked": true,
+  "hard_exit_resume_boundaries": 9,
+  "mapping_failure_prevents_publish": true,
+  "value_original_bytes": 105,
+  "value_native_model_vectors": 2176,
+  "value_full_agent_readmerge_proven": false,
+  "windows_publication_executed": false,
+  "power_loss_proven": false,
+  "installation_ready": false,
+  "game_lab_original_portable_release_changed": false,
+  "binaries_raw_fragments_indexes_or_archives_published": false,
+  "files": [
+    {
+      "path": "downloader/patch_audit_lab/retail_v8_cycle.py",
+      "sha256": "2876f36a570853f0c0fb7a2d32130353f9cf9a34d1dcab9bdf369c7051b9c8d3"
+    },
+    {
+      "path": "downloader/patch_audit_lab/agent_value_range.py",
+      "sha256": "9922cb76c13098b018676ff65299b5239d5ae38ef5b95851a0736c76af87672c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_retail_v8_cycle.py",
+      "sha256": "c2038818984bdeeef6b8951224005524fabc508f05fd1c293e20535247222a42"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_value_range.py",
+      "sha256": "51c2ae02831a113210204882556b4efad5cd2cdbc8846d9645fde5f2cc45f553"
+    },
+    {
+      "path": "downloader/patch_audit_lab/README-fa.md",
+      "sha256": "2b38c23205481c52827b2c17486c2c9f978b4bb3e687c0d2dddb5d10e0bb5b64"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/bind-contract-9824/README-fa.md",
+      "sha256": "ca4fa5dd2d059a77d9bd72239a7fd9ab3fca63602ffefb64d34cefa02910ba08"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-v8-cycle/ALL-TESTS.log",
+      "sha256": "53cfb0a59ba890278fabd9a227cb5673d3c39280644126ef8021e28856e9fc04"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-v8-cycle/CYCLE-EXPERIMENT.json",
+      "sha256": "14b9c30b53ab8ee717f170551f4039919fafd5f9defe9dc0aa619daa76e48a6f"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-v8-cycle/README-fa.md",
+      "sha256": "a83d279eb62274e1f21af482182df21632298329fad55faf79aea693d1dc7474"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-v8-cycle/TEST-RESULTS.json",
+      "sha256": "f428260a4e4067b5190452588b59fedc86255f38a98cf9918500a70dad8fc6a4"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-v8-cycle/VALUE-FRAGMENT-BUILD-RECEIPT.json",
+      "sha256": "9d1a8ceb6f80ba273224e552578f6f6b9d8e45fbbc54f1fd1eff888376b1e824"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-v8-cycle/VALUE-MATRIX.json",
+      "sha256": "f7ecd4dcf3aa0eb93a9709c3875b7c9117db7bb60f62a28c7dd4719ba1a86589"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-v8-cycle/native/build_value_range.py",
+      "sha256": "87d2ac115961f93b84f5da96ff93495738bf8d03b6f38040dc3cd7112bde3cb1"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-v8-cycle/native/value_range.s",
+      "sha256": "87aa347cef530202f6f68ac5254fab71f64b63fd5957a308e445b08207bc75dd"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-v8-cycle/run_experiments.py",
+      "sha256": "c58d1443340642b36a6afe8ab3e729e39089b4b8d626d50d8dfee0cd27247322"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-v8-cycle/value-caller-static-only.asm",
+      "sha256": "2b2939a0a8dd9f0711eb2710c85982d6466b683451bea44062c121bd83611fdc"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-v8-cycle/value-range.asm",
+      "sha256": "a83ff64b84ac5b5ed14155417ae46a0a60af7c77f4e9c3fe89040cf4a10840d9"
+    },
+    {
+      "path": "README.md",
+      "sha256": "e60f3770ff3cecb6eff888c8b71ce454f59b0c44c1c4e23c5ed641ef3123c1b3"
+    },
+    {
+      "path": "docs/SESSION-2026-10-16.fa.md",
+      "sha256": "81f520ad9085f060b9f298086c1a6567acf69ce7000af26bbad808379f81c7c3"
+    },
+    {
+      "path": "docs/PORTABLE-RESEARCH.fa.md",
+      "sha256": "dd388e41860548347c01fc82d61aa1d166f3dcc85f83be53d0fe46a6c38000fc"
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "019baea913f70c16ee73d798190a56ef4c9c56f7cc046fa442296b9985b3480d"
+    }
+  ]
+}

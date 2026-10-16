@@ -1,0 +1,151 @@
+{
+  "format": "real-retail-v8-cycle-experiment-1",
+  "initial": {
+    "format": "retail-v8-cycle-status-1",
+    "target_published": false,
+    "source_full_ekey_and_derived_ckey_verified": true,
+    "target_full_ekey_and_expected_ckey_verified": false,
+    "target_bucket_sequence": 1,
+    "visible_objects": 1,
+    "data_bytes": 668,
+    "pending_unpublished_tail_bytes": 0,
+    "source_span_unchanged": true,
+    "archive_prefix_placeholder": false,
+    "custom_resume_state": null,
+    "exact_header_sequence_used": true,
+    "max_filename_selection_used": false,
+    "source_ckey_is_derived_not_independent": true,
+    "agent_windows_publication_executed": false,
+    "installation_ready": false,
+    "network_requests": 0,
+    "original_agent_inner_bind_verified": true,
+    "original_agent_fullkey_search_verified": true,
+    "span_readback": "independent Python, not Agent object I/O",
+    "selected_index_count": 16,
+    "index_profile": "Agent-9824-V8-primary-only",
+    "mandatory_native_gate": true,
+    "agent_qword_semantics": "fixture policy, full Agent readpath unproven",
+    "windows_agent_executed": false
+  },
+  "completed": {
+    "format": "retail-v8-cycle-status-1",
+    "target_published": true,
+    "source_full_ekey_and_derived_ckey_verified": true,
+    "target_full_ekey_and_expected_ckey_verified": true,
+    "target_bucket_sequence": 2,
+    "visible_objects": 2,
+    "data_bytes": 856,
+    "pending_unpublished_tail_bytes": 0,
+    "source_span_unchanged": true,
+    "archive_prefix_placeholder": false,
+    "custom_resume_state": "committed",
+    "exact_header_sequence_used": true,
+    "max_filename_selection_used": false,
+    "source_ckey_is_derived_not_independent": true,
+    "agent_windows_publication_executed": false,
+    "installation_ready": false,
+    "network_requests": 0,
+    "original_agent_inner_bind_verified": true,
+    "original_agent_fullkey_search_verified": true,
+    "span_readback": "independent Python, not Agent object I/O",
+    "selected_index_count": 16,
+    "index_profile": "Agent-9824-V8-primary-only",
+    "mandatory_native_gate": true,
+    "agent_qword_semantics": "fixture policy, full Agent readpath unproven",
+    "windows_agent_executed": false,
+    "idempotent_noop": false
+  },
+  "all_16_initial_indexes_unchanged": true,
+  "source_and_prefix_bytes_unchanged": true,
+  "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1",
+  "hard_exit_resume_cases": [
+    {
+      "phase": "prepared",
+      "hard_exit": 91,
+      "resume_published_target": true,
+      "native_bind_and_fullkey_gate_verified": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "target_half_appended",
+      "hard_exit": 91,
+      "resume_published_target": true,
+      "native_bind_and_fullkey_gate_verified": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "target_data_synced",
+      "hard_exit": 91,
+      "resume_published_target": true,
+      "native_bind_and_fullkey_gate_verified": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "index_temp_synced",
+      "hard_exit": 91,
+      "resume_published_target": true,
+      "native_bind_and_fullkey_gate_verified": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "index_named",
+      "hard_exit": 91,
+      "resume_published_target": true,
+      "native_bind_and_fullkey_gate_verified": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "index_bound",
+      "hard_exit": 91,
+      "resume_published_target": true,
+      "native_bind_and_fullkey_gate_verified": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "control_temp_synced",
+      "hard_exit": 91,
+      "resume_published_target": true,
+      "native_bind_and_fullkey_gate_verified": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "control_published",
+      "hard_exit": 91,
+      "resume_published_target": true,
+      "native_bind_and_fullkey_gate_verified": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "committed",
+      "hard_exit": 91,
+      "resume_published_target": true,
+      "native_bind_and_fullkey_gate_verified": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    }
+  ],
+  "injected_mapping_failure": {
+    "original_bind_executed": true,
+    "only_mapping_helper_returns_injected_73": true,
+    "caught": "v8_actual_bind_failed",
+    "old_control_kept": true,
+    "journal_kept_prepared": true,
+    "real_resume_succeeded": true
+  },
+  "prior_owned_v7_store_hashes_unchanged": true,
+  "idempotent_no_write": true,
+  "publication": "custom Linux renameat2 no-replace for index, os.replace whole control, fsync; not Agent Windows publication",
+  "journal": "custom research protocol, not Agent journal",
+  "power_loss_proven": false,
+  "full_agent_value_and_object_io_proven": false,
+  "game_lab_original_portable_or_release_modified": false,
+  "installation_ready": false
+}
