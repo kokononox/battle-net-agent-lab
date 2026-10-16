@@ -1,11 +1,14 @@
 {
   "status": "passed",
-  "tests_run": 58,
+  "tests_run": 99,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
+  "prior_patch_tests": 58,
+  "source_binding_and_publication_tests": 41,
   "platform": "Linux",
   "python": "3.13.14",
   "windows_tested": false,
-  "scope": "new patch-audit unit tests only; previous 446-test downloader suite not rerun"
+  "user_lab_tested": false,
+  "scope": "patch audit, saved-proof binding, publication safety and complete bundled metadata; previous 446-test downloader suite not rerun"
 }

@@ -56,8 +56,49 @@ test_wrong_magic (test_patch_audit.PatchTests.test_wrong_magic) ... ok
 test_wrong_patch_hash (test_patch_audit.PatchTests.test_wrong_patch_hash) ... ok
 test_wrong_target_ckey_rejected (test_patch_audit.PatchTests.test_wrong_target_ckey_rejected) ... ok
 test_zero_output (test_patch_audit.PatchTests.test_zero_output) ... ok
+test_alias_marker_not_proof (test_source_binding.BindingTests.test_alias_marker_not_proof) ... ok
+test_ambiguous_archive_refused (test_source_binding.BindingTests.test_ambiguous_archive_refused) ... ok
+test_bounds_conflict_refused (test_source_binding.BindingTests.test_bounds_conflict_refused) ... ok
+test_cancel_refused (test_source_binding.BindingTests.test_cancel_refused) ... ok
+test_cross_plan_refused (test_source_binding.BindingTests.test_cross_plan_refused) ... ok
+test_cross_snapshot_refused (test_source_binding.BindingTests.test_cross_snapshot_refused) ... ok
+test_decoded_only_not_encoded_proof (test_source_binding.BindingTests.test_decoded_only_not_encoded_proof) ... ok
+test_dirty_queue_refused (test_source_binding.BindingTests.test_dirty_queue_refused) ... ok
+test_duplicate_json_keys_refused (test_source_binding.BindingTests.test_duplicate_json_keys_refused) ... ok
+test_evidence_database_changed (test_source_binding.BindingTests.test_evidence_database_changed) ... ok
+test_exact_proof_bound_not_authorized (test_source_binding.BindingTests.test_exact_proof_bound_not_authorized) ... ok
+test_file_set_changed (test_source_binding.BindingTests.test_file_set_changed) ... ok
+test_incomplete_review_refused (test_source_binding.BindingTests.test_incomplete_review_refused) ... ok
+test_no_payload_opens_no_network_no_input_writes (test_source_binding.BindingTests.test_no_payload_opens_no_network_no_input_writes) ... ok
+test_optional_binding_conflict (test_source_binding.BindingTests.test_optional_binding_conflict) ... ok
+test_private_plan_limit (test_source_binding.BindingTests.test_private_plan_limit) ... ok
+test_public_report_has_no_paths (test_source_binding.BindingTests.test_public_report_has_no_paths) ... ok
+test_record_path_traversal_refused (test_source_binding.BindingTests.test_record_path_traversal_refused) ... ok
+test_short_prefix_not_proof (test_source_binding.BindingTests.test_short_prefix_not_proof) ... ok
+test_sidecar_refused (test_source_binding.BindingTests.test_sidecar_refused) ... ok
+test_source_fingerprint_changed (test_source_binding.BindingTests.test_source_fingerprint_changed) ... ok
+test_source_index_required_no_repeated_scan_fallback (test_source_binding.BindingTests.test_source_index_required_no_repeated_scan_fallback) ... ok
+test_source_outside_prior_target_projection_unknown (test_source_binding.BindingTests.test_source_outside_prior_target_projection_unknown) ... ok
+test_source_path_mismatch_refused (test_source_binding.BindingTests.test_source_path_mismatch_refused) ... ok
+test_symlink_archive_refused (test_source_binding.BindingTests.test_symlink_archive_refused) ... ok
+test_target_not_in_saved_catalogue (test_source_binding.BindingTests.test_target_not_in_saved_catalogue) ... ok
+test_target_version_conflict (test_source_binding.BindingTests.test_target_version_conflict) ... ok
+test_timeout_refused (test_source_binding.BindingTests.test_timeout_refused) ... ok
+test_unverified_candidate_not_proof (test_source_binding.BindingTests.test_unverified_candidate_not_proof) ... ok
+test_wrong_decoded_size_not_selected (test_source_binding.BindingTests.test_wrong_decoded_size_not_selected) ... ok
+test_wrong_evidence_ekey (test_source_binding.BindingTests.test_wrong_evidence_ekey) ... ok
+test_wrong_ordinal_not_joined_by_key_alone (test_source_binding.BindingTests.test_wrong_ordinal_not_joined_by_key_alone) ... ok
+test_wrong_read_count_not_proof (test_source_binding.BindingTests.test_wrong_read_count_not_proof) ... ok
+test_zero_based_and_other_ordinals_not_guessed (test_source_binding.BindingTests.test_zero_based_and_other_ordinals_not_guessed) ... ok
+test_full_real_bundled_manifest (test_source_binding.BundledMetadataTests.test_full_real_bundled_manifest) ... ok
+test_modified_base64_shard_rejected (test_source_binding.BundledMetadataTests.test_modified_base64_shard_rejected) ... ok
+test_no_existing_output_overwrite (test_source_binding.PublicationTests.test_no_existing_output_overwrite) ... ok
+test_no_publish_inside_lab (test_source_binding.PublicationTests.test_no_publish_inside_lab) ... ok
+test_no_publish_inside_source (test_source_binding.PublicationTests.test_no_publish_inside_source) ... ok
+test_publish_outside_lab (test_source_binding.PublicationTests.test_publish_outside_lab) ... ok
+test_symlink_parent_rejected (test_source_binding.PublicationTests.test_symlink_parent_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 58 tests in 0.042s
+Ran 99 tests in 0.779s
 
 OK

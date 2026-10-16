@@ -1,0 +1,51 @@
+{
+  "status": "synthetic_metadata_scale_passed",
+  "real_user_lab_tested": false,
+  "real_game_content_verified": false,
+  "input_type": "real PA metadata plus generated prior-proof rows; not actual source-content proofs",
+  "plan_rows": 2881619,
+  "candidate_rows": 1531167,
+  "evidence_rows": 1531167,
+  "generated_database_setup_seconds": 10.861,
+  "binding_seconds": 1.501,
+  "all_real_pa_options_accounted_for": true,
+  "report": {
+    "schema": 1,
+    "checked_at_utc": "2026-10-16T18:21:34.173502+00:00",
+    "status": "offline_prior_source_proof_binding_complete",
+    "target": {
+      "build_config": "334a36cf5f3c32a5f7a167405487fa14",
+      "cdn_config": "fcab7fec2ccc6b8158b56b6938ec4551",
+      "version": "12.1.5.70391",
+      "product": "wow",
+      "region": "eu"
+    },
+    "manifest_blocks_verified": 28,
+    "manifest_patch_options": 27994,
+    "options_by_state": {
+      "prior_full_source_proof_bound_reverification_required": 1,
+      "source_outside_saved_target_candidate_inventory": 27993
+    },
+    "unique_source_ekeys_with_bound_prior_full_proof": 1,
+    "bounded_options_for_future_targeted_reverification": 1,
+    "private_options_emitted": 1,
+    "source_candidates_were_target_projected_not_all_old_assets": true,
+    "source_fingerprints_checked": true,
+    "consistency_model": "saved_file_set_and_stat_fingerprints_not_OS_snapshot",
+    "archive_payload_bytes_read": 0,
+    "network_requests": 0,
+    "lab_files_modified": false,
+    "game_files_modified": false,
+    "saved_catalogue_metadata_scanned_once": true,
+    "profile_selection_applied": false,
+    "fresh_source_content_verified": false,
+    "patch_applied": false,
+    "patch_order_policy_proven": false,
+    "unknown_is_not_missing_or_corrupt": true,
+    "required_network_download_bytes": null,
+    "installation_ready": false,
+    "elapsed_seconds": 1.501
+  },
+  "private_plan_not_published": true,
+  "measurement_note": "Scale used raw pinned manifest input. Later changes added text-shard input packaging and two scope-report flags; algorithmic joins unchanged. Final 99-test run includes decoding all bundled shards."
+}
