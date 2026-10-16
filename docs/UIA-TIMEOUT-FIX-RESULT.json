@@ -1,0 +1,26 @@
+{
+  "report_commit": "b5414e65c35f39410127aea916f208ac79488729",
+  "report_url": "https://github.com/kokononox/battle-net-agent-lab/blob/b5414e65c35f39410127aea916f208ac79488729/reports/latest.json",
+  "source_commit": "535fc82727fd5e9aad899ae65e445aafe8dba262",
+  "run_id": "38835800120",
+  "Windows_tests": {
+    "executed": 67,
+    "passed": 67,
+    "skipped": 0,
+    "failures": 0
+  },
+  "native_UIA_empty_scope_compile_and_runtime_smoke_passed": true,
+  "real_Setup_window_UIA_inspection_completed": false,
+  "installer_bytes": 4896464,
+  "installer_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+  "status": "stopped",
+  "phase": "installer_signature",
+  "error_type": "TimeoutExpired",
+  "signature_check_timeout_seconds": 60,
+  "signature_check_backend": "legacy Windows PowerShell Get-AuthenticodeSignature",
+  "exact_internal_stall_or_revocation_network_cause_proven": false,
+  "signature_validation_bypassed": false,
+  "installer_launched": false,
+  "game_files_modified": false,
+  "next_step": "Investigate/replace legacy signature-check execution with equivalent trusted Windows verification; keep valid signature + expected publisher mandatory; no guessed success, timeout increase alone, or UI actions."
+}

@@ -25,3 +25,9 @@ Workflow اکنون `run_safety_tests.py` را اجرا می‌کند. اگر ت
 Linux: ۶۷ تست کشف، ۶۶ موفق، یک تست صرفاً بومی Windows اجرا نشده. ده تست تازه برای حفظ انسداد ایمن، گزارش timeout بدون متن حساس، compiler/runtime failure و schema افزوده شده است. smoke check Windows و اجرای واقعی UIA پس از push باید از گزارش منشأدار بررسی شوند؛ رفع timeout یا تشخیص صفحه از قبل ادعا نشده است.
 
 کد دانلودر، Lab، بازی و checkpoint کاربر تغییر نکرده‌اند؛ prepare/اسکن/دانلود تازه درخواست نشده است.
+
+## نتیجهٔ واقعی اجرای اصلاح‌شده
+
+گزارش [b5414e6](https://github.com/kokononox/battle-net-agent-lab/blob/b5414e65c35f39410127aea916f208ac79488729/reports/latest.json) برای source 535fc827 / run 38835800120: تمام ۶۷ تست روی Windows موفق شدند، skip صفر؛ بنابراین compiler و smoke واقعی UIA با target خالی از مانع قبلی گذشتند. این به معنی خوانده‌شدن پنجرهٔ واقعی Setup نیست.
+
+Installer با همان hash و اندازهٔ ۴٬۸۹۶٬۴۶۴ بایت دریافت شد، اما مرحلهٔ مستقل installer_signature با TimeoutExpired در helper قدیمی PowerShell (مهلت ۶۰ ثانیه) متوقف شد. Setup اجرا نشد، GUI نمونه‌ای ندارد و امضا دور زده نشد. علت داخلی timeout، از startup/runtime تا revocation/network، هنوز تفکیک نشده است. گام بعد فقط رفع/بررسی مسیر معتبر Authenticode است؛ افزایش کورکورانهٔ زمان، اجرای بدون امضا یا انتخاب publisher از رشته‌های فایل مجاز نیست. نتیجهٔ ساختاریافته در UIA-TIMEOUT-FIX-RESULT.json ثبت شده است.
