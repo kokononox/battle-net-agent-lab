@@ -6,7 +6,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import patch_audit as a
 import source_binding as b
 
-BINDING={'product':'wow','region':'eu','version':a.VERSION,'build_config':a.BUILD,'cdn_config':a.CDN}
+BINDING={'product':'wow','region':'eu','version':a.VERSION,'build_config':a.BUILD,'cdn_config':a.CDN,'download_ckey':'5beff4cf8122da27a6788d9062c8d3c2','download_ekey':'fa1124f7249c41d63eda566523dd7444'}
 OPT=a.PatchOption('20'*16,4,'30'*16,3,'40'*16,100,0)
 
 def writejson(p,obj):p.write_text(json.dumps(obj))
@@ -140,6 +140,37 @@ class BindingTests(unittest.TestCase):
     def test_optional_binding_conflict(self):
         self.f.meta(self.f.ev,'target_binding',{**BINDING,'download_ckey':'f'*32})
         with self.assertRaisesRegex(b.BindingError,'target_binding'):self.f.run()
+    def test_saved_cdn_same_content_accepted_offline(self):
+        for p in (self.f.plan,self.f.queue,self.f.inv,self.f.ev):self.f.meta(p,'target_binding',{**BINDING,'cdn_config':b.SAVED_CDN})
+        r,private=self.f.run()
+        self.assertEqual(r['target']['cdn_config'],b.SAVED_CDN)
+        self.assertEqual(private['target'],r['target'])
+        self.assertEqual(r['audit_metadata_cdn_config'],a.CDN)
+        self.assertFalse(r['cdn_routes_used']);self.assertFalse(r['cdn_route_equivalence_claimed'])
+        self.assertFalse(r['patch_applied']);self.assertFalse(private['apply_authorized'])
+    def test_saved_cdn_mixed_databases_rejected(self):
+        self.f.meta(self.f.queue,'target_binding',{**BINDING,'cdn_config':b.SAVED_CDN})
+        with self.assertRaisesRegex(b.BindingError,'target_binding'):self.f.run()
+    def test_unknown_cdn_even_consistent_rejected(self):
+        for p in (self.f.plan,self.f.queue,self.f.inv,self.f.ev):self.f.meta(p,'target_binding',{**BINDING,'cdn_config':'a'*32})
+        with self.assertRaisesRegex(b.BindingError,'target_binding'):self.f.run()
+    def test_wrong_content_even_consistent_rejected(self):
+        for key in ('product','region','version','build_config','download_ckey','download_ekey'):
+            with self.subTest(key=key):
+                for p in (self.f.plan,self.f.queue,self.f.inv,self.f.ev):self.f.meta(p,'target_binding',{**BINDING,'cdn_config':b.SAVED_CDN,key:'0'*32})
+                with self.assertRaisesRegex(b.BindingError,'target_binding'):self.f.run()
+    def test_missing_download_even_consistent_rejected(self):
+        obj={k:v for k,v in BINDING.items() if k!='download_ekey'}
+        for p in (self.f.plan,self.f.queue,self.f.inv,self.f.ev):self.f.meta(p,'target_binding',obj)
+        with self.assertRaisesRegex(b.BindingError,'target_binding'):self.f.run()
+    def test_extra_field_disagreement_rejected(self):
+        self.f.meta(self.f.ev,'target_binding',{**BINDING,'some_optional_field':'different'})
+        with self.assertRaisesRegex(b.BindingError,'target_binding'):self.f.run()
+    def test_actual_pinned_download_keys_match_user_report(self):
+        root=Path(__file__).resolve().parents[1]/'pinned_metadata'
+        _,_,expected=b.load_metadata(root,b.Watch())
+        obj={**BINDING,'cdn_config':b.SAVED_CDN}
+        self.assertEqual(b.validate_bindings([obj]*4,expected),obj)
     def test_incomplete_review_refused(self):
         self.f.meta(self.f.ev,'local_verification_summary',{'candidate_rows_pending':1,'all_discovered_candidates_processed':False})
         with self.assertRaisesRegex(b.BindingError,'incomplete'):self.f.run()

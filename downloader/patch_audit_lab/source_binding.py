@@ -20,6 +20,11 @@ import time
 from datetime import datetime, timezone
 import patch_audit as a
 
+# Limited offline evidence-binding policy, not a CDN routing policy. Both
+# configuration identities were obtained and MD5-checked from official HTTPS.
+SAVED_CDN = '837a654343ce719ad447e92a6c0b557f'
+OFFLINE_CDN_IDENTITIES = frozenset((a.CDN, SAVED_CDN))
+
 class BindingError(ValueError): pass
 
 def need(condition, code):
@@ -136,7 +141,25 @@ def load_metadata(audit_dir,watch):
         except binascii.Error:raise BindingError('pinned_manifest_encoding') from None
     need(len(raw)==int(build['patch-size'][0]),'manifest_size_binding')
     options,report=a.manifest(raw,build['patch'][0])
-    return options,report,{'build_config':a.BUILD,'cdn_config':a.CDN,'version':a.VERSION,'product':'wow','region':'eu'}
+    download=build.get('download',[])
+    need(len(download)==2,'pinned_download_binding_shape')
+    for key in download:a.key(key)
+    return options,report,{'build_config':a.BUILD,'cdn_config':a.CDN,'version':a.VERSION,'product':'wow','region':'eu',
+                           'download_ckey':download[0],'download_ekey':download[1]}
+
+def validate_bindings(bindings,expected):
+    # Require the entire saved binding dictionaries to agree, including fields
+    # not interpreted here. Only CDN identity may differ from audit metadata;
+    # build + both download keys still bind the exact content catalogue.
+    need(len(bindings)==4 and all(isinstance(obj,dict) for obj in bindings),'target_binding_conflict')
+    need(all(obj==bindings[0] for obj in bindings),'target_binding_conflict')
+    obj=bindings[0]
+    need(set(expected)>={'product','region','version','build_config','cdn_config','download_ckey','download_ekey'},'pinned_download_binding_shape')
+    need(expected['cdn_config']==a.CDN,'pinned_cdn_identity_conflict')
+    need(all(obj.get(k)==v for k,v in expected.items() if k!='cdn_config'),'target_binding_conflict')
+    need(obj.get('cdn_config') in OFFLINE_CDN_IDENTITIES,'target_binding_conflict')
+    return {**expected,'cdn_config':obj['cdn_config']}
+
 
 def bind(lab_root,audit_dir,*,time_limit=120,max_private=256,cancel=lambda:False):
     """Metadata-only plan. Exact prior proof is still subject to targeted re-read.
@@ -171,11 +194,7 @@ def bind(lab_root,audit_dir,*,time_limit=120,max_private=256,cancel=lambda:False
         schema(db,'i','archives',('archive_id','name','size','ambiguous'))
         schema(db,'e','evidence',('ordinal','ekey','kind','state','bytes_read','decoded_content_verified','encoded_object_verified','source_path'))
         bindings=[metadata(db,al,'target_binding') for al in ('p','q','i','e')]
-        for b in bindings:
-            need(isinstance(b,dict) and all(b.get(k)==v for k,v in expected.items()),'target_binding_conflict')
-        # Match complete binding dictionaries too: optional download manifest keys
-        # must not silently diverge between saved source files.
-        need(all(b==bindings[0] for b in bindings),'target_binding_conflict')
+        expected=validate_bindings(bindings,expected)
         pid=metadata(db,'p','plan_id')
         need(isinstance(pid,str) and re.fullmatch('[0-9a-f]{32}',pid) and record.get('plan_id')==pid,'plan_id_conflict')
         need(all(metadata(db,al,'source_plan_id')==pid for al in ('i','e','q')),'plan_id_conflict')
@@ -250,7 +269,9 @@ def bind(lab_root,audit_dir,*,time_limit=120,max_private=256,cancel=lambda:False
         watch.check()
         rows.sort(key=lambda r:(r['source_encoded_size']+r['patch_size'],r['target_ckey'],r['patch_key']))
         public={'schema':1,'checked_at_utc':datetime.now(timezone.utc).isoformat(),'status':'offline_prior_source_proof_binding_complete',
-                'target':expected,'manifest_blocks_verified':maudit['blocks'],'manifest_patch_options':len(options),
+                'target':expected,'audit_metadata_cdn_config':a.CDN,
+                'cdn_binding_policy':'offline_only_two_pinned_identities_same_build_and_download_manifest',
+                'cdn_routes_used':False,'cdn_route_equivalence_claimed':False,'manifest_blocks_verified':maudit['blocks'],'manifest_patch_options':len(options),
                 'options_by_state':dict(sorted(counts.items())),'unique_source_ekeys_with_bound_prior_full_proof':len(proof_sources),
                 'bounded_options_for_future_targeted_reverification':len(rows),'private_options_emitted':min(len(rows),max_private),
                 'source_candidates_were_target_projected_not_all_old_assets':True,
