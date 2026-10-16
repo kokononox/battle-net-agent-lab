@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "tests_run": 230,
+  "failures": 0,
+  "errors": 0,
+  "previous_tests": 189,
+  "new_encoding_tests": 29,
+  "new_portable_export_tests": 12,
+  "platform": "Linux",
+  "python": "3.13",
+  "windows_exporter_tested": false,
+  "real_user_lab_export_tested": false,
+  "real_200MB_encoding_export_tested": false,
+  "synthetic_small_encoding_zip_export_and_manifest_readback_tested": true,
+  "agent_encoding_parser_smoke": {
+    "status": "passed",
+    "decoded_bytes": 8390,
+    "scope": "Agent, not Retail"
+  },
+  "real_user_retail_staging_reconstruction_report_received": true,
+  "scope": "full local development suite; new exporter tested with synthetic small Encoding, not user Lab or Windows"
+}

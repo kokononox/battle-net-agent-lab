@@ -1,0 +1,50 @@
+{
+  "option": {
+    "target_ckey": "3d42bf2e42127f313b0ec64cb440cde9",
+    "target_size": 33940,
+    "source_ekey": "914fcad4f4fcf4abb0ba52b197bb066f",
+    "source_size": 33940,
+    "patch_key": "5b933d49c411cc964fe009a18d6c2af9",
+    "patch_size": 117,
+    "ordinal": 0
+  },
+  "patch_analysis": {
+    "format": "ZBSDIFF1",
+    "output_bytes": 33940,
+    "control_triples": 1,
+    "negative_seek_entries": 1,
+    "integers": "little-endian sign-magnitude",
+    "patch_hash_verified": true,
+    "stream_sizes_reconciled": true
+  },
+  "receipt": {
+    "url": "https://level3.ssl.blizzard.com/tpr/wow/patch/27/fb/27fb468d2313e09f54959f485e30b957",
+    "status": 206,
+    "content_range": "bytes 41554697-41554813/268435411",
+    "body_bytes": 117,
+    "sha256": "26bf39936d786d37628f56ce8f5fb26f78ddbb873ae20ba774ee472a280757e9",
+    "md5": "5b933d49c411cc964fe009a18d6c2af9"
+  },
+  "route_index_key": "27fb468d2313e09f54959f485e30b957",
+  "routing_index_body_bytes": 4886600,
+  "prior_failed_requests": [
+    {
+      "route": "direct EU",
+      "status": 403
+    },
+    {
+      "route": "direct US",
+      "status": 404
+    },
+    {
+      "route": "archive-group index HEAD",
+      "status": 403
+    },
+    {
+      "route": "first index expected size check",
+      "status": "rejected before body size mismatch"
+    }
+  ],
+  "source_available_here": false,
+  "real_source_patch_applied": false
+}
