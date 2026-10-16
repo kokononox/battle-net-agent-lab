@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "tests_run": 119,
+  "tests_run": 164,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
@@ -10,8 +10,10 @@
   "python": "3.13.14",
   "windows_tested": false,
   "user_lab_tested": false,
-  "scope": "patch audit, saved-proof binding, publication safety, complete bundled metadata, safe target diagnosis and limited offline CDN identity compatibility; prior 446-test downloader suite not rerun",
+  "scope": "patch audit, saved-proof binding, publication safety, target diagnosis, plan/CDN compatibility, saved refs discovery, bounded BLTE source proof, observed Agent-derived patch-index parser; previous downloader suite not rerun",
   "diagnostic_tests": 8,
   "cdn_binding_policy_tests": 7,
-  "plan_id_contract_tests": 5
+  "plan_id_contract_tests": 5,
+  "refs_discovery_and_bounded_source_tests": 31,
+  "agent_static_parser_tests": 14
 }

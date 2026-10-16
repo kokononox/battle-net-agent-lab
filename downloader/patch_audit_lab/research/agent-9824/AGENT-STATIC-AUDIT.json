@@ -1,0 +1,80 @@
+{
+  "format": "agent-9824-static-audit-1",
+  "pe": {
+    "sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+    "image_base": "0x400000",
+    "machine": "i386 PE32",
+    "code_anchors_verified": {
+      "sign_byte_and_magnitude_mask": "0x6e3c4f",
+      "conditional_magnitude_negation": "0x6e3ccd",
+      "header_read_at_8": "0x6e3d3c",
+      "header_read_at_16": "0x6e3d6a",
+      "header_read_at_24": "0x6e3d9c",
+      "patch_index_minimum_14_bytes": "0x68c3e7",
+      "little_endian_u32_reader": "0x6b7f82",
+      "block_dispatch_subtract_1": "0x68c483",
+      "block8_header_reads": "0x68ce40"
+    },
+    "patch_index_block8_dispatch_va": "0x68c4c4",
+    "patch_index_block8_handler_va": "0x68ce1e",
+    "zbsdiff_sign_magnitude_reader_va": "0x6e3c46",
+    "zbsdiff_header_reader_va": "0x6e3ce1",
+    "binary_executed": false,
+    "authenticode_trust_verified": false
+  },
+  "retail_patch_index": {
+    "header_bytes": 35,
+    "header_u32_field_1_uninterpreted": 1,
+    "total_bytes": 1689024,
+    "extension_hex": "00",
+    "block_directory": [
+      {
+        "id": 1,
+        "bytes": 7
+      },
+      {
+        "id": 8,
+        "bytes": 1688982
+      }
+    ],
+    "block8": {
+      "version": 3,
+      "key_bytes": 16,
+      "header_bytes": 14,
+      "records": 27688,
+      "record_bytes": 61,
+      "flags": 2,
+      "header_u32_field_uninterpreted": 62,
+      "blob_hex": "006e00"
+    },
+    "pa_patch_options": 27994,
+    "pa_unique_sources": 27670,
+    "pa_unique_sources_present_as_index_key_a": 27670,
+    "pa_options_with_exact_source_size_patch_size_tuple": 27994,
+    "unique_index_tuples_matched_to_pa": 27677,
+    "index_key_a_unique": 27681,
+    "duplicate_complete_rows": 0,
+    "sample_index_records": [
+      {
+        "key_a": "7d00d478c6ed31b512cf18b9b3046658",
+        "u32_a": 7012600,
+        "key_b": "a56b3fe67a775fe9f4e86d6cbb688b5d",
+        "u32_b": 2273969,
+        "u32_c": 2273969,
+        "blob_offset": 1,
+        "key_c": "50abb34cffd6e375782677e9f351ad4c"
+      }
+    ],
+    "key_c_semantics_proven": false,
+    "ordinal_semantics_proven": false,
+    "patch_execution_policy_proven": false
+  },
+  "network_requests_during_analysis": 0,
+  "source_game_payload_read": false,
+  "game_modified": false,
+  "lab_modified": false,
+  "retail_patch_applied": false,
+  "casc_writer_implemented": false,
+  "installation_ready": false,
+  "interpretation": "Index structural parsing and PA tuple correspondence, not a demonstrated updater."
+}

@@ -1,0 +1,85 @@
+{
+  "image_base": "0x400000",
+  "sections": [
+    {
+      "name": ".text",
+      "va": 4198400,
+      "size": 5216768,
+      "offset": 1024
+    },
+    {
+      "name": ".rdata",
+      "va": 9416704,
+      "size": 1375744,
+      "offset": 5217792
+    },
+    {
+      "name": ".data",
+      "va": 10792960,
+      "size": 279040,
+      "offset": 6593536
+    },
+    {
+      "name": ".rsrc",
+      "va": 11341824,
+      "size": 115200,
+      "offset": 6872576
+    },
+    {
+      "name": ".reloc",
+      "va": 11460608,
+      "size": 276992,
+      "offset": 6987776
+    }
+  ],
+  "xrefs": [
+    {
+      "string": "ZBSDIFF1",
+      "file_offset": "0x5b6330",
+      "va": "0x9b7530",
+      "text_immediate_reference_addresses": [
+        "0x6e3d23"
+      ]
+    },
+    {
+      "string": "Failed to apply patch: invalid ZBSDIFF1 header bytes",
+      "file_offset": "0x5b6388",
+      "va": "0x9b7588",
+      "text_immediate_reference_addresses": [
+        "0x6e3db7"
+      ]
+    },
+    {
+      "string": "PatchIndexRead",
+      "file_offset": "0x5a7894",
+      "va": "0x9a8a94",
+      "text_immediate_reference_addresses": [
+        "0x67cd82"
+      ]
+    },
+    {
+      "string": "FileBsDiffPatch",
+      "file_offset": "0x5a75e0",
+      "va": "0x9a87e0",
+      "text_immediate_reference_addresses": [
+        "0x67cc7f"
+      ]
+    },
+    {
+      "string": "FileReEncodePatch",
+      "file_offset": "0x5a7614",
+      "va": "0x9a8814",
+      "text_immediate_reference_addresses": [
+        "0x67cc94"
+      ]
+    },
+    {
+      "string": "Failed to apply re-encode patch.",
+      "file_offset": "0x5b7070",
+      "va": "0x9b8270",
+      "text_immediate_reference_addresses": [
+        "0x6eb6d3"
+      ]
+    }
+  ]
+}
