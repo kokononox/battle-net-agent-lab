@@ -6,7 +6,7 @@ import subprocess
 import sys
 import tempfile
 
-APPROVED_COMMIT='lab: approved language-only step 2026-10-15 7ce42b91'
+APPROVED_COMMIT='lab: approved language-only step 2026-10-15 7ce42b91-yamlfix'
 STATUSES={'not_requested','pending','no_targets','ambiguous_window','process_mismatch','window_mismatch','page_not_language','control_ambiguous','pattern_unavailable','selection_failed','selection_attempted','selection_confirmed','continue_attempted','continued','timeout','helper_failed','output_rejected','native_exception','journal_failed'}
 FLAGS=('authorized','helper_started','selection_attempted','selection_confirmed','continue_attempted','continue_returned','journal_recovered','outcome_uncertain')
 

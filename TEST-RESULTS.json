@@ -1,11 +1,11 @@
 {
   "scope": "One-off user-approved language step; no downloader changes",
-  "tests_discovered": 100,
-  "tests_passed_Linux": 95,
+  "tests_discovered": 101,
+  "tests_passed_Linux": 96,
   "tests_skipped_Linux": 5,
   "native_Windows_tests_required": 5,
   "native_Windows_result": "pending for current 100-test revision",
-  "new_tests": 18,
+  "new_tests": 19,
   "python39_syntax_check": true,
   "native_verifier_timeout_seconds": 60,
   "powershell_verification_removed": true,
@@ -33,5 +33,9 @@
     "skipped": 0,
     "report": "https://github.com/kokononox/battle-net-agent-lab/blob/b4e3ee257209a2443ba01796f57780de01fef111/reports/latest.json"
   },
-  "language_action_executed": false
+  "language_action_executed": false,
+  "workflow_yaml_parse_passed": true,
+  "workflow_yaml_regression_test": true,
+  "previous_language_run": "38838272777",
+  "previous_language_run_result": "invalid_workflow_yaml_no_jobs_executed"
 }

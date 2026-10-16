@@ -51,7 +51,7 @@ or paid runner is configured. A run may be queued/blocked by account policy/quot
 ## One-off approved language step
 
 The user explicitly approved English (US) → Continue on the observed language page.
-Only the push commit `lab: approved language-only step 2026-10-15 7ce42b91`, first run
+Only the push commit `lab: approved language-only step 2026-10-15 7ce42b91-yamlfix`, first run
 attempt, enables this exception. Manual workflow runs and later pushes remain
 read-only. The helper checks the original verified Setup PID/executable, visible
 Setup window, language group, exactly one English-US radio and Continue button.

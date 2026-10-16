@@ -36,7 +36,7 @@
     "installation_complete_proven": false,
     "agent_not_observed_reason_proven": false,
     "next_probe": "User-approved one-off English (US) selection + Continue on exact language page; stop actions thereafter",
-    "next_probe_result": "implementation locally tested; real Windows run pending",
+    "next_probe_result": "previous attempt never started: invalid workflow YAML line 30; folded-scalar fix locally validated; Windows result pending",
     "scheduled_watcher": false,
     "previous_gui_result": "Setup same session 2; input desktop accessible; one visible unknown-class window; no native child controls; no Agent observed; cause not proven",
     "probe_document": "docs/LANGUAGE-STEP.fa.md",
@@ -66,7 +66,8 @@
     ],
     "Agent_observed": false,
     "language_step_approved": true,
-    "language_step_executed": false
+    "language_step_executed": false,
+    "invalid_workflow_run": "38838272777"
   },
   "telemetry": {
     "actual_in_world_capture_complete": false,

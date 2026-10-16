@@ -56,6 +56,17 @@ class LanguageTests(unittest.TestCase):
         with self.assertRaises(val.ReportError):val.validate(r)
     def test_workflow_one_exact_commit_only(self):
         s=Path('.github/workflows/agent-observation.yml').read_text();self.assertIn(lang.APPROVED_COMMIT,s);self.assertIn("github.event_name == 'push'",s);self.assertIn('github.run_attempt == 1',s)
+    def test_workflow_expression_uses_folded_yaml_scalar(self):
+        # No PyYAML dependency on the hosted runner. Mandatory regression guard
+        # for the exact colon-containing scalar; full YAML parse also run locally.
+        lines=Path('.github/workflows/agent-observation.yml').read_text().splitlines()
+        indices=[i for i,line in enumerate(lines) if line.strip().startswith('BNET_LAB_ADVANCE_LANGUAGE:')]
+        self.assertEqual(len(indices),1)
+        i=indices[0];self.assertEqual(lines[i].strip(),'BNET_LAB_ADVANCE_LANGUAGE: >-')
+        self.assertTrue(lines[i+1].startswith('            ${{ '))
+        self.assertTrue(lines[i+1].endswith(' }}'))
+        self.assertIn(lang.APPROVED_COMMIT,lines[i+1])
+        self.assertIn('github.run_attempt == 1',lines[i+1])
     def test_action_source_has_only_select_and_invoke_no_fallbacks(self):
         s=Path('scripts/language_advance.cs').read_text();self.assertEqual(s.count('select.Select();'),1);self.assertEqual(s.count('invoke.Invoke();'),1)
         for term in ('SendInput','SendKeys','SetFocus','RootElement','GetClickablePoint','mouse_event','SetValue'):self.assertNotIn(term,s)
