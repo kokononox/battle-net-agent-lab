@@ -50,3 +50,8 @@ companion code ZIP از کد پژوهشی و گزارش‌ها ساخته می�
 ## آخرین مرحله: نام مصنوعی → seed → prefix
 
 [name-seed-9824](../downloader/patch_audit_lab/research/name-seed-9824/README-fa.md) مدل محدود ASCII را با دستورهای اصلی ۷ تابع خالص در Linux i386 تطبیق می‌دهد؛ فرمول MD5 نام رایانه + نام canonical ذخیره‌سازی است. suite جاری ۴۵۳/صفر skip؛ نمونهٔ واقعی با seed مشتق‌شده بازخوانی شد. Agent.exe یا API ویندوز اجرا نشده و هیچ نام/path واقعی از کاربر گرفته نشده است. ZIP اصلی و companion Release تعویض نشدند؛ برای این مرحله source آخر شاخه لازم است.
+
+
+## جدیدترین مرحله: چرخهٔ تک‌آبجکتی با حفظ مبدأ
+
+[retail-update-cycle](../downloader/patch_audit_lab/research/retail-update-cycle/README-fa.md) یک source واقعی را حفظ می‌کند، patch را اعمال و target را append می‌کند، سپس sequence ایندکس را در control پژوهشی منتشر می‌کند. ۹ توقف subprocess با resume و native readback موفق؛ suite فعلی ۴۹۰/صفر skip. journal/قفل/انتشار این آزمایش معادل اجرای Windows Agent نیستند؛ activation کامل نداریم. ZIP اصلی و companion قدیمی عوض نشده‌اند؛ source آخر شاخه و دستورهای گزارش جدید را استفاده کنید. هیچ اسکن یا دانلود گستردهٔ جدید لازم نیست.

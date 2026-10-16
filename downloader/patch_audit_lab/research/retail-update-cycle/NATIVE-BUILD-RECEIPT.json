@@ -1,0 +1,21 @@
+{
+  "format": "retail-cycle-native-build-1",
+  "casclib_commit": "38a34665624b8775bb875274b36191b21c38d97b",
+  "tracked_source_clean": true,
+  "network_requests": 0,
+  "compiler": "g++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-5)",
+  "native_binary_sha256": {
+    "cycle_oracle": "6d035bfdfadd7465947b8ef50fb3dfe3b150a93406f5b017f87b222254abf7f6",
+    "real_object_oracle": "54532f8f3ff08f045d7e31891367541517df0b54ee57a80bbaf62e2a9b40869c",
+    "storage_oracle": "363d70445a4e04c6e403ec620100e603bab3abb7ff49c62a7260dbf7669755fa",
+    "prefix_oracle": "b0ba770bf808f3b53e5cffe9b63b6469b316bf75baf0e7d97257122cd8b73b7c"
+  },
+  "source_sha256": {
+    "research/retail-update-cycle/native/build.sh": "688ca679f25ee6c3b90ba7f06040015b6f6c791d7a4747a1e4fe79a0612a5a08",
+    "research/retail-update-cycle/native/cycle_oracle.cpp": "d48c10202a2ef17b3e16c19159e66e9fc10ef964ae0cee68662c7cc26e3acc2c"
+  },
+  "dependencies": "existing clean pinned CascLib, system OpenSSL/zlib; archive-prefix and retail-storage build gates reused",
+  "binaries_published": false,
+  "windows_apis_executed": false,
+  "installation_ready": false
+}

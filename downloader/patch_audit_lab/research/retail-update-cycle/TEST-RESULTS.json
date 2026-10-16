@@ -1,0 +1,31 @@
+{
+  "format": "retail-update-cycle-tests-1",
+  "tests": 490,
+  "prior_checkpoint_tests": 453,
+  "new_test_methods": 37,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "code_sha256": {
+    "retail_update_cycle.py": "afac645f90b621bbe0eafd31d6d0b97538d909e3a2643f36b9e060bcbc801291",
+    "tests/test_retail_update_cycle.py": "a67ed73b7c0c98505dc048ceeaa7a9ad0feec587dc70adca0b6901595e56879f",
+    "research/retail-update-cycle/run_experiment.py": "9291a20e075f43fd89ef84c5d5f7c891657ae0aa23c3e2dc969e41e250b9aa28",
+    "research/retail-update-cycle/native/build.sh": "688ca679f25ee6c3b90ba7f06040015b6f6c791d7a4747a1e4fe79a0612a5a08",
+    "research/retail-update-cycle/native/cycle_oracle.cpp": "d48c10202a2ef17b3e16c19159e66e9fc10ef964ae0cee68662c7cc26e3acc2c"
+  },
+  "environment": {
+    "NAME_SEED_ORACLE": "isolated Agent pure-fragment harness from name-seed-9824",
+    "SYNTHETIC_NATIVE_DIR": "synthetic storage native tools",
+    "RETAIL_POC_FIXTURE": "original manifest-verified Portable fixture",
+    "RETAIL_POC_NATIVE": "retail-storage-poc storage_oracle",
+    "PREFIX_NATIVE_DIR": "archive-prefix-9824 native tools",
+    "CYCLE_NATIVE_DIR": "retail-update-cycle native tools"
+  },
+  "command": "python -B -m unittest discover -s tests -v",
+  "all_nine_explicit_process_exit_resumes_verified": true,
+  "windows_agent_process_executed_in_cycle": false,
+  "installation_ready": false,
+  "original_fixture_modified": false,
+  "release_assets_modified": false,
+  "network_requests": 0
+}

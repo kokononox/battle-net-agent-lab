@@ -1,6 +1,6 @@
 # ممیزی پچ WoW — آزمایش مستقل، نه آپدیتر آماده
 
-> تازه‌ترین milestone: [نام رایانه و مسیر canonical تا seed/prefix](research/name-seed-9824/README-fa.md). مجموع ۴۵۳ آزمون؛ ۷ تابع خالصِ استخراج‌شده در harness Linux i386 اجرا شدند، نه Agent.exe یا API ویندوز. مدل فقط ورودی مصنوعی ASCII است؛ نمونهٔ واقعی با seed مشتق‌شده native خوانده شد، اما binding/activation نصب واقعی نداریم. checkpointهای قدیمی زیر تاریخی‌اند.
+> تازه‌ترین milestone: [چرخهٔ پچ واقعی، append، انتشار sequence و resume](research/retail-update-cycle/README-fa.md). مجموع ۴۹۰ آزمون؛ ۹ قطع subprocess و ادامهٔ موفق، بازخوانی native مبدأ و هدف با EKey/CKey، اجرای دوبارهٔ بی‌تغییر. فقط کپی تازهٔ پژوهشی Linux است؛ Windows Agent، activation کامل یا نصب بازی اثبات نشده‌اند. checkpointهای قدیمی زیر تاریخی‌اند.
 
 
 ## به‌روزرسانی مرحلهٔ دوم: اتصال به شواهد قبلی
