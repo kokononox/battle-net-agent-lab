@@ -60,3 +60,8 @@ companion code ZIP از کد پژوهشی و گزارش‌ها ساخته می�
 ## نتیجهٔ جدید sequence visibility
 
 [sequence-visibility-9824](../downloader/patch_audit_lab/research/sequence-visibility-9824/README-fa.md): چهار تابع اصلی Agent در harness محدود با helperهای mock بررسی شدند. بازگشت صفر reader در خطای bind تزریقی، سلامت target را اثبات نمی‌کند؛ cache ممکن است جلو رفته باشد و refresh بعدی retry نکند. گیت مستقل native مرحلهٔ قبلی لازم می‌ماند. ۱۴۴۰ بردار parity و ۵۲۰ تست/صفر skip؛ این اجرای Windows Agent یا نصب واقعی نیست. باینری/fragment خام و ZIP جدید منتشر نشده‌اند؛ source شاخه به‌روز است.
+
+
+## قرارداد اصلی bind و V8
+
+[گزارش V8](../downloader/patch_audit_lab/research/bind-contract-9824/README-fa.md): V7 قبلی صرفاً با CascLib خوانده شده بود و bind خود Agent 9824 آن را رد کرد. اکنون ۱۶ ایندکس V8 در harness اصلی bind/parser پذیرفته شد؛ lookup کامل source/target موفق و spanها مستقل با Python بررسی شدند. این writer نصب نیست؛ ساخت V8 فقط در پوشهٔ owned تازه است و ZIP اصلی دست‌نخورده. ۵۶۳ آزمون/صفر skip، ۱۴۲۴ بردار؛ برای source جدید از شاخه استفاده کنید و فایل‌های fixture داخل ZIP را جایگزین نکنید.

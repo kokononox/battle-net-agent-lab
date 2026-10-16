@@ -1,0 +1,28 @@
+{
+  "format": "agent-bind-native-model-matrix-1",
+  "vectors": 1424,
+  "all_native_model_matches": true,
+  "all_buckets": 16,
+  "max_primary_rows": 1024,
+  "native_original_hashlittle2_exercised": true,
+  "native_original_hashlittle_tail_cross_page_exercised": true,
+  "mapping_failure_injection": true,
+  "cases_by_label": {
+    "bounded_single_bit_header_or_primary_mutation": 640,
+    "bounded_truncation": 240,
+    "mapping_error_cleanup": 48,
+    "primary_fullkey_lookup": 480,
+    "tail_26_slots_across_two_pages": 16
+  },
+  "status_histogram": {
+    "0": 578,
+    "1": 16,
+    "9": 798,
+    "73": 16,
+    "4294967295": 16
+  },
+  "bounds": "nonempty <=1MiB, primary/header lengths preflighted; not general fuzzing of arbitrary PE paths",
+  "windows_io_mocked": true,
+  "outer_seh_retry_executed": false,
+  "installation_ready": false
+}

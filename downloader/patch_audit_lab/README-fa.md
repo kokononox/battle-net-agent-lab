@@ -1,6 +1,6 @@
 # ممیزی پچ WoW — آزمایش مستقل، نه آپدیتر آماده
 
-> تازه‌ترین milestone: [توابع اصلی انتشار/refresh sequence با helperهای mock](research/sequence-visibility-9824/README-fa.md). ۴ تابع اصلی/۸۵۷ بایت، ۱۴۴۰ بردار parity، مجموع ۵۲۰ آزمون. reader در مسیر محدود خطای bind ممکن است صفر بدهد و cache را جلو ببرد؛ return صفر معیار سلامت نیست. Windows I/O، SEH واقعی و activation نصب هنوز اثبات نشده‌اند. checkpointهای قدیمی زیر تاریخی‌اند.
+> تازه‌ترین milestone: [bind اصلی Agent و ایندکس V8](research/bind-contract-9824/README-fa.md). V7 قبلی فقط با CascLib تأیید شده بود؛ Agent آن را رد کرد. حالا ۱۶ ایندکس V8/۱۸ رکورد در inner-bind اصلی پذیرفته و source/target با جست‌وجوی full key16 پیدا شدند. بازخوانی span مستقل Python است، نه read-path کامل Agent. ۱۴۲۴ بردار parity، ۵۶۳ آزمون؛ Windows/SEH بیرونی و نصب بازی اثبات نشده‌اند. checkpointهای پایین تاریخی‌اند.
 
 
 ## به‌روزرسانی مرحلهٔ دوم: اتصال به شواهد قبلی

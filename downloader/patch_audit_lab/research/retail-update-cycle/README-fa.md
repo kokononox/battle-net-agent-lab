@@ -1,5 +1,7 @@
 # چرخهٔ واقعیِ تک‌آبجکتی Retail در کپی پژوهشی
 
+> یافتهٔ بعدی: [قرارداد bind اصلی و V8](../bind-contract-9824/README-fa.md). ایندکس V7 چرخهٔ قبلی فقط با CascLib تأیید شده بود؛ parser خود Agent 9824 آن را رد می‌کند. مجموعهٔ تازهٔ V8 در harness اصلی inner-bind پذیرفته شد؛ این Windows I/O یا read-path کامل Agent نیست. نتایج و اعداد پایین تاریخی‌اند؛ suite فعلی ۵۶۳ آزمون است.
+
 > مرحلهٔ بعد: [sequence visibility](../sequence-visibility-9824/README-fa.md) نشان داد در مسیر nonthrowing با helperهای mock، reader ممکن است پس از bind ناموفق صفر برگرداند و cache را جلو ببرد. چرخهٔ این گزارش به آن return متکی نبود و native readback صریح داشت؛ رسیدهای ۴۹۰تایی زیر تاریخی و معتبرند. suite فعلی ۵۲۰ آزمون است.
 
 ## نتیجهٔ جدید
