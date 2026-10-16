@@ -13,3 +13,9 @@ Python regression tests cover redaction and schema constraints. A required nativ
 ## Interpretation
 
 Use the actual post-language caption tokens plus control roles/state to identify the page. A path, Change hyperlink and startup checkbox may support identifying installation options; do not assume that before the report arrives. Do not activate the next Continue until its purpose and any agreement/installation implications are explicit.
+
+## Static-text read fallback
+
+Run 38930265052 passed all 153 Windows tests. The final checkbox vocabulary identified Launch / Battle.net / when / start / computer with toggle_state on. The two static Text names did not identify their displayed content; no next-page action was made.
+
+For an already PID/HWND-scoped, visible, non-password ControlType.Text only, when the Name yields no known tokens or path, the next probe may read ValuePattern.Current.Value and then TextPattern.DocumentRange.GetText(512). Both go immediately through the same fixed-vocabulary/path/address sanitizer. No ValuePattern is requested on Edit, Document, Custom or unknown controls. No text range actions, selections or writes occur. Existing tests that prohibited all text/value reads are refined to assert the exact static-text scope and fixed 512-character read limit, while preserving every mutating-API prohibition.

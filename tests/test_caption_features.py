@@ -67,6 +67,13 @@ class CaptionTests(unittest.TestCase):
         self.assertIn('toggle.Current.ToggleState',s);self.assertNotIn('.Toggle(',s)
         self.assertIn('if(kind=="Text"||kind=="CheckBox")',s)
         self.assertLess(s.index('current.IsPassword'),s.index('current.Name'))
+    def test_static_text_fallback_is_bounded_and_never_an_action(self):
+        s=Path('scripts/uia_readonly.cs').read_text()
+        block=s.split('if(kind=="Text"&&',1)[1].split('if(kind=="CheckBox")',1)[0]
+        self.assertIn('ValuePattern.Pattern',block);self.assertIn('TextPattern.Pattern',block)
+        self.assertIn('Caption(value.Current.Value??"")',block)
+        self.assertIn('Caption(text.DocumentRange.GetText(512)??"")',block)
+        for action in ('.SetValue(','.Select(','.Invoke(','.Toggle(','.SetFocus('):self.assertNotIn(action,block)
     @unittest.skipUnless(sys.platform=='win32','native caption redaction self-test')
     def test_native_real_classifier_selftest(self):
         env=obs.clean_environment(os.environ);helper,work=uia.native_helper(env)

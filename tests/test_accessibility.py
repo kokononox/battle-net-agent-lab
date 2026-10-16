@@ -92,12 +92,19 @@ class AccessibilityTests(unittest.TestCase):
         with self.assertRaises(val.ReportError):val.validate_gui(g)
     def test_script_only_reads_named_properties_tree(self):
         s=Path(uia.__file__).with_name('uia_readonly.cs').read_text()
-        for forbidden in ('.Invoke(','.Select(','.SetValue(','.SetFocus(','.Expand(','.GetText(','.ValuePattern','TextPattern','SendInput','GetClickablePoint'):
+        for forbidden in ('.Invoke(','.Select(','.SetValue(','.SetFocus(','.Expand(','SendInput','GetClickablePoint'):
             self.assertNotIn(forbidden,s)
         self.assertIn('current.IsPassword',s);self.assertIn('current.IsOffscreen',s)
         self.assertIn('current.ProcessId!=pid',s)
         self.assertLess(s.index('current.IsPassword'),s.index('current.Name'))
         self.assertIn('FromHandle',s);self.assertNotIn('RootElement',s)
+        # Bounded read fallback is explicitly limited to already scoped static Text.
+        # Input/document/password/hidden values are still forbidden, as are actions.
+        self.assertIn('if(kind=="Text"&&',s)
+        self.assertEqual(s.count('.GetText(512)'),1)
+        self.assertNotIn('.GetText(-1)',s)
+        self.assertLess(s.index('if(kind=="Text"&&'),s.index('value.Current.Value'))
+        self.assertLess(s.index('current.IsPassword'),s.index('value.Current.Value'))
     @unittest.skipUnless(sys.platform=='win32','native Windows UIA empty-target smoke test')
     def test_actual_windows_helper_with_no_targets(self):
         # Deliberately undo the transport mock: this test must really compile/run on Windows.

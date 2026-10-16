@@ -87,6 +87,20 @@ public static class UiaReadOnly {
                             string name=current.Name ?? "";
                             if(kind=="Text"||kind=="CheckBox") {
                                 caption=Caption(name);
+                                // Static Text only: values can hold the rendered directory/caption
+                                // when its accessible Name is empty or a provider identifier.
+                                // Never query input/edit/document/password/hidden control values.
+                                if(kind=="Text"&&((List<string>)caption["tokens"]).Count==0&&!(bool)caption["has_path"]) {
+                                    object textValue;
+                                    if(node.Element.TryGetCurrentPattern(ValuePattern.Pattern,out textValue)) {
+                                        var value=(ValuePattern)textValue;
+                                        caption=Caption(value.Current.Value??"");
+                                    }
+                                    if(((List<string>)caption["tokens"]).Count==0&&!(bool)caption["has_path"]&&node.Element.TryGetCurrentPattern(TextPattern.Pattern,out textValue)) {
+                                        var text=(TextPattern)textValue;
+                                        caption=Caption(text.DocumentRange.GetText(512)??"");
+                                    }
+                                }
                                 if(kind=="CheckBox") {
                                     caption["toggle_state"]="unavailable";object toggleObject;
                                     if(node.Element.TryGetCurrentPattern(TogglePattern.Pattern,out toggleObject)) {
