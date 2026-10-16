@@ -217,6 +217,7 @@ def initial_report():
       'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
       'installer':{},'samples':[],'file_observations':{},'agent_binaries':[],
       'log_markers':{},'cleanup_attempted':False,'error_code':None,
+      'phase':'environment_check','error_type':None,'underlying_error_type':None,'numeric_error_code':None,
       'limits':{'observation_seconds':150,'installer_body_bytes':MAX_SETUP,
                 'bootstrapper_child_network_hard_byte_cap':False},
       'safety':{'account_login_attempted':False,'game_download_requested':False,
@@ -237,6 +238,7 @@ def observe(out_dir, seconds=150):
             raise LabError('fresh_github_hosted_windows_required')
         run_id=os.environ.get('GITHUB_RUN_ID','');attempt=os.environ.get('GITHUB_RUN_ATTEMPT','')
         if not run_id.isdigit() or not attempt.isdigit():raise LabError('invalid_run_identity')
+        report['phase']='directory_prepare'
         temp=Path(os.environ['RUNNER_TEMP']).resolve()
         if is_reparse(temp):raise LabError('runner_temp_reparse_not_allowed')
         work=temp/('bnet-observe-'+run_id+'-'+attempt);work.mkdir(exist_ok=False)
@@ -244,31 +246,40 @@ def observe(out_dir, seconds=150):
                'app':Path(os.environ['ProgramFiles(x86)'])/'Battle.net',
                'local_app':Path(os.environ['LOCALAPPDATA'])/'Battle.net',
                'temporary_install':work/'app'}
+        report['phase']='baseline_snapshot'
         raw=snapshot(env)
         if raw.get('processes') or any(r.exists() for r in roots.values()):
             raise LabError('preexisting_battlenet_state_refused')
         setup=work/'Battle.net-Setup.exe'
-        report['installer'].update(fetch_setup(setup));report['installer'].update(signature(setup,env))
+        report['phase']='installer_download'
+        report['installer'].update(fetch_setup(setup))
+        report['phase']='installer_signature'
+        report['installer'].update(signature(setup,env))
         if not report['installer']['accepted_for_execution']:raise LabError('installer_signature_or_publisher_not_accepted')
         # No silent/EULA/login flags are guessed; no button or legal consent is
         # clicked. If the wizard waits for interaction, this is an honest limit.
+        report['phase']='bootstrapper_launch'
         process=subprocess.Popen([str(setup)],cwd=work,env=env,stdin=subprocess.DEVNULL,
                               stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
         launched=True;started=time.monotonic()
+        report['phase']='sampling'
         while time.monotonic()-started<seconds:
             raw=snapshot(env)
             report['samples'].append(safe_snapshot(raw,round(time.monotonic()-started,2)))
             if len(report['samples'])>=30:break
             time.sleep(5)
+        report['phase']='filesystem_observation'
         groups,agents,logs=file_metadata(roots);report['file_observations']=groups
         for path in agents:
             if path.stat().st_size>128*1024**2:continue
+            report['phase']='agent_binary_signature'
             sig=signature(path,env)
             report['agent_binaries'].append({'name':'agent.exe','bytes':path.stat().st_size,
                 'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),**sig})
         report['log_markers']=log_marker_counts(logs)
         observed=any(p['name']=='agent.exe' for s in report['samples'] for p in s['processes'])
         report['status']='agent_process_observed' if observed else 'bootstrapper_observed_agent_not_observed'
+        report['phase']='cleanup'
         report['cleanup_attempted']=True
         raw=snapshot(env);stop_observed(raw,env)
         if process.poll() is None:
@@ -276,8 +287,16 @@ def observe(out_dir, seconds=150):
                 stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=5,check=False)
         try:process.wait(timeout=10)
         except subprocess.TimeoutExpired:process.kill()
+        report['phase']='complete'
     except Exception as exc:
         report['status']='stopped'
+        report['error_type']=type(exc).__name__ if re.fullmatch('[A-Za-z0-9_]{1,64}',type(exc).__name__) else 'Exception'
+        underlying=getattr(exc,'reason',None)
+        if isinstance(underlying,BaseException):
+            name=type(underlying).__name__
+            report['underlying_error_type']=name if re.fullmatch('[A-Za-z0-9_]{1,64}',name) else 'Exception'
+        code=getattr(underlying,'verify_code',getattr(exc,'winerror',getattr(exc,'errno',None)))
+        if type(code) is int and -2**31<=code<2**31:report['numeric_error_code']=code
         report['error_code']=str(exc) if isinstance(exc,LabError) and re.fullmatch('[a-z0-9_]{1,100}',str(exc)) else 'bounded_probe_failed'
     finally:
         if launched and not report['cleanup_attempted']:

@@ -28,6 +28,10 @@ def validate(r):
     need(type(r['utc']) is str and len(r['utc'])<40)
     datetime.datetime.fromisoformat(r['utc'])
     need(r['error_code'] is None or (type(r['error_code']) is str and re.fullmatch('[a-z0-9_]{1,100}',r['error_code'])))
+    need(r['phase'] in {'environment_check','directory_prepare','baseline_snapshot','installer_download','installer_signature','bootstrapper_launch','sampling','filesystem_observation','agent_binary_signature','cleanup','complete'})
+    for field in ('error_type','underlying_error_type'):
+        need(r[field] is None or (type(r[field]) is str and re.fullmatch('[A-Za-z0-9_]{1,64}',r[field])))
+    need(r['numeric_error_code'] is None or (type(r['numeric_error_code']) is int and -2**31<=r['numeric_error_code']<2**31))
     boolean(r['cleanup_attempted']);need(r['safety']==template['safety'] and r['interpretation']==template['interpretation'])
     need(r['limits']==template['limits'])
     if r['installer']:
