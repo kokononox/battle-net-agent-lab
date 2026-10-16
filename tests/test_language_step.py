@@ -72,7 +72,7 @@ class LanguageTests(unittest.TestCase):
         for term in ('SendInput','SendKeys','SetFocus','RootElement','GetClickablePoint','mouse_event','SetValue'):self.assertNotIn(term,s)
         for term in ('select a language','english (us)','battle.net setup','continue','GetWindowThreadProcessId','MainModule.FileName','IsSelected','File.Replace','Flush(true)'):self.assertIn(term,s)
     def test_observer_default_keeps_read_only(self):
-        s=Path(obs.__file__).read_text();self.assertIn('advance_language=False',s);self.assertEqual(s.count('on_visible_targets=advance'),1)
+        s=Path(obs.__file__).read_text();self.assertIn('advance_language=False',s);self.assertEqual(s.count('on_visible_targets=advance)'),1)
         self.assertLess(s.index("if not report['installer']['accepted_for_execution']"),s.index('on_visible_targets=advance'))
     @unittest.skipUnless(sys.platform=='win32','native language helper denied-scope check')
     def test_actual_windows_denied_config_has_no_action(self):

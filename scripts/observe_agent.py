@@ -193,7 +193,7 @@ def stop_observed(raw, env):
 
 
 def initial_report():
-    return {'schema':'agent-bootstrap-observation-7','status':'not_started',
+    return {'schema':'agent-bootstrap-observation-8','status':'not_started',
       'scope':'fresh_hosted_windows_bootstrap_only;not_WoW_update_or_install',
       'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
       'source_commit':os.environ.get('GITHUB_SHA') if re.fullmatch('[0-9a-f]{40}',os.environ.get('GITHUB_SHA','')) else None,
@@ -201,7 +201,7 @@ def initial_report():
       'run_attempt':os.environ.get('GITHUB_RUN_ATTEMPT') if os.environ.get('GITHUB_RUN_ATTEMPT','').isdigit() else None,
       'language_step':__import__('language_step').blank(),'gui_observations':[],'safety_test_result':{},'signature_backend':'Windows_WinVerifyTrust_Authenticode',
       'installer':{},'samples':[],'file_observations':{},'agent_binaries':[],
-      'log_markers':{},'agent_state':__import__('agent_state').blank(),'cleanup_attempted':False,'error_code':None,
+      'log_markers':{},'setup_visual':__import__('setup_visual').blank(),'agent_state':__import__('agent_state').blank(),'cleanup_attempted':False,'error_code':None,
       'phase':'environment_check','error_type':None,'underlying_error_type':None,'numeric_error_code':None,
       'limits':{'observation_seconds':150,'installer_body_bytes':MAX_SETUP,
                 'bootstrapper_child_network_hard_byte_cap':False},
@@ -275,7 +275,10 @@ def observe(out_dir, seconds=150, advance_language=False):
         report['phase']='gui_inspection'
         import native_gui
         pids={p['pid'] for p in report['samples'][-1]['processes']}
-        report['gui_observations'].append(native_gui.inspect(pids,round(time.monotonic()-started,2)))
+        def capture_visual(targets):
+            import setup_visual
+            report['setup_visual']=setup_visual.capture(targets)
+        report['gui_observations'].append(native_gui.inspect(pids,round(time.monotonic()-started,2),on_visible_targets=capture_visual) if advance_language else native_gui.inspect(pids,round(time.monotonic()-started,2)))
         report['phase']='filesystem_observation'
         groups,agents,logs=file_metadata(roots);report['file_observations']=groups
         for path in agents[:1]:

@@ -31,6 +31,9 @@ def validate(r):
     template=initial_report();keys(r,template)
     need(r['schema']==template['schema'] and r['scope']==template['scope'])
     need(r['signature_backend']==template['signature_backend'])
+    from setup_visual import validate as validate_visual
+    try:validate_visual(r['setup_visual'])
+    except (ValueError,TypeError,KeyError):raise ReportError('report_schema_rejected') from None
     from agent_state import validate as validate_state
     try:validate_state(r['agent_state'])
     except (ValueError,TypeError,KeyError):raise ReportError('report_schema_rejected') from None

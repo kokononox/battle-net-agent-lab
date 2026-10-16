@@ -59,12 +59,12 @@ def native_helper(env):
     base=Path(os.environ.get('SystemRoot','C:/Windows'))/'Microsoft.NET'/'Framework64'/'v4.0.30319'
     compiler=base/'csc.exe'
     if not compiler.is_file():raise ToolchainError('uia_compiler_missing')
-    refs=[base/'System.Web.Extensions.dll',base/'WPF'/'UIAutomationClient.dll',base/'WPF'/'UIAutomationTypes.dll',base/'WPF'/'WindowsBase.dll']
+    refs=[base/'System.Drawing.dll',base/'System.Web.Extensions.dll',base/'WPF'/'UIAutomationClient.dll',base/'WPF'/'UIAutomationTypes.dll',base/'WPF'/'WindowsBase.dll']
     if not all(p.is_file() for p in refs):raise ToolchainError('uia_references_missing')
     # An existing EXE is never trusted/reused across Python processes.
     with tempfile.TemporaryDirectory(prefix='uia-readonly-build-') as tmp:
         dest=Path(tmp)/'UiaReadOnly.exe'
-        command=[str(compiler),'/nologo','/warn:0','/target:exe','/out:'+str(dest),*[('/reference:'+str(p)) for p in refs],str(source),str(source.with_name('authenticode_native.cs')),str(source.with_name('language_advance.cs'))]
+        command=[str(compiler),'/nologo','/warn:0','/target:exe','/out:'+str(dest),*[('/reference:'+str(p)) for p in refs],str(source),str(source.with_name('authenticode_native.cs')),str(source.with_name('language_advance.cs')),str(source.with_name('setup_visual.cs'))]
         try:compiled=subprocess.run(command,env=env,stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=30,check=False)
         except subprocess.TimeoutExpired:raise ToolchainError('uia_compile_timeout') from None
         except OSError:raise ToolchainError('uia_compile_failed') from None
