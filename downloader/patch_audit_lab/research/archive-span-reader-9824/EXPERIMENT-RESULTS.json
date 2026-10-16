@@ -1,0 +1,199 @@
+{
+  "format": "agent-span-reader-experiments-1",
+  "matrix": {
+    "vectors": 2631,
+    "accepted": 555,
+    "rejected": 2076,
+    "format": "agent-span-reader-matrix-1",
+    "all_original_model_equal": true,
+    "single_bit_corruptions_rejected": 240,
+    "helpers_mocked": 0,
+    "high_bits_not_authenticated_by_header_alone": true
+  },
+  "bridge_objects": [
+    {
+      "format": "agent-span-read-bridge-1",
+      "archive": 0,
+      "filename": "data.000",
+      "absolute_address": 480,
+      "header_offset": 480,
+      "payload_offset": 510,
+      "span": 188,
+      "encoded_bytes": 158,
+      "decoded_bytes": 33940,
+      "decoded_md5": "98ad7b81687304aa0e99cf326200adfe",
+      "encoded_sha256": "da33846ae72275215419174a0a38d8f4a8617b5d872420919f22c89648c01e5e",
+      "original_header_and_getters_executed": true,
+      "file_io_implementation": "independent Python, not Agent",
+      "agent_archive_io_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        480,
+        188
+      ],
+      "fixture": "small header-only research copy; zero prefix, not a complete multiarchive storage"
+    },
+    {
+      "format": "agent-span-read-bridge-1",
+      "archive": 0,
+      "filename": "data.000",
+      "absolute_address": 668,
+      "header_offset": 668,
+      "payload_offset": 698,
+      "span": 188,
+      "encoded_bytes": 158,
+      "decoded_bytes": 33940,
+      "decoded_md5": "3d42bf2e42127f313b0ec64cb440cde9",
+      "encoded_sha256": "73bb9f2ec6c3dba2dbe61d5aa7e5bd4560f0d96c53972adb7472894d4f69b364",
+      "original_header_and_getters_executed": true,
+      "file_io_implementation": "independent Python, not Agent",
+      "agent_archive_io_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        668,
+        188
+      ],
+      "fixture": "small header-only research copy; zero prefix, not a complete multiarchive storage"
+    },
+    {
+      "format": "agent-span-read-bridge-1",
+      "archive": 3,
+      "filename": "data.003",
+      "absolute_address": 3221225952,
+      "header_offset": 480,
+      "payload_offset": 510,
+      "span": 188,
+      "encoded_bytes": 158,
+      "decoded_bytes": 33940,
+      "decoded_md5": "98ad7b81687304aa0e99cf326200adfe",
+      "encoded_sha256": "da33846ae72275215419174a0a38d8f4a8617b5d872420919f22c89648c01e5e",
+      "original_header_and_getters_executed": true,
+      "file_io_implementation": "independent Python, not Agent",
+      "agent_archive_io_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        3221225952,
+        188
+      ],
+      "fixture": "small header-only research copy; zero prefix, not a complete multiarchive storage"
+    },
+    {
+      "format": "agent-span-read-bridge-1",
+      "archive": 3,
+      "filename": "data.003",
+      "absolute_address": 3221226140,
+      "header_offset": 668,
+      "payload_offset": 698,
+      "span": 188,
+      "encoded_bytes": 158,
+      "decoded_bytes": 33940,
+      "decoded_md5": "3d42bf2e42127f313b0ec64cb440cde9",
+      "encoded_sha256": "73bb9f2ec6c3dba2dbe61d5aa7e5bd4560f0d96c53972adb7472894d4f69b364",
+      "original_header_and_getters_executed": true,
+      "file_io_implementation": "independent Python, not Agent",
+      "agent_archive_io_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        3221226140,
+        188
+      ],
+      "fixture": "small header-only research copy; zero prefix, not a complete multiarchive storage"
+    },
+    {
+      "format": "agent-span-read-bridge-1",
+      "archive": 4,
+      "filename": "data.004",
+      "absolute_address": 4294967776,
+      "header_offset": 480,
+      "payload_offset": 510,
+      "span": 188,
+      "encoded_bytes": 158,
+      "decoded_bytes": 33940,
+      "decoded_md5": "98ad7b81687304aa0e99cf326200adfe",
+      "encoded_sha256": "da33846ae72275215419174a0a38d8f4a8617b5d872420919f22c89648c01e5e",
+      "original_header_and_getters_executed": true,
+      "file_io_implementation": "independent Python, not Agent",
+      "agent_archive_io_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        4294967776,
+        188
+      ],
+      "fixture": "small header-only research copy; zero prefix, not a complete multiarchive storage"
+    },
+    {
+      "format": "agent-span-read-bridge-1",
+      "archive": 4,
+      "filename": "data.004",
+      "absolute_address": 4294967964,
+      "header_offset": 668,
+      "payload_offset": 698,
+      "span": 188,
+      "encoded_bytes": 158,
+      "decoded_bytes": 33940,
+      "decoded_md5": "3d42bf2e42127f313b0ec64cb440cde9",
+      "encoded_sha256": "73bb9f2ec6c3dba2dbe61d5aa7e5bd4560f0d96c53972adb7472894d4f69b364",
+      "original_header_and_getters_executed": true,
+      "file_io_implementation": "independent Python, not Agent",
+      "agent_archive_io_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        4294967964,
+        188
+      ],
+      "fixture": "small header-only research copy; zero prefix, not a complete multiarchive storage"
+    },
+    {
+      "format": "agent-span-read-bridge-1",
+      "archive": 1023,
+      "filename": "data.1023",
+      "absolute_address": 1098437886432,
+      "header_offset": 480,
+      "payload_offset": 510,
+      "span": 188,
+      "encoded_bytes": 158,
+      "decoded_bytes": 33940,
+      "decoded_md5": "98ad7b81687304aa0e99cf326200adfe",
+      "encoded_sha256": "da33846ae72275215419174a0a38d8f4a8617b5d872420919f22c89648c01e5e",
+      "original_header_and_getters_executed": true,
+      "file_io_implementation": "independent Python, not Agent",
+      "agent_archive_io_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        1098437886432,
+        188
+      ],
+      "fixture": "small header-only research copy; zero prefix, not a complete multiarchive storage"
+    },
+    {
+      "format": "agent-span-read-bridge-1",
+      "archive": 1023,
+      "filename": "data.1023",
+      "absolute_address": 1098437886620,
+      "header_offset": 668,
+      "payload_offset": 698,
+      "span": 188,
+      "encoded_bytes": 158,
+      "decoded_bytes": 33940,
+      "decoded_md5": "3d42bf2e42127f313b0ec64cb440cde9",
+      "encoded_sha256": "73bb9f2ec6c3dba2dbe61d5aa7e5bd4560f0d96c53972adb7472894d4f69b364",
+      "original_header_and_getters_executed": true,
+      "file_io_implementation": "independent Python, not Agent",
+      "agent_archive_io_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        1098437886620,
+        188
+      ],
+      "fixture": "small header-only research copy; zero prefix, not a complete multiarchive storage"
+    }
+  ],
+  "source_fixture_sha256_unchanged": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1",
+  "original_parser_checks_available_header_only_not_full_span_or_payload": true,
+  "source_ckey_is_derived_not_independent_expected": true,
+  "target_ckey_independently_from_encoding": true,
+  "file_io_and_blte_are_independent_python": true,
+  "whole_agent_or_windows_io_executed": false,
+  "game_lab_original_portable_release_changed": false,
+  "installation_ready": false
+}

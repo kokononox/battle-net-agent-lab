@@ -1,0 +1,125 @@
+{
+  "format": "original-span-reader-sync-1",
+  "previous_commit": "8328364a6eac0bd27fe7479d7ed478fde20c53f5",
+  "branch": "patch-audit-20261016",
+  "tests": 696,
+  "new_tests": 50,
+  "original_functions": 5,
+  "original_code_bytes": 1293,
+  "original_readonly_bytes": 220,
+  "mocked_helpers": 0,
+  "native_model_vectors": 2631,
+  "single_bit_corruptions_rejected": 240,
+  "real_readbacks_in_header_only_copies": 8,
+  "mandatory_original_span_gate": true,
+  "hard_exit_resume_boundaries": 9,
+  "original_parser_rejected_corrupt_header_before_research_control_publish": true,
+  "archive_io_and_blte_implementation": "independent Python, not Agent",
+  "windows_executed": false,
+  "power_loss_proven": false,
+  "installation_ready": false,
+  "game_lab_original_portable_release_changed": false,
+  "binaries_raw_fragments_indexes_or_archives_published": false,
+  "files": [
+    {
+      "path": "downloader/patch_audit_lab/agent_span_reader.py",
+      "sha256": "3db50b8f92e13bc360d0e87d466e8a4611dd3d1885468d97cb36208e12b7e36c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/retail_span_cycle.py",
+      "sha256": "97fb74905ef957abd21a62f0a35d1c7bd6c06411d8ab4316346c89ea440d468b"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_agent_span_reader.py",
+      "sha256": "45a28ef19711b8d2efa796882a6899eb42368fd4336bea7a573b870df2c9fcb1"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_retail_span_cycle.py",
+      "sha256": "0a65c3b427e4109ce4c732687a8f2c04f8b9b3b03dd1ab2b2fd98c95addb5701"
+    },
+    {
+      "path": "downloader/patch_audit_lab/README-fa.md",
+      "sha256": "99e77dda52aac0d3b4e05a00be63e2aee85057fbca92fa1879143255ce2a2900"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/lookup-merge-9824/README-fa.md",
+      "sha256": "5151c5390c461f0ddf470899e5bd99990f6f1bb209884ef362c286e8ce52ee09"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/ALL-TESTS.log",
+      "sha256": "31ed2ac77dcf253e57eadb39659d5ac559dfcdb8e792bbed324db678c73ee0e7"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/CYCLE-EXPERIMENT.json",
+      "sha256": "97f62ebce5720fe39872ce5be30da552819afaed1d4145183bde20b03c234fa9"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/EXPERIMENT-RESULTS.json",
+      "sha256": "3c16ff204d815442516c3dd17842fdf7b51decf3256e6feab0fed761ad6d13cd"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/FRAGMENT-BUILD-RECEIPT.json",
+      "sha256": "36125761f6a3ce4a230c9e8043c3503c1176178a4efc44d8e1ce31d34040020a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/README-fa.md",
+      "sha256": "a408b9d01a6b44adf7705f11bc838915027aa8d59836265019b6a2381a867d57"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/TEST-RESULTS.json",
+      "sha256": "45f1cd00e4c6f3435afe66681b91a6fd0c94797ef373cfc8ad2bee7d64bfa199"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/archive_number.asm",
+      "sha256": "0ba43aa324ad4aa4b79250df716ee79bc54923ba73a63ccef46bc13c3fdfdf38"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/checksum.asm",
+      "sha256": "c6aa27ecb4f81b98201d43df608f94bcd3a91719f4b54ba729262c484e5aa98a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/hash1.asm",
+      "sha256": "2eb73700f675ae81c665b73819495f0692bb9b847085fec9e16cf1edaa648060"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/native/build.py",
+      "sha256": "eb1af166cb68c326c20143212432f8669be2f7cf3af3f579bd5dd6f7c3652d1e"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/native/harness.s",
+      "sha256": "541a4af2862a0c20dfc357e12e08fdf3e3a135d88f7f2665270961369df5f04f"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/parse_span.asm",
+      "sha256": "74a070c24f56cbd44331e889c5b0ed1cc5e7c44a33cd249cf4c66176075c9cc9"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/payload_offset.asm",
+      "sha256": "36f1ffeb519d1b896477585ca734be7bc111de610538cfae83d14077c04b3175"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/run_cycle_experiments.py",
+      "sha256": "566db64cf1fc95d31a28a5df2d445aa34e03a7808fe9024d3db129c54352e2a1"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/run_experiments.py",
+      "sha256": "ff12ba4711bb6ee5c10397cd6f10e03dae3322937088b56effbb67994adc3eb0"
+    },
+    {
+      "path": "README.md",
+      "sha256": "b30e9d37ca2bcf9bc5eaeb4b09bf5358b1677165cc982158cca5e8e396df9a8e"
+    },
+    {
+      "path": "docs/SESSION-2026-10-16.fa.md",
+      "sha256": "03a110cf5045adcce741860da39d4d58c95b20d94e8da629d908383ee1cf6d24"
+    },
+    {
+      "path": "docs/PORTABLE-RESEARCH.fa.md",
+      "sha256": "cc7c043f0470f133fee5835ae7cfbc49e58b6b17425bd18fc25a07bc4ecda6c9"
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "cb60a78e76f9262cd0c1c9b85d168332b39e9857927640f927e5b4ba19c98efc"
+    }
+  ]
+}

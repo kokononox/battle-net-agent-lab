@@ -75,3 +75,8 @@ companion code ZIP از کد پژوهشی و گزارش‌ها ساخته می�
 ## مسیر اصلی lookup/merge تا offset و طول واقعی
 
 [lookup-merge-9824](../downloader/patch_audit_lab/research/lookup-merge-9824/README-fa.md): مسیر normal-path اصلی Agent، offset/span source و target واقعی را برگرداند و reader مستقل از همان range، EKey/checksum/CKey را تأیید کرد. گیت در چرخه اجباری، ۹ توقف سخت/resume، ۳۱۲۲ بردار و ۶۴۶ آزمون/صفر skip؛ archive I/O خود Agent و Windows هنوز اجرا نشده‌اند. ZIP/fixture اصلی را تغییر ندهید؛ کد جدید روی شاخه است.
+
+
+## هدر/آدرس اصلی و reader شماره‌دار
+
+[archive-span-reader-9824](../downloader/patch_audit_lab/research/archive-span-reader-9824/README-fa.md): ۵ تابع خالص اصلی بدون helper mock، ۲۶۳۱ بردار، ۲۴۰ خرابی تک‌بیتی ردشده و source/target واقعی در کپی‌های header-only چهار آرشیو؛ گیت تازه در چرخه اجباری و ۹ توقف/resume موفق. ۶۹۶ آزمون/صفر skip. فایل‌خوانی/BLTE مستقل‌اند؛ نصب چندآرشیوی کامل یا Agent/Windows I/O اثبات نشده است. Portable اصلی و Release تاریخی تغییر نکردند.

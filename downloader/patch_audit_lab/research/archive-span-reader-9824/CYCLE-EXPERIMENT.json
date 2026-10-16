@@ -1,0 +1,238 @@
+{
+  "format": "retail-original-span-cycle-experiment-1",
+  "initial": {
+    "format": "retail-v8-cycle-status-1",
+    "target_published": false,
+    "source_full_ekey_and_derived_ckey_verified": true,
+    "target_full_ekey_and_expected_ckey_verified": false,
+    "target_bucket_sequence": 1,
+    "visible_objects": 1,
+    "data_bytes": 668,
+    "pending_unpublished_tail_bytes": 0,
+    "source_span_unchanged": true,
+    "archive_prefix_placeholder": false,
+    "custom_resume_state": null,
+    "exact_header_sequence_used": true,
+    "max_filename_selection_used": false,
+    "source_ckey_is_derived_not_independent": true,
+    "agent_windows_publication_executed": false,
+    "installation_ready": false,
+    "network_requests": 0,
+    "original_agent_inner_bind_verified": true,
+    "original_agent_fullkey_search_verified": true,
+    "span_readback": "independent Python, not Agent object I/O",
+    "selected_index_count": 16,
+    "agent_qword_semantics": "fixture policy, full Agent readpath unproven",
+    "mandatory_original_lookup_merge_range_gate": true,
+    "original_lookup_normal_path_not_mocked": true,
+    "returned_agent_range_used_for_independent_span_read": true,
+    "lookup_gate_objects": [
+      {
+        "ekey": "914fcad4f4fcf4abb0ba52b197bb066f",
+        "returned_offset": 480,
+        "returned_span": 188,
+        "original_lookup_merge_status": 0,
+        "decoded_bytes": 33940,
+        "full_ekey_span_checksums_and_ckey_verified": true
+      }
+    ],
+    "full_agent_archive_io_executed": false,
+    "windows_seh_executed": false,
+    "mandatory_original_span_header_and_address_gate": true,
+    "span_gate_objects": [
+      {
+        "format": "agent-span-read-bridge-1",
+        "archive": 0,
+        "filename": "data.000",
+        "absolute_address": 480,
+        "header_offset": 480,
+        "payload_offset": 510,
+        "span": 188,
+        "encoded_bytes": 158,
+        "decoded_bytes": 33940,
+        "decoded_md5": "98ad7b81687304aa0e99cf326200adfe",
+        "encoded_sha256": "da33846ae72275215419174a0a38d8f4a8617b5d872420919f22c89648c01e5e",
+        "original_header_and_getters_executed": true,
+        "file_io_implementation": "independent Python, not Agent",
+        "agent_archive_io_executed": false,
+        "installation_ready": false
+      }
+    ],
+    "agent_archive_io_executed": false,
+    "index_profile": "Agent-9824-V8-primary-only",
+    "mandatory_native_gate": true,
+    "windows_agent_executed": false
+  },
+  "completed": {
+    "format": "retail-v8-cycle-status-1",
+    "target_published": true,
+    "source_full_ekey_and_derived_ckey_verified": true,
+    "target_full_ekey_and_expected_ckey_verified": true,
+    "target_bucket_sequence": 2,
+    "visible_objects": 2,
+    "data_bytes": 856,
+    "pending_unpublished_tail_bytes": 0,
+    "source_span_unchanged": true,
+    "archive_prefix_placeholder": false,
+    "custom_resume_state": "committed",
+    "exact_header_sequence_used": true,
+    "max_filename_selection_used": false,
+    "source_ckey_is_derived_not_independent": true,
+    "agent_windows_publication_executed": false,
+    "installation_ready": false,
+    "network_requests": 0,
+    "original_agent_inner_bind_verified": true,
+    "original_agent_fullkey_search_verified": true,
+    "span_readback": "independent Python, not Agent object I/O",
+    "selected_index_count": 16,
+    "agent_qword_semantics": "fixture policy, full Agent readpath unproven",
+    "mandatory_original_lookup_merge_range_gate": true,
+    "original_lookup_normal_path_not_mocked": true,
+    "returned_agent_range_used_for_independent_span_read": true,
+    "lookup_gate_objects": [
+      {
+        "ekey": "914fcad4f4fcf4abb0ba52b197bb066f",
+        "returned_offset": 480,
+        "returned_span": 188,
+        "original_lookup_merge_status": 0,
+        "decoded_bytes": 33940,
+        "full_ekey_span_checksums_and_ckey_verified": true
+      },
+      {
+        "ekey": "faedca88d0a0ab30dae5519239582d31",
+        "returned_offset": 668,
+        "returned_span": 188,
+        "original_lookup_merge_status": 0,
+        "decoded_bytes": 33940,
+        "full_ekey_span_checksums_and_ckey_verified": true
+      }
+    ],
+    "full_agent_archive_io_executed": false,
+    "windows_seh_executed": false,
+    "mandatory_original_span_header_and_address_gate": true,
+    "span_gate_objects": [
+      {
+        "format": "agent-span-read-bridge-1",
+        "archive": 0,
+        "filename": "data.000",
+        "absolute_address": 480,
+        "header_offset": 480,
+        "payload_offset": 510,
+        "span": 188,
+        "encoded_bytes": 158,
+        "decoded_bytes": 33940,
+        "decoded_md5": "98ad7b81687304aa0e99cf326200adfe",
+        "encoded_sha256": "da33846ae72275215419174a0a38d8f4a8617b5d872420919f22c89648c01e5e",
+        "original_header_and_getters_executed": true,
+        "file_io_implementation": "independent Python, not Agent",
+        "agent_archive_io_executed": false,
+        "installation_ready": false
+      },
+      {
+        "format": "agent-span-read-bridge-1",
+        "archive": 0,
+        "filename": "data.000",
+        "absolute_address": 668,
+        "header_offset": 668,
+        "payload_offset": 698,
+        "span": 188,
+        "encoded_bytes": 158,
+        "decoded_bytes": 33940,
+        "decoded_md5": "3d42bf2e42127f313b0ec64cb440cde9",
+        "encoded_sha256": "73bb9f2ec6c3dba2dbe61d5aa7e5bd4560f0d96c53972adb7472894d4f69b364",
+        "original_header_and_getters_executed": true,
+        "file_io_implementation": "independent Python, not Agent",
+        "agent_archive_io_executed": false,
+        "installation_ready": false
+      }
+    ],
+    "agent_archive_io_executed": false,
+    "index_profile": "Agent-9824-V8-primary-only",
+    "mandatory_native_gate": true,
+    "windows_agent_executed": false,
+    "idempotent_noop": false
+  },
+  "source_prefix_unchanged": true,
+  "all_initial_indexes_unchanged": true,
+  "final_data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1",
+  "hard_exit_resume_cases": [
+    {
+      "phase": "prepared",
+      "exit_code": 91,
+      "resumed_with_original_lookup_and_span_gates": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "target_half_appended",
+      "exit_code": 91,
+      "resumed_with_original_lookup_and_span_gates": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "target_data_synced",
+      "exit_code": 91,
+      "resumed_with_original_lookup_and_span_gates": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "index_temp_synced",
+      "exit_code": 91,
+      "resumed_with_original_lookup_and_span_gates": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "index_named",
+      "exit_code": 91,
+      "resumed_with_original_lookup_and_span_gates": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "index_bound",
+      "exit_code": 91,
+      "resumed_with_original_lookup_and_span_gates": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "control_temp_synced",
+      "exit_code": 91,
+      "resumed_with_original_lookup_and_span_gates": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "control_published",
+      "exit_code": 91,
+      "resumed_with_original_lookup_and_span_gates": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    },
+    {
+      "phase": "committed",
+      "exit_code": 91,
+      "resumed_with_original_lookup_and_span_gates": true,
+      "idempotent_no_write": true,
+      "data_sha256": "0bc16095b26bc8d1e0c8d3aaba86502e9938f932ccf093e0c135531f1f2861b1"
+    }
+  ],
+  "injected_header_checksum": {
+    "boundary": "header input only at original parser; actual research file unchanged",
+    "original_parser_returned_false": true,
+    "caller_rejected_before_control_publish": true,
+    "journal_prepared_preserved": true,
+    "resume_with_real_header_succeeded": true
+  },
+  "idempotent_rechecks_gates_and_does_not_write": true,
+  "prior_owned_store_hashes_unchanged": true,
+  "original_lookup_and_span_parser_gates_mandatory": true,
+  "windows_agent_archive_io_or_seh_executed": false,
+  "custom_linux_publication_not_windows_protocol": true,
+  "power_loss_proven": false,
+  "installation_ready": false,
+  "game_lab_original_portable_release_changed": false
+}

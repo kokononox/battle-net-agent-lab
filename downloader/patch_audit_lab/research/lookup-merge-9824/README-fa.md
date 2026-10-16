@@ -1,5 +1,7 @@
 # از bind ایندکس تا lookup/iterator/merge اصلی و بازخوانی target واقعی
 
+> مرحلهٔ بعد: [هدر/آدرس اصلی](../archive-span-reader-9824/README-fa.md) پنج تابع خالص parser/checksum/hash/getter را بدون helper mock اجرا و به reader مستقل چهار fixture شماره‌دار و چرخهٔ gated وصل کرده است. suite فعلی ۶۹۶ آزمون/صفر skip؛ این checkpoint ۶۴۶تایی تاریخی حفظ شده است. خود Agent archive-open/read/decode یا Windows هنوز اجرا نشده‌اند.
+
 ## نتیجهٔ اساسی
 
 **این بار offset و طول داده را مسیر اصلیِ lookup خود Agent برگرداند؛ نه اینکه فقط دو qword را خودمان تفسیر کنیم.** ورودی V8 نمونهٔ واقعی از inner-bind/parser به key lookup، جمع‌آوری tail، iterator، اعمال عملیات، مرتب‌سازی/ادغام پوشش، بررسی محدوده و ساخت خروجی می‌رود. مسیر اصلی برای source مقدار `(480,188)` و برای target مقدار `(668,188)` برگرداند. همان خروجی به reader مستقل Python داده شد و full EKey، checksumهای span، BLTE و CKey هدف پچ‌شده تأیید شدند.

@@ -1,6 +1,6 @@
 # ممیزی پچ WoW — آزمایش مستقل، نه آپدیتر آماده
 
-> تازه‌ترین milestone: [lookup/iterator/merge/range اصلی تا محل target واقعی](research/lookup-merge-9824/README-fa.md). ۲۱ تابع اصلی/۶۱۴۸ بایت و ۳۴۴ بایت جدول پرش، offset/span source و target را برگرداندند؛ همان range مستقل خوانده شد. گیت تکمیلی قبل/بعد انتشار و در no-op اجباری است. ۳۱۲۲ بردار، ۹ توقف سخت/resume، مجموع ۶۴۶ آزمون. frame/حافظه mock؛ archive I/O خود Agent و Windows هنوز اجرا نشده‌اند.
+> تازه‌ترین milestone: [هدر/checksum و آدرس‌دهی اصلی آرشیو](research/archive-span-reader-9824/README-fa.md). ۵ تابع خالص/۱۲۹۳ بایت کد و ۲۲۰ بایت داده، بدون helper mock؛ ۲۶۳۱ بردار و ۲۴۰ رد خرابی تک‌بیتی. source/target واقعی در کپی‌های header-only چهار آرشیو مستقل بازخوانی شدند. گیت هدر در چرخه اجباری، ۹ توقف/resume، ۶۹۶ آزمون/صفر skip. فایل‌خوانی و BLTE هنوز Python مستقل‌اند؛ Agent archive I/O و Windows اجرا نشده‌اند.
 
 
 ## به‌روزرسانی مرحلهٔ دوم: اتصال به شواهد قبلی
