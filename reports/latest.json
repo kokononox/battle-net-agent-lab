@@ -2,14 +2,14 @@
   "schema": "agent-bootstrap-observation-9",
   "status": "agent_process_observed",
   "scope": "fresh_hosted_windows_bootstrap_only;not_WoW_update_or_install",
-  "utc": "2026-10-16T16:50:13.443670+00:00",
-  "source_commit": "cbfc187e47f2b32dcf0f2da462dee8dfabdf5ef1",
-  "run_id": "38934965151",
+  "utc": "2026-10-16T16:58:03.649112+00:00",
+  "source_commit": "764f7ffe342c7518109efee40ac2bae20ae726b5",
+  "run_id": "38935990879",
   "run_attempt": "1",
   "install_step": {
-    "status": "no_targets",
+    "status": "process_mismatch",
     "authorized": true,
-    "helper_started": false,
+    "helper_started": true,
     "page_confirmed": false,
     "continue_attempted": false,
     "continue_returned": false,
@@ -34,7 +34,7 @@
       "observer_session_id": 2,
       "process_sessions": [
         {
-          "pid": 3948,
+          "pid": 7812,
           "session_id": 2
         }
       ],
@@ -73,7 +73,7 @@
         "status": "ok",
         "elements": [
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 0,
             "control_type": "Window",
             "enabled": true,
@@ -84,7 +84,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -95,7 +95,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -106,7 +106,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -117,7 +117,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -128,7 +128,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -139,7 +139,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -150,7 +150,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -161,7 +161,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -172,7 +172,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -183,7 +183,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -194,7 +194,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -205,7 +205,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -216,7 +216,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -227,7 +227,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -238,7 +238,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "RadioButton",
             "enabled": true,
@@ -249,7 +249,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "Button",
             "enabled": true,
@@ -260,7 +260,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 1,
             "control_type": "Group",
             "enabled": true,
@@ -273,7 +273,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -284,7 +284,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -295,7 +295,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -306,7 +306,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -317,7 +317,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -328,7 +328,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -339,7 +339,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -350,7 +350,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -361,7 +361,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -372,7 +372,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -383,7 +383,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -394,7 +394,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -405,7 +405,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -416,7 +416,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -427,7 +427,7 @@
             "caption_features": null
           },
           {
-            "pid": 3948,
+            "pid": 7812,
             "depth": 2,
             "control_type": "RadioButton",
             "enabled": true,
@@ -444,15 +444,15 @@
       }
     },
     {
-      "elapsed_seconds": 31.39,
+      "elapsed_seconds": 31.67,
       "observer_session_id": 2,
       "process_sessions": [
         {
-          "pid": 1272,
+          "pid": 6032,
           "session_id": 2
         },
         {
-          "pid": 4072,
+          "pid": 7400,
           "session_id": 2
         }
       ],
@@ -515,7 +515,7 @@
         "status": "ok",
         "elements": [
           {
-            "pid": 1272,
+            "pid": 7400,
             "depth": 0,
             "control_type": "Window",
             "enabled": true,
@@ -526,7 +526,7 @@
             "caption_features": null
           },
           {
-            "pid": 1272,
+            "pid": 7400,
             "depth": 1,
             "control_type": "Button",
             "enabled": true,
@@ -537,7 +537,7 @@
             "caption_features": null
           },
           {
-            "pid": 1272,
+            "pid": 7400,
             "depth": 1,
             "control_type": "Text",
             "enabled": true,
@@ -554,7 +554,7 @@
             }
           },
           {
-            "pid": 1272,
+            "pid": 7400,
             "depth": 1,
             "control_type": "Text",
             "enabled": true,
@@ -571,7 +571,7 @@
             }
           },
           {
-            "pid": 1272,
+            "pid": 7400,
             "depth": 1,
             "control_type": "CheckBox",
             "enabled": true,
@@ -594,7 +594,7 @@
             }
           },
           {
-            "pid": 1272,
+            "pid": 7400,
             "depth": 1,
             "control_type": "Hyperlink",
             "enabled": true,
@@ -611,15 +611,15 @@
       }
     },
     {
-      "elapsed_seconds": 146.73,
+      "elapsed_seconds": 147.12,
       "observer_session_id": 2,
       "process_sessions": [
         {
-          "pid": 1272,
+          "pid": 6032,
           "session_id": 2
         },
         {
-          "pid": 4072,
+          "pid": 7400,
           "session_id": 2
         }
       ],
@@ -682,7 +682,7 @@
         "status": "ok",
         "elements": [
           {
-            "pid": 1272,
+            "pid": 7400,
             "depth": 0,
             "control_type": "Window",
             "enabled": true,
@@ -693,7 +693,7 @@
             "caption_features": null
           },
           {
-            "pid": 1272,
+            "pid": 7400,
             "depth": 1,
             "control_type": "Button",
             "enabled": true,
@@ -704,7 +704,7 @@
             "caption_features": null
           },
           {
-            "pid": 1272,
+            "pid": 7400,
             "depth": 1,
             "control_type": "Text",
             "enabled": true,
@@ -721,7 +721,7 @@
             }
           },
           {
-            "pid": 1272,
+            "pid": 7400,
             "depth": 1,
             "control_type": "Text",
             "enabled": true,
@@ -738,7 +738,7 @@
             }
           },
           {
-            "pid": 1272,
+            "pid": 7400,
             "depth": 1,
             "control_type": "CheckBox",
             "enabled": true,
@@ -761,7 +761,7 @@
             }
           },
           {
-            "pid": 1272,
+            "pid": 7400,
             "depth": 1,
             "control_type": "Hyperlink",
             "enabled": true,
@@ -780,8 +780,8 @@
   ],
   "safety_test_result": {
     "result": "passed",
-    "discovered": 181,
-    "executed": 181,
+    "discovered": 184,
+    "executed": 184,
     "skipped": 0,
     "failure_count": 0,
     "failures": [],
@@ -799,12 +799,12 @@
   },
   "samples": [
     {
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.02,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 3948,
-          "parent_pid": 2852
+          "pid": 7812,
+          "parent_pid": 4588
         }
       ],
       "connections": []
@@ -814,90 +814,90 @@
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 3948,
-          "parent_pid": 2852
+          "pid": 7812,
+          "parent_pid": 4588
         }
       ],
       "connections": []
     },
     {
-      "elapsed_seconds": 11.38,
+      "elapsed_seconds": 11.64,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
           "remote_port": 1120,
           "state": "SynSent"
@@ -905,83 +905,83 @@
       ]
     },
     {
-      "elapsed_seconds": 16.38,
+      "elapsed_seconds": 16.66,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
           "remote_port": 1120,
           "state": "SynSent"
@@ -989,130 +989,124 @@
       ]
     },
     {
-      "elapsed_seconds": 21.39,
+      "elapsed_seconds": 21.66,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "136.110.153.89",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
           "remote_port": 1120,
           "state": "SynSent"
@@ -1120,410 +1114,410 @@
       ]
     },
     {
-      "elapsed_seconds": 26.39,
+      "elapsed_seconds": 26.66,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "136.110.153.89",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 31.39,
+      "elapsed_seconds": 31.67,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "136.110.153.89",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 36.58,
+      "elapsed_seconds": 36.95,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "136.110.153.89",
           "remote_port": 443,
           "state": "Established"
@@ -1531,136 +1525,136 @@
       ]
     },
     {
-      "elapsed_seconds": 41.59,
+      "elapsed_seconds": 41.95,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "136.110.153.89",
           "remote_port": 443,
           "state": "CloseWait"
@@ -1668,2751 +1662,2751 @@
       ]
     },
     {
-      "elapsed_seconds": 46.59,
+      "elapsed_seconds": 46.97,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 51.61,
+      "elapsed_seconds": 51.97,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 56.61,
+      "elapsed_seconds": 56.97,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 61.61,
+      "elapsed_seconds": 61.98,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 66.62,
+      "elapsed_seconds": 66.98,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 71.62,
+      "elapsed_seconds": 71.98,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 76.64,
+      "elapsed_seconds": 77.0,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 81.64,
+      "elapsed_seconds": 82.0,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 86.64,
+      "elapsed_seconds": 87.0,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 91.66,
+      "elapsed_seconds": 92.02,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 96.66,
+      "elapsed_seconds": 97.02,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 101.67,
+      "elapsed_seconds": 102.03,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 106.67,
+      "elapsed_seconds": 107.03,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 111.67,
+      "elapsed_seconds": 112.03,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 116.69,
+      "elapsed_seconds": 117.05,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 121.7,
+      "elapsed_seconds": 122.05,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 126.7,
+      "elapsed_seconds": 127.06,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 131.72,
+      "elapsed_seconds": 132.06,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 136.72,
+      "elapsed_seconds": 137.06,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 141.72,
+      "elapsed_seconds": 142.11,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
       ]
     },
     {
-      "elapsed_seconds": 146.73,
+      "elapsed_seconds": 147.12,
       "processes": [
         {
           "name": "battle.net-setup.exe",
-          "pid": 1272,
-          "parent_pid": 3948
+          "pid": 7400,
+          "parent_pid": 7812
         },
         {
           "name": "agent.exe",
-          "pid": 4072,
-          "parent_pid": 3932
+          "pid": 6032,
+          "parent_pid": 6784
         }
       ],
       "connections": [
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50079,
+          "remote_port": 59176,
           "state": "Established"
         },
         {
-          "pid": 1272,
+          "pid": 7400,
           "remote_address": "nonpublic",
-          "remote_port": 50078,
+          "remote_port": 59175,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.53.127.175",
+          "pid": 7400,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "23.219.87.105",
+          "pid": 7400,
+          "remote_address": "23.15.3.155",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 1272,
-          "remote_address": "137.221.64.6",
+          "pid": 7400,
+          "remote_address": "137.221.64.8",
           "remote_port": 80,
           "state": "CloseWait"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
           "remote_port": 0,
           "state": "Listen"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "8.232.70.12",
           "remote_port": 443,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
+          "pid": 6032,
+          "remote_address": "8.232.70.12",
+          "remote_port": 443,
+          "state": "Established"
+        },
+        {
+          "pid": 6032,
+          "remote_address": "2.18.67.207",
           "remote_port": 80,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.219.87.105",
-          "remote_port": 80,
-          "state": "Established"
-        },
-        {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50127,
+          "remote_port": 59228,
           "state": "Established"
         },
         {
-          "pid": 4072,
+          "pid": 6032,
           "remote_address": "nonpublic",
-          "remote_port": 50126,
+          "remote_port": 59227,
           "state": "Established"
         },
         {
-          "pid": 4072,
-          "remote_address": "23.53.127.175",
+          "pid": 6032,
+          "remote_address": "23.15.3.207",
           "remote_port": 80,
           "state": "Established"
         }
@@ -4422,7 +4416,7 @@
   "file_observations": {
     "agent": {
       "files_observed": 129,
-      "bytes_on_disk_observed": 21909585,
+      "bytes_on_disk_observed": 21909574,
       "skipped_files": 0,
       "extensions": {
         ".idx": 77,
@@ -4467,7 +4461,7 @@
     }
   ],
   "log_markers": {
-    "bytes_read": 25235,
+    "bytes_read": 25224,
     "keyword_occurrences_only": {
       "initializ": 5,
       "download": 9,
@@ -4490,7 +4484,7 @@
     "status": "collected",
     "files_read": 9,
     "files_skipped": 0,
-    "bytes_read": 25235,
+    "bytes_read": 25224,
     "lines_scanned": 329,
     "oversized_lines_skipped": 0,
     "partial_lines_skipped": 0,
