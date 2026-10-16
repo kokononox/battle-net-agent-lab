@@ -1,5 +1,7 @@
 # milestone عملی: patch واقعی Retail → data/index → بازخوانی native
 
+> checkpoint تاریخی ۳۹۵تایی با placeholder؛ مرحلهٔ بعد در [archive-prefix-9824](../archive-prefix-9824/README-fa.md) prefix خروجی تازه را بازسازی و suite را به ۴۲۴ رسانده است. کد، receipt و نمونهٔ این checkpoint عمداً تغییر نکرده‌اند.
+
 ## نتیجهٔ اصلی
 
 **نمونهٔ واقعی Retail دیگر فقط فایل decoded یا BLTE جداگانه نیست:** از source و patch اصلی بازسازی، با ESpec متادیتای هدف بازرمزگذاری، در یک span داخل `data.000` و index محلی آزمایشی ذخیره و سپس توسط خوانندهٔ native جداگانه با EKey و CKey کامل بازخوانی شد. تمام این کار در پوشهٔ کاملاً جدید پژوهشی انجام شد؛ نصب بازی، Lab و fixture اصلی تغییر نکردند.

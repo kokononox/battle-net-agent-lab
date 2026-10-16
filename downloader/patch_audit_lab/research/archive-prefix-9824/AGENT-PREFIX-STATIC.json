@@ -1,0 +1,157 @@
+{
+  "format": "agent-9824-archive-prefix-static-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "evidence": {
+    "anchors": {
+      "bind_prefix_callback": {
+        "va": "0x70112d",
+        "bytes": "68aa147000"
+      },
+      "callback_store": {
+        "va": "0x711474",
+        "bytes": "8b451c894638"
+      },
+      "callback_context": {
+        "va": "0x71147a",
+        "bytes": "8b452089463c"
+      },
+      "archive_callback_invoke": {
+        "va": "0x711b78",
+        "bytes": "8b43388d8d60feffff51ff7508ff733cffd0"
+      },
+      "writer_key_argument": {
+        "va": "0x7014c2",
+        "bytes": "8b7d10"
+      },
+      "writer_archive_segment": {
+        "va": "0x7014d8",
+        "bytes": "8b450cb900000040f7e1"
+      },
+      "writer_slot_stride": {
+        "va": "0x7014fd",
+        "bytes": "6bcb1e"
+      },
+      "writer_flag_one": {
+        "va": "0x701517",
+        "bytes": "6a01"
+      },
+      "writer_key_and_record_strides": {
+        "va": "0x701541",
+        "bytes": "83c71083c21e"
+      },
+      "writer_sixteen_slots": {
+        "va": "0x70154e",
+        "bytes": "83fb10"
+      },
+      "writer_480_bytes": {
+        "va": "0x70155f",
+        "bytes": "68e0010000"
+      },
+      "generator_seed_copy": {
+        "va": "0x712a8d",
+        "bytes": "a5a5a5a5"
+      },
+      "generator_capacity_threshold": {
+        "va": "0x712a91",
+        "bytes": "3d000100007608"
+      },
+      "generator_archive_high": {
+        "va": "0x712a98",
+        "bytes": "8bc2c1e808884302"
+      },
+      "generator_archive_low_and_trial_zero": {
+        "va": "0x712aa0",
+        "bytes": "885301c60300"
+      },
+      "generator_bucket_mode_one": {
+        "va": "0x712aaa",
+        "bytes": "6a0153"
+      },
+      "generator_trial_update": {
+        "va": "0x712abb",
+        "bytes": "8a45fffec08845ff88033cff"
+      },
+      "generator_sixteen_full_keys": {
+        "va": "0x712ad0",
+        "bytes": "83c310894df883f910"
+      },
+      "bucket_xor_first_nine": {
+        "va": "0x712baa",
+        "bytes": "0fb6043233c84283fa09"
+      },
+      "bucket_fold_mode_and_mask": {
+        "va": "0x712bb6",
+        "bytes": "8bc1c1e80433c10fb64d0c03c183e00f"
+      },
+      "copy_nine_byte_prefixes": {
+        "va": "0x710bec",
+        "bytes": "83c31083c009a5a5a4"
+      },
+      "register_slot_number": {
+        "va": "0x7125a1",
+        "bytes": "6a00506a0156ff75dc"
+      },
+      "register_span30": {
+        "va": "0x712579",
+        "bytes": "c745e81e000000"
+      },
+      "register_bucket_slot": {
+        "va": "0x712315",
+        "bytes": "6bc750"
+      },
+      "reader_accepts_flags_zero_one": {
+        "va": "0x713cd3",
+        "bytes": "8a461484c074043c017547"
+      }
+    },
+    "calls": {
+      "storage_init": {
+        "va": "0x701148",
+        "target": "0x711445"
+      },
+      "archive_make_keys": {
+        "va": "0x711a72",
+        "target": "0x710b6a"
+      },
+      "derive_seed": {
+        "va": "0x710b83",
+        "target": "0x712ae3"
+      },
+      "generate_keys": {
+        "va": "0x710bda",
+        "target": "0x712a6d"
+      },
+      "generator_bucket": {
+        "va": "0x712aad",
+        "target": "0x712b9f"
+      },
+      "register_reserved_rows": {
+        "va": "0x711b6b",
+        "target": "0x71252a"
+      },
+      "prefix_construct_header": {
+        "va": "0x70152f",
+        "target": "0x713d2a"
+      },
+      "prefix_write": {
+        "va": "0x701571",
+        "target": "0x70dfcc"
+      },
+      "other_path_construct_header": {
+        "va": "0x7068fe",
+        "target": "0x713d2a"
+      }
+    }
+  },
+  "agent_executed": false,
+  "prefix_records": 16,
+  "prefix_bytes": 480,
+  "record_size": 30,
+  "flag": 1,
+  "seed_identity_proven": false,
+  "installation_ready": false,
+  "limitations": [
+    "The 16-byte seed is explicit research input; the Windows path/name derivation is not reproduced",
+    "Static byte anchors are not an Agent runtime or Windows acceptance test"
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "format": "archive-prefix-sync-1",
+  "previous_commit": "79fe3fec5b3264c0da6c54fdbbcc970cf080f1d6",
+  "branch": "patch-audit-20261016",
+  "tests": 424,
+  "archive_prefix_placeholder_in_new_fixture": false,
+  "research_seed_not_windows_identity": true,
+  "negative_native_cases_rejected": 502,
+  "installation_ready": false,
+  "agent_executed": false,
+  "original_fixture_modified": false,
+  "release_assets_modified": false,
+  "game_or_lab_written": false,
+  "files": [
+    {
+      "path": "downloader/patch_audit_lab/archive_prefix_poc.py",
+      "sha256": "0e5822a5f44edf4d49bb79d16eafa9600e9b57cdab929e9725ee2936dee7f38b"
+    },
+    {
+      "path": "downloader/patch_audit_lab/agent_archive_prefix_audit.py",
+      "sha256": "3bd9cf32b387fd15fad68fca5b81e826f6be520258c5d2611efeff29719f48f6"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_archive_prefix.py",
+      "sha256": "793181659ca220909bc351d4303324f5cf35df16c47ddac69ec71530502c79a0"
+    },
+    {
+      "path": "downloader/patch_audit_lab/README-fa.md",
+      "sha256": "c75e6aaf6788bba2525d0a74556c68f42ae9c1178ea15e89f958bb5e9a8650a9"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/README-fa.md",
+      "sha256": "366dfcb8d70e9e7dbc857a5777c73eed09a7e28d57cb802024921ede62540c31"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/AGENT-PREFIX-STATIC.json",
+      "sha256": "6ee615a38caaeed1e3a0df1c9c474736b17a0a8d1eaca3708670bee2bb2a9ac6"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/ALL-TESTS.log",
+      "sha256": "0b653a4b0bb521f4451d4f24cfe97c15032bc83daf0a4e9a0811051693acaec2"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/BASELINE-REAL-READBACK.json",
+      "sha256": "306130f902f13ea4cc3140dfa9f91b6128e75c02a2a6f60a15a1fe07c490079c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/DISASSEMBLY-MANIFEST.json",
+      "sha256": "5ae2ffddb7599b99427dda5c2e0f4b4de0ef583cf9dfd8bf8d7c4ded49991f42"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/EXPERIMENT-RESULTS.json",
+      "sha256": "221de7238e2518b20ecae046e95863d7a84d5cda0951a21d10124f04eb9078f4"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/NATIVE-BUILD-RECEIPT.json",
+      "sha256": "7747f96a468c91714fb52e13d00998be11c5c8fb73cc82a7c4d30d68128985a1"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/README-fa.md",
+      "sha256": "015316684d171a0d918b776b25045fa4b3f080133a47a32bd288d34925d199bc"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/REAL-PREFIX-READBACK.json",
+      "sha256": "0118376ad9d533746ace6b64851448ab81942f41ef98455260b8497f5996ee26"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/TEST-RESULTS.json",
+      "sha256": "07b3ed7abe3428e4becb826cce4569313e1233fff29dee69c0df8ff2c932760f"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/asm/bucket-mode.asm",
+      "sha256": "70bbe5caa1af359d760f1be36883388b2592d6dec5bae25dc366a57dec88cef9"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/asm/key-generator.asm",
+      "sha256": "7510837975d091330f6ee17aaa6382af4d010b8279dfb769667e7c55f3df46f4"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/asm/key-prefix-copy.asm",
+      "sha256": "cf7a404914322a17321b0a90b28f4156ab8f7bb2f913e34da65f19fc11cd25d9"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/asm/prefix-writer.asm",
+      "sha256": "baea31f69c9c43a041534a62bb7cafaf2e095ea306cdcb3815e106c559547664"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/asm/reserved-registration-call.asm",
+      "sha256": "19a19915d10d04f36dcfc6c46357cd86f25d36db0b212dd3188dcbc00de38a0c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/asm/storage-init-callback.asm",
+      "sha256": "11b2295046dd191440ae670b702289560a6d0cf726252684507d0c361f5ecded"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/native/build.sh",
+      "sha256": "5f6ff26888d308bf638b0483ac0a4463559d035f66f46a7a5656fa0d22f8b511"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/native/prefix_oracle.cpp",
+      "sha256": "a0e692f775c02776f76ff541ab119075fbecea25658af35bca93550885624a24"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/native/real_object_oracle.cpp",
+      "sha256": "6b96d35a55920da64b245e02b77ddacf6e481a600293700d4259f81fc9171ec0"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-prefix-9824/run_experiments.py",
+      "sha256": "f31ddad1f8e6b7095c73f8226504a2f67ef54f43ba42c96e53396280e9aa9114"
+    },
+    {
+      "path": "README.md",
+      "sha256": "e66df6e4e92ef24dbe403bffa27be4e1c161de05fdf83258a4730d3a5a032159"
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "9ed9570bfe9380b4bc0114275d34fe9684c3c966da12eb69178f56f1d0dfc854"
+    },
+    {
+      "path": "docs/SESSION-2026-10-16.fa.md",
+      "sha256": "9448e0e909de258b3de277889b538f3c6c2ab8fae254c4d6dc7b827a17d54546"
+    },
+    {
+      "path": "docs/PORTABLE-RESEARCH.fa.md",
+      "sha256": "a826356594f6769f729ee74305495b32daabce1730ea036a8a083ac5acdd073b"
+    }
+  ]
+}

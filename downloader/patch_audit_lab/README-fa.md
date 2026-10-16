@@ -1,6 +1,6 @@
 # ممیزی پچ WoW — آزمایش مستقل، نه آپدیتر آماده
 
-> تازه‌ترین milestone: [نمونهٔ واقعی Retail تا data/index و بازخوانی native](research/retail-storage-poc/README-fa.md). مجموع ۳۹۵ آزمون؛ خروجی فقط پوشهٔ جدید پژوهشی با prefix-placeholder است، نه نصب قابل‌اجرا یا activation واقعی. ZIP companion قدیمی جای checkout فعلی را نمی‌گیرد.
+> تازه‌ترین milestone: [prefix شانزده‌رکوردی Agent 9824 و بازخوانی واقعی](research/archive-prefix-9824/README-fa.md). مجموع ۴۲۴ آزمون؛ placeholder در خروجی پژوهشی جدید حذف شده، ولی seed صریح آزمایشی جای هویت نصب Windows نیست؛ activation و نصب واقعی اثبات نشده‌اند. checkpoint ۳۹۵تایی زیر تاریخی است و خروجی قبلی دست‌نخورده مانده است.
 
 
 ## به‌روزرسانی مرحلهٔ دوم: اتصال به شواهد قبلی

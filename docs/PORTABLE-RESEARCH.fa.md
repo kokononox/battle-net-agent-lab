@@ -40,3 +40,8 @@ companion code ZIP از کد پژوهشی و گزارش‌ها ساخته می�
 مشاهده‌گر جاری نسخهٔ ۳ و suite جاری ۳۶۰تایی است؛ [گزارش payload/rollback](../downloader/patch_audit_lab/research/primary-payload-9824/README-fa.md). payload واقعیِ shmem کاربر هنوز در fixture نیست؛ نمونه‌های جدید generated-only هستند و rollback اجرا نمی‌شود. ZIP companion همچنان snapshot تاریخی ۲۷۸تایی است؛ از آخر شاخه برای کد جدید استفاده کنید.
 
 **milestone تازه:** نمونهٔ واقعی fixture با [کد جدید ذخیره‌سازی پژوهشی](../downloader/patch_audit_lab/research/retail-storage-poc/README-fa.md) به data/index رفت و native EKey/CKey را خواند. suite جاری ۳۹۵ است. خروجی prefix-placeholder دارد و نصب‌پذیر نیست؛ fixture اصلی و companion تاریخی Release تعویض نشده‌اند. کد جاری و runner از آخر شاخه لازم‌اند.
+
+
+## آخرین مرحله: prefix بازسازی‌شده، نه activation نصب
+
+کد جاری [archive-prefix-9824](../downloader/patch_audit_lab/research/archive-prefix-9824/README-fa.md) در خروجی پژوهشی جدید ۱۶ هدر ۳۰بایتی و ۱۶ فایل index/۱۷ رکورد می‌سازد؛ نمونهٔ واقعی با native خوانده شد. suite جاری ۴۲۴ با صفر skip است. seed ورودی پژوهشی است، نه هویت نصب Windows؛ این خروجی نصب‌پذیر نیست. گزارش ۳۹۵تایی بالاتر تاریخی است و placeholder نمونهٔ آن حفظ شده است. ZIPهای Release تغییری نکردند؛ ماژول‌های تازه از شاخهٔ پژوهش لازم‌اند.

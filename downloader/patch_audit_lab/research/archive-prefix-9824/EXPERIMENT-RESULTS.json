@@ -1,0 +1,134 @@
+{
+  "format": "archive-prefix-experiments-1",
+  "positive_seed_vectors": [
+    {
+      "seed": "00112233445566778899aabbccddeeff",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "0d1e2f405162738495a6b7c8d9eafb0c",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "1a2b3c4d5e6f8091a2b3c4d5e6f70819",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "2738495a6b7c8d9eafc0d1e2f3041526",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "3445566778899aabbccddeef00112233",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "415263748596a7b8c9daebfc0d1e2f40",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "4e5f708192a3b4c5d6e7f8091a2b3c4d",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "5b6c7d8e9fb0c1d2e3f405162738495a",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "68798a9bacbdcedff001122334455667",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "758697a8b9cadbecfd0e1f3041526374",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "8293a4b5c6d7e8f90a1b2c3d4e5f7081",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "8fa0b1c2d3e4f5061728394a5b6c7d8e",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "9cadbecfe0f102132435465768798a9b",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "a9bacbdcedfe0f2031425364758697a8",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "b6c7d8e9fa0b1c2d3e4f60718293a4b5",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    },
+    {
+      "seed": "c3d4e5f60718293a4b5c6d7e8fa0b1c2",
+      "prefix_accepted": true,
+      "real_object_accepted": true
+    }
+  ],
+  "prefix_byte_flip_rejections": {
+    "count": 480,
+    "positions": "0..479 inclusive; each XOR 1 separately",
+    "by_code": {
+      "reserved_key": 256,
+      "reserved_size_flags": 96,
+      "reserved_hash_a": 64,
+      "reserved_checksum_b": 64
+    }
+  },
+  "index_file_checksum_rejections": 16,
+  "semantic_rejections": [
+    {
+      "case": "reserved_flag_zero_with_recomputed_checksums",
+      "accepted": false,
+      "code": "reserved_size_flags"
+    },
+    {
+      "case": "wrong_reserved_slot_with_valid_index_checksum",
+      "accepted": false,
+      "code": "reserved_index_binding"
+    },
+    {
+      "case": "real_payload_corrupt",
+      "accepted": false,
+      "code": "chunk_hash"
+    },
+    {
+      "case": "real_full_ekey_corrupt",
+      "accepted": false,
+      "code": "span_full_ekey"
+    },
+    {
+      "case": "wrong_seed",
+      "accepted": false,
+      "code": "reserved_key"
+    },
+    {
+      "case": "wrong_decoded_ckey",
+      "accepted": false,
+      "code": "decoded_ckey"
+    }
+  ],
+  "negative_cases_total": 502,
+  "all_negative_cases_rejected": true,
+  "final_fixture_restored_and_verified": true,
+  "installation_ready": false,
+  "agent_executed": false,
+  "network_requests": 0
+}

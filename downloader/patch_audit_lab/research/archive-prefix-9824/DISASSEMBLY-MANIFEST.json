@@ -1,0 +1,42 @@
+{
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "tool": "objdump -d -Mintel",
+  "excerpts": [
+    {
+      "file": "asm/prefix-writer.asm",
+      "start": "0x7014aa",
+      "end_exclusive": "0x7015a5",
+      "sha256": "baea31f69c9c43a041534a62bb7cafaf2e095ea306cdcb3815e106c559547664"
+    },
+    {
+      "file": "asm/key-generator.asm",
+      "start": "0x712a6d",
+      "end_exclusive": "0x712ae3",
+      "sha256": "7510837975d091330f6ee17aaa6382af4d010b8279dfb769667e7c55f3df46f4"
+    },
+    {
+      "file": "asm/bucket-mode.asm",
+      "start": "0x712b9f",
+      "end_exclusive": "0x712bc9",
+      "sha256": "70bbe5caa1af359d760f1be36883388b2592d6dec5bae25dc366a57dec88cef9"
+    },
+    {
+      "file": "asm/storage-init-callback.asm",
+      "start": "0x711445",
+      "end_exclusive": "0x7114b2",
+      "sha256": "11b2295046dd191440ae670b702289560a6d0cf726252684507d0c361f5ecded"
+    },
+    {
+      "file": "asm/key-prefix-copy.asm",
+      "start": "0x710b6a",
+      "end_exclusive": "0x710c03",
+      "sha256": "cf7a404914322a17321b0a90b28f4156ab8f7bb2f913e34da65f19fc11cd25d9"
+    },
+    {
+      "file": "asm/reserved-registration-call.asm",
+      "start": "0x712574",
+      "end_exclusive": "0x7125af",
+      "sha256": "19a19915d10d04f36dcfc6c46357cd86f25d36db0b212dd3188dcbc00de38a0c"
+    }
+  ]
+}
