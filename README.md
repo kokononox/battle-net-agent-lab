@@ -5,9 +5,10 @@
 **برای ادامهٔ جلسه ابتدا [تحویل فعلی](docs/SESSION-2026-10-16.fa.md) و [راهنمای پرتابل](docs/PORTABLE-RESEARCH.fa.md) را بخوانید.** این بخش وضعیت جدید شاخهٔ `patch-audit-20261016` است؛ مدارک تاریخی پایین حذف نشده‌اند.
 
 - یک نمونهٔ واقعی Retail از source+ZBSDIFF1 به target بازسازی شد؛ CKey هدف و سپس اندازه/EKey دقیق encoded و roundtrip تأیید شدند.
-- آزمایش CASC ساختگی و recovery انجام شد: **۲۷۸ آزمون، صفر failure/error/skip**. این عدد متعلق به patch-audit است، نه جایگزین ۴۴۶ تست تاریخی دانلودر یا تست‌های Windows Agent.
-- writer/activation قابل‌استفاده روی بازی هنوز نداریم. تحلیل فقط‌خواندنی `.build.info` و `shmem` شروع شده و قرارداد نهایی استخراج نشده است.
-- ZIP اصلی Portable-Retail-Sample با اندازهٔ 169,779,901 بایت برای ضمیمهٔ Release در نظر گرفته شده؛ [وضعیت واقعی انتشار و SHA256](evidence/portable/ASSET-MANIFEST.json) را ببینید. «pending» به معنی آپلودنشده است، نه لینک دانلود آماده.
+- آزمایش CASC ساختگی و recovery انجام شد: **۳۰۸ آزمون، صفر failure/error/skip**. این عدد متعلق به patch-audit است، نه جایگزین ۴۴۶ تست تاریخی دانلودر یا تست‌های Windows Agent.
+- writer/activation قابل‌استفاده روی بازی هنوز نداریم. در Agent ثابت، منشأ mapping و مسیر FlushFileBuffers → MoveFileExW با byte anchor و import table بررسی شده؛ مشاهده‌گر محدود shmem اضافه شده، اما قرارداد نهایی activation هنوز استخراج نشده است.
+- ZIP اصلی Portable-Retail-Sample با اندازهٔ 169,779,901 بایت و کد companion در [Release خصوصی پژوهش](https://github.com/kokononox/battle-net-agent-lab/releases/tag/retail-research-2026101) منتشر شدند؛ اندازه و digest سرور GitHub برای هر سه asset با فایل محلی تطبیق داده شد. [رسید تأیید](evidence/portable/RELEASE-RECEIPT.json).
+- [گزارش تازهٔ activation و آزمون‌های ۳۰۸تایی](downloader/patch_audit_lab/research/activation-static-9824/README-fa.md). ZIP companion روی Release snapshot پیشینِ ۲۷۸تایی است؛ برای ماژول‌های جدید از آخر شاخه استفاده کنید.
 - ZIP اصلی تغییر نکرده است؛ برای عبور از محدودیت قدیمی parser داخل آن، از runner و کد فعلی مخزن استفاده کنید، نه تعویض فایل‌ها در fixture و نقض manifest.
 - هیچ PRIVATE/SQLite، اطلاعات ورود یا transcript خام منتشر نمی‌شود. fixture رسمی متادیتا و نمونهٔ کوچک patch، استثنای مشخص و درخواست‌شدهٔ انتشار در مخزن خصوصی است.
 

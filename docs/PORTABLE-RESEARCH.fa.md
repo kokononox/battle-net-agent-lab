@@ -6,7 +6,13 @@ ZIP اصلی: `Portable-Retail-Sample.zip`، اندازهٔ دقیق **169,779,9
 9bd063f6dc6b8304df1fd939d24c01389abc0d4ff78f8c68463e4e0b2610bc0b
 ```
 
-وضعیت انتشار، نام asset و hashها در [manifest](../evidence/portable/ASSET-MANIFEST.json) ثبت می‌شود. اگر وضعیت pending است، هنوز لینک دانلود تأییدشده‌ای وجود ندارد. محل درنظرگرفته‌شده GitHub Releases مخزن خصوصی با tag برابر `retail-research-20261016` است. ZIP عمداً داخل Git یا به صورت base64 چندتکه commit نمی‌شود.
+وضعیت انتشار، نام asset و hashها در [manifest](../evidence/portable/ASSET-MANIFEST.json) ثبت می‌شود. اگر وضعیت pending است، هنوز لینک دانلود تأییدشده‌ای وجود ندارد. محل انتشار فعلی GitHub Releases مخزن خصوصی با tag واقعی `retail-research-2026101` است. ZIP عمداً داخل Git یا به صورت base64 چندتکه commit نمی‌شود.
+
+## انتشار تأییدشده
+
+[Release موجود](https://github.com/kokononox/battle-net-agent-lab/releases/tag/retail-research-2026101) سه asset دارد: ZIP اصلی، ZIP companion و فایل checksum. tag واقعی `retail-research-2026101` است (بدون رقم 6 پایانی). اندازه و SHA256 اعلام‌شدهٔ GitHub هر سه با نسخهٔ محلی تطبیق داده شده‌اند؛ این رسید دانلود مجدد مستقل نیست. دو ZIP گزارشِ اضافی در SHA256SUMS اختیاری‌اند و روی Release بارگذاری نشده‌اند؛ گزارش‌های لازم داخل companion قرار دارند.
+
+ZIP companion snapshot قبلی با ۲۷۸ آزمون است؛ کد تازهٔ مشاهده‌گر و ممیزی activation در آخر شاخهٔ پژوهش با suite ۳۰۸تایی قرار دارد. assetهای تأییدشده تعویض نشدند.
 
 ## بازتولید با کد فعلی، بدون تغییر fixture
 

@@ -1,0 +1,100 @@
+{
+  "format": "agent-9824-activation-static-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "status": "bounded_static_paths_verified",
+  "binary_executed": false,
+  "network_requests": 0,
+  "game_or_lab_written": false,
+  "evidence": {
+    "anchors": {
+      "bind_mode5_dispatch": "0x71dd8e",
+      "v4_constructor_protocol": "0x71de0e",
+      "v4_constructor_header_size": "0x71de1e",
+      "v4_constructor_payload_size": "0x71de3b",
+      "v4_constructor_payload_offset": "0x71de44",
+      "v4_constructor_file_size": "0x71de4b",
+      "v5_constructor_header_variants": "0x71def0",
+      "v5_constructor_protocol": "0x71df0a",
+      "v5_page_alignment": "0x71df5d",
+      "bind_mapped_pointer": "0x71e169",
+      "bind_protocol_lower": "0x71e18c",
+      "bind_protocol_upper": "0x71e194",
+      "bind_payload_size": "0x71e19c",
+      "bind_payload_pointer": "0x71e212",
+      "map_zero_offset_whole_file": "0x72e352",
+      "control_output_mapping_move": "0x72e42e",
+      "mapping_move_base_pointer": "0x86c798",
+      "flush_success_gate": "0x71f227",
+      "rename_flags_zero": "0x8652b4",
+      "rename_three_attempts": "0x71f31b",
+      "refresh_header_sequence_base": "0x71ea22",
+      "refresh_header_sequence_copy": "0x71ea30",
+      "index_filename_bswap": "0x71f0f4",
+      "index_filename_extension": "0x71f110"
+    },
+    "direct_calls": {
+      "construct_v4_mapping": {
+        "call": "0x71de7c",
+        "target": "0x72e265"
+      },
+      "construct_v5_mapping": {
+        "call": "0x71df9f",
+        "target": "0x72e265"
+      },
+      "map_file_wrapper": {
+        "call": "0x72e366",
+        "target": "0x86c8e5"
+      },
+      "transfer_mapping": {
+        "call": "0x72e441",
+        "target": "0x86c784"
+      },
+      "flush_table_sync": {
+        "call": "0x71f21f",
+        "target": "0x864dc2"
+      },
+      "flush_table_rename": {
+        "call": "0x71f2af",
+        "target": "0x865253"
+      },
+      "sequence_name_builder": {
+        "call": "0x71f28c",
+        "target": "0x71f0d3"
+      }
+    },
+    "import_calls": {
+      "flush_api": {
+        "call": "0x864dca",
+        "iat": "0x8fb48c",
+        "dll": "KERNEL32.dll",
+        "name": "FlushFileBuffers"
+      },
+      "rename_api": {
+        "call": "0x8652b8",
+        "iat": "0x8fb2dc",
+        "dll": "KERNEL32.dll",
+        "name": "MoveFileExW"
+      },
+      "create_mapping_api": {
+        "call": "0x86c9f7",
+        "iat": "0x8fb2e4",
+        "dll": "KERNEL32.dll",
+        "name": "CreateFileMappingW"
+      },
+      "map_view_api": {
+        "call": "0x86ca23",
+        "iat": "0x8fb2ec",
+        "dll": "KERNEL32.dll",
+        "name": "MapViewOfFile"
+      }
+    }
+  },
+  "activation_contract_complete": false,
+  "installation_ready": false,
+  "limitations": [
+    "Not a whole-program CFG or runtime trace",
+    "Actual user shmem not available in portable fixture",
+    "No .build.info writer or full-build closure proof",
+    "MoveFileExW(flags=0) in this helper is not power-loss atomicity proof"
+  ]
+}

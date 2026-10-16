@@ -1,0 +1,140 @@
+{
+  "format": "activation-sync-checkpoint-1",
+  "previous_commit": "8d29a53f9c09c1a80506c16380799db1936764b1",
+  "branch": "patch-audit-20261016",
+  "release_url": "https://github.com/kokononox/battle-net-agent-lab/releases/tag/retail-research-2026101",
+  "release_assets_server_digest_verified": 3,
+  "release_assets_modified": false,
+  "tests": 308,
+  "tests_skipped": 0,
+  "real_shmem_tested": false,
+  "real_game_or_lab_modified": false,
+  "main_merged": false,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 9463,
+      "sha256": "089cce188fed5b1994fd508af786e42892f5fceb07bb8cc8f3fb86419c322180"
+    },
+    {
+      "path": "docs/PORTABLE-RESEARCH.fa.md",
+      "bytes": 4092,
+      "sha256": "2b4ac8275535d21c84e380a130db2673f1dcef70b834850e583719ccdf9e0921"
+    },
+    {
+      "path": "docs/SESSION-2026-10-16.fa.md",
+      "bytes": 8545,
+      "sha256": "35ad78280e8b84e7e0b9b01fda2403c683e1c18b24dc9f5cb86cfc110df0f01c"
+    },
+    {
+      "path": "docs/current-state.json",
+      "bytes": 5461,
+      "sha256": "fd591b5cb9811e42c028efd0f05ad6e2dd88f2ca7d3ce4154b3c5719d5d3f604"
+    },
+    {
+      "path": "downloader/patch_audit_lab/agent_activation_audit.py",
+      "bytes": 7062,
+      "sha256": "cfdf1f191777c4644b1883a04c92b869d12e9260c700e3961155f4b74f6a2a69"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/AGENT-ACTIVATION-STATIC.json",
+      "bytes": 3058,
+      "sha256": "5b3a8e208fff5ef8153bdbbab78715f9c52b83a7a5c757088df621fbfa07c77d"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/ALL-TESTS.log",
+      "bytes": 31763,
+      "sha256": "38d51e5b8d2acd8cb87aea74e954ea60c641c6e5d96a340a13393e91fe19462b"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/GENERATED-OBSERVATIONS.json",
+      "bytes": 19416,
+      "sha256": "a140339a5a06d993e93d602fe4afe6b6616c85f3b258619718e4c188003433ce"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/README-fa.md",
+      "bytes": 8187,
+      "sha256": "890300163f2f32f13296a09862288fd1e1a3c7882a369d64accb5f56254445f6"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/TEST-RESULTS.json",
+      "bytes": 841,
+      "sha256": "bf55066d9f1d70355208b31ce35284a5da59e10d1768cc04e813f5879bcdd010"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/bind-and-payload-pointer.asm",
+      "bytes": 7332,
+      "sha256": "4d82e5df2927fb059d9ed027ed42f7fa4c3f124919902402f73759692d4d4906"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/control-constructors.asm",
+      "bytes": 15482,
+      "sha256": "d3cea518cc9227d0b30e2b6209897946d4734093f3ecea5e734b47ed7cd4e56b"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/control-map.asm",
+      "bytes": 8004,
+      "sha256": "9852d45df2f8b538e56526fcab707ba957d04f1cdd5572f5ef87d13f10d06325"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/flush-orchestrator.asm",
+      "bytes": 4726,
+      "sha256": "9dc41c1d206ac139c0b44152823ea8648070977469a3b0643e6ce002eb0e0df8"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/flush-sync-rename.asm",
+      "bytes": 5584,
+      "sha256": "814ff56796ef92e64feacad9df5a86394df1844f8b5c82234aa446e23a7bc604"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/index-filename-builder.asm",
+      "bytes": 1760,
+      "sha256": "329fc9893b5d41539d24b73471f1053551c8b8e521e7539e9ddb1f88417ad957"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/mapping-move.asm",
+      "bytes": 2225,
+      "sha256": "44ca1b3620a56054cd7adbe9a62f3c05e1bbf402eef21a12cce01f3ea6bb32cb"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/mapping-wrapper.asm",
+      "bytes": 8188,
+      "sha256": "11216a1164fbecbde3eeee8dd3c92e99239ef82ee8f679fdb7d175954192a6c3"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/rename-api-wrapper.asm",
+      "bytes": 2573,
+      "sha256": "ad0354e41ae7d1331f626905f7a52305d00853b2350557037a68a7f4062a6a8c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/sequence-header-copy.asm",
+      "bytes": 2218,
+      "sha256": "f8af8d49f4e317293a92bbecfdaeed6c1999478ceb9cc7e93e18033944459d88"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/sync-api-wrapper.asm",
+      "bytes": 691,
+      "sha256": "7d0b9edc520fdd808dde0a5d5b23fea956fda66a51e095be89488c7ca78e18b6"
+    },
+    {
+      "path": "downloader/patch_audit_lab/shmem_readonly.py",
+      "bytes": 3764,
+      "sha256": "cc9703d5868dadba7166bf17add513a87da22a783d7751b529db6ce73c197f31"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_activation_readonly.py",
+      "bytes": 7659,
+      "sha256": "8b860e3265d28f8066fa236fa9fa2c60637b47570823fbbd764e1110ed8e1e9e"
+    },
+    {
+      "path": "evidence/portable/ASSET-MANIFEST.json",
+      "bytes": 3331,
+      "sha256": "f7bd02679dafcc113836ffd32d993d6690aae40dfbb80297a649d89b4d79c158"
+    },
+    {
+      "path": "evidence/portable/RELEASE-RECEIPT.json",
+      "bytes": 1622,
+      "sha256": "2e800717dca5516a697496f7c5ee72ff3cf087021c3e31f4e369a2f9a47ff1a1"
+    }
+  ]
+}
