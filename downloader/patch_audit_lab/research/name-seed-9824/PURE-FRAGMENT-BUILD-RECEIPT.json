@@ -1,0 +1,73 @@
+{
+  "format": "isolated-agent-pure-fragments-build-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "fragments": [
+    {
+      "name": "normalize",
+      "start": "0x86398b",
+      "end_exclusive": "0x863b04",
+      "bytes": 377,
+      "sha256": "fe93d394d41e63e40b5ac0a4fcd81531c985c48a3363e964b4894182fb15cdb5"
+    },
+    {
+      "name": "md5update",
+      "start": "0x8643ef",
+      "end_exclusive": "0x864497",
+      "bytes": 168,
+      "sha256": "8750075122d4d43af5817cc25c49978ec7ba4e0b633b51f2d275e2bd91fc09ee"
+    },
+    {
+      "name": "md5final",
+      "start": "0x864497",
+      "end_exclusive": "0x864541",
+      "bytes": 170,
+      "sha256": "83336c095751ff135a684d10a350a4b357027bae3d3df5ac5df789068cbe703d"
+    },
+    {
+      "name": "md5init",
+      "start": "0x864541",
+      "end_exclusive": "0x864565",
+      "bytes": 36,
+      "sha256": "fabafcf1213d1affd83fcbdba10334c34f88c026e77545005dc1f02db45bc32e"
+    },
+    {
+      "name": "md5transform",
+      "start": "0x86e40b",
+      "end_exclusive": "0x86ea41",
+      "bytes": 1590,
+      "sha256": "b17df9f368a772777b0b42101042283dbc6c855f66ce433645a1ab911e8d9990"
+    },
+    {
+      "name": "keygen",
+      "start": "0x712a6d",
+      "end_exclusive": "0x712ae3",
+      "bytes": 118,
+      "sha256": "7cfe6afbbd716f15f737923473218fac270ea229055e64ceb95787ada40db226"
+    },
+    {
+      "name": "bucket",
+      "start": "0x712b9f",
+      "end_exclusive": "0x712bc9",
+      "bytes": 42,
+      "sha256": "625053d5d34239f7396e03cb4e260328792ad239605bc313d9de943110f92a07"
+    }
+  ],
+  "pure_fragment_bytes": 2501,
+  "linux_elf_i386": true,
+  "no_writable_executable_load_segments": true,
+  "nonexecutable_stack": true,
+  "no_dynamic_linker_or_imports": true,
+  "all_fragments_elf_bytes_verified": true,
+  "windows_agent_process_executed": false,
+  "windows_apis_executed": false,
+  "replaced_pure_helpers": [
+    "memcpy",
+    "memset"
+  ],
+  "source_sha256": {
+    "harness.s": "c5c80f7db6f97f03c377ebe202a91211b5678a4884e8b9e56249db0f86d98c40",
+    "build.py": "66a17ace3ffaafae0be65a8f697e69bcc1569b5946ddcc9edc76fce20e60fe0a"
+  },
+  "binary_sha256": "d507386918ef5ab9d50aa6e086c450022bd01d38d70eeafb945307428e97b326",
+  "binaries_or_fragments_published": false
+}

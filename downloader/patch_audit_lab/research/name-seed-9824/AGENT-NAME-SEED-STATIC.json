@@ -1,0 +1,149 @@
+{
+  "format": "agent-name-seed-static-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "evidence": {
+    "anchors": {
+      "seed_name_null_empty_fallback": {
+        "va": "0x712af6",
+        "bytes": "8b450c85c056578b7d08be08bc8f00"
+      },
+      "seed_name_select_nonnull": {
+        "va": "0x712b05",
+        "bytes": "680c0300000f45f0"
+      },
+      "computer_string_strlen": {
+        "va": "0x712b35",
+        "bytes": "8d8df0fcffff8d51018a014184c075f92bca"
+      },
+      "first_update_pointer_length": {
+        "va": "0x712b47",
+        "bytes": "8d85f0fcffff5150"
+      },
+      "name_string_strlen": {
+        "va": "0x712b5a",
+        "bytes": "8bce8d51018a014184c075f92bca"
+      },
+      "second_update_pointer_length": {
+        "va": "0x712b68",
+        "bytes": "5156"
+      },
+      "computer_buffer_char_capacity": {
+        "va": "0x86d00d",
+        "bytes": "c745d810000000"
+      },
+      "computer_empty_on_nonzero_output_capacity": {
+        "va": "0x86cffd",
+        "bytes": "837d0c00568b75087603c60600"
+      },
+      "computer_success_gate": {
+        "va": "0x86d01f",
+        "bytes": "85c07507"
+      },
+      "ascii_output_threshold": {
+        "va": "0x86ef53",
+        "bytes": "8b4d0881f980000000"
+      },
+      "ascii_output_byte_unchanged": {
+        "va": "0x86f032",
+        "bytes": "8b450c880833c0"
+      },
+      "md5_initial_state": {
+        "va": "0x864548",
+        "bytes": "c7410801234567c7410c89abcdefc74110fedcba98c7411476543210"
+      },
+      "md5_first_round_constant_rotation": {
+        "va": "0x86e428",
+        "bytes": "0578a46ad723fb33fa03560403c7c1c007"
+      },
+      "md5_padding_80": {
+        "va": "0x8644ab",
+        "bytes": "c644321880"
+      },
+      "md5_append_bit_length": {
+        "va": "0x864512",
+        "bytes": "0fa4c103ff75f8c1e003894650894e54"
+      },
+      "md5_digest_four_native_dwords": {
+        "va": "0x86452c",
+        "bytes": "8b038d5b048904b94783ff047cf2"
+      },
+      "canonical_name_selected_for_seed": {
+        "va": "0x710b73",
+        "bytes": "f6460c018d461075028b0050"
+      }
+    },
+    "calls": {
+      "storage_path_to_canonical_name": {
+        "va": "0x711452",
+        "target": "0x712bc9"
+      },
+      "archive_keys_request_seed": {
+        "va": "0x710b83",
+        "target": "0x712ae3"
+      },
+      "seed_get_computer_wrapper": {
+        "va": "0x712b22",
+        "target": "0x70ee15"
+      },
+      "computer_wrapper": {
+        "va": "0x70ee20",
+        "target": "0x86cfed"
+      },
+      "computer_ascii_conversion_wrapper": {
+        "va": "0x86d032",
+        "target": "0x864681"
+      },
+      "seed_md5_init": {
+        "va": "0x712b30",
+        "target": "0x864541"
+      },
+      "seed_md5_computer_first": {
+        "va": "0x712b55",
+        "target": "0x8643ef"
+      },
+      "seed_md5_canonical_name_second": {
+        "va": "0x712b70",
+        "target": "0x8643ef"
+      },
+      "seed_md5_finalize": {
+        "va": "0x712b82",
+        "target": "0x864497"
+      },
+      "seed_into_reserved_keys": {
+        "va": "0x710bda",
+        "target": "0x712a6d"
+      },
+      "md5_update_transform_partial": {
+        "va": "0x864444",
+        "target": "0x86e40b"
+      },
+      "md5_update_transform_blocks": {
+        "va": "0x864464",
+        "target": "0x86e40b"
+      },
+      "md5_final_transform": {
+        "va": "0x864522",
+        "target": "0x86e40b"
+      }
+    },
+    "import_calls": {
+      "computer_name": {
+        "va": "0x86d019",
+        "iat": "0x8fb55c",
+        "dll": "KERNEL32.dll",
+        "name": "GetComputerNameW"
+      }
+    }
+  },
+  "ascii_success_path_formula": "MD5(computer_name_ASCII || canonical_storage_name_ASCII), no delimiter or terminating NUL",
+  "computer_api": "GetComputerNameW",
+  "windows_api_executed": false,
+  "windows_agent_process_executed": false,
+  "actual_installation_binding_proven": false,
+  "installation_ready": false,
+  "limitations": [
+    "Non-ASCII names, API failure and live Windows cwd are not reproduced",
+    "Input is the canonical storage name passed to the reviewed class, not a guessed root of a WoW installation",
+    "Pure-fragment harness results are recorded separately, not a Windows Agent test"
+  ]
+}

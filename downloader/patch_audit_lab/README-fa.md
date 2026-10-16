@@ -1,6 +1,6 @@
 # ممیزی پچ WoW — آزمایش مستقل، نه آپدیتر آماده
 
-> تازه‌ترین milestone: [prefix شانزده‌رکوردی Agent 9824 و بازخوانی واقعی](research/archive-prefix-9824/README-fa.md). مجموع ۴۲۴ آزمون؛ placeholder در خروجی پژوهشی جدید حذف شده، ولی seed صریح آزمایشی جای هویت نصب Windows نیست؛ activation و نصب واقعی اثبات نشده‌اند. checkpoint ۳۹۵تایی زیر تاریخی است و خروجی قبلی دست‌نخورده مانده است.
+> تازه‌ترین milestone: [نام رایانه و مسیر canonical تا seed/prefix](research/name-seed-9824/README-fa.md). مجموع ۴۵۳ آزمون؛ ۷ تابع خالصِ استخراج‌شده در harness Linux i386 اجرا شدند، نه Agent.exe یا API ویندوز. مدل فقط ورودی مصنوعی ASCII است؛ نمونهٔ واقعی با seed مشتق‌شده native خوانده شد، اما binding/activation نصب واقعی نداریم. checkpointهای قدیمی زیر تاریخی‌اند.
 
 
 ## به‌روزرسانی مرحلهٔ دوم: اتصال به شواهد قبلی

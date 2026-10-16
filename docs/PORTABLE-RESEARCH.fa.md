@@ -45,3 +45,8 @@ companion code ZIP از کد پژوهشی و گزارش‌ها ساخته می�
 ## آخرین مرحله: prefix بازسازی‌شده، نه activation نصب
 
 کد جاری [archive-prefix-9824](../downloader/patch_audit_lab/research/archive-prefix-9824/README-fa.md) در خروجی پژوهشی جدید ۱۶ هدر ۳۰بایتی و ۱۶ فایل index/۱۷ رکورد می‌سازد؛ نمونهٔ واقعی با native خوانده شد. suite جاری ۴۲۴ با صفر skip است. seed ورودی پژوهشی است، نه هویت نصب Windows؛ این خروجی نصب‌پذیر نیست. گزارش ۳۹۵تایی بالاتر تاریخی است و placeholder نمونهٔ آن حفظ شده است. ZIPهای Release تغییری نکردند؛ ماژول‌های تازه از شاخهٔ پژوهش لازم‌اند.
+
+
+## آخرین مرحله: نام مصنوعی → seed → prefix
+
+[name-seed-9824](../downloader/patch_audit_lab/research/name-seed-9824/README-fa.md) مدل محدود ASCII را با دستورهای اصلی ۷ تابع خالص در Linux i386 تطبیق می‌دهد؛ فرمول MD5 نام رایانه + نام canonical ذخیره‌سازی است. suite جاری ۴۵۳/صفر skip؛ نمونهٔ واقعی با seed مشتق‌شده بازخوانی شد. Agent.exe یا API ویندوز اجرا نشده و هیچ نام/path واقعی از کاربر گرفته نشده است. ZIP اصلی و companion Release تعویض نشدند؛ برای این مرحله source آخر شاخه لازم است.
