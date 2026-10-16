@@ -1,11 +1,11 @@
 {
-  "scope": "Native Windows Authenticode verification backend; no downloader changes",
-  "tests_discovered": 82,
-  "tests_passed_Linux": 78,
-  "tests_skipped_Linux": 4,
-  "native_Windows_tests_required": 4,
-  "native_Windows_result": "82 executed; 82 passed; zero skipped",
-  "new_tests": 15,
+  "scope": "One-off user-approved language step; no downloader changes",
+  "tests_discovered": 100,
+  "tests_passed_Linux": 95,
+  "tests_skipped_Linux": 5,
+  "native_Windows_tests_required": 5,
+  "native_Windows_result": "pending for current 100-test revision",
+  "new_tests": 18,
   "python39_syntax_check": true,
   "native_verifier_timeout_seconds": 60,
   "powershell_verification_removed": true,
@@ -26,5 +26,12 @@
   "real_Setup_window_UIA_completed": true,
   "observed_page": "select_language",
   "Agent_observed": false,
-  "installation_complete_proven": false
+  "installation_complete_proven": false,
+  "previous_native_backend_result": {
+    "tests": 82,
+    "passed": 82,
+    "skipped": 0,
+    "report": "https://github.com/kokononox/battle-net-agent-lab/blob/b4e3ee257209a2443ba01796f57780de01fef111/reports/latest.json"
+  },
+  "language_action_executed": false
 }

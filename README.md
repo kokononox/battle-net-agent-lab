@@ -31,11 +31,12 @@ A manual run or a push changing the lab's scripts/tests/workflow starts one
 3. Requires a valid Windows Authenticode signature and an expected Blizzard publisher
    before executing it. No certificate validation is disabled.
 4. Launches the normal setup program **without guessed silent/EULA flags or GUI
-   clicks**, with a reduced environment excluding GitHub/account credentials.
-5. Observes for 45 seconds in the current targeted run (configurable 30–150): known process names/PIDs, sampled public TCP
+   clicks by default**, with a reduced environment excluding GitHub/account credentials.
+   The explicitly authorized one-off language exception is documented below.
+5. Observes for 45 seconds by default, 90 in the approved language run (configurable 30–150): known process names/PIDs, sampled public TCP
    destinations, bounded file metadata and log **keyword counts only**.
 6. Attempts to stop observed setup/Agent processes. The hosted VM is disposable.
-7. Adds up to two bounded, read-only GUI/session inspections; no clicks, edit/hidden/unknown control text, raw captions or screenshots. Only fixed class/label/marker enums are exported. Schema2 includes source commit/run identity.
+7. Adds up to two bounded, read-only GUI/session inspections; no clicks, edit/hidden/unknown control text, raw captions or screenshots. Only fixed class/label/marker enums are exported. Schema6 includes source commit/run identity and the separately reported language-step result.
 8. Exports only one strictly validated JSON report; no binaries, screenshots,
    packet captures, raw logs, command lines, account/geoip values or user files.
 
@@ -46,6 +47,20 @@ All external Actions are pinned to full commit SHAs (`action-pins.json`).
 No schedule, background persistence or automatic retry is configured. Private
 repository Actions minutes/storage are subject to the account's quota; no purchase
 or paid runner is configured. A run may be queued/blocked by account policy/quota.
+
+## One-off approved language step
+
+The user explicitly approved English (US) → Continue on the observed language page.
+Only the push commit `lab: approved language-only step 2026-10-15 7ce42b91`, first run
+attempt, enables this exception. Manual workflow runs and later pushes remain
+read-only. The helper checks the original verified Setup PID/executable, visible
+Setup window, language group, exactly one English-US radio and Continue button.
+It selects only if needed, confirms selection, rechecks the same page/controls,
+and invokes Continue at most once. No legal consent, install button, account,
+login, or game action follows. A private pre-action journal preserves attempted
+operations on timeout; uncertainty is reported and never retried automatically.
+Only fixed enums/booleans leave the runner. Installer/Agent components may download;
+no game download is requested. Details: [language-step scope](docs/LANGUAGE-STEP.fa.md).
 
 ## Important limits
 

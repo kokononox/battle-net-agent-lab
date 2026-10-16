@@ -35,11 +35,11 @@
     "previous_status": "bootstrapper_observed_agent_not_observed",
     "installation_complete_proven": false,
     "agent_not_observed_reason_proven": false,
-    "next_probe": "Proposed controlled language selection and Continue in isolated VM, then stop at next screen; not executed; no legal consent/login/game download",
-    "next_probe_result": "completed: valid signature + expected publisher + real UIA language-page observation; no UI actions",
+    "next_probe": "User-approved one-off English (US) selection + Continue on exact language page; stop actions thereafter",
+    "next_probe_result": "implementation locally tested; real Windows run pending",
     "scheduled_watcher": false,
     "previous_gui_result": "Setup same session 2; input desktop accessible; one visible unknown-class window; no native child controls; no Agent observed; cause not proven",
-    "probe_document": "docs/NATIVE-AUTHENTICODE.fa.md",
+    "probe_document": "docs/LANGUAGE-STEP.fa.md",
     "failed_run": "38834184617",
     "failed_source_commit": "f6718d4f2e95ff4eeb14d16f0bdbf5eeb075e460",
     "failed_phase": "safety_tests",
@@ -64,7 +64,9 @@
       "english_us",
       "continue"
     ],
-    "Agent_observed": false
+    "Agent_observed": false,
+    "language_step_approved": true,
+    "language_step_executed": false
   },
   "telemetry": {
     "actual_in_world_capture_complete": false,

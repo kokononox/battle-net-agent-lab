@@ -1,5 +1,6 @@
 """Bounded bootstrap observation on a fresh GitHub-hosted Windows runner only.
-No login, GUI clicking, game/product request, raw-log upload or CASC access.
+No login, game/product request, raw-log upload or CASC access.
+Optional explicitly approved one-off language action; otherwise UI read-only.
 """
 import argparse
 import collections
@@ -192,13 +193,13 @@ def stop_observed(raw, env):
 
 
 def initial_report():
-    return {'schema':'agent-bootstrap-observation-5','status':'not_started',
+    return {'schema':'agent-bootstrap-observation-6','status':'not_started',
       'scope':'fresh_hosted_windows_bootstrap_only;not_WoW_update_or_install',
       'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
       'source_commit':os.environ.get('GITHUB_SHA') if re.fullmatch('[0-9a-f]{40}',os.environ.get('GITHUB_SHA','')) else None,
       'run_id':os.environ.get('GITHUB_RUN_ID') if os.environ.get('GITHUB_RUN_ID','').isdigit() else None,
       'run_attempt':os.environ.get('GITHUB_RUN_ATTEMPT') if os.environ.get('GITHUB_RUN_ATTEMPT','').isdigit() else None,
-      'gui_observations':[],'safety_test_result':{},'signature_backend':'Windows_WinVerifyTrust_Authenticode',
+      'language_step':__import__('language_step').blank(),'gui_observations':[],'safety_test_result':{},'signature_backend':'Windows_WinVerifyTrust_Authenticode',
       'installer':{},'samples':[],'file_observations':{},'agent_binaries':[],
       'log_markers':{},'cleanup_attempted':False,'error_code':None,
       'phase':'environment_check','error_type':None,'underlying_error_type':None,'numeric_error_code':None,
@@ -214,9 +215,15 @@ def initial_report():
         'log_keyword_counts_do_not_prove_operation_execution':True}}
 
 
-def observe(out_dir, seconds=150):
+def observe(out_dir, seconds=150, advance_language=False):
     if type(seconds) is not int or not 30<=seconds<=150:raise LabError('observation_seconds_out_of_range')
     report=initial_report();report['limits']['observation_seconds']=seconds
+    from language_step import blank as language_blank, run as language_run
+    report['language_step']=language_blank(advance_language)
+    def advance(targets):
+        # The callback is used only for the first read-only snapshot, never repeated.
+        report['language_step']['outcome_uncertain']=True # retained if an unexpected wrapper failure interrupts
+        report['language_step']=language_run(targets,process.pid,setup,authorized=True)
     work=None;env=clean_environment(os.environ);raw={'processes':[]};launched=False;process=None
     try:
         if sys.platform!='win32' or os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('RUNNER_OS')!='Windows' or os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted':
@@ -247,8 +254,8 @@ def observe(out_dir, seconds=150):
         report['phase']='installer_signature'
         report['installer'].update(signature(setup,env))
         if not report['installer']['accepted_for_execution']:raise LabError('installer_signature_or_publisher_not_accepted')
-        # No silent/EULA/login flags are guessed; no button or legal consent is
-        # clicked. If the wizard waits for interaction, this is an honest limit.
+        # No silent/EULA/login flags. The optional approved language-only action
+        # is separately bounded; legal/account/installation screens are never driven.
         report['phase']='bootstrapper_launch'
         process=subprocess.Popen([str(setup)],cwd=work,env=env,stdin=subprocess.DEVNULL,
                               stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
@@ -261,7 +268,7 @@ def observe(out_dir, seconds=150):
                 report['phase']='gui_inspection'
                 import native_gui
                 pids={p['pid'] for p in report['samples'][-1]['processes']}
-                report['gui_observations'].append(native_gui.inspect(pids,round(time.monotonic()-started,2)))
+                report['gui_observations'].append(native_gui.inspect(pids,round(time.monotonic()-started,2),on_visible_targets=advance) if advance_language else native_gui.inspect(pids,round(time.monotonic()-started,2)))
                 report['phase']='sampling'
             if len(report['samples'])>=30:break
             time.sleep(5)
@@ -322,4 +329,7 @@ def observe(out_dir, seconds=150):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True)
     p.add_argument('--observation-seconds',type=int,default=150)
-    args=p.parse_args();observe(args.output,args.observation_seconds)
+    args=p.parse_args()
+    from language_step import authorized_environment
+    approved=authorized_environment(os.environ)
+    observe(args.output,90 if approved else args.observation_seconds,advance_language=approved)

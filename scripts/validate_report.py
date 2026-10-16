@@ -31,6 +31,11 @@ def validate(r):
     template=initial_report();keys(r,template)
     need(r['schema']==template['schema'] and r['scope']==template['scope'])
     need(r['signature_backend']==template['signature_backend'])
+    from language_step import validate as validate_language
+    try:validate_language(r['language_step'])
+    except (ValueError,TypeError,KeyError):raise ReportError('report_schema_rejected') from None
+    if r['language_step']['helper_started']:
+        need(r['installer'].get('accepted_for_execution') is True)
     need(r['status'] in ('not_started','stopped','agent_process_observed','bootstrapper_observed_agent_not_observed'))
     need(type(r['utc']) is str and len(r['utc'])<40)
     datetime.datetime.fromisoformat(r['utc'])

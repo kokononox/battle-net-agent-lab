@@ -1,5 +1,7 @@
 """Read-only, bounded GUI inspection of explicitly observed setup/Agent PIDs.
-No screenshots, raw text export, edits, clicks, keyboard events or login inputs.
+Inspector itself is read-only. Optional callback receives scoped HWNDs locally;
+its separately approved language action is not part of the read-only UIA probe.
+No screenshots, raw text export, keyboard events or login inputs.
 """
 import ctypes
 from ctypes import wintypes as w
@@ -41,7 +43,7 @@ def safe_text(text, class_kind, visible):
     return {'label':label,'markers':markers}
 
 
-def inspect(pids,elapsed):
+def inspect(pids,elapsed,on_visible_targets=None):
     if sys.platform!='win32':raise OSError('windows_gui_api_required')
     pids={pid for pid in pids if type(pid) is int and 0<pid<2**32}
     pids=set(sorted(pids)[:24])
@@ -122,4 +124,5 @@ def inspect(pids,elapsed):
     user.EnumWindows(top,0)
     import ui_accessibility
     result['accessibility']=ui_accessibility.inspect(uia_targets)
+    if on_visible_targets is not None:on_visible_targets(uia_targets)
     return result
