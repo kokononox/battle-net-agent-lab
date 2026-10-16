@@ -31,6 +31,9 @@ def validate(r):
     template=initial_report();keys(r,template)
     need(r['schema']==template['schema'] and r['scope']==template['scope'])
     need(r['signature_backend']==template['signature_backend'])
+    from agent_state import validate as validate_state
+    try:validate_state(r['agent_state'])
+    except (ValueError,TypeError,KeyError):raise ReportError('report_schema_rejected') from None
     from language_step import validate as validate_language
     try:validate_language(r['language_step'])
     except (ValueError,TypeError,KeyError):raise ReportError('report_schema_rejected') from None
@@ -40,7 +43,7 @@ def validate(r):
     need(type(r['utc']) is str and len(r['utc'])<40)
     datetime.datetime.fromisoformat(r['utc'])
     need(r['error_code'] is None or (type(r['error_code']) is str and re.fullmatch('[a-z0-9_]{1,100}',r['error_code'])))
-    need(r['phase'] in {'environment_check','directory_prepare','baseline_snapshot','installer_download','installer_signature','bootstrapper_launch','sampling','gui_inspection','filesystem_observation','agent_binary_signature','cleanup','complete','safety_tests'})
+    need(r['phase'] in {'environment_check','directory_prepare','baseline_snapshot','installer_download','installer_signature','bootstrapper_launch','sampling','gui_inspection','filesystem_observation','agent_binary_signature','agent_state_observation','cleanup','complete','safety_tests'})
     for field in ('error_type','underlying_error_type'):
         need(r[field] is None or (type(r[field]) is str and re.fullmatch('[A-Za-z0-9_]{1,64}',r[field])))
     need(r['numeric_error_code'] is None or (type(r['numeric_error_code']) is int and -2**31<=r['numeric_error_code']<2**31))

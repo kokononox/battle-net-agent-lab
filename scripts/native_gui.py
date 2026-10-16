@@ -14,9 +14,13 @@ LABELS={'ok':'ok','continue':'continue','cancel':'cancel','install':'install','n
         'back':'back','close':'close','yes':'yes','no':'no','i agree':'agree','agree':'agree',
         'english (us)':'english_us','english (united states)':'english_us','english':'english',
         'language':'language','select a language':'select_language','battle.net':'battle_net',
-        'battle.net setup':'battle_net_setup','setup':'setup'}
+        'battle.net setup':'battle_net_setup','setup':'setup',
+        'installation location':'installation_location','install location':'installation_location',
+        'change':'change','create a desktop shortcut':'desktop_shortcut',
+        'updating battle.net':'updating_battle_net','installing battle.net':'installing_battle_net'}
 MARKERS=('language','license','agreement','terms','privacy','error','install','update',
-         'permission','administrator','network','login','sign_in')
+         'permission','administrator','network','login','sign_in','installation','location',
+         'folder','shortcut','installing','updating','initializing','connecting','download','failed')
 CLASS_NAMES={'#32770':'dialog','button':'button','static':'static','combobox':'combobox',
              'combolbox':'combo_list','edit':'edit','richedit20w':'rich_edit',
              'richedit50w':'rich_edit','syslink':'link','msctls_progress32':'progress'}

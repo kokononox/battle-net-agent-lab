@@ -193,7 +193,7 @@ def stop_observed(raw, env):
 
 
 def initial_report():
-    return {'schema':'agent-bootstrap-observation-6','status':'not_started',
+    return {'schema':'agent-bootstrap-observation-7','status':'not_started',
       'scope':'fresh_hosted_windows_bootstrap_only;not_WoW_update_or_install',
       'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
       'source_commit':os.environ.get('GITHUB_SHA') if re.fullmatch('[0-9a-f]{40}',os.environ.get('GITHUB_SHA','')) else None,
@@ -201,7 +201,7 @@ def initial_report():
       'run_attempt':os.environ.get('GITHUB_RUN_ATTEMPT') if os.environ.get('GITHUB_RUN_ATTEMPT','').isdigit() else None,
       'language_step':__import__('language_step').blank(),'gui_observations':[],'safety_test_result':{},'signature_backend':'Windows_WinVerifyTrust_Authenticode',
       'installer':{},'samples':[],'file_observations':{},'agent_binaries':[],
-      'log_markers':{},'cleanup_attempted':False,'error_code':None,
+      'log_markers':{},'agent_state':__import__('agent_state').blank(),'cleanup_attempted':False,'error_code':None,
       'phase':'environment_check','error_type':None,'underlying_error_type':None,'numeric_error_code':None,
       'limits':{'observation_seconds':150,'installer_body_bytes':MAX_SETUP,
                 'bootstrapper_child_network_hard_byte_cap':False},
@@ -285,6 +285,9 @@ def observe(out_dir, seconds=150, advance_language=False):
             report['agent_binaries'].append({'name':'agent.exe','bytes':path.stat().st_size,
                 'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),**sig})
         report['log_markers']=log_marker_counts(logs)
+        report['phase']='agent_state_observation'
+        import agent_state
+        report['agent_state']=agent_state.collect(logs,roots,report['gui_observations'][-1])
         observed=any(p['name']=='agent.exe' for s in report['samples'] for p in s['processes'])
         report['status']='agent_process_observed' if observed else 'bootstrapper_observed_agent_not_observed'
         report['phase']='cleanup'
@@ -332,4 +335,4 @@ if __name__=='__main__':
     args=p.parse_args()
     from language_step import authorized_environment
     approved=authorized_environment(os.environ)
-    observe(args.output,90 if approved else args.observation_seconds,advance_language=approved)
+    observe(args.output,120 if approved else args.observation_seconds,advance_language=approved)
