@@ -1,0 +1,125 @@
+{
+  "format": "agent-9824-storage-paths-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "status": "bounded_allocator_and_span_paths_verified",
+  "evidence": {
+    "anchors": {
+      "allocate_request_zero": "0x722a06",
+      "allocate_count": "0x722a1d",
+      "allocate_scan_length_a": "0x722a2c",
+      "allocate_compare_length": "0x722a45",
+      "allocate_read_b_base": "0x722a72",
+      "allocate_boundary_mask": "0x722a9e",
+      "allocate_prefix_threshold": "0x722aac",
+      "allocate_boundary_code": "0x722ab9",
+      "allocate_update_arithmetic": "0x722acd",
+      "allocate_no_fit_code": "0x722afb",
+      "reserve_archive_segment": "0x722b13",
+      "reserve_prefix_480": "0x722b39",
+      "reserve_remaining_length": "0x722bc2",
+      "span_hash_seed_length": "0x713b9a",
+      "span_hash_little_endian": "0x713baf",
+      "span_offset_plus30": "0x713bc0",
+      "span_checksum_table_xor": "0x713bc8",
+      "span_fold26": "0x713bbe",
+      "span_fold_by_offset": "0x713bf4",
+      "span_checksum_write": "0x713c0c",
+      "span_construct_reverse_key": "0x713d4f",
+      "span_construct_size_le": "0x713d62",
+      "span_construct_flags": "0x713d74",
+      "span_verify_hash_seed_length": "0x713cb0",
+      "span_verify_checksum_table": "0x713c7c"
+    },
+    "direct_calls": {
+      "allocate_recover": {
+        "call": "0x7229f6",
+        "target": "0x722e3f"
+      },
+      "allocate_update": {
+        "call": "0x722ae0",
+        "target": "0x722e88"
+      },
+      "reserve_update": {
+        "call": "0x722bcd",
+        "target": "0x722e88"
+      },
+      "caller_allocate": {
+        "call": "0x71004c",
+        "target": "0x7229e3"
+      },
+      "caller_make_archive": {
+        "call": "0x710067",
+        "target": "0x711a50"
+      },
+      "caller_allocate_retry": {
+        "call": "0x71007c",
+        "target": "0x7229e3"
+      },
+      "archive_reserve_prefix": {
+        "call": "0x711b27",
+        "target": "0x722b05"
+      },
+      "span_construct_checksum": {
+        "call": "0x713d84",
+        "target": "0x713b90"
+      },
+      "span_writer_hash": {
+        "call": "0x713ba2",
+        "target": "0x72345c"
+      },
+      "span_reader_hash": {
+        "call": "0x713cb8",
+        "target": "0x72345c"
+      },
+      "span_reader_checksum": {
+        "call": "0x713ca4",
+        "target": "0x713c27"
+      },
+      "span_construct_caller": {
+        "call": "0x712de5",
+        "target": "0x713d2a"
+      }
+    },
+    "branch_edges": {
+      "allocate_state_one_gate": {
+        "instruction": "0x7229fe",
+        "target": "0x722afb"
+      },
+      "allocate_first_fit": {
+        "instruction": "0x722a47",
+        "target": "0x722a5c"
+      },
+      "allocate_exhausted": {
+        "instruction": "0x722a67",
+        "target": "0x722afb"
+      },
+      "allocate_not_boundary": {
+        "instruction": "0x722aa6",
+        "target": "0x722ac8"
+      },
+      "allocate_small_boundary": {
+        "instruction": "0x722ab1",
+        "target": "0x722ac8"
+      },
+      "caller_code16_gate": {
+        "instruction": "0x710056",
+        "target": "0x710083"
+      }
+    },
+    "checksum_table": {
+      "va": "0x9bd650",
+      "dwords": 16,
+      "exact_match": true
+    }
+  },
+  "agent_executed": false,
+  "allocator_model_is_agent_execution": false,
+  "network_requests": 0,
+  "game_or_lab_written": false,
+  "installation_ready": false,
+  "limitations": [
+    "Static paths do not prove Windows execution or power-loss recovery",
+    "Index v7 compatibility is tested against pinned CascLib, not the Agent writer",
+    "Archive prefix content, full closure, real activation and .build.info writer remain unproved"
+  ]
+}

@@ -1,7 +1,8 @@
 """Experimental CASC v7 continuous-index layout for generated fixtures only.
 
-Not an installation writer. Span checksum-B follows community Agent-8020 recipe,
-not a verified contract for Agent 9824. Full keys must come from separate metadata.
+Not an installation writer. Span checksum-B now has pinned static writer/reader
+evidence in Agent 9824 (research/retail-storage-poc), but no Agent execution or
+full installation contract is implied. Full keys require separate metadata.
 """
 import hashlib
 import struct

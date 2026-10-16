@@ -38,3 +38,5 @@ companion code ZIP از کد پژوهشی و گزارش‌ها ساخته می�
 اصلاح parser در checkpoint binding/extension: مقدار فیلد header در سازندهٔ v5 برابر `0x154` است؛ `0x258` طول copy حالت افزونه‌دار بود، نه مقدار مجاز دوم آن فیلد. [گزارش اصلاح و شواهد](../downloader/patch_audit_lab/research/binding-extension-9824/README-fa.md). fixture و assetهای Release تغییر نکردند.
 
 مشاهده‌گر جاری نسخهٔ ۳ و suite جاری ۳۶۰تایی است؛ [گزارش payload/rollback](../downloader/patch_audit_lab/research/primary-payload-9824/README-fa.md). payload واقعیِ shmem کاربر هنوز در fixture نیست؛ نمونه‌های جدید generated-only هستند و rollback اجرا نمی‌شود. ZIP companion همچنان snapshot تاریخی ۲۷۸تایی است؛ از آخر شاخه برای کد جدید استفاده کنید.
+
+**milestone تازه:** نمونهٔ واقعی fixture با [کد جدید ذخیره‌سازی پژوهشی](../downloader/patch_audit_lab/research/retail-storage-poc/README-fa.md) به data/index رفت و native EKey/CKey را خواند. suite جاری ۳۹۵ است. خروجی prefix-placeholder دارد و نصب‌پذیر نیست؛ fixture اصلی و companion تاریخی Release تعویض نشده‌اند. کد جاری و runner از آخر شاخه لازم‌اند.

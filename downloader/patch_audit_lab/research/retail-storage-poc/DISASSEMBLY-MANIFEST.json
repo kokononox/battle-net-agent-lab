@@ -1,0 +1,51 @@
+{
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "tool": "GNU objdump version 2.41-50.amzn2023.0.5",
+  "regions": {
+    "allocator-first-fit": {
+      "start_va": "0x7229e3",
+      "stop_va_exclusive": "0x722b05",
+      "sha256": "11e0542a8ceda95656c622b7a7365049f6cb12337e45261bb9fb530e51b14049"
+    },
+    "reserve-archive-prefix": {
+      "start_va": "0x722b05",
+      "stop_va_exclusive": "0x722bd6",
+      "sha256": "3a3c3af54b18124ff2f4ba348884f258d7eae94d8afae053cb4732adc4bb0635"
+    },
+    "caller-allocate-retry": {
+      "start_va": "0x70ffed",
+      "stop_va_exclusive": "0x7100d0",
+      "sha256": "6c86e059eb52eabcfdf9a0b1982b7398891b5f8fcc26893233aa41e74cdbf8fb"
+    },
+    "archive-reserve-caller": {
+      "start_va": "0x711b21",
+      "stop_va_exclusive": "0x711b78",
+      "sha256": "75953bd0c196e1875ce8614dfe439062b38eca0ae7eca500eb61e8f397c95adb"
+    },
+    "span-checksum-writer": {
+      "start_va": "0x713b90",
+      "stop_va_exclusive": "0x713c27",
+      "sha256": "f24711e9d9048fbb1aa9b5b39b6d69f395a4986365fad65526851e3f58949191"
+    },
+    "span-checksum-reader": {
+      "start_va": "0x713c27",
+      "stop_va_exclusive": "0x713c8c",
+      "sha256": "12d3895660649911d425200b26cd0ae5c6016f8a7e915a20caa217d64936e3df"
+    },
+    "span-header-reader": {
+      "start_va": "0x713c8c",
+      "stop_va_exclusive": "0x713d2a",
+      "sha256": "84883863a8d1b204987270bece88854b8431f71549027146916eae96fbb73569"
+    },
+    "span-header-constructor": {
+      "start_va": "0x713d2a",
+      "stop_va_exclusive": "0x713d92",
+      "sha256": "c0bb98b5c9de4d238d8431203b04be72657e4851c4ddca8009ae53d5044fffad"
+    },
+    "hash-initial-mix-excerpt": {
+      "start_va": "0x72345c",
+      "stop_va_exclusive": "0x723503",
+      "sha256": "fcb29566374caa0ae45799ed3c1b8074491463c3c506419ab049fc260f03c211"
+    }
+  }
+}

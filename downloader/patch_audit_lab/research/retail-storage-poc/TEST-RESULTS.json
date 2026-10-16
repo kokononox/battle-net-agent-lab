@@ -1,0 +1,42 @@
+{
+  "format": "retail-storage-tests-1",
+  "previous_tests": 360,
+  "tests": 395,
+  "new_test_methods": 35,
+  "seconds": 5.688,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "actual_pinned_agent_static_audit_passed": true,
+  "new_receipts": {
+    "anchors": 25,
+    "direct_calls": 12,
+    "branch_edges": 6,
+    "checksum_table_dwords": 16
+  },
+  "experiment_summary": {
+    "native_positive_vectors": 64,
+    "native_negative_cases_rejected": 11,
+    "builder_process_exit_points": 4,
+    "rollback_memory_snapshots": 6
+  },
+  "real_retail_object_materialized": true,
+  "native_readback_accepted": true,
+  "archive_prefix_placeholder": true,
+  "agent_executed": false,
+  "actual_game_activation_or_Windows_tested": false,
+  "power_loss_tested": false,
+  "installation_ready": false,
+  "code_sha256": {
+    "agent_allocator_model.py": "4380f7d8d2789f5a2c90d3ae3aa12f9aaafeb9cad4331cf48d63009f4741d2cc",
+    "agent_storage_paths_audit.py": "64f64fefc2fdfd94fe0268a9f049350fd75390257e4fcb1082cd5d390c717edc",
+    "retail_storage_poc.py": "b2da265b5847c40ed68ff3f7fd05f9caed979aca5803993f3f9bbdb4b01b5d3a",
+    "synthetic_casc_format.py": "d74f3917941938c3e7d5a4640a42de8c1353707641ae554ff7398f79a66d5781",
+    "tests/test_agent_allocator.py": "d6980e2aad6b337215a8028ce65b14b0ca08bc7db9e823a8fc135d33834bfb9b",
+    "tests/test_retail_storage_poc.py": "447bdff6d6c012b783fead697d735876f9e774731056ab3dc20395af21e5f92c",
+    "research/retail-storage-poc/run_experiments.py": "b7ca10ae0860162553a70e8114ed7faf788f67b2b0b00e7cc2760210e0aa48f2",
+    "research/retail-storage-poc/native/build.sh": "bf771966bccd0383f6b2bba42360bd2b519628d123a9ce21df7022af52d24296",
+    "research/retail-storage-poc/native/storage_oracle.cpp": "be7652d89dd32e2d8edbbe5f610c65976cd905b45bce3dce0a9bf047f76fbe1b",
+    "research/retail-storage-poc/native/blte_header_oracle.cpp": "887113538a132ee5ddc849acc9fb4b921fe65494b5e0ce47eb05a413a5aef1ea"
+  }
+}

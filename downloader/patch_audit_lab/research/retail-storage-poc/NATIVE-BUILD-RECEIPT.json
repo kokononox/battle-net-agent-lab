@@ -1,0 +1,24 @@
+{
+  "format": "retail-native-build-1",
+  "casclib_commit": "38a34665624b8775bb875274b36191b21c38d97b",
+  "tracked_source_clean": true,
+  "compiler": "g++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-5)",
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)",
+  "zlib_runtime": "1.2.11",
+  "native_binary_sha256": "363d70445a4e04c6e403ec620100e603bab3abb7ff49c62a7260dbf7669755fa",
+  "casclib_source_sha256": {
+    "src/CascReadFile.cpp": "823f8474bf388e50dae7ed5ca55c7595ec41437e6357c1475d9f020546415ab4",
+    "src/CascIndexFiles.cpp": "dd80cc09755cec5b017efa15e31835a821b2486b65513ba76cd499ec63c1e082",
+    "src/jenkins/lookup3.c": "b5a57ba3b6475edf9930792412d9c4936aebc3f834bedfbd2f87eb98d378c508"
+  },
+  "casclib_api_scope": [
+    "CaptureIndexHeader_V2",
+    "CaptureGuardedBlock2",
+    "ParseBlteHeader"
+  ],
+  "casclib_full_open_storage_called": false,
+  "extra_strict_checks_implemented_in_our_native_harness": true,
+  "python_modules_imported_by_native": false,
+  "shared_zlib_backend_not_independent_decoder_algorithm": true,
+  "agent_executed": false
+}

@@ -1,0 +1,152 @@
+{
+  "format": "retail-storage-poc-sync-1",
+  "previous_commit": "ee4a2980f30fab54b9c980b79b34fe44459aadad",
+  "branch": "patch-audit-20261016",
+  "tests": 395,
+  "new_test_methods": 35,
+  "real_retail_object_native_readback": true,
+  "archive_prefix_placeholder": true,
+  "installation_ready": false,
+  "agent_executed": false,
+  "game_or_lab_written": false,
+  "original_fixture_changed": false,
+  "release_assets_modified": false,
+  "files": [
+    {
+      "path": "downloader/patch_audit_lab/agent_allocator_model.py",
+      "sha256": "4380f7d8d2789f5a2c90d3ae3aa12f9aaafeb9cad4331cf48d63009f4741d2cc"
+    },
+    {
+      "path": "downloader/patch_audit_lab/agent_storage_paths_audit.py",
+      "sha256": "64f64fefc2fdfd94fe0268a9f049350fd75390257e4fcb1082cd5d390c717edc"
+    },
+    {
+      "path": "downloader/patch_audit_lab/retail_storage_poc.py",
+      "sha256": "b2da265b5847c40ed68ff3f7fd05f9caed979aca5803993f3f9bbdb4b01b5d3a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/synthetic_casc_format.py",
+      "sha256": "d74f3917941938c3e7d5a4640a42de8c1353707641ae554ff7398f79a66d5781"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_agent_allocator.py",
+      "sha256": "d6980e2aad6b337215a8028ce65b14b0ca08bc7db9e823a8fc135d33834bfb9b"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_retail_storage_poc.py",
+      "sha256": "447bdff6d6c012b783fead697d735876f9e774731056ab3dc20395af21e5f92c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/README-fa.md",
+      "sha256": "f6e8e7fcd3c24f357491c8eec999fa34ec8a6dcc58a5979eab1f42678c1c0cfc"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/synthetic-casc-storage/README-fa.md",
+      "sha256": "aa3de2e591ed7e6a3802788a78c4318f61dc7f08516bf3c382d2f128013739d6"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/primary-payload-9824/README-fa.md",
+      "sha256": "bae259b53d33c47f5279c12b25f473dc05570fdc0d6570623e743dc622b9c06a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/AGENT-STORAGE-STATIC.json",
+      "sha256": "842aefef013d9cefb18ec22d0b75ec93a37ded95673ea40e6f7c6dc75ed3c5e0"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/ALL-TESTS.log",
+      "sha256": "c1fd5c179d7f04f955e027ad26138fad06d710ad4eb0d7101929014a03038ec2"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/DISASSEMBLY-MANIFEST.json",
+      "sha256": "a6582072359a273ba2d5e34c555e7280378c9aa47cba705ddf2f01dedcf69007"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/EXPERIMENT-RESULTS.json",
+      "sha256": "aa500e16e79f81f8e8c30f9b908bf0837119ad262a697a6f939502e410221a3d"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/NATIVE-BUILD-RECEIPT.json",
+      "sha256": "e3bef623666b663a082b190d447bbcaf5f64e3b2e3bb5bc577c671bf614851cd"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/README-fa.md",
+      "sha256": "49ce7bc6213c5a4b7bd62876c75c1709051bf7823e0ccfce3b24a9db427a8b02"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/REAL-RETAIL-READBACK.json",
+      "sha256": "306130f902f13ea4cc3140dfa9f91b6128e75c02a2a6f60a15a1fe07c490079c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/TEST-RESULTS.json",
+      "sha256": "b9675072c3931246b907aa9d7abd9b3e55808fc0279528414f510300b660ab69"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/allocator-first-fit.asm",
+      "sha256": "11e0542a8ceda95656c622b7a7365049f6cb12337e45261bb9fb530e51b14049"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/archive-reserve-caller.asm",
+      "sha256": "75953bd0c196e1875ce8614dfe439062b38eca0ae7eca500eb61e8f397c95adb"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/caller-allocate-retry.asm",
+      "sha256": "6c86e059eb52eabcfdf9a0b1982b7398891b5f8fcc26893233aa41e74cdbf8fb"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/hash-initial-mix-excerpt.asm",
+      "sha256": "fcb29566374caa0ae45799ed3c1b8074491463c3c506419ab049fc260f03c211"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/native/blte_header_oracle.cpp",
+      "sha256": "887113538a132ee5ddc849acc9fb4b921fe65494b5e0ce47eb05a413a5aef1ea"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/native/build.sh",
+      "sha256": "bf771966bccd0383f6b2bba42360bd2b519628d123a9ce21df7022af52d24296"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/native/storage_oracle.cpp",
+      "sha256": "be7652d89dd32e2d8edbbe5f610c65976cd905b45bce3dce0a9bf047f76fbe1b"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/reserve-archive-prefix.asm",
+      "sha256": "3a3c3af54b18124ff2f4ba348884f258d7eae94d8afae053cb4732adc4bb0635"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/run_experiments.py",
+      "sha256": "b7ca10ae0860162553a70e8114ed7faf788f67b2b0b00e7cc2760210e0aa48f2"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/span-checksum-reader.asm",
+      "sha256": "12d3895660649911d425200b26cd0ae5c6016f8a7e915a20caa217d64936e3df"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/span-checksum-writer.asm",
+      "sha256": "f24711e9d9048fbb1aa9b5b39b6d69f395a4986365fad65526851e3f58949191"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/span-header-constructor.asm",
+      "sha256": "c0bb98b5c9de4d238d8431203b04be72657e4851c4ddca8009ae53d5044fffad"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/retail-storage-poc/span-header-reader.asm",
+      "sha256": "84883863a8d1b204987270bece88854b8431f71549027146916eae96fbb73569"
+    },
+    {
+      "path": "README.md",
+      "sha256": "218b65a1f8c1e99c92a01eade6688dd972698449cfc4eb4fee5c1a90fe19e420"
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "a370ffd602d2075b1cb0f47be011236dc3af0dc0241b81a4fc5e051cd50cb189"
+    },
+    {
+      "path": "docs/SESSION-2026-10-16.fa.md",
+      "sha256": "0d4484770f2447016933c915d77819ccfd61246d076000ca8dfcbf9bc3c4dcee"
+    },
+    {
+      "path": "docs/PORTABLE-RESEARCH.fa.md",
+      "sha256": "56506249cfdd9f2f7a0232c9d83a1f06794ad85cb7c200f855e31af075625808"
+    }
+  ]
+}
