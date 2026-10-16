@@ -1,0 +1,51 @@
+{
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "tool": "GNU objdump version 2.41-50.amzn2023.0.5",
+  "regions": {
+    "guard-mode-name-binding": {
+      "start_va": "0x71c6cd",
+      "stop_va_exclusive": "0x71c751",
+      "sha256": "ed8dc6fef3b109a2faa9e7d5364f3866d9f0deecbf40dcfca572d835136ce95b"
+    },
+    "guard-init": {
+      "start_va": "0x722378",
+      "stop_va_exclusive": "0x7223d5",
+      "sha256": "9deb6c0a1e1e912624e5ac0815eef998689ba1c2f9801e125587c55f2eb30217"
+    },
+    "mutex-create-open": {
+      "start_va": "0x72221f",
+      "stop_va_exclusive": "0x722362",
+      "sha256": "eca60768fa9fddb7b90659e0d531cca18a0e1238cb8e40e0c1f72595e58e643c"
+    },
+    "constructor-name": {
+      "start_va": "0x71e01f",
+      "stop_va_exclusive": "0x71e0a2",
+      "sha256": "66163865a44cdf52a5e79dd65d7038c6922af27691bc9ab8b2bdd66e33021060"
+    },
+    "v4-name-call": {
+      "start_va": "0x71ddc3",
+      "stop_va_exclusive": "0x71de93",
+      "sha256": "cff475e9844797dae6b6b69098fee9da233a98c4b91b5f37842847480bebedac"
+    },
+    "v5-constructor": {
+      "start_va": "0x71de93",
+      "stop_va_exclusive": "0x71dfb6",
+      "sha256": "6f45512c9088851135b505bfebd432fcbf01d651289aa0c2876e5439ce689e17"
+    },
+    "extension-directory": {
+      "start_va": "0x71dfb6",
+      "stop_va_exclusive": "0x71e01f",
+      "sha256": "b60cc7fb31fbf3b8aadc7ac3252c67984919aec1625496391e55994433f145c6"
+    },
+    "extension-diagnostic-consumer": {
+      "start_va": "0x71dc3a",
+      "stop_va_exclusive": "0x71dd00",
+      "sha256": "e33b6ec20369b901c2a76bcc6d9e088db37102be3750d7f402e164be02246cfe"
+    },
+    "extension-diagnostic-state": {
+      "start_va": "0x71db05",
+      "stop_va_exclusive": "0x71db14",
+      "sha256": "14b3424942dde483f6a5688c3ee5a489bae3cefe258bf05e6674f437ff4d3f1a"
+    }
+  }
+}

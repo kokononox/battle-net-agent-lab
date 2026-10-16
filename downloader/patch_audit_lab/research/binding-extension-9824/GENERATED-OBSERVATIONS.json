@@ -1,0 +1,657 @@
+{
+  "format": "generated-only-extension-controls-1",
+  "actual_user_shmem": false,
+  "supersedes": "Earlier generated v5 field[4]=0x258 acceptance was an observer/test mistake, not evidence of a real file",
+  "cases": {
+    "generated_v4": {
+      "format": "shmem-bounded-observation-2",
+      "status": "constructor_geometry_matches_static_evidence",
+      "protocol": 4,
+      "header_bytes": 336,
+      "declared_header_field": 336,
+      "constructor_copy_bytes": 336,
+      "constructor_expected_file_bytes": 11280,
+      "observed_file_size_matches_constructor": true,
+      "extension_bitmap": null,
+      "extension_observations": [],
+      "payload_layout_decoded": false,
+      "name_source_binding_proven": false,
+      "observed_file_bytes": 11280,
+      "sha256": "330465f1bf785d774fe49b4860dde074bca73d075f7d16a663f214d2cfda66f6",
+      "payload_offset": 336,
+      "payload_size": 10936,
+      "opaque_extra_bytes": 8,
+      "name_field_exported": false,
+      "name_field_nonempty_terminated": true,
+      "protocol5_flags_uninterpreted": null,
+      "protocol5_low_flag_special_path": null,
+      "sequence_observations": [
+        {
+          "bucket": 0,
+          "sequence": 7,
+          "sequence_filename": "0000000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 1,
+          "sequence": 7,
+          "sequence_filename": "0100000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 2,
+          "sequence": 7,
+          "sequence_filename": "0200000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 3,
+          "sequence": 7,
+          "sequence_filename": "0300000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 4,
+          "sequence": 7,
+          "sequence_filename": "0400000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 5,
+          "sequence": 7,
+          "sequence_filename": "0500000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 6,
+          "sequence": 7,
+          "sequence_filename": "0600000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 7,
+          "sequence": 7,
+          "sequence_filename": "0700000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 8,
+          "sequence": 7,
+          "sequence_filename": "0800000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 9,
+          "sequence": 7,
+          "sequence_filename": "0900000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 10,
+          "sequence": 7,
+          "sequence_filename": "0a00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 11,
+          "sequence": 7,
+          "sequence_filename": "0b00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 12,
+          "sequence": 7,
+          "sequence_filename": "0c00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 13,
+          "sequence": 7,
+          "sequence_filename": "0d00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 14,
+          "sequence": 7,
+          "sequence_filename": "0e00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 15,
+          "sequence": 7,
+          "sequence_filename": "0f00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        }
+      ],
+      "index_inventory_supplied": false,
+      "index_file_payloads_read": 0,
+      "coherent_live_snapshot_proven": false,
+      "sequence_is_active_for_game_proven": false,
+      "installation_ready": false
+    },
+    "generated_v5_base": {
+      "format": "shmem-bounded-observation-2",
+      "status": "constructor_geometry_matches_static_evidence",
+      "protocol": 5,
+      "header_bytes": 340,
+      "declared_header_field": 340,
+      "constructor_copy_bytes": 340,
+      "constructor_expected_file_bytes": 16384,
+      "observed_file_size_matches_constructor": true,
+      "extension_bitmap": null,
+      "extension_observations": [],
+      "payload_layout_decoded": false,
+      "name_source_binding_proven": false,
+      "observed_file_bytes": 16384,
+      "sha256": "4cea15a51802224d9daf5ed1e81cf0965d2ad063b24cdd49e91ecc9f67964a7d",
+      "payload_offset": 4096,
+      "payload_size": 10936,
+      "opaque_extra_bytes": 1352,
+      "name_field_exported": false,
+      "name_field_nonempty_terminated": true,
+      "protocol5_flags_uninterpreted": 0,
+      "protocol5_low_flag_special_path": false,
+      "sequence_observations": [
+        {
+          "bucket": 0,
+          "sequence": 7,
+          "sequence_filename": "0000000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 1,
+          "sequence": 7,
+          "sequence_filename": "0100000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 2,
+          "sequence": 7,
+          "sequence_filename": "0200000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 3,
+          "sequence": 7,
+          "sequence_filename": "0300000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 4,
+          "sequence": 7,
+          "sequence_filename": "0400000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 5,
+          "sequence": 7,
+          "sequence_filename": "0500000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 6,
+          "sequence": 7,
+          "sequence_filename": "0600000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 7,
+          "sequence": 7,
+          "sequence_filename": "0700000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 8,
+          "sequence": 7,
+          "sequence_filename": "0800000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 9,
+          "sequence": 7,
+          "sequence_filename": "0900000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 10,
+          "sequence": 7,
+          "sequence_filename": "0a00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 11,
+          "sequence": 7,
+          "sequence_filename": "0b00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 12,
+          "sequence": 7,
+          "sequence_filename": "0c00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 13,
+          "sequence": 7,
+          "sequence_filename": "0d00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 14,
+          "sequence": 7,
+          "sequence_filename": "0e00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 15,
+          "sequence": 7,
+          "sequence_filename": "0f00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        }
+      ],
+      "index_inventory_supplied": false,
+      "index_file_payloads_read": 0,
+      "coherent_live_snapshot_proven": false,
+      "sequence_is_active_for_game_proven": false,
+      "installation_ready": false
+    },
+    "generated_v5_extension": {
+      "format": "shmem-bounded-observation-2",
+      "status": "constructor_geometry_matches_static_evidence",
+      "protocol": 5,
+      "header_bytes": 340,
+      "declared_header_field": 340,
+      "constructor_copy_bytes": 600,
+      "constructor_expected_file_bytes": 20480,
+      "observed_file_size_matches_constructor": true,
+      "extension_bitmap": 1,
+      "extension_observations": [
+        {
+          "slot": 0,
+          "offset": 16384,
+          "size": 552,
+          "diagnostic_state_is_recognized": true,
+          "content_exported": false,
+          "semantics_complete": false
+        }
+      ],
+      "payload_layout_decoded": false,
+      "name_source_binding_proven": false,
+      "observed_file_bytes": 20480,
+      "sha256": "f6fb6b8ed4fe376305f313c5464a4c942ff64c96cf670254a3dacaac9c4ee3a9",
+      "payload_offset": 4096,
+      "payload_size": 10936,
+      "opaque_extra_bytes": 5448,
+      "name_field_exported": false,
+      "name_field_nonempty_terminated": true,
+      "protocol5_flags_uninterpreted": 2,
+      "protocol5_low_flag_special_path": false,
+      "sequence_observations": [
+        {
+          "bucket": 0,
+          "sequence": 7,
+          "sequence_filename": "0000000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 1,
+          "sequence": 7,
+          "sequence_filename": "0100000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 2,
+          "sequence": 7,
+          "sequence_filename": "0200000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 3,
+          "sequence": 7,
+          "sequence_filename": "0300000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 4,
+          "sequence": 7,
+          "sequence_filename": "0400000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 5,
+          "sequence": 7,
+          "sequence_filename": "0500000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 6,
+          "sequence": 7,
+          "sequence_filename": "0600000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 7,
+          "sequence": 7,
+          "sequence_filename": "0700000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 8,
+          "sequence": 7,
+          "sequence_filename": "0800000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 9,
+          "sequence": 7,
+          "sequence_filename": "0900000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 10,
+          "sequence": 7,
+          "sequence_filename": "0a00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 11,
+          "sequence": 7,
+          "sequence_filename": "0b00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 12,
+          "sequence": 7,
+          "sequence_filename": "0c00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 13,
+          "sequence": 7,
+          "sequence_filename": "0d00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 14,
+          "sequence": 7,
+          "sequence_filename": "0e00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 15,
+          "sequence": 7,
+          "sequence_filename": "0f00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        }
+      ],
+      "index_inventory_supplied": false,
+      "index_file_payloads_read": 0,
+      "coherent_live_snapshot_proven": false,
+      "sequence_is_active_for_game_proven": false,
+      "installation_ready": false
+    },
+    "generated_v5_special_extension": {
+      "format": "shmem-bounded-observation-2",
+      "status": "constructor_geometry_matches_static_evidence",
+      "protocol": 5,
+      "header_bytes": 340,
+      "declared_header_field": 340,
+      "constructor_copy_bytes": 600,
+      "constructor_expected_file_bytes": 20480,
+      "observed_file_size_matches_constructor": true,
+      "extension_bitmap": 1,
+      "extension_observations": [
+        {
+          "slot": 0,
+          "offset": 16384,
+          "size": 552,
+          "diagnostic_state_is_recognized": true,
+          "content_exported": false,
+          "semantics_complete": false
+        }
+      ],
+      "payload_layout_decoded": false,
+      "name_source_binding_proven": false,
+      "observed_file_bytes": 20480,
+      "sha256": "3ae27cabe100a2f180f986dd58bc68089ebdd84d33185c6b09acd19252d824b7",
+      "payload_offset": 4096,
+      "payload_size": 10936,
+      "opaque_extra_bytes": 5448,
+      "name_field_exported": false,
+      "name_field_nonempty_terminated": true,
+      "protocol5_flags_uninterpreted": 3,
+      "protocol5_low_flag_special_path": true,
+      "sequence_observations": [
+        {
+          "bucket": 0,
+          "sequence": 7,
+          "sequence_filename": "0000000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 1,
+          "sequence": 7,
+          "sequence_filename": "0100000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 2,
+          "sequence": 7,
+          "sequence_filename": "0200000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 3,
+          "sequence": 7,
+          "sequence_filename": "0300000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 4,
+          "sequence": 7,
+          "sequence_filename": "0400000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 5,
+          "sequence": 7,
+          "sequence_filename": "0500000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 6,
+          "sequence": 7,
+          "sequence_filename": "0600000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 7,
+          "sequence": 7,
+          "sequence_filename": "0700000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 8,
+          "sequence": 7,
+          "sequence_filename": "0800000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 9,
+          "sequence": 7,
+          "sequence_filename": "0900000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 10,
+          "sequence": 7,
+          "sequence_filename": "0a00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 11,
+          "sequence": 7,
+          "sequence_filename": "0b00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 12,
+          "sequence": 7,
+          "sequence_filename": "0c00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 13,
+          "sequence": 7,
+          "sequence_filename": "0d00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 14,
+          "sequence": 7,
+          "sequence_filename": "0e00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        },
+        {
+          "bucket": 15,
+          "sequence": 7,
+          "sequence_filename": "0f00000007.idx",
+          "sequence_file_present": null,
+          "max_inventory_sequence": null,
+          "inventory_has_newer_sequence": null
+        }
+      ],
+      "index_inventory_supplied": false,
+      "index_file_payloads_read": 0,
+      "coherent_live_snapshot_proven": false,
+      "sequence_is_active_for_game_proven": false,
+      "installation_ready": false
+    }
+  }
+}

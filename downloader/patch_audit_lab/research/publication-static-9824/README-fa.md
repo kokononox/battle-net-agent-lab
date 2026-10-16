@@ -1,5 +1,8 @@
 # Agent 9824: انتشار sequence و مرز قفل‌ها
 
+> checkpoint بعدی [binding/extension](../binding-extension-9824/README-fa.md) منبع نام و predicate انتخاب حالت را ردیابی کرده و برداشت header قبلی را اصلاح می‌کند؛ suite جاری ۳۳۸ است. این گزارش و receiptهای ۳۱۸تایی تاریخی‌اند.
+
+
 ## نتیجه
 
 بعد از checkpoint قبلی، مسیر caller نوشتن header و reader مصرف‌کنندهٔ sequence دنبال شد. ممیزی تازه روی Agent واقعی با SHA256 ثابت اجرا شد: **۳۲ byte anchor، ۱۷ فراخوانی مستقیم، ۱۳ یال branch/jump و ۶ import/API** تطبیق یافتند. ممیزی mapping/flush قبلی نیز پیش‌شرط است و دوباره اجرا می‌شود. این اعداد فقط دسته‌های ممیزی تازه‌اند؛ با اعداد قبلی جمع نمی‌شوند.

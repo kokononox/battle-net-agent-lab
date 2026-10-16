@@ -1,0 +1,144 @@
+{
+  "format": "agent-9824-binding-extension-static-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "status": "bounded_binding_extension_paths_verified",
+  "prerequisite_publication_audit_passed": true,
+  "evidence": {
+    "anchors": {
+      "mode5_compare": "0x71c6e0",
+      "mode4_compare": "0x71c6e9",
+      "other_mode_named": "0x71c6ed",
+      "mode45_local": "0x71c6f5",
+      "name_from_control": "0x71c6fc",
+      "guard_arg_low_byte": "0x72237d",
+      "guard_name_forward": "0x72238a",
+      "create_not_initial_owner": "0x7222b5",
+      "open_fallback_rights": "0x7222d3",
+      "fallback_access_denied": "0x7222ce",
+      "fallback_not_found": "0x7222ed",
+      "fallback_retry_limit": "0x7222f9",
+      "name_literal_Global_backslash": "0x71e034",
+      "name_limit_including_prefix": "0x71e045",
+      "name_copy_prefix": "0x71e087",
+      "name_terminator": "0x71e091",
+      "v5_extra_flag_clear_low": "0x71deed",
+      "v5_declared_header_154": "0x71def0",
+      "v5_copy_size_cmov": "0x71df00",
+      "v5_header_copy_size_argument": "0x71df8d",
+      "v5_directory_initial_zero": "0x71ded3",
+      "extension_base_sum": "0x71dfbd",
+      "extension_flag_gate": "0x71dfd9",
+      "extension_requested_gate": "0x71dfe3",
+      "extension_slot_zero": "0x71dfe9",
+      "extension_size_array": "0x71dfef",
+      "extension_offset_array": "0x71dffa",
+      "extension_bitmap": "0x71e001",
+      "diagnostic_flag2": "0x71dc59",
+      "diagnostic_bitmap0": "0x71dc65",
+      "diagnostic_extension_pointer": "0x71dc76",
+      "diagnostic_known_states": "0x71db05"
+    },
+    "direct_calls": {
+      "guard_init": {
+        "call": "0x71c711",
+        "target": "0x722378"
+      },
+      "guard_create": {
+        "call": "0x72238d",
+        "target": "0x72221f"
+      },
+      "v4_name_builder": {
+        "call": "0x71de28",
+        "target": "0x71e01f"
+      },
+      "v5_name_builder": {
+        "call": "0x71df36",
+        "target": "0x71e01f"
+      },
+      "name_copy": {
+        "call": "0x71e08c",
+        "target": "0x879790"
+      },
+      "v5_extension_builder": {
+        "call": "0x71df76",
+        "target": "0x71dfb6"
+      },
+      "extension_base_align": {
+        "call": "0x71dfcc",
+        "target": "0x71dd00"
+      },
+      "extension_final_align": {
+        "call": "0x71e010",
+        "target": "0x71dd00"
+      },
+      "extension_diagnostic_state": {
+        "call": "0x71dc7f",
+        "target": "0x71db05"
+      }
+    },
+    "conditional_or_jump_edges": {
+      "mode5_local": {
+        "instruction": "0x71c6e7",
+        "opcode": "74",
+        "target": "0x71c6f5"
+      },
+      "mode_not4_named": {
+        "instruction": "0x71c6f3",
+        "opcode": "75",
+        "target": "0x71c6fc"
+      },
+      "guard_false_local": {
+        "instruction": "0x722388",
+        "opcode": "74",
+        "target": "0x722398"
+      },
+      "name_bounded": {
+        "instruction": "0x71e050",
+        "opcode": "76",
+        "target": "0x71e075"
+      },
+      "create_access_denied_only": {
+        "instruction": "0x7222d1",
+        "opcode": "75",
+        "target": "0x72232c"
+      },
+      "extension_no_flag": {
+        "instruction": "0x71dfe1",
+        "opcode": "74",
+        "target": "0x71e01a"
+      },
+      "extension_no_request": {
+        "instruction": "0x71dfe7",
+        "opcode": "74",
+        "target": "0x71e01a"
+      }
+    },
+    "import_calls": {
+      "create_mutex": {
+        "call": "0x7222bd",
+        "iat": "0x8fb438",
+        "dll": "KERNEL32.dll",
+        "name": "CreateMutexW"
+      },
+      "open_mutex": {
+        "call": "0x7222dc",
+        "iat": "0x8fb43c",
+        "dll": "KERNEL32.dll",
+        "name": "OpenMutexW"
+      }
+    }
+  },
+  "binary_executed": false,
+  "network_requests": 0,
+  "game_or_lab_written": false,
+  "actual_installation_binding_proven": false,
+  "activation_contract_complete": false,
+  "installation_ready": false,
+  "correction": "v5 declared header field stays 0x154; constructor copy length may be 0x258",
+  "limitations": [
+    "Raw name-input canonicalization and actual installation mode not established",
+    "Static path is not Windows mutex interoperability or runtime trace",
+    "Only extension slot0 descriptor geometry identified, not full extension/payload semantics",
+    "No actual user shmem, .build.info writer or power-loss proof"
+  ]
+}

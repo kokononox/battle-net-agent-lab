@@ -1,0 +1,30 @@
+{
+  "format": "binding-extension-tests-1",
+  "previous_tests": 318,
+  "new_test_methods": 20,
+  "changed_previous_test": "test_version5_258_is_not_declared_header replaces mistaken 0x258-acceptance assertion",
+  "tests": 338,
+  "seconds": 3.863,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "actual_pinned_agent_static_audit_passed": true,
+  "prerequisite_publication_audit_passed": true,
+  "new_receipt_counts": {
+    "anchors": 32,
+    "direct_calls": 9,
+    "conditional_or_jump_edges": 7,
+    "import_calls": 2
+  },
+  "agent_executed": false,
+  "user_shmem_tested": false,
+  "game_or_lab_written": false,
+  "windows_or_power_loss_tested": false,
+  "installation_ready": false,
+  "code_sha256": {
+    "agent_binding_extension_audit.py": "b03f57aa9c2e8da4aec97fc33ae9aed33fae6e4e3e4bf6b3b99da41ebafbc9d2",
+    "shmem_readonly.py": "2ec12b9c5e43eb070defeeaeddb6d03635c97c2097b8da9d8f14635ff3bb3fec",
+    "tests/test_activation_readonly.py": "ab70aa8c713b53e480f167ae44e97a45ad3ad3f0bac410fb0569ad98376fe473",
+    "tests/test_binding_extension.py": "78608eae13ee4713ed81f6414d1d53dc64e67c30f10d5aef73e068e03c52880e"
+  }
+}

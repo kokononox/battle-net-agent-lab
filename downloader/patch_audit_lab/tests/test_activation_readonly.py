@@ -18,7 +18,9 @@ class ControlTests(unittest.TestCase):
     def test_version4_geometry(self):
         got=obs.inspect(control());self.assertEqual(got['payload_offset'],0x150);self.assertFalse(got['installation_ready']);self.assertFalse(got['coherent_live_snapshot_proven'])
     def test_version5_basic_geometry(self):self.assertEqual(obs.inspect(control(5))['header_bytes'],0x154)
-    def test_version5_extended_header(self):self.assertEqual(obs.inspect(control(5,0x258))['header_bytes'],0x258)
+    def test_version5_258_is_not_declared_header(self):
+        # Corrected from the old test: 0x258 is a copy length, not field[4].
+        with self.assertRaisesRegex(a.AuditError,'header_size'):obs.inspect(control(5,0x258))
     def test_referenced_sequence_not_max(self):
         got=obs.inspect(control(),['0000000007.idx','0000000008.idx']);row=got['sequence_observations'][0]
         self.assertTrue(row['sequence_file_present']);self.assertEqual(row['sequence'],7);self.assertEqual(row['max_inventory_sequence'],8);self.assertTrue(row['inventory_has_newer_sequence'])

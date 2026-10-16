@@ -1,0 +1,114 @@
+{
+  "format": "binding-extension-sync-1",
+  "previous_commit": "2ece90c55a5ebc3e9cf943ef85f1a9254bc77f38",
+  "branch": "patch-audit-20261016",
+  "tests": 338,
+  "new_test_methods": 20,
+  "old_test_corrected": true,
+  "agent_executed": false,
+  "user_shmem_tested": false,
+  "game_or_lab_written": false,
+  "release_assets_modified": false,
+  "files": [
+    {
+      "path": "downloader/patch_audit_lab/agent_binding_extension_audit.py",
+      "sha256": "b03f57aa9c2e8da4aec97fc33ae9aed33fae6e4e3e4bf6b3b99da41ebafbc9d2"
+    },
+    {
+      "path": "downloader/patch_audit_lab/shmem_readonly.py",
+      "sha256": "2ec12b9c5e43eb070defeeaeddb6d03635c97c2097b8da9d8f14635ff3bb3fec"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_activation_readonly.py",
+      "sha256": "ab70aa8c713b53e480f167ae44e97a45ad3ad3f0bac410fb0569ad98376fe473"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_binding_extension.py",
+      "sha256": "78608eae13ee4713ed81f6414d1d53dc64e67c30f10d5aef73e068e03c52880e"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/activation-static-9824/README-fa.md",
+      "sha256": "4387f1f00767c9b581495995570d9ab0d91c288996274ac0f423a82e9813e03f"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/publication-static-9824/README-fa.md",
+      "sha256": "476d1edf02a0ef4c386225631f01b9f464472f84af009ecc3ffd6c223ae221b9"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/AGENT-BINDING-EXTENSION-STATIC.json",
+      "sha256": "2feba97df0af18feecba7cd9ac0e434805fa81dd5de23d240360b0d957bef7ac"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/ALL-TESTS.log",
+      "sha256": "7c4323fdc61c2694a2a7a90e4dcf80c3964fb51ecf37a40b2f0693915e143dd3"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/DISASSEMBLY-MANIFEST.json",
+      "sha256": "98a84e4d42a4eec84c3ce3a24ba8852b67d976ed0e462211121cf2e9b9f9bba9"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/GENERATED-OBSERVATIONS.json",
+      "sha256": "f76b26dbfa895ea75fa4e63096cccfe0df530e6ff316a92ed8295b57cf2fb8e7"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/README-fa.md",
+      "sha256": "1760282c9960476803bfc46f480e28fc1b7fb75d77690169601f65268341152a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/TEST-RESULTS.json",
+      "sha256": "4d0592c3e1e0f7a78df2e3fb61c5b47ef2cb45a32a976fe80d1e824071be6e3c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/constructor-name.asm",
+      "sha256": "66163865a44cdf52a5e79dd65d7038c6922af27691bc9ab8b2bdd66e33021060"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/extension-diagnostic-consumer.asm",
+      "sha256": "e33b6ec20369b901c2a76bcc6d9e088db37102be3750d7f402e164be02246cfe"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/extension-diagnostic-state.asm",
+      "sha256": "14b3424942dde483f6a5688c3ee5a489bae3cefe258bf05e6674f437ff4d3f1a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/extension-directory.asm",
+      "sha256": "b60cc7fb31fbf3b8aadc7ac3252c67984919aec1625496391e55994433f145c6"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/guard-init.asm",
+      "sha256": "9deb6c0a1e1e912624e5ac0815eef998689ba1c2f9801e125587c55f2eb30217"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/guard-mode-name-binding.asm",
+      "sha256": "ed8dc6fef3b109a2faa9e7d5364f3866d9f0deecbf40dcfca572d835136ce95b"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/mutex-create-open.asm",
+      "sha256": "eca60768fa9fddb7b90659e0d531cca18a0e1238cb8e40e0c1f72595e58e643c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/v4-name-call.asm",
+      "sha256": "cff475e9844797dae6b6b69098fee9da233a98c4b91b5f37842847480bebedac"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/binding-extension-9824/v5-constructor.asm",
+      "sha256": "6f45512c9088851135b505bfebd432fcbf01d651289aa0c2876e5439ce689e17"
+    },
+    {
+      "path": "README.md",
+      "sha256": "9493aee328c7de483d17e907f7be20901045411db82d22872a3b41a6409a9205"
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "d1267461b2af51efe6f3664f6dcc3305e72e2fefca24eaa3bccec95baa02b5bf"
+    },
+    {
+      "path": "docs/SESSION-2026-10-16.fa.md",
+      "sha256": "84120d120908c764b5f27ee1054cdba645a1847c0acfb168eecac67c0c1263f5"
+    },
+    {
+      "path": "docs/PORTABLE-RESEARCH.fa.md",
+      "sha256": "c9651b60f1139c0009650f55d1c32c7a82ca969eaad17920df8cb1526ae22f1a"
+    }
+  ]
+}

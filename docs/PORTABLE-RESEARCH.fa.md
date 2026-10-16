@@ -12,7 +12,7 @@ ZIP اصلی: `Portable-Retail-Sample.zip`، اندازهٔ دقیق **169,779,9
 
 [Release موجود](https://github.com/kokononox/battle-net-agent-lab/releases/tag/retail-research-2026101) سه asset دارد: ZIP اصلی، ZIP companion و فایل checksum. tag واقعی `retail-research-2026101` است (بدون رقم 6 پایانی). اندازه و SHA256 اعلام‌شدهٔ GitHub هر سه با نسخهٔ محلی تطبیق داده شده‌اند؛ این رسید دانلود مجدد مستقل نیست. دو ZIP گزارشِ اضافی در SHA256SUMS اختیاری‌اند و روی Release بارگذاری نشده‌اند؛ گزارش‌های لازم داخل companion قرار دارند.
 
-ZIP companion snapshot قبلی با ۲۷۸ آزمون است؛ کد تازهٔ مشاهده‌گر و ممیزی activation در آخر شاخهٔ پژوهش با suite ۳۰۸تایی قرار دارد. assetهای تأییدشده تعویض نشدند.
+ZIP companion snapshot قبلی با ۲۷۸ آزمون است؛ کد تازهٔ مشاهده‌گر و ممیزی activation در آخر شاخهٔ پژوهش با suite ۳۳۸تایی قرار دارد. assetهای تأییدشده تعویض نشدند.
 
 ## بازتولید با کد فعلی، بدون تغییر fixture
 
@@ -34,3 +34,5 @@ python -B reproduce_portable.py --fixture /path/to/extracted/Portable-Retail-Sam
 companion code ZIP از کد پژوهشی و گزارش‌ها ساخته می‌شود؛ نصب‌کننده/فایل اجرایی Windows نیست. دادهٔ ۲۰۰مگابایتی Encoding داخل companion تکرار نمی‌شود و ZIP اصلی جدا لازم است. fixture، کل Lab نیست؛ PRIVATE/SQLite و proofهای کامل کل نصب در آن نیستند.
 
 هیچ خروجی آزمایش را به پوشهٔ بازی کپی نکنید. این بسته مجوز تغییر `.build.info`، اجرای صف دانلود گسترده، تعمیر نصب یا فعال‌سازی واقعی نیست.
+
+اصلاح parser در checkpoint binding/extension: مقدار فیلد header در سازندهٔ v5 برابر `0x154` است؛ `0x258` طول copy حالت افزونه‌دار بود، نه مقدار مجاز دوم آن فیلد. [گزارش اصلاح و شواهد](../downloader/patch_audit_lab/research/binding-extension-9824/README-fa.md). fixture و assetهای Release تغییر نکردند.

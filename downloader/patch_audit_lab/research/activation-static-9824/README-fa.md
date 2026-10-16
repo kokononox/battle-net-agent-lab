@@ -1,5 +1,8 @@
 # Agent 9824: شواهد ایستای control، sequence و flush
 
+> اصلاح در checkpoint [binding/extension](../binding-extension-9824/README-fa.md): مقدار field[4] سازندهٔ v5 برابر 0x154 است؛ 0x258 طول copy افزونه‌دار بود. parser و یک آزمون قبلی اصلاح شدند. GENERATED-OBSERVATIONS قدیمی با مقدار field[4]=0x258 شاهد واقعی نبود و superseded است. کد فعلی observer نسخهٔ ۲ و suite فعلی ۳۳۸تایی است؛ شمارنده‌ها/receiptهای این پوشه اجرای تاریخی‌اند.
+
+
 > checkpoint بعدی: [publication، مصرف sequence و قفل‌ها](../publication-static-9824/README-fa.md)، مجموع ۳۱۸ آزمون. این گزارش ۳۰۸تایی برای سابقه حفظ شده است.
 
 
@@ -22,7 +25,7 @@
 | فیلد در view کنترل | مشاهدهٔ کد ثابت |
 | --- | --- |
 | `0x00` | protocol 4 یا 5 در شاخه‌های بررسی‌شده |
-| `0x04` | constructor v4: `0x150`؛ v5: `0x154` یا `0x258` |
+| `0x04` | constructor v4: `0x150`؛ فیلد v5: `0x154` (اصلاح‌شده؛ `0x258` طول copy حالت افزونه‌دار است) |
 | `0x08..0x107` | فیلد نام ۲۵۶بایتی؛ مشاهده‌گر محتویات آن را منتشر نمی‌کند |
 | `0x108` | اندازهٔ بخش بعدی: `0x2ab8` |
 | `0x10c` | offset بخش بعدی: سازندهٔ v4=`0x150`؛ سازندهٔ v5=`0x1000` |
