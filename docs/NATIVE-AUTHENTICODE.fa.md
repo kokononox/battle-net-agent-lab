@@ -36,3 +36,11 @@ Linux: ۸۲ تست کشف، ۷۸ موفق و چهار تست بومی فقط ر�
 - [WTHelperGetProvSignerFromChain](https://learn.microsoft.com/en-us/windows/win32/api/wintrust/nf-wintrust-wthelpergetprovsignerfromchain)
 - [CRYPT_PROVIDER_SGNR](https://learn.microsoft.com/en-us/windows/win32/api/wintrust/ns-wintrust-crypt_provider_sgnr) و [CRYPT_PROVIDER_CERT](https://learn.microsoft.com/en-us/windows/win32/api/wintrust/ns-wintrust-crypt_provider_cert)
 - [CertGetNameStringW: subject simple display type](https://learn.microsoft.com/en-us/windows/win32/api/wincrypt/nf-wincrypt-certgetnamestringw)
+
+## نتیجهٔ واقعی اجرای Windows
+
+گزارش [b4e3ee2](https://github.com/kokononox/battle-net-agent-lab/blob/b4e3ee257209a2443ba01796f57780de01fef111/reports/latest.json) برای source 3a9fa21 / run 38837055113: هر ۸۲ تست Windows موفق، skip صفر؛ WinVerifyTrust دقیقاً صفر، امضای معتبر و publisher مورد انتظار true. Setup واقعاً اجرا شد و هر دو بررسی UIA در حدود ۵ و ۴۶ ثانیه صفحهٔ select_language، گزینهٔ english_us و دکمهٔ continue را نشان دادند؛ errors=0 و truncated=false. state انتخاب فعلی زبان خوانده نشده است.
+
+هیچ کلیک/selection انجام نشد. Agent process/binary مشاهده نشد و نصب کامل اثبات نشده است. نتیجه نشان می‌دهد در این بازه Setup روی صفحهٔ انتخاب زبان مانده؛ تضمین نمی‌کند عبور از آن به‌تنهایی Agent را آماده می‌کند. گام پیشنهادی بعدی صرفاً انتخاب زبان و Continue در VM دورریختنی و توقف/بررسی صفحهٔ بعد است؛ پذیرش توافق‌نامه، ورود حساب یا دانلود بازی بخشی از آن نیست و هنوز اجرا نشده. منبع و Lab دانلودر کاربر بدون تغییر است.
+
+NATIVE-AUTHENTICODE-MANIFEST.json snapshot تغییر قبل از نتیجهٔ اجراست، نه فهرست تمام به‌روزرسانی‌های مستندات بعدی.
