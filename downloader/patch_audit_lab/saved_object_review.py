@@ -9,9 +9,10 @@ from collections import Counter
 import argparse,hashlib,json,os,re,shutil,sqlite3,time,uuid
 import saved_scope_review as s
 import source_binding as b
-VERSION='saved-object-review-1'
+VERSION='saved-object-review-2'
 MAX_METADATA_READ=256*1024**2
 MAX_WORK_DB_BYTES=512*1024**2
+WORK_CACHE_KIB=65536
 MAX_JOIN_ROWS=10_000_000
 MAX_ALIASES=64
 TIME_LIMIT=600
@@ -23,9 +24,32 @@ PHASES=s.PHASES|{'prepare_private_workspace','deduplicate_selected_records',
 class Progress:
     def __init__(self):self.stage='start'
     def mark(self,stage):b.need(stage in PHASES,'object_phase_invalid');self.stage=stage
+class DatabaseStop(b.BindingError):
+    """Constant public code plus explicitly whitelisted numeric diagnostics."""
+    def __init__(self,code,ex,stage,elapsed,telemetry):
+        super().__init__(code)
+        self.failure_stage=stage
+        self.elapsed_seconds=max(0,int(elapsed))
+        self.completed_manifest_records=telemetry.get('completed_manifest_records',0)
+        self.completed_selected_records=telemetry.get('completed_selected_records',0)
+        self.sqlite_errorcode=getattr(ex,'sqlite_errorcode',None)
+        self.sqlite_errorname=getattr(ex,'sqlite_errorname',None)
+        self.private_work_removed=False
 def public_error(ex,stage='start'):
     q=s.public_error(ex,stage);q['scope_review_version']=VERSION
-    q['stage']=stage if stage in PHASES else 'start'
+    failure_stage=getattr(ex,'failure_stage',stage)
+    q['stage']=failure_stage if failure_stage in PHASES else 'start'
+    if isinstance(ex,DatabaseStop):
+        # Never include str(sqlite_error), SQL, paths, EKeys or tracebacks.
+        for key in ('elapsed_seconds','completed_manifest_records','completed_selected_records'):
+            value=getattr(ex,key,None)
+            if type(value)is int and 0<=value<=2**53:q[key]=value
+        code=ex.sqlite_errorcode;name=ex.sqlite_errorname
+        if type(code)is int and 0<=code<=2**31-1:q['sqlite_errorcode']=code
+        if (isinstance(name,str) and re.fullmatch(r'SQLITE_[A-Z0-9_]{1,64}',name)
+                and type(code)is int and getattr(sqlite3,name,None)==code):
+            q['sqlite_errorname']=name
+        q['private_work_removed']=ex.private_work_removed is True
     return q
 def new_output(private,out):
     """Reserve only a fresh separate directory; never clean a preexisting path."""
@@ -44,7 +68,10 @@ def open_work(path,check):
     try:
         db.execute('PRAGMA trusted_schema=OFF');db.execute('PRAGMA page_size=4096')
         db.execute('PRAGMA max_page_count='+str(MAX_WORK_DB_BYTES//4096))
-        db.execute('PRAGMA cache_size=-8192');db.execute('PRAGMA temp_store=MEMORY')
+        # Bound main work cache at 64 MiB. v1's 8 MiB can cause heavy random
+        # B-tree I/O on realistic hash-ordered EKeys; this is NOT a proven cause
+        # of any particular user's SQLite failure.
+        db.execute('PRAGMA main.cache_size=-'+str(WORK_CACHE_KIB));db.execute('PRAGMA temp_store=MEMORY')
         # Private disposable work only; bounded disk, no rollback journal.
         db.execute('PRAGMA journal_mode=OFF');db.execute('PRAGMA synchronous=OFF')
         db.execute('PRAGMA automatic_index=OFF')
@@ -56,7 +83,7 @@ def open_work(path,check):
         return db
     except BaseException:
         db.close();raise
-def collect(db,f,size,selection,check,*,progress=lambda _:None):
+def collect(db,f,size,selection,check,*,progress=lambda _:None,_telemetry=None):
     """Second COMPLETE raw-hash pass; only selected record tuples enter work DB."""
     n=selection['records'];mask=selection['mask'];offset=selection['record_offset'];es=selection['entry_size']
     b.need(type(n)is int and 1<=n<=s.MAX_RECORDS and len(mask)==(n+7)//8,'object_selection_shape')
@@ -74,7 +101,12 @@ def collect(db,f,size,selection,check,*,progress=lambda _:None):
                 entry=raw[j*es:(j+1)*es];ek=entry[:16];encoded=int.from_bytes(entry[16:21],'big')
                 b.need(ek!=bytes(16),'object_zero_ekey')
                 batch.append((ek,encoded,encoded));selected+=1
+        # Local ordering reduces page churn; min/max/count semantics unchanged.
+        batch.sort(key=lambda row:row[0])
         db.executemany(statement,batch)
+        if _telemetry is not None:
+            _telemetry.update(completed_manifest_records=start+count,completed_selected_records=selected)
+        if start and (start//4096)%32==0:progress('deduplicate_selected_records')
     progress('revalidate_download_second_pass')
     while r.used<size:check();r.read(min(1024**2,size-r.used))
     db.commit();check()
@@ -150,7 +182,10 @@ def join_inventory(db,private,watch,check,*,progress=lambda _:None):
         'prior_evidence_success_flags_used':False,'encoded_bytes_verified':False,
         'unique_encoded_size_total_computed':False,'required_network_download_bytes':None}
 def run(lab,audit,game,out_new,*,cancel=lambda:False,progress=lambda _:None):
-    start=time.monotonic();selection=[]
+    start=time.monotonic();selection=[];stage=['start'];telemetry={}
+    caller_progress=progress
+    def progress(value):
+        stage[0]=value;caller_progress(value)
     def check():b.need(not cancel() and time.monotonic()-start<=TIME_LIMIT,'object_cancelled_or_time_limit')
     def combined_cancel():return cancel() or time.monotonic()-start>TIME_LIMIT
     report,private=s.review(lab,audit,game,cancel=combined_cancel,progress=progress,_selection_sink=selection.append)
@@ -164,7 +199,7 @@ def run(lab,audit,game,out_new,*,cancel=lambda:False,progress=lambda _:None):
         b.need(report['scope']['saved_download_metadata_bytes_read']+size<=MAX_METADATA_READ,'object_metadata_read_budget')
     progress('prepare_private_workspace');out=new_output(private,out_new);work=out/('private-work-'+uuid.uuid4().hex)
     if can_project:
-        work.mkdir();db=None
+        work.mkdir();db=None;failure=None
         try:
             check();db=open_work(work/'objects.sqlite',check);watch=s.final_check(private)
             key=report['download_metadata']['expected_ckey']
@@ -172,7 +207,7 @@ def run(lab,audit,game,out_new,*,cancel=lambda:False,progress=lambda _:None):
             b.need(path in watch.files,'object_exact_manifest_watch_required');before=watch.files[path]
             with path.open('rb') as f:
                 b.need(b.fp(os.fstat(f.fileno()))==before,'object_manifest_changed')
-                summary,reader=collect(db,f,size,selection[0],check,progress=progress)
+                summary,reader=collect(db,f,size,selection[0],check,progress=progress,_telemetry=telemetry)
                 b.need(reader.md5.hexdigest()==key and reader.sha.hexdigest()==report['download_metadata']['sha256'],'object_second_pass_content_identity_mismatch')
                 b.need(b.fp(os.fstat(f.fileno()))==before,'object_manifest_changed')
             b.need(summary['selected_records']==report['diagnostic_projection']['diagnostic_selected_records'],'object_projection_count_conflict')
@@ -184,14 +219,26 @@ def run(lab,audit,game,out_new,*,cancel=lambda:False,progress=lambda _:None):
             report['status']='bound_selected_unique_objects_inventory_projection_complete'
             private['watched_files']=[{'path':str(k),'fingerprint':v} for k,v in watch.files.items()]
             check();watch.check()
-        except sqlite3.Error:
-            raise b.BindingError('object_private_or_readonly_database_stopped_safely') from None
+        except sqlite3.Error as ex:
+            elapsed=time.monotonic()-start
+            code=('object_cancelled_during_database_work' if cancel() else
+                  'object_time_limit_during_database_work' if elapsed>TIME_LIMIT else
+                  'object_private_or_readonly_database_stopped_safely')
+            failure=DatabaseStop(code,ex,stage[0],elapsed,telemetry)
+            raise failure from None
+        except BaseException as ex:
+            failure=ex;raise
         finally:
             if db is not None:db.close()
-            shutil.rmtree(work);progress('remove_private_workspace')
+            shutil.rmtree(work)
+            if isinstance(failure,DatabaseStop):failure.private_work_removed=True
+            # Cleanup must not overwrite the error's original phase or announce
+            # a final recheck that will not occur after a failed operation.
+            if failure is None:progress('remove_private_workspace')
     else:
         report['object_projection_not_computed_reason']='pinned_supported_selection_unavailable_no_fallback'
     report['scope'].update(private_work_database_max_bytes=MAX_WORK_DB_BYTES,
+        private_work_cache_target_bytes=WORK_CACHE_KIB*1024,
         private_work_removed_before_publication=True,selected_ekeys_or_paths_exported=False,
         inventory_database_rebuilt=False)
     progress('final_input_recheck');check();s.final_check(private)
