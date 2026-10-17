@@ -1,5 +1,7 @@
 # مسیر اصلی خواندن آرشیو Agent 9824، با مرزهای تطبیق‌داده‌شده
 
+> مرحلهٔ بعد، مدیر/cache اصلی: [archive-cache-9824](../archive-cache-9824/README-fa.md) جای open-manager adapter این checkpoint را با تابع اصلی و cache/hash/equality/list/retain/release اصلی پر کرده و مسیر اصلی تا CreateFileW را اجرا کرده است؛ constructor allocation/درج و OS/formatter/lock هنوز adapter هستند. ۸۱۴ آزمون/صفر skip؛ این گزارش ۷۵۳تایی تاریخی حفظ شده است.
+
 ## نتیجه و مرز ادعا
 
 هفت تابع دست‌نخوردهٔ Agent 9824، **۷۷۳ بایت کد اصلی**، در ELF پژوهشی i386 اجرا شدند. مسیر اجرا اکنون انتخاب شمارهٔ آرشیو، کنترل بازه، ماسک offset، فراخوانی خواندن و انتشار خطای خواندن را در بر دارد؛ فقط getter یا مدل Python نیست. هویت Agent همان SHA256 پین‌شدهٔ `b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5` است.

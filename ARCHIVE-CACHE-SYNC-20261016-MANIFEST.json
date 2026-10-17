@@ -1,0 +1,197 @@
+{
+  "format": "original-archive-cache-sync-1",
+  "previous_commit": "593d6ab3b26e7795d1576c5891ebd818d0c12bca",
+  "branch": "patch-audit-20261016",
+  "tests": 814,
+  "new_tests": 61,
+  "original_functions": 23,
+  "original_code_bytes": 2423,
+  "native_model_vectors": 1541,
+  "real_readbacks": 32,
+  "hard_exit_resume_boundaries": 9,
+  "original_manager_and_cache_hash_equality_retain_list_release_executed": true,
+  "original_CreateFile_routing_executed": true,
+  "original_constructor_allocation_insertion_executed": false,
+  "read_only_linux_api_boundary": true,
+  "write_create_requests_denied_not_downgraded": true,
+  "whole_agent_executed": false,
+  "windows_executed": false,
+  "power_loss_proven": false,
+  "installation_ready": false,
+  "game_lab_original_portable_release_changed": false,
+  "binaries_archives_or_indexes_published": false,
+  "files": [
+    {
+      "path": "downloader/patch_audit_lab/agent_archive_cache.py",
+      "sha256": "4e90a03757ae2939c34afdf340d7d2453d187e7cf57186f86b53ca8f52e03668"
+    },
+    {
+      "path": "downloader/patch_audit_lab/retail_cache_cycle.py",
+      "sha256": "f2d093fdb58e1f621f65ade43a633ed45ee8f40cffa15b2791dc013fda503dda"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_agent_archive_cache.py",
+      "sha256": "0ffa5ef690e8a1101958c1d8cd0e67ae7bb40aca5f9eaf1bf05646686b6311d5"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_retail_cache_cycle.py",
+      "sha256": "65ab27f1ddd0e5fd41fcf275a80569939e63adfe3e572d414bbeddf2a2651c3a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/README-fa.md",
+      "sha256": "c906ac1e25de06776658648c591a8c14358ade234d167e6b1e57ef6041eb7841"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/README-fa.md",
+      "sha256": "173836321357a3d0e2a8d92da9dd6ab6dfb80203ccb60417c81515b2265a6ac8"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/ALL-TESTS.log",
+      "sha256": "7108e9c8c09d6db041d02076119476ca73033221cbf97111a05d937a376fa1ba"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/CYCLE-EXPERIMENT.json",
+      "sha256": "66cd508d885386fb52e893ae1252a9261074e24c37545f5126525fca731ebd39"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/EXPERIMENT-RESULTS.json",
+      "sha256": "44ee569399e9604d27bf0f6ad115e45c401a6725386f89ac3582d57247c06347"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/FRAGMENT-BUILD-RECEIPT.json",
+      "sha256": "f2a8f2ed820a7b681cd8ff1d75afa10ddf02cbaff560c2c663616d6876c4e024"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/README-fa.md",
+      "sha256": "cba98779d405744c823cc228c24ac5e91c2ace55423400217038a838bb040c41"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/TEST-RESULTS.json",
+      "sha256": "3efe0511d28eeb0d26f22cbe3b339950e0e28334bb3e6eafc48708591506d99e"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/archive_read.asm",
+      "sha256": "fd442b29e27630471b24173e1cffdcefe5d058b3da139f05af20984beaf68509"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/buffer_read.asm",
+      "sha256": "0aa89cb309cbfd10cdd0d66badb9070d86d59416d39730334a59afcb75071015"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/cache_lookup.asm",
+      "sha256": "1e7a5c18a12bbd492d07a010cd8816c3ff4b1bbfe36e8a90a162613fcf44b44c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/chain_lookup.asm",
+      "sha256": "05173bfc4786389ed345c3bb891f4d070a4f5e14881147bbbeecfd5117a06ce3"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/file_open_route.asm",
+      "sha256": "0af3140006604b267a09b0a444f8666c96e0e188dbb6c53bdd1704542628863f"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/filename.asm",
+      "sha256": "ef6d48f237561052723d80654a3f63448d246671cc43d90bca9985359833661b"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/key_equal.asm",
+      "sha256": "d27e6a52d6254a6861ce1cfd1550f3ee1b19c572bb534dee814bcc9192b2dd5b"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/key_hash.asm",
+      "sha256": "a14db6d6916fffebd066458968b03fa9ea7b0f95c049ed8838393c5f1de93146"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/last_error_jump.asm",
+      "sha256": "13ae8434bb5d19d2a19a7210b30c1db2f12d0c2c5146d974780cd024e4d1ba97"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/list_move.asm",
+      "sha256": "090e5b10222a29cdeb839aba13762d008f28eeda8df7b668f28338d0c246dcdc"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/list_unlink.asm",
+      "sha256": "266cb01920b87ed23944f40cbc17fb78dd7fcc65f280e362e8de8dabd7eaefa1"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/membership.asm",
+      "sha256": "29beeabb4151800fe6a38e3695271ac008d6abfd9d1d1cbe2d8a0379f0ee41f3"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/mix32.asm",
+      "sha256": "53307e035994c110f8da50c02ccc9565fc5f8d43484a5e5e779c2844c1f2e77a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/native/build.py",
+      "sha256": "aee83dd3a75df8f8d1ff05d5bacbcf13f76cc10f60c73b2d875419deb570be60"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/native/harness.s",
+      "sha256": "03367af5e2895f7966149a4a2eee413961a04935e35ec06dc0a55d309764be77"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/open_manager.asm",
+      "sha256": "9f800c585bd2897309d8cffbf0df153116d326e219bb5fc106434ec482f9a71a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/ownership.asm",
+      "sha256": "2cefea4a9e660eb1ab0b3d9e1f2b5d6be0786327feaebb2392d46047fc35b9b2"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/printf_wrapper.asm",
+      "sha256": "43659e6baa6eb713cb0be7de7dab50b447570c455881447b89c0cea6cbb6816a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/range_gate.asm",
+      "sha256": "c0ad23aa64166523129bf24dd88645e20e51a0b7dea2f1d3e31314e5f136e4bd"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/read_file_wrapper.asm",
+      "sha256": "ae1d85e985398761b0a00c5eca7520fb3fd151627d5f07979d272096224af78a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/ref_drop.asm",
+      "sha256": "656a8b56995bc419e82129129a49377d0770f27a0b8f0f0ac0eb9d5bdc982d2c"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/retain_ptr.asm",
+      "sha256": "7363d40430efe75b7919fe6be0baf0c920d8b6b03b642ad03ac848868de04fc4"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/run_cycle_experiments.py",
+      "sha256": "d3487d57907dd702b8e8d37229fb0e86ecf5238affa10e8a7928b5f1bdcd7865"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/run_experiments.py",
+      "sha256": "2fcca50f35b348197e24c046c3fcee4df9cdf7ef09a6cd1b60d60cb4127438d4"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/shift64.asm",
+      "sha256": "61790fe599fc9a2ce4c6853540a5b585f5eaafa3ea85bc30515432bcd25ece1e"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/table_lookup.asm",
+      "sha256": "7201d5f941fb1147e337033b9cde8ed35cb7edc3835575d9a1add7cba19f4c92"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-cache-9824/win_open.asm",
+      "sha256": "0b1472b95bfb3889dcd4dafe392bfbc748322328fd09c171b1de3df6eb80eb70"
+    },
+    {
+      "path": "README.md",
+      "sha256": "da87827c964e23a3d27f0f90a3ce44e3f7c6ac29ddcfa3587a9d7f2eaff24bb3"
+    },
+    {
+      "path": "docs/SESSION-2026-10-16.fa.md",
+      "sha256": "f9524bbcd07a5f674dd6e3eb3eb8425914f31cc2c621be25ef631eb58832b433"
+    },
+    {
+      "path": "docs/PORTABLE-RESEARCH.fa.md",
+      "sha256": "7cf3a2732987862c9cc6cfc9afc4630830f00b72429ddda20ca098a2aa243812"
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "f6c3829a759bb62074502f80c5ac595083b2c772b82c8eea7e5d1945be0eac95"
+    }
+  ]
+}

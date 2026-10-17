@@ -85,3 +85,8 @@ companion code ZIP از کد پژوهشی و گزارش‌ها ساخته می�
 ## خواندن اصلی آرشیو با مرز تطبیق‌یافته
 
 [archive-io-9824](../downloader/patch_audit_lab/research/archive-io-9824/README-fa.md): هفت تابع اصلی/۷۷۳ بایت، ۱۷۳۵ بردار، ۸ بازخوانی source/target، ReadFile→Linux pread64. open/cache اصلی اجرا نشده است. گیت exact count، ۹ توقف/resume و خطای اصلی خواندن مانع انتشار؛ ۷۵۳ آزمون/صفر skip. بازی/Lab/Portable/Release همان قبلی‌اند؛ writer نصب اصلی آماده نیست. مرحلهٔ اول هنوز open/cache و caller کامل را کم دارد؛ مراحل Windows/full-build/activation به‌ترتیب بعد از آن‌اند.
+
+
+## مدیر/cache اصلی؛ Portable تاریخی بدون تغییر
+
+[archive-cache-9824](../downloader/patch_audit_lab/research/archive-cache-9824/README-fa.md): ۲۳ تابع/۲۴۲۳ بایت اصلی، ۱۵۴۱ بردار، ۳۲ بازخوانی، retain/list/release و lookup cache اصلی؛ CreateFileW/openat فقط‌خواندنی و منع write/create. constructor/درج cache هنوز adapter؛ نه Windows. ۸۱۴ آزمون/صفر skip و ۹ توقف/resume. ZIP/Release و Lab اصلی تغییر نکرده‌اند؛ فقط کد و رسید پژوهشی sync شدند.

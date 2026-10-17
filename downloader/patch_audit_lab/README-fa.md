@@ -1,6 +1,6 @@
 # ممیزی پچ WoW — آزمایش مستقل، نه آپدیتر آماده
 
-> تازه‌ترین milestone: [مسیر اصلی خواندن آرشیو](research/archive-io-9824/README-fa.md): هفت تابع/۷۷۳ بایت اصلی، ۱۷۳۵ بردار مطابق، ۸ بازخوانی واقعی با ReadFile تطبیق‌یافته به Linux pread64، گیت exact count و ۹ توقف/resume. ۷۵۳ آزمون/صفر skip. مدیر open/cache و OS boundary adapter هستند؛ Windows، کل Agent و writer نصب اصلی اثبات نشده‌اند.
+> تازه‌ترین milestone: [مدیر/cache اصلی و مسیر CreateFile](research/archive-cache-9824/README-fa.md): ۲۳ تابع/۲۴۲۳ بایت اصلی، ۱۵۴۱ بردار مطابق، ۳۲ بازخوانی واقعی، cache hit/collision و retain/list/release اصلی، ۹ توقف/resume، ۸۱۴ آزمون/صفر skip. constructor/درج cache هنوز adapter؛ CreateFile/ReadFile مرز Linux فقط‌خواندنی دارند و حالت write/create رد می‌شود. نه Windows یا Agent کامل و نه writer نصب اصلی.
 
 
 ## به‌روزرسانی مرحلهٔ دوم: اتصال به شواهد قبلی
