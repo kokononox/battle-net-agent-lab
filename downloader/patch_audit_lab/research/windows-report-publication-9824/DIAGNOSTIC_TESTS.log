@@ -1,0 +1,30 @@
+test_launcher_prints_safe_error_and_version (test_safe_diagnostics.PhaseIntegration.test_launcher_prints_safe_error_and_version) ... ok
+test_metadata_error_phase (test_safe_diagnostics.PhaseIntegration.test_metadata_error_phase) ... ok
+test_old_python_guard (test_safe_diagnostics.PhaseIntegration.test_old_python_guard) ... ok
+test_payload_oserror_phase (test_safe_diagnostics.PhaseIntegration.test_payload_oserror_phase) ... ok
+test_picker_cancel_does_no_review (test_safe_diagnostics.PhaseIntegration.test_picker_cancel_does_no_review) ... ok
+test_report_directory_oserror_phase (test_safe_diagnostics.PhaseIntegration.test_report_directory_oserror_phase) ... ok
+test_report_link_oserror_phase_and_cleanup (test_safe_diagnostics.PhaseIntegration.test_report_link_oserror_phase_and_cleanup) ... ok
+test_report_write_oserror_phase_and_cleanup (test_safe_diagnostics.PhaseIntegration.test_report_write_oserror_phase_and_cleanup) ... ok
+test_success_phase_sequence_keeps_inputs_unchanged (test_safe_diagnostics.PhaseIntegration.test_success_phase_sequence_keeps_inputs_unchanged) ... ok
+test_binding_error_keeps_safe_code (test_safe_diagnostics.SafeDiagnostics.test_binding_error_keeps_safe_code) ... ok
+test_binding_oserror_phase (test_safe_diagnostics.SafeDiagnostics.test_binding_oserror_phase) ... ok
+test_errno_type_not_coerced (test_safe_diagnostics.SafeDiagnostics.test_errno_type_not_coerced) ... ok
+test_errno_winerror_retained (test_safe_diagnostics.SafeDiagnostics.test_errno_winerror_retained) ... ok
+test_known_stage (test_safe_diagnostics.SafeDiagnostics.test_known_stage) ... ok
+test_module_function_name_normalized (test_safe_diagnostics.SafeDiagnostics.test_module_function_name_normalized) ... ok
+test_non_os_error_no_os_codes (test_safe_diagnostics.SafeDiagnostics.test_non_os_error_no_os_codes) ... ok
+test_private_exception_details_omitted (test_safe_diagnostics.SafeDiagnostics.test_private_exception_details_omitted) ... ok
+test_progress_rejects_unknown_phase (test_safe_diagnostics.SafeDiagnostics.test_progress_rejects_unknown_phase) ... ok
+test_runtime_values (test_safe_diagnostics.SafeDiagnostics.test_runtime_values) ... ok
+test_safe_trace_excludes_filename_source_and_locals (test_safe_diagnostics.SafeDiagnostics.test_safe_trace_excludes_filename_source_and_locals) ... ok
+test_stack_size_bounded (test_safe_diagnostics.SafeDiagnostics.test_stack_size_bounded) ... ok
+test_stage_whitelist (test_safe_diagnostics.SafeDiagnostics.test_stage_whitelist) ... ok
+test_unlisted_module_trace_omitted (test_safe_diagnostics.SafeDiagnostics.test_unlisted_module_trace_omitted) ... ok
+test_validation_phase_before_any_io (test_safe_diagnostics.SafeDiagnostics.test_validation_phase_before_any_io) ... ok
+test_version_marker (test_safe_diagnostics.SafeDiagnostics.test_version_marker) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 1.390s
+
+OK

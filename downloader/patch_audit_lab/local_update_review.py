@@ -32,7 +32,7 @@ def public_selection(tag):
             out['profile']={'platform':'Windows','architecture':'x86_64','region':'EU','locales':sorted(set(observed))}
     return out
 
-DIAGNOSTICS_VERSION='local-review-diag-2'
+DIAGNOSTICS_VERSION='local-review-diag-3'
 PHASES=frozenset(('start','select_lab','validate_arguments','bind_saved_checkpoint',
     'restore_watched_files','validate_saved_snapshot','read_saved_references',
     'load_pinned_metadata','verify_portable_fixture','open_readonly_databases',
@@ -235,6 +235,18 @@ def review(lab,audit_dir,*,portable=None,object_limit=256,preview_limit=128,byte
         return result,private
     finally:db.close()
 
+def publish_report_noreplace(temp,final):
+    """Same-directory publication; never replace an existing destination.
+
+    Windows os.rename uses a no-replace move, unlike POSIX rename. It does not
+    require filesystem hardlink support. Do not use os.replace or emulate this
+    with an existence check followed by an overwriting rename.
+    """
+    if sys.platform=='win32':
+        os.rename(temp,final)
+    else:
+        os.link(temp,final)
+
 def publish(lab,report,private,out,*,progress=lambda _:None):
     progress('prepare_report_output')
     out=source_check.output_path(lab,private,out)
@@ -257,7 +269,7 @@ def publish(lab,report,private,out,*,progress=lambda _:None):
         w.check()
         # Atomic no-replace publication inside the newly created report folder.
         progress('publish_report_noreplace')
-        os.link(temp,final);published=True
+        publish_report_noreplace(temp,final);published=True
         progress('postpublication_recheck')
         w.check()
     except BaseException:

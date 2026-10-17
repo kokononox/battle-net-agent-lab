@@ -1,0 +1,21 @@
+test_posix_keeps_link_not_overwriting_rename (test_windows_publication.Dispatch.test_posix_keeps_link_not_overwriting_rename) ... ok
+test_version_marker (test_windows_publication.Dispatch.test_version_marker) ... ok
+test_windows_error_is_not_retried_or_fallen_back (test_windows_publication.Dispatch.test_windows_error_is_not_retried_or_fallen_back) ... ok
+test_windows_existing_destination_error_propagates (test_windows_publication.Dispatch.test_windows_existing_destination_error_propagates) ... ok
+test_windows_uses_rename_not_hardlink (test_windows_publication.Dispatch.test_windows_uses_rename_not_hardlink) ... ok
+test_original_hardlink_error_signature_reproduced_on_linux (test_windows_publication.WindowsPublication.test_original_hardlink_error_signature_reproduced_on_linux) ... ok
+test_windows_change_after_rename_removes_published_report (test_windows_publication.WindowsPublication.test_windows_change_after_rename_removes_published_report) ... ok
+test_windows_changed_input_prevents_rename (test_windows_publication.WindowsPublication.test_windows_changed_input_prevents_rename) ... ok
+test_windows_existing_racing_destination_untouched (test_windows_publication.WindowsPublication.test_windows_existing_racing_destination_untouched) ... ok
+test_windows_game_tree_output_still_forbidden (test_windows_publication.WindowsPublication.test_windows_game_tree_output_still_forbidden) ... ok
+test_windows_lab_output_still_forbidden (test_windows_publication.WindowsPublication.test_windows_lab_output_still_forbidden) ... ok
+test_windows_rename_error_keeps_safe_diagnostics_and_cleans_pending (test_windows_publication.WindowsPublication.test_windows_rename_error_keeps_safe_diagnostics_and_cleans_pending) ... ok
+test_windows_report_directory_race_rejected (test_windows_publication.WindowsPublication.test_windows_report_directory_race_rejected) ... ok
+test_windows_sidecar_after_rename_removes_report (test_windows_publication.WindowsPublication.test_windows_sidecar_after_rename_removes_report) ... ok
+test_windows_storage_output_still_forbidden (test_windows_publication.WindowsPublication.test_windows_storage_output_still_forbidden) ... ok
+test_windows_success_while_hardlinks_forbidden (test_windows_publication.WindowsPublication.test_windows_success_while_hardlinks_forbidden) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 2.295s
+
+OK

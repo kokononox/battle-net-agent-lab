@@ -1,0 +1,46 @@
+{
+  "status": "stopped_safely",
+  "error_type": "FileNotFoundError",
+  "installation_ready": false,
+  "diagnostics_version": "local-review-diag-3",
+  "stage": "bind_saved_checkpoint",
+  "platform": "linux",
+  "python_version": [
+    3,
+    13,
+    14
+  ],
+  "errno": 2,
+  "safe_trace": [
+    {
+      "module": "__main__",
+      "function": "main",
+      "line": 292
+    },
+    {
+      "module": "__main__",
+      "function": "review",
+      "line": 156
+    },
+    {
+      "module": "source_binding",
+      "function": "bind",
+      "line": 171
+    },
+    {
+      "module": "source_binding",
+      "function": "safe",
+      "line": 39
+    },
+    {
+      "module": "pathlib._abc",
+      "function": "lstat",
+      "line": 437
+    },
+    {
+      "module": "pathlib._local",
+      "function": "stat",
+      "line": 515
+    }
+  ]
+}

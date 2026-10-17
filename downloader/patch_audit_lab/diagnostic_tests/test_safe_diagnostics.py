@@ -23,7 +23,7 @@ class SafeDiagnostics(unittest.TestCase):
   q=r.public_error(ValueError(SECRET));self.assertNotIn('errno',q);self.assertNotIn(SECRET,json.dumps(q))
  def test_binding_error_keeps_safe_code(self):self.assertEqual(r.public_error(b.BindingError('saved_file_fingerprint_changed'))['code'],'saved_file_fingerprint_changed')
  def test_runtime_values(self):q=r.public_error(error());self.assertEqual(len(q['python_version']),3);self.assertIn(q['platform'],('linux','win32','darwin','other'))
- def test_version_marker(self):self.assertEqual(r.public_error(error())['diagnostics_version'],'local-review-diag-2')
+ def test_version_marker(self):self.assertEqual(r.public_error(error())['diagnostics_version'],'local-review-diag-3')
  def raised(self,module,source):
   ns={'__name__':module,'error':error}
   try:exec(compile(source,SECRET,'exec'),ns)
@@ -99,7 +99,7 @@ class PhaseIntegration(unittest.TestCase):
   def fail(*args,**kw):kw['progress']('bind_saved_checkpoint');raise error()
   text=io.StringIO()
   with patch.dict(sys.modules,self.fake_tk(str(self.f.lab))),patch.object(r,'review',side_effect=fail),contextlib.redirect_stdout(text):code=launch.main()
-  self.assertEqual(code,1);self.assertNotIn(SECRET,text.getvalue());self.assertIn('local-review-diag-2',text.getvalue())
+  self.assertEqual(code,1);self.assertNotIn(SECRET,text.getvalue());self.assertIn('local-review-diag-3',text.getvalue())
   q=json.loads(next(x for x in text.getvalue().splitlines() if x.startswith('{')));self.assertEqual(q['stage'],'bind_saved_checkpoint');self.assertEqual(q['winerror'],123)
  def test_picker_cancel_does_no_review(self):
   text=io.StringIO()
