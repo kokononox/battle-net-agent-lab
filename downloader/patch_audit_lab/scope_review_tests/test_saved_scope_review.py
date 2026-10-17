@@ -80,8 +80,29 @@ class Parser(unittest.TestCase):
         with self.assertRaises(b.BindingError):parse(manifest(tags=[('X'*257,0,255)]))
     def test_controls_in_name(self):
         with self.assertRaises(b.BindingError):parse(manifest(tags=[('XX\n',0,255)]))
-    def test_nonzero_padding_rejected(self):
-        with self.assertRaises(b.BindingError):parse(manifest(n=7,tags=[('Windows',1,255)]))
+    def test_nonzero_padding_ignored_and_reported(self):
+        tags=[('Windows',1,255),('x86_64',2,255),('enUS',3,255),('EU',4,255)]
+        q=parse(manifest(n=7,tags=tags));self.assertEqual(q['diagnostic_selected_records'],7)
+        self.assertEqual(q['tags_with_nonzero_unused_padding_bits'],4)
+        self.assertEqual(q['nonzero_unused_padding_bits_ignored'],4)
+    def test_all_padding_widths_all_noise_values_preserve_real_bits(self):
+        for n in range(1,33):
+            pad=(-n)%8;valid=((1<<n)-1)<<pad
+            for noise in range(1<<pad):
+                tags=[(name,kind,valid|noise) for name,kind in [('Windows',1),('x86_64',2),('enUS',3),('EU',4)]]
+                q=parse(manifest(n=n,tags=tags));self.assertEqual(q['diagnostic_selected_records'],n)
+                self.assertEqual(q['nonzero_unused_padding_bits_ignored'],4*noise.bit_count())
+    def test_padding_noise_in_raw_hash_not_sanitized_before_hash(self):
+        digests=[]
+        for mask in (254,255):
+            tags=[(name,kind,mask) for name,kind in [('Windows',1),('x86_64',2),('enUS',3),('EU',4)]]
+            raw=manifest(n=7,tags=tags);r=s.ManifestReader(io.BytesIO(raw),len(raw),lambda:None)
+            q=s.parse_manifest(r,PROFILE);self.assertEqual(q['diagnostic_selected_records'],7)
+            self.assertEqual(r.md5.hexdigest(),hashlib.md5(raw).hexdigest());digests.append(r.md5.hexdigest())
+        self.assertNotEqual(*digests)
+    def test_padding_does_not_bypass_unknown_kind_guard(self):
+        with self.assertRaisesRegex(b.BindingError,'download_unknown_tag_kind_no_guess'):
+            parse(manifest(n=7,tags=[('UNKNOWN',6,255)]))
     def test_padding_not_counted(self):
         tags=[('Windows',1,254),('x86_64',2,254),('enUS',3,254),('EU',4,254)];self.assertEqual(parse(manifest(n=7,tags=tags))['diagnostic_selected_records'],7)
     def test_cancel_called(self):
@@ -132,6 +153,23 @@ class Integration(unittest.TestCase):
         (self.f.objects/'inventory-not-authoritative.sqlite').write_bytes(self.raw);q,_=self.review();self.assertEqual(q['status'],'bound_download_metadata_unavailable')
     def test_manifest_ckey_mismatch(self):
         self.path.write_bytes(self.raw[:-1]+bytes([self.raw[-1]^0x80]))
+        with self.assertRaisesRegex(b.BindingError,'saved_download_ckey_mismatch'):self.review()
+    def rebind_test_manifest(self,raw):
+        self.raw=raw;self.key=hashlib.md5(raw).hexdigest();self.path=self.f.objects/(self.key+'-'+str(len(raw))+'.decoded')
+        self.config_data['download'][0]=self.key;self.config_data['download-size'][0]=str(len(raw))
+        self.target['download_ckey']=self.key;self.bound_metadata[2]['download_ckey']=self.key
+        for path in (self.f.plan,self.f.queue,self.f.inv,self.f.ev):self.f.edit(path,'UPDATE metadata SET value=? WHERE name=?',(json.dumps(self.target),'target_binding'))
+    def test_padded_manifest_identity_verified_before_report_is_published(self):
+        tags=[('Windows',1,255),('x86_64',2,255),('enUS',3,255),('EU',4,255)]
+        self.rebind_test_manifest(manifest(n=7,tags=tags));self.path.write_bytes(self.raw)
+        q,private=self.review();self.assertTrue(q['download_metadata']['content_identity_revalidated'])
+        self.assertEqual(q['diagnostic_projection']['diagnostic_selected_records'],7)
+        self.assertEqual(q['diagnostic_projection']['tags_with_nonzero_unused_padding_bits'],4)
+        self.assertEqual(q['scope']['archive_payload_bytes_read'],0)
+        final=s.publish(q,private,self.root/'new');self.assertEqual(json.loads(final.read_text()),q)
+    def test_ignored_padding_still_checked_by_ckey(self):
+        tags=[('Windows',1,254),('x86_64',2,254),('enUS',3,254),('EU',4,254)]
+        self.rebind_test_manifest(manifest(n=7,tags=tags));self.path.write_bytes(self.raw[:-1]+b'\xff')
         with self.assertRaisesRegex(b.BindingError,'saved_download_ckey_mismatch'):self.review()
     def test_manifest_size_mismatch(self):
         self.path.write_bytes(self.raw+b'x')

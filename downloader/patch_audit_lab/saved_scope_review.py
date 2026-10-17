@@ -10,7 +10,7 @@ import argparse,hashlib,json,os,re,stat,time,uuid
 import installed_profile_probe as p
 import source_binding as b
 import patch_audit as a
-VERSION='saved-scope-review-1'
+VERSION='saved-scope-review-2'
 MAX_MANIFEST=256*1024**2
 MAX_RECORDS=10_000_000
 MAX_TAGS=4096
@@ -66,7 +66,7 @@ def parse_manifest(reader,profile,*,progress=lambda _:None):
         entry=r.read(es);b.need(entry[:16]!=bytes(16),'zero_download_ekey_unsupported')
     valid=((1<<n)-1)<<padding;union=[0]*4;chosen=[0]*4;found=[set() for _ in range(4)];seen=set()
     requested=({profile['platform']},{profile['architecture']},set(profile['locales']),{profile['region']})
-    optional=0;non_dimension=0;progress('project_download_tags')
+    optional=0;non_dimension=0;padding_tags=0;padding_ones=0;progress('project_download_tags')
     for ordinal in range(nt):
         r.check();name=bytearray()
         while True:
@@ -79,7 +79,12 @@ def parse_manifest(reader,profile,*,progress=lambda _:None):
         kind=int.from_bytes(r.read(2),'big');base=kind&~0x4000
         b.need((base,text) not in seen,'duplicate_or_optional_alias_download_tag');seen.add((base,text))
         optional+=bool(kind&0x4000);mask=int.from_bytes(r.read(width),'big')
-        b.need(not mask&((1<<padding)-1),'download_bitmap_nonzero_padding')
+        # Bitmap is ceil(n/8) bytes, MSB-first. Low padding bits name NO
+        # record. Hash the untouched raw bytes, but exclude padding from ALL
+        # union/chosen/selection operations, including complement logic.
+        noise=mask&((1<<padding)-1)
+        padding_tags+=bool(noise);padding_ones+=noise.bit_count()
+        mask &= valid
         expected=next((i+1 for i,values in enumerate(DIMENSIONS) if text in values),None)
         if expected is not None:b.need(base==expected,'download_known_tag_kind_conflict')
         if base in (1,2,3,4):
@@ -97,6 +102,11 @@ def parse_manifest(reader,profile,*,progress=lambda _:None):
     return {'format_version':version,'manifest_records':n,'manifest_tags':nt,
         'diagnostic_selected_records':selected.bit_count(),'diagnostic_unselected_records':n-selected.bit_count(),
         'selection_unit':'record_bits_NOT_unique_encoded_objects',
+        'unused_padding_bits_per_bitmap':padding,
+        'tags_with_nonzero_unused_padding_bits':padding_tags,
+        'nonzero_unused_padding_bits_ignored':padding_ones,
+        'unused_padding_bits_excluded_from_selection':True,
+        'content_identity_checked_over_unmodified_raw_bytes':True,
         'policy':'matching_or_unclassified_per_dimension;OR_locales;AND_dimensions',
         'optional_kind_bit_normalized_for_diagnostic_only':True,'tags_with_optional_kind_bit':optional,
         'non_dimension_tags_not_excluded':non_dimension,'requested_dimension_tags_all_present':True,
