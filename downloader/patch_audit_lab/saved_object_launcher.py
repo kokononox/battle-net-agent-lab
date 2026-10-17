@@ -8,6 +8,7 @@ def main():
     print('READ-ONLY: saved Lab metadata + TWO approved game metadata files.')
     print('Exact saved decoded Download metadata: at most TWO passes, <=256 MiB TOTAL.')
     print('ZERO archive payload reads; no network, scan restart, game/Lab writes.')
+    print('Encoded byte totals are metadata sizes ONLY, NOT required download or installed game size.')
     print('Private disposable SQLite: <=512 MiB, separate new output only; NOT a new inventory.')
     try:
         import tkinter as tk

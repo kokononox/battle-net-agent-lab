@@ -9,7 +9,7 @@ from collections import Counter
 import argparse,hashlib,json,os,re,shutil,sqlite3,time,uuid
 import saved_scope_review as s
 import source_binding as b
-VERSION='saved-object-review-2'
+VERSION='saved-object-review-3'
 MAX_METADATA_READ=256*1024**2
 MAX_WORK_DB_BYTES=512*1024**2
 WORK_CACHE_KIB=65536
@@ -129,6 +129,36 @@ def coordinate_ok(row,encoded,snapshot):
         and re.fullmatch(r'data\.[0-9]{3,}',name) is not None and name in files
         and type(archive_size)is int and archive_size==files[name][2]
         and offset+encoded<=archive_size)
+class EncodedSizes:
+    """Add only already-deduplicated EKeys; exact Python integer metadata sums."""
+    def __init__(self):
+        self.known_bytes=0;self.known_objects=0
+        self.bytes_by_state={k:0 for k in CATEGORIES}
+    def add(self,category,lo,hi):
+        b.need(category in CATEGORIES and type(lo)is int and type(hi)is int
+            and 0<=lo<=hi<2**40,'object_encoded_size_aggregation_shape')
+        if category in CATEGORIES[:2]:
+            self.bytes_by_state[category]=None
+        else:
+            b.need(0<lo==hi,'object_encoded_size_aggregation_shape')
+            self.known_bytes+=lo;self.known_objects+=1;self.bytes_by_state[category]+=lo
+    def finish(self,counts,total):
+        unresolved=counts[CATEGORIES[0]]+counts[CATEGORIES[1]]
+        b.need(sum(counts.values())==total and self.known_objects+unresolved==total and
+            sum(v for v in self.bytes_by_state.values() if v is not None)==self.known_bytes,
+            'object_encoded_byte_reconciliation')
+        return {'unit':'bytes','counting_unit':'one_full_EKey_once_NOT_record_multiplicity',
+            'size_source':'5_byte_encoded_size_in_CKey_and_SHA256_revalidated_Download',
+            'complete_for_selected_unique_ekeys':unresolved==0,
+            'total_selected_unique_encoded_bytes':self.known_bytes if unresolved==0 else None,
+            'known_consistent_positive_size_unique_ekeys':self.known_objects,
+            'known_consistent_positive_size_encoded_bytes':self.known_bytes,
+            'unresolved_unique_ekeys':unresolved,
+            'metadata_encoded_bytes_by_inventory_state':dict(self.bytes_by_state),
+            'metadata_sizes_NOT_verified_local_bytes_or_required_network_download_bytes':True,
+            'not_listed_encoded_bytes_are_NOT_required_download_bytes':True,
+            'archive_headers_padding_or_transfer_framing_not_added':True,
+            'decoded_install_size_computed':False}
 def join_inventory(db,private,watch,check,*,progress=lambda _:None):
     progress('join_saved_inventory');path=exact_inventory(private);b.attach(db,watch,path,'i')
     b.schema(db,'i','candidates',('id','ekey','archive_id','payload_offset','encoded_size'))
@@ -153,6 +183,9 @@ def join_inventory(db,private,watch,check,*,progress=lambda _:None):
     b.need(any(r[1]=='archive_id' and r[2].upper()=='INTEGER' and r[5]==1 for r in archive_cols),'object_archive_primary_key_required')
     index='"'+sorted(indexes)[0].replace('"','""')+'"'
     counts=Counter({k:0 for k in CATEGORIES});rows_seen=0;keys_with_aliases=0
+    # Python integers, never SQLite SUM/FLOAT: a large valid metadata total may
+    # exceed IEEE-754 exact integers or SQLite's signed 64-bit SUM.
+    sizes=EncodedSizes()
     # Objects already ordered by their private PK. At most 65 candidate rows
     # per lookup are ever materialized, never a source table-wide scan.
     query='''SELECT c.id,c.encoded_size,c.archive_id,c.payload_offset,a.name,a.size,a.ambiguous
@@ -171,16 +204,19 @@ def join_inventory(db,private,watch,check,*,progress=lambda _:None):
         elif not any(coordinate_ok(r,lo,private['local_storage_snapshot']) for r in rows):category=CATEGORIES[4]
         else:category=CATEGORIES[5]
         counts[category]+=1
+        sizes.add(category,lo,hi)
     check();watch.check()
     total=db.execute('SELECT count(*) FROM objects').fetchone()[0]
     b.need(sum(counts.values())==total,'object_inventory_category_reconciliation')
+    encoded_sizes=sizes.finish(counts,total)
     return {'unique_ekeys_by_metadata_state':dict(counts),'inventory_candidate_rows_examined':rows_seen,
         'unique_ekeys_with_multiple_inventory_candidates':keys_with_aliases,
         'inventory_is_saved_target_projected_candidates_NOT_complete_installed_object_inventory':True,
         'not_listed_means_unknown_NOT_missing_or_corrupt':True,
         'size_and_coordinates_are_saved_metadata_NOT_fresh_content_proof':True,
         'prior_evidence_success_flags_used':False,'encoded_bytes_verified':False,
-        'unique_encoded_size_total_computed':False,'required_network_download_bytes':None}
+        'unique_encoded_size_total_computed':encoded_sizes['complete_for_selected_unique_ekeys'],
+        'encoded_size_projection':encoded_sizes,'required_network_download_bytes':None}
 def run(lab,audit,game,out_new,*,cancel=lambda:False,progress=lambda _:None):
     start=time.monotonic();selection=[];stage=['start'];telemetry={}
     caller_progress=progress
@@ -212,9 +248,13 @@ def run(lab,audit,game,out_new,*,cancel=lambda:False,progress=lambda _:None):
                 b.need(b.fp(os.fstat(f.fileno()))==before,'object_manifest_changed')
             b.need(summary['selected_records']==report['diagnostic_projection']['diagnostic_selected_records'],'object_projection_count_conflict')
             watch.check();summary.update(join_inventory(db,private,watch,check,progress=progress))
+            b.need(sum(summary['unique_ekeys_by_metadata_state'].values())==summary['unique_ekeys'],
+                'object_join_unique_count_conflict')
             report['scope']['saved_download_metadata_bytes_read']+=reader.used
             report['object_projection']=summary;report['selected_unique_object_projection_computed']=True
             report['diagnostic_projection']['unique_objects_or_duplicate_size_consistency_computed']=True
+            report['diagnostic_projection']['selected_encoded_bytes_computed']=summary['unique_encoded_size_total_computed']
+            report['diagnostic_projection']['encoded_bytes_scope']='unique_selected_EKeys_metadata_only_see_object_projection_NOT_network_bytes'
             report['diagnostic_projection']['unique_object_consistency_scope']='selected_records_only_NOT_unselected_records_or_decoded_content'
             report['status']='bound_selected_unique_objects_inventory_projection_complete'
             private['watched_files']=[{'path':str(k),'fingerprint':v} for k,v in watch.files.items()]
