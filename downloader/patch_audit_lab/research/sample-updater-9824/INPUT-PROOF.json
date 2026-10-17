@@ -1,0 +1,80 @@
+{
+  "format": "retail-sample-input-proof-1",
+  "name_seed": {
+    "actual_user_installation_binding_proven": false,
+    "archive": 0,
+    "canonical_path": "c:/Games/World of Warcraft/Data",
+    "capacity": 1024,
+    "explicit_synthetic_inputs": true,
+    "format": "name-seed-ascii-model-1",
+    "installation_ready": false,
+    "reserved_keys": [
+      "0b00001aaed0ac3d869b3fc98e77f84d",
+      "0400001aaed0ac3d869b3fc98e77f84d",
+      "0500001aaed0ac3d869b3fc98e77f84d",
+      "0600001aaed0ac3d869b3fc98e77f84d",
+      "0700001aaed0ac3d869b3fc98e77f84d",
+      "0000001aaed0ac3d869b3fc98e77f84d",
+      "0100001aaed0ac3d869b3fc98e77f84d",
+      "0200001aaed0ac3d869b3fc98e77f84d",
+      "0300001aaed0ac3d869b3fc98e77f84d",
+      "0c00001aaed0ac3d869b3fc98e77f84d",
+      "0d00001aaed0ac3d869b3fc98e77f84d",
+      "0e00001aaed0ac3d869b3fc98e77f84d",
+      "0f00001aaed0ac3d869b3fc98e77f84d",
+      "0800001aaed0ac3d869b3fc98e77f84d",
+      "0900001aaed0ac3d869b3fc98e77f84d",
+      "0a00001aaed0ac3d869b3fc98e77f84d"
+    ],
+    "seed": "13c12f1aaed0ac3d869b3fc98e77f84d",
+    "windows_agent_process_executed": false
+  },
+  "portable_manifest_sha256": "e5bcc0b8015b67df91760cf2a9be64836a61f2da01b14492605fb4171a6a9882",
+  "portable_root": "/vercel/sandbox/data/retail-release-extracted/Portable-Retail-Sample",
+  "portable_verification": {
+    "encoding_options": [
+      {
+        "chunk_integrity_verified": true,
+        "ekey": "faedca88d0a0ab30dae5519239582d31",
+        "encoded_output_written": false,
+        "encoded_size": 158,
+        "espec": "b:{256K*=z}",
+        "espec_index": 316575,
+        "exact_target_ekey_reproduced": true,
+        "generated_ekey": "faedca88d0a0ab30dae5519239582d31",
+        "generated_encoded_size": 158,
+        "generated_sha256": "73bb9f2ec6c3dba2dbe61d5aa7e5bd4560f0d96c53972adb7472894d4f69b364",
+        "reencode_attempted": true,
+        "roundtrip_ckey": "3d42bf2e42127f313b0ec64cb440cde9",
+        "status": "exact_encoding_identity_and_roundtrip_verified"
+      }
+    ],
+    "encoding_proof": {
+      "all_page_semantics_reparsed": false,
+      "encoding_ckey": "8d0576391f8e80ce55940381fc3f674a",
+      "encoding_sha256": "d0b05b71a535df002ff30841652d207bac252b76ff46f1cf7c6cd9205bb4df38",
+      "encoding_size": 200255318,
+      "encoding_tail_not_semantically_parsed_bytes": 64,
+      "full_metadata_hash_bytes_read": 200255318,
+      "index_keys_order_verified": true,
+      "lookup_metadata_bytes_read": 17467158,
+      "selected_page_hashes_verified": true,
+      "selected_unique_pages": 2,
+      "whole_decoded_encoding_ckey_verified": true
+    },
+    "files_written": 0,
+    "format": "portable-retail-reproduction-1",
+    "installation_ready": false,
+    "network_requests": 0,
+    "patch_hash_verified": true,
+    "source_full_ekey_verified": true,
+    "status": "source_patch_target_and_encoding_verified",
+    "target_ckey": "3d42bf2e42127f313b0ec64cb440cde9",
+    "target_sha256": "3818ed3b407ad07a407fb104a65c03ab39f8a89e86937ea4e261e26b99c71bd9",
+    "user_lab_available": false,
+    "whole_user_lab_consistency_verified_here": false,
+    "zlib_runtime_version": "1.2.11"
+  },
+  "remote_download_performed": false,
+  "source_ckey_is_derived_not_independent": true
+}
