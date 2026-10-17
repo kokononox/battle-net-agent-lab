@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-17T18:07:41.135565+00:00",
+  "as_of_utc": "2026-10-17T18:20:06.044689+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "downloader": {
     "release": "WoW-Update-Scope-Preview-TagFix",
@@ -76,7 +76,7 @@
     "hardware_field_transmission_proven": false,
     "historical_binary_findings_reverified_in_this_sync": false
   },
-  "user_action_now": "Run Install-Download-Coverage-1 outside game/Lab; confirm read-only scope and select existing Lab. One exact saved Download metadata pass <=74,562,151 bytes; no Encoding, inventory, game/archive reads, network, rescan or game/Lab writes. Share new coverage JSON only.",
+  "user_action_now": "Await explicit scoped permission for a single tiny read-only payload proof. Archive payload budget remains ZERO. Do not rerun metadata helpers or scans. No network/game/Lab writes.",
   "sync_scope": "structured source, sanitized research receipts and handoff; no raw transcripts, PRIVATE, credentials or user installation paths. Original portable fixture and companion are already verified private release assets.",
   "patch_audit_20261016": {
     "branch": "patch-audit-20261016",
@@ -348,8 +348,8 @@
     "archive_cache_new_tests": 61,
     "archive_cache_installation_ready": false
   },
-  "latest_checkpoint": "docs/SESSION-INSTALL-ENCODING-CHECKPOINT-2026-10-17.fa.md",
-  "historical_sections_notice": "Older downloader, telemetry, github_experiment, patch_audit and install_metadata figures are retained historical evidence, NOT reverified by this sync. Use latest_checkpoint and install_encoding_checkpoint for current scope.",
+  "latest_checkpoint": "docs/SESSION-INSTALL-DOWNLOAD-CHECKPOINT-2026-10-17.fa.md",
+  "historical_sections_notice": "Older figures and the prior graph are historical. Use latest_checkpoint and install_download_checkpoint for the reconciled metadata-chain state; this does not revalidate current local payloads/profile.",
   "install_metadata_checkpoint": {
     "status": "verified_exact_install_metadata",
     "receipt": "research/session-checkpoint-20261017/install-fetch/FETCH-RECEIPT.json",
@@ -389,7 +389,7 @@
     "new_tool_version": "install-download-coverage-1",
     "new_tool_tests": 40,
     "identity_regression_tests": 69,
-    "real_download_coverage_run_complete": false,
+    "real_download_coverage_run_complete": true,
     "archive_payload_read_budget_bytes": 0,
     "game_or_lab_writes_authorized": false,
     "vendor_install_policy_proven": false,
@@ -400,5 +400,34 @@
     "required_network_download_bytes": null,
     "evidence_directory": "research/install-reference-links-20261017",
     "graph": "docs/UPDATER-DEPENDENCIES.mmd"
+  },
+  "install_download_checkpoint": {
+    "format": "offline-install-download-chain-checkpoint-1",
+    "source_sha256": "f4b91c20c9058249d0561ffe3ee04ada1a6c446cf4e8ca03c817ab438d2d6097",
+    "encoding_report_sha256": "3cb4c99b4f45e2de37000132cfb622c5741c0d71de4b53f8b286a42d000c4c52",
+    "pinned_target": "12.1.5.70391",
+    "serialized_install_records_preserved": 274,
+    "unique_ckeys": 180,
+    "unique_ekeys": 180,
+    "single_download_record_per_ekey": true,
+    "install_ckey_group_tag_union_matches_download": 180,
+    "exploratory_historical_profile_intersection_NOT_required_install_set": 39,
+    "negative_validation_cases_rejected": 7,
+    "profile_resolution": "Generic nested-JSON profiler rows/duplicates are containers, not records. Normalized grain: one unique EKey; no nulls/duplicates.",
+    "comparison_plan": [
+      {
+        "finding": "All pinned metadata references close and their tag unions agree",
+        "disposition": "prose",
+        "reason": "One exact coverage result, not a numeric trend or progress percentage."
+      }
+    ],
+    "assistant_activity": "Uploaded reports plus existing pinned Install metadata only. No game/Lab/archive/network access.",
+    "hash_verification_limit": "Download and Encoding raw caches were not available here; their successful hash checks are user-report observations, not independently repeated reads.",
+    "installation_ready": false,
+    "apply_authorized": false,
+    "vendor_install_policy_proven": false,
+    "fresh_local_content_verified": false,
+    "required_network_download_bytes": null,
+    "archive_payload_read_budget_bytes": 0
   }
 }
