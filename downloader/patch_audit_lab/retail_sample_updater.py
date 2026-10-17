@@ -101,7 +101,7 @@ def export(root,out):
 
 def main():
  p=argparse.ArgumentParser(description=__doc__);subs=p.add_subparsers(dest='mode',required=True)
- for mode in ('init','status','plan','update','export'):
+ for mode in ('init','status','plan','build-plan','update','export'):
   q=subs.add_parser(mode);q.add_argument('--workspace',type=Path,required=True)
   if mode=='init':
    q.add_argument('--portable',type=Path,required=True)
@@ -110,7 +110,10 @@ def main():
   if mode=='export':q.add_argument('--out-new',type=Path,required=True)
  x=p.parse_args()
  try:
-  if x.mode=='init':result=init(x.portable,x.workspace,[getattr(x,n+'_oracle') for n in ROLES])
+  if x.mode=='build-plan':
+   import build_update_plan
+   result=build_update_plan.workspace_plan(x.workspace)
+  elif x.mode=='init':result=init(x.portable,x.workspace,[getattr(x,n+'_oracle') for n in ROLES])
   elif x.mode=='update':result=update(x.workspace,x.test_exit_after)
   elif x.mode=='export':result=export(x.workspace,x.out_new)
   else:result=globals()[x.mode](x.workspace)

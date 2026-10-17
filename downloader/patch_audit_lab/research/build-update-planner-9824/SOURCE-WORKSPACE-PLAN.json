@@ -1,0 +1,62 @@
+{
+  "format": "readonly-update-decision-plan-1",
+  "target": {
+    "build_config": "334a36cf5f3c32a5f7a167405487fa14",
+    "cdn_config": "fcab7fec2ccc6b8158b56b6938ec4551",
+    "version": "12.1.5.70391",
+    "product": "wow",
+    "region": "eu"
+  },
+  "scope": {
+    "kind": "owned_sample_workspace_single_pair",
+    "source_inventory": "owned_research_cycle_not_game_installation",
+    "fresh_native_lookup_and_direct_read_gate": true
+  },
+  "target_objects_evaluated": 1,
+  "duplicate_target_rows_ignored": 0,
+  "actions": {
+    "patch": 1
+  },
+  "rows": [
+    {
+      "target_ekey": "faedca88d0a0ab30dae5519239582d31",
+      "target_ckey": "3d42bf2e42127f313b0ec64cb440cde9",
+      "encoded_size": 158,
+      "decoded_size": 33940,
+      "local_state": "unknown",
+      "patch_options": 1,
+      "patch_diagnostics": {},
+      "apply_authorized": false,
+      "conditional_full_fallback_bytes": null,
+      "selected_patch": {
+        "source_ekey": "914fcad4f4fcf4abb0ba52b197bb066f",
+        "source_size": 33940,
+        "patch_key": "5b933d49c411cc964fe009a18d6c2af9",
+        "patch_size": 117,
+        "ordinal": 0
+      },
+      "patch_already_verified_locally": true,
+      "action": "patch",
+      "reason": "supported_pinned_edge_smaller_or_only_supported_route",
+      "conditional_payload_bytes": 0
+    }
+  ],
+  "rows_omitted": 0,
+  "unresolved_objects": 0,
+  "known_payload_bytes_before_shared_object_dedup": 0,
+  "known_unique_transfer_objects": 0,
+  "known_unique_payload_bytes_subtotal": 0,
+  "conditional_payload_bytes": 0,
+  "required_network_download_bytes": null,
+  "http_availability_tested": false,
+  "bytes_model": "encoded_or_patch_object_bodies_only;no_HTTP_overhead;no_fallback_reserve",
+  "selection_policy": "per_target_minimum_supported_cost;not_global_shared_patch_optimization",
+  "not_found_means_missing_or_corrupt": false,
+  "apply_authorized": false,
+  "full_game_build_plan": false,
+  "installed_build_detected": false,
+  "network_requests": 0,
+  "input_files_modified": false,
+  "installation_ready": false,
+  "target_published": false
+}

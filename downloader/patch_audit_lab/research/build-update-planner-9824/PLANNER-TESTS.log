@@ -1,0 +1,57 @@
+test_bad_key (test_build_update_plan.Decisions.test_bad_key) ... ok
+test_bad_preview_limit (test_build_update_plan.Decisions.test_bad_preview_limit) ... ok
+test_boolean_size_rejected (test_build_update_plan.Decisions.test_boolean_size_rejected) ... ok
+test_candidate_not_reused (test_build_update_plan.Decisions.test_candidate_not_reused) ... ok
+test_decoded_not_encoded (test_build_update_plan.Decisions.test_decoded_not_encoded) ... ok
+test_decoded_source_not_patch (test_build_update_plan.Decisions.test_decoded_source_not_patch) ... ok
+test_deterministic_patch_choice (test_build_update_plan.Decisions.test_deterministic_patch_choice) ... ok
+test_duplicate_target_conflict (test_build_update_plan.Decisions.test_duplicate_target_conflict) ... ok
+test_duplicate_target_dedup (test_build_update_plan.Decisions.test_duplicate_target_dedup) ... ok
+test_empty_selection (test_build_update_plan.Decisions.test_empty_selection) ... ok
+test_fresh_reuse (test_build_update_plan.Decisions.test_fresh_reuse) ... ok
+test_full_when_patch_not_supported (test_build_update_plan.Decisions.test_full_when_patch_not_supported) ... ok
+test_local_patch_zero (test_build_update_plan.Decisions.test_local_patch_zero) ... ok
+test_no_production_claims (test_build_update_plan.Decisions.test_no_production_claims) ... ok
+test_no_route_unknown (test_build_update_plan.Decisions.test_no_route_unknown) ... ok
+test_patch_route_missing (test_build_update_plan.Decisions.test_patch_route_missing) ... ok
+test_patch_smaller (test_build_update_plan.Decisions.test_patch_smaller) ... ok
+test_preview_not_evaluation_limit (test_build_update_plan.Decisions.test_preview_not_evaluation_limit) ... ok
+test_prior_source_not_patch (test_build_update_plan.Decisions.test_prior_source_not_patch) ... ok
+test_prior_target_not_reused (test_build_update_plan.Decisions.test_prior_target_not_reused) ... ok
+test_reuse_zero (test_build_update_plan.Decisions.test_reuse_zero) ... ok
+test_same_patch_key_size_conflict (test_build_update_plan.Decisions.test_same_patch_key_size_conflict) ... ok
+test_unknown_source_not_patch (test_build_update_plan.Decisions.test_unknown_source_not_patch) ... ok
+test_unknown_total_not_subtotal (test_build_update_plan.Decisions.test_unknown_total_not_subtotal) ... ok
+test_unmapped_not_transferred (test_build_update_plan.Decisions.test_unmapped_not_transferred) ... ok
+test_unproven_patch_not_executable (test_build_update_plan.Decisions.test_unproven_patch_not_executable) ... ok
+test_wrong_capability_edge (test_build_update_plan.Decisions.test_wrong_capability_edge) ... ok
+test_wrong_capability_encoding (test_build_update_plan.Decisions.test_wrong_capability_encoding) ... ok
+test_wrong_patch_target (test_build_update_plan.Decisions.test_wrong_patch_target) ... ok
+test_zero_size_rejected (test_build_update_plan.Decisions.test_zero_size_rejected) ... ok
+test_binding_conflict (test_build_update_plan.SavedAdapter.test_binding_conflict) ... ok
+test_bound_limit (test_build_update_plan.SavedAdapter.test_bound_limit) ... ok
+test_duplicate_ekey (test_build_update_plan.SavedAdapter.test_duplicate_ekey) ... ok
+test_invalid_limit (test_build_update_plan.SavedAdapter.test_invalid_limit) ... ok
+test_readonly (test_build_update_plan.SavedAdapter.test_readonly) ... ok
+test_sidecar_rejected (test_build_update_plan.SavedAdapter.test_sidecar_rejected) ... ok
+test_summary_conflict (test_build_update_plan.SavedAdapter.test_summary_conflict) ... ok
+test_symlink_rejected (test_build_update_plan.SavedAdapter.test_symlink_rejected) ... ok
+test_unknown_sources_not_missing (test_build_update_plan.SavedAdapter.test_unknown_sources_not_missing) ... ok
+test_uses_saved_plan_route (test_build_update_plan.SavedAdapter.test_uses_saved_plan_route) ... ok
+test_wrong_plan_id (test_build_update_plan.SavedAdapter.test_wrong_plan_id) ... ok
+test_cli_bad_input_safe (test_build_update_plan.Workspace.test_cli_bad_input_safe) ... ok
+test_committed_workspace_real_gate_readonly (test_build_update_plan.Workspace.test_committed_workspace_real_gate_readonly) ... <frozen importlib._bootstrap>:488: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fe9e78b05e0>
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<frozen importlib._bootstrap>:488: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fe9e78b14e0>
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<frozen importlib._bootstrap>:488: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fe9e78b18a0>
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<frozen importlib._bootstrap>:488: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fe9e78b15d0>
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_source_workspace_real_gate_readonly (test_build_update_plan.Workspace.test_source_workspace_real_gate_readonly) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 0.296s
+
+OK
