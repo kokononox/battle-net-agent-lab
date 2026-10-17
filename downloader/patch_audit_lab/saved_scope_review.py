@@ -11,7 +11,8 @@ import argparse,hashlib,json,os,re,stat,time,uuid
 import installed_profile_probe as p
 import source_binding as b
 import patch_audit as a
-VERSION='saved-scope-review-3'
+import pinned_download_model as model
+VERSION='saved-scope-review-4'
 MAX_MANIFEST=256*1024**2
 MAX_RECORDS=10_000_000
 MAX_TAGS=4096
@@ -19,7 +20,7 @@ MAX_BITMAP_STATE=48*1024**2
 TIME_LIMIT=300
 DIMENSIONS=(p.PLATFORMS,p.ARCHITECTURES,p.LOCALES,p.REGIONS)
 PHASES={'start','read_installed_identity','bind_saved_snapshot','bind_selected_storage',
-        'locate_saved_download','validate_download_records','project_download_tags',
+        'locate_saved_download','validate_download_records','project_download_tags','verify_pinned_download_model',
         'final_input_recheck','prepare_report_output','write_pending_report',
         'publish_report_noreplace','postpublication_recheck','complete'}
 class Progress:
@@ -43,7 +44,7 @@ class ManifestReader:
         raw=self.f.read(n);b.need(len(raw)==n,'download_manifest_truncated')
         self.used+=n;self.md5.update(raw);self.sha.update(raw);return raw
 
-def parse_manifest(reader,profile,*,progress=lambda _:None,observe_unresolved=False):
+def parse_manifest(reader,profile,*,progress=lambda _:None,observe_unresolved=False,pinned_model=None):
     """Single sequential metadata pass, bounded bitmap state, no object DB.
 
     Optional high-bit 0x4000 is normalized for this DIAGNOSTIC only. Unknown
@@ -53,7 +54,7 @@ def parse_manifest(reader,profile,*,progress=lambda _:None,observe_unresolved=Fa
     # Observation mode never authorizes an unknown tag. It consumes the
     # complete structurally valid manifest so the caller can verify raw CKey,
     # then publish a schema diagnostic with NO record selection if unresolved.
-    blockers=set();observations=[]
+    blockers=set();observations=[];raw_catalogue=[]
     def block(code):
         if not observe_unresolved:raise b.BindingError(code)
         blockers.add(code)
@@ -84,7 +85,7 @@ def parse_manifest(reader,profile,*,progress=lambda _:None,observe_unresolved=Fa
         try:text=name.decode('utf-8')
         except UnicodeError:raise b.BindingError('download_tag_encoding') from None
         b.need(text and all(ord(c)>=32 and ord(c)!=127 for c in text),'download_tag_name_invalid')
-        kind=int.from_bytes(r.read(2),'big');base=kind&~0x4000
+        kind=int.from_bytes(r.read(2),'big');base=kind&~0x4000;raw_catalogue.append((text,kind))
         b.need((base,text) not in seen,'duplicate_or_optional_alias_download_tag');seen.add((base,text))
         optional+=bool(kind&0x4000);mask=int.from_bytes(r.read(width),'big')
         # Bitmap is ceil(n/8) bytes, MSB-first. Low padding bits name NO
@@ -93,9 +94,13 @@ def parse_manifest(reader,profile,*,progress=lambda _:None,observe_unresolved=Fa
         noise=mask&((1<<padding)-1)
         padding_tags+=bool(noise);padding_ones+=noise.bit_count()
         mask &= valid
-        expected=next((i+1 for i,values in enumerate(DIMENSIONS) if text in values),None)
+        expected=pinned_model.kind_for(text) if pinned_model is not None else next((i+1 for i,values in enumerate(DIMENSIONS) if text in values),None)
         issue=None
-        if expected is not None and base!=expected:issue='download_known_tag_kind_conflict'
+        if pinned_model is not None:
+            # PROVISIONAL until full raw identity/header/catalogue checks below.
+            # Do not mutate generic dimension/locale/architecture whitelists.
+            if (text,kind) not in pinned_model.tags:issue='pinned_model_tag_catalogue_mismatch'
+        elif expected is not None and base!=expected:issue='download_known_tag_kind_conflict'
         elif base in (1,2,3,4) and text not in DIMENSIONS[base-1]:issue='download_unknown_dimension_tag_no_guess'
         elif base not in (0,1,2,3,4):issue='download_unknown_tag_kind_no_guess'
         if issue is not None:block(issue)
@@ -113,6 +118,13 @@ def parse_manifest(reader,profile,*,progress=lambda _:None,observe_unresolved=Fa
                  'kind_raw':kind,'kind_without_optional_bit':base,'kind_expected_by_current_model':expected,
                  'member_records_excluding_padding':mask.bit_count(),'model_issue':issue})
     b.need(r.used==r.size,'download_manifest_trailing_bytes')
+    if pinned_model is not None:
+        progress('verify_pinned_download_model');r.check()
+        b.need(r.size==pinned_model.decoded_bytes,'pinned_model_size_mismatch')
+        b.need(version==pinned_model.format_version and n==pinned_model.manifest_records,'pinned_model_header_mismatch')
+        b.need(tuple(raw_catalogue)==pinned_model.tags,'pinned_model_tag_catalogue_mismatch')
+        b.need(r.md5.hexdigest()==pinned_model.ckey,'pinned_model_ckey_mismatch')
+        b.need(r.sha.hexdigest()==pinned_model.sha256,'pinned_model_sha256_mismatch')
     if not all(found[i]==requested[i] for i in range(4)):block('download_requested_tag_absent_no_fallback')
     selected=valid
     for u,c in zip(union,chosen):selected &= c | (valid ^ u)
@@ -122,6 +134,13 @@ def parse_manifest(reader,profile,*,progress=lambda _:None,observe_unresolved=Fa
         'diagnostic_selected_records':selected.bit_count() if supported else None,
         'diagnostic_unselected_records':n-selected.bit_count() if supported else None,
         'selection_model_supported':supported,
+        'selected_record_bitmap_sha256':hashlib.sha256(selected.to_bytes(width,'big')).hexdigest() if supported else None,
+        'pinned_tag_model':None if pinned_model is None else {
+            'identity':pinned_model.identity,'raw_identity_header_and_ordered_catalogue_revalidated':True,
+            'kind5_tags_not_used_for_exclusion':['speech','text'],
+            'optional_category_tags_not_used_for_exclusion':['Alternate','HighRes','Talebound'],
+            'arm64_label_recognized_only_as_exact_catalogue_alternative_not_installed_ARM64_alias':True,
+            'policy_is_conservative_record_projection_NOT_vendor_install_selection':True},
         'tag_schema':{'model_supported':supported,'blockers':sorted(blockers),'observed_tags':observations,
                       'unresolved_tags_not_silently_ignored':True,'record_selection_emitted':supported},
         'selection_unit':'record_bits_NOT_unique_encoded_objects',
@@ -194,7 +213,7 @@ def review(lab,audit,game,*,cancel=lambda:False,progress=lambda _:None):
         with path.open('rb') as f:
             b.need(b.fp(os.fstat(f.fileno()))==before,'saved_download_changed')
             reader=ManifestReader(f,size,checked)
-            projection=parse_manifest(reader,installed['profile'],progress=progress,observe_unresolved=True)
+            projection=parse_manifest(reader,installed['profile'],progress=progress,observe_unresolved=True,pinned_model=model.for_ckey(keys[0]))
             b.need(reader.md5.hexdigest()==keys[0],'saved_download_ckey_mismatch')
             b.need(b.fp(os.fstat(f.fileno()))==before,'saved_download_changed')
         w.check();report['download_metadata'].update(status='decoded_content_identity_revalidated',content_identity_revalidated=True,sha256=reader.sha.hexdigest())
