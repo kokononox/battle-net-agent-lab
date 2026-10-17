@@ -1,0 +1,36 @@
+test_allocator_trap_not_success (test_agent_archive_insert.InsertTests.test_allocator_trap_not_success) ... ok
+test_archive1023_rejected (test_agent_archive_insert.InsertTests.test_archive1023_rejected) ... ok
+test_collision_chain_reuse (test_agent_archive_insert.InsertTests.test_collision_chain_reuse) ... ok
+test_default_share7 (test_agent_archive_insert.InsertTests.test_default_share7) ... ok
+test_empty_read_no_open (test_agent_archive_insert.InsertTests.test_empty_read_no_open) ... ok
+test_exact_read_accepted (test_agent_archive_insert.InsertTests.test_exact_read_accepted) ... ok
+test_fast_read_share1 (test_agent_archive_insert.InsertTests.test_fast_read_share1) ... ok
+test_formatter_guard (test_agent_archive_insert.InsertTests.test_formatter_guard) ... ok
+test_four_archives (test_agent_archive_insert.InsertTests.test_four_archives) ... ok
+test_lru_moves_back (test_agent_archive_insert.InsertTests.test_lru_moves_back) ... ok
+test_missing_file_does_not_create (test_agent_archive_insert.InsertTests.test_missing_file_does_not_create) ... ok
+test_open_error2_then_retry (test_agent_archive_insert.InsertTests.test_open_error2_then_retry) ... ok
+test_open_error32_maps24 (test_agent_archive_insert.InsertTests.test_open_error32_maps24) ... ok
+test_open_error5_maps8_then_retry (test_agent_archive_insert.InsertTests.test_open_error5_maps8_then_retry) ... ok
+test_open_error_on_cache_hit_is_not_called (test_agent_archive_insert.InsertTests.test_open_error_on_cache_hit_is_not_called) ... ok
+test_original_cache_reference (test_agent_archive_insert.InsertTests.test_original_cache_reference) ... ok
+test_oversized_request_rejected (test_agent_archive_insert.InsertTests.test_oversized_request_rejected) ... ok
+test_read_eof_success_is_not_exact (test_agent_archive_insert.InsertTests.test_read_eof_success_is_not_exact) ... ok
+test_read_error_then_reuse (test_agent_archive_insert.InsertTests.test_read_error_then_reuse) ... ok
+test_read_error_third_only (test_agent_archive_insert.InsertTests.test_read_error_third_only) ... ok
+test_reuse_after_miss (test_agent_archive_insert.InsertTests.test_reuse_after_miss) ... ok
+test_second_archive_open_failure_keeps_first (test_agent_archive_insert.InsertTests.test_second_archive_open_failure_keeps_first) ... ok
+test_segment_boundary_rejected (test_agent_archive_insert.InsertTests.test_segment_boundary_rejected) ... ok
+test_short_read_success_is_not_exact (test_agent_archive_insert.InsertTests.test_short_read_success_is_not_exact) ... ok
+test_single_miss (test_agent_archive_insert.InsertTests.test_single_miss) ... ok
+test_symlink_rejected (test_agent_archive_insert.InsertTests.test_symlink_rejected) ... ok
+test_too_many_reads_rejected (test_agent_archive_insert.InsertTests.test_too_many_reads_rejected) ... ok
+test_two_archives_alternating (test_agent_archive_insert.InsertTests.test_two_archives_alternating) ... ok
+test_unmarked_directory_rejected (test_agent_archive_insert.InsertTests.test_unmarked_directory_rejected) ... ok
+test_write_request_is_denied (test_agent_archive_insert.InsertTests.test_write_request_is_denied) ... ok
+test_wrong_marker_rejected (test_agent_archive_insert.InsertTests.test_wrong_marker_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.117s
+
+OK

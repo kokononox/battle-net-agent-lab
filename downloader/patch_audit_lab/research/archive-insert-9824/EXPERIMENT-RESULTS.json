@@ -1,0 +1,31 @@
+{
+  "format": "archive-insert-experiments-1",
+  "input_kind": "deterministic synthetic byte fixtures, NOT the uploaded Retail fixture",
+  "stats": {
+    "cases": 1024,
+    "reads_requested": 4096,
+    "status_zero": 3200,
+    "exact_success": 3020,
+    "status_nonzero": 896,
+    "success_but_inexact": 180
+  },
+  "all_model_comparisons_passed": true,
+  "fixture_unchanged": true,
+  "fixture_sha256": {
+    ".archive-insert-research.json": "9cbc1502a6d07a0ad23dd1a34136538e9ae080342b6d0b4cfc081c6bbc50211e",
+    "data.000": "4cc82819dba9f201683a00a3fc5c453e092b1ffa74c7ce1bc7575870e1fdb018",
+    "data.003": "87d4b18dadb1b65302cf0655a322e29ebfd405da54abe689f09694aca6629d51",
+    "data.004": "1adee7b8ec57c31f404e646b146ecd174b50d65101527c492978cab3909491dc",
+    "data.1022": "ec7b59ae3936e06343c25a1843f18c1298f7c442e542d39f043ca9b6a7764f39"
+  },
+  "matrix_sha256": "8ba4a4c2808903fb6327fc52d69e7d88b003f279aad19704352291125d6c3661",
+  "oracle_sha256": "96ca504219dbe658d9e958636543c42142c8f1b48968765c85f295e1c09f812d",
+  "original_code_bytes": 3356,
+  "original_fragment_count": 31,
+  "original_constructor_and_hash_insertion": true,
+  "whole_agent_executed": false,
+  "windows_executed": false,
+  "retail_fixture_tested_this_session": false,
+  "historical_full_suite_rerun": false,
+  "installation_ready": false
+}
