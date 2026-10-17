@@ -1,0 +1,209 @@
+{
+  "format": "agent-archive-io-experiments-1",
+  "matrix": {
+    "vectors": 1735,
+    "successful_status": 458,
+    "range_reject": 835,
+    "open_error": 240,
+    "read_error": 202,
+    "short_success": 359
+  },
+  "all_native_model_equal": true,
+  "observations": {
+    "archive_1023_rejected_before_open": true,
+    "archive_1022_accepted": true,
+    "primitive_high_address_alias_observed": true,
+    "short_read_returns_success_status": true,
+    "short_read_actual_count": 4,
+    "read_error5_maps_to8": true,
+    "open_error7_preserved": true,
+    "error38_is_success_zero_bytes_in_this_adapter": true
+  },
+  "real_object_readbacks": [
+    {
+      "format": "agent-archive-io-bridge-1",
+      "archive": 0,
+      "absolute_address": 480,
+      "filename": "data.000",
+      "span": 188,
+      "payload_offset": 510,
+      "encoded_sha256": "da33846ae72275215419174a0a38d8f4a8617b5d872420919f22c89648c01e5e",
+      "decoded_bytes": 33940,
+      "decoded_md5": "98ad7b81687304aa0e99cf326200adfe",
+      "original_archive_read_chain_executed": true,
+      "original_header_and_getters_executed": true,
+      "original_open_manager_executed": false,
+      "os_boundary": "ReadFile adapted to Linux pread64 on explicit read-only descriptor",
+      "decode_implementation": "independent Python",
+      "windows_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        480,
+        188
+      ]
+    },
+    {
+      "format": "agent-archive-io-bridge-1",
+      "archive": 0,
+      "absolute_address": 668,
+      "filename": "data.000",
+      "span": 188,
+      "payload_offset": 698,
+      "encoded_sha256": "73bb9f2ec6c3dba2dbe61d5aa7e5bd4560f0d96c53972adb7472894d4f69b364",
+      "decoded_bytes": 33940,
+      "decoded_md5": "3d42bf2e42127f313b0ec64cb440cde9",
+      "original_archive_read_chain_executed": true,
+      "original_header_and_getters_executed": true,
+      "original_open_manager_executed": false,
+      "os_boundary": "ReadFile adapted to Linux pread64 on explicit read-only descriptor",
+      "decode_implementation": "independent Python",
+      "windows_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        668,
+        188
+      ]
+    },
+    {
+      "format": "agent-archive-io-bridge-1",
+      "archive": 3,
+      "absolute_address": 3221225952,
+      "filename": "data.003",
+      "span": 188,
+      "payload_offset": 510,
+      "encoded_sha256": "da33846ae72275215419174a0a38d8f4a8617b5d872420919f22c89648c01e5e",
+      "decoded_bytes": 33940,
+      "decoded_md5": "98ad7b81687304aa0e99cf326200adfe",
+      "original_archive_read_chain_executed": true,
+      "original_header_and_getters_executed": true,
+      "original_open_manager_executed": false,
+      "os_boundary": "ReadFile adapted to Linux pread64 on explicit read-only descriptor",
+      "decode_implementation": "independent Python",
+      "windows_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        3221225952,
+        188
+      ]
+    },
+    {
+      "format": "agent-archive-io-bridge-1",
+      "archive": 3,
+      "absolute_address": 3221226140,
+      "filename": "data.003",
+      "span": 188,
+      "payload_offset": 698,
+      "encoded_sha256": "73bb9f2ec6c3dba2dbe61d5aa7e5bd4560f0d96c53972adb7472894d4f69b364",
+      "decoded_bytes": 33940,
+      "decoded_md5": "3d42bf2e42127f313b0ec64cb440cde9",
+      "original_archive_read_chain_executed": true,
+      "original_header_and_getters_executed": true,
+      "original_open_manager_executed": false,
+      "os_boundary": "ReadFile adapted to Linux pread64 on explicit read-only descriptor",
+      "decode_implementation": "independent Python",
+      "windows_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        3221226140,
+        188
+      ]
+    },
+    {
+      "format": "agent-archive-io-bridge-1",
+      "archive": 4,
+      "absolute_address": 4294967776,
+      "filename": "data.004",
+      "span": 188,
+      "payload_offset": 510,
+      "encoded_sha256": "da33846ae72275215419174a0a38d8f4a8617b5d872420919f22c89648c01e5e",
+      "decoded_bytes": 33940,
+      "decoded_md5": "98ad7b81687304aa0e99cf326200adfe",
+      "original_archive_read_chain_executed": true,
+      "original_header_and_getters_executed": true,
+      "original_open_manager_executed": false,
+      "os_boundary": "ReadFile adapted to Linux pread64 on explicit read-only descriptor",
+      "decode_implementation": "independent Python",
+      "windows_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        4294967776,
+        188
+      ]
+    },
+    {
+      "format": "agent-archive-io-bridge-1",
+      "archive": 4,
+      "absolute_address": 4294967964,
+      "filename": "data.004",
+      "span": 188,
+      "payload_offset": 698,
+      "encoded_sha256": "73bb9f2ec6c3dba2dbe61d5aa7e5bd4560f0d96c53972adb7472894d4f69b364",
+      "decoded_bytes": 33940,
+      "decoded_md5": "3d42bf2e42127f313b0ec64cb440cde9",
+      "original_archive_read_chain_executed": true,
+      "original_header_and_getters_executed": true,
+      "original_open_manager_executed": false,
+      "os_boundary": "ReadFile adapted to Linux pread64 on explicit read-only descriptor",
+      "decode_implementation": "independent Python",
+      "windows_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        4294967964,
+        188
+      ]
+    },
+    {
+      "format": "agent-archive-io-bridge-1",
+      "archive": 1022,
+      "absolute_address": 1097364144608,
+      "filename": "data.1022",
+      "span": 188,
+      "payload_offset": 510,
+      "encoded_sha256": "da33846ae72275215419174a0a38d8f4a8617b5d872420919f22c89648c01e5e",
+      "decoded_bytes": 33940,
+      "decoded_md5": "98ad7b81687304aa0e99cf326200adfe",
+      "original_archive_read_chain_executed": true,
+      "original_header_and_getters_executed": true,
+      "original_open_manager_executed": false,
+      "os_boundary": "ReadFile adapted to Linux pread64 on explicit read-only descriptor",
+      "decode_implementation": "independent Python",
+      "windows_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        1097364144608,
+        188
+      ]
+    },
+    {
+      "format": "agent-archive-io-bridge-1",
+      "archive": 1022,
+      "absolute_address": 1097364144796,
+      "filename": "data.1022",
+      "span": 188,
+      "payload_offset": 698,
+      "encoded_sha256": "73bb9f2ec6c3dba2dbe61d5aa7e5bd4560f0d96c53972adb7472894d4f69b364",
+      "decoded_bytes": 33940,
+      "decoded_md5": "3d42bf2e42127f313b0ec64cb440cde9",
+      "original_archive_read_chain_executed": true,
+      "original_header_and_getters_executed": true,
+      "original_open_manager_executed": false,
+      "os_boundary": "ReadFile adapted to Linux pread64 on explicit read-only descriptor",
+      "decode_implementation": "independent Python",
+      "windows_executed": false,
+      "installation_ready": false,
+      "original_lookup_returned_range": [
+        1097364144796,
+        188
+      ]
+    }
+  ],
+  "header_only_numbered_copies_zero_prefix_not_complete_storage": true,
+  "source_fixture_unchanged": true,
+  "source_ckey_derived_not_independent": true,
+  "target_ckey_independent_encoding": true,
+  "original_open_manager_executed": false,
+  "ReadFile_boundary": "actual Linux pread64 on explicit read-only descriptor; injected errors labelled separately",
+  "windows_io_executed": false,
+  "whole_agent_executed": false,
+  "installation_ready": false
+}

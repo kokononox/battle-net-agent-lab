@@ -1,0 +1,132 @@
+{
+  "format": "original-archive-io-sync-1",
+  "previous_commit": "84480757241d435ded5dffc4906a7f490633bbbc",
+  "branch": "patch-audit-20261016",
+  "tests": 753,
+  "new_tests": 57,
+  "original_functions": 7,
+  "original_code_bytes": 773,
+  "native_model_vectors": 1735,
+  "real_readbacks": 8,
+  "hard_exit_resume_boundaries": 9,
+  "mandatory_exact_read_count": true,
+  "original_read_error5_maps8_blocks_research_publish": true,
+  "ReadFile_boundary": "actual Linux pread64; explicit caller read-only file; labelled injections",
+  "original_open_manager_executed": false,
+  "whole_agent_executed": false,
+  "windows_executed": false,
+  "power_loss_proven": false,
+  "installation_ready": false,
+  "game_lab_original_portable_release_changed": false,
+  "binaries_archives_or_indexes_published": false,
+  "files": [
+    {
+      "path": "downloader/patch_audit_lab/agent_archive_io.py",
+      "sha256": "b9bd85c5634c5b6cad240ae60f85ea77c296841ce33a427c43c10666c753a109"
+    },
+    {
+      "path": "downloader/patch_audit_lab/retail_io_cycle.py",
+      "sha256": "e35b660b8086a447fee6cb257a8aa4c61fb2397b44968993fa231df85e49d213"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_agent_archive_io.py",
+      "sha256": "70f68f43b85b13a77c4ccc884010e8812d5af5501accb1b2c02faaab0acd8bbb"
+    },
+    {
+      "path": "downloader/patch_audit_lab/tests/test_retail_io_cycle.py",
+      "sha256": "f14edb149f5ea756378f04ca408eda8ecf96814857b6f7c71836f11628337bb9"
+    },
+    {
+      "path": "downloader/patch_audit_lab/README-fa.md",
+      "sha256": "22bdf0fe80808dd945f28fe8dbabdb85bdfb59351418bf9dbd55f00bd3158222"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-span-reader-9824/README-fa.md",
+      "sha256": "a975a09708a1612b34c87fb2b9de86410362100a3eaba84bea9fb3ab7c1e1492"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/ALL-TESTS.log",
+      "sha256": "e434d5be9b7f92a5a9ecd34ba6633f99965a60f46d418175aa77e97a0ae92b9b"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/CYCLE-EXPERIMENT.json",
+      "sha256": "7b51c6c6793399ba4d104121452a93385ba70353ff5220855837125637cb7268"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/EXPERIMENT-RESULTS.json",
+      "sha256": "b8c5ec1446c1f20cf2d8a963abdcdae86bf4549472f8ab6cab58ab94b1d79840"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/FRAGMENT-BUILD-RECEIPT.json",
+      "sha256": "c747cf9aa9b7523b41e7802257686ee66a09aea2e7d41f3bf015d3a73b5610a3"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/README-fa.md",
+      "sha256": "356a3bef12811eebab7a0952e6fb1e9caaedb9df507152ea4883cd89e6bd3efb"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/TEST-RESULTS.json",
+      "sha256": "c74be0c1feda3f8bbb1769267167d93e43e38bb75c9ff89cde9bb44d24cdfa03"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/archive_read.asm",
+      "sha256": "fd442b29e27630471b24173e1cffdcefe5d058b3da139f05af20984beaf68509"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/buffer_read.asm",
+      "sha256": "0aa89cb309cbfd10cdd0d66badb9070d86d59416d39730334a59afcb75071015"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/last_error_jump.asm",
+      "sha256": "13ae8434bb5d19d2a19a7210b30c1db2f12d0c2c5146d974780cd024e4d1ba97"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/membership.asm",
+      "sha256": "29beeabb4151800fe6a38e3695271ac008d6abfd9d1d1cbe2d8a0379f0ee41f3"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/native/build.py",
+      "sha256": "f3c592e0ef80128da8616fe3a26851e9d43d445f1fc0fb425855ddc059ea3c50"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/native/harness.s",
+      "sha256": "d049f2d3f2f9837f206cb6cc04c1ea42b41ba2ab9069dc89ebd1a487a0232b9a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/range_gate.asm",
+      "sha256": "c0ad23aa64166523129bf24dd88645e20e51a0b7dea2f1d3e31314e5f136e4bd"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/read_file_wrapper.asm",
+      "sha256": "ae1d85e985398761b0a00c5eca7520fb3fd151627d5f07979d272096224af78a"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/run_cycle_experiments.py",
+      "sha256": "0f13e80d57e89fa4f7c5cd0207dbdb722865c451483404252252b885cfb2bfc4"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/run_experiments.py",
+      "sha256": "914a58b4d3d3dd1e1f1a6e3754e9a47fe5153790cdf28aa0b2a4a74e73bf2382"
+    },
+    {
+      "path": "downloader/patch_audit_lab/research/archive-io-9824/shift64.asm",
+      "sha256": "61790fe599fc9a2ce4c6853540a5b585f5eaafa3ea85bc30515432bcd25ece1e"
+    },
+    {
+      "path": "README.md",
+      "sha256": "5c6a4a618ca16dcc4bf1f54c42ac165c924da5612bc6f20de3ff47540ec6dde8"
+    },
+    {
+      "path": "docs/SESSION-2026-10-16.fa.md",
+      "sha256": "a8453197b2e25430793cf6f332596c800c6ef8cb933bd16f9d83dd544d8135bc"
+    },
+    {
+      "path": "docs/PORTABLE-RESEARCH.fa.md",
+      "sha256": "7cc881dbb7d81c7e917a74b11d4c0c80a002e6d8339d79e2b5d02a1704bfe024"
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "87d17944d151dc9e64130ecacbb329c7fb06d7acf5e887dd4790e20ef84ce4a9"
+    }
+  ]
+}

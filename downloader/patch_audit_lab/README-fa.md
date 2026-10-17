@@ -1,6 +1,6 @@
 # ممیزی پچ WoW — آزمایش مستقل، نه آپدیتر آماده
 
-> تازه‌ترین milestone: [هدر/checksum و آدرس‌دهی اصلی آرشیو](research/archive-span-reader-9824/README-fa.md). ۵ تابع خالص/۱۲۹۳ بایت کد و ۲۲۰ بایت داده، بدون helper mock؛ ۲۶۳۱ بردار و ۲۴۰ رد خرابی تک‌بیتی. source/target واقعی در کپی‌های header-only چهار آرشیو مستقل بازخوانی شدند. گیت هدر در چرخه اجباری، ۹ توقف/resume، ۶۹۶ آزمون/صفر skip. فایل‌خوانی و BLTE هنوز Python مستقل‌اند؛ Agent archive I/O و Windows اجرا نشده‌اند.
+> تازه‌ترین milestone: [مسیر اصلی خواندن آرشیو](research/archive-io-9824/README-fa.md): هفت تابع/۷۷۳ بایت اصلی، ۱۷۳۵ بردار مطابق، ۸ بازخوانی واقعی با ReadFile تطبیق‌یافته به Linux pread64، گیت exact count و ۹ توقف/resume. ۷۵۳ آزمون/صفر skip. مدیر open/cache و OS boundary adapter هستند؛ Windows، کل Agent و writer نصب اصلی اثبات نشده‌اند.
 
 
 ## به‌روزرسانی مرحلهٔ دوم: اتصال به شواهد قبلی

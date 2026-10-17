@@ -1,0 +1,243 @@
+{
+  "format": "agent-archive-io-build-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "fragments": [
+    {
+      "name": "range_gate",
+      "start": "0x70da91",
+      "end_exclusive": "0x70db04",
+      "bytes": 115,
+      "sha256": "5b86694fd8a685a29bf7a3e6851bc5892be9e3103be781d1521af46a82b44757",
+      "kind": "code"
+    },
+    {
+      "name": "membership",
+      "start": "0x70db89",
+      "end_exclusive": "0x70dba7",
+      "bytes": 30,
+      "sha256": "9ed4b1a4d2d5b48572b0af9aee47694d108b8ddae89536cb52c3da9aee62e980",
+      "kind": "code"
+    },
+    {
+      "name": "archive_read",
+      "start": "0x70dbd5",
+      "end_exclusive": "0x70dcf3",
+      "bytes": 286,
+      "sha256": "1e7010d511c92342393c3b318cd4bfc2f5429f7b975193ac890cd8fa7d6325ae",
+      "kind": "code"
+    },
+    {
+      "name": "buffer_read",
+      "start": "0x70bcad",
+      "end_exclusive": "0x70bd7c",
+      "bytes": 207,
+      "sha256": "f68e34e8f72a60a0c91eefe99433f9bc62c4e1b5258387c6c0f3a47814e7e3ac",
+      "kind": "code"
+    },
+    {
+      "name": "read_file_wrapper",
+      "start": "0x86516f",
+      "end_exclusive": "0x8651d1",
+      "bytes": 98,
+      "sha256": "b439a3675c5531b290ed8185acc3866a85923148f0695e99b670762df77604b9",
+      "kind": "code"
+    },
+    {
+      "name": "last_error_jump",
+      "start": "0x86deb1",
+      "end_exclusive": "0x86deb7",
+      "bytes": 6,
+      "sha256": "76b982312d04fe977f278d16b762251690666f8be0a82b655bb42f5796949b9c",
+      "kind": "code"
+    },
+    {
+      "name": "shift64",
+      "start": "0x876d30",
+      "end_exclusive": "0x876d4f",
+      "bytes": 31,
+      "sha256": "909b1a39b7337f2fa8d8626167f578bf92643cf163ee37f401893b5b813db166",
+      "kind": "code"
+    },
+    {
+      "name": "success_value",
+      "start": "0x9ad260",
+      "end_exclusive": "0x9ad264",
+      "bytes": 4,
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "kind": "readonly-jump-tables"
+    }
+  ],
+  "original_code_bytes": 773,
+  "direct_call_graph": [
+    {
+      "function": "range_gate",
+      "site": "0x70daa5",
+      "target": "0x876d30",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "range_gate",
+      "site": "0x70dac3",
+      "target": "0x876d30",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "range_gate",
+      "site": "0x70daf4",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "membership",
+      "site": "0x70db9a",
+      "target": "0x708bf4",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "archive_read",
+      "site": "0x70dbdc",
+      "target": "0x876038",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "archive_read",
+      "site": "0x70dbfc",
+      "target": "0x70da91",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "archive_read",
+      "site": "0x70dc2c",
+      "target": "0x70db89",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "archive_read",
+      "site": "0x70dc5c",
+      "target": "0x71d1f3",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "archive_read",
+      "site": "0x70dc9a",
+      "target": "0x70bcad",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "archive_read",
+      "site": "0x70dca6",
+      "target": "0x702e71",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "archive_read",
+      "site": "0x70dcc8",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "archive_read",
+      "site": "0x70dce3",
+      "target": "0x67b495",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "archive_read",
+      "site": "0x70dceb",
+      "target": "0x876006",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "buffer_read",
+      "site": "0x70bcb4",
+      "target": "0x876038",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "buffer_read",
+      "site": "0x70bd17",
+      "target": "0x70c839",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "buffer_read",
+      "site": "0x70bd3f",
+      "target": "0x86516f",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "buffer_read",
+      "site": "0x70bd51",
+      "target": "0x70d077",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "buffer_read",
+      "site": "0x70bd6c",
+      "target": "0x67b495",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "buffer_read",
+      "site": "0x70bd74",
+      "target": "0x876006",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "read_file_wrapper",
+      "site": "0x8651bb",
+      "target": "0x86deb1",
+      "mocked_or_forbidden": false
+    }
+  ],
+  "indirect_import_calls": [
+    {
+      "site": "0x8651a0",
+      "iat": "0x8fb2c8",
+      "symbol": "ReadFile"
+    },
+    {
+      "site": "0x8651aa",
+      "iat": "0x8fb248",
+      "symbol": "GetLastError"
+    }
+  ],
+  "helpers": {
+    "ownership": "0x67b495",
+    "error_text": "0x702e71",
+    "membership_forbidden": "0x708bf4",
+    "alignment_forbidden": "0x70c839",
+    "error_log": "0x70d077",
+    "open_adapter": "0x71d1f3",
+    "frame_end": "0x876006",
+    "frame_start": "0x876038",
+    "log_adapter": "0x8c3843"
+  },
+  "whole_agent_executed": false,
+  "windows_io_executed": false,
+  "original_archive_read_executed": true,
+  "original_open_manager_executed": false,
+  "original_bytes_verified_in_elf": true,
+  "no_rwx": true,
+  "nx_stack": true,
+  "binary_sha256": "de13edf3a28716c941f250912f42b2d4bb3fdf7ba01d21678ecc9601802f8e0e",
+  "source_sha256": {
+    "build.py": "f3c592e0ef80128da8616fe3a26851e9d43d445f1fc0fb425855ddc059ea3c50",
+    "harness.s": "d049f2d3f2f9837f206cb6cc04c1ea42b41ba2ab9069dc89ebd1a487a0232b9a"
+  },
+  "installation_ready": false,
+  "adapters": [
+    "normal-frame only, no Windows SEH",
+    "open manager returns caller-supplied read-only fd or injected error",
+    "ReadFile -> Linux pread64 or injected error",
+    "GetLastError -> adapter error",
+    "ownership release/logging no-ops; other branches trap"
+  ],
+  "fixed_profile": {
+    "shift": 30,
+    "mask": "0x3fffffff",
+    "alignment_object": null,
+    "membership_set": null,
+    "maximum_read": 4096
+  }
+}
