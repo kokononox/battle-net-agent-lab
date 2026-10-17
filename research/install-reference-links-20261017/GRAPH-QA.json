@@ -1,0 +1,12 @@
+{
+  "kind": "non-numeric dependency/status diagram, NOT a data chart or percent-complete estimate",
+  "visual_review": {
+    "desktop_1180x800_light": "passed after moving RTL from document root to main",
+    "mobile_390px_full_document": "passed; vertical layout, no horizontal clipping",
+    "desktop_1180x800_dark": "passed"
+  },
+  "capture_helper": "artifact-design capture_html.py; local Chromium only",
+  "initial_desktop_RTL_capture": "clipped visually despite no DOM overflow; repaired and re-inspected",
+  "extra_interaction_test": "not completed: Node playwright module unavailable; no interaction-pass claim",
+  "no_external_resources_in_html": true
+}

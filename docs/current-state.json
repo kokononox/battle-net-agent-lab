@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-17T17:04:42.833181+00:00",
+  "as_of_utc": "2026-10-17T18:07:41.135565+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "downloader": {
     "release": "WoW-Update-Scope-Preview-TagFix",
@@ -76,7 +76,7 @@
     "hardware_field_transmission_proven": false,
     "historical_binary_findings_reverified_in_this_sync": false
   },
-  "user_action_now": "No action required now; preserve existing Lab. No rescan, broad download or game writes authorized.",
+  "user_action_now": "Run Install-Download-Coverage-1 outside game/Lab; confirm read-only scope and select existing Lab. One exact saved Download metadata pass <=74,562,151 bytes; no Encoding, inventory, game/archive reads, network, rescan or game/Lab writes. Share new coverage JSON only.",
   "sync_scope": "structured source, sanitized research receipts and handoff; no raw transcripts, PRIVATE, credentials or user installation paths. Original portable fixture and companion are already verified private release assets.",
   "patch_audit_20261016": {
     "branch": "patch-audit-20261016",
@@ -348,8 +348,8 @@
     "archive_cache_new_tests": 61,
     "archive_cache_installation_ready": false
   },
-  "latest_checkpoint": "docs/SESSION-INSTALL-METADATA-CHECKPOINT-2026-10-17.fa.md",
-  "historical_sections_notice": "Older downloader, telemetry, github_experiment and patch_audit figures are retained historical evidence, NOT reverified by this sync. Use latest_checkpoint and install_metadata_checkpoint for current scope.",
+  "latest_checkpoint": "docs/SESSION-INSTALL-ENCODING-CHECKPOINT-2026-10-17.fa.md",
+  "historical_sections_notice": "Older downloader, telemetry, github_experiment, patch_audit and install_metadata figures are retained historical evidence, NOT reverified by this sync. Use latest_checkpoint and install_encoding_checkpoint for current scope.",
   "install_metadata_checkpoint": {
     "status": "verified_exact_install_metadata",
     "receipt": "research/session-checkpoint-20261017/install-fetch/FETCH-RECEIPT.json",
@@ -375,5 +375,30 @@
       "physical_power_loss": false,
       "CASC": false
     }
+  },
+  "install_encoding_checkpoint": {
+    "status": "user_reported_metadata_links_complete_independently_reconciled",
+    "report_version": "install-encoding-links-2",
+    "serialized_install_records": 274,
+    "unique_install_ckeys": 180,
+    "matching_reported_links": 180,
+    "unresolved_reported_links": 0,
+    "Windows_user_ctime_diagnostic_observed": true,
+    "Windows_cross_api_ctime_fix": "two full temporal channels; ctime excluded only in cross-API bridge",
+    "native_Windows_executed_by_assistant": false,
+    "new_tool_version": "install-download-coverage-1",
+    "new_tool_tests": 40,
+    "identity_regression_tests": 69,
+    "real_download_coverage_run_complete": false,
+    "archive_payload_read_budget_bytes": 0,
+    "game_or_lab_writes_authorized": false,
+    "vendor_install_policy_proven": false,
+    "actual_required_install_set_known": false,
+    "fresh_local_content_verified": false,
+    "installation_ready": false,
+    "apply_authorized": false,
+    "required_network_download_bytes": null,
+    "evidence_directory": "research/install-reference-links-20261017",
+    "graph": "docs/UPDATER-DEPENDENCIES.mmd"
   }
 }

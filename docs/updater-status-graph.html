@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fa">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>گراف وابستگی آپدیتر — نقطهٔ فعلی</title>
+<style>
+:root{color-scheme:light dark;--bg:#fff;--text:#2c2c2b;--muted:#635f59;--line:#d5d3d0;--surface:#f9f8f7;--green:#28744d;--green-bg:#e8f1ec;--blue:#1769ad;--blue-bg:#e5f2fc;--orange:#8b4d1e;--orange-bg:#fbebde}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Arial,"Noto Sans Arabic",sans-serif}
+main{max-width:1120px;margin:auto;padding:24px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0 0 24px;font-size:14px;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;margin-left:8px;border-radius:2px;background:currentColor}
+.done{color:var(--green)}.next{color:var(--blue)}.open{color:var(--orange)}
+.chain{display:grid;grid-template-columns:1fr 32px 1fr 32px 1fr;align-items:center;gap:8px}
+button{font:inherit;color:var(--text);text-align:right;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:16px;cursor:pointer;min-height:140px;width:100%;transition:border-color .12s}
+button:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+button:hover{border-color:var(--blue)}
+button[aria-pressed="true"]{outline:2px solid var(--blue);outline-offset:2px}
+button strong{display:block;font-size:18px;line-height:1.55;margin:6px 0}
+button small{display:block;font-size:14px;color:var(--muted)}
+.state{font-size:14px;font-weight:bold}
+.node-done{background:var(--green-bg)}.node-next{background:var(--blue-bg)}
+.arrow{font-size:26px;text-align:center;color:var(--muted)}
+.connector{text-align:center;padding:12px 0 4px;color:var(--muted)}
+.gate-caption{text-align:center;font-size:14px;color:var(--muted);margin:0 0 12px}
+.gates{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gates button{min-height:118px;background:var(--orange-bg)}
+.finish{display:flex;justify-content:center;margin:0}
+.finish button{width:min(100%,440px);min-height:98px}
+.detail{border-top:1px solid var(--line);margin-top:24px;padding-top:16px;min-height:82px}
+.detail p{margin:0;font-size:15px;max-width:78ch}
+.note{font-size:14px;color:var(--muted);margin:16px 0 0}
+@media(prefers-color-scheme:dark){:root{--bg:#191919;--text:#fff;--muted:#c0bdb8;--line:#56534f;--surface:#202020;--green:#8dd1ab;--green-bg:#1d2e24;--blue:#8dc5f8;--blue-bg:#1d2b39;--orange:#edbc96;--orange-bg:#32271f}}
+@media(max-width:640px){main{padding:20px}.chain{grid-template-columns:1fr;gap:8px}.chain button{min-height:110px}.arrow{transform:rotate(-90deg);font-size:24px;line-height:1}.gates{grid-template-columns:1fr;gap:12px}.gates button{min-height:96px}.legend{gap:8px 16px;margin-bottom:16px}.detail{min-height:110px}}
+@media(prefers-reduced-motion:reduce){button{transition:none}}
+</style>
+<main dir="rtl" aria-label="گراف وابستگی مراحل آپدیتر، نه درصد پیشرفت">
+<div class="legend"><span class="done">تأیید متادیتا</span><span class="next">گام اجرایی بعدی</span><span class="open">گیت اثبات‌نشده</span></div>
+<div class="chain" aria-label="زنجیرهٔ مراجع متادیتا">
+  <button type="button" class="node-done" data-node="install" aria-pressed="false"><span class="state done">تأیید شده</span><strong>هویت Install ثابت</strong><small>بیلد هدف pin‌شده؛ نه آخرین نسخهٔ آنلاین</small></button>
+  <div class="arrow" aria-hidden="true">←</div>
+  <button type="button" class="node-done" data-node="encoding" aria-pressed="false"><span class="state done">تطبیق کامل در گزارش کاربر</span><strong>Install → Encoding</strong><small>۱۸۰ کلید یکتا؛ تمام گونه‌ها حفظ شدند</small></button>
+  <div class="arrow" aria-hidden="true">←</div>
+  <button type="button" class="node-next" data-node="download" aria-pressed="true"><span class="state next">منتظر اجرای کاربر</span><strong>ارجاع‌ها در Download</strong><small>یک گذر متادیتای موجود؛ بدون آرشیو</small></button>
+</div>
+<div class="connector" aria-hidden="true">↓</div>
+<p class="gate-caption">تطبیق بالا جای سه گیت مستقل زیر را نمی‌گیرد؛ این‌ها درصد پیشرفت نیستند.</p>
+<div class="gates">
+  <button type="button" data-node="policy" aria-pressed="false"><span class="state open">اثبات‌نشده</span><strong>سیاست دقیق انتخاب نصب</strong><small>پلتفرم، منطقه، زبان و محتوای اختیاری</small></button>
+  <button type="button" data-node="local" aria-pressed="false"><span class="state open">نیازمند اعتبارسنجی تازه</span><strong>اتصال به وضعیت محلی</strong><small>توافق متادیتا ≠ صحت فایل بازی</small></button>
+  <button type="button" data-node="transaction" aria-pressed="false"><span class="state open">اثبات‌نشده روی نصب واقعی</span><strong>staging و rollback ویندوز</strong><small>تست مصنوعی ≠ آزمون نصب واقعی</small></button>
+</div>
+<div class="connector" aria-hidden="true">↓</div>
+<div class="finish"><button type="button" data-node="apply" aria-pressed="false"><span class="state">گیت بسته</span><strong>نصب و فعال‌سازی واقعی</strong><small>نیازمند شواهد کافی و اجازهٔ صریح کاربر</small></button></div>
+<div class="detail" role="status" aria-live="polite"><p id="detail-text">گام بعد فقط ارجاع‌های ثابت Install/Encoding را در فایل Download ذخیره‌شده پیدا می‌کند. انتخاب قطعی مجموعهٔ نصب، دانلود یا تغییر بازی انجام نمی‌شود.</p></div>
+<p class="note">برای دیدن دامنهٔ هر گره روی آن بزنید. وضعیت این گراف یک checkpoint پژوهشی است؛ آپدیتر هنوز آمادهٔ نصب نیست.</p>
+</main>
+<script>
+(() => {
+  const details = {
+    install: "هویت محتوای Install کوچک با MD5 و SHA256 pin‌شده کنترل شده است. این تطابق، امضای ناشر یا کامل بودن نصب فعلی را ثابت نمی‌کند.",
+    encoding: "۱۸۰ کلید محتوای یکتا برای ۲۷۴ رکورد Install با ارجاع و اندازهٔ اعلام‌شدهٔ Encoding توافق دارند. این نتیجه از گزارش اجرای کاربر است و روی متادیتای Install مستقلاً تطبیق داده شده؛ صحت payload اثبات نشده است.",
+    download: "گام بعد فقط ارجاع‌های ثابت Install/Encoding را در فایل Download ذخیره‌شده پیدا می‌کند. انتخاب قطعی مجموعهٔ نصب، دانلود یا تغییر بازی انجام نمی‌شود.",
+    policy: "ترتیب بیت‌ها پشتیبانی مستقل در یک پیاده‌سازی عمومی دارد، اما ترکیب تگ‌ها و انتخاب پیش‌فرض/اختیاری محصول هنوز policy رسمی و کامل نصب را اثبات نمی‌کند.",
+    local: "گزارش جدید، پروفایل نصب یا snapshot محلی را تازه اعتبارسنجی نکرده است. یافته‌های تاریخی محلی حفظ می‌شوند، ولی به‌عنوان اثبات تازه مصرف نمی‌شوند. نامعلوم مساوی مفقود یا خراب نیست.",
+    transaction: "شواهد محدود مصنوعی و Linux در تاریخچهٔ مخزن وجود دارد. این گراف ادعای اجرای کامل Windows، توان تحمل قطع برق یا rollback نصب واقعی ندارد.",
+    apply: "installation_ready=false و apply_authorized=false باقی می‌مانند. شبکهٔ بازی، خواندن آرشیو یا تغییر نصب نیازمند اجازهٔ صریح جداگانه است."
+  };
+  document.querySelectorAll("button[data-node]").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll("button[data-node]").forEach(other =>
+        other.setAttribute("aria-pressed", String(other === button)));
+      document.getElementById("detail-text").textContent = details[button.dataset.node];
+    });
+  });
+})();
+</script>
+</html>

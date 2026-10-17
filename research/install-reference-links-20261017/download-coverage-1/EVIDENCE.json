@@ -1,0 +1,50 @@
+{
+  "version": "install-download-coverage-1",
+  "created_utc": "2026-10-17T18:04:12.703956+00:00",
+  "purpose": "One exact saved metadata pass; coverage diagnostic NOT installer",
+  "baseline_user_report_sha256": "3cb4c99b4f45e2de37000132cfb622c5741c0d71de4b53f8b286a42d000c4c52",
+  "reference_json_sha256": "5f5debea63ffc66f90a8db93cc015c1503fa23def54b67e5ca8343ed2d9d40f7",
+  "pinned_install_sha256": "1e9a735e4ec5ffe7fc10b9f39e347cf6f9745a89d15ba700a3982399644d92a6",
+  "prior_reconciliation": {
+    "unique_ckeys": 180,
+    "serialized_install_records": 274,
+    "unresolved_links": 0
+  },
+  "new_tests": 40,
+  "identity_regression_tests": 69,
+  "native_windows_tested": false,
+  "real_download_positive_tested": false,
+  "positive_test": "synthetic metadata with explicit test-only constants; no production CLI override",
+  "scope": {
+    "download_max_bytes": 74562151,
+    "max_passes": 1,
+    "encoding_bytes": 0,
+    "archive_payload_bytes": 0,
+    "game_bytes": 0,
+    "inventory_bytes": 0,
+    "network_requests": 0,
+    "game_or_lab_writes": false,
+    "fresh_new_report_in_separate_bundle_directory_only": true
+  },
+  "checks": [
+    "exact bundled Install pin",
+    "exact normalized reference SHA256 pin",
+    "all CKeys/variants retained",
+    "full Download MD5 and SHA256",
+    "fixed ordered catalogue and header",
+    "requested EKeys only retained",
+    "nonzero padding not treated as record/corruption",
+    "full path and full handle temporal fingerprints; Windows ctime bridge",
+    "new output no overwrite; recheck before/after publication"
+  ],
+  "not_proven": [
+    "vendor install selection policy",
+    "complete required target set",
+    "fresh local profile/snapshot",
+    "payload health",
+    "required network bytes",
+    "Windows real writer/activation/rollback"
+  ],
+  "installation_ready": false,
+  "apply_authorized": false
+}

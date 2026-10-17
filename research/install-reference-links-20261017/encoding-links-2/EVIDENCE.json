@@ -1,0 +1,129 @@
+{
+  "version": "install-encoding-links-2",
+  "purpose": "read-only metadata reference review, NOT installer",
+  "sources": [
+    {
+      "file": "CascOpenStorage.cpp",
+      "url": "https://github.com/ladislav-zezula/CascLib/blob/38a34665624b8775bb875274b36191b21c38d97b/src/CascOpenStorage.cpp",
+      "bytes": 58034,
+      "git_blob_sha1": "80458a45ee6bc193472002c5e7196fdabd684ea6",
+      "sha256": "37aefab1e17d23e4af2a7302966f99deeaf6ff2fe0c28694337c3c240feef334",
+      "finding": "MSB-first Download tags only; not Install selection policy"
+    },
+    {
+      "file": "CascRootFile_Install.cpp",
+      "url": "https://github.com/ladislav-zezula/CascLib/blob/38a34665624b8775bb875274b36191b21c38d97b/src/CascRootFile_Install.cpp",
+      "bytes": 4399,
+      "git_blob_sha1": "2a01acb8590e5f99f92421b7e7286f40ca5c0382",
+      "sha256": "f0a8f8907b6eeb5b8f7f140c08d20cda55668844a93842486b2ba1812f5b1b38",
+      "finding": "Skips Install tags; not evidence for vendor tag combination"
+    },
+    {
+      "file": "TACTSharp-InstallInstance.cs",
+      "url": "https://github.com/wowdev/TACTSharp/blob/67fd53ac852ca297e9bf95bb41d1a97da202eba4/TACTSharp/InstallInstance.cs",
+      "bytes": 3579,
+      "git_blob_sha1": "89ffc3fd5028c6afe9ad5a7fa569d1ea2f0259f2",
+      "sha256": "b47b1d412ee2f6b996f86d8066c2abedbd9cc38f3eed1b1dd425b21d51e09ee2",
+      "finding": "Reverses bytes before BitArray: effective MSB-first Install parser"
+    },
+    {
+      "file": "TACTTool-Program.cs",
+      "url": "https://github.com/wowdev/TACTSharp/blob/67fd53ac852ca297e9bf95bb41d1a97da202eba4/TACTTool/Program.cs",
+      "bytes": 23735,
+      "git_blob_sha1": "f259de8a97b34df4259ab41f7f3693308f97aae3",
+      "sha256": "140f43871b5a54b817e3cd1e6090b72722c6a63814ea348dd240a752fd72cfef",
+      "finding": "Extraction utility prefers US duplicate then first; NOT adopted as EU installer policy"
+    },
+    {
+      "file": "TACTNet-InstallFile.cs",
+      "url": "https://github.com/wowdev/TACT.Net/blob/57618c47dc0cfef1bfc0e7585bf335ced7218389/TACT.Net/SystemFiles/Install/InstallFile.cs",
+      "bytes": 10249,
+      "git_blob_sha1": "a8ca57a5a8229e4731f5f1e7dae12e30b4f9036e",
+      "sha256": "0698457dde568735d94eef153f78c7401ec20665ed90a9293f229ad3028ea36d",
+      "finding": "Case-insensitive name dictionary TryAdd can drop same-name variants; NOT adopted"
+    }
+  ],
+  "additional_sources": [
+    {
+      "url": "https://wowdev.wiki/TACT",
+      "local_material": "extracted excerpts only",
+      "finding": "Community format documentation, not complete Agent install policy"
+    },
+    {
+      "url": "https://docs.rs/crate/tact-parser/0.4.3/source/src/install.rs",
+      "local_material": "extracted excerpts only",
+      "finding": "Conflicting LSB-first community implementation; universal agreement NOT claimed"
+    }
+  ],
+  "external_source_code_executed": false,
+  "public_technical_sources_fetched": true,
+  "game_or_cdn_retrieval_this_phase": false,
+  "raw_saved_encoding_read_in_assistant_environment": false,
+  "native_windows_execution_tested": false,
+  "real_encoding_positive_tested": false,
+  "tests": {
+    "new_suite": 69,
+    "prior_structure_regression": 43,
+    "prior_selection_regression": 33,
+    "platform": "Linux",
+    "positive_end_to_end": "synthetic Encoding with explicit test-only pin substitution",
+    "initial_bad_structure_test_invocation": "Wrong unittest absolute module invocation failed; corrected invocation passed43; initial log retained in research workspace, not packaged",
+    "windows_identity_bridge_simulation": "10 added tests; includes actual pinned Install and synthetic Encoding with explicit test-only pin substitution; stable cross-API ctime difference allowed ONLY on Windows; temporal handle/path changes and other identity disagreements still rejected"
+  },
+  "scope": {
+    "encoding_hash_max_bytes": 200255318,
+    "encoding_lookup_max_bytes": 33554432,
+    "total_encoding_max_bytes": 233809750,
+    "bundled_install_bytes": 24078,
+    "network_requests_by_delivered_tool": 0,
+    "archive_payload_bytes": 0,
+    "game_or_lab_writes": false,
+    "saved_lab_snapshot_binding_checked": false,
+    "installed_profile_revalidated": false
+  },
+  "install": {
+    "ckey": "d7c8cd9845e2b5d39821678f481324da",
+    "sha256": "1e9a735e4ec5ffe7fc10b9f39e347cf6f9745a89d15ba700a3982399644d92a6",
+    "serialized_records": 274,
+    "unique_ckeys": 180,
+    "all_variants_preserved": true
+  },
+  "bit_order": {
+    "status": "Independent community implementation support, not official vendor certification",
+    "tested_install_bits": 8494,
+    "conflicting_implementation_exists": true
+  },
+  "installation_ready": false,
+  "apply_authorized": false,
+  "vendor_install_policy_proven": false,
+  "windows_user_diagnostic": {
+    "version": "install-identity-diag-1",
+    "platform": "win32",
+    "python_version": [
+      3,
+      13,
+      16
+    ],
+    "bundled_install_hashes_match": true,
+    "each_observation_channel_stable": true,
+    "cross_api_differing_fields": [
+      "st_ctime_ns"
+    ],
+    "source": "user-supplied console output; not an assistant-native Windows run"
+  },
+  "identity_guard_fix": {
+    "full_path_temporal_fingerprint": true,
+    "full_handle_temporal_fingerprint": true,
+    "ctime_retained_in_both_temporal_channels": true,
+    "windows_only_cross_api_ctime_exclusion": true,
+    "other_cross_api_fields": [
+      "st_dev",
+      "st_ino",
+      "st_size",
+      "st_mtime_ns",
+      "st_nlink"
+    ],
+    "whole_file_pins_unchanged": true,
+    "encoding_budget_unchanged": true
+  }
+}

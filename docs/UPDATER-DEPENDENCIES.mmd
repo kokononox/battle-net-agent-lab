@@ -1,0 +1,15 @@
+flowchart TB
+    I["Install ثابت: هویت محتوای تأییدشده"] --> E["Install → Encoding: تطبیق ۱۸۰ CKey برای ۲۷۴ رکورد"]
+    E --> D["ارجاع‌های Download: منتظر اجرای کاربر"]
+    D --> P["طرح هدف قابل دفاع؛ هنوز آماده نیست"]
+    S["سیاست دقیق انتخاب نصب: اثبات‌نشده"] --> P
+    L["اتصال محلی تازه و صحت payload: اثبات‌نشده"] --> P
+    P --> W["staging / rollback روی Windows واقعی: اثبات‌نشده"]
+    W --> A["نصب / فعال‌سازی واقعی: مجوز بسته"]
+    N["گراف وابستگی است، نه درصد پیشرفت؛ نامعلوم ≠ خراب/مفقود"]
+    classDef verified fill:#e8f1ec,stroke:#28744d,color:#2c2c2b
+    classDef next fill:#e5f2fc,stroke:#1769ad,color:#2c2c2b
+    classDef unresolved fill:#fbebde,stroke:#8b4d1e,color:#2c2c2b
+    class I,E verified
+    class D next
+    class S,L,P,W,A unresolved

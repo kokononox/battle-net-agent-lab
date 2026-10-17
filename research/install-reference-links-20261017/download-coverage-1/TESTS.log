@@ -1,0 +1,45 @@
+test_absent_metadata_appearance_stops (test_install_download_coverage.OutputTests.test_absent_metadata_appearance_stops) ... ok
+test_bundle_inside_game_rejected (test_install_download_coverage.OutputTests.test_bundle_inside_game_rejected) ... ok
+test_changed_after_output_removes_only_own_report (test_install_download_coverage.OutputTests.test_changed_after_output_removes_only_own_report) ... ok
+test_help_no_input_selection (test_install_download_coverage.OutputTests.test_help_no_input_selection) ... ok
+test_input_changed_prevents_output (test_install_download_coverage.OutputTests.test_input_changed_prevents_output) ... ok
+test_lab_bundle_overlap_rejected (test_install_download_coverage.OutputTests.test_lab_bundle_overlap_rejected) ... ok
+test_network_forbidden_in_cli_module (test_install_download_coverage.OutputTests.test_network_forbidden_in_cli_module) ... ok
+test_production_cli_absent_exact_metadata (test_install_download_coverage.OutputTests.test_production_cli_absent_exact_metadata) ... ok
+test_production_download_size_rejects_small_synthetic_file (test_install_download_coverage.OutputTests.test_production_download_size_rejects_small_synthetic_file) ... ok
+test_production_reference_hash_rejects_tamper (test_install_download_coverage.OutputTests.test_production_reference_hash_rejects_tamper) ... ok
+test_publish_no_overwrite (test_install_download_coverage.OutputTests.test_publish_no_overwrite) ... ok
+test_results_symlink_rejected (test_install_download_coverage.OutputTests.test_results_symlink_rejected) ... ok
+test_synthetic_end_to_end_explicit_pins_and_windows_ctime_bridge (test_install_download_coverage.OutputTests.test_synthetic_end_to_end_explicit_pins_and_windows_ctime_bridge) ... ok
+test_synthetic_review_handle_temporal_change_rejected (test_install_download_coverage.OutputTests.test_synthetic_review_handle_temporal_change_rejected) ... ok
+test_all_closure_and_apply_gates_remain_closed (test_install_download_coverage.ParserTests.test_all_closure_and_apply_gates_remain_closed) ... ok
+test_all_requested_keys_preserved_absent_is_unknown (test_install_download_coverage.ParserTests.test_all_requested_keys_preserved_absent_is_unknown) ... ok
+test_cancel_callback (test_install_download_coverage.ParserTests.test_cancel_callback) ... ok
+test_dimension_match_is_diagnostic_only (test_install_download_coverage.ParserTests.test_dimension_match_is_diagnostic_only) ... ok
+test_duplicate_aliases_preserved_and_size_conflict_unknown (test_install_download_coverage.ParserTests.test_duplicate_aliases_preserved_and_size_conflict_unknown) ... ok
+test_exact_one_pass_and_metadata_only (test_install_download_coverage.ParserTests.test_exact_one_pass_and_metadata_only) ... ok
+test_exact_reader_does_not_probe_extra_byte (test_install_download_coverage.ParserTests.test_exact_reader_does_not_probe_extra_byte) ... ok
+test_hash_mismatch_rejected_before_result (test_install_download_coverage.ParserTests.test_hash_mismatch_rejected_before_result) ... ok
+test_match_cap (test_install_download_coverage.ParserTests.test_match_cap) ... ok
+test_no_decoded_encoded_size_comparison (test_install_download_coverage.ParserTests.test_no_decoded_encoded_size_comparison) ... ok
+test_nonrequested_keys_not_exported (test_install_download_coverage.ParserTests.test_nonrequested_keys_not_exported) ... ok
+test_reader_budget_rejected (test_install_download_coverage.ParserTests.test_reader_budget_rejected) ... ok
+test_sha256_independently_required (test_install_download_coverage.ParserTests.test_sha256_independently_required) ... ok
+test_tag_msb_and_nonzero_padding (test_install_download_coverage.ParserTests.test_tag_msb_and_nonzero_padding) ... ok
+test_truncated_rejected (test_install_download_coverage.ParserTests.test_truncated_rejected) ... ok
+test_unknown_catalogue_rejected (test_install_download_coverage.ParserTests.test_unknown_catalogue_rejected) ... ok
+test_unknown_header_rejected (test_install_download_coverage.ParserTests.test_unknown_header_rejected) ... ok
+test_unknown_tag_kind_rejected (test_install_download_coverage.ParserTests.test_unknown_tag_kind_rejected) ... ok
+test_zero_encoded_size_unknown (test_install_download_coverage.ParserTests.test_zero_encoded_size_unknown) ... ok
+test_zero_unrequested_ekey_rejected (test_install_download_coverage.ParserTests.test_zero_unrequested_ekey_rejected) ... ok
+test_all_variants_preserved (test_install_download_coverage.ReferenceTests.test_all_variants_preserved) ... ok
+test_duplicate_key_rejected (test_install_download_coverage.ReferenceTests.test_duplicate_key_rejected) ... ok
+test_invalid_ekey_rejected (test_install_download_coverage.ReferenceTests.test_invalid_ekey_rejected) ... ok
+test_missing_key_rejected (test_install_download_coverage.ReferenceTests.test_missing_key_rejected) ... ok
+test_real_pinned_references_and_install (test_install_download_coverage.ReferenceTests.test_real_pinned_references_and_install) ... ok
+test_wrong_decoded_size_rejected (test_install_download_coverage.ReferenceTests.test_wrong_decoded_size_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 40 tests in 0.243s
+
+OK
