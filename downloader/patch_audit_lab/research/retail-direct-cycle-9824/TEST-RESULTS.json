@@ -1,0 +1,43 @@
+{
+  "format": "retail-live-direct-cycle-tests-1",
+  "tests_run": 117,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "prior_73_tests_rerun": true,
+  "new_direct_cycle_tests": 24,
+  "new_direct_boundary_tests": 20,
+  "direct_process_stop_recoveries": 9,
+  "snapshot_regression_recoveries": 9,
+  "live_inode_not_copy": true,
+  "read_only_fd_checked_by_host_and_native": true,
+  "createfile_adapter_is_dup_not_windows_open": true,
+  "locked_fd_inherited_by_native_child": true,
+  "new_markers_or_snapshots_created_by_direct_gate": 0,
+  "normal_publish_then_noop_verified": true,
+  "prior_payload_and_templates_unchanged": true,
+  "scope": "one pinned real Retail pair in strict owned Linux V8 fixture",
+  "power_loss_or_windows_tested": false,
+  "historical_814_test_suite_rerun": false,
+  "installation_ready": false,
+  "sources_sha256": {
+    "owned_v8_lock.py": "7f632c3bf439e2f84bfd688c2440708c9c407c6429c04319124456c113ddf6e9",
+    "agent_archive_direct.py": "d7b8b93d622393928a746f307ff8b668dfada492934a8c9b130c4fabe9e7705e",
+    "retail_direct_cycle.py": "5c786b45ff17376398bfeec723e2bc62df1d9ae1d246169a1a530cfa86fca428",
+    "retail_v8_cycle.py": "eb396d4149c4438b932c6bcb9c98c6f0ad07a8f08400faa297e71b6526ddbcb0",
+    "tests/test_agent_direct_insert.py": "8432cd8e1f33fc06092296d4518478046588de9be1649eea086e205e2ec20cb5",
+    "tests/test_retail_direct_insert_cycle.py": "5689a0f47e9a4d456bf64f751bb7de607ef94498392bc2febbca87b703f55a2d",
+    "research/archive-direct-9824/native/build.py": "c28ca812bbcb1bd882ab44509b439c124fbac9f684192ccc7931c3ed541a6401",
+    "research/archive-direct-9824/native/harness.s": "e1aa5517a6006ad2d5ef56b9c53d92e5ea52f647e1024cfafd2b2e8e3d886c87",
+    "research/retail-direct-cycle-9824/run_tests.py": "352b5af6959b74d82f6f384ac21d1461fad58944a0f3754016868d6c79183c7d"
+  },
+  "artifacts_sha256": {
+    "COMMITTED.json": "2283fcfde477604396920738dc5fef1271d1bf7becf62a9f6351573ea23f05f0",
+    "DIRECT-BUILD-RECEIPT.json": "4488eb3ddbaac12f866e332d33890beb0e344b2c106aabbd22b8a24f54c7b8b1",
+    "INITIAL.json": "bdeaf46dbe180ebb8a0a9a2f863986d4992013b123adbf51a930b2b5ee9b5ff7",
+    "NOOP.json": "f1ec135e8aa29e74cca8fb861276fcafed34f192da6befcd764aed8600ec63de",
+    "RECOVERY-DIRECT.json": "03b75f787c92fb921a2e4260d7e2a958605e9d1b39f18bc72fb130cd194cc0c1",
+    "RECOVERY-SNAPSHOT-REGRESSION.json": "0227f6be8bd735b5017fe87edcf0e9935dba71a27f4cef05be4d89e2932dece1",
+    "TESTS.log": "e86cb27cf3c04cc15983b9196091dfb96ef7114f484990060e2e7010dbf57be0"
+  }
+}

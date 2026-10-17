@@ -107,7 +107,9 @@ def locked(root):
   with lock.open('r+b') as f:
    try:fcntl.flock(f.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
    except BlockingIOError:raise a.AuditError('v8_busy') from None
-   try:yield p
+   try:
+    import owned_v8_lock
+    with owned_v8_lock.held(p,f):yield p
    finally:fcntl.flock(f.fileno(),fcntl.LOCK_UN)
  return acquire()
 
