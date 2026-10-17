@@ -1,0 +1,35 @@
+{
+  "format": "safe-os-diagnostics-test-results-1",
+  "diagnostics_version": "local-review-diag-2",
+  "tests_run": 262,
+  "prior_tests_rerun": 237,
+  "new_diagnostic_tests": 25,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "windows_errors_injected_on_linux": true,
+  "real_Windows_execution_tested": false,
+  "user_oserror_root_cause_known": false,
+  "user_oserror_fixed_claimed": false,
+  "validators_or_read_limits_relaxed": false,
+  "raw_exception_messages_or_private_paths_logged": false,
+  "standalone_success_modes_rerun": 2,
+  "standalone_failure_mode_passed": true,
+  "game_or_Lab_writes": false,
+  "network_requests": 0,
+  "installation_ready": false,
+  "bundle_bytes": 1699389,
+  "bundle_sha256": "0cbb9498ef2def92243b39b7183ac69a1bd6804b8dcaf923b060b5788e41d100",
+  "sources_sha256": {
+    "local_update_review.py": "5793a025078cd1ecc013c5c33d185b072ddfe135227be2b84f9ab5873afc981a",
+    "local_review_launcher.py": "d0afaf4d481b7ac8120f839e531bde02a84489212b8e1a3ec9253dd791916669",
+    "diagnostic_tests/test_safe_diagnostics.py": "e1d50f1ab3afe681f1c9df381d422be081d32ccd9b78ca734929e7961020be30",
+    "research/local-update-review-9824/README-fa.md": "33a46d96c7a16cc542390444be0d697f963d0b7dbf5edcc6822e3f35fe3fcc87",
+    "research/windows-diagnostics-9824/run_experiments.py": "ec613e7678e1cd4db3f46bbaa355bb43052a973a6efcee7750c68e4cf02ac95e"
+  },
+  "artifacts_sha256": {
+    "REGRESSION-RUN.log": "ddf6275f02263fd83109687bc373956050ccb87671b9ff86e6de1ab4c4c46455",
+    "DIAGNOSTIC-TESTS.log": "2e1badd6dcdfb71141fd375847bc4fedae612950e1e7b34c4a6272f54665ae2b",
+    "BUNDLE-ERROR-SMOKE.json": "29e30a7548772739e7891e1c18026296fce0b8e3e21a113c196662c4a88a7bec"
+  }
+}

@@ -6,7 +6,7 @@ Saved fingerprints gate reads; saved success flags never substitute for hashing.
 from collections import Counter,defaultdict
 from dataclasses import asdict,replace
 from pathlib import Path
-import argparse,json,os,re,sqlite3,time,uuid
+import argparse,json,os,re,sqlite3,time,uuid,sys
 import patch_audit as a
 import source_binding as b
 import source_check
@@ -32,10 +32,49 @@ def public_selection(tag):
             out['profile']={'platform':'Windows','architecture':'x86_64','region':'EU','locales':sorted(set(observed))}
     return out
 
-def public_error(ex):
-    result={'status':'stopped_safely','error_type':type(ex).__name__,'installation_ready':False}
+DIAGNOSTICS_VERSION='local-review-diag-2'
+PHASES=frozenset(('start','select_lab','validate_arguments','bind_saved_checkpoint',
+    'restore_watched_files','validate_saved_snapshot','read_saved_references',
+    'load_pinned_metadata','verify_portable_fixture','open_readonly_databases',
+    'read_target_plan','verify_target_payloads','verify_patch_sources','assemble_plan',
+    'final_input_recheck','prepare_report_output','publication_recheck',
+    'create_report_directory','write_pending_report','publish_report_noreplace',
+    'postpublication_recheck','complete'))
+TRACE_MODULES=frozenset(('__main__','local_review_launcher','local_update_review',
+    'source_binding','source_check','patch_audit','portable_run','encoding_target',
+    'refs_source_check','build_update_plan','staging_sample','pathlib','pathlib._local',
+    'pathlib._abc','genericpath','ntpath','posixpath','os','tkinter',
+    'tkinter.filedialog','tkinter.commondialog','sqlite3'))
+
+class Progress:
+    def __init__(self):self.stage='start'
+    def mark(self,stage):
+        b.need(stage in PHASES,'invalid_diagnostic_phase');self.stage=stage
+
+def safe_trace(ex):
+    # No exception messages, source lines, filesystem paths or local variables.
+    frames=[];tb=ex.__traceback__
+    while tb is not None:
+        frame=tb.tb_frame;module=frame.f_globals.get('__name__');function=frame.f_code.co_name
+        if module in TRACE_MODULES:
+            function=function if re.fullmatch('[A-Za-z_][A-Za-z0-9_]{0,79}',function) else 'internal'
+            frames.append({'module':module,'function':function,'line':tb.tb_lineno})
+        tb=tb.tb_next
+    return frames[-12:]
+
+def public_error(ex,*,stage=None):
+    result={'status':'stopped_safely','error_type':type(ex).__name__,'installation_ready':False,
+            'diagnostics_version':DIAGNOSTICS_VERSION,
+            'stage':stage if stage in PHASES else 'unknown',
+            'platform':sys.platform if sys.platform in ('win32','linux','darwin') else 'other',
+            'python_version':list(sys.version_info[:3])}
     if isinstance(ex,(a.AuditError,b.BindingError)) and re.fullmatch('[a-z0-9_]{1,100}',str(ex)):
         result['code']=str(ex)
+    if isinstance(ex,OSError):
+        for field in ('errno','winerror'):
+            value=getattr(ex,field,None)
+            if type(value)is int:result[field]=value
+    result['safe_trace']=safe_trace(ex)
     return result
 
 class Reader:
@@ -103,7 +142,8 @@ class Reader:
                 'whole_archives_scanned':False,'new_indexes_created':False,'saved_success_flags_used_as_proof':False}
 
 def review(lab,audit_dir,*,portable=None,object_limit=256,preview_limit=128,byte_budget=MAX_BYTES,
-           max_reads=MAX_READS,max_checks=MAX_CHECKS,time_limit=120,cancel=lambda:False):
+           max_reads=MAX_READS,max_checks=MAX_CHECKS,time_limit=120,cancel=lambda:False,progress=lambda _:None):
+    progress('validate_arguments')
     b.need(type(object_limit)is int and 1<=object_limit<=4096 and type(time_limit)is int and 1<=time_limit<=600,'review_metadata_limits')
     # Validate budgets before any saved metadata/payload work.
     b.need(type(byte_budget)is int and 0<=byte_budget<=MAX_BYTES and type(max_reads)is int and 0<=max_reads<=MAX_READS
@@ -112,20 +152,26 @@ def review(lab,audit_dir,*,portable=None,object_limit=256,preview_limit=128,byte
     started=time.monotonic()
     stopped=lambda:cancel() or time.monotonic()-started>time_limit
     b.need(not stopped(),'review_cancelled_or_time_limit')
+    progress('bind_saved_checkpoint')
     binding_report,prior=b.bind(lab,audit_dir,time_limit=time_limit,max_private=1,cancel=stopped)
+    progress('restore_watched_files')
     w=b.Watch()
     for row in prior['watched_files']:w.file(row['path'],row['fingerprint'])
+    progress('validate_saved_snapshot')
     snapshot=prior['local_storage_snapshot'];w.snapshot(snapshot)
+    progress('read_saved_references')
     lab=b.safe(lab);audit_dir=b.safe(audit_dir);state=b.json_object(w.read(lab/'objects/downloader-ui-session.json'))
     record=state['local_review'];objects=lab/'objects'
     plan_path=b.ref(objects,record['plan_file'],'content-plan',w)
     inv_path=b.ref(objects,record['local_inventory'],'local-casc-inventory',w)
+    progress('load_pinned_metadata')
     options,_,expected=b.load_metadata(audit_dir,w)
     # bind() already validated every full binding, exact plan/checkpoint and snapshot.
     binding=prior['target'];b.need(binding==binding_report['target'],'review_binding_conflict')
     b.need(all(binding.get(k)==v for k,v in expected.items() if k!='cdn_config') and binding['cdn_config'] in b.OFFLINE_CDN_IDENTITIES,'review_binding_conflict')
     portable_ok=False
     if portable is not None:
+        progress('verify_portable_fixture')
         import portable_run
         portable=b.safe(portable)
         for name in sorted(portable_run.FIXED|{'PORTABLE-MANIFEST.json'}):w.file(portable/name)
@@ -133,11 +179,13 @@ def review(lab,audit_dir,*,portable=None,object_limit=256,preview_limit=128,byte
         import staging_sample as sample
         portable_ok=fixture['target_ckey']==sample.OPTION['target_ckey'] and any(x.get('exact_target_ekey_reproduced') and x['ekey']=='faedca88d0a0ab30dae5519239582d31' for x in fixture['encoding_options'])
         b.need(portable_ok,'review_portable_capability')
+    progress('open_readonly_databases')
     db=sqlite3.connect(':memory:',uri=True)
     try:
         db.execute('PRAGMA trusted_schema=OFF');db.set_progress_handler(lambda:int(stopped()),10000)
         b.attach(db,w,plan_path,'p');b.attach(db,w,inv_path,'i')
         b.schema(db,'p','plan',('ekey','ckey','encoded_size','decoded_size','mapping_state','transfer_supported','route_kind'))
+        progress('read_target_plan')
         summary=b.metadata(db,'p','plan_summary');total=db.execute('SELECT COUNT(*) FROM p.plan').fetchone()[0]
         b.need(type(summary.get('selected_unique_objects'))is int and total==summary['selected_unique_objects'] and isinstance(summary.get('tag_selection'),dict),'review_plan_summary')
         b.need(db.execute('SELECT 1 FROM p.plan GROUP BY ekey HAVING COUNT(*)!=1 LIMIT 1').fetchone() is None,'duplicate_plan_ekey')
@@ -149,9 +197,11 @@ def review(lab,audit_dir,*,portable=None,object_limit=256,preview_limit=128,byte
         reader=Reader(db,snapshot,w,budget=byte_budget,max_reads=max_reads,max_checks=max_checks,cancel=stopped)
         # Spend limited reads on current targets FIRST, then sources of unresolved
         # targets. Do not probe every PA source or perform another archive scan.
+        progress('verify_target_payloads')
         targets=[replace(t,local='fresh_encoded') if t.mapped and t.decoded_size and reader.verify(t.ekey,t.decoded_size,t.encoded_size,t.ckey) else t for t in targets]
         wanted={(t.ckey,t.decoded_size) for t in targets if t.local!='fresh_encoded' and t.mapped}
         patches=[];source_tries=set()
+        progress('verify_patch_sources')
         for option in options:
             b.need(not stopped(),'review_cancelled_or_time_limit')
             if (option.target_ckey,option.target_size) not in wanted:continue
@@ -164,6 +214,7 @@ def review(lab,audit_dir,*,portable=None,object_limit=256,preview_limit=128,byte
                 if asdict(option)==sample.OPTION and matching_encodings=={('faedca88d0a0ab30dae5519239582d31',158)}:
                     capability=planner.CAPABILITY;local_patch=True
             patches.append(planner.Patch(**asdict(option),source='fresh_encoded' if fresh else 'unknown',patch_local=local_patch,capability=capability))
+        progress('assemble_plan')
         scope={'kind':'existing_saved_inventory_bounded_fresh_review','catalogue_unique_objects':total,
                'requested_object_limit':object_limit,'evaluated_all_saved_rows':total<=object_limit,
                'tag_selection':public_selection(summary['tag_selection']),'profile_selection_recomputed':False,
@@ -176,6 +227,7 @@ def review(lab,audit_dir,*,portable=None,object_limit=256,preview_limit=128,byte
         result.update(format='readonly-local-update-review-1',local_verification=reader.report(),
                       prior_full_source_proof_flags_used_for_fresh_decisions=False,
                       consistency_model='saved_file_set_and_stat_fingerprints;not_OS_snapshot_or_hostile_writer_protection')
+        progress('final_input_recheck')
         w.check();b.need(not stopped(),'review_cancelled_or_time_limit')
         private={'local_storage_snapshot':snapshot,'watched_files':[{'path':str(p),'fingerprint':fp} for p,fp in w.files.items()],
                  'protected_roots':[str(p) for p in (lab,audit_dir,portable) if p is not None],
@@ -183,24 +235,30 @@ def review(lab,audit_dir,*,portable=None,object_limit=256,preview_limit=128,byte
         return result,private
     finally:db.close()
 
-def publish(lab,report,private,out):
+def publish(lab,report,private,out,*,progress=lambda _:None):
+    progress('prepare_report_output')
     out=source_check.output_path(lab,private,out)
     for root in private['protected_roots']:
         p=Path(root);b.need(out!=p and p not in out.parents and out not in p.parents,'review_output_overlaps_input')
     # No report under a recognizable installation, even outside its Data tree.
     for p in (out,*out.parents):b.need(not (p/'.build.info').exists() and not (p/'.build.db').exists(),'review_output_in_game')
+    progress('publication_recheck')
     w=b.Watch()
     for row in private['watched_files']:w.file(row['path'],row['fingerprint'])
     w.databases=[Path(p) for p in private['closed_databases']]
     w.snapshot(private['local_storage_snapshot']);w.check()
+    progress('create_report_directory')
     out.mkdir(parents=True)
     temp=out/('review-'+uuid.uuid4().hex+'.pending');final=out/'LOCAL-UPDATE-REVIEW-to-share.json'
     published=False
     try:
+        progress('write_pending_report')
         with temp.open('x',encoding='utf-8') as f:json.dump(report,f,ensure_ascii=False,indent=2)
         w.check()
         # Atomic no-replace publication inside the newly created report folder.
+        progress('publish_report_noreplace')
         os.link(temp,final);published=True
+        progress('postpublication_recheck')
         w.check()
     except BaseException:
         if published:final.unlink()
@@ -217,13 +275,13 @@ def main():
     p.add_argument('--preview-limit',type=int,default=128);p.add_argument('--byte-budget',type=int,default=MAX_BYTES)
     p.add_argument('--max-reads',type=int,default=MAX_READS);p.add_argument('--max-checks',type=int,default=MAX_CHECKS)
     p.add_argument('--out-new',type=Path)
-    x=p.parse_args()
+    x=p.parse_args();progress=Progress()
     try:
-        report,private=review(x.lab,x.audit_dir,portable=x.portable,object_limit=x.object_limit,preview_limit=x.preview_limit,byte_budget=x.byte_budget,max_reads=x.max_reads,max_checks=x.max_checks)
-        if x.out_new is not None:publish(x.lab,report,private,x.out_new)
+        report,private=review(x.lab,x.audit_dir,portable=x.portable,object_limit=x.object_limit,preview_limit=x.preview_limit,byte_budget=x.byte_budget,max_reads=x.max_reads,max_checks=x.max_checks,progress=progress.mark)
+        if x.out_new is not None:publish(x.lab,report,private,x.out_new,progress=progress.mark)
         print(json.dumps(report,ensure_ascii=False,indent=2));return 0
     except KeyboardInterrupt:
         print(json.dumps({'status':'cancelled_safely','installation_ready':False}));return 130
     except (a.AuditError,b.BindingError,OSError,sqlite3.Error,KeyError,TypeError,ValueError) as ex:
-        print(json.dumps(public_error(ex)));return 1
+        print(json.dumps(public_error(ex,stage=progress.stage)));return 1
 if __name__=='__main__':raise SystemExit(main())

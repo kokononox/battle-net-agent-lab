@@ -1,0 +1,53 @@
+{
+  "input_kind": "deliberately_nonexistent_local_fixture_path;not_user_error",
+  "runtime": "Linux_Python3.13",
+  "returncode": 1,
+  "output": {
+    "status": "stopped_safely",
+    "error_type": "FileNotFoundError",
+    "installation_ready": false,
+    "diagnostics_version": "local-review-diag-2",
+    "stage": "bind_saved_checkpoint",
+    "platform": "linux",
+    "python_version": [
+      3,
+      13,
+      14
+    ],
+    "errno": 2,
+    "safe_trace": [
+      {
+        "module": "__main__",
+        "function": "main",
+        "line": 280
+      },
+      {
+        "module": "__main__",
+        "function": "review",
+        "line": 156
+      },
+      {
+        "module": "source_binding",
+        "function": "bind",
+        "line": 171
+      },
+      {
+        "module": "source_binding",
+        "function": "safe",
+        "line": 39
+      },
+      {
+        "module": "pathlib._abc",
+        "function": "lstat",
+        "line": 437
+      },
+      {
+        "module": "pathlib._local",
+        "function": "stat",
+        "line": 515
+      }
+    ]
+  },
+  "private_paths_omitted": true,
+  "Windows_cause_reproduced": false
+}
