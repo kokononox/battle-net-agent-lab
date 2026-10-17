@@ -3,14 +3,15 @@
 No network, archive-content reads, scan restart, Lab/game writes or DB rebuild.
 Reads TWO permitted game metadata files, existing saved Lab metadata, and ONLY
 its exact CKey/size-named decoded Download cache (<=256 MiB) if present.
-Projects record bits, NOT unique objects, vendor install closure or network size.
+Projects record bits only for a supported model; otherwise CKey-bound schema
+observations with NO selection. NOT vendor install closure or network size.
 """
 from pathlib import Path
 import argparse,hashlib,json,os,re,stat,time,uuid
 import installed_profile_probe as p
 import source_binding as b
 import patch_audit as a
-VERSION='saved-scope-review-2'
+VERSION='saved-scope-review-3'
 MAX_MANIFEST=256*1024**2
 MAX_RECORDS=10_000_000
 MAX_TAGS=4096
@@ -42,13 +43,20 @@ class ManifestReader:
         raw=self.f.read(n);b.need(len(raw)==n,'download_manifest_truncated')
         self.used+=n;self.md5.update(raw);self.sha.update(raw);return raw
 
-def parse_manifest(reader,profile,*,progress=lambda _:None):
+def parse_manifest(reader,profile,*,progress=lambda _:None,observe_unresolved=False):
     """Single sequential metadata pass, bounded bitmap state, no object DB.
 
     Optional high-bit 0x4000 is normalized for this DIAGNOSTIC only. Unknown
     dimension values/kinds fail closed; non-dimension tags are NOT exclusions.
     No unique-object, duplicate-size, priority/checksum algorithm proof is made.
     """
+    # Observation mode never authorizes an unknown tag. It consumes the
+    # complete structurally valid manifest so the caller can verify raw CKey,
+    # then publish a schema diagnostic with NO record selection if unresolved.
+    blockers=set();observations=[]
+    def block(code):
+        if not observe_unresolved:raise b.BindingError(code)
+        blockers.add(code)
     r=reader;h=r.read(11)
     b.need(h[:2]==b'DL' and h[2] in (1,2,3) and h[3]==16,'unsupported_download_header')
     version,checks=h[2],h[4];b.need(checks in (0,1),'unsupported_download_checksum_marker')
@@ -86,21 +94,36 @@ def parse_manifest(reader,profile,*,progress=lambda _:None):
         padding_tags+=bool(noise);padding_ones+=noise.bit_count()
         mask &= valid
         expected=next((i+1 for i,values in enumerate(DIMENSIONS) if text in values),None)
-        if expected is not None:b.need(base==expected,'download_known_tag_kind_conflict')
-        if base in (1,2,3,4):
-            b.need(text in DIMENSIONS[base-1],'download_unknown_dimension_tag_no_guess')
+        issue=None
+        if expected is not None and base!=expected:issue='download_known_tag_kind_conflict'
+        elif base in (1,2,3,4) and text not in DIMENSIONS[base-1]:issue='download_unknown_dimension_tag_no_guess'
+        elif base not in (0,1,2,3,4):issue='download_unknown_tag_kind_no_guess'
+        if issue is not None:block(issue)
+        elif base in (1,2,3,4):
             union[base-1]|=mask
             if text in requested[base-1]:chosen[base-1]|=mask;found[base-1].add(text)
-        else:
-            # Unknown kind semantics are NOT guessed as optional categories.
-            b.need(base==0,'download_unknown_tag_kind_no_guess');non_dimension+=1
+        else:non_dimension+=1
+        if observe_unresolved:
+            # Only compact labels from CKey-bound PUBLIC Download metadata may
+            # reach a report. Installed tags are never passed to this exporter.
+            # Redact path/account/secret-like or non-compact names; retain hash.
+            label=text if re.fullmatch('[A-Za-z][A-Za-z0-9_-]{0,63}',text) and not any(v in text.lower() for v in ('acct-','geoip-','private','password','secret','token','keyring','credential')) else None
+            observations.append({'ordinal':ordinal,'name':label,'name_redacted':label is None,
+                 'name_utf8_sha256':hashlib.sha256(bytes(name)).hexdigest(),'name_utf8_bytes':len(name),
+                 'kind_raw':kind,'kind_without_optional_bit':base,'kind_expected_by_current_model':expected,
+                 'member_records_excluding_padding':mask.bit_count(),'model_issue':issue})
     b.need(r.used==r.size,'download_manifest_trailing_bytes')
-    b.need(all(found[i]==requested[i] for i in range(4)),'download_requested_tag_absent_no_fallback')
+    if not all(found[i]==requested[i] for i in range(4)):block('download_requested_tag_absent_no_fallback')
     selected=valid
     for u,c in zip(union,chosen):selected &= c | (valid ^ u)
+    supported=not blockers
     r.check()
     return {'format_version':version,'manifest_records':n,'manifest_tags':nt,
-        'diagnostic_selected_records':selected.bit_count(),'diagnostic_unselected_records':n-selected.bit_count(),
+        'diagnostic_selected_records':selected.bit_count() if supported else None,
+        'diagnostic_unselected_records':n-selected.bit_count() if supported else None,
+        'selection_model_supported':supported,
+        'tag_schema':{'model_supported':supported,'blockers':sorted(blockers),'observed_tags':observations,
+                      'unresolved_tags_not_silently_ignored':True,'record_selection_emitted':supported},
         'selection_unit':'record_bits_NOT_unique_encoded_objects',
         'unused_padding_bits_per_bitmap':padding,
         'tags_with_nonzero_unused_padding_bits':padding_tags,
@@ -109,7 +132,7 @@ def parse_manifest(reader,profile,*,progress=lambda _:None):
         'content_identity_checked_over_unmodified_raw_bytes':True,
         'policy':'matching_or_unclassified_per_dimension;OR_locales;AND_dimensions',
         'optional_kind_bit_normalized_for_diagnostic_only':True,'tags_with_optional_kind_bit':optional,
-        'non_dimension_tags_not_excluded':non_dimension,'requested_dimension_tags_all_present':True,
+        'non_dimension_tags_not_excluded':non_dimension,'requested_dimension_tags_all_present':all(found[i]==requested[i] for i in range(4)),
         'record_checksums_present':bool(checks),'record_checksum_algorithm_validated':False,
         'unique_objects_or_duplicate_size_consistency_computed':False,'vendor_install_policy_proven':False,
         'selected_ekeys_exported':False,'selected_encoded_bytes_computed':False}
@@ -150,12 +173,13 @@ def review(lab,audit,game,*,cancel=lambda:False,progress=lambda _:None):
              'installed_files':{str(k):v for k,v in ip['watch'].files.items()}},sort_keys=True,separators=(',',':')).encode()).hexdigest(),
         'download_metadata':{'status':'not_available_at_exact_saved_cache_reference','expected_decoded_bytes':size,
              'expected_ckey':keys[0],'content_identity_revalidated':False,'absence_is_not_game_object_missing_or_corrupt':True},
-        'diagnostic_projection':None,'target_Download_tag_projection_computed':False,
+        'diagnostic_projection':None,'target_Download_tag_projection_computed':False,'download_tag_schema':None,
         'scope':{'game_metadata_files_read':2,'game_metadata_bytes_read':ip['watch'].read_bytes,
              'saved_download_metadata_bytes_read':0,'saved_download_metadata_max_bytes':MAX_MANIFEST,
              'archive_payload_bytes_read':0,'archive_payload_read_calls':0,'archive_scan_restarted':False,
              'existing_snapshot_directory_names_and_stats_rechecked':True,'inventory_database_rebuilt':False,
-             'raw_paths_account_labels_or_tags_exported':False},
+             'raw_installed_paths_account_labels_or_tags_exported':False,
+             'public_download_tag_labels_exported_only_after_CKey_verification':False},
         'actual_required_install_set_known':False,'required_network_download_bytes':None,
         'fresh_local_content_verified':False,'old_success_flags_used_for_content_proof':False,
         'installed_files_health_proven':False,'active_CASC_generation_proven':False,
@@ -170,16 +194,26 @@ def review(lab,audit,game,*,cancel=lambda:False,progress=lambda _:None):
         with path.open('rb') as f:
             b.need(b.fp(os.fstat(f.fileno()))==before,'saved_download_changed')
             reader=ManifestReader(f,size,checked)
-            projection=parse_manifest(reader,installed['profile'],progress=progress)
+            projection=parse_manifest(reader,installed['profile'],progress=progress,observe_unresolved=True)
             b.need(reader.md5.hexdigest()==keys[0],'saved_download_ckey_mismatch')
             b.need(b.fp(os.fstat(f.fileno()))==before,'saved_download_changed')
         w.check();report['download_metadata'].update(status='decoded_content_identity_revalidated',content_identity_revalidated=True,sha256=reader.sha.hexdigest())
         report['scope']['saved_download_metadata_bytes_read']=reader.used
-        report.update(status='bound_download_diagnostic_projection_complete',diagnostic_projection=projection,target_Download_tag_projection_computed=True)
+        schema=projection.pop('tag_schema');schema.update(content_identity_revalidated=True,
+             manifest_records=projection['manifest_records'],manifest_tags=projection['manifest_tags'],
+             format_version=projection['format_version'],
+             tags_with_nonzero_unused_padding_bits=projection['tags_with_nonzero_unused_padding_bits'])
+        report['download_tag_schema']=schema
+        report['scope']['public_download_tag_labels_exported_only_after_CKey_verification']=True
+        if projection['selection_model_supported']:
+            report.update(status='bound_download_diagnostic_projection_complete',diagnostic_projection=projection,target_Download_tag_projection_computed=True)
+        else:
+            report.update(status='bound_download_identity_verified_tag_schema_unresolved',
+                          diagnostic_projection=None,target_Download_tag_projection_computed=False)
     progress('final_input_recheck');checked();w.check()
     private['watched_files']=[{'path':str(k),'fingerprint':v} for k,v in w.files.items()]
     # An absent exact cache reference must remain absent through publication.
-    private['absent_download_path']=str(manifest) if report['diagnostic_projection'] is None else None
+    private['absent_download_path']=str(manifest) if not report['download_metadata']['content_identity_revalidated'] else None
     return report,private
 
 def final_check(private):
