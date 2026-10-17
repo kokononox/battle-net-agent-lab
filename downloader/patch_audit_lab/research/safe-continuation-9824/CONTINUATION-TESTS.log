@@ -1,0 +1,46 @@
+test_all_manifest_not_install_profile (test_review_continuation.ClearSemantics.test_all_manifest_not_install_profile) ... ok
+test_counts_do_not_depend_on_preview (test_review_continuation.ClearSemantics.test_counts_do_not_depend_on_preview) ... ok
+test_fresh_status_separate_from_route (test_review_continuation.ClearSemantics.test_fresh_status_separate_from_route) ... ok
+test_no_locale_guess (test_review_continuation.ClearSemantics.test_no_locale_guess) ... ok
+test_no_transfer_unknown_not_local_completion (test_review_continuation.ClearSemantics.test_no_transfer_unknown_not_local_completion) ... ok
+test_saved_profile_not_active_install_proof (test_review_continuation.ClearSemantics.test_saved_profile_not_active_install_proof) ... ok
+test_unknown_route_is_not_required_download (test_review_continuation.ClearSemantics.test_unknown_route_is_not_required_download) ... ok
+test_zero_unresolved_route_does_not_mean_local_verified (test_review_continuation.ClearSemantics.test_zero_unresolved_route_does_not_mean_local_verified) ... ok
+test_batch_limits_not_relaxed (test_review_continuation.Continuation.test_batch_limits_not_relaxed) ... ok
+test_changed_saved_plan_rejects_cursor (test_review_continuation.Continuation.test_changed_saved_plan_rejects_cursor) ... ok
+test_completed_cursor_reads_no_more_payload (test_review_continuation.Continuation.test_completed_cursor_reads_no_more_payload) ... ok
+test_continuation_picker_cancel_does_not_start_review (test_review_continuation.Continuation.test_continuation_picker_cancel_does_not_start_review) ... ok
+test_cursor_duplicate_keys_rejected (test_review_continuation.Continuation.test_cursor_duplicate_keys_rejected) ... ok
+test_cursor_extra_proof_field_rejected (test_review_continuation.Continuation.test_cursor_extra_proof_field_rejected) ... ok
+test_cursor_file_is_watched_through_publication (test_review_continuation.Continuation.test_cursor_file_is_watched_through_publication) ... ok
+test_cursor_oversize_rejected (test_review_continuation.Continuation.test_cursor_oversize_rejected) ... ok
+test_different_lab_rejects_cursor (test_review_continuation.Continuation.test_different_lab_rejects_cursor) ... ok
+test_exact_budget_defers_next_target (test_review_continuation.Continuation.test_exact_budget_defers_next_target) ... ok
+test_explainer_conditional_bytes_not_required_network (test_review_continuation.Continuation.test_explainer_conditional_bytes_not_required_network) ... ok
+test_explainer_rejects_bad_totals (test_review_continuation.Continuation.test_explainer_rejects_bad_totals) ... ok
+test_explainer_rejects_boolean_counter (test_review_continuation.Continuation.test_explainer_rejects_boolean_counter) ... ok
+test_explainer_rejects_budget_overrun_claim (test_review_continuation.Continuation.test_explainer_rejects_budget_overrun_claim) ... ok
+test_explainer_rejects_preview_count_conflict (test_review_continuation.Continuation.test_explainer_rejects_preview_count_conflict) ... ok
+test_explainer_uses_only_report_no_Lab_or_payload (test_review_continuation.Continuation.test_explainer_uses_only_report_no_Lab_or_payload) ... ok
+test_explainer_whitelists_scope_policy (test_review_continuation.Continuation.test_explainer_whitelists_scope_policy) ... ok
+test_first_deferred_target_never_skipped (test_review_continuation.Continuation.test_first_deferred_target_never_skipped) ... ok
+test_legacy_report_cannot_seed_bound_position (test_review_continuation.Continuation.test_legacy_report_cannot_seed_bound_position) ... ok
+test_metadata_only_launcher_does_not_start_payload_batch (test_review_continuation.Continuation.test_metadata_only_launcher_does_not_start_payload_batch) ... ok
+test_no_automatic_next_batch_or_network (test_review_continuation.Continuation.test_no_automatic_next_batch_or_network) ... ok
+test_no_private_paths_or_raw_profile_in_cursor (test_review_continuation.Continuation.test_no_private_paths_or_raw_profile_in_cursor) ... ok
+test_nonexistent_cursor_key_rejected (test_review_continuation.Continuation.test_nonexistent_cursor_key_rejected) ... ok
+test_object_limit_continues_by_key_not_offset (test_review_continuation.Continuation.test_object_limit_continues_by_key_not_offset) ... ok
+test_old_proof_flags_not_imported (test_review_continuation.Continuation.test_old_proof_flags_not_imported) ... ok
+test_prepare_can_publish_external_report (test_review_continuation.Continuation.test_prepare_can_publish_external_report) ... ok
+test_prepare_has_zero_payload_reads_and_no_input_writes (test_review_continuation.Continuation.test_prepare_has_zero_payload_reads_and_no_input_writes) ... ok
+test_prepare_rejects_portable_payload_work (test_review_continuation.Continuation.test_prepare_rejects_portable_payload_work) ... ok
+test_two_bounded_batches_continue_without_repeating_first_target (test_review_continuation.Continuation.test_two_bounded_batches_continue_without_repeating_first_target) ... ok
+test_unknown_no_candidate_is_not_missing_and_may_advance (test_review_continuation.Continuation.test_unknown_no_candidate_is_not_missing_and_may_advance) ... ok
+test_wrong_input_binding_stops_before_payload (test_review_continuation.Continuation.test_wrong_input_binding_stops_before_payload) ... ok
+test_zero_checks_does_not_advance_position (test_review_continuation.Continuation.test_zero_checks_does_not_advance_position) ... ok
+test_zero_read_calls_does_not_advance_position (test_review_continuation.Continuation.test_zero_read_calls_does_not_advance_position) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 4.380s
+
+OK

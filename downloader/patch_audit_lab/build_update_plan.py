@@ -99,7 +99,15 @@ def decide(t, patches):
             action='full_download';reason='conditional_verified_catalogue_route_not_http_tested';cost=full_cost
             transfer=('encoded',t.ekey,t.encoded_size)
         else:action='needs_verification';reason='no_verified_local_target_or_supported_transfer';cost=None;transfer=None
-    result.update(action=action,reason=reason,conditional_payload_bytes=cost)
+    # Keep the v1 action vocabulary for existing research consumers. It names
+    # conditional routes, NOT a verdict that a local object is missing.
+    local_verified=t.local=='fresh_encoded'
+    result.update(action=action,reason=reason,conditional_payload_bytes=cost,
+                  local_verification_status='fresh_verified' if local_verified else 'not_fresh_verified',
+                  local_verification_required=not local_verified,
+                  download_required=None,
+                  transfer_option={'reuse':'no_transfer','full_download':'conditional_full_download',
+                                   'patch':'conditional_patch','needs_verification':'unresolved'}[action])
     return result,transfer
 
 def plan(targets, patches, *, target_binding, scope, preview_limit=128):
@@ -111,7 +119,7 @@ def plan(targets, patches, *, target_binding, scope, preview_limit=128):
         k=('patch',p.patch_key)
         b.need(k not in object_sizes or object_sizes[k]==p.patch_size,'transfer_object_size_conflict')
         object_sizes[k]=p.patch_size
-    seen={};transfers={};counts=Counter();rows=[];unknown=0;known=0;duplicates=0
+    seen={};transfers={};counts=Counter();local_counts=Counter();route_counts=Counter();rows=[];unknown=0;known=0;duplicates=0
     for t in targets:
         validate_target(t)
         b.need(len(seen)<100000 or t.ekey in seen,'bounded_plan_limit')
@@ -119,6 +127,8 @@ def plan(targets, patches, *, target_binding, scope, preview_limit=128):
             b.need(t==seen[t.ekey],'duplicate_target_conflict');duplicates+=1;continue
         seen[t.ekey]=t
         d,transfer=decide(t,grouped[t.ckey,t.decoded_size]);counts[d['action']]+=1
+        local_counts[d['local_verification_status']]+=1
+        route_counts[d['transfer_option']]+=1
         if d['conditional_payload_bytes'] is None:unknown+=1
         else:known+=d['conditional_payload_bytes']
         if transfer:
@@ -131,6 +141,12 @@ def plan(targets, patches, *, target_binding, scope, preview_limit=128):
     return {'format':'readonly-update-decision-plan-1','target':target_binding,'scope':scope,
             'target_objects_evaluated':len(seen),'duplicate_target_rows_ignored':duplicates,
             'actions':dict(sorted(counts.items())),'rows':rows,'rows_omitted':len(seen)-len(rows),
+            'action_semantics':'legacy_conditional_route_preview_not_required_downloads',
+            'local_status_counts':dict(sorted(local_counts.items())),
+            'transfer_option_counts':dict(sorted(route_counts.items())),
+            'unresolved_local_objects':local_counts['not_fresh_verified'],
+            'unresolved_transfer_options':unknown,
+            'unresolved_objects_semantics':'legacy_alias_of_unresolved_transfer_options_not_local_verification',
             'unresolved_objects':unknown,'known_payload_bytes_before_shared_object_dedup':known,
             'known_unique_transfer_objects':len(transfers),'known_unique_payload_bytes_subtotal':total,
             'conditional_payload_bytes':None if unknown else total,

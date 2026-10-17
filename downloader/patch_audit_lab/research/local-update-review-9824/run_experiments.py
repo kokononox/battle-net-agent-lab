@@ -12,7 +12,9 @@ from fixtures import Fixture
 
 MODULES=('local_update_review.py','local_review_launcher.py','build_update_plan.py',
          'patch_audit.py','source_binding.py','source_check.py','refs_source_check.py',
-         'portable_run.py','encoding_target.py','staging_sample.py','cdn_catalog.py','RUN-LOCAL-REVIEW.cmd')
+         'portable_run.py','encoding_target.py','staging_sample.py','cdn_catalog.py','RUN-LOCAL-REVIEW.cmd',
+         'review_checkpoint.py','review_report_explain.py','prepare_review_launcher.py',
+         'continue_review_launcher.py','PREPARE-CONTINUATION.cmd','CONTINUE-ONE-BATCH.cmd')
 def save(p,o):p.write_text(json.dumps(o,indent=2)+'\n')
 def command(args,env,cwd=LAB):
  r=subprocess.run([sys.executable,'-B',*map(str,args)],env=env,cwd=cwd,capture_output=True,text=True,timeout=300)
@@ -20,7 +22,8 @@ def command(args,env,cwd=LAB):
 
 def bundle(out,portable):
  files={n:(LAB/n).read_bytes() for n in MODULES}
- files['RUN-LOCAL-REVIEW.cmd']=files['RUN-LOCAL-REVIEW.cmd'].replace(b'\r\n',b'\n').replace(b'\n',b'\r\n')
+ for n in files:
+  if n.endswith('.cmd'):files[n]=files[n].replace(b'\r\n',b'\n').replace(b'\n',b'\r\n')
  for n in ['build.config',*[f'manifest.pa.base64.part{i}' for i in range(3)]]:files['pinned_metadata/'+n]=(portable/'pinned_metadata'/n).read_bytes()
  files['README-fa.md']=(LAB/'research/local-update-review-9824/README-fa.md').read_bytes()
  manifest={'format':'readonly-local-review-bundle-1','game_writer_or_agent_binary_included':False,

@@ -31,7 +31,7 @@ class Dispatch(unittest.TestCase):
  def test_windows_existing_destination_error_propagates(self):
   with patch.object(r.sys,'platform','win32'),patch.object(r.os,'rename',side_effect=FileExistsError(errno.EEXIST,'exists')),patch.object(r.os,'link',side_effect=AssertionError('no fallback')):
    with self.assertRaises(FileExistsError):r.publish_report_noreplace('a','b')
- def test_version_marker(self):self.assertEqual(r.DIAGNOSTICS_VERSION,'local-review-diag-3')
+ def test_version_marker(self):self.assertEqual(r.DIAGNOSTICS_VERSION,'local-review-diag-4')
 
 class WindowsPublication(unittest.TestCase):
  @classmethod

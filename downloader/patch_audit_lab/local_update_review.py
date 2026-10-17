@@ -12,6 +12,7 @@ import source_binding as b
 import source_check
 import refs_source_check as decode
 import build_update_plan as planner
+import review_checkpoint as checkpoint
 
 MAX_BYTES=32*1024**2
 MAX_CHECKS=256
@@ -32,19 +33,19 @@ def public_selection(tag):
             out['profile']={'platform':'Windows','architecture':'x86_64','region':'EU','locales':sorted(set(observed))}
     return out
 
-DIAGNOSTICS_VERSION='local-review-diag-3'
+DIAGNOSTICS_VERSION='local-review-diag-4'
 PHASES=frozenset(('start','select_lab','validate_arguments','bind_saved_checkpoint',
     'restore_watched_files','validate_saved_snapshot','read_saved_references',
     'load_pinned_metadata','verify_portable_fixture','open_readonly_databases',
     'read_target_plan','verify_target_payloads','verify_patch_sources','assemble_plan',
     'final_input_recheck','prepare_report_output','publication_recheck',
     'create_report_directory','write_pending_report','publish_report_noreplace',
-    'postpublication_recheck','complete'))
+    'postpublication_recheck','validate_continuation','complete'))
 TRACE_MODULES=frozenset(('__main__','local_review_launcher','local_update_review',
     'source_binding','source_check','patch_audit','portable_run','encoding_target',
     'refs_source_check','build_update_plan','staging_sample','pathlib','pathlib._local',
     'pathlib._abc','genericpath','ntpath','posixpath','os','tkinter',
-    'tkinter.filedialog','tkinter.commondialog','sqlite3'))
+    'tkinter.filedialog','tkinter.commondialog','sqlite3','review_checkpoint'))
 
 class Progress:
     def __init__(self):self.stage='start'
@@ -83,7 +84,7 @@ class Reader:
                and type(max_checks)is int and 0<=max_checks<=MAX_CHECKS,'review_read_limits')
         self.db=db;self.snapshot=snapshot;self.watch=watch;self.budget=budget
         self.max_reads=max_reads;self.max_checks=max_checks;self.cancel=cancel
-        self.spent=self.reads=self.checks=0;self.raw={};self.verified={};self.results={};self.reasons=Counter()
+        self.spent=self.reads=self.checks=0;self.raw={};self.verified={};self.results={};self.reasons=Counter();self.deferred=set()
     def verify(self,ekey,decoded_size,encoded_size=None,ckey=None):
         planner.key(ekey);planner.integer(decoded_size,True)
         if encoded_size is not None:planner.integer(encoded_size,True)
@@ -104,7 +105,7 @@ class Reader:
         for cid,ek,aid,offset,es,ck,ds,name,size,ambiguous in rows:
             b.need(not self.cancel(),'review_cancelled_or_time_limit')
             if self.checks>=self.max_checks:
-                self.reasons['candidate_check_limit']+=1;break
+                self.reasons['candidate_check_limit']+=1;self.deferred.add(request);break
             self.checks+=1
             valid=(type(cid)is int and type(aid)is int and aid>=0 and type(offset)is int and offset>=0
                    and type(es)is int and 0<es<=8*1024**2 and type(ds)is int and ds==decoded_size
@@ -117,7 +118,7 @@ class Reader:
             location=(name,offset,es)
             if location not in self.raw:
                 if self.reads>=self.max_reads or es>self.budget-self.spent:
-                    self.reasons['archive_read_budget_or_call_limit']+=1;continue
+                    self.reasons['archive_read_budget_or_call_limit']+=1;self.deferred.add(request);continue
                 path=self.watch.file(Path(self.snapshot['directory'])/name,self.snapshot['files'][name]);before=self.watch.files[path]
                 self.watch.check()
                 with path.open('rb') as f:
@@ -132,7 +133,7 @@ class Reader:
             if a.md5(content)!=ck.hex():
                 self.reasons['candidate_ckey_not_verified']+=1;continue
             self.watch.check();self.verified.setdefault((ekey,decoded_size),[]).append(proof)
-            self.results[request]=True;return True
+            self.deferred.discard(request);self.results[request]=True;return True
         self.results[request]=False;return False
     def report(self):
         return {'archive_payload_bytes_read':self.spent,'archive_read_calls':self.reads,'candidate_checks':self.checks,
@@ -142,13 +143,17 @@ class Reader:
                 'whole_archives_scanned':False,'new_indexes_created':False,'saved_success_flags_used_as_proof':False}
 
 def review(lab,audit_dir,*,portable=None,object_limit=256,preview_limit=128,byte_budget=MAX_BYTES,
-           max_reads=MAX_READS,max_checks=MAX_CHECKS,time_limit=120,cancel=lambda:False,progress=lambda _:None):
+           max_reads=MAX_READS,max_checks=MAX_CHECKS,time_limit=120,cancel=lambda:False,progress=lambda _:None,
+           batch=False,continue_from=None,metadata_only=False):
     progress('validate_arguments')
     b.need(type(object_limit)is int and 1<=object_limit<=4096 and type(time_limit)is int and 1<=time_limit<=600,'review_metadata_limits')
     # Validate budgets before any saved metadata/payload work.
     b.need(type(byte_budget)is int and 0<=byte_budget<=MAX_BYTES and type(max_reads)is int and 0<=max_reads<=MAX_READS
            and type(max_checks)is int and 0<=max_checks<=MAX_CHECKS,'review_read_limits')
     b.need(type(preview_limit)is int and 0<=preview_limit<=4096,'plan_preview_limit')
+    b.need(type(batch)is bool and type(metadata_only)is bool and (continue_from is None or batch)
+           and (not metadata_only or batch and portable is None and continue_from is None),'review_continuation_mode')
+    if metadata_only:byte_budget=0;max_reads=0;max_checks=0
     started=time.monotonic()
     stopped=lambda:cancel() or time.monotonic()-started>time_limit
     b.need(not stopped(),'review_cancelled_or_time_limit')
@@ -159,6 +164,11 @@ def review(lab,audit_dir,*,portable=None,object_limit=256,preview_limit=128,byte
     for row in prior['watched_files']:w.file(row['path'],row['fingerprint'])
     progress('validate_saved_snapshot')
     snapshot=prior['local_storage_snapshot'];w.snapshot(snapshot)
+    cursor_binding=checkpoint.binding(prior);after=None
+    if continue_from is not None:
+        progress('validate_continuation')
+        cursor_report=b.json_object(w.read(continue_from,limit=4*1024**2))
+        after=checkpoint.from_report(cursor_report,cursor_binding)
     progress('read_saved_references')
     lab=b.safe(lab);audit_dir=b.safe(audit_dir);state=b.json_object(w.read(lab/'objects/downloader-ui-session.json'))
     record=state['local_review'];objects=lab/'objects'
@@ -189,8 +199,14 @@ def review(lab,audit_dir,*,portable=None,object_limit=256,preview_limit=128,byte
         summary=b.metadata(db,'p','plan_summary');total=db.execute('SELECT COUNT(*) FROM p.plan').fetchone()[0]
         b.need(type(summary.get('selected_unique_objects'))is int and total==summary['selected_unique_objects'] and isinstance(summary.get('tag_selection'),dict),'review_plan_summary')
         b.need(db.execute('SELECT 1 FROM p.plan GROUP BY ekey HAVING COUNT(*)!=1 LIMIT 1').fetchone() is None,'duplicate_plan_ekey')
+        if after is not None:
+            b.need(db.execute('SELECT 1 FROM p.plan WHERE ekey=?',(bytes.fromhex(after),)).fetchone() is not None,'continuation_key_not_in_plan')
         targets=[]
-        for ek,ck,es,ds,mapping,supported,route in db.execute('SELECT ekey,ckey,encoded_size,decoded_size,mapping_state,transfer_supported,route_kind FROM p.plan ORDER BY ekey LIMIT ?',(object_limit,)):
+        query='SELECT ekey,ckey,encoded_size,decoded_size,mapping_state,transfer_supported,route_kind FROM p.plan'
+        params=[]
+        if after is not None:query+=' WHERE ekey>?';params.append(bytes.fromhex(after))
+        query+=' ORDER BY ekey LIMIT ?';params.append(0 if metadata_only else object_limit)
+        for ek,ck,es,ds,mapping,supported,route in db.execute(query,params):
             b.need(isinstance(ek,bytes) and len(ek)==16 and (ck is None or isinstance(ck,bytes) and len(ck)==16) and type(supported)is int and supported in (0,1),'review_target_row')
             t=planner.Target(ek.hex(),ck.hex() if ck is not None else None,es,ds,mapping=='mapped',bool(supported and route in ('archive_range','advertised_direct')))
             planner.validate_target(t);targets.append(t)
@@ -198,7 +214,16 @@ def review(lab,audit_dir,*,portable=None,object_limit=256,preview_limit=128,byte
         # Spend limited reads on current targets FIRST, then sources of unresolved
         # targets. Do not probe every PA source or perform another archive scan.
         progress('verify_target_payloads')
-        targets=[replace(t,local='fresh_encoded') if t.mapped and t.decoded_size and reader.verify(t.ekey,t.decoded_size,t.encoded_size,t.ckey) else t for t in targets]
+        processed=[];last=after;deferred_target=None
+        for t in targets:
+            verified=t.mapped and t.decoded_size and reader.verify(t.ekey,t.decoded_size,t.encoded_size,t.ckey)
+            request=(t.ekey,t.decoded_size,t.encoded_size,t.ckey)
+            # A position may advance past fully attempted unknowns, NEVER past a
+            # candidate skipped because the call/check/byte budget ran out.
+            if batch and not verified and request in reader.deferred:
+                deferred_target=t.ekey;break
+            processed.append(replace(t,local='fresh_encoded') if verified else t);last=t.ekey
+        targets=processed
         wanted={(t.ckey,t.decoded_size) for t in targets if t.local!='fresh_encoded' and t.mapped}
         patches=[];source_tries=set()
         progress('verify_patch_sources')
@@ -215,18 +240,36 @@ def review(lab,audit_dir,*,portable=None,object_limit=256,preview_limit=128,byte
                     capability=planner.CAPABILITY;local_patch=True
             patches.append(planner.Patch(**asdict(option),source='fresh_encoded' if fresh else 'unknown',patch_local=local_patch,capability=capability))
         progress('assemble_plan')
+        sanitized_selection=public_selection(summary['tag_selection'])
         scope={'kind':'existing_saved_inventory_bounded_fresh_review','catalogue_unique_objects':total,
                'requested_object_limit':object_limit,'evaluated_all_saved_rows':total<=object_limit,
-               'tag_selection':public_selection(summary['tag_selection']),'profile_selection_recomputed':False,
+               'tag_selection':sanitized_selection,'profile_selection_recomputed':False,
+               'installation_scope':checkpoint.selection_status(sanitized_selection),
                'source_inventory':'saved_target_projected_candidates_not_all_old_patch_bases',
                'patch_source_requests_for_unreused_selected_targets':len(source_tries),
                'whole_installation_or_active_generation_verified':False,
                'cdn_policy':'existing_offline_same_build_download_binding_only;no_route_equivalence_claim',
                'portable_fixture_verified_for_single_edge_only':portable_ok}
         result=planner.plan(targets,patches,target_binding=binding,scope=scope,preview_limit=preview_limit)
-        result.update(format='readonly-local-update-review-1',local_verification=reader.report(),
+        result.update(format='readonly-local-update-review-1',review_version=DIAGNOSTICS_VERSION,local_verification=reader.report(),
                       prior_full_source_proof_flags_used_for_fresh_decisions=False,
                       consistency_model='saved_file_set_and_stat_fingerprints;not_OS_snapshot_or_hostile_writer_protection')
+        if batch:
+            remaining=db.execute('SELECT 1 FROM p.plan'+(' WHERE ekey>?' if last is not None else '')+' LIMIT 1',
+                                 (bytes.fromhex(last),) if last is not None else ()).fetchone() is not None
+            scope['kind']='saved_inventory_position_batch_not_cumulative_proof'
+            scope['evaluated_all_saved_rows']=not remaining and after is None
+            result['continuation']={'next_cursor':checkpoint.position(cursor_binding,last),
+                'has_more_saved_targets':remaining,'started_after_ekey':after,
+                'deferred_target_ekey_not_skipped':deferred_target,
+                'status':'prepared_metadata_only' if metadata_only else
+                         'blocked_no_progress' if deferred_target and last==after else
+                         'paused_on_limits' if deferred_target else 'position_batch_complete',
+                'position_advanced':last!=after,'metadata_only':metadata_only,
+                'cursor_is_position_only_not_content_proof':True,
+                'cumulative_verified_objects_claimed':False,'prior_results_used_for_fresh_decisions':False,
+                'completed_position_is_not_complete_local_verification':True,
+                'automatic_next_batch_started':False,'limits_apply_per_explicit_invocation':True}
         progress('final_input_recheck')
         w.check();b.need(not stopped(),'review_cancelled_or_time_limit')
         private={'local_storage_snapshot':snapshot,'watched_files':[{'path':str(p),'fingerprint':fp} for p,fp in w.files.items()],
@@ -287,9 +330,15 @@ def main():
     p.add_argument('--preview-limit',type=int,default=128);p.add_argument('--byte-budget',type=int,default=MAX_BYTES)
     p.add_argument('--max-reads',type=int,default=MAX_READS);p.add_argument('--max-checks',type=int,default=MAX_CHECKS)
     p.add_argument('--out-new',type=Path)
+    mode=p.add_mutually_exclusive_group()
+    mode.add_argument('--prepare-checkpoint',action='store_true',help='Metadata only: no archive payload reads, create an initial bound position')
+    mode.add_argument('--continue-from',type=Path,help='Previous position-aware report; ignores its prior proof flags')
+    mode.add_argument('--position-batch',action='store_true',help='Explicit new bounded traversal; does not import old report proofs')
     x=p.parse_args();progress=Progress()
     try:
-        report,private=review(x.lab,x.audit_dir,portable=x.portable,object_limit=x.object_limit,preview_limit=x.preview_limit,byte_budget=x.byte_budget,max_reads=x.max_reads,max_checks=x.max_checks,progress=progress.mark)
+        report,private=review(x.lab,x.audit_dir,portable=x.portable,object_limit=x.object_limit,preview_limit=x.preview_limit,byte_budget=x.byte_budget,max_reads=x.max_reads,max_checks=x.max_checks,progress=progress.mark,
+                              batch=bool(x.prepare_checkpoint or x.continue_from is not None or x.position_batch),
+                              continue_from=x.continue_from,metadata_only=x.prepare_checkpoint)
         if x.out_new is not None:publish(x.lab,report,private,x.out_new,progress=progress.mark)
         print(json.dumps(report,ensure_ascii=False,indent=2));return 0
     except KeyboardInterrupt:
