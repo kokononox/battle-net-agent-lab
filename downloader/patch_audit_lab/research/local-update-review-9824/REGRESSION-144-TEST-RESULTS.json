@@ -1,0 +1,47 @@
+{
+  "format": "retail-sample-updater-test-results-1",
+  "profile": "offline-single-pinned-retail-pair",
+  "tests_run": 144,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "prior_117_tests_rerun": true,
+  "new_sample_app_tests": 27,
+  "cli_process_stop_recoveries": 9,
+  "direct_cycle_process_stop_recoveries": 9,
+  "snapshot_regression_recoveries": 9,
+  "cli_commands_smoke_tested": [
+    "plan",
+    "update",
+    "status",
+    "export",
+    "update_noop"
+  ],
+  "runner_requires_preinitialized_workspace": true,
+  "full_portable_verification_at_init": true,
+  "encoding_not_rehashed_by_runner": true,
+  "export_bytes": 33940,
+  "export_sha256": "3818ed3b407ad07a407fb104a65c03ab39f8a89e86937ea4e261e26b99c71bd9",
+  "export_ckey": "3d42bf2e42127f313b0ec64cb440cde9",
+  "export_read_from_live_committed_cycle": true,
+  "template_and_prior_fixtures_unchanged": true,
+  "network_download_supported": false,
+  "network_requests": 0,
+  "full_build_or_multiple_payloads_tested": false,
+  "windows_or_power_loss_tested": false,
+  "historical_814_test_suite_rerun": false,
+  "installation_ready": false,
+  "sources_sha256": {
+    "retail_sample_updater.py": "e982dc7a5812ccd090ad4ad76b240c34d0c88f059ef054a91eb6ee8dbbc4d967",
+    "tests/test_retail_sample_updater.py": "7618d2c982abaf14a7c13798ede1f0756c189ced8a76847335410efff8c97c48",
+    "research/sample-updater-9824/run_experiments.py": "c50cf27c18b2982b549ee007ebbb3964e6bebc6bb26b03e3b057e948c85a4f5d"
+  },
+  "artifacts_sha256": {
+    "CLI-WORKFLOW.json": "42ae4405455d3c3725d1104d3018e12dea760d3d3cef7913e388143828b18e6e",
+    "INPUT-PROOF.json": "0166108d420b697a787e064081be9cc8a022189fca7ab2a4ab9dc9c8c74c0568",
+    "RECOVERY-CLI.json": "3a2bfd85e56aa07b93d361231514350ca94441df18a00bbd893151a4b866d0f0",
+    "RECOVERY-DIRECT.json": "03b75f787c92fb921a2e4260d7e2a958605e9d1b39f18bc72fb130cd194cc0c1",
+    "RECOVERY-SNAPSHOT.json": "0227f6be8bd735b5017fe87edcf0e9935dba71a27f4cef05be4d89e2932dece1",
+    "TESTS.log": "6174ab91f4e98a1227d08e7c811d62916912b127ab8b9fd5142bd1b0285f64c4"
+  }
+}

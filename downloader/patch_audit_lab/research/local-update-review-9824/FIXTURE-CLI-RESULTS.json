@@ -1,0 +1,315 @@
+[
+  {
+    "case": "source_without_portable",
+    "input_kind": "GENERATED_saved_DBs_and_real_pair_in_owned_archive_NOT_user_inventory",
+    "result": {
+      "format": "readonly-local-update-review-1",
+      "target": {
+        "build_config": "334a36cf5f3c32a5f7a167405487fa14",
+        "cdn_config": "fcab7fec2ccc6b8158b56b6938ec4551",
+        "version": "12.1.5.70391",
+        "product": "wow",
+        "region": "eu",
+        "download_ckey": "5beff4cf8122da27a6788d9062c8d3c2",
+        "download_ekey": "fa1124f7249c41d63eda566523dd7444"
+      },
+      "scope": {
+        "kind": "existing_saved_inventory_bounded_fresh_review",
+        "catalogue_unique_objects": 2,
+        "requested_object_limit": 256,
+        "evaluated_all_saved_rows": true,
+        "tag_selection": {
+          "policy": "saved_policy_not_reproduced",
+          "vendor_install_policy_proven": false
+        },
+        "profile_selection_recomputed": false,
+        "source_inventory": "saved_target_projected_candidates_not_all_old_patch_bases",
+        "patch_source_requests_for_unreused_selected_targets": 1,
+        "whole_installation_or_active_generation_verified": false,
+        "cdn_policy": "existing_offline_same_build_download_binding_only;no_route_equivalence_claim",
+        "portable_fixture_verified_for_single_edge_only": false
+      },
+      "target_objects_evaluated": 2,
+      "duplicate_target_rows_ignored": 0,
+      "actions": {
+        "full_download": 1,
+        "reuse": 1
+      },
+      "rows": [
+        {
+          "target_ekey": "914fcad4f4fcf4abb0ba52b197bb066f",
+          "target_ckey": "98ad7b81687304aa0e99cf326200adfe",
+          "encoded_size": 158,
+          "decoded_size": 33940,
+          "local_state": "fresh_encoded",
+          "patch_options": 0,
+          "patch_diagnostics": {},
+          "apply_authorized": false,
+          "conditional_full_fallback_bytes": 158,
+          "action": "reuse",
+          "reason": "fresh_full_encoded_and_decoded_verification",
+          "conditional_payload_bytes": 0
+        },
+        {
+          "target_ekey": "faedca88d0a0ab30dae5519239582d31",
+          "target_ckey": "3d42bf2e42127f313b0ec64cb440cde9",
+          "encoded_size": 158,
+          "decoded_size": 33940,
+          "local_state": "unknown",
+          "patch_options": 1,
+          "patch_diagnostics": {
+            "patch_order_and_target_encoding_capability_unproven": 1
+          },
+          "apply_authorized": false,
+          "conditional_full_fallback_bytes": 158,
+          "action": "full_download",
+          "reason": "conditional_verified_catalogue_route_not_http_tested",
+          "conditional_payload_bytes": 158
+        }
+      ],
+      "rows_omitted": 0,
+      "unresolved_objects": 0,
+      "known_payload_bytes_before_shared_object_dedup": 158,
+      "known_unique_transfer_objects": 1,
+      "known_unique_payload_bytes_subtotal": 158,
+      "conditional_payload_bytes": 158,
+      "required_network_download_bytes": null,
+      "http_availability_tested": false,
+      "bytes_model": "encoded_or_patch_object_bodies_only;no_HTTP_overhead;no_fallback_reserve",
+      "selection_policy": "per_target_minimum_supported_cost;not_global_shared_patch_optimization",
+      "not_found_means_missing_or_corrupt": false,
+      "apply_authorized": false,
+      "full_game_build_plan": false,
+      "installed_build_detected": false,
+      "network_requests": 0,
+      "input_files_modified": false,
+      "installation_ready": false,
+      "local_verification": {
+        "archive_payload_bytes_read": 158,
+        "archive_read_calls": 1,
+        "candidate_checks": 1,
+        "archive_read_budget_bytes": 33554432,
+        "max_read_calls": 32,
+        "max_candidate_checks": 256,
+        "fresh_full_ekey_and_decoded_ckey_verified_objects": 1,
+        "candidate_diagnostics_not_corruption_verdicts": {
+          "outside_saved_candidate_inventory_not_global_absence": 1
+        },
+        "whole_archives_scanned": false,
+        "new_indexes_created": false,
+        "saved_success_flags_used_as_proof": false
+      },
+      "prior_full_source_proof_flags_used_for_fresh_decisions": false,
+      "consistency_model": "saved_file_set_and_stat_fingerprints;not_OS_snapshot_or_hostile_writer_protection"
+    }
+  },
+  {
+    "case": "source_with_portable",
+    "input_kind": "GENERATED_saved_DBs_and_real_pair_in_owned_archive_NOT_user_inventory",
+    "result": {
+      "format": "readonly-local-update-review-1",
+      "target": {
+        "build_config": "334a36cf5f3c32a5f7a167405487fa14",
+        "cdn_config": "fcab7fec2ccc6b8158b56b6938ec4551",
+        "version": "12.1.5.70391",
+        "product": "wow",
+        "region": "eu",
+        "download_ckey": "5beff4cf8122da27a6788d9062c8d3c2",
+        "download_ekey": "fa1124f7249c41d63eda566523dd7444"
+      },
+      "scope": {
+        "kind": "existing_saved_inventory_bounded_fresh_review",
+        "catalogue_unique_objects": 2,
+        "requested_object_limit": 256,
+        "evaluated_all_saved_rows": true,
+        "tag_selection": {
+          "policy": "saved_policy_not_reproduced",
+          "vendor_install_policy_proven": false
+        },
+        "profile_selection_recomputed": false,
+        "source_inventory": "saved_target_projected_candidates_not_all_old_patch_bases",
+        "patch_source_requests_for_unreused_selected_targets": 1,
+        "whole_installation_or_active_generation_verified": false,
+        "cdn_policy": "existing_offline_same_build_download_binding_only;no_route_equivalence_claim",
+        "portable_fixture_verified_for_single_edge_only": true
+      },
+      "target_objects_evaluated": 2,
+      "duplicate_target_rows_ignored": 0,
+      "actions": {
+        "patch": 1,
+        "reuse": 1
+      },
+      "rows": [
+        {
+          "target_ekey": "914fcad4f4fcf4abb0ba52b197bb066f",
+          "target_ckey": "98ad7b81687304aa0e99cf326200adfe",
+          "encoded_size": 158,
+          "decoded_size": 33940,
+          "local_state": "fresh_encoded",
+          "patch_options": 0,
+          "patch_diagnostics": {},
+          "apply_authorized": false,
+          "conditional_full_fallback_bytes": 158,
+          "action": "reuse",
+          "reason": "fresh_full_encoded_and_decoded_verification",
+          "conditional_payload_bytes": 0
+        },
+        {
+          "target_ekey": "faedca88d0a0ab30dae5519239582d31",
+          "target_ckey": "3d42bf2e42127f313b0ec64cb440cde9",
+          "encoded_size": 158,
+          "decoded_size": 33940,
+          "local_state": "unknown",
+          "patch_options": 1,
+          "patch_diagnostics": {},
+          "apply_authorized": false,
+          "conditional_full_fallback_bytes": 158,
+          "selected_patch": {
+            "source_ekey": "914fcad4f4fcf4abb0ba52b197bb066f",
+            "source_size": 33940,
+            "patch_key": "5b933d49c411cc964fe009a18d6c2af9",
+            "patch_size": 117,
+            "ordinal": 0
+          },
+          "patch_already_verified_locally": true,
+          "action": "patch",
+          "reason": "supported_pinned_edge_smaller_or_only_supported_route",
+          "conditional_payload_bytes": 0
+        }
+      ],
+      "rows_omitted": 0,
+      "unresolved_objects": 0,
+      "known_payload_bytes_before_shared_object_dedup": 0,
+      "known_unique_transfer_objects": 0,
+      "known_unique_payload_bytes_subtotal": 0,
+      "conditional_payload_bytes": 0,
+      "required_network_download_bytes": null,
+      "http_availability_tested": false,
+      "bytes_model": "encoded_or_patch_object_bodies_only;no_HTTP_overhead;no_fallback_reserve",
+      "selection_policy": "per_target_minimum_supported_cost;not_global_shared_patch_optimization",
+      "not_found_means_missing_or_corrupt": false,
+      "apply_authorized": false,
+      "full_game_build_plan": false,
+      "installed_build_detected": false,
+      "network_requests": 0,
+      "input_files_modified": false,
+      "installation_ready": false,
+      "local_verification": {
+        "archive_payload_bytes_read": 158,
+        "archive_read_calls": 1,
+        "candidate_checks": 1,
+        "archive_read_budget_bytes": 33554432,
+        "max_read_calls": 32,
+        "max_candidate_checks": 256,
+        "fresh_full_ekey_and_decoded_ckey_verified_objects": 1,
+        "candidate_diagnostics_not_corruption_verdicts": {
+          "outside_saved_candidate_inventory_not_global_absence": 1
+        },
+        "whole_archives_scanned": false,
+        "new_indexes_created": false,
+        "saved_success_flags_used_as_proof": false
+      },
+      "prior_full_source_proof_flags_used_for_fresh_decisions": false,
+      "consistency_model": "saved_file_set_and_stat_fingerprints;not_OS_snapshot_or_hostile_writer_protection"
+    }
+  },
+  {
+    "case": "committed_two_objects",
+    "input_kind": "GENERATED_saved_DBs_and_real_pair_in_owned_archive_NOT_user_inventory",
+    "result": {
+      "format": "readonly-local-update-review-1",
+      "target": {
+        "build_config": "334a36cf5f3c32a5f7a167405487fa14",
+        "cdn_config": "fcab7fec2ccc6b8158b56b6938ec4551",
+        "version": "12.1.5.70391",
+        "product": "wow",
+        "region": "eu",
+        "download_ckey": "5beff4cf8122da27a6788d9062c8d3c2",
+        "download_ekey": "fa1124f7249c41d63eda566523dd7444"
+      },
+      "scope": {
+        "kind": "existing_saved_inventory_bounded_fresh_review",
+        "catalogue_unique_objects": 2,
+        "requested_object_limit": 256,
+        "evaluated_all_saved_rows": true,
+        "tag_selection": {
+          "policy": "saved_policy_not_reproduced",
+          "vendor_install_policy_proven": false
+        },
+        "profile_selection_recomputed": false,
+        "source_inventory": "saved_target_projected_candidates_not_all_old_patch_bases",
+        "patch_source_requests_for_unreused_selected_targets": 0,
+        "whole_installation_or_active_generation_verified": false,
+        "cdn_policy": "existing_offline_same_build_download_binding_only;no_route_equivalence_claim",
+        "portable_fixture_verified_for_single_edge_only": false
+      },
+      "target_objects_evaluated": 2,
+      "duplicate_target_rows_ignored": 0,
+      "actions": {
+        "reuse": 2
+      },
+      "rows": [
+        {
+          "target_ekey": "914fcad4f4fcf4abb0ba52b197bb066f",
+          "target_ckey": "98ad7b81687304aa0e99cf326200adfe",
+          "encoded_size": 158,
+          "decoded_size": 33940,
+          "local_state": "fresh_encoded",
+          "patch_options": 0,
+          "patch_diagnostics": {},
+          "apply_authorized": false,
+          "conditional_full_fallback_bytes": 158,
+          "action": "reuse",
+          "reason": "fresh_full_encoded_and_decoded_verification",
+          "conditional_payload_bytes": 0
+        },
+        {
+          "target_ekey": "faedca88d0a0ab30dae5519239582d31",
+          "target_ckey": "3d42bf2e42127f313b0ec64cb440cde9",
+          "encoded_size": 158,
+          "decoded_size": 33940,
+          "local_state": "fresh_encoded",
+          "patch_options": 0,
+          "patch_diagnostics": {},
+          "apply_authorized": false,
+          "conditional_full_fallback_bytes": 158,
+          "action": "reuse",
+          "reason": "fresh_full_encoded_and_decoded_verification",
+          "conditional_payload_bytes": 0
+        }
+      ],
+      "rows_omitted": 0,
+      "unresolved_objects": 0,
+      "known_payload_bytes_before_shared_object_dedup": 0,
+      "known_unique_transfer_objects": 0,
+      "known_unique_payload_bytes_subtotal": 0,
+      "conditional_payload_bytes": 0,
+      "required_network_download_bytes": null,
+      "http_availability_tested": false,
+      "bytes_model": "encoded_or_patch_object_bodies_only;no_HTTP_overhead;no_fallback_reserve",
+      "selection_policy": "per_target_minimum_supported_cost;not_global_shared_patch_optimization",
+      "not_found_means_missing_or_corrupt": false,
+      "apply_authorized": false,
+      "full_game_build_plan": false,
+      "installed_build_detected": false,
+      "network_requests": 0,
+      "input_files_modified": false,
+      "installation_ready": false,
+      "local_verification": {
+        "archive_payload_bytes_read": 316,
+        "archive_read_calls": 2,
+        "candidate_checks": 2,
+        "archive_read_budget_bytes": 33554432,
+        "max_read_calls": 32,
+        "max_candidate_checks": 256,
+        "fresh_full_ekey_and_decoded_ckey_verified_objects": 2,
+        "candidate_diagnostics_not_corruption_verdicts": {},
+        "whole_archives_scanned": false,
+        "new_indexes_created": false,
+        "saved_success_flags_used_as_proof": false
+      },
+      "prior_full_source_proof_flags_used_for_fresh_decisions": false,
+      "consistency_model": "saved_file_set_and_stat_fingerprints;not_OS_snapshot_or_hostile_writer_protection"
+    }
+  }
+]

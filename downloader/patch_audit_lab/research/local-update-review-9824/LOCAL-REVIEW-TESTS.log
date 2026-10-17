@@ -1,0 +1,54 @@
+test_added_storage_file_rejected (test_local_update_review.ReviewTests.test_added_storage_file_rejected) ... ok
+test_arbitrary_selection_labels_not_in_public_report (test_local_update_review.ReviewTests.test_arbitrary_selection_labels_not_in_public_report) ... ok
+test_boolean_budget (test_local_update_review.ReviewTests.test_boolean_budget) ... ok
+test_cancelled_before_reads (test_local_update_review.ReviewTests.test_cancelled_before_reads) ... ok
+test_change_after_link_removes_final_report (test_local_update_review.ReviewTests.test_change_after_link_removes_final_report) ... ok
+test_change_during_publication_leaves_no_final_report (test_local_update_review.ReviewTests.test_change_during_publication_leaves_no_final_report) ... ok
+test_changed_inputs_prevent_publish (test_local_update_review.ReviewTests.test_changed_inputs_prevent_publish) ... ok
+test_ckey_mismatch_no_reuse (test_local_update_review.ReviewTests.test_ckey_mismatch_no_reuse) ... ok
+test_cli_invalid_path_safe (test_local_update_review.ReviewTests.test_cli_invalid_path_safe) ... ok
+test_committed_two_real_objects_reused (test_local_update_review.ReviewTests.test_committed_two_real_objects_reused) ... ok
+test_corrupt_payload_not_reused_despite_prior_claim (test_local_update_review.ReviewTests.test_corrupt_payload_not_reused_despite_prior_claim) ... ok
+test_exact_budget_reuse (test_local_update_review.ReviewTests.test_exact_budget_reuse) ... ok
+test_fingerprint_change_rejected (test_local_update_review.ReviewTests.test_fingerprint_change_rejected) ... ok
+test_full_real_metadata_adapter_without_mock (test_local_update_review.ReviewTests.test_full_real_metadata_adapter_without_mock) ... ok
+test_inputs_unchanged (test_local_update_review.ReviewTests.test_inputs_unchanged) ... ok
+test_insufficient_budget_no_partial_read (test_local_update_review.ReviewTests.test_insufficient_budget_no_partial_read) ... ok
+test_invalid_candidate_without_success_flag_not_read (test_local_update_review.ReviewTests.test_invalid_candidate_without_success_flag_not_read) ... ok
+test_invalid_object_limit (test_local_update_review.ReviewTests.test_invalid_object_limit) ... ok
+test_invalid_preview_rejected_before_bind (test_local_update_review.ReviewTests.test_invalid_preview_rejected_before_bind) ... ok
+test_missing_ekey_index_rejected (test_local_update_review.ReviewTests.test_missing_ekey_index_rejected) ... ok
+test_mixed_plan_id_rejected (test_local_update_review.ReviewTests.test_mixed_plan_id_rejected) ... ok
+test_negative_budget (test_local_update_review.ReviewTests.test_negative_budget) ... ok
+test_no_global_claims (test_local_update_review.ReviewTests.test_no_global_claims) ... ok
+test_no_network_calls (test_local_update_review.ReviewTests.test_no_network_calls) ... ok
+test_object_limit (test_local_update_review.ReviewTests.test_object_limit) ... ok
+test_old_flags_not_required (test_local_update_review.ReviewTests.test_old_flags_not_required) ... ok
+test_one_read_limit (test_local_update_review.ReviewTests.test_one_read_limit) ... ok
+test_public_report_omits_private_paths (test_local_update_review.ReviewTests.test_public_report_omits_private_paths) ... ok
+test_publication_does_not_overwrite_racing_file (test_local_update_review.ReviewTests.test_publication_does_not_overwrite_racing_file) ... ok
+test_publish_existing_rejected (test_local_update_review.ReviewTests.test_publish_existing_rejected) ... ok
+test_publish_in_other_game_tree_rejected (test_local_update_review.ReviewTests.test_publish_in_other_game_tree_rejected) ... ok
+test_publish_inside_lab_rejected (test_local_update_review.ReviewTests.test_publish_inside_lab_rejected) ... ok
+test_publish_inside_storage_rejected (test_local_update_review.ReviewTests.test_publish_inside_storage_rejected) ... ok
+test_publish_separate_new_report (test_local_update_review.ReviewTests.test_publish_separate_new_report) ... ok
+test_queue_sidecar_before_publish_rejected (test_local_update_review.ReviewTests.test_queue_sidecar_before_publish_rejected) ... ok
+test_real_portable_unlocks_only_pinned_patch (test_local_update_review.ReviewTests.test_real_portable_unlocks_only_pinned_patch) ... ok
+test_safe_errors_exclude_private_exception_details (test_local_update_review.ReviewTests.test_safe_errors_exclude_private_exception_details) ... ok
+test_sidecar_appearing_before_publish_rejected (test_local_update_review.ReviewTests.test_sidecar_appearing_before_publish_rejected) ... ok
+test_sidecar_rejected (test_local_update_review.ReviewTests.test_sidecar_rejected) ... ok
+test_source_captured_once_for_target_and_patch_base (test_local_update_review.ReviewTests.test_source_captured_once_for_target_and_patch_base) ... ok
+test_source_fresh_not_generic_patch_permission (test_local_update_review.ReviewTests.test_source_fresh_not_generic_patch_permission) ... ok
+test_source_out_of_bounds_not_read (test_local_update_review.ReviewTests.test_source_out_of_bounds_not_read) ... ok
+test_source_reused_but_unknown_target_conditional (test_local_update_review.ReviewTests.test_source_reused_but_unknown_target_conditional) ... ok
+test_too_large_budget (test_local_update_review.ReviewTests.test_too_large_budget) ... ok
+test_unprocessed_evidence_rejected (test_local_update_review.ReviewTests.test_unprocessed_evidence_rejected) ... ok
+test_wrong_binding_rejected (test_local_update_review.ReviewTests.test_wrong_binding_rejected) ... ok
+test_zero_budget_ignores_success_claims (test_local_update_review.ReviewTests.test_zero_budget_ignores_success_claims) ... ok
+test_zero_checks (test_local_update_review.ReviewTests.test_zero_checks) ... ok
+test_zero_read_calls (test_local_update_review.ReviewTests.test_zero_read_calls) ... ok
+
+----------------------------------------------------------------------
+Ran 49 tests in 7.381s
+
+OK

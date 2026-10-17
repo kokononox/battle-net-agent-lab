@@ -1,0 +1,25 @@
+{
+  "runtime": "Linux_Python3.13",
+  "repository_PYTHONPATH_removed": true,
+  "tests": [
+    {
+      "with_portable": false,
+      "actions": {
+        "full_download": 1,
+        "reuse": 1
+      },
+      "archive_payload_bytes_read": 158,
+      "returncode": 0
+    },
+    {
+      "with_portable": true,
+      "actions": {
+        "patch": 1,
+        "reuse": 1
+      },
+      "archive_payload_bytes_read": 158,
+      "returncode": 0
+    }
+  ],
+  "windows_CMD_or_picker_tested": false
+}

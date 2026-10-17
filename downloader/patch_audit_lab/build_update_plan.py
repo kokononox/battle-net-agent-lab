@@ -40,6 +40,7 @@ class Patch:
 
 LOCALS = {'unknown','candidate','prior_encoded','decoded_only','fresh_encoded'}
 CAPABILITY = 'pinned-single-pair-exact-reencode'
+PINNED_TARGET_EKEY = 'faedca88d0a0ab30dae5519239582d31'
 
 def key(value):
     b.need(isinstance(value,str) and re.fullmatch('[0-9a-f]{32}',value),'plan_key')
@@ -73,8 +74,7 @@ def decide(t, patches):
         b.need((p.target_ckey,p.target_size)==(t.ckey,t.decoded_size),'plan_patch_target_conflict')
         supported=p.capability==CAPABILITY
         if supported:
-            import retail_update_cycle as cycle
-            b.need(t.ekey==cycle.TARGET and t.encoded_size==158,'unsupported_target_encoding')
+            b.need(t.ekey==PINNED_TARGET_EKEY and t.encoded_size==158,'unsupported_target_encoding')
         if p.source!='fresh_encoded':diagnostics['source_needs_fresh_full_verification']+=1
         elif not supported:diagnostics['patch_order_and_target_encoding_capability_unproven']+=1
         elif not (p.patch_local or p.patch_route):diagnostics['patch_route_unavailable']+=1
@@ -178,15 +178,14 @@ def saved_plan(plan_path,audit_dir,*,limit=4096,preview_limit=128):
 def portable_plan(root,preview_limit=128):
     import portable_run
     import staging_sample as s
-    import retail_update_cycle as cycle
     root=b.safe(root);w=b.Watch()
     # Keep the same file identities before/after full verification and all reads.
     for name in sorted(portable_run.FIXED|{'PORTABLE-MANIFEST.json'}):w.file(root/name)
     proof=portable_run.run(root)
     _,_,binding=b.load_metadata(root/'pinned_metadata',w)
-    b.need(any(x.get('exact_target_ekey_reproduced') and x['ekey']==cycle.TARGET for x in proof['encoding_options']),'plan_exact_reencode_required')
+    b.need(any(x.get('exact_target_ekey_reproduced') and x['ekey']==PINNED_TARGET_EKEY for x in proof['encoding_options']),'plan_exact_reencode_required')
     p=Patch(**s.OPTION,source='fresh_encoded',patch_local=True,capability=CAPABILITY)
-    t=Target(cycle.TARGET,s.OPTION['target_ckey'],158,33940)
+    t=Target(PINNED_TARGET_EKEY,s.OPTION['target_ckey'],158,33940)
     result=plan([t],[p],target_binding=binding,scope={'kind':'verified_portable_single_pair','source_inventory':'one_fixture_not_game_installation','target_fixture_not_treated_as_installed_encoded_object':True},preview_limit=preview_limit)
     w.check();return result
 
