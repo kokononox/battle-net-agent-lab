@@ -1,0 +1,52 @@
+test_build_info_cap_before_open (test_installed_profile_probe.Integration.test_build_info_cap_before_open) ... ok
+test_cancel_before_reads (test_installed_profile_probe.Integration.test_cancel_before_reads) ... ok
+test_config_cap (test_installed_profile_probe.Integration.test_config_cap) ... ok
+test_exactly_two_game_content_reads_and_no_enumeration_or_network (test_installed_profile_probe.Integration.test_exactly_two_game_content_reads_and_no_enumeration_or_network) ... ok
+test_existing_output_forbidden (test_installed_profile_probe.Integration.test_existing_output_forbidden) ... ok
+test_game_metadata_unchanged (test_installed_profile_probe.Integration.test_game_metadata_unchanged) ... ok
+test_input_hardlink_rejected (test_installed_profile_probe.Integration.test_input_hardlink_rejected) ... ok
+test_input_symlink_rejected (test_installed_profile_probe.Integration.test_input_symlink_rejected) ... ok
+test_launcher_cancel_does_not_read (test_installed_profile_probe.Integration.test_launcher_cancel_does_not_read) ... ok
+test_missing_config_does_not_fall_back_or_scan (test_installed_profile_probe.Integration.test_missing_config_does_not_fall_back_or_scan) ... ok
+test_no_paths_labels_keyring_or_unknown_config_export (test_installed_profile_probe.Integration.test_no_paths_labels_keyring_or_unknown_config_export) ... ok
+test_pinned_real_config_in_synthetic_root (test_installed_profile_probe.Integration.test_pinned_real_config_in_synthetic_root) ... ok
+test_postpublication_change_removes_own_final (test_installed_profile_probe.Integration.test_postpublication_change_removes_own_final) ... ok
+test_prepublication_change_rejected (test_installed_profile_probe.Integration.test_prepublication_change_rejected) ... ok
+test_publication_inside_Lab_forbidden (test_installed_profile_probe.Integration.test_publication_inside_Lab_forbidden) ... ok
+test_publication_inside_game_forbidden (test_installed_profile_probe.Integration.test_publication_inside_game_forbidden) ... ok
+test_publish_external_report_only (test_installed_profile_probe.Integration.test_publish_external_report_only) ... ok
+test_racing_final_not_overwritten (test_installed_profile_probe.Integration.test_racing_final_not_overwritten) ... ok
+test_safe_error_omits_message_and_paths (test_installed_profile_probe.Integration.test_safe_error_omits_message_and_paths) ... ok
+test_unknown_profile_yields_safe_diagnostic_not_guessed_profile (test_installed_profile_probe.Integration.test_unknown_profile_yields_safe_diagnostic_not_guessed_profile) ... ok
+test_windows_dispatch_rename_without_link_or_replace (test_installed_profile_probe.Integration.test_windows_dispatch_rename_without_link_or_replace) ... ok
+test_windows_failure_cleans_pending_without_unsafe_fallback (test_installed_profile_probe.Integration.test_windows_failure_cleans_pending_without_unsafe_fallback) ... ok
+test_windows_publication_modeled_success_without_production_hardlink (test_installed_profile_probe.Integration.test_windows_publication_modeled_success_without_production_hardlink) ... ok
+test_ambiguous_active_row_rejected (test_installed_profile_probe.Parsing.test_ambiguous_active_row_rejected) ... ok
+test_ambiguous_region_no_guess (test_installed_profile_probe.Parsing.test_ambiguous_region_no_guess) ... ok
+test_bad_encoding_rejected (test_installed_profile_probe.Parsing.test_bad_encoding_rejected) ... ok
+test_bad_row_width_rejected (test_installed_profile_probe.Parsing.test_bad_row_width_rejected) ... ok
+test_classic_product_not_selected (test_installed_profile_probe.Parsing.test_classic_product_not_selected) ... ok
+test_config_identity_md5_required (test_installed_profile_probe.Parsing.test_config_identity_md5_required) ... ok
+test_duplicate_config_identity_rejected (test_installed_profile_probe.Parsing.test_duplicate_config_identity_rejected) ... ok
+test_duplicate_header_rejected (test_installed_profile_probe.Parsing.test_duplicate_header_rejected) ... ok
+test_empty_and_malformed_tags_unknown (test_installed_profile_probe.Parsing.test_empty_and_malformed_tags_unknown) ... ok
+test_geoip_qualifier_never_supplies_region (test_installed_profile_probe.Parsing.test_geoip_qualifier_never_supplies_region) ... ok
+test_inactive_row_not_selected (test_installed_profile_probe.Parsing.test_inactive_row_not_selected) ... ok
+test_missing_locale_no_guess (test_installed_profile_probe.Parsing.test_missing_locale_no_guess) ... ok
+test_missing_version_derived_from_verified_config (test_installed_profile_probe.Parsing.test_missing_version_derived_from_verified_config) ... ok
+test_multiple_locales_preserved (test_installed_profile_probe.Parsing.test_multiple_locales_preserved) ... ok
+test_nonretail_config_rejected (test_installed_profile_probe.Parsing.test_nonretail_config_rejected) ... ok
+test_optional_known_tokens_not_proven_vendor_policy (test_installed_profile_probe.Parsing.test_optional_known_tokens_not_proven_vendor_policy) ... ok
+test_supported_profile_projection (test_installed_profile_probe.Parsing.test_supported_profile_projection) ... ok
+test_traversal_build_key_rejected (test_installed_profile_probe.Parsing.test_traversal_build_key_rejected) ... ok
+test_typed_header_and_BOM_supported (test_installed_profile_probe.Parsing.test_typed_header_and_BOM_supported) ... ok
+test_unknown_tag_fails_closed_without_leak (test_installed_profile_probe.Parsing.test_unknown_tag_fails_closed_without_leak) ... ok
+test_unsupported_locale_no_fallback (test_installed_profile_probe.Parsing.test_unsupported_locale_no_fallback) ... ok
+test_uppercase_key_rejected (test_installed_profile_probe.Parsing.test_uppercase_key_rejected) ... ok
+test_version_mismatch_rejected (test_installed_profile_probe.Parsing.test_version_mismatch_rejected) ... ok
+test_whitelisted_active_row_drops_keyring (test_installed_profile_probe.Parsing.test_whitelisted_active_row_drops_keyring) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 0.051s
+
+OK
