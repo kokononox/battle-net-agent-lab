@@ -1,0 +1,117 @@
+{
+  "format": "offline-readiness-audit-1",
+  "decision": "research_only_NOT_installation_ready",
+  "input_report_sha256": "2eb104c5d71793517547ce9563f996bab5b804fbf399841d4660c0b805b861fa",
+  "grain": "one nested diagnostic report, not independent flattened rows",
+  "profiler_warnings": {
+    "resolution": "Flattening creates repeated constants, structural nulls and mixed types. No records dropped. Null network bytes is unknown, not zero.",
+    "synthetic_flattened_rows": 85,
+    "synthetic_flattened_duplicate_rows": 31
+  },
+  "trust_limit": "Internal consistency and source-pin agreement of a user-shared report only. Raw user Download, inventory, game and Windows runtime were NOT independently inspected here. Report claims are not a signature or authorization.",
+  "selected_unique_ekeys": 1578013,
+  "total_selected_unique_encoded_bytes": 132637194719,
+  "total_selected_unique_encoded_GB_display": "132.64",
+  "unique_ekeys_by_metadata_state": {
+    "manifest_size_conflict_unresolved": 0,
+    "manifest_zero_size_unresolved": 0,
+    "not_listed_in_saved_inventory_unknown": 46846,
+    "listed_without_size_agreement": 0,
+    "listed_without_usable_snapshot_coordinates": 0,
+    "listed_with_size_and_snapshot_coordinates": 1531167
+  },
+  "metadata_encoded_bytes_by_inventory_state": {
+    "manifest_size_conflict_unresolved": 0,
+    "manifest_zero_size_unresolved": 0,
+    "not_listed_in_saved_inventory_unknown": 5909935065,
+    "listed_without_size_agreement": 0,
+    "listed_without_usable_snapshot_coordinates": 0,
+    "listed_with_size_and_snapshot_coordinates": 126727259654
+  },
+  "independent_raw_numeric_reconciliation": true,
+  "new_tests_run": 85,
+  "existing_metadata_and_planner_tests_rerun": 73,
+  "new_report_anti_promotion_cases": 12,
+  "new_test_failures": 0,
+  "new_test_errors": 0,
+  "new_test_skipped": 0,
+  "new_test_scope": "Synthetic in-memory manifests, disposable private SQLite, coordinate checks, exact size arithmetic, planner decisions, report anti-promotion; NOT installer, actual payload, power loss or Windows tests.",
+  "historical_tests_recorded_NOT_rerun_today": 568,
+  "historical_source_hashes_match": {
+    "saved_object_review.py": true,
+    "saved_object_launcher.py": true,
+    "CHECK-SAVED-OBJECTS.cmd": true,
+    "saved_scope_review.py": true,
+    "pinned_download_model.py": true,
+    "installed_profile_probe.py": true,
+    "source_binding.py": true,
+    "patch_audit.py": true,
+    "cdn_catalog.py": true,
+    "scope_review_tests/test_pinned_download_model.py": true,
+    "scope_review_tests/test_saved_scope_review.py": true,
+    "scope_review_tests/test_tag_observation.py": true,
+    "object_review_tests/test_saved_object_review.py": true,
+    "object_review_tests/test_object_diagnostics.py": true,
+    "object_review_tests/test_encoded_size_projection.py": true,
+    "research/saved-object-sizes-9824/README-fa.md": true,
+    "research/saved-object-sizes-9824/stress_metadata.py": true,
+    "research/saved-object-sizes-9824/run_experiments.py": true
+  },
+  "runtime": "3.13.14",
+  "platform": "linux",
+  "audit_scope": {
+    "network_operations": 0,
+    "archive_payload_bytes_read": 0,
+    "user_game_or_Lab_accessed": false,
+    "source_code_modified": false,
+    "outputs": "fresh /data/readiness-audit-2 only",
+    "tripwire_is_NOT_OS_sandbox": true
+  },
+  "gates": [
+    {
+      "id": "diagnostic_consistency",
+      "status": "pass_limited",
+      "evidence": "Report accounting, expected pins and preserved unknown states reconcile; raw user inputs not independently revalidated here."
+    },
+    {
+      "id": "vendor_required_install_set",
+      "status": "blocked",
+      "evidence": "Diagnostic matching-or-unclassified projection is not proven vendor policy or install closure."
+    },
+    {
+      "id": "fresh_local_content",
+      "status": "not_tested",
+      "evidence": "Inventory coordinates and sizes are not content proof. Current archive read budget is zero."
+    },
+    {
+      "id": "synthetic_install_fault_matrix",
+      "status": "not_established_end_to_end",
+      "evidence": "Existing single-pair owned sample is not a full updater. No general installer crash/disk-full/rollback result established by this audit."
+    },
+    {
+      "id": "native_windows",
+      "status": "not_tested_here",
+      "evidence": "User report is useful execution evidence, not independent native Windows regression coverage."
+    },
+    {
+      "id": "live_install_permission",
+      "status": "not_granted",
+      "evidence": "No network/archive/game-write authorization inferred."
+    }
+  ],
+  "comparison_plan": [
+    {
+      "question": "Which readiness claims are justified?",
+      "grain": "evidence gate",
+      "population": "current diagnostic and local source tests",
+      "unit": "proof status",
+      "finding": "Diagnostic consistency passes with limits; installation gates remain open.",
+      "derivation": "Exact reconciliation and negative tests, not project completion percentage",
+      "disposition": "prose",
+      "reason": "Safety/readiness assessment, not a volume comparison or time series. No numeric chart would establish missing proof."
+    }
+  ],
+  "next_permitted_work": "Design and test a strictly sandbox-only synthetic transaction/failure harness. Keep it non-production, disconnected, with no user paths or archive inputs. This does not solve vendor selection or authorize real install.",
+  "installation_ready": false,
+  "required_network_download_bytes": null
+}

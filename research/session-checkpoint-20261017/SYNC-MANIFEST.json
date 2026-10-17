@@ -1,0 +1,337 @@
+{
+  "format": "session-sync-checkpoint-20261017-1",
+  "baseline_branch_commit": "de42f9cb4696f8aef74e1ae89fe6b9d842750726",
+  "branch": "patch-audit-20261016",
+  "scope": "structured handoff, research source, sanitized reports; not raw transcript or binary release",
+  "tests_rerun_during_sync": false,
+  "python_syntax_validation_passed": true,
+  "json_validation_passed": true,
+  "basic_secret_pattern_check_passed_NOT_full_secret_scan": true,
+  "raw_vendor_metadata_binary_included": false,
+  "installation_ready": false,
+  "required_network_download_bytes": null,
+  "original_local_sources": [
+    {
+      "repository_path": "research/session-checkpoint-20261017/readiness/EVIDENCE.json",
+      "source_sha256": "d78d02e6fb2dc1917ab32660197ff7fe57cc58d0b258ff02bc969f82feadf9e6",
+      "source_bytes": 5475
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/readiness/READINESS-fa.md",
+      "source_sha256": "71ba66643c5c5d4338c611c9e0dc511450b4825220f76b64f92885c1560b8ab7",
+      "source_bytes": 3808
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/readiness/SAFE-REGRESSION.log",
+      "source_sha256": "9ae5e7f071634a63596caa4514d0afb906f366477af07dd9df1fc38595671647",
+      "source_bytes": 9461
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/synthetic-transaction/transaction_fixture.py",
+      "source_sha256": "6ca401b85412d2a5293b85d26d423a51db338a2ec7d5768423d6b37b4e62bbda",
+      "source_bytes": 12298
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/synthetic-transaction/worker.py",
+      "source_sha256": "009f069e76726eb6dc27afe37cd0b7f09484d813bb722633377353c498f066b2",
+      "source_bytes": 1166
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/synthetic-transaction/test_transactions.py",
+      "source_sha256": "0efd1e31b4450f5ab2dbbd974b325339ad655b7fd92987fc5fe7a675e8d9266c",
+      "source_bytes": 12520
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/synthetic-transaction/run_experiment.py",
+      "source_sha256": "c531c60d5aee16a9d440310df9e000ead1f7bc3d02bf396c55651d5d2854cde0",
+      "source_bytes": 5391
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/synthetic-transaction/MILESTONE-EVIDENCE.json",
+      "source_sha256": "57cf0ec98b93dd808b42241b19d0e4cd7dd6f6ea02dbf67ab3f958fcc5d5e9ab",
+      "source_bytes": 26353
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/synthetic-transaction/RESULT-fa.md",
+      "source_sha256": "1616939ddd10edf27e6f7d035597a5e7e8597a1f6bfb946542f0d9b04c95afd0",
+      "source_bytes": 6169
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/synthetic-transaction/README-fa.md",
+      "source_sha256": "a25ec848d5d45f07ad256129f986f461808c075220428f4a99bad35028dc8167",
+      "source_bytes": 1668
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/synthetic-transaction/BUNDLE-SHA256.txt",
+      "source_sha256": "bd5faec873742cf546a874eede8e670f52103e550e1b54a6222839052c0b4b30",
+      "source_bytes": 104
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/install-reference/EVIDENCE.json",
+      "source_sha256": "d446fe162e63e94148899f5933b748d9f140c561f1407c9ba859672b7ec5db31",
+      "source_bytes": 3601
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/install-reference/RESULT-fa.md",
+      "source_sha256": "e97b134440da1c3d1618c09af4622366d35757c2f8a6329e94adfcd3ec26c620",
+      "source_bytes": 3386
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/install-reference/TESTS.log",
+      "source_sha256": "aee3244371190b57835cb9b10f3fd21f1fdf09ce499e6e35991805ae07ac008e",
+      "source_bytes": 1574
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/saved-install-review/saved_install_review.py",
+      "source_sha256": "e2f8c0bc63731a5182ce5456861c11989c007ec85372ee99757dad93bf5b1397",
+      "source_bytes": 12408
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/saved-install-review/saved_install_launcher.py",
+      "source_sha256": "222781e607f750290173f9b73771ab07ad2c65cf831dee986ab132b5e4741c98",
+      "source_bytes": 2172
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/saved-install-review/CHECK-SAVED-INSTALL.cmd",
+      "source_sha256": "ff92358f65059c96ab122c15bdb04660c420e28d8a362e63f905d2b3d3cfb6c6",
+      "source_bytes": 257
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/saved-install-review/test_saved_install_review.py",
+      "source_sha256": "8bbcb6eab44ab6fc43fbe171990d435cf7e03f2732a10b81b140d7a609c86e8b",
+      "source_bytes": 16806
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/saved-install-review/README-fa.md",
+      "source_sha256": "6b65bc16aad798e388544769284d58edbbee7cc670808daf6d6088c5d18741de",
+      "source_bytes": 5225
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/saved-install-review/TEST-RESULTS.json",
+      "source_sha256": "443b97c84e8ee88c4aa79c60e3cf810ae073e18dd46e7bd178916c405f31a9a7",
+      "source_bytes": 2656
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/saved-install-review/TESTS.log",
+      "source_sha256": "3caaa079b2da3812cad2bb46e8a8ba01b092c8d0698554ed3eef972965c63ae7",
+      "source_bytes": 4629
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/saved-install-review/BUNDLE-SHA256.txt",
+      "source_sha256": "b5aac89721906d2cbf1f7a073650e738e8f3187a17090a1decbadd7c20f9b36a",
+      "source_bytes": 94
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/install-fetch/FETCH-RECEIPT.json",
+      "source_sha256": "3f53897ff5d0f11cf9d7c06c9d0e900522329982d628c67b4434554003b0f51c",
+      "source_bytes": 911
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/provenance-scripts/audit_updater_readiness_v1.py",
+      "source_sha256": "31c8161723b8537860e044893ffabfee5f12d699f3fbbd9c24c65b367e391279",
+      "source_bytes": 15903
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/provenance-scripts/check_install_reference_binding.py",
+      "source_sha256": "5ca00607b99501cccd5f4225f8e3be184bd4586210f3af4655b3da13eac02932",
+      "source_bytes": 12197
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/provenance-scripts/build_synthetic_transaction_report.py",
+      "source_sha256": "a53b0ad3638abf22f03211ee3d1c7aab048232f1a5d1d0e97aabc8b849f8ac65",
+      "source_bytes": 12685
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/provenance-scripts/build_install_metadata_bundle.py",
+      "source_sha256": "82b18ff51011236836ff5e938db2e187418fd8b99df080943fbe9bf8726963f1",
+      "source_bytes": 7206
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/provenance-scripts/fetch_exact_install_once.py",
+      "source_sha256": "82716c96edeb5bdaac5d24cfcf1cf131f854c21321f6466fa43d745d75f93c2a",
+      "source_bytes": 3112
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/user-reports/INSTALL-REVIEW-to-share.json",
+      "source_sha256": "eb411c780b4f454ecba4231d8be58e94aaffd3fb292efabd215e2fedb4a25ac8",
+      "source_bytes": 2865
+    },
+    {
+      "repository_path": "research/session-checkpoint-20261017/user-reports/SCOPE-REVIEW-v3-to-share.json",
+      "source_sha256": "2eb104c5d71793517547ce9563f996bab5b804fbf399841d4660c0b805b861fa",
+      "source_bytes": 21179
+    }
+  ],
+  "files": [
+    {
+      "path": "docs/SESSION-HANDOFF.fa.md",
+      "sha256": "88009ce1b4e43cf4661b49d5b022804e5dbf9ff51a48da64ed5b6500c8b23988",
+      "bytes": 10450
+    },
+    {
+      "path": "docs/SESSION-INSTALL-METADATA-CHECKPOINT-2026-10-17.fa.md",
+      "sha256": "1624a6b6f281e2d9d33917acc7b46c7db45e3acbf821f896e3e310ef0ae78b9b",
+      "bytes": 7948
+    },
+    {
+      "path": "docs/current-state.json",
+      "sha256": "0ceab085c8e75641903f8a600c938d0968c47a17639e6685e3c183530acb18ab",
+      "bytes": 19592
+    },
+    {
+      "path": "research/session-checkpoint-20261017/README-fa.md",
+      "sha256": "03536bba520abc8781547549c7d44c64d01d5f4355bd0038627f2bb5e717b732",
+      "bytes": 415
+    },
+    {
+      "path": "research/session-checkpoint-20261017/install-fetch/FETCH-RECEIPT.json",
+      "sha256": "3f53897ff5d0f11cf9d7c06c9d0e900522329982d628c67b4434554003b0f51c",
+      "bytes": 911
+    },
+    {
+      "path": "research/session-checkpoint-20261017/install-reference/EVIDENCE.json",
+      "sha256": "d446fe162e63e94148899f5933b748d9f140c561f1407c9ba859672b7ec5db31",
+      "bytes": 3601
+    },
+    {
+      "path": "research/session-checkpoint-20261017/install-reference/RESULT-fa.md",
+      "sha256": "e97b134440da1c3d1618c09af4622366d35757c2f8a6329e94adfcd3ec26c620",
+      "bytes": 3386
+    },
+    {
+      "path": "research/session-checkpoint-20261017/install-reference/TESTS.log",
+      "sha256": "aee3244371190b57835cb9b10f3fd21f1fdf09ce499e6e35991805ae07ac008e",
+      "bytes": 1574
+    },
+    {
+      "path": "research/session-checkpoint-20261017/provenance-scripts/audit_updater_readiness_v1.py",
+      "sha256": "31c8161723b8537860e044893ffabfee5f12d699f3fbbd9c24c65b367e391279",
+      "bytes": 15903
+    },
+    {
+      "path": "research/session-checkpoint-20261017/provenance-scripts/build_install_metadata_bundle.py",
+      "sha256": "82b18ff51011236836ff5e938db2e187418fd8b99df080943fbe9bf8726963f1",
+      "bytes": 7206
+    },
+    {
+      "path": "research/session-checkpoint-20261017/provenance-scripts/build_synthetic_transaction_report.py",
+      "sha256": "a53b0ad3638abf22f03211ee3d1c7aab048232f1a5d1d0e97aabc8b849f8ac65",
+      "bytes": 12685
+    },
+    {
+      "path": "research/session-checkpoint-20261017/provenance-scripts/check_install_reference_binding.py",
+      "sha256": "5ca00607b99501cccd5f4225f8e3be184bd4586210f3af4655b3da13eac02932",
+      "bytes": 12197
+    },
+    {
+      "path": "research/session-checkpoint-20261017/provenance-scripts/fetch_exact_install_once.py",
+      "sha256": "82716c96edeb5bdaac5d24cfcf1cf131f854c21321f6466fa43d745d75f93c2a",
+      "bytes": 3112
+    },
+    {
+      "path": "research/session-checkpoint-20261017/readiness/EVIDENCE.json",
+      "sha256": "d78d02e6fb2dc1917ab32660197ff7fe57cc58d0b258ff02bc969f82feadf9e6",
+      "bytes": 5475
+    },
+    {
+      "path": "research/session-checkpoint-20261017/readiness/READINESS-fa.md",
+      "sha256": "71ba66643c5c5d4338c611c9e0dc511450b4825220f76b64f92885c1560b8ab7",
+      "bytes": 3808
+    },
+    {
+      "path": "research/session-checkpoint-20261017/readiness/SAFE-REGRESSION.log",
+      "sha256": "9ae5e7f071634a63596caa4514d0afb906f366477af07dd9df1fc38595671647",
+      "bytes": 9461
+    },
+    {
+      "path": "research/session-checkpoint-20261017/saved-install-review/BUNDLE-SHA256.txt",
+      "sha256": "b5aac89721906d2cbf1f7a073650e738e8f3187a17090a1decbadd7c20f9b36a",
+      "bytes": 94
+    },
+    {
+      "path": "research/session-checkpoint-20261017/saved-install-review/CHECK-SAVED-INSTALL.cmd",
+      "sha256": "ff92358f65059c96ab122c15bdb04660c420e28d8a362e63f905d2b3d3cfb6c6",
+      "bytes": 257
+    },
+    {
+      "path": "research/session-checkpoint-20261017/saved-install-review/README-fa.md",
+      "sha256": "6b65bc16aad798e388544769284d58edbbee7cc670808daf6d6088c5d18741de",
+      "bytes": 5225
+    },
+    {
+      "path": "research/session-checkpoint-20261017/saved-install-review/TEST-RESULTS.json",
+      "sha256": "443b97c84e8ee88c4aa79c60e3cf810ae073e18dd46e7bd178916c405f31a9a7",
+      "bytes": 2656
+    },
+    {
+      "path": "research/session-checkpoint-20261017/saved-install-review/TESTS.log",
+      "sha256": "3caaa079b2da3812cad2bb46e8a8ba01b092c8d0698554ed3eef972965c63ae7",
+      "bytes": 4629
+    },
+    {
+      "path": "research/session-checkpoint-20261017/saved-install-review/saved_install_launcher.py",
+      "sha256": "222781e607f750290173f9b73771ab07ad2c65cf831dee986ab132b5e4741c98",
+      "bytes": 2172
+    },
+    {
+      "path": "research/session-checkpoint-20261017/saved-install-review/saved_install_review.py",
+      "sha256": "e2f8c0bc63731a5182ce5456861c11989c007ec85372ee99757dad93bf5b1397",
+      "bytes": 12408
+    },
+    {
+      "path": "research/session-checkpoint-20261017/saved-install-review/test_saved_install_review.py",
+      "sha256": "8bbcb6eab44ab6fc43fbe171990d435cf7e03f2732a10b81b140d7a609c86e8b",
+      "bytes": 16806
+    },
+    {
+      "path": "research/session-checkpoint-20261017/synthetic-transaction/BUNDLE-SHA256.txt",
+      "sha256": "bd5faec873742cf546a874eede8e670f52103e550e1b54a6222839052c0b4b30",
+      "bytes": 104
+    },
+    {
+      "path": "research/session-checkpoint-20261017/synthetic-transaction/MILESTONE-EVIDENCE.json",
+      "sha256": "57cf0ec98b93dd808b42241b19d0e4cd7dd6f6ea02dbf67ab3f958fcc5d5e9ab",
+      "bytes": 26353
+    },
+    {
+      "path": "research/session-checkpoint-20261017/synthetic-transaction/README-fa.md",
+      "sha256": "a25ec848d5d45f07ad256129f986f461808c075220428f4a99bad35028dc8167",
+      "bytes": 1668
+    },
+    {
+      "path": "research/session-checkpoint-20261017/synthetic-transaction/RESULT-fa.md",
+      "sha256": "1616939ddd10edf27e6f7d035597a5e7e8597a1f6bfb946542f0d9b04c95afd0",
+      "bytes": 6169
+    },
+    {
+      "path": "research/session-checkpoint-20261017/synthetic-transaction/run_experiment.py",
+      "sha256": "c531c60d5aee16a9d440310df9e000ead1f7bc3d02bf396c55651d5d2854cde0",
+      "bytes": 5391
+    },
+    {
+      "path": "research/session-checkpoint-20261017/synthetic-transaction/test_transactions.py",
+      "sha256": "0efd1e31b4450f5ab2dbbd974b325339ad655b7fd92987fc5fe7a675e8d9266c",
+      "bytes": 12520
+    },
+    {
+      "path": "research/session-checkpoint-20261017/synthetic-transaction/transaction_fixture.py",
+      "sha256": "6ca401b85412d2a5293b85d26d423a51db338a2ec7d5768423d6b37b4e62bbda",
+      "bytes": 12298
+    },
+    {
+      "path": "research/session-checkpoint-20261017/synthetic-transaction/worker.py",
+      "sha256": "009f069e76726eb6dc27afe37cd0b7f09484d813bb722633377353c498f066b2",
+      "bytes": 1166
+    },
+    {
+      "path": "research/session-checkpoint-20261017/user-reports/INSTALL-REVIEW-to-share.json",
+      "sha256": "eb411c780b4f454ecba4231d8be58e94aaffd3fb292efabd215e2fedb4a25ac8",
+      "bytes": 2865
+    },
+    {
+      "path": "research/session-checkpoint-20261017/user-reports/SCOPE-REVIEW-v3-to-share.json",
+      "sha256": "2eb104c5d71793517547ce9563f996bab5b804fbf399841d4660c0b805b861fa",
+      "bytes": 21179
+    }
+  ]
+}

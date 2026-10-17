@@ -1,0 +1,773 @@
+{
+  "format": "synthetic-transaction-milestone-1",
+  "decision": "synthetic_multifile_recovery_milestone_passed_NOT_game_installer",
+  "distinct_final_tests": 45,
+  "consecutive_final_suite_runs": 3,
+  "final_test_executions": 135,
+  "final_failures": 0,
+  "final_errors": 0,
+  "final_skipped": 0,
+  "process_exit_cut_points_update": 11,
+  "process_exit_cut_points_rollback": 4,
+  "injected_io_failure_cases": 12,
+  "files_per_generation": 3,
+  "initial_failure_preserved": {
+    "tests": 42,
+    "errors": 1,
+    "cause": "A pointer inode opened just before atomic replacement may have nlink=0; the original pathname/link check incorrectly rejected a valid retained old pointer.",
+    "correction": "Descriptor-based checks; nlink=0 allowed only for the retained pointer; immutable payloads still require nlink=1. Added deterministic replacement-after-open regression."
+  },
+  "additional_review_correction": "Retry directory fsyncs after a post-commit fsync error and before publishing a previously renamed generation; two explicit regression tests.",
+  "final_runs": [
+    {
+      "format": "synthetic-multifile-transaction-evidence-1",
+      "success": true,
+      "tests_run": 45,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runtime": "3.13.14",
+      "platform": "linux",
+      "elapsed_seconds_observed": 2.518944705999729,
+      "fixture_files_per_generation": 3,
+      "fixture_bytes_per_generation": 172041,
+      "crash_mechanism": "real child-process os._exit(91), NOT physical power loss",
+      "storage_model": "Synthetic immutable directories and single atomic pointer; NOT CASC",
+      "io_failures": "Explicit injected ENOSPC, short writes and fsync/rename errors; NOT a physically full disk or torn sector test",
+      "events": {
+        "advance_crashes": [
+          {
+            "phase": "alpha_half",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "alpha_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "beta_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "gamma_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "generation_ready",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "pointer_half",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "pointer_replaced",
+            "exit_code": 91,
+            "visible_after_exit": "g1",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "pointer_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "root_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g1",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "stage_created",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "stage_verified",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          }
+        ],
+        "rollback_crashes": [
+          {
+            "phase": "pointer_half",
+            "exit_code": 91,
+            "visible_after_exit": "g1",
+            "resumed": "g0"
+          },
+          {
+            "phase": "pointer_replaced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g0"
+          },
+          {
+            "phase": "pointer_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g1",
+            "resumed": "g0"
+          },
+          {
+            "phase": "root_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g0"
+          }
+        ],
+        "injected_io_failures": [
+          {
+            "injection": "enospc",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "enospc_manifest",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "enospc_pointer",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "fsync",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "fsync_pointer",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "rename_generation",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "replace",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "short_pointer",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "short_write",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "sync_generation",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "sync_root",
+            "visible_on_error": "g1",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "sync_stage",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          }
+        ],
+        "reader_snapshots": 396,
+        "reader_generations_seen": [
+          "g0",
+          "g1"
+        ],
+        "pointer_switch_cycles": 40
+      },
+      "tripwire_counters_parent_only": {
+        "network_audit_events": 0,
+        "forbidden_archive_opens": 0
+      },
+      "scope": {
+        "archive_payload_bytes_read": 0,
+        "network_used": false,
+        "game_or_user_Lab_read_or_written": false,
+        "temporary_fixtures_removed": true,
+        "worker_scope": "same generated fixture paths, stdlib and local experiment code only",
+        "audit_hooks_are_NOT_OS_sandbox": true
+      },
+      "source_sha256": {
+        "transaction_fixture.py": "6ca401b85412d2a5293b85d26d423a51db338a2ec7d5768423d6b37b4e62bbda",
+        "worker.py": "009f069e76726eb6dc27afe37cd0b7f09484d813bb722633377353c498f066b2",
+        "test_transactions.py": "0efd1e31b4450f5ab2dbbd974b325339ad655b7fd92987fc5fe7a675e8d9266c",
+        "run_experiment.py": "c531c60d5aee16a9d440310df9e000ead1f7bc3d02bf396c55651d5d2854cde0"
+      },
+      "installation_ready": false,
+      "real_install_authorized": false,
+      "vendor_required_set_proven": false,
+      "fresh_local_game_content_proven": false,
+      "native_Windows_tested": false,
+      "limits": [
+        "Only cooperative writers are locked. This is not a sandbox against hostile processes or concurrent hostile path replacement.",
+        "Linux file fsync and directory fsync were called; storage hardware power-loss behavior was not tested.",
+        "Readers must capture the pointer once and retain old immutable generations. No garbage collection is implemented.",
+        "A directory fsync error after pointer replace can leave g1 visible. It is NOT reported as successful or rolled back automatically.",
+        "No game metadata activation, CASC archive writing, patching, downloading, vendor policy or production rollback is implemented.",
+        "Full process/system crashes can have effects not represented by these selected process-exit cut points."
+      ]
+    },
+    {
+      "format": "synthetic-multifile-transaction-evidence-1",
+      "success": true,
+      "tests_run": 45,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runtime": "3.13.14",
+      "platform": "linux",
+      "elapsed_seconds_observed": 2.5977596940001604,
+      "fixture_files_per_generation": 3,
+      "fixture_bytes_per_generation": 172041,
+      "crash_mechanism": "real child-process os._exit(91), NOT physical power loss",
+      "storage_model": "Synthetic immutable directories and single atomic pointer; NOT CASC",
+      "io_failures": "Explicit injected ENOSPC, short writes and fsync/rename errors; NOT a physically full disk or torn sector test",
+      "events": {
+        "advance_crashes": [
+          {
+            "phase": "alpha_half",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "alpha_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "beta_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "gamma_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "generation_ready",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "pointer_half",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "pointer_replaced",
+            "exit_code": 91,
+            "visible_after_exit": "g1",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "pointer_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "root_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g1",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "stage_created",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "stage_verified",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          }
+        ],
+        "rollback_crashes": [
+          {
+            "phase": "pointer_half",
+            "exit_code": 91,
+            "visible_after_exit": "g1",
+            "resumed": "g0"
+          },
+          {
+            "phase": "pointer_replaced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g0"
+          },
+          {
+            "phase": "pointer_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g1",
+            "resumed": "g0"
+          },
+          {
+            "phase": "root_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g0"
+          }
+        ],
+        "injected_io_failures": [
+          {
+            "injection": "enospc",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "enospc_manifest",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "enospc_pointer",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "fsync",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "fsync_pointer",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "rename_generation",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "replace",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "short_pointer",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "short_write",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "sync_generation",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "sync_root",
+            "visible_on_error": "g1",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "sync_stage",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          }
+        ],
+        "reader_snapshots": 410,
+        "reader_generations_seen": [
+          "g0",
+          "g1"
+        ],
+        "pointer_switch_cycles": 40
+      },
+      "tripwire_counters_parent_only": {
+        "network_audit_events": 0,
+        "forbidden_archive_opens": 0
+      },
+      "scope": {
+        "archive_payload_bytes_read": 0,
+        "network_used": false,
+        "game_or_user_Lab_read_or_written": false,
+        "temporary_fixtures_removed": true,
+        "worker_scope": "same generated fixture paths, stdlib and local experiment code only",
+        "audit_hooks_are_NOT_OS_sandbox": true
+      },
+      "source_sha256": {
+        "transaction_fixture.py": "6ca401b85412d2a5293b85d26d423a51db338a2ec7d5768423d6b37b4e62bbda",
+        "worker.py": "009f069e76726eb6dc27afe37cd0b7f09484d813bb722633377353c498f066b2",
+        "test_transactions.py": "0efd1e31b4450f5ab2dbbd974b325339ad655b7fd92987fc5fe7a675e8d9266c",
+        "run_experiment.py": "c531c60d5aee16a9d440310df9e000ead1f7bc3d02bf396c55651d5d2854cde0"
+      },
+      "installation_ready": false,
+      "real_install_authorized": false,
+      "vendor_required_set_proven": false,
+      "fresh_local_game_content_proven": false,
+      "native_Windows_tested": false,
+      "limits": [
+        "Only cooperative writers are locked. This is not a sandbox against hostile processes or concurrent hostile path replacement.",
+        "Linux file fsync and directory fsync were called; storage hardware power-loss behavior was not tested.",
+        "Readers must capture the pointer once and retain old immutable generations. No garbage collection is implemented.",
+        "A directory fsync error after pointer replace can leave g1 visible. It is NOT reported as successful or rolled back automatically.",
+        "No game metadata activation, CASC archive writing, patching, downloading, vendor policy or production rollback is implemented.",
+        "Full process/system crashes can have effects not represented by these selected process-exit cut points."
+      ]
+    },
+    {
+      "format": "synthetic-multifile-transaction-evidence-1",
+      "success": true,
+      "tests_run": 45,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runtime": "3.13.14",
+      "platform": "linux",
+      "elapsed_seconds_observed": 2.750006203999874,
+      "fixture_files_per_generation": 3,
+      "fixture_bytes_per_generation": 172041,
+      "crash_mechanism": "real child-process os._exit(91), NOT physical power loss",
+      "storage_model": "Synthetic immutable directories and single atomic pointer; NOT CASC",
+      "io_failures": "Explicit injected ENOSPC, short writes and fsync/rename errors; NOT a physically full disk or torn sector test",
+      "events": {
+        "advance_crashes": [
+          {
+            "phase": "alpha_half",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "alpha_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "beta_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "gamma_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "generation_ready",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "pointer_half",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "pointer_replaced",
+            "exit_code": 91,
+            "visible_after_exit": "g1",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "pointer_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "root_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g1",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "stage_created",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          },
+          {
+            "phase": "stage_verified",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g1",
+            "repeat_nonmutating": true,
+            "old_retained": true
+          }
+        ],
+        "rollback_crashes": [
+          {
+            "phase": "pointer_half",
+            "exit_code": 91,
+            "visible_after_exit": "g1",
+            "resumed": "g0"
+          },
+          {
+            "phase": "pointer_replaced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g0"
+          },
+          {
+            "phase": "pointer_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g1",
+            "resumed": "g0"
+          },
+          {
+            "phase": "root_synced",
+            "exit_code": 91,
+            "visible_after_exit": "g0",
+            "resumed": "g0"
+          }
+        ],
+        "injected_io_failures": [
+          {
+            "injection": "enospc",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "enospc_manifest",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "enospc_pointer",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "fsync",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "fsync_pointer",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "rename_generation",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "replace",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "short_pointer",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "short_write",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "sync_generation",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "sync_root",
+            "visible_on_error": "g1",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          },
+          {
+            "injection": "sync_stage",
+            "visible_on_error": "g0",
+            "resume": "g1",
+            "physical_disk_full_test": false
+          }
+        ],
+        "reader_snapshots": 414,
+        "reader_generations_seen": [
+          "g0",
+          "g1"
+        ],
+        "pointer_switch_cycles": 40
+      },
+      "tripwire_counters_parent_only": {
+        "network_audit_events": 0,
+        "forbidden_archive_opens": 0
+      },
+      "scope": {
+        "archive_payload_bytes_read": 0,
+        "network_used": false,
+        "game_or_user_Lab_read_or_written": false,
+        "temporary_fixtures_removed": true,
+        "worker_scope": "same generated fixture paths, stdlib and local experiment code only",
+        "audit_hooks_are_NOT_OS_sandbox": true
+      },
+      "source_sha256": {
+        "transaction_fixture.py": "6ca401b85412d2a5293b85d26d423a51db338a2ec7d5768423d6b37b4e62bbda",
+        "worker.py": "009f069e76726eb6dc27afe37cd0b7f09484d813bb722633377353c498f066b2",
+        "test_transactions.py": "0efd1e31b4450f5ab2dbbd974b325339ad655b7fd92987fc5fe7a675e8d9266c",
+        "run_experiment.py": "c531c60d5aee16a9d440310df9e000ead1f7bc3d02bf396c55651d5d2854cde0"
+      },
+      "installation_ready": false,
+      "real_install_authorized": false,
+      "vendor_required_set_proven": false,
+      "fresh_local_game_content_proven": false,
+      "native_Windows_tested": false,
+      "limits": [
+        "Only cooperative writers are locked. This is not a sandbox against hostile processes or concurrent hostile path replacement.",
+        "Linux file fsync and directory fsync were called; storage hardware power-loss behavior was not tested.",
+        "Readers must capture the pointer once and retain old immutable generations. No garbage collection is implemented.",
+        "A directory fsync error after pointer replace can leave g1 visible. It is NOT reported as successful or rolled back automatically.",
+        "No game metadata activation, CASC archive writing, patching, downloading, vendor policy or production rollback is implemented.",
+        "Full process/system crashes can have effects not represented by these selected process-exit cut points."
+      ]
+    }
+  ],
+  "scope": {
+    "network_used": false,
+    "archive_payload_bytes_read": 0,
+    "game_or_user_Lab_accessed": false,
+    "existing_project_sources_modified": false,
+    "only_new_standalone_research_source_and_private_test_outputs_written": true
+  },
+  "milestone_limit": "Real generated loose files with atomic pointer switching on Linux. This is not a CASC updater and is not integrated into the existing installer/research CLI.",
+  "installation_ready": false,
+  "game_write_authorization": false,
+  "vendor_install_selection_proven": false,
+  "fresh_game_content_proven": false,
+  "native_Windows_tested": false,
+  "physical_power_loss_tested": false,
+  "physically_full_disk_tested": false
+}

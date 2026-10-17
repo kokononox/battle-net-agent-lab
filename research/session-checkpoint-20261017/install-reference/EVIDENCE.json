@@ -1,0 +1,98 @@
+{
+  "format": "install-selection-reference-audit-1",
+  "decision": "blocked_missing_independent_install_selection_evidence",
+  "local_target_config": {
+    "bytes": 87836,
+    "md5": "334a36cf5f3c32a5f7a167405487fa14",
+    "sha256": "f30cdd30bcbb613795557606c0015411640ffa4a2710f7419ea75dae345c964d",
+    "pins_revalidated": true,
+    "publisher_signature_verified": false
+  },
+  "references": {
+    "root": [
+      "25c68dd1c7597cccd94252085c3367ed"
+    ],
+    "install": [
+      "d7c8cd9845e2b5d39821678f481324da",
+      "25ed9bec6e5d43e266d93a8b191b42cc"
+    ],
+    "install-size": [
+      24078,
+      23106
+    ],
+    "download": [
+      "5beff4cf8122da27a6788d9062c8d3c2",
+      "fa1124f7249c41d63eda566523dd7444"
+    ],
+    "download-size": [
+      74562151,
+      63424513
+    ],
+    "encoding": [
+      "8d0576391f8e80ce55940381fc3f674a",
+      "f5c0cb46457284412ca5838dd156e90f"
+    ],
+    "encoding-size": [
+      200255318,
+      188062281
+    ],
+    "build-name": [
+      "WOW-70391patch12.1.5_Retail"
+    ],
+    "build-uid": [
+      "wow"
+    ]
+  },
+  "independent_reference_extraction_matches": true,
+  "existing_portable_manifest_member_names": [
+    "PUBLIC-EVIDENCE.json",
+    "README-fa.md",
+    "cdn_catalog.py",
+    "encoding.decoded",
+    "encoding_target.py",
+    "patch_audit.py",
+    "pinned_metadata/build.config",
+    "pinned_metadata/manifest.pa.base64.part0",
+    "pinned_metadata/manifest.pa.base64.part1",
+    "pinned_metadata/manifest.pa.base64.part2",
+    "portable_run.py",
+    "refs_source_check.py",
+    "sample.zbsdiff",
+    "source.blte",
+    "source_binding.py",
+    "source_check.py",
+    "staging_sample.py",
+    "target.decoded"
+  ],
+  "portable_manifest_includes_install_manifest": false,
+  "membership_limit": "Only the supplied Portable file list was checked. Absence here is NOT absence from the user's saved Lab or other locations.",
+  "what_the_install_reference_proves": "The exact decoded Install identity and size named by this target config; NOT its bytes, current local availability, tag semantics or full game install closure.",
+  "proposed_next_input_NOT_yet_authorized": {
+    "kind": "decoded target Install metadata from an already existing cache or explicit user upload",
+    "ckey": "d7c8cd9845e2b5d39821678f481324da",
+    "expected_decoded_bytes": 24078,
+    "encoded_ekey_NOT_a_decoded_ckey": "25ed9bec6e5d43e266d93a8b191b42cc",
+    "encoded_size_NOT_the_decoded_read_budget": 23106,
+    "candidate_name_by_existing_cache_convention_NOT_existence_proof": "objects/d7c8cd9845e2b5d39821678f481324da-24078.decoded",
+    "approval_required_reason": "Current approved raw-cache reads cover exact saved Download metadata only. Install is a new metadata input type.",
+    "if_exact_existing_input_absent": "Stop and report unknown; no search, extraction, download, game access or fallback.",
+    "acceptance_if_approved": "One bounded read; exact byte count and MD5/CKey, observe header/structure without guessing tag policy; no success or install closure inferred from hash identity.",
+    "no_network": true,
+    "no_archive_payload_reads": true,
+    "no_game_or_Lab_writes": true
+  },
+  "tests_run": 15,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "new_Install_input_read": false,
+  "new_Download_input_read": false,
+  "encoding_payload_read": false,
+  "archive_payload_bytes_read": 0,
+  "network_requests": 0,
+  "user_game_or_Lab_accessed": false,
+  "actual_required_install_set_known": false,
+  "installation_ready": false,
+  "required_network_download_bytes": null,
+  "root_or_encoding_reference_is_NOT_full_closure_evidence": true
+}

@@ -1,0 +1,41 @@
+test_absent_no_search_or_open (test_saved_install_review.ExactReader.test_absent_no_search_or_open) ... ok
+test_cancel_before_read (test_saved_install_review.ExactReader.test_cancel_before_read) ... ok
+test_encoded_key_cache_not_used_as_decoded_install (test_saved_install_review.ExactReader.test_encoded_key_cache_not_used_as_decoded_install) ... ok
+test_exact_one_read_and_safe_header_only (test_saved_install_review.ExactReader.test_exact_one_read_and_safe_header_only) ... ok
+test_hardlink_rejected (test_saved_install_review.ExactReader.test_hardlink_rejected) ... ok
+test_maximum_budget_is_exact_not_plus_one (test_saved_install_review.ExactReader.test_maximum_budget_is_exact_not_plus_one) ... ok
+test_no_alternate_cache_fallback (test_saved_install_review.ExactReader.test_no_alternate_cache_fallback) ... ok
+test_oversize_descriptor_before_io (test_saved_install_review.ExactReader.test_oversize_descriptor_before_io) ... ok
+test_real_pinned_descriptor_rejects_synthetic_bytes (test_saved_install_review.ExactReader.test_real_pinned_descriptor_rejects_synthetic_bytes) ... ok
+test_same_size_wrong_content_no_export (test_saved_install_review.ExactReader.test_same_size_wrong_content_no_export) ... ok
+test_symlink_rejected_before_open (test_saved_install_review.ExactReader.test_symlink_rejected_before_open) ... ok
+test_traversal_ckey_before_io (test_saved_install_review.ExactReader.test_traversal_ckey_before_io) ... ok
+test_unknown_header_observed_not_guessed (test_saved_install_review.ExactReader.test_unknown_header_observed_not_guessed) ... ok
+test_wrong_size_rejected_before_open (test_saved_install_review.ExactReader.test_wrong_size_rejected_before_open) ... ok
+test_absent_cache_appearing_during_publication_stops (test_saved_install_review.Integration.test_absent_cache_appearing_during_publication_stops) ... ok
+test_cancel_stops_without_output (test_saved_install_review.Integration.test_cancel_stops_without_output) ... ok
+test_existing_output_not_overwritten (test_saved_install_review.Integration.test_existing_output_not_overwritten) ... ok
+test_input_change_before_publication_stops (test_saved_install_review.Integration.test_input_change_before_publication_stops) ... ok
+test_missing_snapshot_archive_is_not_rebuilt (test_saved_install_review.Integration.test_missing_snapshot_archive_is_not_rebuilt) ... ok
+test_network_hook_blocks_socket_operations (test_saved_install_review.Integration.test_network_hook_blocks_socket_operations) ... ok
+test_no_pinned_config_mutation_accepted (test_saved_install_review.Integration.test_no_pinned_config_mutation_accepted) ... ok
+test_other_game_root_not_silently_used (test_saved_install_review.Integration.test_other_game_root_not_silently_used) ... ok
+test_output_inside_Lab_rejected (test_saved_install_review.Integration.test_output_inside_Lab_rejected) ... ok
+test_output_inside_game_rejected (test_saved_install_review.Integration.test_output_inside_game_rejected) ... ok
+test_output_symlink_ancestor_rejected (test_saved_install_review.Integration.test_output_symlink_ancestor_rejected) ... ok
+test_pin_descriptor_matches_existing_config (test_saved_install_review.Integration.test_pin_descriptor_matches_existing_config) ... ok
+test_postpublication_change_removes_own_report (test_saved_install_review.Integration.test_postpublication_change_removes_own_report) ... ok
+test_production_missing_cache_bound_report (test_saved_install_review.Integration.test_production_missing_cache_bound_report) ... ok
+test_public_error_redacts_paths_and_free_text (test_saved_install_review.Integration.test_public_error_redacts_paths_and_free_text) ... ok
+test_publication_race_preserves_other_winner (test_saved_install_review.Integration.test_publication_race_preserves_other_winner) ... ok
+test_report_never_exports_private_data (test_saved_install_review.Integration.test_report_never_exports_private_data) ... ok
+test_same_size_wrong_real_pin_stops_no_report (test_saved_install_review.Integration.test_same_size_wrong_real_pin_stops_no_report) ... ok
+test_synthetic_full_success_no_archive_reads_or_writes (test_saved_install_review.Integration.test_synthetic_full_success_no_archive_reads_or_writes) ... ok
+test_windows_publication_contract_modeled (test_saved_install_review.Integration.test_windows_publication_contract_modeled) ... ok
+test_cancel_first_picker_no_read (test_saved_install_review.Launcher.test_cancel_first_picker_no_read) ... ok
+test_cancel_second_picker_no_read (test_saved_install_review.Launcher.test_cancel_second_picker_no_read) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 3.655s
+
+OK

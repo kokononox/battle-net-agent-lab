@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-16",
+  "as_of_utc": "2026-10-17T17:04:42.833181+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "downloader": {
     "release": "WoW-Update-Scope-Preview-TagFix",
@@ -76,7 +76,7 @@
     "hardware_field_transmission_proven": false,
     "historical_binary_findings_reverified_in_this_sync": false
   },
-  "user_action_now": "preserve existing Lab; no new metadata prepare/full asset scan/broad download requested",
+  "user_action_now": "No action required now; preserve existing Lab. No rescan, broad download or game writes authorized.",
   "sync_scope": "structured source, sanitized research receipts and handoff; no raw transcripts, PRIVATE, credentials or user installation paths. Original portable fixture and companion are already verified private release assets.",
   "patch_audit_20261016": {
     "branch": "patch-audit-20261016",
@@ -347,5 +347,33 @@
     "archive_cache_cycle_hard_exit_resume_boundaries": 9,
     "archive_cache_new_tests": 61,
     "archive_cache_installation_ready": false
+  },
+  "latest_checkpoint": "docs/SESSION-INSTALL-METADATA-CHECKPOINT-2026-10-17.fa.md",
+  "historical_sections_notice": "Older downloader, telemetry, github_experiment and patch_audit figures are retained historical evidence, NOT reverified by this sync. Use latest_checkpoint and install_metadata_checkpoint for current scope.",
+  "install_metadata_checkpoint": {
+    "status": "verified_exact_install_metadata",
+    "receipt": "research/session-checkpoint-20261017/install-fetch/FETCH-RECEIPT.json",
+    "single_direct_fetch_authorization_consumed": true,
+    "encoded_bytes": 23106,
+    "decoded_bytes": 24078,
+    "expected_ekey_verified": true,
+    "expected_ckey_verified": true,
+    "vendor_install_policy_proven": false,
+    "actual_required_install_set_known": false,
+    "fresh_local_content_verified": false,
+    "installation_ready": false,
+    "required_network_download_bytes": null,
+    "next_step": "Offline strict structure review of the already verified Install bytes; no automatic network fetch",
+    "archive_payload_read_budget_bytes": 0,
+    "game_or_lab_writes_authorized": false,
+    "historical_568_tests_rerun_in_this_sync": false,
+    "tests_rerun_in_this_sync": false,
+    "synthetic_transaction_tests": {
+      "distinct": 45,
+      "consecutive_runs": 3,
+      "native_windows": false,
+      "physical_power_loss": false,
+      "CASC": false
+    }
   }
 }
