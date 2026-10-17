@@ -1,0 +1,666 @@
+{
+  "format": "agent-lookup-merge-build-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "fragments": [
+    {
+      "name": "equal",
+      "start": "0x70349f",
+      "end_exclusive": "0x7034c4",
+      "bytes": 37,
+      "sha256": "29bf0c597665e7a6e49daef283e4763648567af2848fae04fa9103097b9e7e42",
+      "kind": "code"
+    },
+    {
+      "name": "cleanup",
+      "start": "0x7214f2",
+      "end_exclusive": "0x72152d",
+      "bytes": 59,
+      "sha256": "043c68ea8b859500cc0893bd541f0289788ec3a6ce92e79d0904be0328966e50",
+      "kind": "code"
+    },
+    {
+      "name": "hash2",
+      "start": "0x722fc0",
+      "end_exclusive": "0x7233be",
+      "bytes": 1022,
+      "sha256": "bb6291444662a927b53a2a58a9845da3a8c8064c997a1d9fe8937d5157881c8e",
+      "kind": "code"
+    },
+    {
+      "name": "hash1",
+      "start": "0x72345c",
+      "end_exclusive": "0x723848",
+      "bytes": 1004,
+      "sha256": "21754986896f739a220e20b0ea3dfc5e809a30d2943253509474fcfd92cf6b58",
+      "kind": "code"
+    },
+    {
+      "name": "map_parse",
+      "start": "0x72b8f9",
+      "end_exclusive": "0x72b9bf",
+      "bytes": 198,
+      "sha256": "dadf8a57786adb56561c8d2baf4391c70aae212acf41e3e5d139eee036dc6bba",
+      "kind": "code"
+    },
+    {
+      "name": "bind_inner",
+      "start": "0x72b9bf",
+      "end_exclusive": "0x72ba22",
+      "bytes": 99,
+      "sha256": "90b7bf95d0138465977f30e67458b68ce6c9db7bfbeef5e8475987cc3a6b7074",
+      "kind": "code"
+    },
+    {
+      "name": "parse",
+      "start": "0x72cd8d",
+      "end_exclusive": "0x72cf38",
+      "bytes": 427,
+      "sha256": "bfe965fdaf485b9bb29618374930fdf7512baba3b6be429c8e2688579df105d1",
+      "kind": "code"
+    },
+    {
+      "name": "primary",
+      "start": "0x72cf38",
+      "end_exclusive": "0x72d004",
+      "bytes": 204,
+      "sha256": "e7391a25151eac56a2b6301a251cfbb67f0d5b1ba97be8e958aab29ac4882727",
+      "kind": "code"
+    },
+    {
+      "name": "tail",
+      "start": "0x72d004",
+      "end_exclusive": "0x72d0c9",
+      "bytes": 197,
+      "sha256": "9554ecd46b93954e61ba9b160bff61756f810d80d82776fcfc5cf8f13b87cadc",
+      "kind": "code"
+    },
+    {
+      "name": "search",
+      "start": "0x72d46c",
+      "end_exclusive": "0x72d52f",
+      "bytes": 195,
+      "sha256": "4f5fcc46c429b4b3e90a6086eecbd1d225c7f2b01c39ecd647705a391c9a6de9",
+      "kind": "code"
+    },
+    {
+      "name": "lookup",
+      "start": "0x72c6fd",
+      "end_exclusive": "0x72c80c",
+      "bytes": 271,
+      "sha256": "f21c9e9716a739cc1d04bd3c9de0a61f41ed8ae40596a6d928f43afe32e1e2ed",
+      "kind": "code"
+    },
+    {
+      "name": "collect",
+      "start": "0x72c56e",
+      "end_exclusive": "0x72c6fd",
+      "bytes": 399,
+      "sha256": "e4c1f0cfa19516bc650ebddc6f55110d01575787a7306166e4608143f8f58611",
+      "kind": "code"
+    },
+    {
+      "name": "iterator_init",
+      "start": "0x72e4f7",
+      "end_exclusive": "0x72e54a",
+      "bytes": 83,
+      "sha256": "3106d4d0d93d89ee17621177a484e1f51e5c5a773be4ed82a32a47fd23a89815",
+      "kind": "code"
+    },
+    {
+      "name": "iterator_load",
+      "start": "0x72f31b",
+      "end_exclusive": "0x72f41c",
+      "bytes": 257,
+      "sha256": "01265ebf7103dd950522707141b589aa2b262be905f6c899de269496e7b9c68b",
+      "kind": "code"
+    },
+    {
+      "name": "apply",
+      "start": "0x72f0be",
+      "end_exclusive": "0x72f1a9",
+      "bytes": 235,
+      "sha256": "5d432a971eec7410213cfa77b76f9a6e989f650977e48887ef1b15049efe4818",
+      "kind": "code"
+    },
+    {
+      "name": "add_events",
+      "start": "0x72f280",
+      "end_exclusive": "0x72f31b",
+      "bytes": 155,
+      "sha256": "f2c2f11f34470416c9b40036ef9a6d6afa5335afd17ca578b0b896290206b776",
+      "kind": "code"
+    },
+    {
+      "name": "merge_events",
+      "start": "0x72e7de",
+      "end_exclusive": "0x72e8ab",
+      "bytes": 205,
+      "sha256": "bc7f8852e26df0c50648a4fd1d223d1742b6a6bc1a536c8877e64c6ac33d7cf7",
+      "kind": "code"
+    },
+    {
+      "name": "range",
+      "start": "0x72d18f",
+      "end_exclusive": "0x72d1f8",
+      "bytes": 105,
+      "sha256": "f123901ffeee964b0c5f7e10fbc1338be48feb1db320f0c439aac46cf8f33f00",
+      "kind": "code"
+    },
+    {
+      "name": "coverage",
+      "start": "0x72f41c",
+      "end_exclusive": "0x72f4a7",
+      "bytes": 139,
+      "sha256": "15b08fda8353feb842c8706ce5c4086d9559b441d566b48d1c26dc3d2d07cc9f",
+      "kind": "code"
+    },
+    {
+      "name": "vector_push",
+      "start": "0x694bdc",
+      "end_exclusive": "0x694c14",
+      "bytes": 56,
+      "sha256": "4203812303c5c40564f5d8c2998250ddf26c41cff2c320a1a8e849cc2bc0ec47",
+      "kind": "code"
+    },
+    {
+      "name": "sort",
+      "start": "0x718dcc",
+      "end_exclusive": "0x7190ed",
+      "bytes": 801,
+      "sha256": "a8a6491e5cb9286729a7a02dd46471ff67b159a3934211563a365a83a249f92a",
+      "kind": "code"
+    },
+    {
+      "name": "hash2_tables",
+      "start": "0x7233c0",
+      "end_exclusive": "0x72345c",
+      "bytes": 156,
+      "sha256": "23b8f204e7510dc197f83670d12fe7b0ce28ab85fb5fc748c3bfd72cb544245b",
+      "kind": "readonly-jump-tables"
+    },
+    {
+      "name": "hash1_tables",
+      "start": "0x723848",
+      "end_exclusive": "0x7238e4",
+      "bytes": 156,
+      "sha256": "7e7f5873e58020c9352e9d49157b642dc83d3b138f8664f14da9296451da36f1",
+      "kind": "readonly-jump-tables"
+    },
+    {
+      "name": "apply_tables",
+      "start": "0x72f1aa",
+      "end_exclusive": "0x72f1ca",
+      "bytes": 32,
+      "sha256": "6f55f54d5337f4b8bc25c2cc02f20d309b8a38a089acf24a22e16680f75062b5",
+      "kind": "readonly-jump-tables"
+    }
+  ],
+  "original_code_bytes": 6148,
+  "original_jump_table_bytes": 344,
+  "direct_call_graph": [
+    {
+      "function": "cleanup",
+      "site": "0x72150b",
+      "target": "0x86c7e0",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b908",
+      "target": "0x69db34",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b93d",
+      "target": "0x72b2fc",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b953",
+      "target": "0x86c8e5",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b975",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b97b",
+      "target": "0x717221",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b992",
+      "target": "0x72cd8d",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b9ad",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "bind_inner",
+      "site": "0x72b9c5",
+      "target": "0x7214f2",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "bind_inner",
+      "site": "0x72b9d9",
+      "target": "0x69db34",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "bind_inner",
+      "site": "0x72b9f9",
+      "target": "0x72c9e8",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "bind_inner",
+      "site": "0x72ba08",
+      "target": "0x72b8f9",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "bind_inner",
+      "site": "0x72ba15",
+      "target": "0x7214f2",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "parse",
+      "site": "0x72cdca",
+      "target": "0x722fc0",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "parse",
+      "site": "0x72cdfc",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "parse",
+      "site": "0x72ce42",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "parse",
+      "site": "0x72ce88",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "parse",
+      "site": "0x72cecd",
+      "target": "0x72cf38",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "parse",
+      "site": "0x72cf03",
+      "target": "0x72d004",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "parse",
+      "site": "0x72cf28",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "primary",
+      "site": "0x72cfa5",
+      "target": "0x722fc0",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "primary",
+      "site": "0x72cff2",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "tail",
+      "site": "0x72d03b",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "tail",
+      "site": "0x72d071",
+      "target": "0x72345c",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "tail",
+      "site": "0x72d0bc",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "search",
+      "site": "0x72d495",
+      "target": "0x70349f",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "search",
+      "site": "0x72d4a8",
+      "target": "0x878112",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "search",
+      "site": "0x72d4e9",
+      "target": "0x70349f",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "search",
+      "site": "0x72d514",
+      "target": "0x70349f",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "lookup",
+      "site": "0x72c707",
+      "target": "0x87606b",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "lookup",
+      "site": "0x72c72b",
+      "target": "0x72e4f7",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "lookup",
+      "site": "0x72c743",
+      "target": "0x72c56e",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "lookup",
+      "site": "0x72c784",
+      "target": "0x72d18f",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "lookup",
+      "site": "0x72c7d3",
+      "target": "0x72f41c",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "lookup",
+      "site": "0x72c7fd",
+      "target": "0x72e54a",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "lookup",
+      "site": "0x72c804",
+      "target": "0x87601a",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "collect",
+      "site": "0x72c578",
+      "target": "0x87606b",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "collect",
+      "site": "0x72c5cc",
+      "target": "0x72d46c",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "collect",
+      "site": "0x72c635",
+      "target": "0x70349f",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "collect",
+      "site": "0x72c653",
+      "target": "0x694bdc",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "collect",
+      "site": "0x72c6cd",
+      "target": "0x72f31b",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "collect",
+      "site": "0x72c6f0",
+      "target": "0x67f25d",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "collect",
+      "site": "0x72c6f5",
+      "target": "0x87601a",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "iterator_load",
+      "site": "0x72f361",
+      "target": "0x72f0be",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "iterator_load",
+      "site": "0x72f36a",
+      "target": "0x72f0be",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "iterator_load",
+      "site": "0x72f392",
+      "target": "0x72f0be",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "iterator_load",
+      "site": "0x72f3bf",
+      "target": "0x72f0be",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "iterator_load",
+      "site": "0x72f3f8",
+      "target": "0x72f0be",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "iterator_load",
+      "site": "0x72f410",
+      "target": "0x72e7de",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "apply",
+      "site": "0x72f0f4",
+      "target": "0x72f280",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "apply",
+      "site": "0x72f147",
+      "target": "0x70a476",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "apply",
+      "site": "0x72f172",
+      "target": "0x70a476",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "apply",
+      "site": "0x72f19a",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "add_events",
+      "site": "0x72f29b",
+      "target": "0x72f210",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "add_events",
+      "site": "0x72f312",
+      "target": "0x72e7de",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "merge_events",
+      "site": "0x72e80a",
+      "target": "0x718dcc",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "vector_push",
+      "site": "0x694bf7",
+      "target": "0x695d59",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "sort",
+      "site": "0x718e42",
+      "target": "0x7190ed",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "sort",
+      "site": "0x718e57",
+      "target": "0x7190ed",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "sort",
+      "site": "0x718e6d",
+      "target": "0x7190ed",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "sort",
+      "site": "0x718e76",
+      "target": "0x7190ed",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "sort",
+      "site": "0x718ea5",
+      "target": "0x7194bf",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "sort",
+      "site": "0x718eb6",
+      "target": "0x7194bf",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "sort",
+      "site": "0x718ed3",
+      "target": "0x7194bf",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "sort",
+      "site": "0x718f10",
+      "target": "0x7194bf",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "sort",
+      "site": "0x718f1e",
+      "target": "0x7194bf",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "sort",
+      "site": "0x718f57",
+      "target": "0x7194bf",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "sort",
+      "site": "0x718f65",
+      "target": "0x7194bf",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "sort",
+      "site": "0x719055",
+      "target": "0x718dcc",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "sort",
+      "site": "0x719089",
+      "target": "0x71920c",
+      "mocked_or_forbidden": true
+    }
+  ],
+  "unreachable_indirect_calls": [
+    {
+      "site": "0x721502",
+      "reason": "mode 2 vtable free; unreachable: driver fixes object mode 1 before every bind"
+    }
+  ],
+  "helpers": {
+    "file_length": "0x69db34",
+    "convert_error": "0x717221",
+    "mode2_forbidden": "0x72b2fc",
+    "initialize_forbidden": "0x72c9e8",
+    "unmap_file": "0x86c7e0",
+    "map_file": "0x86c8e5",
+    "memcmp": "0x878112",
+    "logger": "0x8c3843",
+    "prolog": "0x87606b",
+    "epilog": "0x87601a",
+    "vector_destroy": "0x67f25d",
+    "iterator_destroy": "0x72e54a",
+    "warning": "0x70a476",
+    "vector_grow_forbidden": "0x695d59",
+    "events_grow_forbidden": "0x72f210",
+    "sort_large1_forbidden": "0x7190ed",
+    "sort_large2_forbidden": "0x71920c",
+    "sort_large3_forbidden": "0x7194bf"
+  },
+  "bounds": "nonempty <=1MiB, mode1; Python admits <=1024 primary and <=64 tail records, <=7 matching records and no wrapped ranges; growth/large-sort paths trap; source memory mprotect read-only; normal-path frame mocks, no Windows SEH",
+  "outer_seh_retry_executed": false,
+  "whole_agent_executed": false,
+  "windows_io_executed": false,
+  "index_value_qword_semantics_proven": false,
+  "normal_path_lookup_iterator_merge_range_executed": true,
+  "full_agent_object_io_executed": false,
+  "seh_frame_helpers_mocked": true,
+  "memory_deallocators_mocked_with_inline_assertions": true,
+  "original_bytes_verified_in_elf": true,
+  "no_rwx": true,
+  "nx_stack": true,
+  "binary_sha256": "76f17c51d57743efa375915812e4cc3bd38d1ec8c416d3f3b8c2e0835af3d1ed",
+  "source_sha256": {
+    "build.py": "e7f14d681a819dc37cf74854b95d58705ca4d4b655bb093bd39e28b9d89f9f37",
+    "harness.s": "3acbbfcbd21bc7ecda2956d565c0dddd248c5e4b9c81bb56a27e4aced68dbf8f"
+  },
+  "installation_ready": false
+}

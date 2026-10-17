@@ -1,0 +1,93 @@
+{
+  "format": "agent-span-reader-build-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "fragments": [
+    {
+      "name": "hash1",
+      "start": "0x72345c",
+      "end_exclusive": "0x723848",
+      "bytes": 1004,
+      "sha256": "21754986896f739a220e20b0ea3dfc5e809a30d2943253509474fcfd92cf6b58",
+      "kind": "code"
+    },
+    {
+      "name": "checksum",
+      "start": "0x713c27",
+      "end_exclusive": "0x713c8c",
+      "bytes": 101,
+      "sha256": "66f2cc42135f4df78729e345683bcd1f0a52b78b2f66f678103a017ba4653606",
+      "kind": "code"
+    },
+    {
+      "name": "parse_span",
+      "start": "0x713c8c",
+      "end_exclusive": "0x713d2a",
+      "bytes": 158,
+      "sha256": "a268bb88983234f8303a3a7b20c84541328d1c911a12bda40c3e2014dc15e0e6",
+      "kind": "code"
+    },
+    {
+      "name": "archive_number",
+      "start": "0x700696",
+      "end_exclusive": "0x7006a4",
+      "bytes": 14,
+      "sha256": "2594ff2e57a9964999dcfb660a2ee4424df9ba7367ea1c7c7f233ebbc4d6cd48",
+      "kind": "code"
+    },
+    {
+      "name": "payload_offset",
+      "start": "0x7006a4",
+      "end_exclusive": "0x7006b4",
+      "bytes": 16,
+      "sha256": "5caa68d6285f54d56693cc3c3eaa4e899fd7380743cf693569d7f514325ae713",
+      "kind": "code"
+    },
+    {
+      "name": "hash1_tables",
+      "start": "0x723848",
+      "end_exclusive": "0x7238e4",
+      "bytes": 156,
+      "sha256": "7e7f5873e58020c9352e9d49157b642dc83d3b138f8664f14da9296451da36f1",
+      "kind": "readonly-jump-tables"
+    },
+    {
+      "name": "checksum_constants",
+      "start": "0x9bd650",
+      "end_exclusive": "0x9bd690",
+      "bytes": 64,
+      "sha256": "fe870cec321a8ad01e313dfff66ae8d1f52596fc22a6e35cdad29db20515b0f8",
+      "kind": "readonly-jump-tables"
+    }
+  ],
+  "original_code_bytes": 1293,
+  "original_readonly_bytes": 220,
+  "direct_call_graph": [
+    {
+      "function": "parse_span",
+      "site": "0x713ca4",
+      "target": "0x713c27",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "parse_span",
+      "site": "0x713cb8",
+      "target": "0x72345c",
+      "mocked_or_forbidden": false
+    }
+  ],
+  "helpers": {},
+  "whole_agent_executed": false,
+  "windows_io_executed": false,
+  "original_span_header_parser_executed": true,
+  "original_address_getters_executed": true,
+  "archive_open_or_read_executed": false,
+  "original_bytes_verified_in_elf": true,
+  "no_rwx": true,
+  "nx_stack": true,
+  "binary_sha256": "695cff4403471394860a79a824cad698ef78684ae9e5684b45bbcaf6210145bb",
+  "source_sha256": {
+    "build.py": "eb1af166cb68c326c20143212432f8669be2f7cf3af3f579bd5dd6f7c3652d1e",
+    "harness.s": "541a4af2862a0c20dfc357e12e08fdf3e3a135d88f7f2665270961369df5f04f"
+  },
+  "installation_ready": false
+}

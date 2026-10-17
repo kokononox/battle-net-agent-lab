@@ -1,0 +1,310 @@
+{
+  "format": "agent-bind-contract-build-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "fragments": [
+    {
+      "name": "equal",
+      "start": "0x70349f",
+      "end_exclusive": "0x7034c4",
+      "bytes": 37,
+      "sha256": "29bf0c597665e7a6e49daef283e4763648567af2848fae04fa9103097b9e7e42",
+      "kind": "code"
+    },
+    {
+      "name": "cleanup",
+      "start": "0x7214f2",
+      "end_exclusive": "0x72152d",
+      "bytes": 59,
+      "sha256": "043c68ea8b859500cc0893bd541f0289788ec3a6ce92e79d0904be0328966e50",
+      "kind": "code"
+    },
+    {
+      "name": "hash2",
+      "start": "0x722fc0",
+      "end_exclusive": "0x7233be",
+      "bytes": 1022,
+      "sha256": "bb6291444662a927b53a2a58a9845da3a8c8064c997a1d9fe8937d5157881c8e",
+      "kind": "code"
+    },
+    {
+      "name": "hash1",
+      "start": "0x72345c",
+      "end_exclusive": "0x723848",
+      "bytes": 1004,
+      "sha256": "21754986896f739a220e20b0ea3dfc5e809a30d2943253509474fcfd92cf6b58",
+      "kind": "code"
+    },
+    {
+      "name": "map_parse",
+      "start": "0x72b8f9",
+      "end_exclusive": "0x72b9bf",
+      "bytes": 198,
+      "sha256": "dadf8a57786adb56561c8d2baf4391c70aae212acf41e3e5d139eee036dc6bba",
+      "kind": "code"
+    },
+    {
+      "name": "bind_inner",
+      "start": "0x72b9bf",
+      "end_exclusive": "0x72ba22",
+      "bytes": 99,
+      "sha256": "90b7bf95d0138465977f30e67458b68ce6c9db7bfbeef5e8475987cc3a6b7074",
+      "kind": "code"
+    },
+    {
+      "name": "parse",
+      "start": "0x72cd8d",
+      "end_exclusive": "0x72cf38",
+      "bytes": 427,
+      "sha256": "bfe965fdaf485b9bb29618374930fdf7512baba3b6be429c8e2688579df105d1",
+      "kind": "code"
+    },
+    {
+      "name": "primary",
+      "start": "0x72cf38",
+      "end_exclusive": "0x72d004",
+      "bytes": 204,
+      "sha256": "e7391a25151eac56a2b6301a251cfbb67f0d5b1ba97be8e958aab29ac4882727",
+      "kind": "code"
+    },
+    {
+      "name": "tail",
+      "start": "0x72d004",
+      "end_exclusive": "0x72d0c9",
+      "bytes": 197,
+      "sha256": "9554ecd46b93954e61ba9b160bff61756f810d80d82776fcfc5cf8f13b87cadc",
+      "kind": "code"
+    },
+    {
+      "name": "search",
+      "start": "0x72d46c",
+      "end_exclusive": "0x72d52f",
+      "bytes": 195,
+      "sha256": "4f5fcc46c429b4b3e90a6086eecbd1d225c7f2b01c39ecd647705a391c9a6de9",
+      "kind": "code"
+    },
+    {
+      "name": "hash2_tables",
+      "start": "0x7233c0",
+      "end_exclusive": "0x72345c",
+      "bytes": 156,
+      "sha256": "23b8f204e7510dc197f83670d12fe7b0ce28ab85fb5fc748c3bfd72cb544245b",
+      "kind": "readonly-jump-tables"
+    },
+    {
+      "name": "hash1_tables",
+      "start": "0x723848",
+      "end_exclusive": "0x7238e4",
+      "bytes": 156,
+      "sha256": "7e7f5873e58020c9352e9d49157b642dc83d3b138f8664f14da9296451da36f1",
+      "kind": "readonly-jump-tables"
+    }
+  ],
+  "original_code_bytes": 3442,
+  "original_jump_table_bytes": 312,
+  "direct_call_graph": [
+    {
+      "function": "cleanup",
+      "site": "0x72150b",
+      "target": "0x86c7e0",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b908",
+      "target": "0x69db34",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b93d",
+      "target": "0x72b2fc",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b953",
+      "target": "0x86c8e5",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b975",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b97b",
+      "target": "0x717221",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b992",
+      "target": "0x72cd8d",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "map_parse",
+      "site": "0x72b9ad",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "bind_inner",
+      "site": "0x72b9c5",
+      "target": "0x7214f2",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "bind_inner",
+      "site": "0x72b9d9",
+      "target": "0x69db34",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "bind_inner",
+      "site": "0x72b9f9",
+      "target": "0x72c9e8",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "bind_inner",
+      "site": "0x72ba08",
+      "target": "0x72b8f9",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "bind_inner",
+      "site": "0x72ba15",
+      "target": "0x7214f2",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "parse",
+      "site": "0x72cdca",
+      "target": "0x722fc0",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "parse",
+      "site": "0x72cdfc",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "parse",
+      "site": "0x72ce42",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "parse",
+      "site": "0x72ce88",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "parse",
+      "site": "0x72cecd",
+      "target": "0x72cf38",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "parse",
+      "site": "0x72cf03",
+      "target": "0x72d004",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "parse",
+      "site": "0x72cf28",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "primary",
+      "site": "0x72cfa5",
+      "target": "0x722fc0",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "primary",
+      "site": "0x72cff2",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "tail",
+      "site": "0x72d03b",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "tail",
+      "site": "0x72d071",
+      "target": "0x72345c",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "tail",
+      "site": "0x72d0bc",
+      "target": "0x8c3843",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "search",
+      "site": "0x72d495",
+      "target": "0x70349f",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "search",
+      "site": "0x72d4a8",
+      "target": "0x878112",
+      "mocked_or_forbidden": true
+    },
+    {
+      "function": "search",
+      "site": "0x72d4e9",
+      "target": "0x70349f",
+      "mocked_or_forbidden": false
+    },
+    {
+      "function": "search",
+      "site": "0x72d514",
+      "target": "0x70349f",
+      "mocked_or_forbidden": false
+    }
+  ],
+  "unreachable_indirect_calls": [
+    {
+      "site": "0x721502",
+      "reason": "mode 2 vtable free; unreachable: driver fixes object mode 1 before every bind"
+    }
+  ],
+  "helpers": {
+    "file_length": "0x69db34",
+    "convert_error": "0x717221",
+    "mode2_forbidden": "0x72b2fc",
+    "initialize_forbidden": "0x72c9e8",
+    "unmap_file": "0x86c7e0",
+    "map_file": "0x86c8e5",
+    "memcmp": "0x878112",
+    "logger": "0x8c3843"
+  },
+  "bounds": "nonempty <=1 MiB, mode 1, bucket 0..15; hazardous size additions preflighted; source memory mprotect read-only",
+  "outer_seh_retry_executed": false,
+  "whole_agent_executed": false,
+  "windows_io_executed": false,
+  "index_value_qword_semantics_proven": false,
+  "original_bytes_verified_in_elf": true,
+  "no_rwx": true,
+  "nx_stack": true,
+  "binary_sha256": "d82fed08afc88260c62afa0e49877e8138402286a4eaf000c28399b527bfeaa5",
+  "source_sha256": {
+    "build.py": "6cd47e5ed1f603d52c97e9d83a0a173a6854315f1b84fd1cb5d6ba015f4eb024",
+    "harness.s": "738a1edb981ba00e7ec7deabd8f56c06b54847b9434e41a2c53769f1180bd782"
+  },
+  "installation_ready": false
+}
