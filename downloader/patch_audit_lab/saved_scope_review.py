@@ -44,7 +44,7 @@ class ManifestReader:
         raw=self.f.read(n);b.need(len(raw)==n,'download_manifest_truncated')
         self.used+=n;self.md5.update(raw);self.sha.update(raw);return raw
 
-def parse_manifest(reader,profile,*,progress=lambda _:None,observe_unresolved=False,pinned_model=None):
+def parse_manifest(reader,profile,*,progress=lambda _:None,observe_unresolved=False,pinned_model=None,_selection_sink=None):
     """Single sequential metadata pass, bounded bitmap state, no object DB.
 
     Optional high-bit 0x4000 is normalized for this DIAGNOSTIC only. Unknown
@@ -66,7 +66,7 @@ def parse_manifest(reader,profile,*,progress=lambda _:None,observe_unresolved=Fa
     flags=r.read(1)[0] if version>=2 else 0;b.need(flags<=4,'unsupported_download_flag_size')
     extra=r.read(4) if version>=3 else b'\0'*4
     b.need(not any(extra[1:]),'unsupported_download_reserved_bytes')
-    es=22+4*checks+flags;width=(n+7)//8;padding=width*8-n
+    es=22+4*checks+flags;width=(n+7)//8;padding=width*8-n;record_offset=r.used
     b.need(n*es+nt*(3+width)<=r.size-r.used,'download_manifest_declared_bounds')
     b.need(width*24<=MAX_BITMAP_STATE,'download_bitmap_memory_limit')
     progress('validate_download_records')
@@ -130,6 +130,11 @@ def parse_manifest(reader,profile,*,progress=lambda _:None,observe_unresolved=Fa
     for u,c in zip(union,chosen):selected &= c | (valid ^ u)
     supported=not blockers
     r.check()
+    # Private, in-process extension only. No bitmap/keys in the public report.
+    # Never hand a provisional or generic/unknown model to an object review.
+    if _selection_sink is not None and supported and pinned_model is not None:
+        _selection_sink({'mask':selected.to_bytes(width,'big'),'records':n,
+                         'record_offset':record_offset,'entry_size':es})
     return {'format_version':version,'manifest_records':n,'manifest_tags':nt,
         'diagnostic_selected_records':selected.bit_count() if supported else None,
         'diagnostic_unselected_records':n-selected.bit_count() if supported else None,
@@ -162,7 +167,7 @@ def reconstruct(private):
     w.databases=[Path(q) for q in private['closed_databases']]
     w.snapshot(private['local_storage_snapshot']);w.check();return w
 
-def review(lab,audit,game,*,cancel=lambda:False,progress=lambda _:None):
+def review(lab,audit,game,*,cancel=lambda:False,progress=lambda _:None,_selection_sink=None):
     start=time.monotonic()
     def checked():b.need(not cancel() and time.monotonic()-start<=TIME_LIMIT,'scope_cancelled_or_time_limit')
     checked();lab=b.safe(lab);audit=b.safe(audit);game=b.safe(game)
@@ -213,7 +218,7 @@ def review(lab,audit,game,*,cancel=lambda:False,progress=lambda _:None):
         with path.open('rb') as f:
             b.need(b.fp(os.fstat(f.fileno()))==before,'saved_download_changed')
             reader=ManifestReader(f,size,checked)
-            projection=parse_manifest(reader,installed['profile'],progress=progress,observe_unresolved=True,pinned_model=model.for_ckey(keys[0]))
+            projection=parse_manifest(reader,installed['profile'],progress=progress,observe_unresolved=True,pinned_model=model.for_ckey(keys[0]),_selection_sink=_selection_sink)
             b.need(reader.md5.hexdigest()==keys[0],'saved_download_ckey_mismatch')
             b.need(b.fp(os.fstat(f.fileno()))==before,'saved_download_changed')
         w.check();report['download_metadata'].update(status='decoded_content_identity_revalidated',content_identity_revalidated=True,sha256=reader.sha.hexdigest())
