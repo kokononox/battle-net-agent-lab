@@ -1,0 +1,73 @@
+{
+  "schema": "bnet-outgoing-http-2",
+  "source_commit": "5e3b279fc93bc41087eeb418950cc5bd371f6064",
+  "run_id": "39163494941",
+  "scope": "fresh_vm_startup_language_only_no_account_game_install_action",
+  "reference": {
+    "cpu_model": "INTEL(R) XEON(R) PLATINUM 8573C",
+    "windows_build": 26100,
+    "total_physical_memory_bytes": 8584425472,
+    "logical_processors": 2
+  },
+  "bootstrap_pin_match": true,
+  "capture": {
+    "start_code": 0,
+    "stop_code": 0,
+    "convert_code": 0,
+    "etl_bytes": 169280,
+    "pcapng_bytes": 412844,
+    "packet_size_requested": 0,
+    "raw_packet_files_exported": false
+  },
+  "sampler": {
+    "samples": 1119,
+    "errors": 0,
+    "flow_limit_hit": false
+  },
+  "status": "capture_parsed",
+  "bootstrap_status": "agent_process_observed",
+  "error_code": null,
+  "packet_stats": {
+    "packets": 1047
+  },
+  "flows": [],
+  "requests": [],
+  "diagnostics": {
+    "counts": {
+      "ethernet_packets": 1047,
+      "tcp_packets": 1027,
+      "outgoing_public_tcp80_observations": 294,
+      "outgoing_tcp80_zero_payload_observations": 274,
+      "outgoing_tcp80_payload_observed_bytes": 4926,
+      "outgoing_tcp80_payload_observations": 20,
+      "ipv4_zero_total_length": 6,
+      "non_tcp_packets": 14,
+      "tcp80_flows": 57,
+      "tcp80_flows_with_syn": 29,
+      "tcp80_flows_with_payload": 9,
+      "tcp80_flows_in_sampler": 12,
+      "tcp80_flows_not_in_sampler": 45,
+      "flows_no_known_host_request": 57,
+      "known_host_flows": 0
+    },
+    "stream_statuses": {
+      "empty": 48,
+      "contiguous": 9
+    },
+    "parse_statuses": {
+      "parsed_to_end": 57
+    }
+  },
+  "limits": {
+    "server_receipt_proven": false,
+    "user_pc_observed": false,
+    "full_game_update_test": false,
+    "responses_exported": false,
+    "outgoing_known_hosts_only": true,
+    "credential_headers_redacted": true,
+    "tuple_pid_link_not_cryptographic_proof": true,
+    "circular_capture_and_sampling_can_miss_data": true,
+    "child_network_hard_byte_cap": false,
+    "unattributed_known_host_requests_included": true
+  }
+}
