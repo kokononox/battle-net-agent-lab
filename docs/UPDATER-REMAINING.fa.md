@@ -1,35 +1,13 @@
-# کارهای باقی‌مانده — پس از ۰٫۲۴
+# اقدامات باقی‌مانده پس از ۰٫۲۵
 
-اصل محصول ثابت است: در هر اجرای جدید نصب موجود و مقصد سازگار جاری تشخیص داده شوند؛ target اجرای شروع‌شده pinned بماند و انتشار جدید checkpoint را خودکار منتقل نکند.
-
-## انجام‌شدهٔ این جلسه
-- native Windows staging و پذیرش محدود آن از مراحل قبل حفظ شد.
-- کنترلر چندشیء/چند Range و HTTP adapter به staging وصل شدند؛ grant و budget، رزرو پیش از fetch، ETag/total مشترک، لغو و ادامهٔ commitهای سالم در process تازه آزموده شدند.
-- ۵۳ تست انتقال روی هر backend؛ مجموع Linux در مرحلهٔ ۰٫۲۰ برابر ۵۳۶ و Windows واقعی برابر ۱۷۴، بدون failure/error/skip در CI. HTTPها synthetic/mock هستند، نه دانلود واقعی بازی.
-- مرور منابع عمومی معنای community Alternate/0x4000 را روشن‌تر کرد؛ policy رسمی Agent یا Talebound اثبات نشد و candidateهای قبلی تغییر نکردند.
-
-## پیشرفت تازهٔ ۰٫۲۱
-reconcile_pending با تأیید صریح فقط یک Range قبلاً ثبت‌شده را با بازسازی journal پیشین و verification تازه می‌پذیرد؛ شبکه/بودجه/ادامه خودکار ندارد. ۲۶ تست تازه؛ اکنون ۵۶۲ تست Linux و ۲۰۰ تست واقعی Windows بدون failure/error/skip پاس‌اند. در این مرحلهٔ تاریخی درخواست فاقد commit همچنان متوقف بود؛ مسیر محدود آن در ۰٫۲۲ اضافه شد. orphan، lock رهاشده و قطع برق واقعی همچنان حل نشده‌اند.
-
-## پیشرفت تازهٔ ۰٫۲۲
-بستن صریح scope برای pending بدون commit و ساخت جانشین با تأیید تازه انجام شد. هیچ retry/fetch/ادامهٔ خودکار و هیچ بازپرداخت بودجه‌ای ندارد؛ nonce و digest سابقه در grant جدید pinned هستند. ۳۳ تست تازه، از جمله دو process تازه؛ مجموع Linux برابر ۵۹۵ و Windows واقعی ۲۳۳ با صفر failure/error/skip. این recovery عمومی crash/disk-full یا permission برای CDN/نصب نیست.
-
-## تصحیح اولویت و شاهد تازه
-مرحلهٔ اول هنوز باز است؛ خواندن .build.info و config به‌تنهایی policy انتخاب یا نسل فعال را قطعی نمی‌کند. بررسی کد مستقل CascLib/TACTSharp نشان داد handler اول tagها را رد می‌کند و ابزار استخراج دوم برای تعارض variant از US/first استفاده می‌کند؛ هیچ‌یک oracle انتخاب updater نیست. این heuristicها وارد محصول نشدند. [مرور و شاهد لازم](../updater-core/research/POLICY-BLOCKERS-FOLLOWUP.md). هیچ reader تازه یا آزمون زنده‌ای در این مرور پیاده/درخواست نشد.
-
-## پیشرفت ۰٫۲۳ — فقط ممیزی بخش اول، نه تکمیل آن
-ممیزی membership چهارگانهٔ feature/candidate، نمونه‌های محدود دارای CKey/EKey، گروه‌های label تکراری و چندنمایشی بودن Install اضافه شد. target/profile/hashها و شمارش مستقل کنترل شدند؛ هیچ candidate حذف/اضافه نشد. ۲۷ تست تازه؛ ۶۲۲ Linux و ۲۶۰ Windows واقعی پاس‌اند. [قرارداد مرجع](../updater-core/research/POLICY-REFERENCE-PROTOCOL.md) و [سؤال‌های واقعی هدف تاریخی](../updater-core/reports/POLICY-AMBIGUITY-to-share.json) آماده‌اند. دادهٔ فعلی شاهد مستقل قواعد رسمی ندارد؛ تعداد تست یا تطبیق نمونه جای آن نیست. metadata reader تازه و probe زنده در این مرحله ارائه نشده‌اند.
-
-## پیشرفت ۰٫۲۴ — ورودی پیکربندی پیدا و متصل شد
-ProductConfig دقیق هدف تاریخی از آرشیو عمومی با کلید versions تطبیق داده شد. reader محدود و اتصال به candidate برای نگاشت زبان/معماری و extra_tags دارای منشأ پیاده و اجرا شدند؛ هیچ candidate تغییر نکرد. ۲۶ تست تازه؛ ۶۴۸ Linux و ۲۸۶ Windows پاس‌اند. [شواهد](../updater-core/research/PRODUCT-CONFIG-AND-SOURCES.md). این پیکربندی قواعد کامل feature/variant/dependency یا نسل فعال نیست. فعلاً هیچ اقدام/فایل تازه از کاربر لازم نیست؛ یافتن semantics و طراحی تست bounded وظیفهٔ ادامهٔ پروژه است، نه تقاضای مبهم «plan رسمی» از کاربر.
+## پیشرفت ثبت‌شده
+ترجیحات text/speech از کپی تاریخی با حفظ بندها و حذف qualifier خصوصی خوانده شد؛ reader محدود ویندوز برای دو متادیتا فایل پیاده و روی پوشه‌های مصنوعی تست شد. ۶۷۴ Linux و ۳۳۲ Windows پاس‌اند. این‌ها reader و تست‌اند، نه اپدیتر قابل نصب. [تحویل](UPDATER-SESSION-0.25.fa.md).
 
 ## ترتیب باقی‌مانده
-1. **بستن policy انتخاب و closure:** اکنون facts پیکربندی متصل به نسخه موجود است، اما هنوز قواعد کامل برای feature/Alternate/Talebound، اولویت/حذف variantها، dependency و patch/full. معنای enum یا parser/extractor عمومی به‌تنهایی کافی نیست. ترجیحات تازهٔ نصب هم لازم است؛ flagهای vendor/feature فعلاً false بمانند.
-2. **نصب فقط‌خواندنی و نسل فعال:** backend منسجم Windows، baseline/profile تازه و حل معنای نسل/ایندکس؛ V8 ناشناخته حدس زده نشود. گزارش قدیمی یا کپی ایندکس اثبات وضعیت فعلی نیست. ابزار لازم باید قبل از درخواست اجرای کاربر دامنهٔ دقیق داشته باشد؛ بدون اسکن کور یا تغییر ACL.
-3. **reuse و برنامه/حجم دقیق:** اثبات کامل محتوای نصب و source؛ چند locator خودسرانه حل نشود؛ نبود ref در کپی missing نیست. تفکیک reuse/دریافت/unknown و network/patch/write/temp/free-space؛ حجم ضروری هنوز null است.
-4. **qualification انتقال واقعی و recovery:** reconciliation محلیِ commit ثبت‌شده و retirement/successor صریح برای pending بدون commit انجام شده‌اند. qualification واقعی crash/disk-full، lock رهاشده و قطع برق همچنان لازم است؛ lock شکسته و pending خودکار پاک/تکرار نمی‌شود. سپس scope کوچک تازه برای HTTP واقعی CDN، کنترل TLS/رفتار سرور و شکست‌های عملیاتی. مجوزهای قدیمی بسته‌اند؛ سقف ۴ GiB عدد parser/grant است، نه آزمون مقیاس یا مجوز فعلی.
-5. **CASC writer تراکنشی، rollback و activation:** پیاده‌سازی و check قبل/بعد، حفظ نسل قبلی تا commit معتبر؛ ابتدا فقط کپی مستقل Windows. flush/rename و آزمون مصنوعی جای qualification قطع برق واقعی نیستند. apply نصب اصلی مجاز نیست.
-6. **end-to-end بومی:** چند baseline/target، نصب ناقص، بازی باز، قطع شبکه/پردازش، دیسک پر، قالب/رمزگذاری پشتیبانی‌نشده، مسیر غیرمجاز و rollback؛ هیچ حالت نیمه‌نوشته فعال نشود.
-7. **UI/بستهٔ انتشار:** نمایش برنامه/حجم معتبر، تأیید روشن apply، پیشرفت/لغو/ادامه، گزارش حداقلی و ارتقای خود اپدیتر.
+1. **مرحلهٔ اول هنوز کامل نیست:** قواعد کامل انتخاب feature/variant/dependency، ترجیحات واقعاً تازه و اثبات نسل فعال همساز. ProductConfig و تگ تاریخی به‌تنهایی کافی نیستند. reader فعلی shmem/LRU/index/archive نمی‌خواند؛ offset جامعه یا بزرگ‌ترین filename oracle نیست. ابتدا قرارداد format/consistency/privacy و تست bounded طراحی شود؛ سپس در صورت ضرورت اقدام مشخص کاربر خواسته شود.
+2. ساخت required set معتبر، شواهد reuse معتبر و حجم دانلود دقیق؛ عدد نامعلوم صفر فرض نشود.
+3. انتقال واقعی محدود و recovery/resume بدون عبور از budget/approval و بدون حذف خودکار lock.
+4. نوشتن تراکنشی CASC، rollback و activation؛ ابتدا کپی مستقل با آزمون شکست/قطع برق و کنترل فضای کافی. هیچ writer واقعی هنوز پیاده نشده است.
+5. آزمون چندنسخه و نسخهٔ آینده با discovery تازه و stop برای قالب ناشناخته؛ سپس UI، بسته‌بندی و انتشار.
 
-کاربر Windows و فضای کپی آزمایشی را دارد؛ فعلاً درخواست کپی بازی یا اجرای probe آماده‌نشده، prepare، اسکن، admin/permission یا دانلود گسترده داده نشده است. installation_ready=false و apply_authorized=false. این sync مسیر مستقل Agent/تله‌متری را اجرا نکرد.
+فعلاً از کاربر فایل/اجازه/اجرای تازه‌ای لازم نیست. required_set_selected=false، active_generation_proven=false، required_network_download_bytes=null، installation_ready=false و apply_authorized=false. تست ویندوز روی پوشهٔ موقت مجوز بازی زنده یا qualification کامل backend نیست. نه update/repair رسمی، نه admin/ACL change و نه broad upload تقاضا شود.

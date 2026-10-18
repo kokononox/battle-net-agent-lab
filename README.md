@@ -1,10 +1,10 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## وضعیت جدید مسیر اپدیتر — ۰٫۲۴
+## وضعیت جدید مسیر اپدیتر — ۰٫۲۵
 
-**شروع ادامه:** [تحویل همین مرحله](docs/UPDATER-SESSION-0.24.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md) · [سورس و تست](updater-core/GITHUB-SOURCE.md).
+[تحویل فعلی](docs/UPDATER-SESSION-0.25.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md) · [سورس و تست](updater-core/GITHUB-SOURCE.md).
 
-ProductConfig دقیق همان هدف تاریخی از دو آرشیو عمومی بازیابی شد؛ بایت/هش آن با کلید جدول نسخهٔ ذخیره‌شده تطبیق دارد. نگاشت زبان/Windows/معماری و extra_tags دارای منشأ اکنون با reader محدود و اتصال به هویت candidate بررسی می‌شود؛ هیچ فایل بازی یا candidate تغییر نکرد. **این پیشرفت روی مرحلهٔ اول است، نه تکمیل آن:** قواعد کامل feature/variant/dependency و ترجیحات/نسل فعال زنده هنوز بازند. ۶۴۸ تست Linux و ۲۸۶ تست واقعی Windows پاس شدند. [منشأ و محدودیت‌ها](updater-core/research/PRODUCT-CONFIG-AND-SOURCES.md). فعلاً اقدام تازه‌ای از کاربر لازم نیست؛ workflow مستقل Agent دست‌نخورده است.
+خواندن ترجیحات نصب با حفظ دقیق رابطهٔ زبان و text/speech روی کپی تاریخی اجرا شد؛ reader جداگانهٔ Windows برای دو فایل متادیتا با handleهای read-only و بررسی دوباره پیاده شد. ۶۷۴ تست Linux و ۳۳۲ Windows پاس شدند؛ آزمون native صرفاً پوشه‌های موقت مصنوعی بود. **مرحلهٔ اول باز است:** انتخاب کامل، ترجیحات واقعاً تازه و نسل فعال هنوز ثابت نشده‌اند. فعلاً اقدام کاربر لازم نیست. [مرز شواهد و منابع](updater-core/research/INSTALLED-PREFERENCES-AND-GENERATION.md). هیچ بازی تغییر نکرد؛ workflow مستقل Agent دست‌نخورده است.
 
 ## شروع ادامهٔ پروژه — فارسی (سابقه)
 
