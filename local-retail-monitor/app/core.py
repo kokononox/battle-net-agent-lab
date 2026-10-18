@@ -199,7 +199,16 @@ class Collector:
     def start(self):
         self.thread=threading.Thread(target=self.run,daemon=True);self.thread.start()
     def ready(self):
-        with self.lock:return any(r['status']=='attached' and r['process_name']=='agent.exe' and r['hook_ready'] and not r['script_errors'] and APIS<=set(r['installed_hooks']) for r in self.rows.values())
+        with self.lock:
+            candidates=[(pid,creation,k) for (pid,creation),k in self.private_paths.items()
+                if self.rows[k]['status']=='attached' and self.rows[k]['process_name']=='agent.exe'
+                and self.rows[k]['hook_ready'] and not self.rows[k]['script_errors']
+                and APIS<=set(self.rows[k]['installed_hooks'])]
+        for pid,creation,k in candidates:
+            try:
+                if identity(pid)['creation']==creation:return True
+            except Exception:pass
+        return False
     def close(self):
         if self.closed:return
         self.closed=True

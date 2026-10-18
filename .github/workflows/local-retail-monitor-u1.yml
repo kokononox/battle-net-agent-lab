@@ -9,7 +9,7 @@ permissions: {}
 jobs:
   build:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved local privacy monitor selftest and portable build u1'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved local privacy monitor selftest and portable build u1b'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -41,14 +41,18 @@ jobs:
           $root = 'local-retail-monitor/release/Local-Retail-Privacy-Monitor-U1'
           & "$root/runtime/python.exe" -I "$root/app/monitor.py" --selftest-only
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          & "$root/runtime/python.exe" -I -c "import sys; from core import signature; r=signature(sys.executable); assert r['valid'] and not r['blizzard']; print('Runtime certificate gate PASS; non-Blizzard runtime correctly not accepted as Blizzard')"
+          & "$root/runtime/python.exe" -I "$root/app/monitor.py" --selftest-only
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python local-retail-monitor/certificate_gate.py
       - name: Upload portable observer only after all native gates pass
         id: portable
         if: steps.native.outcome == 'success'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: Local-Retail-Privacy-Monitor-U1
-          path: local-retail-monitor/release/Local-Retail-Privacy-Monitor-U1/
+          path: |
+            local-retail-monitor/release/Local-Retail-Privacy-Monitor-U1/
+            !local-retail-monitor/release/Local-Retail-Privacy-Monitor-U1/selftest-to-share-*.json
           if-no-files-found: error
           retention-days: 7
       - name: Write bounded build receipt; no user data

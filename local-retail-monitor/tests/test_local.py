@@ -119,3 +119,17 @@ class SafetyTests(unittest.TestCase):
         self.assertEqual(next(iter(c.counts))[2],False)
 
 if __name__=='__main__':unittest.main()
+
+class CompletionSafetyTests(unittest.TestCase):
+    def test_selftest_filename_cannot_overwrite_previous_run(self):
+        s=(Path(__file__).resolve().parents[1]/'app'/'monitor.py').read_text()
+        self.assertIn("'selftest-to-share-'+str(time.time_ns())",s)
+    def test_hosts_restore_precedes_final_version_read(self):
+        s=(Path(__file__).resolve().parents[1]/'app'/'monitor.py').read_text()
+        tail=s[s.index('    finally:\n        # Restoration'):]
+        self.assertLess(tail.index('restore=guard.restore()'),tail.index("report['final_versions']=versions(root)"))
+    def test_single_instance_protects_recovery(self):
+        s=(Path(__file__).resolve().parents[1]/'app'/'monitor.py').read_text();self.assertIn('CreateMutexW',s);self.assertIn('monitor_already_running_do_not_restore_hosts',s)
+    def test_ready_rechecks_live_process_creation(self):
+        s=(Path(__file__).resolve().parents[1]/'app'/'core.py').read_text();ready=s[s.index('    def ready(self):'):s.index('    def close(self):')]
+        self.assertIn("identity(pid)['creation']==creation",ready)

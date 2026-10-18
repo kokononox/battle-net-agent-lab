@@ -77,8 +77,9 @@ def main():
     print('Self-test uses only an owned loopback worker. Certificate checks may contact certificate services.')
     test=run(frida)
     if args.selftest_only:
-        target=safe_path(BASE/'selftest-to-share.json')
+        target=safe_path(BASE/('selftest-to-share-'+str(time.time_ns())+'.json'))
         with target.open('x',encoding='utf-8') as f:json.dump(test,f,indent=2)
+        print('Self-test report:',target.name)
         print('SELFTEST PASS' if test['passed'] else 'SELFTEST FAILED')
         if not test['passed']:raise ValueError('selftest_failed')
         return
@@ -141,12 +142,19 @@ def main():
         report['status']='stopped';report['error_code']=str(exc) if isinstance(exc,ValueError) and re.fullmatch('[a-z0-9_]{1,100}',str(exc)) else 'local_observation_failed'
         print('STOP: observation failed or a prerequisite was not met. Do not resume Update for this test.')
     finally:
-        if collector:
-            collector.close();report['observation']=collector.report()
-        report['final_versions']=versions(root)
-        report['hosts']['resolution_at_end']=resolve()
-        restore=guard.restore()
-        report['hosts'].update(changed_by_tool=guard.changed,restored=guard.restored,restore_status=restore)
+        # Restoration is independent of read-only game snapshot or collector/report errors.
+        try:
+            if collector:
+                collector.close();report['observation']=collector.report()
+        except Exception:
+            report['status']='stopped';report['error_code']='collector_cleanup_failed'
+        finally:
+            try:report['hosts']['resolution_at_end']=resolve()
+            except Exception:report['hosts']['resolution_at_end']='other_or_failed'
+            restore=guard.restore()
+            report['hosts'].update(changed_by_tool=guard.changed,restored=guard.restored,restore_status=restore)
+        try:report['final_versions']=versions(root)
+        except Exception:report['final_versions']={'status':'unreadable_or_unrecognized','retail_versions':[]}
         write_report(out,report)
         print('Local shareable report:',str(Path('output')/out.name))
         print('Hosts restoration:',restore)
