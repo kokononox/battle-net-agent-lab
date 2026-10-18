@@ -64,13 +64,17 @@ class TransferGrant:
   need(approved is True,'transfer_explicit_approval_required');ids=stages_checked(stages);rows=[]
   for s,key in zip(stages,ids):
    verify_prefix(s);rows.append({'identity':key,'initial_committed':s.doc['committed_bytes'],'initial_journal_sha256':s.journal_sha})
-  return cls._bind(stages,{'format':'owned-transfer-grant-1','checkpoint_sha256':digest(stages[0].cp.serialize()),'stages':rows,'max_requests':max_requests,'max_body_bytes':max_body_bytes})
+  return cls._bind(stages,{'format':'owned-transfer-grant-2','scope_nonce':uuid.uuid4().hex,'prior_scopes_sha256':digest(encode([])),'checkpoint_sha256':digest(stages[0].cp.serialize()),'stages':rows,'max_requests':max_requests,'max_body_bytes':max_body_bytes})
  @classmethod
  def restore(cls,raw,stages,*,approved):
   need(approved is True,'transfer_restore_needs_new_explicit_approval');need(type(raw)is bytes and 0<len(raw)<=65536,'transfer_grant_size');return cls._bind(stages,strict_json(raw))
  @classmethod
  def _bind(cls,stages,d):
-  ids=stages_checked(stages);need(type(d)is dict and set(d)=={'format','checkpoint_sha256','stages','max_requests','max_body_bytes'}and d['format']=='owned-transfer-grant-1'and d['checkpoint_sha256']==digest(stages[0].cp.serialize()),'transfer_grant_identity')
+  ids=stages_checked(stages);need(type(d)is dict,'transfer_grant_shape');keys={'format','checkpoint_sha256','stages','max_requests','max_body_bytes'}
+  if d.get('format')=='owned-transfer-grant-2':
+   keys.update(('scope_nonce','prior_scopes_sha256'));history=d.get('prior_scopes_sha256');need(type(history)is str and len(history)==64 and all(c in'0123456789abcdef'for c in history),'transfer_prior_scopes_digest');nonce=d.get('scope_nonce');need(type(nonce)is str and len(nonce)==32 and all(c in'0123456789abcdef'for c in nonce),'transfer_scope_nonce')
+  else:need(d.get('format')=='owned-transfer-grant-1','transfer_grant_version')
+  need(set(d)==keys and d['checkpoint_sha256']==digest(stages[0].cp.serialize()),'transfer_grant_identity')
   need(type(d['max_requests'])is int and 0<=d['max_requests']<=MAX_REQUESTS and type(d['max_body_bytes'])is int and 0<=d['max_body_bytes']<=MAX_BODY,'transfer_grant_budget')
   need(type(d['stages'])is list and len(d['stages'])==len(stages),'transfer_grant_stages');ranges=[]
   for i,(s,key,row)in enumerate(zip(stages,ids,d['stages'])):
@@ -92,7 +96,7 @@ class TransferController:
   c=cls._attach(stages,grant,fetch)
   for s,row in zip(stages,grant.rows):
    verify_prefix(s);need(s.journal_sha==row['initial_journal_sha256']and s.doc['committed_bytes']==row['initial_committed'],'transfer_initial_state_changed')
-  c.doc={'format':'owned-transfer-ledger-1','grant_sha256':grant.identity,'cursor':0,'pending':False,'reserved_requests':0,'reserved_body_bytes':0,'journal_hashes':[r['initial_journal_sha256']for r in grant.rows],'entities':entities(stages)}
+  c.doc={'format':'owned-transfer-ledger-2','prior_scopes':[],'grant_sha256':grant.identity,'cursor':0,'pending':False,'reserved_requests':0,'reserved_body_bytes':0,'journal_hashes':[r['initial_journal_sha256']for r in grant.rows],'entities':entities(stages)}
   with stages[0]._lock():stages[0]._write('transfer.json',encode(c.doc));stages[0]._sync(stages[0].path)
   c._load();return c
  @classmethod
@@ -103,11 +107,20 @@ class TransferController:
  @classmethod
  def _attach(cls,stages,grant,fetch):
   need(type(grant)is TransferGrant and callable(fetch),'transfer_grant_and_fetch_required');grant.match(stages);c=cls();c.stages=stages;c.grant=grant;c.fetch=fetch;return c
- def _load(self):
-  d=strict_json(read_ledger(self.stages[0]));need(type(d)is dict and set(d)=={'format','grant_sha256','cursor','pending','reserved_requests','reserved_body_bytes','journal_hashes','entities'}and d['format']=='owned-transfer-ledger-1'and d['grant_sha256']==self.grant.identity,'transfer_ledger_identity');n=d['cursor'];p=d['pending'];need(type(n)is int and 0<=n<=len(self.grant.ranges)and type(p)is bool and(not p or n<len(self.grant.ranges)),'transfer_ledger_cursor');attempts=n+int(p);body=sum(b-a+1 for _,a,b in self.grant.ranges[:attempts]);need(type(d['reserved_requests'])is int and d['reserved_requests']==attempts<=self.grant.max_requests and type(d['reserved_body_bytes'])is int and d['reserved_body_bytes']==body<=self.grant.max_body_bytes,'transfer_ledger_budget');need(type(d['journal_hashes'])is list and len(d['journal_hashes'])==len(self.stages)and all(type(h)is str and len(h)==64 and all(c in'0123456789abcdef'for c in h)for h in d['journal_hashes']),'transfer_ledger_hashes');need(type(d['entities'])is dict and len(d['entities'])<=len(self.stages),'transfer_entities_shape')
+ def _load(self):return self._validate_ledger(strict_json(read_ledger(self.stages[0])))
+ def _validate_ledger(self,d,*,verify_history=True):
+  need(type(d)is dict,'transfer_ledger_shape');base={'format','grant_sha256','cursor','pending','reserved_requests','reserved_body_bytes','journal_hashes','entities'}
+  if d.get('format')=='owned-transfer-ledger-1':need(set(d)==base,'transfer_ledger_legacy_shape');d=dict(d,format='owned-transfer-ledger-2',prior_scopes=[])
+  need(type(d)is dict and set(d)==base|{'prior_scopes'}and d['format']=='owned-transfer-ledger-2'and d['grant_sha256']==self.grant.identity,'transfer_ledger_identity');n=d['cursor'];p=d['pending'];need(type(n)is int and 0<=n<=len(self.grant.ranges)and type(p)is bool and(not p or n<len(self.grant.ranges)),'transfer_ledger_cursor');attempts=n+int(p);body=sum(b-a+1 for _,a,b in self.grant.ranges[:attempts]);need(type(d['reserved_requests'])is int and d['reserved_requests']==attempts<=self.grant.max_requests and type(d['reserved_body_bytes'])is int and d['reserved_body_bytes']==body<=self.grant.max_body_bytes,'transfer_ledger_budget');need(type(d['journal_hashes'])is list and len(d['journal_hashes'])==len(self.stages)and all(type(h)is str and len(h)==64 and all(c in'0123456789abcdef'for c in h)for h in d['journal_hashes']),'transfer_ledger_hashes');need(type(d['entities'])is dict and len(d['entities'])<=len(self.stages),'transfer_entities_shape')
   allowed={archive_url(s.cp,s.source)for s in self.stages}
   for url,value in d['entities'].items():need(url in allowed and type(value)is dict and set(value)=={'etag','total'}and strong_etag(value['etag'])and type(value['total'])is int and 0<value['total']<=2**63-1,'transfer_entity_shape')
-  self.doc=d
+  from transfer_scope import validate_history_rows,validate_history
+  validate_history_rows(d['prior_scopes']);grant_doc=strict_json(self.grant.serialize())
+  if grant_doc['format']=='owned-transfer-grant-2':need(digest(encode(d['prior_scopes']))==grant_doc['prior_scopes_sha256'],'transfer_history_not_bound_to_grant')
+  else:need(not d['prior_scopes'],'transfer_legacy_grant_has_no_history')
+  need(self.grant.identity not in{r['grant_sha256']for r in d['prior_scopes']},'transfer_closed_scope_reused')
+  if verify_history:validate_history(self.stages,d['prior_scopes'])
+  self.doc=d;return d
  def _publish(self,d):
   s=self.stages[0];name=uuid.uuid4().hex+'.tmp';s._write(name,encode(d));s._replace(name,'transfer.json');s._sync(s.path);self.doc=d
  def _check_stages(self):
@@ -178,4 +191,4 @@ class TransferController:
  def finish(self):
   self._load();need(not self.doc['pending']and self.doc['cursor']==len(self.grant.ranges),'transfer_not_complete');self._check_stages();proofs=[s.verify()for s in self.stages];self._check_stages();return dict(self.summary(),status='all_owned_objects_freshly_verified',proofs=proofs,all_objects_freshly_verified=True)
  def summary(self):
-  return {'format':'owned-transfer-summary-1','grant_sha256':self.grant.identity,'completed_ranges':self.doc['cursor'],'pending_attempt':self.doc['pending'],'reserved_requests':self.doc['reserved_requests'],'reserved_application_body_bytes':self.doc['reserved_body_bytes'],'reservation_is_not_wire_byte_measurement':True,'target_automatically_replaced':False,'game_access':False,'active_generation_proven':False,'vendor_selection_policy_qualified':False,'required_network_download_bytes':None,'installation_ready':False,'apply_authorized':False}
+  return {'format':'owned-transfer-summary-1','grant_sha256':self.grant.identity,'completed_ranges':self.doc['cursor'],'pending_attempt':self.doc['pending'],'reserved_requests':self.doc['reserved_requests'],'reserved_application_body_bytes':self.doc['reserved_body_bytes'],'retired_scope_count':len(self.doc['prior_scopes']),'lifetime_reserved_requests':self.doc['reserved_requests']+sum(r['reserved_requests']for r in self.doc['prior_scopes']),'lifetime_reserved_application_body_bytes':self.doc['reserved_body_bytes']+sum(r['reserved_body_bytes']for r in self.doc['prior_scopes']),'reservation_is_not_wire_byte_measurement':True,'target_automatically_replaced':False,'game_access':False,'active_generation_proven':False,'vendor_selection_policy_qualified':False,'required_network_download_bytes':None,'installation_ready':False,'apply_authorized':False}
