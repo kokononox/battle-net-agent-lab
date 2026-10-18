@@ -1,4 +1,4 @@
-> به‌روزرسانی: وضعیت فعلی اپدیتر در [UPDATER-SESSION-0.19.fa.md](UPDATER-SESSION-0.19.fa.md) و [UPDATER-REMAINING.fa.md](UPDATER-REMAINING.fa.md) است. متن زیر سابقهٔ قبلی است؛ هدف/اعداد آن به مقصد جدید تعمیم داده نشوند.
+> به‌روزرسانی: وضعیت فعلی اپدیتر در [UPDATER-SESSION-0.20.fa.md](UPDATER-SESSION-0.20.fa.md) و [UPDATER-REMAINING.fa.md](UPDATER-REMAINING.fa.md) است. متن زیر سابقهٔ قبلی است؛ هدف/اعداد آن به مقصد جدید تعمیم داده نشوند.
 
 # ادامهٔ کار بدون تکرار بی‌هدف
 

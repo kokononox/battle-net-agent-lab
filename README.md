@@ -1,10 +1,10 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## وضعیت جدید مسیر اپدیتر — ۰٫۱۹
+## وضعیت جدید مسیر اپدیتر — ۰٫۲۰
 
-**نقطهٔ شروع فعلی:** [تحویل همین جلسه](docs/UPDATER-SESSION-0.19.fa.md) · [اقدامات باقی‌مانده](docs/UPDATER-REMAINING.fa.md) · [سورس و روش تست](updater-core/GITHUB-SOURCE.md).
+**نقطهٔ شروع فعلی:** [تحویل همین جلسه](docs/UPDATER-SESSION-0.20.fa.md) · [اقدامات باقی‌مانده](docs/UPDATER-REMAINING.fa.md) · [سورس و روش تست](updater-core/GITHUB-SOURCE.md).
 
-منطق محصول وابسته به مهاجرت ثابت دو نسخه نیست. staging بومی Windows و پذیرش محدود ورودی تازه‌اعتبارسنجی‌شدهٔ آن برای برنامهٔ نامزد پیاده‌سازی شدند؛ ۴۸۳ تست Linux و ۱۲۱ تست Windows (۷۳ portable + ۳۸ native stage + ۱۰ native admission) پاس شدند. ایراد guard تغییر نام پوشه در نخستین CI پیدا و پیش از موفقیت اصلاح شد. این نتایج تأیید نصب‌کننده یا writer بازی نیستند. نصب اصلی خوانده/تغییر داده نشد، درخواست CDN بازی تازه‌ای انجام نشد و workflow مستقل Agent دست‌نخورده ماند. آمار تاریخی TagFix/هدف 70391 با snapshot pinned هدف 70448 مخلوط نشود.
+کنترلر انتقال چندشیء و اتصال HTTP محدود به staging اضافه شدند: grant صریح، رزرو پایدار پیش از درخواست، Range/ETag/total ثابت، ادامه بین commitها و توقف در attempt مبهم بدون retry خودکار. ۵۳۶ تست Linux و ۱۷۴ تست واقعی Windows پاس شدند؛ HTTP آزمون‌ها mock بود و CDN بازی تازه‌ای خوانده نشد. سیاست رسمی انتخاب، نسل فعال، CASC writer/rollback/activation و نصب نهایی هنوز qualify نشده‌اند. نصب اصلی و workflow مستقل Agent دست‌نخورده‌اند. محصول به مهاجرت دو نسخهٔ ثابت محدود نیست؛ 70448 snapshot پژوهشی تاریخی است، نه ادعای آخرین نسخه.
 
 ## شروع ادامهٔ پروژه — فارسی (سابقه)
 

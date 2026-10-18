@@ -1,4 +1,26 @@
-# اتصال staging بومی به بررسی نامزد — ۰٫۱۹
+# کنترلر انتقال چندشیء و staging — ۰٫۲۰
+
+این بسته سورس و تست پژوهشی است، نه اپدیتر آمادهٔ نصب. اجرای آن روی نصب بازی لازم نیست. دامنهٔ محصول همچنان مستقل از یک جفت نسخهٔ ثابت است.
+
+## انجام‌شدهٔ ۰٫۲۰
+- transfer_controller.py برای tuple حداکثر ۶۴ stage شناخته‌شده، با grant صریح به checkpoint/object/source و وضعیت اولیهٔ journal متصل می‌شود. برنامه در سقف حداکثر ۴۰۹۶ Range و ۴ GiB بایت body در هر grant کنترل می‌شود؛ این‌ها محدودیت عددی‌اند، نه آزمون واقعی تمام سقف یا مجوز دانلود این حجم.
+- هر درخواست پیش از fetch در transfer.json رزرو و flush می‌شود؛ مصرف scope در restore صفر نمی‌شود. هیچ retry/redirect/اسکن/اعطای apply یا تغییر هدف خودکار وجود ندارد. ذخیرهٔ grant اجازهٔ شبکه نیست؛ restore به approved=True تازه نیاز دارد.
+- بین Rangeهای commitشده، restore در process تازه آزموده شده است. قطع مبهم پس از reservation یا append ولی پیش از commit ledger عمداً pending باقی می‌گذارد و خودکار ادامه نمی‌دهد؛ بازیابی مجاز این حالت هنوز پیاده/qualify نشده است. هیچ pending/lock/orphan خودکار حذف یا پذیرفته نمی‌شود.
+- strong ETag و total برای URL آرشیو مشترک بین اشیاء هم ثابت می‌مانند. قبل از resume، prefixهای موجود SHA-check می‌شوند؛ کامل‌شدن هر شیء و finish همهٔ محتوا را با verifier جریانی تازه می‌سنجند. baseline ورودی caller با pinned baseline برابر می‌شود؛ این به‌خودی‌خود اثبات freshness نصب زنده نیست.
+- stream_http.py به کنترلر وصل است: Range دقیق، If-Range، status 206، URL، Content-Range/Length، ETag و total قبل از خواندن بدنه کنترل می‌شوند. هدر تکراری، Transfer-Encoding، فشرده‌سازی پاسخ، short body و تغییر entity توقف می‌دهند. read حداکثر ۶۴ KiB است؛ probe اضافهٔ EOF و retry نیست. شمارش body/reservation تضمین بایت فیزیکی TCP/TLS نیست.
+
+## شواهد آزمون
+۵۳ تست کنترلر/HTTP مصنوعی در هر دو backend اجرا شدند، از جمله چندشیء، Rangeهای فایل بزرگ‌تر از ۱ MiB، ادامه در process تازه، faultهای reservation/append، لغو، بودجه، تغییر baseline/target/source و entity مشترک. HTTP در این تست‌ها mock است؛ هیچ CDN بازی یا شبکهٔ localhost استفاده نشده است.
+
+۵۳۶ تست Linux پاس شدند. اجرای واقعی Windows/Python 3.12.10 شامل ۱۷۴ تست با صفر failure/error/skip بود: ۷۳ portable، ۳۸ native stage، ۱۰ native admission و ۵۳ transfer. اعداد دو پلتفرم قابل جمع به‌عنوان تست مستقل نیستند. source d9f7c14e3c40e4bf3432dd7e7b5505773384c208؛ receipt 9ab5f617da43cfa5836cf7e527283844d0bece23. بسته بعد از تولید، استخراج، hash/CRC و تست می‌شود.
+
+## مرز توقف
+این نتیجه qualification تولیدی شبکه، قطع برق، native CASC writer/rollback/activation، سیاست رسمی انتخاب، نسل فعال نصب یا reuse محتوای نصب نیست. حجم ضروری دانلود null، installation_ready=false و apply_authorized=false باقی‌اند. هیچ دانلود تازهٔ بازی یا دسترسی به نصب اصلی، admin یا تغییر ACL انجام نشد. workflow مستقل Agent تغییر نکرده است.
+
+کاربر Windows و فضای کپی آزمایشی دارد؛ فعلاً نیاز به کپی بازی نیست. برای policy یک جست‌وجوی عمومی هدفمند انجام شد: wowdev Alternate را censored content و مقدار 0x4000 توصیف می‌کند؛ این معنای Talebound یا policy انتخاب Agent را اثبات نمی‌کند. TACTSharp ابزار استخراج است و README آن اولویت tag را در TODO دارد؛ جای oracle نصب رسمی قرار نگرفت. گزارش research/POLICY-EVIDENCE-0.20.md مرز شواهد را ثبت می‌کند.
+
+## سابقهٔ مرحلهٔ ۰٫۱۹
+
 
 این بسته کد، تست و رسید پژوهشی است، نه اپدیتر آمادهٔ نصب. اجرای آن روی Windows یا پوشهٔ بازی لازم نیست. فایل‌های decoded بزرگ، بانک‌های SQLite و payload نمونهٔ بازی در این ZIP نیستند.
 
