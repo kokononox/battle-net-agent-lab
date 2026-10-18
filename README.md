@@ -1,10 +1,14 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## وضعیت جدید مسیر اپدیتر — selection semantic discrimination
+## تصمیم معماری لازم — نه اعلام حل کامل
+
+[بررسی مسیر Agent و شرط استقلال](docs/UPDATER-BACKEND-DECISION.fa.md). موتور مستقل هنوز قواعد کامل انتخاب Retail و نویسندهٔ تراکنشی CASC ندارد. مسیر جایگزینِ بررسی‌شده به Agent رسمی و ورود اخیر Battle.net وابسته است؛ بدون تأیید کاربر جایگزین معماری نمی‌شود. هیچ Agent یا درخواست آپدیت اجرا نشد. اکنون فقط تصمیم دربارهٔ قابل‌قبول‌بودن این وابستگی لازم است؛ نه فایل تازه، رمز حساب یا اجازهٔ نصب.
+
+## وضعیت پیشین مسیر اپدیتر — selection semantic discrimination
 
 [شرح تغییر عملکردی و آزمون](docs/UPDATER-SELECTION-SEMANTICS.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md).
 
-تشخیص اختلاف locale/category و فرضیه‌های 0x4000 به review اصلی هر دو manifest وصل شد؛ candidate/plan تاریخی تغییر نکرد. منبع community Classic بررسی شد، اما fallback انتخاب همه و taxonomy ناسازگار آن وارد نشد و شاهد مستقل Retail اعلام نشد. Linux=823 و Windows=524 پاس، 10 regression تازه. سیاست کامل انتخاب، variant/dependency/patch هنوز بازند؛ اشتراک فرضیه‌ها required set نیست. هیچ game/CDN access یا ZIP تازه انجام نشد؛ اکنون اقدام کاربر لازم نیست.
+تشخیص اختلاف locale/category و فرضیه‌های 0x4000 به review اصلی هر دو manifest وصل شد؛ candidate/plan تاریخی تغییر نکرد. منبع community Classic بررسی شد، اما fallback انتخاب همه و taxonomy ناسازگار آن وارد نشد و شاهد مستقل Retail اعلام نشد. Linux=823 و Windows=524 پاس، 10 regression تازه. سیاست کامل انتخاب، variant/dependency/patch هنوز بازند؛ اشتراک فرضیه‌ها required set نیست. هیچ game/CDN access یا ZIP تازه انجام نشد؛ در آن گام اقدام کاربر لازم نبود.
 
 ## شروع ادامهٔ پروژه — فارسی (سابقه)
 
