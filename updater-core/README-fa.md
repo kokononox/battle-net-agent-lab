@@ -1,3 +1,19 @@
+# اتصال ترجیحات نصب به انتخاب نامزد — ۰٫۲۶
+
+ترجیحات دیگر فقط یک گزارش جدا نیستند: بندهای عمومی واقعی کپی .build.info، با حفظ optional و رابطهٔ دقیق زبان/text/speech، به دو manifest هدف و نامزد موجود وصل شدند. ابتدا هویت baseline/config و سپس زنجیرهٔ target، candidate، catalogue و decoded metadata دوباره کنترل می‌شود؛ ProductConfig نیز به همان versions bytes متصل است. تغییر alias زبان، نام ناشناخته، نوع نامتناسب یا ابهام باعث توقف می‌شود؛ ترجیحات بی‌خبر بازنویسی نمی‌شوند. مدل typed-profile سخت‌گیرانه صرفاً مقایسه است، نه fallback.
+
+کنترل حریم خصوصی تازه: optionalهای خصوصی acct/geoip تنها اگر در هیچ‌کدام از دو جدول تگ موجود نباشند از عبارت کنار گذاشته می‌شوند؛ اگر در یکی موجود باشند، بدون چاپ نام خصوصی توقف می‌کنیم. چهار qualifier تاریخی غایب و withheld بودند. خروجی مسیر نصب یا نام خصوصی ندارد. این کنترل بر پایهٔ candidate grammar است، نه اثبات semantics رسمی Agent.
+
+روی کپی تاریخی baseline 12.1.0.69933 و target ذخیره‌شدهٔ 12.1.5.70448 اجرا شد: همان ۳۹ رکورد Install و ۱٬۵۷۸٬۰۲۲ رکورد Download نامزد قبلی حاصل شد. یک پیاده‌سازی جدا، predicate را برای تک‌تک رکوردها محاسبه کرد و هر دو bitmap/hash و count را تأیید کرد. این بررسی مستقلِ داخلی است، نه oracle مستقل رسمی. candidate و catalogue قبل/بعد هش شدند و تغییر نکردند. هدف «آخرین نسخهٔ آنلاین امروز» فرض نمی‌شود.
+
+۳۲ تست جدید؛ مجموع ۷۰۶ Linux و ۳۶۴ Windows/Python 3.12.10 با صفر failure/error/skip. تست‌های native همچنان فقط پوشه‌های موقت مصنوعی هستند. fixture نسخهٔ آینده زنجیرهٔ واقعی سازگار می‌سازد؛ کنترل هویت در تست‌های ادغام mock نشده است. شمار دو پلتفرم هم‌پوشان است.
+
+مرحلهٔ اول هنوز باز: قواعد کامل feature/variant/dependency، ترجیحات واقعاً تازه و نسل فعال همساز اثبات نشده‌اند. این ماژول reader/candidate review است، نه updater. هیچ فایل بازی تغییر نکرد، CDN درخواست نشد و shmem/LRU خوانده نشد. فعلاً اقدام کاربر لازم نیست. required_set_selected/active_generation_proven/installation_ready/apply_authorized=false و required_network_download_bytes=null باقی‌اند.
+
+[منطق و شواهد](research/PREFERENCE-SELECTION-BRIDGE.md) · [گزارش اجرای ذخیره‌شده](reports/PREFERENCE-CANDIDATE-BRIDGE-to-share.json) · [رسید ویندوز](reports/WINDOWS-PREFERENCE-BRIDGE-CI-to-share.json)
+
+## سابقهٔ ۰٫۲۵ (تاریخی)
+
 # ترجیحات نصب و مشاهدهٔ محدود متادیتا — ۰٫۲۵
 
 منطق خواندن تگ‌های نصب اکنون بندهای جداشده با colon، نشانگر optional و رابطهٔ دقیق زبان با text/speech را حفظ می‌کند؛ از union تگ‌ها یا ساختن ترکیب‌های دلخواه پرهیز می‌شود. بند مبهم، ناسازگار یا ناشناخته رد می‌شود. هویت Retail و MD5 پیکربندی پیش از تحلیل کنترل می‌شود؛ چهار qualifier خصوصی کپی تاریخی حذف شده‌اند و فقط تعدادشان گزارش می‌شود.

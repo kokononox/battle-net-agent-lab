@@ -1,0 +1,357 @@
+{
+  "format": "installed-preference-candidate-bridge-1",
+  "scope": "owned_saved_metadata_only",
+  "baseline": {
+    "format": "uploaded-installed-baseline-1",
+    "status": "UPLOADED_METADATA_COPIES_VALIDATED",
+    "installed_version_from_uploaded_metadata": "12.1.0.69933",
+    "profile_from_uploaded_metadata": {
+      "platform": "Windows",
+      "architecture": "x86_64",
+      "region": "EU",
+      "locales": [
+        "enUS"
+      ]
+    },
+    "installed_build_config_md5": "dcfc90fffd79ba00406ae46f5f657592",
+    "build_info_bytes": 607,
+    "build_config_bytes": 87532,
+    "build_info_sha256": "b571f420496ef79f7647d7264aafc348490d9e5121fb09af5b9a22cc87773e90",
+    "build_config_sha256": "b3a5aba3ab0161c83eb1b03e300a664ff3f6e4af2ccc54aaf0bddfdd86b1cd4d",
+    "private_optional_qualifiers_withheld": 4,
+    "raw_tags_or_account_qualifiers_exported": false,
+    "build_info_config_identity_consistent": true,
+    "target_version": null,
+    "uploaded_copies_only": true,
+    "live_installation_state_revalidated": false,
+    "vendor_install_selection_policy_proven": false,
+    "payload_health_verified": false,
+    "installation_ready": false,
+    "apply_authorized": false,
+    "required_network_download_bytes": null,
+    "assistant_live_game_or_lab_access": false,
+    "assistant_game_downloads": 0,
+    "assistant_game_writes": 0
+  },
+  "profile": {
+    "platform": "Windows",
+    "architecture": "x86_64",
+    "region": "EU",
+    "text_locales": [
+      "enUS"
+    ],
+    "speech_locales": [
+      "enUS"
+    ]
+  },
+  "public_clauses": [
+    [
+      {
+        "name": "Windows",
+        "kind": "platform",
+        "optional": false
+      },
+      {
+        "name": "x86_64",
+        "kind": "architecture",
+        "optional": false
+      },
+      {
+        "name": "EU",
+        "kind": "region",
+        "optional": true
+      },
+      {
+        "name": "enUS",
+        "kind": "locale",
+        "optional": false
+      },
+      {
+        "name": "speech",
+        "kind": "category",
+        "optional": true
+      }
+    ],
+    [
+      {
+        "name": "Windows",
+        "kind": "platform",
+        "optional": false
+      },
+      {
+        "name": "x86_64",
+        "kind": "architecture",
+        "optional": false
+      },
+      {
+        "name": "EU",
+        "kind": "region",
+        "optional": true
+      },
+      {
+        "name": "enUS",
+        "kind": "locale",
+        "optional": false
+      },
+      {
+        "name": "text",
+        "kind": "category",
+        "optional": true
+      }
+    ]
+  ],
+  "private_optional_qualifiers_withheld": 4,
+  "private_terms_absent_in_both_manifest_tables": true,
+  "raw_private_terms_or_install_path_exported": false,
+  "manifests": {
+    "install": {
+      "records": 274,
+      "expression": "Windows x86_64 EU? enUS speech?:Windows x86_64 EU? enUS text?",
+      "selection_audit": {
+        "format": "candidate-tag-selection-1",
+        "expression": "Windows x86_64 EU? enUS speech?:Windows x86_64 EU? enUS text?",
+        "manifest_records": 274,
+        "selected_records": 39,
+        "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+        "clauses": [
+          {
+            "used_tags": [
+              "Windows",
+              "x86_64",
+              "EU",
+              "enUS",
+              "speech"
+            ],
+            "optional_tags_absent": [],
+            "selected_records": 39
+          },
+          {
+            "used_tags": [
+              "Windows",
+              "x86_64",
+              "EU",
+              "enUS",
+              "text"
+            ],
+            "optional_tags_absent": [],
+            "selected_records": 39
+          }
+        ],
+        "bit_order": "MSB-first",
+        "semantics": "candidate OR of AND clauses; optional absent ignored with audit",
+        "vendor_policy_qualified": false,
+        "required_set_selected": false,
+        "installation_ready": false,
+        "apply_authorized": false
+      },
+      "optional_public_dimensions_absent": [],
+      "strict_profile_comparison_available": true,
+      "strict_profile_comparison": {
+        "expression": "Windows x86_64 EU enUS speech:Windows x86_64 EU enUS text",
+        "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+        "same_bitmap": true
+      },
+      "feature_selection_semantics_qualified": false
+    },
+    "download": {
+      "records": 2881628,
+      "expression": "Windows x86_64 EU? enUS speech?:Windows x86_64 EU? enUS text?",
+      "selection_audit": {
+        "format": "candidate-tag-selection-1",
+        "expression": "Windows x86_64 EU? enUS speech?:Windows x86_64 EU? enUS text?",
+        "manifest_records": 2881628,
+        "selected_records": 1578022,
+        "bitmap_sha256": "59a99da1e71380f03eea22f89f80422d5bdcc713a16cf599d4a3eee2f291dd79",
+        "clauses": [
+          {
+            "used_tags": [
+              "Windows",
+              "x86_64",
+              "EU",
+              "enUS",
+              "speech"
+            ],
+            "optional_tags_absent": [],
+            "selected_records": 1560743
+          },
+          {
+            "used_tags": [
+              "Windows",
+              "x86_64",
+              "EU",
+              "enUS",
+              "text"
+            ],
+            "optional_tags_absent": [],
+            "selected_records": 1449908
+          }
+        ],
+        "bit_order": "MSB-first",
+        "semantics": "candidate OR of AND clauses; optional absent ignored with audit",
+        "vendor_policy_qualified": false,
+        "required_set_selected": false,
+        "installation_ready": false,
+        "apply_authorized": false
+      },
+      "optional_public_dimensions_absent": [],
+      "strict_profile_comparison_available": true,
+      "strict_profile_comparison": {
+        "expression": "Windows x86_64 EU enUS speech:Windows x86_64 EU enUS text",
+        "bitmap_sha256": "59a99da1e71380f03eea22f89f80422d5bdcc713a16cf599d4a3eee2f291dd79",
+        "same_bitmap": true
+      },
+      "feature_selection_semantics_qualified": false
+    }
+  },
+  "candidate_query_semantics": "OR of AND clauses; absent optional terms ignored with audit; NOT independently vendor-qualified",
+  "public_optional_markers_preserved": true,
+  "locale_category_pairing_preserved": true,
+  "automatic_locale_or_architecture_remapping": false,
+  "fresh_installed_preferences_proven": false,
+  "active_generation_proven": false,
+  "vendor_selection_policy_qualified": false,
+  "feature_variant_dependency_policy_qualified": false,
+  "required_set_selected": false,
+  "promotion_to_required_set_permitted": false,
+  "candidate_plan_modified": false,
+  "required_network_download_bytes": null,
+  "network_requests": 0,
+  "game_access": false,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "target": {
+    "scope": {
+      "product": "wow",
+      "branch": "retail",
+      "region": "eu"
+    },
+    "version": "12.1.5.70448",
+    "build_id": 70448,
+    "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+    "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+    "origins": [
+      "https://level3.ssl.blizzard.com"
+    ],
+    "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+    "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+  },
+  "source_metadata_sha256": {
+    "install": "9992fcadbd41f0e3170a23b60f19ac45e870014887d81c05060ec1607b2c0957",
+    "download": "ed2606c609881db971547a240ab8b68c8a1d0bc1ed060808adf96da62b25fd4b"
+  },
+  "candidate_database_sha256": "2078c6d2bde0e852d5c7b466bf5fe2157067d5014532965f67ed80d8d8a7be28",
+  "source_catalogue_sha256": "51fb47fe60bf6b7cbba3cb858b9db0a12552bd67a017c260dea144ddc1a207aa",
+  "existing_candidate_identity_reverified": true,
+  "existing_candidate_bitmaps_unchanged": true,
+  "product_config_facts": {
+    "format": "release-bound-product-config-facts-1",
+    "target": {
+      "scope": {
+        "product": "wow",
+        "branch": "retail",
+        "region": "eu"
+      },
+      "version": "12.1.5.70448",
+      "build_id": 70448,
+      "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+      "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+      "origins": [
+        "https://level3.ssl.blizzard.com"
+      ],
+      "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+      "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+    },
+    "product_config_key": "53020d32e1a25648c8e1eafd5771935f",
+    "product_config_sha256": "0909c89b6e5808a26791197dd722364d4b94d4b01ac64437b81bcde37d5c7519",
+    "product_config_bytes": 15764,
+    "versions_table_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+    "release_table_and_content_key_bound": true,
+    "publisher_signature_verified": false,
+    "profile_input": {
+      "platform": "Windows",
+      "architecture": "x86_64",
+      "region": "EU",
+      "text_locales": [
+        "enUS"
+      ],
+      "speech_locales": [
+        "enUS"
+      ]
+    },
+    "canonical_locale_facts": {
+      "text_locales": [
+        "enUS"
+      ],
+      "speech_locales": [
+        "enUS"
+      ]
+    },
+    "supported_locales": [
+      "enUS",
+      "esMX",
+      "ptBR",
+      "deDE",
+      "esES",
+      "frFR",
+      "itIT",
+      "ruRU",
+      "koKR",
+      "zhTW",
+      "zhCN"
+    ],
+    "replacement_locales": {
+      "enCN": "zhCN",
+      "enGB": "enUS",
+      "enSG": "enUS",
+      "enTW": "zhTW",
+      "ptPT": "ptBR"
+    },
+    "windows_platform_tags": [
+      "Windows"
+    ],
+    "windows_architecture_tags": [
+      "x86_64"
+    ],
+    "applicable_explicit_extra_tag_declarations": [],
+    "absent_extra_tags_mean_disabled": false,
+    "region_inferred_from_locale": false,
+    "region_tag_rule_qualified": false,
+    "block_copy_patch_advertised": true,
+    "block_copy_patch_implemented": false,
+    "install_uninstall_actions_interpreted": false,
+    "external_paths_used": false,
+    "profile_origin": "explicit_input_NOT_live_preferences",
+    "vendor_selection_policy_qualified": false,
+    "feature_selection_semantics_qualified": false,
+    "dependency_and_variant_policy_qualified": false,
+    "active_generation_proven": false,
+    "required_set_selected": false,
+    "promotion_to_required_set_permitted": false,
+    "required_network_download_bytes": null,
+    "network_requests": 0,
+    "game_access": false,
+    "installation_ready": false,
+    "apply_authorized": false
+  },
+  "source": "historical_user_uploaded_baseline_and_saved_target_metadata",
+  "independent_validation": {
+    "install": {
+      "independent_per_record_boolean_check_passed": true,
+      "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+      "selected_records": 39
+    },
+    "download": {
+      "independent_per_record_boolean_check_passed": true,
+      "bitmap_sha256": "59a99da1e71380f03eea22f89f80422d5bdcc713a16cf599d4a3eee2f291dd79",
+      "selected_records": 1578022
+    }
+  },
+  "candidate_and_catalogue_hashes_unchanged": {
+    "CANDIDATE-PLAN.sqlite": "2078c6d2bde0e852d5c7b466bf5fe2157067d5014532965f67ed80d8d8a7be28",
+    "TARGET-CATALOGUE.sqlite": "51fb47fe60bf6b7cbba3cb858b9db0a12552bd67a017c260dea144ddc1a207aa"
+  },
+  "comparison_disposition": {
+    "mode": "prose",
+    "reason": "Boolean bitmap identity and safety gates, not a statistical or temporal comparison; no chart warranted"
+  }
+}
