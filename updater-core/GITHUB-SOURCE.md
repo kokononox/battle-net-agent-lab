@@ -1,3 +1,3 @@
-# Current source extension: exact-span Windows archive capture
+# Current source extension: selection semantic discrimination
 
-Source d37c2d7aedf486a5fb06e2c10bed2d45ed3ae88f; actual Windows synthetic CI receipt 293f32927d6b72fe59ac8901291624c4936226d2: 514 pass, zero failures/errors/skips. Linux 813 pass. 20 portable span tests, 17 native archive tests, 1 archive-to-target-admission integration added. No live archive qualification, game/CDN read/write or new ZIP. Read research/EXPLICIT-ARCHIVE-CAPTURE.md and ../docs/UPDATER-REMAINING.fa.md.
+Source d3fa4a9df2a8973cc9c18c006f6a8dd6ec8a87c6; actual Windows synthetic CI receipt a4a06faf7a34917f4739b5dee4488cfb7f3c3dee: 524 pass, zero failures/errors/skips. Linux 823 pass. Ten new regression cases; integrated historical metadata replay leaves candidate unchanged. Public community Classic claims are not Retail policy qualification. Full required-set selection remains blocked. No new game/CDN access or ZIP. See research/SELECTION-SEMANTICS-DISCRIMINATION.md and ../docs/UPDATER-REMAINING.fa.md.

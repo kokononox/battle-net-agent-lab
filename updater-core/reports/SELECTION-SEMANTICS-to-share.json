@@ -1,0 +1,545 @@
+{
+  "format": "selection-semantic-evidence-review-1",
+  "profile": {
+    "platform": "Windows",
+    "architecture": "x86_64",
+    "region": "EU",
+    "text_locales": [
+      "enUS"
+    ],
+    "speech_locales": [
+      "enUS"
+    ]
+  },
+  "expression": "Windows x86_64 EU enUS speech:Windows x86_64 EU enUS text",
+  "expression_generated_from_typed_dimensions": true,
+  "optional_missing_dimensions_allowed": false,
+  "schema_name_and_kind_agreement": true,
+  "manifest_tag_schema": [
+    {
+      "name": "Alternate",
+      "kind": 16384
+    },
+    {
+      "name": "Android",
+      "kind": 1
+    },
+    {
+      "name": "CN",
+      "kind": 4
+    },
+    {
+      "name": "EU",
+      "kind": 4
+    },
+    {
+      "name": "HighRes",
+      "kind": 16384
+    },
+    {
+      "name": "IOS",
+      "kind": 1
+    },
+    {
+      "name": "KR",
+      "kind": 4
+    },
+    {
+      "name": "OSX",
+      "kind": 1
+    },
+    {
+      "name": "PS5",
+      "kind": 1
+    },
+    {
+      "name": "TW",
+      "kind": 4
+    },
+    {
+      "name": "Talebound",
+      "kind": 16384
+    },
+    {
+      "name": "US",
+      "kind": 4
+    },
+    {
+      "name": "Web",
+      "kind": 1
+    },
+    {
+      "name": "Windows",
+      "kind": 1
+    },
+    {
+      "name": "XBSX",
+      "kind": 1
+    },
+    {
+      "name": "arm64",
+      "kind": 2
+    },
+    {
+      "name": "deDE",
+      "kind": 3
+    },
+    {
+      "name": "enUS",
+      "kind": 3
+    },
+    {
+      "name": "esES",
+      "kind": 3
+    },
+    {
+      "name": "esMX",
+      "kind": 3
+    },
+    {
+      "name": "frFR",
+      "kind": 3
+    },
+    {
+      "name": "itIT",
+      "kind": 3
+    },
+    {
+      "name": "koKR",
+      "kind": 3
+    },
+    {
+      "name": "ptBR",
+      "kind": 3
+    },
+    {
+      "name": "ruRU",
+      "kind": 3
+    },
+    {
+      "name": "speech",
+      "kind": 5
+    },
+    {
+      "name": "text",
+      "kind": 5
+    },
+    {
+      "name": "x86_32",
+      "kind": 2
+    },
+    {
+      "name": "x86_64",
+      "kind": 2
+    },
+    {
+      "name": "zhCN",
+      "kind": 3
+    },
+    {
+      "name": "zhTW",
+      "kind": 3
+    }
+  ],
+  "manifests": {
+    "install": {
+      "records": 274,
+      "selected_records": 39,
+      "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+      "unresolved_feature_tags": [
+        {
+          "tag": "Alternate",
+          "kind": 16384,
+          "selected_members": 0,
+          "selected_nonmembers": 39,
+          "meaning_and_preference_qualified": false
+        },
+        {
+          "tag": "HighRes",
+          "kind": 16384,
+          "selected_members": 0,
+          "selected_nonmembers": 39,
+          "meaning_and_preference_qualified": false
+        },
+        {
+          "tag": "Talebound",
+          "kind": 16384,
+          "selected_members": 0,
+          "selected_nonmembers": 39,
+          "meaning_and_preference_qualified": false
+        }
+      ],
+      "semantic_discrimination": {
+        "format": "selection-semantic-discrimination-1",
+        "candidate_dnf_grammar_is_agent_query_grammar": false,
+        "profile_locale_category_pairing_preserved_in_existing_candidate": true,
+        "grouped_model": "OR_within_numeric_kind_AND_between_requested_kinds_no_special_filter",
+        "paired_candidate": {
+          "records": 39,
+          "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+          "earliest_ordinals": [
+            0,
+            198
+          ]
+        },
+        "grouped_hypothesis": {
+          "records": 39,
+          "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+          "earliest_ordinals": [
+            0,
+            198
+          ]
+        },
+        "grouped_only": {
+          "records": 0,
+          "bitmap_sha256": "0d5535e13cc9708d0ff0289af2fae27e564b6bcbcd9242f5140d96957744a517",
+          "earliest_ordinals": []
+        },
+        "paired_only": {
+          "records": 0,
+          "bitmap_sha256": "0d5535e13cc9708d0ff0289af2fae27e564b6bcbcd9242f5140d96957744a517",
+          "earliest_ordinals": []
+        },
+        "grouping_hypotheses_agree_for_this_input": true,
+        "agreement_qualifies_vendor_policy": false,
+        "hypotheses_exhaustive": false,
+        "hypothesis_intersection_is_required_set": false,
+        "hypothesis_union_is_required_set": false,
+        "opaque_kind_16384_hypotheses": [
+          {
+            "tag": "Alternate",
+            "kind": 16384,
+            "hypothetical_explicit_choice_NOT_actual_preference": true,
+            "strict_membership": {
+              "records": 0,
+              "bitmap_sha256": "0d5535e13cc9708d0ff0289af2fae27e564b6bcbcd9242f5140d96957744a517",
+              "earliest_ordinals": []
+            },
+            "member_or_untagged_in_kind": {
+              "records": 39,
+              "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+              "earliest_ordinals": [
+                0,
+                198
+              ]
+            },
+            "exclude_this_tag": {
+              "records": 39,
+              "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+              "earliest_ordinals": [
+                0,
+                198
+              ]
+            },
+            "choice_qualified": false
+          },
+          {
+            "tag": "HighRes",
+            "kind": 16384,
+            "hypothetical_explicit_choice_NOT_actual_preference": true,
+            "strict_membership": {
+              "records": 0,
+              "bitmap_sha256": "0d5535e13cc9708d0ff0289af2fae27e564b6bcbcd9242f5140d96957744a517",
+              "earliest_ordinals": []
+            },
+            "member_or_untagged_in_kind": {
+              "records": 39,
+              "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+              "earliest_ordinals": [
+                0,
+                198
+              ]
+            },
+            "exclude_this_tag": {
+              "records": 39,
+              "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+              "earliest_ordinals": [
+                0,
+                198
+              ]
+            },
+            "choice_qualified": false
+          },
+          {
+            "tag": "Talebound",
+            "kind": 16384,
+            "hypothetical_explicit_choice_NOT_actual_preference": true,
+            "strict_membership": {
+              "records": 0,
+              "bitmap_sha256": "0d5535e13cc9708d0ff0289af2fae27e564b6bcbcd9242f5140d96957744a517",
+              "earliest_ordinals": []
+            },
+            "member_or_untagged_in_kind": {
+              "records": 39,
+              "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+              "earliest_ordinals": [
+                0,
+                198
+              ]
+            },
+            "exclude_this_tag": {
+              "records": 39,
+              "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+              "earliest_ordinals": [
+                0,
+                198
+              ]
+            },
+            "choice_qualified": false
+          }
+        ],
+        "unknown_tags_select_all_permitted": false,
+        "candidate_bitmap_modified": false,
+        "independent_reference_available": false,
+        "feature_selection_semantics_qualified": false,
+        "dependency_and_variant_policy_qualified": false,
+        "patch_route_policy_qualified": false,
+        "vendor_selection_policy_qualified": false,
+        "required_set_selected": false,
+        "promotion_to_required_set_permitted": false,
+        "required_network_download_bytes": null,
+        "game_access": false,
+        "network_requests": 0,
+        "installation_ready": false,
+        "apply_authorized": false,
+        "independent_per_ordinal_grouping_check_passed": true
+      }
+    },
+    "download": {
+      "records": 2881628,
+      "selected_records": 1578022,
+      "bitmap_sha256": "59a99da1e71380f03eea22f89f80422d5bdcc713a16cf599d4a3eee2f291dd79",
+      "unresolved_feature_tags": [
+        {
+          "tag": "Alternate",
+          "kind": 16384,
+          "selected_members": 10028,
+          "selected_nonmembers": 1567994,
+          "meaning_and_preference_qualified": false
+        },
+        {
+          "tag": "HighRes",
+          "kind": 16384,
+          "selected_members": 0,
+          "selected_nonmembers": 1578022,
+          "meaning_and_preference_qualified": false
+        },
+        {
+          "tag": "Talebound",
+          "kind": 16384,
+          "selected_members": 1,
+          "selected_nonmembers": 1578021,
+          "meaning_and_preference_qualified": false
+        }
+      ],
+      "semantic_discrimination": {
+        "format": "selection-semantic-discrimination-1",
+        "candidate_dnf_grammar_is_agent_query_grammar": false,
+        "profile_locale_category_pairing_preserved_in_existing_candidate": true,
+        "grouped_model": "OR_within_numeric_kind_AND_between_requested_kinds_no_special_filter",
+        "paired_candidate": {
+          "records": 1578022,
+          "bitmap_sha256": "59a99da1e71380f03eea22f89f80422d5bdcc713a16cf599d4a3eee2f291dd79",
+          "earliest_ordinals": [
+            0,
+            1
+          ]
+        },
+        "grouped_hypothesis": {
+          "records": 1578022,
+          "bitmap_sha256": "59a99da1e71380f03eea22f89f80422d5bdcc713a16cf599d4a3eee2f291dd79",
+          "earliest_ordinals": [
+            0,
+            1
+          ]
+        },
+        "grouped_only": {
+          "records": 0,
+          "bitmap_sha256": "3937160a1269aae52682b03eed28dde8b1f5ff9634b3f1d595f511dee2930e2c",
+          "earliest_ordinals": []
+        },
+        "paired_only": {
+          "records": 0,
+          "bitmap_sha256": "3937160a1269aae52682b03eed28dde8b1f5ff9634b3f1d595f511dee2930e2c",
+          "earliest_ordinals": []
+        },
+        "grouping_hypotheses_agree_for_this_input": true,
+        "agreement_qualifies_vendor_policy": false,
+        "hypotheses_exhaustive": false,
+        "hypothesis_intersection_is_required_set": false,
+        "hypothesis_union_is_required_set": false,
+        "opaque_kind_16384_hypotheses": [
+          {
+            "tag": "Alternate",
+            "kind": 16384,
+            "hypothetical_explicit_choice_NOT_actual_preference": true,
+            "strict_membership": {
+              "records": 10028,
+              "bitmap_sha256": "e60edb885244204222234087a5c8ae7e92f9241562592dd15f3ab6789d6e958d",
+              "earliest_ordinals": [
+                1968,
+                1969
+              ]
+            },
+            "member_or_untagged_in_kind": {
+              "records": 1578021,
+              "bitmap_sha256": "76017ab3abf915338327e7e4530c46ab6056e3927fd92aa4a1a35178f5fc69fa",
+              "earliest_ordinals": [
+                0,
+                1
+              ]
+            },
+            "exclude_this_tag": {
+              "records": 1567994,
+              "bitmap_sha256": "e23badc1cb50611c907c086a02e27ab62cd7221e26848f9122a603756422d500",
+              "earliest_ordinals": [
+                0,
+                1
+              ]
+            },
+            "choice_qualified": false
+          },
+          {
+            "tag": "HighRes",
+            "kind": 16384,
+            "hypothetical_explicit_choice_NOT_actual_preference": true,
+            "strict_membership": {
+              "records": 0,
+              "bitmap_sha256": "3937160a1269aae52682b03eed28dde8b1f5ff9634b3f1d595f511dee2930e2c",
+              "earliest_ordinals": []
+            },
+            "member_or_untagged_in_kind": {
+              "records": 1567993,
+              "bitmap_sha256": "df85d5bad645e2ad98b1539bf66480e03fe1d2c655ab515608dc5e32cec6e7d6",
+              "earliest_ordinals": [
+                0,
+                1
+              ]
+            },
+            "exclude_this_tag": {
+              "records": 1578022,
+              "bitmap_sha256": "59a99da1e71380f03eea22f89f80422d5bdcc713a16cf599d4a3eee2f291dd79",
+              "earliest_ordinals": [
+                0,
+                1
+              ]
+            },
+            "choice_qualified": false
+          },
+          {
+            "tag": "Talebound",
+            "kind": 16384,
+            "hypothetical_explicit_choice_NOT_actual_preference": true,
+            "strict_membership": {
+              "records": 1,
+              "bitmap_sha256": "5b94bf639efebc62f317e344561755afc78fffc29e8b3f03f1451067b088e5c8",
+              "earliest_ordinals": [
+                11615
+              ]
+            },
+            "member_or_untagged_in_kind": {
+              "records": 1567994,
+              "bitmap_sha256": "e23badc1cb50611c907c086a02e27ab62cd7221e26848f9122a603756422d500",
+              "earliest_ordinals": [
+                0,
+                1
+              ]
+            },
+            "exclude_this_tag": {
+              "records": 1578021,
+              "bitmap_sha256": "76017ab3abf915338327e7e4530c46ab6056e3927fd92aa4a1a35178f5fc69fa",
+              "earliest_ordinals": [
+                0,
+                1
+              ]
+            },
+            "choice_qualified": false
+          }
+        ],
+        "unknown_tags_select_all_permitted": false,
+        "candidate_bitmap_modified": false,
+        "independent_reference_available": false,
+        "feature_selection_semantics_qualified": false,
+        "dependency_and_variant_policy_qualified": false,
+        "patch_route_policy_qualified": false,
+        "vendor_selection_policy_qualified": false,
+        "required_set_selected": false,
+        "promotion_to_required_set_permitted": false,
+        "required_network_download_bytes": null,
+        "game_access": false,
+        "network_requests": 0,
+        "installation_ready": false,
+        "apply_authorized": false,
+        "independent_per_ordinal_grouping_check_passed": true
+      }
+    }
+  },
+  "vendor_selection_policy_qualified": false,
+  "fresh_installed_preferences_proven": false,
+  "dependency_and_variant_policy_qualified": false,
+  "patch_route_policy_qualified": false,
+  "required_set_selected": false,
+  "promotion_to_required_set_permitted": false,
+  "blockers": [
+    "independent_vendor_selection_policy_not_qualified",
+    "live_installed_preferences_not_proven",
+    "dependency_variant_and_patch_policy_not_qualified",
+    "feature_tag_meanings_and_preferences_not_qualified"
+  ],
+  "required_network_download_bytes": null,
+  "network_requests": 0,
+  "game_access": false,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "target": {
+    "scope": {
+      "product": "wow",
+      "branch": "retail",
+      "region": "eu"
+    },
+    "version": "12.1.5.70448",
+    "build_id": 70448,
+    "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+    "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+    "origins": [
+      "https://level3.ssl.blizzard.com"
+    ],
+    "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+    "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+  },
+  "source_metadata_sha256": {
+    "install": "9992fcadbd41f0e3170a23b60f19ac45e870014887d81c05060ec1607b2c0957",
+    "download": "ed2606c609881db971547a240ab8b68c8a1d0bc1ed060808adf96da62b25fd4b"
+  },
+  "candidate_database_sha256": "2078c6d2bde0e852d5c7b466bf5fe2157067d5014532965f67ed80d8d8a7be28",
+  "source_catalogue_sha256": "51fb47fe60bf6b7cbba3cb858b9db0a12552bd67a017c260dea144ddc1a207aa",
+  "candidate_bitmaps_agree_with_typed_profile": true,
+  "profile_origin": "explicit_public_profile_NOT_live_install_preferences",
+  "scope": "owned_copied_metadata_only",
+  "public_sources": [
+    {
+      "url": "https://github.com/wowemulation-dev/cascette-py/blob/dc0dfb89b146d80b363741de25c2be340c2da8fd/cascette_tools/formats/size.py",
+      "sha256": "05d496c38ad690f90b28bca241964d45b433e32d63caad8c3144a499b972eee4",
+      "bytes": 19248,
+      "source_executed": false
+    },
+    {
+      "url": "https://github.com/wowemulation-dev/cascette-py/blob/dc0dfb89b146d80b363741de25c2be340c2da8fd/docs/install-workflow-differences.md",
+      "sha256": "ba3932ca6a2c6840aa281f91e0c42ef9c8a6f39b34669ae1d968bf921071a0f2",
+      "bytes": 21288,
+      "source_executed": false
+    },
+    {
+      "url": "https://github.com/wowemulation-dev/cascette-rs/blob/2d1294b9d8eba0c0d0ffc6387f0777f36ecae671/crates/cascette-formats/src/install/tag.rs",
+      "sha256": "23a2af07e83810be6342c32a5410925840b51c0d6939010444a286851a081817",
+      "bytes": 20301,
+      "source_executed": false
+    }
+  ],
+  "official_reference_available": false,
+  "new_source_game_files_opened": 0,
+  "new_game_cdn_requests": 0,
+  "candidate_plan_modified": false,
+  "interpretation": "Input-local grouping agreement is not full Retail feature/variant/dependency/patch qualification. Public Classic source claims do not qualify current Retail.",
+  "visual_disposition": "prose: software semantic disagreement and Boolean regression, not a statistical or temporal chart question"
+}

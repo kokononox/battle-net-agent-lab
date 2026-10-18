@@ -1,25 +1,21 @@
-# گام جدید: آرشیو محدود ← کپی مستقل ← پذیرش هدف
+# مرحلهٔ قواعد انتخاب — تشخیص اختلاف به مسیر اصلی متصل شد
 
-## دستاورد عملکردی
-local_archive_capture.py یک بازهٔ دقیق از stream بدون بافر را به LocalContentCapture می‌رساند؛ windows_archive_capture.py همان مسیر را برای دقیقاً یک فایل صریح data.NNN با handleهای بومی Windows اجرا می‌کند. تست یکپارچه تا admit_capture و candidate/catalogue همان هدف ادامه می‌یابد، نه اینکه فقط header را parse کند. بدون source write، شبکه، اسکن directory یا انتخاب خودکار فایل جایگزین.
+## نتیجهٔ این گام
+منبع تازهٔ cascette-py بررسی شد؛ برچسب‌ها را داخل نوع با OR و بین نوع‌ها با AND ترکیب می‌کند، ولی برای برچسب‌های ناشناخته fallback انتخاب همه دارد. این fallback وارد محصول نشد. ادعای تطبیق Agent و آزمایش‌های Classic منبع به‌جای شاهد مستقل Retail پذیرفته نشد. حتی taxonomy نوع‌ها در کد Rust با manifest تاریخی Retail ما یکی نیست؛ نگاشت حدسی وارد نشد.
 
-## محدودیت خواندن
-- ArchiveReadRequest به target/spec تایپ‌شده، archive_id، offset، layout و budget دقیق bind است. شمارهٔ فایل 000..999، اندازهٔ آرشیو/پایان span حداکثر 1 GiB و payload حداکثر 256 MiB است؛ این‌ها مرز پشتیبانی و مصرف‌اند، نه مجوز.
-- layout فقط direct-blte یا prefix30-agent9824 است؛ layout ناشناخته/auto و ناسازگاری header بدون fallback رد می‌شوند. برای prefix30، EKey کاملِ معکوس، span size، flags و دو checksum بررسی می‌شوند. این profile پژوهشی Agent9824 است، نه specification عمومی همهٔ نسل‌ها.
-- BufferedReader.read می‌تواند خارج از span کوچک prefetch کند؛ آداپتور تازه از FileIO خام و بدون بافرِ همان handle استفاده می‌کند. حساب بایت‌ها مربوط به application reads است، نه sector read/prefetch فیزیکی سیستم‌عامل.
-- stat bounds پیش از payload خوانده می‌شود؛ virtual EOF مانع sentinel خارج از span می‌شود. capture دوبار هویت محتوا را بررسی و admission بار دیگر کپی را تطبیق می‌دهد.
-- فایل منبع READ/shareREAD باز و ancestorها تا close برای حذف/rename نگه داشته می‌شوند؛ writable handle عادی، hardlink، reparse/offline و مسیر نامعتبر رد می‌شوند. این universal snapshot یا تضمین همهٔ mapped writerها نیست.
-- کپی مستقل بعد از بستن منبع زنده می‌ماند، ولی با close حذف می‌شود؛ هنوز cache دائمی، power-loss recovery یا installer نیست. API کنترل approval بیرونی را دور نمی‌زند و خودش approval ایجاد نمی‌کند.
+selection_policy.review_tags اکنون برای هر دو Install و Download اختلاف بین candidate جفت‌شدهٔ زبان/نوع‌محتوا و فرضیهٔ گروه‌بندی را محاسبه و آشکار می‌کند. عبارت DNF ما با syntax query Agent یکی فرض نمی‌شود. برای نوع 0x4000 هم حالت‌های فرضیِ فقط عضو، عضو یا بدون برچسب آن نوع، و حذف برچسب از هم تفکیک می‌شوند؛ هیچ‌یک سیاست رسمی یا ترجیح کاربر اعلام نشده‌اند. خروجی همچنان اجازهٔ تبدیل به required set نمی‌دهد.
 
-## نتیجهٔ آزمون تأییدشده
-Linux: 813 تست پاس، شامل 807 مصنوعی و 6 fixture موجود؛ Windows/Python 3.12.10: 514 پاس، صفر failure/error/skip. تعداد دو پلتفرم هم‌پوشانی دارد. افزودهٔ این گام: 20 تست portable بازه/header/budget، 17 تست native فقط روی فایل‌های مصنوعی، و یک تست integration با مسیر native روی Windows. آزمون‌ها نصب بازی کاربر را باز نکرده‌اند.
+روی متادیتای تاریخیِ موجود نیز اجرا شد: دو فرضیه برای پروفایل تک‌زبان enUS توافق دارند و کنترل مستقل تک‌به‌تک رکوردها آن را تأیید کرد، اما تست چندزبانه نشان می‌دهد این توافق قابل تعمیم نیست. دیتابیس/bitmap نامزد تغییر نکرد؛ فایل نصب یا CDN تازه خوانده نشد.
 
-- Source commit: d37c2d7aedf486a5fb06e2c10bed2d45ed3ae88f
-- CI receipt commit: 293f32927d6b72fe59ac8901291624c4936226d2
-- [گزارش Windows این گام](reports/WINDOWS-ARCHIVE-CAPTURE-CI-to-share.json)
-- خطاهای checksum/key/size/layout، کوتاهی فایل، توقف پیش از خواندن، cleanup، write/delete/rename عادی، hardlink، existing writer، single use، source-close استقلال کپی و admission هدف پوشش داده شده‌اند.
+## آزمون
+Linux: 823 پاس؛ Windows/Python 3.12.10: 524 پاس، صفر failure/error/skip. این گام 10 تست regression تازه دارد؛ تست بیشتر مدرک سیاست رسمی نیست. تعداد دو پلتفرم هم‌پوشانی دارد.
+- Source commit: d3fa4a9df2a8973cc9c18c006f6a8dd6ec8a87c6
+- CI receipt commit: a4a06faf7a34917f4739b5dee4488cfb7f3c3dee
+- [گزارش Windows](reports/WINDOWS-SELECTION-SEMANTICS-CI-to-share.json)
+- [شواهد و نتیجهٔ اجرای تاریخی](reports/SELECTION-SEMANTICS-to-share.json)
+- [کد و منابع دقیق](research/SELECTION-SEMANTICS-DISCRIMINATION.md)
 
-## نتیجه‌ای که نباید ادعا کنیم
-این موفقیت مصنوعی اثبات live local reuse یا required set کامل، نسل فعال، سلامت نصب، حجم دانلود یا آمادگی نصب نیست. هیچ game/CDN access، admin/ACL/repair، اسکن نصب، mutex حدسی یا ZIP تازه انجام نشد. نسخهٔ ZIP قبلی 0.27 دست‌نخورده است و با این source جدید یکی نیست.
+## مانع واقعی باقی‌مانده
+**سیاست کامل انتخاب هنوز قطعی نشده است.** اختلاف‌ها اکنون در مسیر اصلی قابل تشخیص‌اند، اما پیاده‌سازی قابل بررسیِ تابع Agent با دامنهٔ نسخهٔ مناسب یا شاهد مستقل Retail، معنای پیش‌فرض Alternate/Talebound، variant و closure وابستگی/patch هنوز لازم‌اند. منبع SourceHut اشاره‌شده محتوای قابل دریافت نداد؛ از آن مدرک ساخته نشد. هیچ انتخاب حدسی یا «اشتراک همهٔ فرضیه‌ها=required set» انجام نمی‌شود.
 
-[ترتیب اقدامات باقی‌مانده](../docs/UPDATER-REMAINING.fa.md). مرحلهٔ بعد qualification انتخاب فایل‌ها و بستن ابهام feature/variant/dependency است؛ هم‌زمان مسیر اجرای محدود کاربر به دامنهٔ مستقل نیاز دارد. اکنون هیچ اقدام یا اجازهٔ کلی از کاربر لازم نیست.
+قدم بعد: شواهد همان تابع/نسخه و closure، یا طراحی مقایسهٔ محدود با کلاینت رسمی روی کپی مستقل با دامنه و تأیید جدا. به‌روزرسانی/repair یا اجرای Agent الان درخواست نمی‌شود؛ فعلاً اقدام کاربر لازم نیست. [ترتیب کامل](../docs/UPDATER-REMAINING.fa.md).

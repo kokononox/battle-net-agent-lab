@@ -1,10 +1,10 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## وضعیت جدید مسیر اپدیتر — exact-span native archive capture
+## وضعیت جدید مسیر اپدیتر — selection semantic discrimination
 
-[شرح عملکرد و نتیجهٔ Windows](docs/UPDATER-ARCHIVE-CAPTURE.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md).
+[شرح تغییر عملکردی و آزمون](docs/UPDATER-SELECTION-SEMANTICS.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md).
 
-خواندن دقیقاً یک span صریح از data.NNN با FileIO بدون بافر، کنترل header/full keys و کپی مستقل، تا پذیرش candidate/catalogue هدف وصل شد. Linux=813 و Windows=514 پاس؛ افزودهٔ این گام 20 تست portable، 17 native و یک integration است. تست‌ها فقط فایل مصنوعی ساخته‌اند؛ این اثبات نصب واقعی یا نسل فعال نیست. selection کامل، اجرای محدود با تأیید مستقل، کش بادوام و writer تراکنشی هنوز بازند. هیچ ZIP تازه یا game/CDN access انجام نشد؛ اکنون اقدام کاربر لازم نیست. هدف تاریخی 12.1.5.70448 آخرین نسخهٔ آنلاین اعلام نشده است.
+تشخیص اختلاف locale/category و فرضیه‌های 0x4000 به review اصلی هر دو manifest وصل شد؛ candidate/plan تاریخی تغییر نکرد. منبع community Classic بررسی شد، اما fallback انتخاب همه و taxonomy ناسازگار آن وارد نشد و شاهد مستقل Retail اعلام نشد. Linux=823 و Windows=524 پاس، 10 regression تازه. سیاست کامل انتخاب، variant/dependency/patch هنوز بازند؛ اشتراک فرضیه‌ها required set نیست. هیچ game/CDN access یا ZIP تازه انجام نشد؛ اکنون اقدام کاربر لازم نیست.
 
 ## شروع ادامهٔ پروژه — فارسی (سابقه)
 
