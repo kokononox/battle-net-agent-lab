@@ -7,8 +7,12 @@ import windows_generation_cases as generation_cases
 from windows_generation_view import WindowsGenerationView
 class MappingCases(unittest.TestCase):
  # Borrow only fixture setup; do not inherit the previous test methods/count.
- setUp=generation_cases.GenerationViewCases.setUp
- tearDown=generation_cases.GenerationViewCases.tearDown
+ def setUp(self):
+  generation_cases.GenerationViewCases.setUp(self);self.unmaps=[]
+ def tearDown(self):
+  try:
+   for k,address in reversed(self.unmaps):self.assertTrue(k.UnmapViewOfFile(address))
+  finally:self.t.cleanup()
  write=generation_cases.GenerationViewCases.write
  def mapping(self):
   k=ctypes.WinDLL('kernel32',use_last_error=True)
@@ -27,7 +31,7 @@ class MappingCases(unittest.TestCase):
     if not address:raise ctypes.WinError(ctypes.get_last_error())
    finally:k.CloseHandle(section)
   finally:k.CloseHandle(h)
-  self.addCleanup(k.UnmapViewOfFile,address)
+  self.unmaps.append((k,address))
   return ctypes.c_ubyte.from_address(address+len(self.build.control)-1)
  def test_mapped_write_detected_if_not_restored(self):
   mapped=self.mapping();touched=[]

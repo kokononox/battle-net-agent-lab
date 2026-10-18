@@ -1,5 +1,5 @@
 """Synthetic target candidate/catalogue binding; no installed-file IO."""
-import io,json,sqlite3,unittest
+import io,json,sqlite3,unittest,os
 import test_staged_reuse as fixtures
 from reuse_candidates import sha_file
 from stream_blte import StreamObjectSpec
@@ -8,7 +8,13 @@ from local_capture_admission import admit_capture
 from release_core import InvalidRelease
 class Cases(unittest.TestCase):
  def setUp(self):
-  fixtures.Tests.setUp(self);self.capture=LocalContentCapture.capture(io.BytesIO(self.raw),target=self.cp.target,spec=StreamObjectSpec(**self.spec.public()),scratch=self.root,byte_budget=len(self.raw));self.addCleanup(self.capture.close)
+  if os.name=='nt':
+   from windows_admission_cases import WindowsAdmissionTests
+   WindowsAdmissionTests.setUp(self)
+  else:fixtures.Tests.setUp(self)
+  self.capture=LocalContentCapture.capture(io.BytesIO(self.raw),target=self.cp.target,spec=StreamObjectSpec(**self.spec.public()),scratch=self.root,byte_budget=len(self.raw));self.addCleanup(self.capture.close)
+ def close_all(self):
+  for stage in reversed(self.stages):stage.close()
  update_db=fixtures.Tests.update_db
  def review(self):return admit_capture(self.capture,self.plan,self.o)
  def test_valid_copy_is_target_candidate_input(self):
