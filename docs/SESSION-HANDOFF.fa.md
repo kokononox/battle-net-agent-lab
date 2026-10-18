@@ -1,3 +1,5 @@
+> وضعیت جدید: [کپی مستقل محتوا و آزمایش writable mapping](UPDATER-CONTENT-CAPTURE.fa.md) و [باقی‌مانده](UPDATER-REMAINING.fa.md). کنترل نسل هنوز اثبات نشده؛ هویت کپی مستقل به آن وابسته نیست. فعلاً اقدام کاربر لازم نیست. متن پایین سابقه است.
+
 > وضعیت جدید: [خواندن بومی ۱۹ فایل و نتیجهٔ Windows](UPDATER-HELD-GENERATION.fa.md) و [باقی‌مانده](UPDATER-REMAINING.fa.md). کد capture پیاده و روی fixture تست شد؛ نصب واقعی/سکون client تأیید نشده. فعلاً اقدام کاربر لازم نیست. متن پایین سابقه است.
 
 > آخرین وضعیت اپدیتر: [تحویل ۰٫۲۷](UPDATER-SESSION-0.27.fa.md) و [باقی‌مانده](UPDATER-REMAINING.fa.md). فقط قرارداد copied bytes و fixture؛ نسل فعال زنده ثابت نشده؛ فعلاً اقدام کاربر لازم نیست. متن پایین سابقه است.

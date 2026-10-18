@@ -1,10 +1,10 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## وضعیت جدید مسیر اپدیتر — held read view
+## وضعیت جدید مسیر اپدیتر — independent content capture
 
-[پیاده‌سازی و نتیجهٔ Windows](docs/UPDATER-HELD-GENERATION.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md).
+[پیاده‌سازی و نتیجهٔ Windows](docs/UPDATER-CONTENT-CAPTURE.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md).
 
-Capture بومی ۱۹ فایل با read handles نگه‌داشته‌شده پیاده شد. ۲۴ تست native تازهٔ Windows روی fixture پاس شده‌اند؛ مجموع Windows=438 و Linux=756، بدون خطا/شکست/skip. **این snapshot یا اثبات استفادهٔ client از نسل نیست.** store binding، quiescence و selection کامل هنوز بازند. ZIP تازه ساخته نشد و از نصب کاربر چیزی تازه خوانده نشد. نسخهٔ ZIP قبلی ۰٫۲۷ immutable باقی ماند. فعلاً اقدام کاربر لازم نیست.
+مسیر کپی مستقل موقتِ یک شیء و full-key verification تا candidate admission پیاده شد. ۳۶ تست تازه و ۲ آزمایش native writable mapping پاس؛ مجموع Windows=476 و Linux=792، بدون شکست/خطا/skip. آزمایش mapping برخلاف فرض عبور، share violation 32 و سپس موفقیت بعد از unmap نشان داد؛ این شاهد محدود exclusion است، نه snapshot یا qualification همهٔ مسیرها. هویت محتوای کپی از نسل نصب جداست. کپی ۵۲ بایتی موجود از مسیر تازه تأیید شد، نه فایل نصب امروز. selection کامل، live archive reader، store/quiescence برای write و writer تراکنشی هنوز بازند. ZIP تازه و game/CDN access انجام نشد؛ اقدام کاربر فعلاً لازم نیست.
 
 ## شروع ادامهٔ پروژه — فارسی (سابقه)
 

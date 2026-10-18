@@ -1,13 +1,16 @@
-# اقدامات باقی‌مانده — پس از پیاده‌سازی held read view
+# اقدامات باقی‌مانده — پس از مسیر مستقل اعتبار محتوا
 
-## کار انجام‌شده
-جای خالی capture بومی ۱۹ فایل پر شد: metadata pair + control + دقیقاً ۱۶ ایندکس ارجاع‌شده، همگی در یک context با read handles نگه‌داشته‌شده. ۲۴ آزمون تازهٔ واقعی Windows روی فایل‌های کاملاً ساختگی پاس شده‌اند. ۱۰ آزمون حافظه‌ای جدا ترتیب/تغییرات را بررسی می‌کنند. مجموع رگرسیون Linux=756 و مجموعهٔ Windows=438، با صفر خطا/شکست/skip؛ این دو مجموع هم‌پوشانی دارند. [جزئیات](../updater-core/research/HELD-GENERATION-VIEW.md).
+## پیشرفت و نتیجهٔ تعیین‌کننده
+- واردکردن یک stream محدود به کپی موقت مستقل و اعتبارسنجی کامل EKey/CKey، اندازه و BLTE پیاده شد؛ سپس کپی دوباره بررسی و به candidate/catalogue همان هدف bind می‌شود. این مسیر locator و نسل را مدرک محتوا نمی‌داند و هیچ HTTP/ETag ساختگی برای ورود محلی نمی‌سازد.
+- آزمایش بومی Windows روی فایل‌های کاملاً مصنوعی برخلاف فرض bypass، خطای اشتراک 32 داد: capture با وجود writable mapping قبلی رد می‌شود؛ برگرداندن بایت کافی نیست ولی unmap امکان capture می‌دهد. این شاهد exclusion برای همین حالت است، نه snapshot یا تضمین همهٔ mappingها. عبور موفق A→B→A نشان داده نشد.
+- ۳۶ تست تازهٔ capture/admission و ۲ آزمایش native فوق پاس شدند. مجموع Linux=792 و Windows=476 با صفر شکست/خطا/skip؛ شمار دو پلتفرم هم‌پوشانی دارد.
+- همان کپی ۵۲ بایتی موجودِ قبلاً stage‌شده، از مسیر تازه وارد و با candidate/catalogue هدف تاریخی تطبیق داده شد. این اجرای تازه روی کش موجود است، نه اثبات reuse از نصب امروز. کپی موقت پس از پایان حذف شد.
 
 ## ترتیب باقی‌مانده
-1. **مرحلهٔ اول همچنان باز:** اتصال معنایی store/control به نصب و qualification حالت نگهداری آفلاین؛ گرفتن read handle به‌تنهایی snapshot یا منع همهٔ mapped writerها نیست. ارجاع منتشرشده در control با استفادهٔ موفق client یکی نیست. معنای extension و V8 location نیز هنوز کامل نیست. دیگر نباید capture را «پیاده‌سازی‌نشده» بنامیم؛ آنچه باقی است qualification همین پیاده‌سازی برای نصب واقعی است.
-2. کامل‌کردن و اعتبارسنجی feature/variant/dependency selection و اتصال ترجیحات تازه به required set. candidate تاریخی هنوز required set معتبر تولید نیست؛ شمارش آزمون بیشتر این فاصله را پر نمی‌کند.
-3. اثبات reuse محلی از همان read view معتبر و full content identity؛ سپس حجم دقیق دانلود. required_network_download_bytes=null؛ unknown به معنی صفر نیست.
-4. qualification انتقال واقعی محدود، resume/recovery و budget؛ شبکهٔ تازه فقط با scope مستقل مجاز.
-5. writer تراکنشی CASC، journal/rollback/activation و آزمون شکست/قطع روی کپی مستقل؛ سپس آزمون چندنسخه، کشف تازهٔ نسخه، UI و انتشار. writer نصب واقعی هنوز وجود ندارد.
+1. ساخت و qualification خوانندهٔ بومیِ دقیقاً محدودِ یک شیء آرشیو محلی برای تغذیهٔ همین capture؛ header/offset/archive/byte budget صریح، full key و checksum، توقف امن و بدون scan یا fallback خودکار. API فعلی stream می‌گیرد، خودش بازی را باز نمی‌کند. اجرای زنده scope و تأیید مستقل می‌خواهد؛ فعلاً هیچ درخواست اقدام کاربر وجود ندارد.
+2. qualification قواعد feature/variant/dependency و ترجیحات تازه برای required set. candidate تاریخی همچنان required set معتبر تولید نیست؛ کش معتبر این مشکل را حل نمی‌کند.
+3. reuse معتبر از کپی‌های مستقل و محاسبهٔ دقیق حجم لازم برای همان required set؛ unknown صفر نیست. انتقال واقعی و resume/recovery نیز qualification جدا دارند.
+4. writer تراکنشی CASC با journal، rollback و activation روی کپی مستقل؛ در این مرحله اتصال معنایی store/control به نصب و سکون نویسنده‌ها همچنان لازم است. آن‌ها برای صرفِ هویت محتوای کپی شرط نیستند، ولی برای ادعای نسل فعال یا write حذف نشده‌اند.
+5. آزمون چندنسخه/نسخهٔ آینده با discovery تازه و fail-closed قالب ناشناخته، سپس UI و انتشار.
 
-فعلاً اقدام کاربر لازم نیست. این دور فایل تازه‌ای از نصب کاربر، archive، LRU یا CDN بازی نخواند؛ هیچ نصب/repair، admin/ACL یا بازی‌نویسی انجام نشد. ZIP تازه ساخته نشد. active_generation_proven/local_reuse_authorized/installation_ready/apply_authorized=false. workflow مستقل Agent دست‌نخورده ماند.
+active_generation_proven، installed_content_reuse_authorized، required_set_selected، installation_ready و apply_authorized=false؛ required_network_download_bytes=null. این مسیر کش دائمی یا ابزار کاربر نهایی نیست. فایل جدیدی از بازی کاربر یا CDN خوانده نشد، mutex حدسی باز/ساخته نشد و هیچ game write/repair/admin/ACL رخ نداد. ZIP تازه ساخته نشد.
