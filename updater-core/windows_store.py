@@ -47,7 +47,9 @@ class WindowsStore:
  @staticmethod
  def _identity(i):return(i.volume,i.index_high,i.index_low)
  def _hold_directory(self,path):
-  h=self._handle(path,0x80,3,3,0x02000000|0x00200000)
+  # FILE_READ_ATTRIBUTES alone does not participate in all share checks.
+  # FILE_LIST_DIRECTORY requests data access without enumerating anything.
+  h=self._handle(path,0x81,3,3,0x02000000|0x00200000)
   try:need(self._info(h).attributes&0x10,'windows_directory_required')
   except BaseException:self.kernel.CloseHandle(h);raise
   self.handles.append(h);return h
