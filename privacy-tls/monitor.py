@@ -37,7 +37,8 @@ class Monitor:
   self.device=frida.get_local_device();self.verify_signature=obs.signature
  def bounded(self,fn):
   c=self.frida.Cancellable();timer=threading.Timer(8,c.cancel);timer.daemon=True;timer.start()
-  try:return fn(c)
+  try:
+   with c:return fn(c)
   finally:timer.cancel()
  def message(self,row,msg,data):
   with self.lock:
@@ -84,21 +85,21 @@ class Monitor:
    row['module_status']=first['module_status'];row['network_module_categories']=sorted({x for x in map(module_category,first['modules']) if x})
    if not row['signature_accepted']:row['attach_status']='signature_refused';return
    phase='frida_attach'
-   session=self.bounded(lambda c:self.device.attach(pid,cancellable=c))
+   session=self.bounded(lambda c:self.device.attach(pid))
    phase='identity_recheck'
    second=identity(pid)
-   if second['path'].lower()!=first['path'].lower() or second['creation']!=first['creation']:row['attach_status']='identity_changed';session.detach();return
+   if second['path'].lower()!=first['path'].lower() or second['creation']!=first['creation']:row['attach_status']='identity_changed';self.bounded(lambda c:session.detach());return
    phase='script_load'
-   script=session.create_script(Path(__file__).with_name('hook.js').read_text(encoding='utf-8'))
+   script=self.bounded(lambda c:session.create_script(Path(__file__).with_name('hook.js').read_text(encoding='utf-8')))
    script.on('message',lambda msg,data:self.message(row,msg,data))
-   self.bounded(lambda c:script.load(cancellable=c));self.sessions.append((session,script,row));row['attach_status']='attached'
+   self.bounded(lambda c:script.load());self.sessions.append((session,script,row));row['attach_status']='attached'
    row['module_status']=second['module_status'];row['network_module_categories']=sorted(set(row['network_module_categories'])|{x for x in map(module_category,second['modules']) if x})
   except Exception as exc:
    row['attach_status']='process_gone_or_probe_failed';row['failure_phase']=phase
    kind=type(exc).__name__;row['error_kind']=kind if kind in {'ProcessNotFoundError','PermissionDeniedError','TimedOutError','OperationCancelledError','ProcessNotRespondingError','InvalidOperationError','OSError','FileNotFoundError','Exception','TypeError','NotSupportedError','TransportError'} else 'other'
    code=getattr(exc,'winerror',None);row['numeric_error_code']=code if type(code) is int and -2**31<=code<2**31 else None
    if session is not None:
-    try:session.detach()
+    try:self.bounded(lambda c:session.detach())
     except Exception:pass
  def run(self):
   start=time.monotonic()
@@ -116,7 +117,7 @@ class Monitor:
  def finish(self):
   self.stop.set()
   for session,script,row in self.sessions:
-   try:self.bounded(lambda c:session.detach(cancellable=c))
+   try:self.bounded(lambda c:session.detach())
    except Exception:pass
  def result(self):
   # Process/module paths and binary buffer data were never stored in this result.

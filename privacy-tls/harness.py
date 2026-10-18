@@ -81,7 +81,7 @@ def run_tool(exe,args,env,timeout=20):
  except OSError:return -1002
 
 def main():
- if sys.platform!='win32' or os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('RUNNER_OS')!='Windows' or os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted' or os.environ.get('GITHUB_RUN_ATTEMPT')!='1' or os.environ.get('PRIVACY_TLS_ONCE')!='tls-20261018-d1':raise SystemExit('hosted_once_required')
+ if sys.platform!='win32' or os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('RUNNER_OS')!='Windows' or os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted' or os.environ.get('GITHUB_RUN_ATTEMPT')!='1' or os.environ.get('PRIVACY_TLS_ONCE')!='tls-20261018-d2':raise SystemExit('hosted_once_required')
  sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
  import observe_agent as obs
  import native_tcp

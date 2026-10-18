@@ -39,7 +39,8 @@ def run_selftest(frida,env):
  session=None;process=None;events=[]
  def bounded(fn):
   c=frida.Cancellable();timer=threading.Timer(8,c.cancel);timer.daemon=True;timer.start()
-  try:return fn(c)
+  try:
+   with c:return fn(c)
   finally:timer.cancel()
  def message(msg,data):
   if msg.get('type')=='send' and isinstance(msg.get('payload'),dict):
@@ -52,8 +53,8 @@ def run_selftest(frida,env):
    until=time.monotonic()+10
    while not (root/'ready').exists() and time.monotonic()<until:time.sleep(.05)
    if not (root/'ready').exists():return result
-   result['stage']='attach';session=bounded(lambda c:frida.get_local_device().attach(process.pid,cancellable=c))
-   result['stage']='script_load';script=session.create_script(Path(__file__).with_name('hook.js').read_text());script.on('message',message);bounded(lambda c:script.load(cancellable=c))
+   result['stage']='attach';session=bounded(lambda c:frida.get_local_device().attach(process.pid))
+   result['stage']='script_load';script=bounded(lambda c:session.create_script(Path(__file__).with_name('hook.js').read_text()));script.on('message',message);bounded(lambda c:script.load())
    (root/'go').write_text('go');result['stage']='await_event';until=time.monotonic()+8
    while not (root/'done').exists() and time.monotonic()<until:time.sleep(.05)
    result['passed']=any(e['format']=='json' and 'cpu' in e['field_name_hints'] for e in events)
@@ -61,7 +62,7 @@ def run_selftest(frida,env):
  except Exception:pass
  finally:
   if session is not None:
-   try:bounded(lambda c:session.detach(cancellable=c))
+   try:bounded(lambda c:session.detach())
    except Exception:pass
   if process is not None:
    if process.poll() is None:process.kill()

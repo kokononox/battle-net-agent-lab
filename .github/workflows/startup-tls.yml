@@ -9,7 +9,7 @@ permissions: {}
 jobs:
   observe:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved signed-client live TLS input observation 20261018-d1'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved signed-client live TLS input observation 20261018-d2'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -30,7 +30,7 @@ jobs:
           python -m unittest discover -s privacy-tls -p 'test_*.py'
       - name: Owned loopback self-test, then verified live client observation
         env:
-          PRIVACY_TLS_ONCE: tls-20261018-d1
+          PRIVACY_TLS_ONCE: tls-20261018-d2
         run: python privacy-tls/run.py
       - name: Whitelist metadata only
         if: always()
@@ -74,17 +74,17 @@ jobs:
       - name: Revalidate and publish from clean runner
         run: |
           set -euo pipefail
-          python privacy-tls/validate.py incoming/live-tls-metadata.json reports/startup-tls-d1-live.json
-          git add -- reports/startup-tls-d1-live.json
+          python privacy-tls/validate.py incoming/live-tls-metadata.json reports/startup-tls-d2-live.json
+          git add -- reports/startup-tls-d2-live.json
           if test -f incoming/network-metadata.json; then
-            python privacy-network/validate.py incoming/network-metadata.json reports/startup-tls-d1-network.json
-            git add -- reports/startup-tls-d1-network.json
+            python privacy-network/validate.py incoming/network-metadata.json reports/startup-tls-d2-network.json
+            git add -- reports/startup-tls-d2-network.json
           fi
           if test -f incoming/agent-observation-to-share.json; then
-            python scripts/validate_report.py --input incoming/agent-observation-to-share.json --output reports/startup-tls-d1-bootstrap.json
-            git add -- reports/startup-tls-d1-bootstrap.json
+            python scripts/validate_report.py --input incoming/agent-observation-to-share.json --output reports/startup-tls-d2-bootstrap.json
+            git add -- reports/startup-tls-d2-bootstrap.json
           fi
           git config user.name 'privacy-lab-report'
           git config user.email 'privacy-lab-report@users.noreply.github.com'
-          git commit -m 'lab: publish sanitized live TLS API input evidence 20261018-d1'
+          git commit -m 'lab: publish sanitized live TLS API input evidence 20261018-d2'
           git push origin HEAD:privacy-observation-20261018-a1

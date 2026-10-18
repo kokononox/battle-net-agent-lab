@@ -25,3 +25,6 @@ API success فقط مقدار بازگشتی محلی است؛ async/timeout/ا�
 گزارش فقط سفیدلیست metadata است و در runner تمیز دوباره بررسی می‌شود. raw packet و مقادیر API صادر نمی‌شوند. Console فقط status/countهای ثابت دارد و exception text/stack از فرایند منتشر نمی‌شود. شکست attach با phase/class/numeric code محدود گزارش می‌شود. job مشاهده حداکثر ۱۲ دقیقه، مشاهده startup پس از launch حدود ۱۲۰ ثانیه؛ child network سقف سخت بایتی ندارد. ماشین در پایان دور ریخته می‌شود.
 
 پرسش آپدیت کامل و انتقال فایل A→B همچنان باز است.
+
+## اصلاح محدود d2 پس از توقف ایمن d1
+run 39159715814 در self-test مرحله attach متوقف شد و هیچ کلاینت واقعی اجرا نشد. بررسی wheel دقیق نشان داد wrapperهای sync جدید Frida 17.24.2 پارامتر cancellable را مانند نسخه قدیمی قبول نمی‌کنند و cancellation از context manager/thread-local به _invoke می‌رسد. d2 از with Cancellable استفاده می‌کند؛ dependency/هدف/سقف‌ها تغییر نمی‌کنند. receipt d1 حفظ می‌شود، d2 یک commit/nonce و گزارش جدا دارد. اگر self-test دوباره شکست بخورد، کلاینت اجرا نمی‌شود و تکرار کور مجاز نیست.
