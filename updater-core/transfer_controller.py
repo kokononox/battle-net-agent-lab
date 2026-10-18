@@ -1,14 +1,16 @@
 """Sequential owned-scratch transfer controller; no game access or auto retry.
 A grant is explicit per run. Its saved JSON is NOT authority: restore requires
 approved=True again. Durable reservation precedes every fetch. An ambiguous
-pending attempt stops, even if the stage append succeeded. No lock breaking,
+pending attempt stops; only explicit local reconciliation can accept a freshly
+verified stage commit. No lock breaking,
 orphan adoption, automatic recovery, scanning, target switching or apply.
 """
 from dataclasses import dataclass
-import hashlib,json,uuid
+import contextlib,hashlib,json,uuid
 from pathlib import Path
 from release_core import need,strict_json
 from stream_stage import StreamStage,stage_identity,_Segments,SEGMENT
+from stream_blte import verify_stream
 from windows_stream_stage import WindowsStreamStage
 from segment_stage import _read
 from archive_transfer import archive_url,ArchiveResponse
@@ -33,16 +35,18 @@ def entities(stages):
    url=archive_url(s.cp,s.source);value={'etag':s.doc['etag'],'total':s.doc['archive_total']};need(url not in result or result[url]==value,'transfer_shared_archive_entity_changed');result[url]=value
  return result
 
+def verify_prefix_locked(stage):
+ stage._load();r=_Segments(stage);n=0
+ try:
+  while True:
+   raw=r.read(65536)
+   if not raw:break
+   n+=len(raw)
+ finally:r.close()
+ need(n==stage.doc['committed_bytes'],'transfer_prefix_size')
+
 def verify_prefix(stage):
- with stage._lock():
-  stage._load();r=_Segments(stage);n=0
-  try:
-   while True:
-    raw=r.read(65536)
-    if not raw:break
-    n+=len(raw)
-  finally:r.close()
-  need(n==stage.doc['committed_bytes'],'transfer_prefix_size')
+ with stage._lock():verify_prefix_locked(stage)
 
 @dataclass(frozen=True)
 class RangeRequest:
@@ -128,6 +132,49 @@ class TransferController:
   with self.stages[0]._lock():
    self._load();need(self.doc['pending']and self.doc['cursor']==n,'transfer_ledger_changed');hashes=list(self.doc['journal_hashes']);hashes[i]=s.journal_sha;self._publish(dict(self.doc,cursor=n+1,pending=False,journal_hashes=hashes,entities=entities(self.stages)))
   return dict(self.summary(),status='one_range_committed')
+ @classmethod
+ def reconcile_pending(cls,stages,grant,current_baseline,*,approved,_fault=None):
+  """Explicit local-only recovery of ONE already-journaled reserved range.
+  Never fetches/retries; uncommitted/ambiguous data stays pending. All stage
+  writer locks held, no abandoned lock breaking or power-loss qualification.
+  """
+  need(approved is True,'transfer_reconciliation_explicit_approval_required')
+  def no_fetch(req):need(False,'transfer_reconciliation_network_forbidden')
+  c=cls._attach(stages,grant,no_fetch)
+  with contextlib.ExitStack()as held:
+   for stage in stages:held.enter_context(stage._lock())
+   c._load();need(c.doc['pending'],'transfer_reconciliation_requires_pending');grant.match(stages);stages[0].cp.resume(current_baseline);n=c.doc['cursor'];i,a,b=grant.ranges[n];expected=[r['initial_committed']for r in grant.rows]
+   for j,x,y in grant.ranges[:n]:expected[j]=y+1
+   snapshots=[]
+   for j,stage in enumerate(stages):
+    stage._load();snapshots.append(stage.journal_sha)
+    if j!=i:need(stage.journal_sha==c.doc['journal_hashes'][j]and stage.doc['committed_bytes']==expected[j],'transfer_reconciliation_other_stage_changed')
+   stage=stages[i];need(expected[i]==a,'transfer_reconciliation_range_start')
+   if stage.journal_sha==c.doc['journal_hashes'][i]:
+    need(stage.doc['committed_bytes']==a and entities(stages)==c.doc['entities'],'transfer_reconciliation_unchanged_mismatch')
+    for item in stages:verify_prefix_locked(item)
+    return dict(c.summary(),status='no_stage_commit_pending_retained_new_scope_required',reconciled=False,network_requests=0,full_object_verified=False)
+   d=stage.doc;need(d['committed_bytes']==b+1 and bool(d['segments'])and d['segments'][-1]['start']==a and d['segments'][-1]['size']==b-a+1,'transfer_reconciliation_not_one_reserved_segment');prior=dict(d,segments=d['segments'][:-1],committed_bytes=a)
+   if not a:prior.update(etag=None,archive_total=None)
+   need(digest(stage._encode(prior))==c.doc['journal_hashes'][i],'transfer_reconciliation_prior_journal_unproven')
+   old_entities={}
+   for j,item in enumerate(stages):
+    old=prior if j==i else item.doc
+    if old['committed_bytes']:
+     url=archive_url(item.cp,item.source);value={'etag':old['etag'],'total':old['archive_total']};need(url not in old_entities or old_entities[url]==value,'transfer_reconciliation_old_entity_conflict');old_entities[url]=value
+   need(old_entities==c.doc['entities'],'transfer_reconciliation_old_entities_unproven');new_entities=entities(stages)
+   for url,value in old_entities.items():need(new_entities.get(url)==value,'transfer_reconciliation_entity_changed')
+   for item in stages:verify_prefix_locked(item)
+   proof=None
+   if b+1==stage.spec.encoded_size:
+    reader=_Segments(stage)
+    try:proof=verify_stream(reader,stage.spec)
+    finally:reader.close()
+   for item,h in zip(stages,snapshots):item._load();need(item.journal_sha==h,'transfer_reconciliation_journal_changed')
+   if _fault:_fault('reconcile_verified')
+   hashes=list(c.doc['journal_hashes']);hashes[i]=stage.journal_sha;c._publish(dict(c.doc,cursor=n+1,pending=False,journal_hashes=hashes,entities=new_entities))
+   if _fault:_fault('reconcile_committed')
+   return dict(c.summary(),status='one_reserved_stage_commit_freshly_reconciled',reconciled=True,network_requests=0,full_object_verified=proof is not None,full_object_proof=proof)
  def finish(self):
   self._load();need(not self.doc['pending']and self.doc['cursor']==len(self.grant.ranges),'transfer_not_complete');self._check_stages();proofs=[s.verify()for s in self.stages];self._check_stages();return dict(self.summary(),status='all_owned_objects_freshly_verified',proofs=proofs,all_objects_freshly_verified=True)
  def summary(self):
