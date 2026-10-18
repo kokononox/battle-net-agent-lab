@@ -16,9 +16,9 @@ def number(v, maximum=2**40):
     if type(v) is not int or not 0 <= v <= maximum:
         raise ValueError("number")
 
-def validate(r, diagnostic=False, capture_bounds=False):
+def validate(r, diagnostic=False, capture_bounds=False, prefix_capture=False):
     exact(r, "schema source_commit run_id scope reference bootstrap_pin_match capture sampler status bootstrap_status error_code packet_stats flows requests limits" + (" diagnostics" if diagnostic else ""))
-    if r["schema"] != ("bnet-outgoing-http-3" if capture_bounds else "bnet-outgoing-http-2" if diagnostic else "bnet-outgoing-http-1") or r["scope"] != "fresh_vm_startup_language_only_no_account_game_install_action":
+    if r["schema"] != ("bnet-outgoing-http-4" if prefix_capture else "bnet-outgoing-http-3" if capture_bounds else "bnet-outgoing-http-2" if diagnostic else "bnet-outgoing-http-1") or r["scope"] != "fresh_vm_startup_language_only_no_account_game_install_action":
         raise ValueError("scope")
     if not re.fullmatch("[a-f0-9]{40}", r["source_commit"]) or not re.fullmatch("[0-9]{1,30}", r["run_id"]):
         raise ValueError("identity")
@@ -38,7 +38,7 @@ def validate(r, diagnostic=False, capture_bounds=False):
             raise ValueError("code")
     for k in ("etl_bytes", "pcapng_bytes"):
         number(c[k])
-    if c["packet_size_requested"] != 0 or c["raw_packet_files_exported"] is not False:
+    if c["packet_size_requested"] != (1536 if prefix_capture else 0) or c["raw_packet_files_exported"] is not False:
         raise ValueError("capture")
     if r["status"] not in ("not_started", "stopped", "capture_parsed"):
         raise ValueError("status")
@@ -132,6 +132,8 @@ def validate(r, diagnostic=False, capture_bounds=False):
         expected["unattributed_known_host_requests_included"] = True
         if capture_bounds:
             expected["zero_ip_length_capture_bounds_inference"] = True
+        if prefix_capture:
+            expected["packet_capture_may_truncate_requests"] = True
         from capture_diagnostic import DIAG_KEYS
         exact(r["diagnostics"], "counts stream_statuses parse_statuses")
         d = r["diagnostics"]
@@ -168,6 +170,9 @@ def validate_diagnostic(r):
 def validate_capture_bounds(r):
     return validate(r, diagnostic=True, capture_bounds=True)
 
+def validate_prefix_capture(r):
+    return validate(r, diagnostic=True, capture_bounds=True, prefix_capture=True)
+
 if __name__ == "__main__":
     src, dst = map(Path, sys.argv[1:])
     if src.stat().st_size > 2 * 1024**2:
@@ -180,6 +185,7 @@ if __name__ == "__main__":
             result[k] = v
         return result
     parsed = json.loads(src.read_text(encoding="utf-8"), object_pairs_hook=unique)
-    data = validate(parsed, diagnostic=parsed.get("schema") in ("bnet-outgoing-http-2", "bnet-outgoing-http-3"), capture_bounds=parsed.get("schema") == "bnet-outgoing-http-3")
+    schema = parsed.get("schema")
+    data = validate(parsed, diagnostic=schema in ("bnet-outgoing-http-2", "bnet-outgoing-http-3", "bnet-outgoing-http-4"), capture_bounds=schema in ("bnet-outgoing-http-3", "bnet-outgoing-http-4"), prefix_capture=schema == "bnet-outgoing-http-4")
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")

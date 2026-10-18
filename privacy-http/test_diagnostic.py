@@ -6,7 +6,7 @@ import unittest
 import test_http
 from http_capture import analyze_capture as old_analyze
 from capture_diagnostic import analyze_capture, network_checked
-from validate_http import validate_diagnostic, validate_capture_bounds
+from validate_http import validate_diagnostic, validate_capture_bounds, validate_prefix_capture
 
 def pcap(payload):
     return test_http.block(0x0a0d0d0a, struct.pack("<IHHq", 0x1a2b3c4d, 1, 0, -1)) + test_http.block(1, struct.pack("<HHI", 1, 0, 65535)) + test_http.segment(100, b"", True) + test_http.segment(101, payload)
@@ -141,6 +141,21 @@ class DiagnosticTests(unittest.TestCase):
         r["diagnostics"]["counts"]["known_host_requests_using_capture_bounds"] = 0
         with self.assertRaises(ValueError):
             validate_capture_bounds(r)
+
+    def test_prefix_capture_requires_matching_schema(self):
+        r = self.report()
+        r["schema"] = "bnet-outgoing-http-4"
+        r["capture"]["packet_size_requested"] = 1536
+        r["limits"].update(zero_ip_length_capture_bounds_inference=True, packet_capture_may_truncate_requests=True)
+        self.assertEqual(validate_prefix_capture(r), r)
+        with self.assertRaises(ValueError):
+            validate_capture_bounds(r)
+
+    def test_truncation_never_claims_complete_body(self):
+        from http_capture import parse_requests
+        row = parse_requests(test_http.request(b"x" * 5000)[:1500])[0][0]
+        self.assertFalse(row["body_complete"])
+        self.assertTrue(row["body_sample_truncated"])
 
 if __name__ == "__main__":
     unittest.main()
