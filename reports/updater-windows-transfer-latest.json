@@ -1,32 +1,17 @@
 {
   "format": "updater-windows-transfer-ci-3",
-  "source_commit": "3bfad06f3547bd17f06b902535b17119bee3d1eb",
+  "source_commit": "e29fa4466e544b392c2e2235e1473ecb0a84aca0",
   "platform": "Windows",
   "python_version": "3.12.10",
   "tests_run": 476,
   "failures": 0,
-  "errors": 2,
+  "errors": 0,
   "skipped": 0,
-  "passed": false,
+  "passed": true,
   "expected_tests": 476,
-  "failed_cases": [
-    {
-      "test_id": "test_mapped_ABA_is_not_proven_absent_by_equal_rounds (windows_mapping_cases.MappingCases.test_mapped_ABA_is_not_proven_absent_by_equal_rounds)",
-      "error_class": "PermissionError",
-      "winerror_codes": [
-        32
-      ]
-    },
-    {
-      "test_id": "test_mapped_write_detected_if_not_restored (windows_mapping_cases.MappingCases.test_mapped_write_detected_if_not_restored)",
-      "error_class": "PermissionError",
-      "winerror_codes": [
-        32
-      ]
-    }
-  ],
-  "native_windows_stage_synthetic_tests_passed": false,
-  "bounded_transfer_synthetic_tests_passed": false,
+  "failed_cases": [],
+  "native_windows_stage_synthetic_tests_passed": true,
+  "bounded_transfer_synthetic_tests_passed": true,
   "test_modules": [
     "test_stream_blte",
     "test_required_set",
