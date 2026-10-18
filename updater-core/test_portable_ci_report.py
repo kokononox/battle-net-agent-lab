@@ -2,7 +2,7 @@ import copy,json,unittest
 from publish_portable_ci import validate
 from run_portable_ci import MODULES,EXPECTED_TESTS
 class Tests(unittest.TestCase):
- def fixture(self):return {'format':'updater-windows-scratch-ci-2','source_commit':'a'*40,'platform':'Windows','python_version':'3.13.1','tests_run':EXPECTED_TESTS,'expected_tests':EXPECTED_TESTS,'failed_cases':[],'native_windows_stage_synthetic_tests_passed':True,'failures':0,'errors':0,'skipped':0,'passed':True,'test_modules':MODULES,'scope':'synthetic_windows_owned_staging_and_portable_parser','game_access':False,'network_in_test_suite':False,'native_windows_staging_backend_qualified':False,'windows_installer_qualified':False,'installation_ready':False,'apply_authorized':False}
+ def fixture(self):return {'format':'updater-windows-transfer-ci-3','source_commit':'a'*40,'platform':'Windows','python_version':'3.13.1','tests_run':EXPECTED_TESTS,'expected_tests':EXPECTED_TESTS,'failed_cases':[],'native_windows_stage_synthetic_tests_passed':True,'bounded_transfer_synthetic_tests_passed':True,'failures':0,'errors':0,'skipped':0,'passed':True,'test_modules':MODULES,'scope':'synthetic_windows_transfer_staging_and_portable_parser','game_access':False,'network_in_test_suite':False,'native_windows_staging_backend_qualified':False,'windows_installer_qualified':False,'installation_ready':False,'apply_authorized':False}
  def verify(self,r):return validate(json.dumps(r).encode(),'a'*40)
  def bad(self,key,value):
   r=self.fixture();r[key]=value
@@ -24,7 +24,7 @@ class FailedReceiptTests(unittest.TestCase):
  fixture=Tests.fixture
  verify=Tests.verify
  def fixture_failure(self):
-  r=self.fixture();r.update(passed=False,native_windows_stage_synthetic_tests_passed=False,errors=1,failed_cases=[{'test_id':'test_case (windows_stage_cases.WindowsStageTests.test_case)','error_class':'OSError','winerror_codes':[32]}]);return r
+  r=self.fixture();r.update(passed=False,native_windows_stage_synthetic_tests_passed=False,bounded_transfer_synthetic_tests_passed=False,errors=1,failed_cases=[{'test_id':'test_case (windows_stage_cases.WindowsStageTests.test_case)','error_class':'OSError','winerror_codes':[32]}]);return r
  def test_failed_run_reported_as_failure(self):self.assertFalse(self.verify(self.fixture_failure())['passed'])
  def test_raw_error_text_not_publishable(self):
   r=self.fixture_failure();r['failed_cases'][0]['raw_traceback']='not allowed'

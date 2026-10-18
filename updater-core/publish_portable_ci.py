@@ -3,7 +3,7 @@ import base64,json,os,re,urllib.request,urllib.error
 from pathlib import Path
 from run_portable_ci import MODULES,EXPECTED_TESTS
 REPO='kokononox/battle-net-agent-lab'
-PATH='reports/updater-windows-stage-latest.json'
+PATH='reports/updater-windows-transfer-latest.json'
 def validate(raw,commit):
  assert type(raw)is bytes and 0<len(raw)<=16384
  def pairs(rows):
@@ -11,14 +11,14 @@ def validate(raw,commit):
   for k,v in rows:assert k not in d;d[k]=v
   return d
  r=json.loads(raw,object_pairs_hook=pairs,parse_constant=lambda _:(_ for _ in ()).throw(ValueError('nonfinite')))
- keys={'format','source_commit','platform','python_version','tests_run','failures','errors','skipped','passed','expected_tests','failed_cases','native_windows_stage_synthetic_tests_passed','test_modules','scope','game_access','network_in_test_suite','native_windows_staging_backend_qualified','windows_installer_qualified','installation_ready','apply_authorized'}
- assert type(r)is dict and set(r)==keys and r['format']=='updater-windows-scratch-ci-2'and re.fullmatch('[0-9a-f]{40}',commit)and r['source_commit']==commit
+ keys={'format','source_commit','platform','python_version','tests_run','failures','errors','skipped','passed','expected_tests','failed_cases','native_windows_stage_synthetic_tests_passed','bounded_transfer_synthetic_tests_passed','test_modules','scope','game_access','network_in_test_suite','native_windows_staging_backend_qualified','windows_installer_qualified','installation_ready','apply_authorized'}
+ assert type(r)is dict and set(r)==keys and r['format']=='updater-windows-transfer-ci-3'and re.fullmatch('[0-9a-f]{40}',commit)and r['source_commit']==commit
  assert r['platform']=='Windows'and type(r['python_version'])is str and re.fullmatch('[0-9]+\.[0-9]+\.[0-9]+',r['python_version'])
- assert r['scope']=='synthetic_windows_owned_staging_and_portable_parser'and r['test_modules']==MODULES
+ assert r['scope']=='synthetic_windows_transfer_staging_and_portable_parser'and r['test_modules']==MODULES
  for k in ['tests_run','failures','errors','skipped']:assert type(r[k])is int and 0<=r[k]<=1000
  assert type(r['expected_tests'])is int and r['expected_tests']==EXPECTED_TESTS and 0<r['tests_run']<=EXPECTED_TESTS
  ok=r['tests_run']==EXPECTED_TESTS and r['failures']==r['errors']==r['skipped']==0
- assert type(r['passed'])is bool and r['passed']==ok and r['native_windows_stage_synthetic_tests_passed']is ok
+ assert type(r['passed'])is bool and r['passed']==ok and r['native_windows_stage_synthetic_tests_passed']is ok and r['bounded_transfer_synthetic_tests_passed']is ok
  assert type(r['failed_cases'])is list and len(r['failed_cases'])==min(16,r['failures']+r['errors'])
  for d in r['failed_cases']:
   assert type(d)is dict and set(d)=={'test_id','error_class','winerror_codes'}
@@ -39,5 +39,5 @@ def publish():
  try:existing=request('GET');payload['sha']=existing['sha']
  except urllib.error.HTTPError as e:
   if e.code!=404:raise
- request('PUT',payload);print('Published minimal offline Windows parser receipt; no installer qualification.')
+ request('PUT',payload);print('Published minimal offline Windows parser receipt; no live CDN or installer qualification.')
 if __name__=='__main__':publish()
