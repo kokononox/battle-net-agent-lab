@@ -1,12 +1,13 @@
 {
-  "schema": "local-observer-build-1",
-  "source_commit": "33e8c5cf650e91078ef67654d653d6175ee856ff",
-  "run_id": "39170559024",
+  "schema": "local-observer-build-2",
+  "source_commit": "2e5794ddf6fbdcea3adca0cd2f707c3451285aa4",
+  "run_id": "39171035543",
   "runner_kind": "windows-2025",
   "unit_outcome": "success",
   "deps_outcome": "success",
   "package_outcome": "success",
-  "native_outcome": "failure",
+  "native_outcome": "success",
+  "certificate_outcome": "failure",
   "artifact_url": "",
   "artifact_digest": "",
   "selftest": {
@@ -21,8 +22,21 @@
     "error_code": null
   },
   "python_version": "3.12.10",
-  "build_manifest_sha256": "8421281a154e4e6b53f9feb104407ce36e0b437fa5a7df3cf62c46778946af55",
+  "build_manifest_sha256": "506bef82382150e2bdee83d7f13f4fe7fc8de59f67bdc0b1b5c911e5a046eeed",
   "game_update_tested": false,
   "user_pc_accessed": false,
-  "standard_runner_only": true
+  "standard_runner_only": true,
+  "certificate_gate": {
+    "passed": false,
+    "runtime_valid": false,
+    "runtime_not_blizzard": false,
+    "runtime_status": "not_tested",
+    "bootstrap_valid": false,
+    "bootstrap_blizzard": false,
+    "bootstrap_status": "not_tested",
+    "bootstrap_sha256": null,
+    "downloaded_only_never_executed": true,
+    "phase": "runtime",
+    "error_code": "certificate_policy_gate_failed"
+  }
 }
