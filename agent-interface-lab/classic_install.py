@@ -17,7 +17,7 @@ import agent_diagnostics as diagnostics
 APPROVAL='lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
 PRODUCT='wow_classic_era'
 SCHEMA='classic-baseline-install-4'
-DIAGNOSTIC_APPROVAL='lab: approved conditional identity and form diagnostic 2026-10-18 6d084e21'
+DIAGNOSTIC_APPROVAL='lab: approved canonical fixture form diagnostic 2026-10-18 7ea129cd'
 MIN_FREE=40*1024**3
 RESERVE=10*1024**3
 MAX_POLLS=120

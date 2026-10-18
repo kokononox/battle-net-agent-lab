@@ -19,6 +19,9 @@ class ConditionalFormTests(unittest.TestCase):
    r=copy.deepcopy(good);r[key]=value;self.assertFalse(d.eligible_temp_transition(r,'b'*64),key)
  def run_fixture(self,signature_ok=True,hash_ok=True,socket_ok=True):
   with tempfile.TemporaryDirectory()as tmp:
+   # Windows TEMP may contain an 8.3 alias (RUNNER~1). choose_agent resolves
+   # its image; keep the synthetic root and image in the same canonical tree.
+   tmp=str(Path(tmp).resolve())
    folder=Path(tmp)/'Battle.net'/'Agent'/'Agent.1234';folder.mkdir(parents=True)
    pinned=folder/'Agent.exe';pinned.write_bytes(b'MZ-fixture');observed=folder/('temp_'+('a'*32)+'.exe');observed.write_bytes(b'MZ-fixture'if hash_ok else b'MZ-other-bytes')
    env=dict(GITHUB_ACTIONS='true',RUNNER_OS='Windows',RUNNER_ENVIRONMENT='github-hosted',GITHUB_EVENT_NAME='push',GITHUB_RUN_ATTEMPT='1',AGENT_INTERFACE_ONCE=probe.APPROVAL,GITHUB_SHA='a'*40,GITHUB_RUN_ID='123',RUNNER_TEMP=tmp,ProgramData=tmp,SystemRoot=tmp)
@@ -33,7 +36,7 @@ class ConditionalFormTests(unittest.TestCase):
     result=probe.run(Path(tmp)/'out',after_handshake=observer,identity_observer=lambda state,stage:states.append(state),identity_details_observer=details.append,allow_verified_temp_image=True)
    return result,states,details
  def test_opt_in_allows_only_same_signed_image_same_listener(self):
-  result,states,details=self.run_fixture();self.assertEqual(result['status'],'handshake_token_observed');self.assertEqual(states.count('verified_temp_image'),2);self.assertEqual(len(details),2)
+  result,states,details=self.run_fixture();self.assertEqual(result['status'],'handshake_token_observed',{'states':states,'details':details});self.assertEqual(states.count('verified_temp_image'),2);self.assertEqual(len(details),2)
  def test_bad_signature_hash_or_listener_refused(self):
   for kw in [dict(signature_ok=False),dict(hash_ok=False),dict(socket_ok=False)]:
    result,states,details=self.run_fixture(**kw);self.assertEqual(result['status'],'identity_changed');self.assertNotIn('verified_temp_image',states)
