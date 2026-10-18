@@ -1,0 +1,50 @@
+{
+  "format": "approved-unread-index-scan-1",
+  "status": "one_full_key_size_archive_route_verified",
+  "index_requests_attempted": 197,
+  "indices_verified": 197,
+  "skipped_indices": 0,
+  "unrequested_indices": 497,
+  "index_application_body_bytes_read": 27325236,
+  "approved_index_body_ceiling": 92010792,
+  "route": {
+    "archive_key": "5794b0453d6a92824695d862abb25a31",
+    "archive_url": "https://level3.ssl.blizzard.com/tpr/wow/data/57/94/5794b0453d6a92824695d862abb25a31",
+    "index_sha256": "e311339624ef14c4bb78272134892a7d7566ebcdbfe86797a56b430aaba62320",
+    "ekey": "2bf8296553eb812b17ced6e1b07036d3",
+    "encoded_size": 52,
+    "archive_offset": 268435404,
+    "end_inclusive": 268435455,
+    "source": "verified_full_key_index_record",
+    "payload_identity_verified": false,
+    "physical_archive_total_size_known": false,
+    "installation_ready": false,
+    "apply_authorized": false,
+    "target": {
+      "scope": {
+        "product": "wow",
+        "branch": "retail",
+        "region": "eu"
+      },
+      "version": "12.1.5.70448",
+      "build_id": 70448,
+      "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+      "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+      "origins": [
+        "https://level3.ssl.blizzard.com"
+      ],
+      "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+      "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+    },
+    "source_index_ordinal": 498,
+    "approved_pass_ordinal": 196
+  },
+  "last_error": null,
+  "retries_in_this_scope": 0,
+  "redirects": 0,
+  "game_payload_bytes_read": 0,
+  "game_access": false,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "at_utc": "2026-10-18T00:15:19.362039+00:00"
+}
