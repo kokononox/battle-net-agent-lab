@@ -1,0 +1,282 @@
+{
+  "schema": "classic-baseline-install-3",
+  "source_commit": "34e07e7ea13ed6be1d144d30bdbb850144d7842e",
+  "run_id": "39108006054",
+  "run_attempt": "1",
+  "status": "identity_changed",
+  "handshake": {
+    "schema": "logged-out-agent-interface-1",
+    "source_commit": "34e07e7ea13ed6be1d144d30bdbb850144d7842e",
+    "run_id": "39108006054",
+    "run_attempt": "1",
+    "status": "identity_changed",
+    "bootstrap_status": "agent_process_observed",
+    "bootstrap_language_continued": true,
+    "bootstrap_account_login_attempted": false,
+    "bootstrap_game_download_requested": false,
+    "clean_hosted_windows_required": true,
+    "agent_signature_verified": true,
+    "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+    "process_path_verified": true,
+    "listener_owner_verified": true,
+    "listener_binding": "loopback",
+    "http_requests_attempted": 1,
+    "http_status": 200,
+    "response_bytes": 330,
+    "response_json_object": true,
+    "authorization_token_present": true,
+    "account_login_attempted": false,
+    "game_download_requested": false,
+    "game_update_requested": false,
+    "repair_requested": false,
+    "game_files_opened": 0,
+    "raw_response_exported": false,
+    "token_exported": false,
+    "account_login_requirement_proven": false,
+    "game_update_without_login_proven": false,
+    "retail_policy_proven": false,
+    "classic_download_authorized": false,
+    "free_disk_before_bytes": 78390599680,
+    "free_disk_after_bytes": 78385594368,
+    "installer_body_limit_bytes": 134217728,
+    "response_body_limit_bytes": 65536,
+    "bootstrap_observation_seconds": 120,
+    "agent_observation_seconds": 30,
+    "child_network_hard_byte_cap": false,
+    "cleanup_attempted": true
+  },
+  "scope": "fresh_disposable_windows_classic_only",
+  "approval_present": true,
+  "product": "wow_classic_era",
+  "region": "eu",
+  "locale": "enUS",
+  "architecture": "x86_64",
+  "observed_version": "1.15.9.70003",
+  "observed_build_config": "2417084b8b041ee120d02d4adf31b0bc",
+  "versions_sha256": "d10f90a7d12a2c3080202a223687c6c8ec89ff6f15c4535412b4d79b4a75c37d",
+  "destination_fixed_drive": true,
+  "destination_new_empty": true,
+  "destination_free_before_bytes": 78385594368,
+  "system_free_before_bytes": 43055452160,
+  "destination_free_after_bytes": 78385594368,
+  "system_free_after_bytes": 43049099264,
+  "minimum_free_before_bytes": 42949672960,
+  "reserve_free_bytes": 10737418240,
+  "min_destination_free_observed_bytes": 78385594368,
+  "min_system_free_observed_bytes": 43055296512,
+  "transition_diagnostic": {
+    "status": "path_refused",
+    "path_relation": "different_within_agent_root",
+    "initial_relative_path": "Agent.9824/Agent.exe",
+    "observed_relative_path": null,
+    "pinned_path_exists": null,
+    "observed_path_exists": null,
+    "same_file_as_pinned": null,
+    "observed_signature_accepted": null,
+    "observed_sha256": null,
+    "observed_bytes_hashed": 0,
+    "matches_initial_sha256": null,
+    "original_listener_still_owned": null,
+    "snapshot_stable": null
+  },
+  "form_structure": {
+    "status": "observed",
+    "field_count": 8,
+    "fields": [
+      {
+        "name": "authentication",
+        "type": "object",
+        "member_count": 1,
+        "members": [
+          {
+            "name": "error",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "name": "eula",
+        "type": "object",
+        "member_count": 2,
+        "members": [
+          {
+            "name": "error",
+            "type": "number"
+          },
+          {
+            "name": "eula",
+            "type": "boolean"
+          }
+        ]
+      },
+      {
+        "name": "finalized",
+        "type": "boolean",
+        "member_count": null,
+        "members": []
+      },
+      {
+        "name": "game_dir",
+        "type": "object",
+        "member_count": 7,
+        "members": [
+          {
+            "name": "default",
+            "type": "string"
+          },
+          {
+            "name": "dirname",
+            "type": "string"
+          },
+          {
+            "name": "error",
+            "type": "number"
+          },
+          {
+            "name": "game_dir",
+            "type": "string"
+          },
+          {
+            "name": "required_space",
+            "type": "number"
+          },
+          {
+            "name": "required_space_info",
+            "type": "object"
+          },
+          {
+            "name": "warning",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "name": "language",
+        "type": "object",
+        "member_count": 4,
+        "members": [
+          {
+            "name": "error",
+            "type": "number"
+          },
+          {
+            "name": "list",
+            "type": "array"
+          },
+          {
+            "name": "speech",
+            "type": "array"
+          },
+          {
+            "name": "text",
+            "type": "array"
+          }
+        ]
+      },
+      {
+        "name": "min_spec",
+        "type": "object",
+        "member_count": 7,
+        "members": [
+          {
+            "name": "allow_arm_emulation",
+            "type": "boolean"
+          },
+          {
+            "name": "error",
+            "type": "number"
+          },
+          {
+            "name": "required_cpu_speed",
+            "type": "array"
+          },
+          {
+            "name": "required_os",
+            "type": "string"
+          },
+          {
+            "name": "required_ram",
+            "type": "number"
+          },
+          {
+            "name": "required_subversion",
+            "type": "number"
+          },
+          {
+            "name": "requires_64bit",
+            "type": "boolean"
+          }
+        ]
+      },
+      {
+        "name": "shortcut",
+        "type": "string",
+        "member_count": null,
+        "members": []
+      },
+      {
+        "name": "tome_path",
+        "type": "object",
+        "member_count": 1,
+        "members": [
+          {
+            "name": "error",
+            "type": "number"
+          }
+        ]
+      }
+    ]
+  },
+  "protocol_diagnostic_only": true,
+  "identity_check_count": 6,
+  "last_identity_state": "image_changed",
+  "last_identity_stage": "after_observer",
+  "identity_failure_state": "image_changed",
+  "identity_failure_stage": "observer",
+  "initialization_http_status": 201,
+  "initialization_response_bytes": 1425,
+  "initialization_json_object": true,
+  "initialization_form_present": true,
+  "initialization_form_field_count": 8,
+  "total_local_requests": 2,
+  "initialization_attempted": true,
+  "finalization_attempted": false,
+  "initial_game_summary_empty": true,
+  "initialization_response_accepted": false,
+  "form_fields_observed": [
+    "authentication",
+    "eula",
+    "game_dir",
+    "language",
+    "min_spec"
+  ],
+  "unknown_form_fields": true,
+  "auth_error_code": null,
+  "min_spec_error_code": null,
+  "game_dir_error_code": null,
+  "last_local_http_status": 201,
+  "last_agent_error_code": 0,
+  "polls": 0,
+  "agent_installed": null,
+  "agent_download_complete": null,
+  "agent_build_identity_matches": false,
+  "owned_build_info_read": false,
+  "owned_build_info_bytes_read": 0,
+  "game_update_requested": false,
+  "repair_requested": false,
+  "uninstall_requested": false,
+  "account_login_attempted": false,
+  "country_fabricated": false,
+  "legal_terms_accepted": false,
+  "game_executed": false,
+  "user_files_accessed": false,
+  "raw_response_exported": false,
+  "token_exported": false,
+  "game_payload_exported": false,
+  "retail_policy_proven": false,
+  "version_to_version_update_proven": false,
+  "child_network_hard_byte_cap": false,
+  "process_cleanup_scope": "disposable_job_and_existing_probe_cleanup",
+  "initialization_may_trigger_network": true,
+  "elapsed_seconds": 129
+}

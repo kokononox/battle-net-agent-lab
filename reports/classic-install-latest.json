@@ -1,13 +1,13 @@
 {
-  "schema": "classic-baseline-install-2",
-  "source_commit": "72c9327864b5d93efa6f7bc9dd4c9c4a4310c4ac",
-  "run_id": "39106953481",
+  "schema": "classic-baseline-install-3",
+  "source_commit": "34e07e7ea13ed6be1d144d30bdbb850144d7842e",
+  "run_id": "39108006054",
   "run_attempt": "1",
   "status": "identity_changed",
   "handshake": {
     "schema": "logged-out-agent-interface-1",
-    "source_commit": "72c9327864b5d93efa6f7bc9dd4c9c4a4310c4ac",
-    "run_id": "39106953481",
+    "source_commit": "34e07e7ea13ed6be1d144d30bdbb850144d7842e",
+    "run_id": "39108006054",
     "run_attempt": "1",
     "status": "identity_changed",
     "bootstrap_status": "agent_process_observed",
@@ -36,8 +36,8 @@
     "game_update_without_login_proven": false,
     "retail_policy_proven": false,
     "classic_download_authorized": false,
-    "free_disk_before_bytes": 78390685696,
-    "free_disk_after_bytes": 78385680384,
+    "free_disk_before_bytes": 78390599680,
+    "free_disk_after_bytes": 78385594368,
     "installer_body_limit_bytes": 134217728,
     "response_body_limit_bytes": 65536,
     "bootstrap_observation_seconds": 120,
@@ -56,14 +56,177 @@
   "versions_sha256": "d10f90a7d12a2c3080202a223687c6c8ec89ff6f15c4535412b4d79b4a75c37d",
   "destination_fixed_drive": true,
   "destination_new_empty": true,
-  "destination_free_before_bytes": 78385680384,
-  "system_free_before_bytes": 43122237440,
-  "destination_free_after_bytes": 78385680384,
-  "system_free_after_bytes": 43116494848,
+  "destination_free_before_bytes": 78385594368,
+  "system_free_before_bytes": 43055452160,
+  "destination_free_after_bytes": 78385594368,
+  "system_free_after_bytes": 43049099264,
   "minimum_free_before_bytes": 42949672960,
   "reserve_free_bytes": 10737418240,
-  "min_destination_free_observed_bytes": 78385680384,
-  "min_system_free_observed_bytes": 43122237440,
+  "min_destination_free_observed_bytes": 78385594368,
+  "min_system_free_observed_bytes": 43055296512,
+  "transition_diagnostic": {
+    "status": "path_refused",
+    "path_relation": "different_within_agent_root",
+    "initial_relative_path": "Agent.9824/Agent.exe",
+    "observed_relative_path": null,
+    "pinned_path_exists": null,
+    "observed_path_exists": null,
+    "same_file_as_pinned": null,
+    "observed_signature_accepted": null,
+    "observed_sha256": null,
+    "observed_bytes_hashed": 0,
+    "matches_initial_sha256": null,
+    "original_listener_still_owned": null,
+    "snapshot_stable": null
+  },
+  "form_structure": {
+    "status": "observed",
+    "field_count": 8,
+    "fields": [
+      {
+        "name": "authentication",
+        "type": "object",
+        "member_count": 1,
+        "members": [
+          {
+            "name": "error",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "name": "eula",
+        "type": "object",
+        "member_count": 2,
+        "members": [
+          {
+            "name": "error",
+            "type": "number"
+          },
+          {
+            "name": "eula",
+            "type": "boolean"
+          }
+        ]
+      },
+      {
+        "name": "finalized",
+        "type": "boolean",
+        "member_count": null,
+        "members": []
+      },
+      {
+        "name": "game_dir",
+        "type": "object",
+        "member_count": 7,
+        "members": [
+          {
+            "name": "default",
+            "type": "string"
+          },
+          {
+            "name": "dirname",
+            "type": "string"
+          },
+          {
+            "name": "error",
+            "type": "number"
+          },
+          {
+            "name": "game_dir",
+            "type": "string"
+          },
+          {
+            "name": "required_space",
+            "type": "number"
+          },
+          {
+            "name": "required_space_info",
+            "type": "object"
+          },
+          {
+            "name": "warning",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "name": "language",
+        "type": "object",
+        "member_count": 4,
+        "members": [
+          {
+            "name": "error",
+            "type": "number"
+          },
+          {
+            "name": "list",
+            "type": "array"
+          },
+          {
+            "name": "speech",
+            "type": "array"
+          },
+          {
+            "name": "text",
+            "type": "array"
+          }
+        ]
+      },
+      {
+        "name": "min_spec",
+        "type": "object",
+        "member_count": 7,
+        "members": [
+          {
+            "name": "allow_arm_emulation",
+            "type": "boolean"
+          },
+          {
+            "name": "error",
+            "type": "number"
+          },
+          {
+            "name": "required_cpu_speed",
+            "type": "array"
+          },
+          {
+            "name": "required_os",
+            "type": "string"
+          },
+          {
+            "name": "required_ram",
+            "type": "number"
+          },
+          {
+            "name": "required_subversion",
+            "type": "number"
+          },
+          {
+            "name": "requires_64bit",
+            "type": "boolean"
+          }
+        ]
+      },
+      {
+        "name": "shortcut",
+        "type": "string",
+        "member_count": null,
+        "members": []
+      },
+      {
+        "name": "tome_path",
+        "type": "object",
+        "member_count": 1,
+        "members": [
+          {
+            "name": "error",
+            "type": "number"
+          }
+        ]
+      }
+    ]
+  },
   "protocol_diagnostic_only": true,
   "identity_check_count": 6,
   "last_identity_state": "image_changed",
@@ -115,5 +278,5 @@
   "child_network_hard_byte_cap": false,
   "process_cleanup_scope": "disposable_job_and_existing_probe_cleanup",
   "initialization_may_trigger_network": true,
-  "elapsed_seconds": 126
+  "elapsed_seconds": 129
 }
