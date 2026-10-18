@@ -29,6 +29,11 @@ class Tests(unittest.TestCase):
  def test_receipt_does_not_grant_apply(self):
   p=self.plan/'CANDIDATE-PLAN-to-share.json';r=json.loads(p.read_bytes());r['apply_authorized']=True;p.write_text(json.dumps(r));self.assertFalse(self.run_review()['apply_authorized'])
 class AdmissionTypeTests(unittest.TestCase):
+ def test_native_synthetic_fixture_contract(self):
+  from windows_admission_cases import admission_fixture
+  from stream_blte import verify_stream
+  import io
+  raw,spec=admission_fixture();self.assertTrue(verify_stream(io.BytesIO(raw),spec)['full_ckey_verified'])
  def test_fake_refused_before_any_path_read(self):
   with self.assertRaisesRegex(InvalidRelease,'stream_owned_stage_required'):reverify_stream_candidate(object(),'not-read','not-read')
  def test_posix_subclass_refused(self):

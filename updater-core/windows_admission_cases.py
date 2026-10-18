@@ -13,11 +13,13 @@ from windows_stream_stage import WindowsStreamStage
 from stream_staged_reuse import reverify_stream_candidate
 from archive_transfer import ArchiveSource,ArchiveResponse,archive_url
 from reuse_candidates import sha_file
+def admission_fixture():
+ raw,s=blte_fixture(b'abcde',b'N');return raw,StreamObjectSpec(s.ckey,s.ekey,s.decoded_size,s.encoded_size)
 class WindowsAdmissionTests(unittest.TestCase):
  def setUp(self):
   self.assertEqual(os.name,'nt');self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name);self.stages=[];self.addCleanup(self.close_all);self.b,self.o=fixture(self.root)
   with contextlib.redirect_stdout(io.StringIO()):build(self.b,self.o)
-  self.plan=self.root/'plan';p=build_candidate(self.b,self.o,self.plan,'Windows');self.cp=RunCheckpoint(fixture_baseline(),TargetSnapshot.restore(p['target']));self.raw,s=blte_fixture(b'abcde',b'N');self.spec=StreamObjectSpec(**s.public());self.src=ArchiveSource('1'*32,'2'*64,100)
+  self.plan=self.root/'plan';p=build_candidate(self.b,self.o,self.plan,'Windows');self.cp=RunCheckpoint(fixture_baseline(),TargetSnapshot.restore(p['target']));self.raw,self.spec=admission_fixture();self.src=ArchiveSource('1'*32,'2'*64,100)
   self.stage=WindowsStreamStage.create(self.root/'stage',self.cp,self.spec,self.src);self.stages.append(self.stage);self.stage.append(ArchiveResponse(archive_url(self.cp,self.src),100,100+len(self.raw)-1,1000,'"cache"',self.raw),(0,len(self.raw)-1));fixture_helpers.Tests.update_db(self)
  def close_all(self):
   for stage in reversed(self.stages):stage.close()
