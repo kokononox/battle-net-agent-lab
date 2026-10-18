@@ -1,0 +1,3253 @@
+{
+  "schema": "bnet-process-birth-http-tls-1",
+  "source_commit": "ac62d58f9b61f190f4a8279e185366bd27d1c377",
+  "run_id": "39167612892",
+  "scope": "fresh_vm_root_child_gate_no_login_game_install_action",
+  "tool_version": "17.24.2",
+  "reference": {
+    "cpu_model": "AMD EPYC 7763 64-Core Processor",
+    "windows_build": 26100,
+    "total_physical_memory_bytes": 8584425472,
+    "logical_processors": 2
+  },
+  "selftest": {
+    "passed": true,
+    "stage": "complete",
+    "loopback_only": true,
+    "synthetic_events_excluded_from_real_evidence": true,
+    "root_first_request": true,
+    "child_first_request": true,
+    "split_request": true,
+    "vector_request": true,
+    "send_observed": true,
+    "wsasend_observed": true,
+    "child_gating_proven": true,
+    "sspi_negative_input_observed": true,
+    "processes": [
+      {
+        "pid": 8936,
+        "parent_pid": null,
+        "process_name": "python.exe",
+        "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "image_bytes": 104952,
+        "authenticode_valid": false,
+        "expected_blizzard_publisher": false,
+        "status": "resumed",
+        "phase": "observing",
+        "error_kind": null,
+        "hook_ready": true,
+        "child_gating_enabled": true,
+        "instrumented_before_resume": true,
+        "installed_hooks": [
+          "connect",
+          "WSAConnect",
+          "closesocket",
+          "send",
+          "WSASend"
+        ],
+        "input_events": 1,
+        "script_errors": 0
+      },
+      {
+        "pid": 4052,
+        "parent_pid": 8936,
+        "process_name": "python.exe",
+        "sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "image_bytes": 104952,
+        "authenticode_valid": false,
+        "expected_blizzard_publisher": false,
+        "status": "resumed",
+        "phase": "observing",
+        "error_kind": null,
+        "hook_ready": true,
+        "child_gating_enabled": true,
+        "instrumented_before_resume": true,
+        "installed_hooks": [
+          "connect",
+          "WSAConnect",
+          "closesocket",
+          "send",
+          "WSASend",
+          "EncryptMessage"
+        ],
+        "input_events": 6,
+        "script_errors": 0
+      }
+    ]
+  },
+  "bootstrap_pin_match": true,
+  "processes": [
+    {
+      "pid": 2880,
+      "parent_pid": null,
+      "process_name": "battle.net-setup.exe",
+      "sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "image_bytes": 4896464,
+      "authenticode_valid": true,
+      "expected_blizzard_publisher": true,
+      "status": "resumed",
+      "phase": "observing",
+      "error_kind": null,
+      "hook_ready": true,
+      "child_gating_enabled": true,
+      "instrumented_before_resume": true,
+      "installed_hooks": [
+        "connect",
+        "WSAConnect",
+        "closesocket",
+        "send",
+        "WSASend",
+        "EncryptMessage"
+      ],
+      "input_events": 29,
+      "script_errors": 0
+    },
+    {
+      "pid": 4456,
+      "parent_pid": 2880,
+      "process_name": "battle.net-setup.exe",
+      "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "image_bytes": 4700880,
+      "authenticode_valid": true,
+      "expected_blizzard_publisher": true,
+      "status": "resumed",
+      "phase": "observing",
+      "error_kind": null,
+      "hook_ready": true,
+      "child_gating_enabled": true,
+      "instrumented_before_resume": true,
+      "installed_hooks": [
+        "connect",
+        "WSAConnect",
+        "closesocket",
+        "send",
+        "WSASend",
+        "EncryptMessage"
+      ],
+      "input_events": 59,
+      "script_errors": 0
+    },
+    {
+      "pid": 8936,
+      "parent_pid": 4456,
+      "process_name": "agent.exe",
+      "sha256": "7d20ba6ef1d34a3cedbd7d3fd7c14228f173668a9a1e338351d529048de45079",
+      "image_bytes": 540880,
+      "authenticode_valid": true,
+      "expected_blizzard_publisher": true,
+      "status": "resumed",
+      "phase": "observing",
+      "error_kind": null,
+      "hook_ready": true,
+      "child_gating_enabled": true,
+      "instrumented_before_resume": true,
+      "installed_hooks": [
+        "connect",
+        "WSAConnect",
+        "closesocket",
+        "send",
+        "WSASend"
+      ],
+      "input_events": 0,
+      "script_errors": 0
+    },
+    {
+      "pid": 1188,
+      "parent_pid": 8936,
+      "process_name": "agent.exe",
+      "sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "image_bytes": 7275216,
+      "authenticode_valid": true,
+      "expected_blizzard_publisher": true,
+      "status": "resumed",
+      "phase": "observing",
+      "error_kind": null,
+      "hook_ready": true,
+      "child_gating_enabled": true,
+      "instrumented_before_resume": true,
+      "installed_hooks": [
+        "connect",
+        "WSAConnect",
+        "closesocket",
+        "send",
+        "WSASend",
+        "EncryptMessage"
+      ],
+      "input_events": 21,
+      "script_errors": 0
+    }
+  ],
+  "streams": [
+    {
+      "pid": 2880,
+      "socket": "s1",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "ctx1",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "ctx2",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "ctx3",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "ctx4",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s10",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s9",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s11",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s12",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s13",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s14",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s15",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s16",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s17",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s20",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s18",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s19",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s22",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s21",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s23",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s25",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s24",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s26",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s28",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s27",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s29",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "ctx5",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "s31",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 2880,
+      "socket": "ctx6",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s3",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "ctx1",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "ctx2",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "ctx3",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s15",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s18",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s19",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s20",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s21",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s22",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s23",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s24",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s25",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s26",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 1188,
+      "socket": "ctx1",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 1188,
+      "socket": "ctx2",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 1188,
+      "socket": "ctx3",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 1188,
+      "socket": "ctx4",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 1188,
+      "socket": "s11",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s33",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s34",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s35",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s36",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s37",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s38",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s39",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 1188,
+      "socket": "s26",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 1188,
+      "socket": "ctx5",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s40",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "ctx4",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s44",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 1188,
+      "socket": "ctx6",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s45",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s46",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s47",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s48",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s49",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s50",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s51",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s52",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s53",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s54",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s55",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s56",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s57",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s58",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s59",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s60",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s61",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    },
+    {
+      "pid": 4456,
+      "socket": "s62",
+      "parse_status": "parsed_to_end",
+      "api_input_gap": false
+    }
+  ],
+  "requests": [
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s1",
+      "host": "nydus.battle.net",
+      "method": "GET",
+      "target": "/geoip",
+      "headers": [
+        [
+          "host",
+          "nydus.battle.net"
+        ],
+        [
+          "user-agent",
+          "Bootstrapper/1.19.3.3219"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "ctx1",
+      "host": "telemetry-in.battle.net",
+      "method": "POST",
+      "target": "/data",
+      "headers": [
+        [
+          "host",
+          "telemetry-in.battle.net"
+        ],
+        [
+          "accept",
+          "*/*"
+        ],
+        [
+          "content-type",
+          "application/octet-stream"
+        ],
+        [
+          "user-agent",
+          "Bootstrapper1.19.3.3219"
+        ],
+        [
+          "content-length",
+          "211"
+        ]
+      ],
+      "body_declared_bytes": 211,
+      "body_observed_bytes": 211,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "CnMKFwoDYXBwEgNidHMaCzEuMTkuMy4zMjE5EIO6mYeVNCI8CiQyRDIxMzNGQS00NkQ2LTQxQkEtQUIzOC1GMTM5QjI2Rjc5MzMaBmNsaWVudCoCcGOiBgdyZWxlYXNlMhM0NjM5NzIxNzc0NzU2NTcxOTQwEiNCbGl6emFyZC5UZWxlbWV0cnkuQXBwLkJvb3RzdHJhcHBlchoPU2Vzc2lvbkdlbmVyYXRlIiYKJDJEMjEzM0ZBLTQ2RDYtNDFCQS1BQjM4LUYxMzlCMjZGNzkzMw==",
+      "body_sample_sha256": "897deb67955651605d3ec2583c13a193036730e998fef3483969fbb7502bd937",
+      "observed_body_sha256": "897deb67955651605d3ec2583c13a193036730e998fef3483969fbb7502bd937"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "ctx2",
+      "host": "telemetry-in.battle.net",
+      "method": "POST",
+      "target": "/data",
+      "headers": [
+        [
+          "host",
+          "telemetry-in.battle.net"
+        ],
+        [
+          "accept",
+          "*/*"
+        ],
+        [
+          "content-type",
+          "application/octet-stream"
+        ],
+        [
+          "user-agent",
+          "Bootstrapper1.19.3.3219"
+        ],
+        [
+          "content-length",
+          "243"
+        ]
+      ],
+      "body_declared_bytes": 243,
+      "body_observed_bytes": 243,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "CnMKFwoDYXBwEgNidHMaCzEuMTkuMy4zMjE5EIS6mYeVNCI8CiQyRDIxMzNGQS00NkQ2LTQxQkEtQUIzOC1GMTM5QjI2Rjc5MzMaBmNsaWVudCoCcGOiBgdyZWxlYXNlMhM0NjM5NzIxNzc0NzU2NTcxOTQwEiNCbGl6emFyZC5UZWxlbWV0cnkuQXBwLkJvb3RzdHJhcHBlchoNU2Vzc2lvblVwZGF0ZSJICgtzZXR1cC1zdGFydBIkMkQyMTMzRkEtNDZENi00MUJBLUFCMzgtRjEzOUIyNkY3OTMzGgpiYXR0bGUubmV0IgAokxkwATgA",
+      "body_sample_sha256": "45806421cdc2ac6460a30ea2a1ded20352ef646046f14c82b90f05ff37ce021e",
+      "observed_body_sha256": "45806421cdc2ac6460a30ea2a1ded20352ef646046f14c82b90f05ff37ce021e"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "ctx3",
+      "host": "us.version.battle.net",
+      "method": "GET",
+      "target": "/bts/versions",
+      "headers": [
+        [
+          "host",
+          "us.version.battle.net"
+        ],
+        [
+          "user-agent",
+          "phoenix-agent/1.0"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "ctx4",
+      "host": "us.version.battle.net",
+      "method": "GET",
+      "target": "/bts/cdns",
+      "headers": [
+        [
+          "host",
+          "us.version.battle.net"
+        ],
+        [
+          "user-agent",
+          "phoenix-agent/1.0"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s10",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/config/69/8b/698b9094737b298546ac3476251cce61",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s9",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/config/69/8b/698b9094737b298546ac3476251cce61",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s11",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/config/69/8b/698b9094737b298546ac3476251cce61",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s12",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/config/aa/b3/aab39df936f0c7cf95f20c60533b3430",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s13",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/config/aa/b3/aab39df936f0c7cf95f20c60533b3430",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s14",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/config/aa/b3/aab39df936f0c7cf95f20c60533b3430",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s15",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/3d/be/3dbeecd44b30fc3e4b962a0b511c1fec.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s16",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/3d/be/3dbeecd44b30fc3e4b962a0b511c1fec.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s17",
+      "host": "us.cdn.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/3d/be/3dbeecd44b30fc3e4b962a0b511c1fec.index",
+      "headers": [
+        [
+          "host",
+          "us.cdn.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s20",
+      "host": "us.cdn.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/72/77/7277ad5ffc555fe1f3f9e15f20a098ba.index",
+      "headers": [
+        [
+          "host",
+          "us.cdn.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s18",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/72/77/7277ad5ffc555fe1f3f9e15f20a098ba.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s19",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/72/77/7277ad5ffc555fe1f3f9e15f20a098ba.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s22",
+      "host": "us.cdn.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/1d/7c/1d7c0bf6bc618c9536ea4cbf7e209a2b",
+      "headers": [
+        [
+          "host",
+          "us.cdn.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s21",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/1d/7c/1d7c0bf6bc618c9536ea4cbf7e209a2b",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s23",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/1d/7c/1d7c0bf6bc618c9536ea4cbf7e209a2b",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s25",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/f9/70/f970bf66cc3c5be2d31bb14243f02ee1",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s24",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/f9/70/f970bf66cc3c5be2d31bb14243f02ee1",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s26",
+      "host": "us.cdn.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/f9/70/f970bf66cc3c5be2d31bb14243f02ee1",
+      "headers": [
+        [
+          "host",
+          "us.cdn.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s28",
+      "host": "us.cdn.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/3b/e4/3be490f39c76a7b9ce1da05a8aad907c",
+      "headers": [
+        [
+          "host",
+          "us.cdn.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s27",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/3b/e4/3be490f39c76a7b9ce1da05a8aad907c",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s29",
+      "host": "us.cdn.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt004/data/3b/e4/3be490f39c76a7b9ce1da05a8aad907c",
+      "headers": [
+        [
+          "host",
+          "us.cdn.blizzard.com"
+        ],
+        [
+          "connection",
+          "keep-alive"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "ctx5",
+      "host": "telemetry-in.battle.net",
+      "method": "POST",
+      "target": "/data",
+      "headers": [
+        [
+          "host",
+          "telemetry-in.battle.net"
+        ],
+        [
+          "accept",
+          "*/*"
+        ],
+        [
+          "content-type",
+          "application/octet-stream"
+        ],
+        [
+          "user-agent",
+          "Bootstrapper1.19.3.3219"
+        ],
+        [
+          "content-length",
+          "173"
+        ]
+      ],
+      "body_declared_bytes": 173,
+      "body_observed_bytes": 173,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "CnMKFwoDYXBwEgNidHMaCzEuMTkuMy4zMjE5EJ7tmYeVNCI8CiQyRDIxMzNGQS00NkQ2LTQxQkEtQUIzOC1GMTM5QjI2Rjc5MzMaBmNsaWVudCoCcGOiBgdyZWxlYXNlMhM0NjM5NzIxNzc0NzU2NTcxOTQwEiNCbGl6emFyZC5UZWxlbWV0cnkuQXBwLkJvb3RzdHJhcHBlchoJU2VsZlBhdGNoIgYIkxkQiCE=",
+      "body_sample_sha256": "9ad47808a178f68187a5703d7ad4997a65494766f870ad831eaf138ea66e730b",
+      "observed_body_sha256": "9ad47808a178f68187a5703d7ad4997a65494766f870ad831eaf138ea66e730b"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "s31",
+      "host": "ocsp.digicert.com",
+      "method": "GET",
+      "target": "/MFEwTzBNMEswSTAJBgUrDgMCGgUABBSRXerF0eFeSWRripTgTkcJWMm7iQQUaDfg67Y7%2BF8Rhvv%2BYXsIiGX0TkICEAt%2FChSEPHgYQwLGhqkSlNU%3D",
+      "headers": [
+        [
+          "connection",
+          "Keep-Alive"
+        ],
+        [
+          "accept",
+          "*/*"
+        ],
+        [
+          "user-agent",
+          "Microsoft-CryptoAPI/10.0"
+        ],
+        [
+          "host",
+          "ocsp.digicert.com"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "socket": "ctx6",
+      "host": "telemetry-in.battle.net",
+      "method": "POST",
+      "target": "/data",
+      "headers": [
+        [
+          "host",
+          "telemetry-in.battle.net"
+        ],
+        [
+          "accept",
+          "*/*"
+        ],
+        [
+          "content-type",
+          "application/octet-stream"
+        ],
+        [
+          "user-agent",
+          "Bootstrapper1.19.3.3219"
+        ],
+        [
+          "content-length",
+          "242"
+        ]
+      ],
+      "body_declared_bytes": 242,
+      "body_observed_bytes": 242,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "CnMKFwoDYXBwEgNidHMaCzEuMTkuMy4zMjE5ENz3mYeVNCI8CiQyRDIxMzNGQS00NkQ2LTQxQkEtQUIzOC1GMTM5QjI2Rjc5MzMaBmNsaWVudCoCcGOiBgdyZWxlYXNlMhM0NjM5NzIxNzc0NzU2NTcxOTQwEiNCbGl6emFyZC5UZWxlbWV0cnkuQXBwLkJvb3RzdHJhcHBlchoNU2Vzc2lvblVwZGF0ZSJHCgpzZXR1cC1zdG9wEiQyRDIxMzNGQS00NkQ2LTQxQkEtQUIzOC1GMTM5QjI2Rjc5MzMaCmJhdHRsZS5uZXQiACiTGTABOAA=",
+      "body_sample_sha256": "9998d9c312244cb32000aa8b5cdca27b410e96e6e8fde2376027fb5a394fccf9",
+      "observed_body_sha256": "9998d9c312244cb32000aa8b5cdca27b410e96e6e8fde2376027fb5a394fccf9"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s3",
+      "host": "nydus.battle.net",
+      "method": "GET",
+      "target": "/geoip",
+      "headers": [
+        [
+          "host",
+          "nydus.battle.net"
+        ],
+        [
+          "user-agent",
+          "Bootstrapper/2.0.0.4232"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "ctx1",
+      "host": "us.version.battle.net",
+      "method": "GET",
+      "target": "/agent/versions",
+      "headers": [
+        [
+          "host",
+          "us.version.battle.net"
+        ],
+        [
+          "user-agent",
+          "phoenix-agent/1.0"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "ctx2",
+      "host": "telemetry-in.battle.net",
+      "method": "POST",
+      "target": "/data",
+      "headers": [
+        [
+          "host",
+          "telemetry-in.battle.net"
+        ],
+        [
+          "accept",
+          "*/*"
+        ],
+        [
+          "user-agent",
+          "Bootstrapper2.0.0.4232"
+        ],
+        [
+          "content-type",
+          "application/octet-stream"
+        ],
+        [
+          "content-length",
+          "246"
+        ]
+      ],
+      "body_declared_bytes": 246,
+      "body_observed_bytes": 246,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "CnIKFgoDYXBwEgNidHMaCjIuMC4wLjQyMzIQmvmZh5U0IjwKJDJEMjEzM0ZBLTQ2RDYtNDFCQS1BQjM4LUYxMzlCMjZGNzkzMxoGY2xpZW50KgJwY6IGB3JlbGVhc2UyEzQ2Mzk3MjE3NzQ3NTY1NzE5NDASI0JsaXp6YXJkLlRlbGVtZXRyeS5BcHAuQm9vdHN0cmFwcGVyGg1TZXNzaW9uVXBkYXRlIkwKC3NldHVwLXN0YXJ0EiQyRDIxMzNGQS00NkQ2LTQxQkEtQUIzOC1GMTM5QjI2Rjc5MzMaCmJhdHRsZS5uZXQiBGVuVVMoiCEwATgA",
+      "body_sample_sha256": "b5f139c9b183e6bb6540c60c47f4d7ad52892cb90112112e1273ec892d30e80e",
+      "observed_body_sha256": "b5f139c9b183e6bb6540c60c47f4d7ad52892cb90112112e1273ec892d30e80e"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "ctx3",
+      "host": "us.version.battle.net",
+      "method": "GET",
+      "target": "/agent/cdns",
+      "headers": [
+        [
+          "host",
+          "us.version.battle.net"
+        ],
+        [
+          "user-agent",
+          "phoenix-agent/1.0"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s15",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/configs/data/bf/4b/bf4bddf3db7a5e2eb9f36b9304b47816",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "user-agent",
+          "phoenix-agent/1.0"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s18",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/config/3f/53/3f531c44ee2137e38232aac0b638d85a",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s18",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/config/11/09/1109568c676311426d68b98d23e2b614",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s18",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/50/05/5005e458fb185f626300613198230f38.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s18",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/patch/72/03/7203c0a12fcd2f324ca03e5c6ecd4a83.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s18",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/9a/b1/9ab16a536953f68486a63224364fa7e1.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s18",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/patch/0b/29/0b294ad3b2db4af890191ee2b240d92a.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s18",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/57/26/5726228105e1de5038bab04316834e35",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=0-8561"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s18",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/91/24/9124efa1a2c85ef23db7e66907254923",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=0-1030"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s18",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/93/ec/93ecdef31963512e8d98c4444b45bd99",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=0-4112"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s18",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/c8/84/c8840dd7c27737b2b2ee99259d158070",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=0-1002"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s18",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/6b/52/6b52d25e899384072f852060f24d58ba",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=68699282-69158610"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s19",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/6b/52/6b52d25e899384072f852060f24d58ba.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s19",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/patch/34/98/349846ef38c2de9088dde1283f10dd47.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s19",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/be/01/be01238052df6d390b52f6818a2b72f7",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=0-3611500"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s20",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/c8/56/c856402fe1c953bf80faeda4cfe6c234.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s20",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/patch/79/38/793825bfc6ac39f9907800a8fa4a3e24.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s20",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/c8/56/c856402fe1c953bf80faeda4cfe6c234",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=208239110-208242257"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s21",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/patch/8a/50/8a50cfd62ec1a8ec459e3f37e0adc7a2.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s21",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/c8/56/c856402fe1c953bf80faeda4cfe6c234",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=231828088-233036624"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s22",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/patch/9d/08/9d080a5be26c96356788058163a8879d.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s22",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/c8/56/c856402fe1c953bf80faeda4cfe6c234",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=252775601-254819201"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s22",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/c8/56/c856402fe1c953bf80faeda4cfe6c234",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=252585721-252585761"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s23",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/patch/9f/1f/9f1fbfaa776782c660abaa0c21c7ace7.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s24",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/patch/ba/e5/bae5f57eafef7e9f5e2fd4a0befe29d4.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s25",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/patch/9d/fa/9dfa9b7f52b0733254864a3dda1d63e2.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "s26",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/patch/ef/8a/ef8a3b847b4212e50e93bee1162c515c.index",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "ctx1",
+      "host": "us.version.battle.net",
+      "method": "GET",
+      "target": "/v2/summary",
+      "headers": [
+        [
+          "host",
+          "us.version.battle.net"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "ctx1",
+      "host": "us.version.battle.net",
+      "method": "GET",
+      "target": "/v2/products/agent/versions",
+      "headers": [
+        [
+          "host",
+          "us.version.battle.net"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "ctx2",
+      "host": "us.version.battle.net",
+      "method": "GET",
+      "target": "/agent",
+      "headers": [
+        [
+          "host",
+          "us.version.battle.net"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "ctx2",
+      "host": "us.version.battle.net",
+      "method": "GET",
+      "target": "/v2/products/agent/cdns",
+      "headers": [
+        [
+          "host",
+          "us.version.battle.net"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "ctx2",
+      "host": "us.version.battle.net",
+      "method": "GET",
+      "target": "/v2/summary?seqn=4083588",
+      "headers": [
+        [
+          "host",
+          "us.version.battle.net"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "ctx2",
+      "host": "us.version.battle.net",
+      "method": "GET",
+      "target": "/v2/products/bna/versions",
+      "headers": [
+        [
+          "host",
+          "us.version.battle.net"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "ctx3",
+      "host": "us.version.battle.net",
+      "method": "GET",
+      "target": "/v2/products/bts/versions",
+      "headers": [
+        [
+          "host",
+          "us.version.battle.net"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "ctx3",
+      "host": "us.version.battle.net",
+      "method": "GET",
+      "target": "/v2/products/bna/cdns",
+      "headers": [
+        [
+          "host",
+          "us.version.battle.net"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "ctx4",
+      "host": "us.version.battle.net",
+      "method": "GET",
+      "target": "/v2/products/bts/cdns",
+      "headers": [
+        [
+          "host",
+          "us.version.battle.net"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "s11",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/configs/data/bf/4b/bf4bddf3db7a5e2eb9f36b9304b47816",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "s11",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/configs/data/e8/a9/e8a9e3b2b36cc844d7a26a18fce57792",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "s11",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/configs/data/c9/dc/c9dc6de3a629d80327fc6e96256dd19e",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "s26",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt002/config/97/16/9716142876376fa69386c7b79f78755f",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "s26",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt002/data/6d/b6/6db6f693afb2d63bd100f20904c4f04c",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=0-62244"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "s26",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt002/data/42/55/42552fc9a63ff5786c88d6bf2475f5da",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=0-12366"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "s26",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt002/data/4d/80/4d8007fb334fb3769222380bf7178393",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=0-12768"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "ctx5",
+      "host": "telemetry-in.battle.net",
+      "method": "GET",
+      "target": "/flowrules/dist/client",
+      "headers": [
+        [
+          "host",
+          "telemetry-in.battle.net"
+        ],
+        [
+          "accept",
+          "*/*"
+        ],
+        [
+          "user-agent",
+          "Agent/2.41.1.9824 cpp/5.0.0 Windows_Server_2022_/10.0.0.26100"
+        ],
+        [
+          "pragma",
+          "no-cache"
+        ],
+        [
+          "cache-control",
+          "no-cache"
+        ],
+        [
+          "telem-flow-age",
+          "1792358654596"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "ctx5",
+      "host": "telemetry-in.battle.net",
+      "method": "POST",
+      "target": "/data",
+      "headers": [
+        [
+          "host",
+          "telemetry-in.battle.net"
+        ],
+        [
+          "accept",
+          "*/*"
+        ],
+        [
+          "pragma",
+          "no-cache"
+        ],
+        [
+          "user-agent",
+          "Agent/2.41.1.9824 cpp/5.0.0 Windows_Server_2022_/10.0.0.26100"
+        ],
+        [
+          "content-type",
+          "multipart/mixed; boundary=\"telem-boundary\""
+        ],
+        [
+          "cache-control",
+          "no-cache"
+        ],
+        [
+          "connection",
+          "close"
+        ],
+        [
+          "content-transfer-encoding",
+          "binary"
+        ],
+        [
+          "content-length",
+          "5907"
+        ]
+      ],
+      "body_declared_bytes": 5907,
+      "body_observed_bytes": 5907,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "DQotLXRlbGVtLWJvdW5kYXJ5DQpDb250ZW50LVRyYW5zZmVyLUVuY29kaW5nOiBiaW5hcnkNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtDQpDb250ZW50LUxlbmd0aDogMzQzDQoNCgrvAQo5CgRkaXN0EgVBZ2VudBoLMi40MS4xLjk4MjQiBggCECkYAaIGFAoDY3BwEgU1LjAuMBoGCAUQABgAEIHHmoeVNBjBcyJhCiQyRDIxMzNGQS00NkQ2LTQxQkEtQUIzOC1GMTM5QjI2Rjc5MzMaBmNsaWVudCoDd2luUgZ4ODZfMzKiARRXaW5kb3dzIFNlcnZlciAyMDIyIKoBDDEwLjAuMC4yNjEwMDITNDYzOTcyMTc3NDc1NjU3MTk0MDgAUgRlblVTggEkZWYwYjM2ZmUtMDM4NS00YjIyLTg0ZjEtMGUyOWUyNGExOWJhigEAEiRCbGl6emFyZC5UZWxlbWV0cnkuRGlzdHJpYnV0aW9uLlRhY3QaE0Rvd25sb2FkUGVyZm9ybWFuY2UiKAoFYWdlbnQSE2xldmVsMy5ibGl6emFyZC5jb20wADgAQABIAFAAWAANCi0tdGVsZW0tYm91bmRhcnkNCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IGJpbmFyeQ0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0NCkNvbnRlbnQtTGVuZ3RoOiAzNDMNCg0KCu8BCjkKBGRpc3QSBUFnZW50GgsyLjQxLjEuOTgyNCIGCAIQKRgBogYUCgNjcHASBTUuMC4wGgYIBRAAGAAQgceah5U0GMFzImEKJDJEMjEzM0ZBLTQ2RDYtNDFCQS1BQjM4LUYxMzlCMjZGNzkzMxoGY2xpZW50KgN3aW5SBng4Nl8zMqIBFFdpbmRvd3MgU2VydmVyIDIwMjIgqgEMMTAuMC4wLjI2MTAwMhM0NjM5NzIxNzc0NzU2NTcxOTQwOABSBGVuVVOCASRmMDU1NzdmMS05ZThmLTRlOTItOTlkMy03OWU3ZTU1ZmI4NzWKAQASJEJsaXp6YXJkLlRlbGVtZXRyeS5EaXN0cmlidXRpb24uVGFjdBoTRG93bmxvYWRQZXJmb3JtYW5jZSIoCgVhZ2VudBITdXMuY2RuLmJsaXp6YXJkLmNvbTAAOABAAEgAUABYAA0KLS10ZWxlbS1ib3VuZGFyeQ0KQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogYmluYXJ5DQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQ0KQ29udGVudC1MZW5ndGg6IDI5MQ0KDQoK7wEKOQoEZGlzdBIFQWdlbnQaCzIuNDEuMS45ODI0IgYIAhApGAGiBhQKA2NwcBIFNS4wLjAaBggFEAAYABCBxZqHlTQYwHUiYQokMkQyMTMzRkEtNDZENi00MUJBLUFCMzgtRjEzOUIyNkY3OTMzGgZjbGllbnQqA3dpblIGeDg2XzMyogEUV2luZG93cyBTZXJ2ZXIgMjAyMiCqAQwxMC4wLjAuMjYxMDAyEzQ2Mzk3MjE3NzQ3NTY1NzE5NDA4AFIEZW5VU4IBJGQ3YjYwOTI4LWY2NDctNGJiMS1hMWY4LTJhYzY1ODFiNDBjY4oBABIjQmxpenphcmQuVGVsZW1ldHJ5LlN0YW5kYXJkLlByb2Nlc3MaBVN0YXJ0IgMYpAkNCi0tdGVsZW0tYm91bmRhcnkNCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IGJpbmFyeQ0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0NCkNvbnRlbnQtTGVuZ3RoOiAzNTQNCg0KCu8BCjkKBGRpc3QSBUFnZW50GgsyLjQxLjEuOTgyNCIGCAIQKRgBogYUCgNjcHASBTUuMC4wGgYIBRAAGAAQ5cWah5U0GNx0ImEKJDJEMjEzM0ZBLTQ2RDYtNDFCQS1BQjM4LUYxMzlCMjZGNzkzMxoGY2xpZW50KgN3aW5SBng4Nl8zMqIBFFdpbmRvd3MgU2VydmVyIDIwMjIgqgEMMTAuMC4wLjI2MTAwMhM0NjM5NzIxNzc0NzU2NTcxOTQwOABSBGVuVVOCASQ5NjliMDE1Ni0yZWVlLTQ4NjktOWE2ZC1kOGY3NDdlZjk3ZmWKAQASJUJsaXp6YXJkLlRlbGVtZXRyeS5EaXN0cmlidXRpb24uQWdlbnQaDFZlcnNpb25GZXRjaCI5COcEEAAYByAAKAAwBzgAQh1odHRwczovL3VzLnZlcnNpb24uYmF0dGxlLm5ldFgAYABohJ/5AXAADQotLXRlbGVtLWJvdW5kYXJ5DQpDb250ZW50LVRyYW5zZmVyLUVuY29kaW5nOiBiaW5hcnkNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtDQpDb250ZW50LUxlbmd0aDogNTc4DQoNCgrvAQo5CgRkaXN0EgVBZ2VudBoLMi40MS4xLjk4MjQiBggCECkYAaIGFAoDY3BwEgU1LjAuMBoGCAUQABgAEK/FmoeVNBiSdSJhCiQyRDIxMzNGQS00NkQ2LTQxQkEtQUIzOC1GMTM5QjI2Rjc5MzMaBmNsaWVudCoDd2luUgZ4ODZfMzKiARRXaW5kb3dzIFNlcnZlciAyMDIyIKoBDDEwLjAuMC4yNjEwMDITNDYzOTcyMTc3NDc1NjU3MTk0MDgAUgRlblVTggEkYzVhODVjZWEtNzc1YS00ZGY1LWI5ZDYtZTJjNmFkMjQ1YWUxigEAEiVCbGl6emFyZC5UZWxlbWV0cnkuRGlzdHJpYnV0aW9uLkFnZW50GgpTdGFydEFnZW50IpoC0j4CdXPYPgDgPgHoPgHyPgRub25l+j4MMTAuMC4wLjI2MTAwgD////////////8BiD////////////8Bmj/FAQgCEAEYwPrujQkggICAgCAoAjIxCJQoEIwBGIDw1/4PIAAoADgAQh1NaWNyb3NvZnQgQmFzaWMgUmVuZGVyIERyaXZlcjoxCJQoEIwBGIDw1/4PIAAoADgAQh1NaWNyb3NvZnQgQmFzaWMgUmVuZGVyIERyaXZlckoMQXV0aGVudGljQU1EUi9BTUQgRVBZQyA3NzYzIDY0LUNvcmUgUHJvY2Vzc29yICAgICAgICAgICAgICAgIFoMTWljcm9zb2Z0IEh2oD8CqD8A4kQMCAAQABgAIAAoAFIADQotLXRlbGVtLWJvdW5kYXJ5DQpDb250ZW50LVRyYW5zZmVyLUVuY29kaW5nOiBiaW5hcnkNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtDQpDb250ZW50LUxlbmd0aDogMTEyMQ0KDQoK7wEKOQoEdHNkaxIFQWdlbnQaCzIuNDEuMS45ODI0IgYIAhApGAGiBhQKA2NwcBIFNS4wLjAaBggFEAAYABCBxZqHlTQYwHUiYQokMkQyMTMzRkEtNDZENi00MUJBLUFCMzgtRjEzOUIyNkY3OTMzGgZjbGllbnQqA3dpblIGeDg2XzMyogEUV2luZG93cyBTZXJ2ZXIgMjAyMiCqAQwxMC4wLjAuMjYxMDAyEzQ2Mzk3MjE3NzQ3NTY1NzE5NDA4AFIEZW5VU4IBJDc1OTgwMTFmLTQyYTItNDY2NC1iNTRhLTRhYzFlMTgzMDdlYYoBABIiQmxpenphcmQuVGVsZW1ldHJ5LlN0YW5kYXJkLk1ldHJpYxoJTWV0cmljU2V0Ir0GCtYBCgVidWlsZBgEIQAAAAAAAPA/KhMKCmJjLnZlcnNpb24SBTMuMS4xKhQKC2Jsei52ZXJzaW9uEgU0LjQuMyoNCghpc19kZWJ1ZxIBMCoPCgpibHouaXNfc3RkEgExKjYKGWJsaXp6YXJkX21lc3NhZ2VzLnZlcnNpb24SGTIuMC4wK3Byb3RvYnVmX2Jsei02LjMwLjEqJgoZYmxpenphcmRfcHJvdG9idWYudmVyc2lvbhIJNi4zMC4xLjEzKhcKDGN1cmwudmVyc2lvbhIHOC40LjAuMwqmBAoHc2VydmljZRgEIQAAAAAAAPA/KhYKDm1heF9xdWV1ZV9zaXplEgQxMDAwKhAKCmJhdGNoX3NpemUSAjEwKhIKCmJhdGNoX3dhaXQSBDEwMDAqEAoLbWF4X3JldHJpZXMSATcqGQoQbWF4X21lc3NhZ2Vfc2l6ZRIFMTAwMDAqIgoZbWF4X2h0dHBfdHJhbnNhY3Rpb25fc2l6ZRIFNTAwMDAqGgoVaHR0cC5jb25uZWN0aW9uX3N0eWxlEgEwKg8KCmZjLmVuYWJsZWQSATEqGwoRZmMuZmV0Y2hfaW50ZXJ2YWwSBjE4MDAwMCoTCg5mYy5tYXhfcmV0cmllcxIBMyoaChFmYy5yZXRyeV9pbnRlcnZhbBIFMTAwMDAqIwoZZmMucmV0cnlfcmVzdGFydF9pbnRlcnZhbBIGMzAwMDAwKhsKFmZjLmVuYWJsZV9jbGllbnRfcnVsZXMSATAqFQoRZmMucnVsZXNfbG9jYXRpb24SACoWCgxodHRwLnRpbWVvdXQSBjMwMDAwMCoZChRlbmFibGVfdGltZW91dF9yZXRyeRIBMCobChZlbmFibGVfaW50ZXJuYWxfdGhyZWFkEgEwKhYKEWhhc191c2VyX3BsYXRmb3JtEgEwKhkKFGhhc191c2VyX3BlcnNpc3RlbmNlEgEwKhoKFWhhc191c2VyX3JldHJ5X3BvbGljeRIBMCoOCglpc19jbGllbnQSATEqEgoKcHJvZ3JhbS5pZBIEZGlzdCoPCghzZGsubmFtZRIDY3BwKhQKC3Nkay52ZXJzaW9uEgU1LjAuMA0KLS10ZWxlbS1ib3VuZGFyeQ0KQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogYmluYXJ5DQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQ0KQ29udGVudC1MZW5ndGg6IDUxNg0KDQoK7wEKOQoEZGlzdBIFQWdlbnQaCzIuNDEuMS45ODI0IgYIAhApGAGiBhQKA2NwcBIFNS4wLjAaBggFEAAYABCBx5qHlTQYwXMiYQokMkQyMTMzRkEtNDZENi00MUJBLUFCMzgtRjEzOUIyNkY3OTMzGgZjbGllbnQqA3dpblIGeDg2XzMyogEUV2luZG93cyBTZXJ2ZXIgMjAyMiCqAQwxMC4wLjAuMjYxMDAyEzQ2Mzk3MjE3NzQ3NTY1NzE5NDA4AFIEZW5VU4IBJDMyNzA4MjYxLTMzNDItNDAzMC1hNDk0LWZmM2IwMDgyMjY5YYoBABIkQmxpenphcmQuVGVsZW1ldHJ5LkRpc3RyaWJ1dGlvbi5UYWN0GhxEb3dubG9hZGVyU3VtbWFyeVBlcmZvcm1hbmNlIssBCgVhZ2VudBK3AWh0dHA6Ly9sZXZlbDMuYmxpenphcmQuY29tLz9tYXhob3N0cz00IGh0dHA6Ly91cy5jZG4uYmxpenphcmQuY29tLz9tYXhob3N0cz00IGh0dHBzOi8vbGV2ZWwzLnNzbC5ibGl6emFyZC5jb20vP21heGhvc3RzPTQmZmFsbGJhY2s9MSBodHRwczovL3VzLmNkbi5ibGl6emFyZC5jb20vP21heGhvc3RzPTQmZmFsbGJhY2s9MRgAIAAo/////wcNCi0tdGVsZW0tYm91bmRhcnkNCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IGJpbmFyeQ0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0NCkNvbnRlbnQtTGVuZ3RoOiA0NjgNCg0KCu8BCjkKBHRzZGsSBUFnZW50GgsyLjQxLjEuOTgyNCIGCAIQKRgBogYUCgNjcHASBTUuMC4wGgYIBRAAGAAQgcWah5U0GMB1ImEKJDJEMjEzM0ZBLTQ2RDYtNDFCQS1BQjM4LUYxMzlCMjZGNzkzMxoGY2xpZW50KgN3aW5SBng4Nl8zMqIBFFdpbmRvd3MgU2VydmVyIDIwMjIgqgEMMTAuMC4wLjI2MTAwMhM0NjM5NzIxNzc0NzU2NTcxOTQwOABSBGVuVVOCASQ5YTI3N2M5ZS04YTIyLTQ0YzktYjdmYS02NjZlMjI5M2FmYzSKAQASIkJsaXp6YXJkLlRlbGVtZXRyeS5TdGFuZGFyZC5NZXRyaWMaCU1ldHJpY1NldCKwAQpzCgZ0aHJlYWQYBCEAAAAAAADwPyoYChBwcm9jZXNzX2ludGVydmFsEgQzMDAwKhgKEHNodXRkb3duX3RpbWVvdXQSBDUwMDAqFAoPdGhyZWFkX2FmZmluaXR5EgEwKhQKD3RocmVhZF9wcmlvcml0eRIBNCoSCgpwcm9ncmFtLmlkEgRkaXN0Kg8KCHNkay5uYW1lEgNjcHAqFAoLc2RrLnZlcnNpb24SBTUuMC4wDQotLXRlbGVtLWJvdW5kYXJ5DQpDb250ZW50LVRyYW5zZmVyLUVuY29kaW5nOiBiaW5hcnkNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtDQpDb250ZW50LUxlbmd0aDogMzQzDQoNCgrvAQo5CgRkaXN0EgVBZ2VudBoLMi40MS4xLjk4MjQiBggCECkYAaIGFAoDY3BwEgU1LjAuMBoGCAUQABgAEIHHmoeVNBjAcyJhCiQyRDIxMzNGQS00NkQ2LTQxQkEtQUIzOC1GMTM5QjI2Rjc5MzMaBmNsaWVudCoDd2luUgZ4ODZfMzKiARRXaW5kb3dzIFNlcnZlciAyMDIyIKoBDDEwLjAuMC4yNjEwMDITNDYzOTcyMTc3NDc1NjU3MTk0MDgAUgRlblVTggEkMzIwNWE1ZWQtNmJjMy00N2Y5LWE5OWQtNjlmMDM5MDVhYTdjigEAEiRCbGl6emFyZC5UZWxlbWV0cnkuRGlzdHJpYnV0aW9uLlRhY3QaE0Rvd25sb2FkUGVyZm9ybWFuY2UiKAoFYWdlbnQSE3VzLmNkbi5ibGl6emFyZC5jb20wADgAQABIAFAAWAENCi0tdGVsZW0tYm91bmRhcnkNCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IGJpbmFyeQ0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0NCkNvbnRlbnQtTGVuZ3RoOiAzNDcNCg0KCu8BCjkKBGRpc3QSBUFnZW50GgsyLjQxLjEuOTgyNCIGCAIQKRgBogYUCgNjcHASBTUuMC4wGgYIBRAAGAAQgceah5U0GMBzImEKJDJEMjEzM0ZBLTQ2RDYtNDFCQS1BQjM4LUYxMzlCMjZGNzkzMxoGY2xpZW50KgN3aW5SBng4Nl8zMqIBFFdpbmRvd3MgU2VydmVyIDIwMjIgqgEMMTAuMC4wLjI2MTAwMhM0NjM5NzIxNzc0NzU2NTcxOTQwOABSBGVuVVOCASQ4YmNkZDFkNi1kM2QwLTRkNDYtYWE4Zi0yN2Q2NTNhZDhiZTKKAQASJEJsaXp6YXJkLlRlbGVtZXRyeS5EaXN0cmlidXRpb24uVGFjdBoTRG93bmxvYWRQZXJmb3JtYW5jZSIsCgVhZ2VudBIXbGV2ZWwzLnNzbC5ibGl6emFyZC5jb20wADgAQABIAFAAWAENCi0tdGVsZW0tYm91bmRhcnktLQ0K",
+      "body_sample_sha256": "4e80a11b9afbcee76a07929b9aacc6b0adad8d9332d376b77d51cb78a0c6656d",
+      "observed_body_sha256": "4e80a11b9afbcee76a07929b9aacc6b0adad8d9332d376b77d51cb78a0c6656d"
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "socket": "ctx4",
+      "host": "telemetry-in.battle.net",
+      "method": "POST",
+      "target": "/data",
+      "headers": [
+        [
+          "host",
+          "telemetry-in.battle.net"
+        ],
+        [
+          "accept",
+          "*/*"
+        ],
+        [
+          "user-agent",
+          "Bootstrapper2.0.0.4232"
+        ],
+        [
+          "content-type",
+          "application/octet-stream"
+        ],
+        [
+          "content-length",
+          "195"
+        ]
+      ],
+      "body_declared_bytes": 195,
+      "body_observed_bytes": 195,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "CnIKFgoDYXBwEgNidHMaCjIuMC4wLjQyMzIQu5ubh5U0IjwKJDJEMjEzM0ZBLTQ2RDYtNDFCQS1BQjM4LUYxMzlCMjZGNzkzMxoGY2xpZW50KgJwY6IGB3JlbGVhc2UyEzQ2Mzk3MjE3NzQ3NTY1NzE5NDASI0JsaXp6YXJkLlRlbGVtZXRyeS5BcHAuQm9vdHN0cmFwcGVyGg1JbnN0YWxsUmVwb3J0IhkKD2luc3RhbGwtbGFuZGluZxDgTBjgTCAB",
+      "body_sample_sha256": "d0750744a668dbf8cbd33f057c6ff2719c4d5a4c1a376ac2223dd3dce0ea1b06",
+      "observed_body_sha256": "d0750744a668dbf8cbd33f057c6ff2719c4d5a4c1a376ac2223dd3dce0ea1b06"
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "socket": "ctx6",
+      "host": "telemetry-in.battle.net",
+      "method": "POST",
+      "target": "/data",
+      "headers": [
+        [
+          "host",
+          "telemetry-in.battle.net"
+        ],
+        [
+          "accept",
+          "*/*"
+        ],
+        [
+          "pragma",
+          "no-cache"
+        ],
+        [
+          "user-agent",
+          "Agent/2.41.1.9824 cpp/5.0.0 Windows_Server_2022_/10.0.0.26100"
+        ],
+        [
+          "content-type",
+          "multipart/mixed; boundary=\"telem-boundary\""
+        ],
+        [
+          "cache-control",
+          "no-cache"
+        ],
+        [
+          "connection",
+          "close"
+        ],
+        [
+          "content-transfer-encoding",
+          "binary"
+        ],
+        [
+          "content-length",
+          "1495"
+        ]
+      ],
+      "body_declared_bytes": 1495,
+      "body_observed_bytes": 1495,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "DQotLXRlbGVtLWJvdW5kYXJ5DQpDb250ZW50LVRyYW5zZmVyLUVuY29kaW5nOiBiaW5hcnkNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtDQpDb250ZW50LUxlbmd0aDogNDUwDQoNCgrvAQo5CgRkaXN0EgVBZ2VudBoLMi40MS4xLjk4MjQiBggCECkYAaIGFAoDY3BwEgU1LjAuMBoGCAUQABgAEI/HmoeVNBiycyJhCiQyRDIxMzNGQS00NkQ2LTQxQkEtQUIzOC1GMTM5QjI2Rjc5MzMaBmNsaWVudCoDd2luUgZ4ODZfMzKiARRXaW5kb3dzIFNlcnZlciAyMDIyIKoBDDEwLjAuMC4yNjEwMDITNDYzOTcyMTc3NDc1NjU3MTk0MDgAUgRlblVTggEkMzdiN2I3MDctYTEzYS00NzU5LTk4ODUtZmJiOWM2ZDEwM2YzigEAEiVCbGl6emFyZC5UZWxlbWV0cnkuRGlzdHJpYnV0aW9uLkFnZW50GgZVcGRhdGUingEKVAoFYWdlbnQSAnVzGAAgACiYJ0gfUABaFFZvbGF0aWxlIFdpbmRvd3MgVVM/YiZGYWlsZWQgdG8gaW5pdGlhbGl6ZSB0aGUgdGFjdCBpbnN0YW5jZRgAIAA6IDNmNTMxYzQ0ZWUyMTM3ZTM4MjMyYWFjMGI2MzhkODVhQiAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA0KLS10ZWxlbS1ib3VuZGFyeQ0KQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogYmluYXJ5DQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQ0KQ29udGVudC1MZW5ndGg6IDM2Mg0KDQoK7wEKOQoEZGlzdBIFQWdlbnQaCzIuNDEuMS45ODI0IgYIAhApGAGiBhQKA2NwcBIFNS4wLjAaBggFEAAYABCQ+JqHlTQYsUIiYQokMkQyMTMzRkEtNDZENi00MUJBLUFCMzgtRjEzOUIyNkY3OTMzGgZjbGllbnQqA3dpblIGeDg2XzMyogEUV2luZG93cyBTZXJ2ZXIgMjAyMiCqAQwxMC4wLjAuMjYxMDAyEzQ2Mzk3MjE3NzQ3NTY1NzE5NDA4AFIEZW5VU4IBJDBjM2M0ODAzLWExYTUtNGE5Ni1iM2RkLTdkYzA5M2QwYWQ1ZIoBABIlQmxpenphcmQuVGVsZW1ldHJ5LkRpc3RyaWJ1dGlvbi5BZ2VudBoMVmVyc2lvbkZldGNoIkEI3AQQARgEIAAoBjAKOABCHWh0dHBzOi8vdXMudmVyc2lvbi5iYXR0bGUubmV0SgNibmFYBmCEn/kBaISf+QFwAA0KLS10ZWxlbS1ib3VuZGFyeQ0KQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogYmluYXJ5DQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQ0KQ29udGVudC1MZW5ndGg6IDMwNw0KDQoK7wEKOQoEZGlzdBIFQWdlbnQaCzIuNDEuMS45ODI0IgYIAhApGAGiBhQKA2NwcBIFNS4wLjAaBggFEAAYABDF8JqHlTQY/EkiYQokMkQyMTMzRkEtNDZENi00MUJBLUFCMzgtRjEzOUIyNkY3OTMzGgZjbGllbnQqA3dpblIGeDg2XzMyogEUV2luZG93cyBTZXJ2ZXIgMjAyMiCqAQwxMC4wLjAuMjYxMDAyEzQ2Mzk3MjE3NzQ3NTY1NzE5NDA4AFIEZW5VU4IBJGY2YjJiNzdkLTFlYzktNDAyOC05YzY5LTdlODhhOTc4YTQwMYoBABIlQmxpenphcmQuVGVsZW1ldHJ5LkRpc3RyaWJ1dGlvbi5BZ2VudBoMUmVnaXN0ZXJHYW1lIgoIABAAGAAgACgADQotLXRlbGVtLWJvdW5kYXJ5LS0NCg==",
+      "body_sample_sha256": "69e049ce65791dd78a7e85b39b2dedfadb22802987ce8739874b413b8d87cb58",
+      "observed_body_sha256": "69e049ce65791dd78a7e85b39b2dedfadb22802987ce8739874b413b8d87cb58"
+    }
+  ],
+  "tls_inputs": [
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "context": "ctx1",
+      "sequence": 2,
+      "return_code": 0,
+      "declared_bytes": 376,
+      "observed_bytes": 376,
+      "truncated": false,
+      "input_sha256": "309d119dc21fc183ec6dc803f82a92eb2297e28a39f46be42564b1bbbe66c1f7",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "context": "ctx2",
+      "sequence": 3,
+      "return_code": 0,
+      "declared_bytes": 408,
+      "observed_bytes": 408,
+      "truncated": false,
+      "input_sha256": "9c0b6df915e5f914e476362a0b967ad5e5e4f206b774ebf57828d77fd3dd124c",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "context": "ctx3",
+      "sequence": 4,
+      "return_code": 0,
+      "declared_bytes": 103,
+      "observed_bytes": 103,
+      "truncated": false,
+      "input_sha256": "2060044b2d31378f65d386a4490d7d7e639b970fe8f2262d15ad4a36f68ee15d",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "context": "ctx4",
+      "sequence": 5,
+      "return_code": 0,
+      "declared_bytes": 99,
+      "observed_bytes": 99,
+      "truncated": false,
+      "input_sha256": "0bc04aa1c07bd5626183b0ec53b9417b3ab14693c4c8a72e53db9d37624c7ba9",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "context": "ctx5",
+      "sequence": 27,
+      "return_code": 0,
+      "declared_bytes": 338,
+      "observed_bytes": 338,
+      "truncated": false,
+      "input_sha256": "1889c5e8463eb2730d0735d558df7d6b99987c9b0d0e9fcf57a88b79a875caeb",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 2880,
+      "process_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "context": "ctx6",
+      "sequence": 29,
+      "return_code": 0,
+      "declared_bytes": 407,
+      "observed_bytes": 407,
+      "truncated": false,
+      "input_sha256": "fb98e75461da4300cfe99689a10053460f3d684c204b30c225b5eaf5b3c42148",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "context": "ctx1",
+      "sequence": 2,
+      "return_code": 0,
+      "declared_bytes": 105,
+      "observed_bytes": 105,
+      "truncated": false,
+      "input_sha256": "50316d9a5e331e1a538983dfbcecde82dbb0772ba084b140ead85498e3b7b392",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "context": "ctx2",
+      "sequence": 3,
+      "return_code": 0,
+      "declared_bytes": 410,
+      "observed_bytes": 410,
+      "truncated": false,
+      "input_sha256": "fd8b1aabb716afeb161efa2f5432a6ac82720b5914597f96e2c2086ebc686e22",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "context": "ctx3",
+      "sequence": 4,
+      "return_code": 0,
+      "declared_bytes": 101,
+      "observed_bytes": 101,
+      "truncated": false,
+      "input_sha256": "4b09f4036f063269ecbb87540ef0b0ed2c22e48f96377d8074375f9364027c68",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx1",
+      "sequence": 1,
+      "return_code": 0,
+      "declared_bytes": 101,
+      "observed_bytes": 101,
+      "truncated": false,
+      "input_sha256": "ecf6f66f0acc1d3667f72f9364dbe0db00461784aa76f4d210b426aef943a1ba",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx2",
+      "sequence": 2,
+      "return_code": 0,
+      "declared_bytes": 96,
+      "observed_bytes": 96,
+      "truncated": false,
+      "input_sha256": "bd3d27d35fd2c22cf7e46f3b98821c556eef9f61e8a8015fe8f9ed320f4ca159",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx1",
+      "sequence": 3,
+      "return_code": 0,
+      "declared_bytes": 117,
+      "observed_bytes": 117,
+      "truncated": false,
+      "input_sha256": "6f10f8b67f24e14e3a24b0c42b4cdeaca619d289f2975bd914c0d76918d1fdd0",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx2",
+      "sequence": 4,
+      "return_code": 0,
+      "declared_bytes": 113,
+      "observed_bytes": 113,
+      "truncated": false,
+      "input_sha256": "38e60795cda48aa85e4756bf33b351cc514eb491dc8d38b74fa0d6b87aca9f99",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx3",
+      "sequence": 5,
+      "return_code": 0,
+      "declared_bytes": 115,
+      "observed_bytes": 115,
+      "truncated": false,
+      "input_sha256": "401db5548a8fdcdc733bb35ab78d500546c80f25b9e40cdd321957e59dfb036f",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx4",
+      "sequence": 6,
+      "return_code": 0,
+      "declared_bytes": 111,
+      "observed_bytes": 111,
+      "truncated": false,
+      "input_sha256": "2b548b7fcba7bc23bedeca491804efe3e157b3dacde2432f3e9ac7506429c4cf",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx2",
+      "sequence": 9,
+      "return_code": 0,
+      "declared_bytes": 114,
+      "observed_bytes": 114,
+      "truncated": false,
+      "input_sha256": "6c590d2f58f665cc1672ceaf70db71fb723ae0a14cd9ab07182c3ca1a64c4b4d",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx2",
+      "sequence": 10,
+      "return_code": 0,
+      "declared_bytes": 115,
+      "observed_bytes": 115,
+      "truncated": false,
+      "input_sha256": "7c1d2a932a6255d06c28cceaa78566ae763e59cdbb068eda8141ffe68728d29b",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx3",
+      "sequence": 11,
+      "return_code": 0,
+      "declared_bytes": 111,
+      "observed_bytes": 111,
+      "truncated": false,
+      "input_sha256": "eee3309a674f7c9d09036d0d2630b15a1b486bf36dec6648ef9fe3e9ba3ac4c7",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx5",
+      "sequence": 17,
+      "return_code": 0,
+      "declared_bytes": 232,
+      "observed_bytes": 232,
+      "truncated": false,
+      "input_sha256": "42de11406abe463fa3b9b1fcf75e5bc61402bed83dcd93a317e70b0592a0e08b",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 4456,
+      "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "context": "ctx4",
+      "sequence": 40,
+      "return_code": 0,
+      "declared_bytes": 359,
+      "observed_bytes": 359,
+      "truncated": false,
+      "input_sha256": "e808caf5c1ed1c369e7daef613b8ac11833945f045c1641c5ebcc85aa8170d83",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx5",
+      "sequence": 18,
+      "return_code": 0,
+      "declared_bytes": 319,
+      "observed_bytes": 319,
+      "truncated": false,
+      "input_sha256": "295a28dd33520270a658a1dc0d6aa90bf766b68c2f73f89a8bd0b9455c607487",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx5",
+      "sequence": 19,
+      "return_code": 0,
+      "declared_bytes": 5907,
+      "observed_bytes": 5907,
+      "truncated": false,
+      "input_sha256": "4e80a11b9afbcee76a07929b9aacc6b0adad8d9332d376b77d51cb78a0c6656d",
+      "reference_cpu_literal_present": true
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx6",
+      "sequence": 20,
+      "return_code": 0,
+      "declared_bytes": 319,
+      "observed_bytes": 319,
+      "truncated": false,
+      "input_sha256": "2165385b5cfe04ad396ff8fcb5406da214681d75537e894239788ede8a746b3a",
+      "reference_cpu_literal_present": false
+    },
+    {
+      "pid": 1188,
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "context": "ctx6",
+      "sequence": 21,
+      "return_code": 0,
+      "declared_bytes": 1495,
+      "observed_bytes": 1495,
+      "truncated": false,
+      "input_sha256": "69e049ce65791dd78a7e85b39b2dedfadb22802987ce8739874b413b8d87cb58",
+      "reference_cpu_literal_present": false
+    }
+  ],
+  "input_events": 109,
+  "dropped_events": 0,
+  "fatal": false,
+  "status": "agent_process_observed",
+  "error_code": null,
+  "limits": {
+    "server_receipt_proven": false,
+    "user_pc_observed": false,
+    "full_update_test": false,
+    "known_hosts_only": false,
+    "credential_headers_redacted": true,
+    "api_input_not_network_delivery": true,
+    "async_completion_not_observed": true,
+    "concurrent_send_order_can_be_ambiguous": true,
+    "instrumentation_changes_timing": true,
+    "no_tls_verification_change": true,
+    "no_send_arguments_or_return_values_modified": true,
+    "children_not_verified_are_refused": true,
+    "child_network_hard_byte_cap": false,
+    "bounded_capture_can_miss_data": true,
+    "tls_context_reuse_not_fully_tracked": true,
+    "sspi_success_not_network_send": true,
+    "openssl_http2_quic_plaintext_not_captured": true,
+    "sspi_fixture_not_real_tls_session": true
+  }
+}
