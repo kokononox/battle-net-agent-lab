@@ -13,7 +13,7 @@ concurrency:
 jobs:
   observe:
     if: >-
-      github.event_name == 'push' && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
+      github.event_name == 'push' && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved Classic retry with bounded disk cleanup 2026-10-18 c24f976b'
     runs-on: windows-2025
     timeout-minutes: 35
     permissions:
@@ -28,6 +28,13 @@ jobs:
           python scripts/run_safety_tests.py --output output
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python -m unittest discover -s agent-interface-lab/tests -v
+      - name: Prepare disk using only allowlisted disposable preinstalled tools
+        timeout-minutes: 8
+        env:
+          AGENT_INTERFACE_ONCE: 'lab: approved logged-out Agent interface probe 2026-10-17 6f4d2b81'
+          CLASSIC_INSTALL_ONCE: 'lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
+          CLASSIC_DISK_PREPARE_ONCE: 'lab: approved Classic disk preparation 2026-10-18 c24f976b'
+        run: python agent-interface-lab/disk_prepare.py
       - name: Attempt approved isolated Classic baseline install
         env:
           AGENT_INTERFACE_ONCE: 'lab: approved logged-out Agent interface probe 2026-10-17 6f4d2b81'
