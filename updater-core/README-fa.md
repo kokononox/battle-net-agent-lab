@@ -1,3 +1,17 @@
+# ممیزی ابهام قواعد انتخاب — ۰٫۲۳
+
+**مرحلهٔ اول هنوز باز است.** این بسته ابزار اثبات قواعد Battle.net یا اپدیتر قابل نصب نیست. هیچ ابزار جمع‌آوری زنده‌ای برای اجرا روی سیستم کاربر در این مرحله ارائه نشده است.
+
+policy_ambiguity.py و policy_ambiguity_review.py فقط متادیتای کپی‌شدهٔ قبلاً بررسی‌شده و برنامهٔ نامزد را می‌خوانند. اصالت target/profile/hash، بانک‌ها و manifestها دوباره کنترل می‌شود. برای هر tag ویژگی چهار گروه متقابلاً جدا از عضویت candidate/tag، و دو نمونهٔ ابتدایی هر گروه غیرخالی ثبت می‌شود. شمار همهٔ رکوردها و membership نمونه‌ها با حلقهٔ مستقل per-ordinal کنترل شده؛ این استقلال محاسباتی است، نه شاهد مستقل قواعد vendor.
+
+گروه‌های label تکراری Install و چندنمایشی بودن CKeyهای Install انتخاب‌شده هم بدون انتخاب variant/EKey بررسی می‌شوند. labelها متادیتای opaque هستند، نه مجوز استفاده به‌عنوان مسیر ویندوز. خروجی نمونه‌ها محدود و omittedها صریح‌اند؛ matching نمونه‌ها کامل‌بودن policy را ثابت نمی‌کند. گروه‌های tag مختلف ممکن است هم‌پوشان باشند و قابل جمع نیستند. untagged بودن هم به‌عنوان معنای انتخاب حدس زده نمی‌شود.
+
+ممیزی هدف تاریخی 12.1.5.70448 با پروفایل عمومی Windows/x86_64/EU و enUS برای text/speech انجام شده؛ این پروفایل تازهٔ نصب کاربر نیست. candidateهای قبلی بدون تغییر ماندند. گزارش reports/POLICY-AMBIGUITY-to-share.json و قرارداد شاهد لازم research/POLICY-REFERENCE-PROTOCOL.md است. required_set_selected=false، active_generation_proven=false، required_network_download_bytes=null و installation_ready/apply_authorized=false باقی‌اند.
+
+۲۷ تست تازه، مجموع ۶۲۲ تست Linux و ۲۶۰ تست واقعی Windows/Python 3.12.10 با صفر failure/error/skip پاس شدند؛ شمار پلتفرم‌ها جمع نشود. رسید در QA.json و reports/WINDOWS-POLICY-AUDIT-CI-to-share.json ثبت شده است. آزمون‌ها به هیچ بازی/CDN متصل نمی‌شوند. این ممیزی مجوز اجرای کلاینت رسمی، آپدیت، repair، scan، admin یا جمع‌آوری log/account نیست.
+
+## سابقهٔ مرحلهٔ ۰٫۲۲
+
 # بستن scope ناموفق و شروع صریح با سابقهٔ حفظ‌شده — ۰٫۲۲
 
 این بسته سورس و تست پژوهشی است، نه اپدیتر قابل نصب. اجرای آن روی پوشهٔ بازی درخواست نشده است.

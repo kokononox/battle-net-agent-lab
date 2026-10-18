@@ -1,4 +1,4 @@
-# Source and offline test instructions — 0.22
+# Source and offline test instructions — 0.23
 
 This is a research core, NOT a game updater release. Do not point it at a game installation. All automated native tests use newly created synthetic temporary fixtures only.
 
@@ -11,7 +11,7 @@ python -m unittest discover
 
 The source repository stores five public metadata fixtures in text encoding; the restoration helper checks their exact expected digests. The local source ZIP already includes those small fixtures. Large decoded metadata, SQLite databases and staged game payloads are not shipped.
 
-Linux regression: 595 tests passed. The Windows-only CI suite loads 73 portable parser/selection, 38 native scratch, 10 native candidate admission, 53 bounded transfer, 26 local reconciliation and 33 scope lifecycle cases: 233 passed with zero skips/errors/failures. Actual result and immutable source commit are recorded in reports/WINDOWS-SCOPE-CI-to-share.json. Platform counts overlap and must not be added. Native-only cases are intentionally not in Linux discovery. Earlier directory-sharing failure evidence is preserved in reports/WINDOWS-STAGE-FIRST-FAILURE-to-share.json.
+Linux regression: 622 tests passed. Windows CI explicitly loads the existing 233 cases plus 27 policy ambiguity audit cases (including synthetic integration): 260 passed with zero failures/errors/skips. Actual Windows source/receipt are in reports/WINDOWS-POLICY-AUDIT-CI-to-share.json and QA.json. Platform counts overlap and must not be added. No live game/network/official client is exercised. These tests verify audit logic, not vendor selection policy.
 
 Do not run run_portable_ci.py on Linux expecting success: it is explicitly Windows-only. It produces a new minimal JSON receipt; it never invokes an installer. The existing Agent observation workflow is separate and unchanged.
 
@@ -22,3 +22,9 @@ The new HTTP adapter is integrated through an explicit bounded grant and durable
 Explicit local reconciliation (0.21) may accept exactly one already-journaled reserved range after predecessor reconstruction, fresh segment/full-object verification as applicable, and shared-entity checks. It does not fetch, retry, reset budget, break locks, adopt orphans or automatically continue. Uncommitted pending attempts remain blocked. See research/RECONCILIATION-SAFETY.md.
 
 Explicit scope lifecycle: see research/SCOPE-RETIREMENT-SAFETY.md. It never calls fetch/step, refunds a consumed reservation, breaks a lock or authorizes installation.
+
+Policy audit of EXISTING OWNED COPIES only (never game directory):
+```sh
+python policy_ambiguity_review.py --binding-workspace BINDING --objects-workspace OBJECTS --candidate-workspace PLAN --profile-json PUBLIC_PROFILE.json --output NEW_REPORT.json
+```
+Output creation is exclusive. Full source/plan hashes are rechecked. Reference protocol: research/POLICY-REFERENCE-PROTOCOL.md. A fresh metadata pair reader was NOT implemented/qualified in this release.

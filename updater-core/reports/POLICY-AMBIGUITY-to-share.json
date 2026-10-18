@@ -1,0 +1,999 @@
+{
+  "format": "selection-ambiguity-questions-1",
+  "target": {
+    "scope": {
+      "product": "wow",
+      "branch": "retail",
+      "region": "eu"
+    },
+    "version": "12.1.5.70448",
+    "build_id": 70448,
+    "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+    "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+    "origins": [
+      "https://level3.ssl.blizzard.com"
+    ],
+    "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+    "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+  },
+  "profile": {
+    "platform": "Windows",
+    "architecture": "x86_64",
+    "region": "EU",
+    "text_locales": [
+      "enUS"
+    ],
+    "speech_locales": [
+      "enUS"
+    ]
+  },
+  "expression": "Windows x86_64 EU enUS speech:Windows x86_64 EU enUS text",
+  "source_metadata_sha256": {
+    "install": "9992fcadbd41f0e3170a23b60f19ac45e870014887d81c05060ec1607b2c0957",
+    "download": "ed2606c609881db971547a240ab8b68c8a1d0bc1ed060808adf96da62b25fd4b"
+  },
+  "candidate_database_sha256": "2078c6d2bde0e852d5c7b466bf5fe2157067d5014532965f67ed80d8d8a7be28",
+  "source_catalogue_sha256": "51fb47fe60bf6b7cbba3cb858b9db0a12552bd67a017c260dea144ddc1a207aa",
+  "install": {
+    "manifest_records": 274,
+    "candidate_records": 39,
+    "candidate_bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+    "feature_partitions": [
+      {
+        "tag": "Alternate",
+        "kind": 16384,
+        "meaning_and_preference_qualified": false,
+        "cells": [
+          {
+            "candidate_selected": false,
+            "tag_member": false,
+            "records": 235,
+            "sample_indices": [
+              1,
+              2
+            ],
+            "samples": [
+              {
+                "record_index": 1,
+                "manifest_label": "Utils\\BlizzardBrowser.app\\Contents\\Frameworks\\Chromium Embedded Framework.framework\\Libraries\\vk_swiftshader_icd.json",
+                "ckey": "9777f008ed3e4df7a9a9abe98a6d63b5",
+                "decoded_size": 110
+              },
+              {
+                "record_index": 2,
+                "manifest_label": "World of Warcraft.app\\Contents\\MacOS\\icudt78l.dat",
+                "ckey": "96e3737f73428445f73e8ef79b94e7fc",
+                "decoded_size": 15450560
+              }
+            ]
+          },
+          {
+            "candidate_selected": false,
+            "tag_member": true,
+            "records": 0,
+            "sample_indices": [],
+            "samples": []
+          },
+          {
+            "candidate_selected": true,
+            "tag_member": false,
+            "records": 39,
+            "sample_indices": [
+              0,
+              198
+            ],
+            "samples": [
+              {
+                "record_index": 0,
+                "manifest_label": "BlizzardError.exe",
+                "ckey": "42a3179ed13971d3ef826b7be3871f73",
+                "decoded_size": 796296
+              },
+              {
+                "record_index": 198,
+                "manifest_label": "Utils\\icudtl.dat",
+                "ckey": "3f019441588332ac8b79a3a3901a5449",
+                "decoded_size": 10505952
+              }
+            ]
+          },
+          {
+            "candidate_selected": true,
+            "tag_member": true,
+            "records": 0,
+            "sample_indices": [],
+            "samples": []
+          }
+        ]
+      },
+      {
+        "tag": "HighRes",
+        "kind": 16384,
+        "meaning_and_preference_qualified": false,
+        "cells": [
+          {
+            "candidate_selected": false,
+            "tag_member": false,
+            "records": 235,
+            "sample_indices": [
+              1,
+              2
+            ],
+            "samples": [
+              {
+                "record_index": 1,
+                "manifest_label": "Utils\\BlizzardBrowser.app\\Contents\\Frameworks\\Chromium Embedded Framework.framework\\Libraries\\vk_swiftshader_icd.json",
+                "ckey": "9777f008ed3e4df7a9a9abe98a6d63b5",
+                "decoded_size": 110
+              },
+              {
+                "record_index": 2,
+                "manifest_label": "World of Warcraft.app\\Contents\\MacOS\\icudt78l.dat",
+                "ckey": "96e3737f73428445f73e8ef79b94e7fc",
+                "decoded_size": 15450560
+              }
+            ]
+          },
+          {
+            "candidate_selected": false,
+            "tag_member": true,
+            "records": 0,
+            "sample_indices": [],
+            "samples": []
+          },
+          {
+            "candidate_selected": true,
+            "tag_member": false,
+            "records": 39,
+            "sample_indices": [
+              0,
+              198
+            ],
+            "samples": [
+              {
+                "record_index": 0,
+                "manifest_label": "BlizzardError.exe",
+                "ckey": "42a3179ed13971d3ef826b7be3871f73",
+                "decoded_size": 796296
+              },
+              {
+                "record_index": 198,
+                "manifest_label": "Utils\\icudtl.dat",
+                "ckey": "3f019441588332ac8b79a3a3901a5449",
+                "decoded_size": 10505952
+              }
+            ]
+          },
+          {
+            "candidate_selected": true,
+            "tag_member": true,
+            "records": 0,
+            "sample_indices": [],
+            "samples": []
+          }
+        ]
+      },
+      {
+        "tag": "Talebound",
+        "kind": 16384,
+        "meaning_and_preference_qualified": false,
+        "cells": [
+          {
+            "candidate_selected": false,
+            "tag_member": false,
+            "records": 235,
+            "sample_indices": [
+              1,
+              2
+            ],
+            "samples": [
+              {
+                "record_index": 1,
+                "manifest_label": "Utils\\BlizzardBrowser.app\\Contents\\Frameworks\\Chromium Embedded Framework.framework\\Libraries\\vk_swiftshader_icd.json",
+                "ckey": "9777f008ed3e4df7a9a9abe98a6d63b5",
+                "decoded_size": 110
+              },
+              {
+                "record_index": 2,
+                "manifest_label": "World of Warcraft.app\\Contents\\MacOS\\icudt78l.dat",
+                "ckey": "96e3737f73428445f73e8ef79b94e7fc",
+                "decoded_size": 15450560
+              }
+            ]
+          },
+          {
+            "candidate_selected": false,
+            "tag_member": true,
+            "records": 0,
+            "sample_indices": [],
+            "samples": []
+          },
+          {
+            "candidate_selected": true,
+            "tag_member": false,
+            "records": 39,
+            "sample_indices": [
+              0,
+              198
+            ],
+            "samples": [
+              {
+                "record_index": 0,
+                "manifest_label": "BlizzardError.exe",
+                "ckey": "42a3179ed13971d3ef826b7be3871f73",
+                "decoded_size": 796296
+              },
+              {
+                "record_index": 198,
+                "manifest_label": "Utils\\icudtl.dat",
+                "ckey": "3f019441588332ac8b79a3a3901a5449",
+                "decoded_size": 10505952
+              }
+            ]
+          },
+          {
+            "candidate_selected": true,
+            "tag_member": true,
+            "records": 0,
+            "sample_indices": [],
+            "samples": []
+          }
+        ]
+      }
+    ],
+    "unassigned_dimensions": [
+      {
+        "kind": 1,
+        "records_without_any_tag_of_kind": 0,
+        "candidate_selected_without_any_tag_of_kind": 0,
+        "sample_indices": [],
+        "untagged_semantics_qualified": false
+      },
+      {
+        "kind": 2,
+        "records_without_any_tag_of_kind": 0,
+        "candidate_selected_without_any_tag_of_kind": 0,
+        "sample_indices": [],
+        "untagged_semantics_qualified": false
+      },
+      {
+        "kind": 3,
+        "records_without_any_tag_of_kind": 0,
+        "candidate_selected_without_any_tag_of_kind": 0,
+        "sample_indices": [],
+        "untagged_semantics_qualified": false
+      },
+      {
+        "kind": 4,
+        "records_without_any_tag_of_kind": 0,
+        "candidate_selected_without_any_tag_of_kind": 0,
+        "sample_indices": [],
+        "untagged_semantics_qualified": false
+      },
+      {
+        "kind": 5,
+        "records_without_any_tag_of_kind": 0,
+        "candidate_selected_without_any_tag_of_kind": 0,
+        "sample_indices": [],
+        "untagged_semantics_qualified": false
+      }
+    ],
+    "sample_policy": "earliest two manifest ordinals per nonempty cell; deterministic NOT statistical or completeness proof",
+    "required_set_selected": false,
+    "vendor_selection_policy_qualified": false,
+    "promotion_to_required_set_permitted": false,
+    "required_network_download_bytes": null,
+    "installation_ready": false,
+    "apply_authorized": false
+  },
+  "download": {
+    "manifest_records": 2881628,
+    "candidate_records": 1578022,
+    "candidate_bitmap_sha256": "59a99da1e71380f03eea22f89f80422d5bdcc713a16cf599d4a3eee2f291dd79",
+    "feature_partitions": [
+      {
+        "tag": "Alternate",
+        "kind": 16384,
+        "meaning_and_preference_qualified": false,
+        "cells": [
+          {
+            "candidate_selected": false,
+            "tag_member": false,
+            "records": 1303606,
+            "sample_indices": [
+              36,
+              37
+            ],
+            "samples": [
+              {
+                "record_index": 36,
+                "ekey": "4e5f7e08c227c7e242e428ef206c3962",
+                "encoded_size": 1524657,
+                "priority": 0
+              },
+              {
+                "record_index": 37,
+                "ekey": "d7dfa8056c8fc6200b8f761b1c16393d",
+                "encoded_size": 1135,
+                "priority": 0
+              }
+            ]
+          },
+          {
+            "candidate_selected": false,
+            "tag_member": true,
+            "records": 0,
+            "sample_indices": [],
+            "samples": []
+          },
+          {
+            "candidate_selected": true,
+            "tag_member": false,
+            "records": 1567994,
+            "sample_indices": [
+              0,
+              1
+            ],
+            "samples": [
+              {
+                "record_index": 0,
+                "ekey": "70a531b8f0b09f3383bc558e8a306aac",
+                "encoded_size": 196,
+                "priority": 0
+              },
+              {
+                "record_index": 1,
+                "ekey": "b0351e0c01125d47ba82884a5504a2ac",
+                "encoded_size": 26285,
+                "priority": 0
+              }
+            ]
+          },
+          {
+            "candidate_selected": true,
+            "tag_member": true,
+            "records": 10028,
+            "sample_indices": [
+              1968,
+              1969
+            ],
+            "samples": [
+              {
+                "record_index": 1968,
+                "ekey": "690e50fdda226465a355c700bc938e67",
+                "encoded_size": 234,
+                "priority": 1
+              },
+              {
+                "record_index": 1969,
+                "ekey": "5c6b48100b77af065be6a459ce4750b8",
+                "encoded_size": 2105,
+                "priority": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "HighRes",
+        "kind": 16384,
+        "meaning_and_preference_qualified": false,
+        "cells": [
+          {
+            "candidate_selected": false,
+            "tag_member": false,
+            "records": 1303606,
+            "sample_indices": [
+              36,
+              37
+            ],
+            "samples": [
+              {
+                "record_index": 36,
+                "ekey": "4e5f7e08c227c7e242e428ef206c3962",
+                "encoded_size": 1524657,
+                "priority": 0
+              },
+              {
+                "record_index": 37,
+                "ekey": "d7dfa8056c8fc6200b8f761b1c16393d",
+                "encoded_size": 1135,
+                "priority": 0
+              }
+            ]
+          },
+          {
+            "candidate_selected": false,
+            "tag_member": true,
+            "records": 0,
+            "sample_indices": [],
+            "samples": []
+          },
+          {
+            "candidate_selected": true,
+            "tag_member": false,
+            "records": 1578022,
+            "sample_indices": [
+              0,
+              1
+            ],
+            "samples": [
+              {
+                "record_index": 0,
+                "ekey": "70a531b8f0b09f3383bc558e8a306aac",
+                "encoded_size": 196,
+                "priority": 0
+              },
+              {
+                "record_index": 1,
+                "ekey": "b0351e0c01125d47ba82884a5504a2ac",
+                "encoded_size": 26285,
+                "priority": 0
+              }
+            ]
+          },
+          {
+            "candidate_selected": true,
+            "tag_member": true,
+            "records": 0,
+            "sample_indices": [],
+            "samples": []
+          }
+        ]
+      },
+      {
+        "tag": "Talebound",
+        "kind": 16384,
+        "meaning_and_preference_qualified": false,
+        "cells": [
+          {
+            "candidate_selected": false,
+            "tag_member": false,
+            "records": 1303606,
+            "sample_indices": [
+              36,
+              37
+            ],
+            "samples": [
+              {
+                "record_index": 36,
+                "ekey": "4e5f7e08c227c7e242e428ef206c3962",
+                "encoded_size": 1524657,
+                "priority": 0
+              },
+              {
+                "record_index": 37,
+                "ekey": "d7dfa8056c8fc6200b8f761b1c16393d",
+                "encoded_size": 1135,
+                "priority": 0
+              }
+            ]
+          },
+          {
+            "candidate_selected": false,
+            "tag_member": true,
+            "records": 0,
+            "sample_indices": [],
+            "samples": []
+          },
+          {
+            "candidate_selected": true,
+            "tag_member": false,
+            "records": 1578021,
+            "sample_indices": [
+              0,
+              1
+            ],
+            "samples": [
+              {
+                "record_index": 0,
+                "ekey": "70a531b8f0b09f3383bc558e8a306aac",
+                "encoded_size": 196,
+                "priority": 0
+              },
+              {
+                "record_index": 1,
+                "ekey": "b0351e0c01125d47ba82884a5504a2ac",
+                "encoded_size": 26285,
+                "priority": 0
+              }
+            ]
+          },
+          {
+            "candidate_selected": true,
+            "tag_member": true,
+            "records": 1,
+            "sample_indices": [
+              11615
+            ],
+            "samples": [
+              {
+                "record_index": 11615,
+                "ekey": "c4bca8d22d729be52f36161cdf801760",
+                "encoded_size": 290,
+                "priority": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "unassigned_dimensions": [
+      {
+        "kind": 1,
+        "records_without_any_tag_of_kind": 0,
+        "candidate_selected_without_any_tag_of_kind": 0,
+        "sample_indices": [],
+        "untagged_semantics_qualified": false
+      },
+      {
+        "kind": 2,
+        "records_without_any_tag_of_kind": 0,
+        "candidate_selected_without_any_tag_of_kind": 0,
+        "sample_indices": [],
+        "untagged_semantics_qualified": false
+      },
+      {
+        "kind": 3,
+        "records_without_any_tag_of_kind": 0,
+        "candidate_selected_without_any_tag_of_kind": 0,
+        "sample_indices": [],
+        "untagged_semantics_qualified": false
+      },
+      {
+        "kind": 4,
+        "records_without_any_tag_of_kind": 0,
+        "candidate_selected_without_any_tag_of_kind": 0,
+        "sample_indices": [],
+        "untagged_semantics_qualified": false
+      },
+      {
+        "kind": 5,
+        "records_without_any_tag_of_kind": 0,
+        "candidate_selected_without_any_tag_of_kind": 0,
+        "sample_indices": [],
+        "untagged_semantics_qualified": false
+      }
+    ],
+    "sample_policy": "earliest two manifest ordinals per nonempty cell; deterministic NOT statistical or completeness proof",
+    "required_set_selected": false,
+    "vendor_selection_policy_qualified": false,
+    "promotion_to_required_set_permitted": false,
+    "required_network_download_bytes": null,
+    "installation_ready": false,
+    "apply_authorized": false
+  },
+  "install_variants": {
+    "duplicate_manifest_label_groups": 83,
+    "groups": [
+      {
+        "manifest_label_folded": "icudt78l.dat",
+        "total_records": 2,
+        "distinct_content_identities": 1,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 199,
+            "manifest_label": "icudt78l.dat",
+            "ckey": "96e3737f73428445f73e8ef79b94e7fc",
+            "decoded_size": 15450560,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 241,
+            "manifest_label": "icudt78l.dat",
+            "ckey": "96e3737f73428445f73e8ef79b94e7fc",
+            "decoded_size": 15450560,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/blizzardbrowser.exe",
+        "total_records": 2,
+        "distinct_content_identities": 2,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 219,
+            "manifest_label": "Utils\\BlizzardBrowser.exe",
+            "ckey": "88470c4ad5ed3095007019c94e63e538",
+            "decoded_size": 2208464,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 258,
+            "manifest_label": "Utils\\BlizzardBrowser.exe",
+            "ckey": "b636e64941bacfee533051048d19c6e8",
+            "decoded_size": 2299088,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/cef.pak",
+        "total_records": 2,
+        "distinct_content_identities": 1,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 212,
+            "manifest_label": "Utils\\cef.pak",
+            "ckey": "9157f32a91e29ca6ed98feedc212911b",
+            "decoded_size": 2206428,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 254,
+            "manifest_label": "Utils\\cef.pak",
+            "ckey": "9157f32a91e29ca6ed98feedc212911b",
+            "decoded_size": 2206428,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/cef_100_percent.pak",
+        "total_records": 2,
+        "distinct_content_identities": 1,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 213,
+            "manifest_label": "Utils\\cef_100_percent.pak",
+            "ckey": "293d34ba795d03629250b58652a4481d",
+            "decoded_size": 658266,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 255,
+            "manifest_label": "Utils\\cef_100_percent.pak",
+            "ckey": "293d34ba795d03629250b58652a4481d",
+            "decoded_size": 658266,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/cef_200_percent.pak",
+        "total_records": 2,
+        "distinct_content_identities": 1,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 211,
+            "manifest_label": "Utils\\cef_200_percent.pak",
+            "ckey": "e4e531e1401a0a1ffb48ab236e5a59d1",
+            "decoded_size": 812521,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 253,
+            "manifest_label": "Utils\\cef_200_percent.pak",
+            "ckey": "e4e531e1401a0a1ffb48ab236e5a59d1",
+            "decoded_size": 812521,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/cef_extensions.pak",
+        "total_records": 2,
+        "distinct_content_identities": 1,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 214,
+            "manifest_label": "Utils\\cef_extensions.pak",
+            "ckey": "ca68b0881edcff3557fe62b8c063b882",
+            "decoded_size": 1799332,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 256,
+            "manifest_label": "Utils\\cef_extensions.pak",
+            "ckey": "ca68b0881edcff3557fe62b8c063b882",
+            "decoded_size": 1799332,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/chrome_elf.dll",
+        "total_records": 2,
+        "distinct_content_identities": 2,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 225,
+            "manifest_label": "Utils\\chrome_elf.dll",
+            "ckey": "3ab59116ed74fd220498a6371a16e50f",
+            "decoded_size": 971264,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 262,
+            "manifest_label": "Utils\\chrome_elf.dll",
+            "ckey": "9b2341d03a051bd3ce4f0f30edc61bf4",
+            "decoded_size": 868864,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/discord_partner_sdk.dll",
+        "total_records": 2,
+        "distinct_content_identities": 2,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 235,
+            "manifest_label": "Utils\\discord_partner_sdk.dll",
+            "ckey": "75c2d48b9b95522f8a7f1706a8fc2e85",
+            "decoded_size": 9817016,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 267,
+            "manifest_label": "Utils\\discord_partner_sdk.dll",
+            "ckey": "d6c3f8e62bc38d8db9cb0cf1f3dee719",
+            "decoded_size": 8654776,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/icudtl.dat",
+        "total_records": 2,
+        "distinct_content_identities": 1,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 198,
+            "manifest_label": "Utils\\icudtl.dat",
+            "ckey": "3f019441588332ac8b79a3a3901a5449",
+            "decoded_size": 10505952,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 240,
+            "manifest_label": "Utils\\icudtl.dat",
+            "ckey": "3f019441588332ac8b79a3a3901a5449",
+            "decoded_size": 10505952,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/libcef.dll",
+        "total_records": 2,
+        "distinct_content_identities": 2,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 222,
+            "manifest_label": "UTILS\\LIBCEF.DLL",
+            "ckey": "b73a483b89d52bc4ec62c8392afeedfb",
+            "decoded_size": 123167232,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 260,
+            "manifest_label": "UTILS\\LIBCEF.DLL",
+            "ckey": "d8dad693f733ee2003a7e4b3f1aacb04",
+            "decoded_size": 118525952,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/libegl.dll",
+        "total_records": 2,
+        "distinct_content_identities": 2,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 228,
+            "manifest_label": "Utils\\libEGL.dll",
+            "ckey": "15242f3fd6cd11d8aad782f7560acaad",
+            "decoded_size": 389632,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 265,
+            "manifest_label": "Utils\\libEGL.dll",
+            "ckey": "22829605b48a1c69074262d27d45659a",
+            "decoded_size": 382976,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/libglesv2.dll",
+        "total_records": 2,
+        "distinct_content_identities": 2,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 230,
+            "manifest_label": "Utils\\libGLESv2.dll",
+            "ckey": "1bb1640968387e7d5027f864bcc98394",
+            "decoded_size": 7874048,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 266,
+            "manifest_label": "Utils\\libGLESv2.dll",
+            "ckey": "7aef44a9f720be783cc1b0c3dbfa3dcd",
+            "decoded_size": 7379456,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/locales/de.pak",
+        "total_records": 2,
+        "distinct_content_identities": 1,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 203,
+            "manifest_label": "UTILS\\LOCALES\\DE.PAK",
+            "ckey": "226890f754cae019fdaebdfa0df618bd",
+            "decoded_size": 271680,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 245,
+            "manifest_label": "UTILS\\LOCALES\\DE.PAK",
+            "ckey": "226890f754cae019fdaebdfa0df618bd",
+            "decoded_size": 271680,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/locales/en-us.pak",
+        "total_records": 2,
+        "distinct_content_identities": 1,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 206,
+            "manifest_label": "UTILS\\LOCALES\\EN-US.PAK",
+            "ckey": "3ae4f546279f71b4421e7c703656ad83",
+            "decoded_size": 224948,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 248,
+            "manifest_label": "UTILS\\LOCALES\\EN-US.PAK",
+            "ckey": "3ae4f546279f71b4421e7c703656ad83",
+            "decoded_size": 224948,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/locales/es-419.pak",
+        "total_records": 2,
+        "distinct_content_identities": 1,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 208,
+            "manifest_label": "UTILS\\LOCALES\\ES-419.PAK",
+            "ckey": "763d11c8180342c8725baf8dea61dd5b",
+            "decoded_size": 267636,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 250,
+            "manifest_label": "UTILS\\LOCALES\\ES-419.PAK",
+            "ckey": "763d11c8180342c8725baf8dea61dd5b",
+            "decoded_size": 267636,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      },
+      {
+        "manifest_label_folded": "utils/locales/es.pak",
+        "total_records": 2,
+        "distinct_content_identities": 1,
+        "candidate_selected_records": 1,
+        "records": [
+          {
+            "record_index": 205,
+            "manifest_label": "UTILS\\LOCALES\\ES.PAK",
+            "ckey": "f414d0b97f65655f17b044572d44a9d3",
+            "decoded_size": 272041,
+            "candidate_selected": true
+          },
+          {
+            "record_index": 247,
+            "manifest_label": "UTILS\\LOCALES\\ES.PAK",
+            "ckey": "f414d0b97f65655f17b044572d44a9d3",
+            "decoded_size": 272041,
+            "candidate_selected": false
+          }
+        ],
+        "omitted_records": 0,
+        "chosen_variant": null
+      }
+    ],
+    "omitted_groups": 67,
+    "normalization": "opaque manifest labels; slash fold and Unicode casefold only; NOT Windows path safety or final collision qualification",
+    "all_collisions_resolved": false,
+    "variant_choice_policy_qualified": false
+  },
+  "independent_reference_available": false,
+  "sample_agreement_would_qualify_policy": false,
+  "vendor_selection_policy_qualified": false,
+  "required_set_selected": false,
+  "candidate_plan_modified": false,
+  "fresh_installed_preferences_proven": false,
+  "active_generation_proven": false,
+  "required_network_download_bytes": null,
+  "network_requests": 0,
+  "game_access": false,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "selected_install_multi_encoding": {
+    "records": 0,
+    "examples": [],
+    "omitted_examples": 0,
+    "encoding_route_qualified": false
+  },
+  "independent_ordinal_checks_passed": true,
+  "interpretation": "Partitions and deterministic examples are questions for an independent oracle, not verified inclusion/exclusion rules; possible overlaps are not additive.",
+  "analysis_provenance": {
+    "question": "where exact independent policy evidence is needed, not which files are required",
+    "source_scope": "historical pinned copied metadata; explicit public profile; no live install",
+    "source_paths_are_private_workspace_only": true,
+    "raw_copies_verified_against_manifest_hashes": true,
+    "receipt_profile_warnings": "nested provenance document flattening; not record duplicates or missing manifest rows; no cleaning",
+    "grain": "one manifest ordinal; feature partitions overlap across features",
+    "comparison_plan": [
+      {
+        "topic": "feature candidate membership",
+        "disposition": "prose",
+        "reason": "implementation handoff; bounded identity questions, not a feature preference inference"
+      },
+      {
+        "topic": "duplicate manifest label examples",
+        "disposition": "file",
+        "reason": "opaque identities and omitted-row counters, not installer collisions"
+      }
+    ]
+  }
+}

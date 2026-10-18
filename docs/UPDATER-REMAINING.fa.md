@@ -1,4 +1,4 @@
-# کارهای باقی‌مانده — پس از ۰٫۲۲
+# کارهای باقی‌مانده — پس از ۰٫۲۳
 
 اصل محصول ثابت است: در هر اجرای جدید نصب موجود و مقصد سازگار جاری تشخیص داده شوند؛ target اجرای شروع‌شده pinned بماند و انتشار جدید checkpoint را خودکار منتقل نکند.
 
@@ -16,6 +16,9 @@ reconcile_pending با تأیید صریح فقط یک Range قبلاً ثبت�
 
 ## تصحیح اولویت و شاهد تازه
 مرحلهٔ اول هنوز باز است؛ خواندن .build.info و config به‌تنهایی policy انتخاب یا نسل فعال را قطعی نمی‌کند. بررسی کد مستقل CascLib/TACTSharp نشان داد handler اول tagها را رد می‌کند و ابزار استخراج دوم برای تعارض variant از US/first استفاده می‌کند؛ هیچ‌یک oracle انتخاب updater نیست. این heuristicها وارد محصول نشدند. [مرور و شاهد لازم](../updater-core/research/POLICY-BLOCKERS-FOLLOWUP.md). هیچ reader تازه یا آزمون زنده‌ای در این مرور پیاده/درخواست نشد.
+
+## پیشرفت ۰٫۲۳ — فقط ممیزی بخش اول، نه تکمیل آن
+ممیزی membership چهارگانهٔ feature/candidate، نمونه‌های محدود دارای CKey/EKey، گروه‌های label تکراری و چندنمایشی بودن Install اضافه شد. target/profile/hashها و شمارش مستقل کنترل شدند؛ هیچ candidate حذف/اضافه نشد. ۲۷ تست تازه؛ ۶۲۲ Linux و ۲۶۰ Windows واقعی پاس‌اند. [قرارداد مرجع](../updater-core/research/POLICY-REFERENCE-PROTOCOL.md) و [سؤال‌های واقعی هدف تاریخی](../updater-core/reports/POLICY-AMBIGUITY-to-share.json) آماده‌اند. دادهٔ فعلی شاهد مستقل قواعد رسمی ندارد؛ تعداد تست یا تطبیق نمونه جای آن نیست. metadata reader تازه و probe زنده در این مرحله ارائه نشده‌اند.
 
 ## ترتیب باقی‌مانده
 1. **بستن policy انتخاب و closure:** شاهد مستقل برای feature/Alternate/Talebound، اولویت/حذف variantها، dependency و patch/full. معنای enum یا parser/extractor عمومی به‌تنهایی کافی نیست. ترجیحات تازهٔ نصب هم لازم است؛ flagهای vendor/feature فعلاً false بمانند.
