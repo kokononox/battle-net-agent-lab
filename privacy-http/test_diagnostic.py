@@ -6,7 +6,7 @@ import unittest
 import test_http
 from http_capture import analyze_capture as old_analyze
 from capture_diagnostic import analyze_capture, network_checked
-from validate_http import validate_diagnostic
+from validate_http import validate_diagnostic, validate_capture_bounds
 
 def pcap(payload):
     return test_http.block(0x0a0d0d0a, struct.pack("<IHHq", 0x1a2b3c4d, 1, 0, -1)) + test_http.block(1, struct.pack("<HHI", 1, 0, 65535)) + test_http.segment(100, b"", True) + test_http.segment(101, payload)
@@ -97,6 +97,50 @@ class DiagnosticTests(unittest.TestCase):
         r["diagnostics"]["counts"]["arbitrary_field"] = 1
         with self.assertRaises(ValueError):
             validate_diagnostic(r)
+
+    def test_capture_boundary_recovery_explicit_only(self):
+        packet = frame(test_http.request(b"owned fixture"))
+        packet[16:18] = b"\0\0"
+        diag = collections.Counter()
+        self.assertIsNone(network_checked(1, packet, diag))
+        parsed = network_checked(1, packet, diag, allow_zero_length_capture=True)
+        self.assertEqual(parsed[3][20:], test_http.request(b"owned fixture"))
+        self.assertEqual(diag["ipv4_zero_length_capture_bound_used"], 1)
+
+    def inferred(self):
+        packet = frame(test_http.request())
+        packet[16:18] = b"\0\0"
+        raw = test_http.block(0x0a0d0d0a, struct.pack("<IHHq", 0x1a2b3c4d, 1, 0, -1)) + test_http.block(1, struct.pack("<HHI", 1, 0, 65535))
+        raw += test_http.block(6, struct.pack("<IIIII", 0, 0, 1, len(packet), len(packet)) + bytes(packet))
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "owned.pcapng"
+            path.write_bytes(raw)
+            self.assertFalse(analyze_capture(path, {})["requests"])
+            return analyze_capture(path, {}, allow_zero_length_capture=True)
+
+    def test_inferred_stream_is_marked(self):
+        r = self.inferred()
+        self.assertEqual(len(r["requests"]), 1)
+        self.assertEqual(r["flows"][0]["stream_status"], "contiguous_capture_bounds")
+        self.assertEqual(r["diagnostics"]["counts"]["known_host_requests_using_capture_bounds"], 1)
+
+    def test_inference_needs_schema_and_flag(self):
+        r = self.report()
+        r.update(self.inferred())
+        with self.assertRaises(ValueError):
+            validate_diagnostic(r)
+        r["schema"] = "bnet-outgoing-http-3"
+        r["limits"]["zero_ip_length_capture_bounds_inference"] = True
+        self.assertEqual(validate_capture_bounds(r), r)
+
+    def test_inference_counter_not_forgeable(self):
+        r = self.report()
+        r.update(self.inferred())
+        r["schema"] = "bnet-outgoing-http-3"
+        r["limits"]["zero_ip_length_capture_bounds_inference"] = True
+        r["diagnostics"]["counts"]["known_host_requests_using_capture_bounds"] = 0
+        with self.assertRaises(ValueError):
+            validate_capture_bounds(r)
 
 if __name__ == "__main__":
     unittest.main()

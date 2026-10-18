@@ -19,9 +19,12 @@ DIAG_KEYS = {
     "known_host_flows", "known_host_requests", "known_host_requests_without_pid",
     "known_host_requests_with_pid", "flows_no_known_host_request",
     "tcp80_flow_limit_hit", "tcp80_memory_limit_hit", "export_limit_hit",
+    "ipv4_zero_length_capture_bound_used",
+    "known_host_flows_using_capture_bounds",
+    "known_host_requests_using_capture_bounds",
 }
 
-def network_checked(link, packet, diag):
+def network_checked(link, packet, diag, allow_zero_length_capture=False):
     data = packet
     if link == 1:
         diag["ethernet_packets"] += 1
@@ -53,9 +56,12 @@ def network_checked(link, packet, diag):
             diag["bad_ipv4_header"] += 1
             return None
         if total == 0:
-            # Possibly a capture/offload artifact; do not silently fabricate an IP length.
             diag["ipv4_zero_total_length"] += 1
-            return None
+            if not allow_zero_length_capture or data[9] != 6:
+                return None
+            # Explicit capture-record boundary inference, NOT a valid wire IP length.
+            total = len(data)
+            diag["ipv4_zero_length_capture_bound_used"] += 1
         if total < offset:
             diag["ipv4_total_smaller_than_header"] += 1
             return None
@@ -84,14 +90,17 @@ def network_checked(link, packet, diag):
     diag["unsupported_ip_version"] += 1
     return None
 
-def analyze_capture(path, watched):
+def analyze_capture(path, watched, allow_zero_length_capture=False):
     from packet_meta import packets
     stats = collections.Counter()
     diag = collections.Counter()
     streams = {}
+    inferred_streams = set()
     retained = 0
     for link, packet in packets(path, stats):
-        net = network_checked(link, packet, diag)
+        old_inferred = diag["ipv4_zero_length_capture_bound_used"]
+        net = network_checked(link, packet, diag, allow_zero_length_capture)
+        inferred = diag["ipv4_zero_length_capture_bound_used"] > old_inferred
         if net is None:
             continue
         src, dst, proto, tcp = net
@@ -119,6 +128,8 @@ def analyze_capture(path, watched):
                 diag["tcp80_flow_limit_hit"] += 1
                 continue
             streams[key] = Stream()
+        if inferred:
+            inferred_streams.add(key)
         if retained + len(payload) > MAX_TOTAL:
             diag["tcp80_memory_limit_hit"] += 1
             streams[key].limit = True
@@ -134,6 +145,8 @@ def analyze_capture(path, watched):
     exported = 0
     for key, stream in streams.items():
         data, stream_status = stream.finish()
+        if key in inferred_streams:
+            stream_status += "_capture_bounds"
         rows, parse_status = parse_requests(data)
         stream_statuses[stream_status] += 1
         parse_statuses[parse_status] += 1
@@ -141,6 +154,8 @@ def analyze_capture(path, watched):
             diag["flows_no_known_host_request"] += 1
             continue
         identity = watched.get(key)
+        if key in inferred_streams:
+            diag["known_host_flows_using_capture_bounds"] += 1
         flow_id = len(flows) + 1
         flows.append({
             "flow_id": flow_id,
@@ -157,6 +172,8 @@ def analyze_capture(path, watched):
                 continue
             exported += cost
             requests.append({"flow_id": flow_id, **row})
+            if key in inferred_streams:
+                diag["known_host_requests_using_capture_bounds"] += 1
             diag["known_host_requests"] += 1
             diag["known_host_requests_with_pid" if identity else "known_host_requests_without_pid"] += 1
     diag["known_host_flows"] = len(flows)
