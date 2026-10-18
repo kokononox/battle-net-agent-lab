@@ -98,11 +98,14 @@ def unique_json(raw):
     if type(result) is not dict:raise ValueError('object_required')
     return result
 
-def inspect_response(raw):
+def read_token(raw):
     result=unique_json(raw)
     token=result.get('authorization')
     # No field names, token values, raw body or error text enter the report.
-    return type(token) is str and 0<len(token)<=8192
+    return token if type(token) is str and 0<len(token)<=8192 else None
+
+def inspect_response(raw):
+    return read_token(raw) is not None
 
 def request_agent(port, report, connection_factory=http.client.HTTPConnection):
     if type(port) is not int or not 1<=port<=65535:raise Stop('listener_not_unique')
@@ -121,10 +124,11 @@ def request_agent(port, report, connection_factory=http.client.HTTPConnection):
         if len(raw)>MAX_BODY:raise Stop('response_rejected')
         report['response_bytes']=len(raw)
         if length is not None and len(raw)!=int(length):raise Stop('response_rejected')
-        try:present=inspect_response(raw)
+        try:token=read_token(raw);present=token is not None
         except (ValueError,UnicodeError,RecursionError):raise Stop('response_rejected') from None
         report['response_json_object']=True;report['authorization_token_present']=present
         report['status']='handshake_token_observed' if present else 'handshake_without_token'
+        return token # Memory-only; never add this value to the report.
     finally:conn.close()
 
 def listener_rows(pid):
@@ -185,8 +189,10 @@ def choose_agent(root,is_reparse):
     if len(candidates)!=1:raise Stop('agent_not_unique')
     return candidates[0].resolve()
 
-def run(out):
-    r=blank();process=None;env=None
+def run(out, after_handshake=None, report_sink=None):
+    r=blank() if report_sink is None else report_sink
+    if r!=blank():raise ValueError("handshake_sink_must_be_blank")
+    process=None;env=None
     out.mkdir(parents=True,exist_ok=True)
     try:
         if not fresh_environment(os.environ,sys.platform):raise Stop('stopped_safely')
@@ -219,9 +225,17 @@ def run(out):
         if not selected:raise Stop('listener_not_unique')
         if process.poll() is not None or process_image(process.pid).resolve()!=agent or choose_listener(listener_rows(process.pid))!=selected:raise Stop('identity_changed')
         port,binding=selected;r['listener_binding']=binding;r['listener_owner_verified']=True
-        request_agent(port,r)
-        # If ownership/liveness changed during the request, do not claim a handshake.
-        if process.poll() is not None or process_image(process.pid).resolve()!=agent or choose_listener(listener_rows(process.pid))!=selected:raise Stop('identity_changed')
+        def verify_live():
+            if process.poll() is not None or process_image(process.pid).resolve()!=agent or choose_listener(listener_rows(process.pid))!=selected:raise Stop('identity_changed')
+            return True
+        token=request_agent(port,r)
+        verify_live()
+        # Only trusted in-repository observers; no plugin or configuration loading.
+        # Nested handshake count remains 1; the observer reports its own extra request.
+        if after_handshake is not None and token is not None:
+            after_handshake(token,port,verify_live)
+            verify_live()
+        token=None
     except Stop as exc:r['status']=str(exc) if str(exc) in STATUSES else 'stopped_safely'
     except Exception:r['status']='stopped_safely' # Never stringify exceptions/response data.
     finally:
