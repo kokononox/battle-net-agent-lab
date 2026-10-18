@@ -205,7 +205,7 @@ def identity_state(process,agent,selected):
         return 'verified' if current==selected else 'listener_changed'
     except Exception:return 'inspection_failed'
 
-def run(out, after_handshake=None, report_sink=None, identity_observer=None):
+def run(out, after_handshake=None, report_sink=None, identity_observer=None, identity_details_observer=None):
     r=blank() if report_sink is None else report_sink
     if r!=blank():raise ValueError("handshake_sink_must_be_blank")
     process=None;env=None
@@ -241,10 +241,18 @@ def run(out, after_handshake=None, report_sink=None, identity_observer=None):
         if not selected:raise Stop('listener_not_unique')
         if process.poll() is not None or process_image(process.pid).resolve()!=agent or choose_listener(listener_rows(process.pid))!=selected:raise Stop('identity_changed')
         port,binding=selected;r['listener_binding']=binding;r['listener_owner_verified']=True
+        transition_recorded=False
         def verify_live(stage='observer'):
+            nonlocal transition_recorded
             state=identity_state(process,agent,selected)
             if identity_observer is not None:identity_observer(state,stage)
-            if state!='verified':raise Stop('identity_changed')
+            if state!='verified':
+                if identity_details_observer is not None and not transition_recorded:
+                    transition_recorded=True
+                    import agent_diagnostics as diagnostics
+                    details=diagnostics.inspect_transition(process,agent,selected,root,r['agent_sha256'],process_image,listener_rows,lab.is_reparse,lab.signature,env)
+                    identity_details_observer(details)
+                raise Stop('identity_changed')
             return True
         token=request_agent(port,r)
         verify_live('after_handshake')

@@ -12,11 +12,12 @@ import shutil
 import sys
 import time
 import probe
+import agent_diagnostics as diagnostics
 
 APPROVAL='lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
 PRODUCT='wow_classic_era'
-SCHEMA='classic-baseline-install-2'
-DIAGNOSTIC_APPROVAL='lab: approved Classic initialization protocol diagnostic 2026-10-18 d2097c4e'
+SCHEMA='classic-baseline-install-3'
+DIAGNOSTIC_APPROVAL='lab: approved Classic path and form diagnostic 2026-10-18 1af67e38'
 MIN_FREE=40*1024**3
 RESERVE=10*1024**3
 MAX_POLLS=120
@@ -39,6 +40,7 @@ def blank():
   destination_free_after_bytes=0,system_free_after_bytes=0,
   minimum_free_before_bytes=MIN_FREE,reserve_free_bytes=RESERVE,
   min_destination_free_observed_bytes=0,min_system_free_observed_bytes=0,
+  transition_diagnostic=diagnostics.blank_transition(),form_structure=diagnostics.blank_form(),
   protocol_diagnostic_only=False,identity_check_count=0,last_identity_state=None,
   last_identity_stage=None,identity_failure_state=None,identity_failure_stage=None,
   initialization_http_status=None,initialization_response_bytes=0,
@@ -71,6 +73,7 @@ def validate(r):
  for k in ('scope','region','locale','architecture','process_cleanup_scope','minimum_free_before_bytes','reserve_free_bytes'):
   if r[k]!=t[k]:raise ValueError('install_fixed')
  probe.validate(r['handshake'])
+ diagnostics.validate_transition(r['transition_diagnostic']);diagnostics.validate_form(r['form_structure'])
  for k in ('source_commit','run_id','run_attempt'):
   if r[k]!=r['handshake'][k]:raise ValueError('install_identity')
  for k,cap in [('total_local_requests',124),('polls',MAX_POLLS),('owned_build_info_bytes_read',65537),('elapsed_seconds',1800)]+[(x,2**60)for x in t if x.endswith('_bytes') and ('free' in x or 'observed' in x)]:
@@ -150,6 +153,7 @@ class Session:
      self.r['initialization_form_field_count']=len(form)
      self.r['form_fields_observed']=sorted(set(form)&FORM_FIELDS)
      self.r['unknown_form_fields']=bool(set(form)-FORM_FIELDS)
+     if self.r['protocol_diagnostic_only']:self.r['form_structure']=diagnostics.summarize_form(form)
    if self.verify()is not True:raise probe.Stop('identity_changed')
    code=error_code(data);self.r['last_agent_error_code']=code
    # Initialization forms may carry a global error about an unfilled game directory.
@@ -280,7 +284,8 @@ def run(out,diagnostic_only=False):
      try:r['destination_free_after_bytes'],r['system_free_after_bytes']=disk_pair(target,system)
      except OSError:pass
   def identity_observer(state,stage):record_identity(r,state,stage)
-  r['handshake']=probe.run(out,after_handshake=observer,report_sink=r['handshake'],identity_observer=identity_observer)
+  def identity_details_observer(details):r['transition_diagnostic']=diagnostics.validate_transition(details)
+  r['handshake']=probe.run(out,after_handshake=observer,report_sink=r['handshake'],identity_observer=identity_observer,identity_details_observer=identity_details_observer)
   if r['status']=='not_started':r['status']='handshake_not_ready'
   if r['handshake']['status']!='handshake_token_observed'and r['status']in('baseline_agent_complete','initialization_inspected'):r['status']='identity_changed'
  except probe.Stop as e:r['status']=str(e)if str(e)in STATUSES else'stopped_safely'
