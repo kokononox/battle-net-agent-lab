@@ -9,7 +9,7 @@ permissions: {}
 jobs:
   build:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved local privacy monitor selftest and portable build u1b'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved local privacy monitor selftest and portable build u1c'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -43,10 +43,14 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           & "$root/runtime/python.exe" -I "$root/app/monitor.py" --selftest-only
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python local-retail-monitor/certificate_gate.py
+      - name: Verify downloaded pinned Blizzard image signature without executing it
+        id: certificate
+        if: steps.package.outcome == 'success'
+        continue-on-error: true
+        run: python local-retail-monitor/certificate_gate.py
       - name: Upload portable observer only after all native gates pass
         id: portable
-        if: steps.native.outcome == 'success'
+        if: steps.native.outcome == 'success' && steps.certificate.outcome == 'success'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: Local-Retail-Privacy-Monitor-U1
@@ -62,6 +66,7 @@ jobs:
           DEPS_OUTCOME: ${{ steps.deps.outcome }}
           PACKAGE_OUTCOME: ${{ steps.package.outcome }}
           NATIVE_OUTCOME: ${{ steps.native.outcome }}
+          CERTIFICATE_OUTCOME: ${{ steps.certificate.outcome }}
           ARTIFACT_URL: ${{ steps.portable.outputs.artifact-url }}
           ARTIFACT_DIGEST: ${{ steps.portable.outputs.artifact-digest }}
         run: python local-retail-monitor/build_receipt.py
