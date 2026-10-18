@@ -367,6 +367,34 @@ test_stale_writer (test_segment_stage.Tests.test_stale_writer) ... ok
 test_symlink_segment (test_segment_stage.Tests.test_symlink_segment) ... ok
 test_total_change (test_segment_stage.Tests.test_total_change) ... ok
 test_wrong_url (test_segment_stage.Tests.test_wrong_url) ... ok
+test_catalogue_database_tamper (test_selection_policy.Integration.test_catalogue_database_tamper) ... ok
+test_different_target_region (test_selection_policy.Integration.test_different_target_region) ... ok
+test_fake_plan_bitmap_digest (test_selection_policy.Integration.test_fake_plan_bitmap_digest) ... ok
+test_full_owned_chain (test_selection_policy.Integration.test_full_owned_chain) ... ok
+test_metadata_tamper (test_selection_policy.Integration.test_metadata_tamper) ... ok
+test_no_plan_writes (test_selection_policy.Integration.test_no_plan_writes) ... ok
+test_plan_database_tamper (test_selection_policy.Integration.test_plan_database_tamper) ... ok
+test_target_disagreement (test_selection_policy.Integration.test_target_disagreement) ... ok
+test_bool_locale_rejected (test_selection_policy.Pure.test_bool_locale_rejected) ... ok
+test_duplicate_locale (test_selection_policy.Pure.test_duplicate_locale) ... ok
+test_duplicate_name_stops (test_selection_policy.Pure.test_duplicate_name_stops) ... ok
+test_empty_locales (test_selection_policy.Pure.test_empty_locales) ... ok
+test_expression_injection (test_selection_policy.Pure.test_expression_injection) ... ok
+test_feature_intersection_is_not_preference (test_selection_policy.Pure.test_feature_intersection_is_not_preference) ... ok
+test_locale_order_canonical (test_selection_policy.Pure.test_locale_order_canonical) ... ok
+test_manifest_schema_disagreement (test_selection_policy.Pure.test_manifest_schema_disagreement) ... ok
+test_missing_dimension_stops (test_selection_policy.Pure.test_missing_dimension_stops) ... ok
+test_multiple_text_locales (test_selection_policy.Pure.test_multiple_text_locales) ... ok
+test_no_feature_still_not_vendor_qualified (test_selection_policy.Pure.test_no_feature_still_not_vendor_qualified) ... ok
+test_no_optional_dimension (test_selection_policy.Pure.test_no_optional_dimension) ... ok
+test_private_or_authority_field_not_accepted (test_selection_policy.Pure.test_private_or_authority_field_not_accepted) ... ok
+test_speech_locale_not_cross_product_with_text (test_selection_policy.Pure.test_speech_locale_not_cross_product_with_text) ... ok
+test_speech_only (test_selection_policy.Pure.test_speech_only) ... ok
+test_text_only (test_selection_policy.Pure.test_text_only) ... ok
+test_typed_expression (test_selection_policy.Pure.test_typed_expression) ... ok
+test_unknown_kind_stops (test_selection_policy.Pure.test_unknown_kind_stops) ... ok
+test_wrong_bitmap_width (test_selection_policy.Pure.test_wrong_bitmap_width) ... ok
+test_wrong_dimension_kind_stops (test_selection_policy.Pure.test_wrong_dimension_kind_stops) ... ok
 test_msb_against_independent_tactsharp_bitarray_recipe (test_staged_reuse.SchemaRegression.test_msb_against_independent_tactsharp_bitarray_recipe) ... ok
 test_primary_key_first_without_rowid_integrity (test_staged_reuse.SchemaRegression.test_primary_key_first_without_rowid_integrity) ... ok
 test_changed_target (test_staged_reuse.Tests.test_changed_target) ... ok
@@ -383,6 +411,6 @@ test_other_schema (test_tag_crosscheck.Tests.test_other_schema) ... ok
 test_union_for_variants (test_tag_crosscheck.Tests.test_union_for_variants) ... ok
 
 ----------------------------------------------------------------------
-Ran 383 tests in 0.601s
+Ran 411 tests in 0.641s
 
 OK

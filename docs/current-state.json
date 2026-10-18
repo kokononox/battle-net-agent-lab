@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-18T01:01:00.736500+00:00",
+  "as_of_utc": "2026-10-18T01:20:01.757952+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -81,9 +81,9 @@
   },
   "current_focus": "Reusable version-independent WoW Retail updater",
   "current_updater": {
-    "release": "0.15",
+    "release": "0.16",
     "source": "updater-core/",
-    "unit_tests_linux": 383,
+    "unit_tests_linux": 411,
     "native_windows_qualified": false,
     "historical_baseline": "12.1.0.69933",
     "pinned_target": "12.1.5.70448",
@@ -100,7 +100,11 @@
     "required_network_download_bytes": null,
     "CASC_writer_implemented": false,
     "installation_ready": false,
-    "apply_authorized": false
+    "apply_authorized": false,
+    "typed_profile_review_implemented": true,
+    "typed_profile_candidate_bitmaps_unchanged": true,
+    "promotion_to_required_set_permitted": false,
+    "selection_policy_report": "updater-core/reports/SELECTION-POLICY-to-share.json"
   },
   "github_experiment_reverified_in_this_sync": false
 }
