@@ -189,7 +189,23 @@ def choose_agent(root,is_reparse):
     if len(candidates)!=1:raise Stop('agent_not_unique')
     return candidates[0].resolve()
 
-def run(out, after_handshake=None, report_sink=None):
+IDENTITY_STATES={'verified','process_exited','image_changed','listener_missing',
+                 'listener_changed','listener_not_unique','inspection_failed'}
+IDENTITY_STAGES={'after_handshake','observer','after_observer'}
+
+def identity_state(process,agent,selected):
+    # Diagnostics do not adopt new PIDs, images, ports, or tokens.
+    try:
+        if process.poll() is not None:return 'process_exited'
+        if process_image(process.pid).resolve()!=agent:return 'image_changed'
+        rows=listener_rows(process.pid)
+        if not rows:return 'listener_missing'
+        if len(rows)!=1:return 'listener_not_unique'
+        current=choose_listener(rows)
+        return 'verified' if current==selected else 'listener_changed'
+    except Exception:return 'inspection_failed'
+
+def run(out, after_handshake=None, report_sink=None, identity_observer=None):
     r=blank() if report_sink is None else report_sink
     if r!=blank():raise ValueError("handshake_sink_must_be_blank")
     process=None;env=None
@@ -225,16 +241,18 @@ def run(out, after_handshake=None, report_sink=None):
         if not selected:raise Stop('listener_not_unique')
         if process.poll() is not None or process_image(process.pid).resolve()!=agent or choose_listener(listener_rows(process.pid))!=selected:raise Stop('identity_changed')
         port,binding=selected;r['listener_binding']=binding;r['listener_owner_verified']=True
-        def verify_live():
-            if process.poll() is not None or process_image(process.pid).resolve()!=agent or choose_listener(listener_rows(process.pid))!=selected:raise Stop('identity_changed')
+        def verify_live(stage='observer'):
+            state=identity_state(process,agent,selected)
+            if identity_observer is not None:identity_observer(state,stage)
+            if state!='verified':raise Stop('identity_changed')
             return True
         token=request_agent(port,r)
-        verify_live()
+        verify_live('after_handshake')
         # Only trusted in-repository observers; no plugin or configuration loading.
         # Nested handshake count remains 1; the observer reports its own extra request.
         if after_handshake is not None and token is not None:
             after_handshake(token,port,verify_live)
-            verify_live()
+            verify_live('after_observer')
         token=None
     except Stop as exc:r['status']=str(exc) if str(exc) in STATUSES else 'stopped_safely'
     except Exception:r['status']='stopped_safely' # Never stringify exceptions/response data.

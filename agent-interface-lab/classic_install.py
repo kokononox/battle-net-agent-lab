@@ -15,7 +15,8 @@ import probe
 
 APPROVAL='lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
 PRODUCT='wow_classic_era'
-SCHEMA='classic-baseline-install-1'
+SCHEMA='classic-baseline-install-2'
+DIAGNOSTIC_APPROVAL='lab: approved Classic initialization protocol diagnostic 2026-10-18 d2097c4e'
 MIN_FREE=40*1024**3
 RESERVE=10*1024**3
 MAX_POLLS=120
@@ -24,7 +25,7 @@ STATUSES={'not_started','environment_refused','disk_refused','target_refused','d
  'existing_products_refused','initialization_form_unknown','authentication_required',
  'legal_consent_required','minimum_spec_refused','game_dir_refused','installation_queued',
  'install_observation_timeout','agent_installed_build_unverified','baseline_agent_complete',
- 'stopped_safely'}
+ 'stopped_safely','initialization_inspected'}
 FORM_FIELDS={'authentication','game_dir','min_spec','language','eula'}
 
 def blank():
@@ -38,6 +39,10 @@ def blank():
   destination_free_after_bytes=0,system_free_after_bytes=0,
   minimum_free_before_bytes=MIN_FREE,reserve_free_bytes=RESERVE,
   min_destination_free_observed_bytes=0,min_system_free_observed_bytes=0,
+  protocol_diagnostic_only=False,identity_check_count=0,last_identity_state=None,
+  last_identity_stage=None,identity_failure_state=None,identity_failure_stage=None,
+  initialization_http_status=None,initialization_response_bytes=0,
+  initialization_json_object=False,initialization_form_present=False,initialization_form_field_count=0,
   total_local_requests=0,initialization_attempted=False,finalization_attempted=False,
   initial_game_summary_empty=False,initialization_response_accepted=False,
   form_fields_observed=[],unknown_form_fields=False,
@@ -56,7 +61,7 @@ def blank():
 MUTABLE_FLAGS={'approval_present','destination_fixed_drive','destination_new_empty',
  'initialization_attempted','finalization_attempted','initial_game_summary_empty',
  'initialization_response_accepted','unknown_form_fields','agent_build_identity_matches',
- 'owned_build_info_read'}
+ 'owned_build_info_read','protocol_diagnostic_only','initialization_json_object','initialization_form_present'}
 def validate(r):
  t=blank()
  if type(r)is not dict or set(r)!=set(t):raise ValueError('install_schema')
@@ -79,6 +84,18 @@ def validate(r):
  if r['observed_version']is not None and re.fullmatch(r'\d{1,4}\.\d{1,4}\.\d{1,4}\.\d{1,10}',r['observed_version'])is None:raise ValueError('version')
  for k,n in [('observed_build_config',32),('versions_sha256',64)]:
   if r[k]is not None and re.fullmatch('[0-9a-f]{'+str(n)+'}',r[k])is None:raise ValueError('hash')
+ for k,cap in [('identity_check_count',256),('initialization_response_bytes',probe.MAX_BODY),('initialization_form_field_count',32)]:
+  if type(r[k])is not int or not 0<=r[k]<=cap:raise ValueError('protocol_count')
+ if r['initialization_http_status']is not None and(type(r['initialization_http_status'])is not int or not 100<=r['initialization_http_status']<=599):raise ValueError('protocol_http')
+ for k in ('last_identity_state','identity_failure_state'):
+  if r[k]is not None and r[k]not in probe.IDENTITY_STATES:raise ValueError('identity_state')
+ for k in ('last_identity_stage','identity_failure_stage'):
+  if r[k]is not None and r[k]not in probe.IDENTITY_STAGES:raise ValueError('identity_stage')
+ if r['identity_failure_state']=='verified':raise ValueError('identity_false_failure')
+ if (r['last_identity_state']is None)!=(r['last_identity_stage']is None):raise ValueError('identity_state_stage')
+ if (r['identity_failure_state']is None)!=(r['identity_failure_stage']is None):raise ValueError('identity_failure_pair')
+ if r['protocol_diagnostic_only']and(r['finalization_attempted']or r['total_local_requests']>2):raise ValueError('diagnostic_mutation')
+ if r['status']=='initialization_inspected'and not(r['protocol_diagnostic_only']and r['initialization_response_accepted']and r['initialization_json_object']and r['identity_failure_state']is None and r['identity_check_count']>0 and r['last_identity_state']=='verified'):raise ValueError('diagnostic_evidence')
  if r['initialization_attempted'] and not all(r[k]for k in ('approval_present','destination_fixed_drive','destination_new_empty','initial_game_summary_empty')):raise ValueError('unsafe_initialization')
  if r['finalization_attempted'] and (not r['initialization_response_accepted']or not r['initialization_attempted']):raise ValueError('unsafe_finalization')
  if r['status']=='baseline_agent_complete' and not(r['finalization_attempted']and r['agent_installed']is True and r['agent_download_complete']is True and r['agent_build_identity_matches']and r['owned_build_info_read']):raise ValueError('completion_evidence')
@@ -99,6 +116,7 @@ class Session:
  def request(self,method,path,payload=None):
   allowed=(method=='GET' and path in('/game','/game/'+PRODUCT))or(method=='POST'and path in('/install','/install/'+PRODUCT))
   if not allowed or (method=='GET'and payload is not None) or(method=='POST'and type(payload)is not dict)or self.r['total_local_requests']>=124:raise probe.Stop('request_refused')
+  if self.r['protocol_diagnostic_only']and(path=='/install/'+PRODUCT or self.r['total_local_requests']>=2):raise probe.Stop('request_refused')
   if path=='/install':
    if self.init:raise probe.Stop('request_refused')
    self.init=True
@@ -115,13 +133,23 @@ class Session:
   conn=self.factory('127.0.0.1',self.port,timeout=10)
   try:
    conn.request(method,path,body=body,headers=headers);response=conn.getresponse();self.r['last_local_http_status']=response.status
-   if response.status!=200 or response.getheader('Content-Encoding','identity').lower()not in('','identity'):raise probe.Stop('response_refused')
+   if method=='POST'and path=='/install':self.r['initialization_http_status']=response.status
+   accepted=(200,201)if method=='POST'and path=='/install'else(200,)
+   if response.status not in accepted or response.getheader('Content-Encoding','identity').lower()not in('','identity'):raise probe.Stop('response_refused')
    n=response.getheader('Content-Length')
    if n is not None and(re.fullmatch('[0-9]{1,10}',n)is None or int(n)>probe.MAX_BODY):raise probe.Stop('response_refused')
    raw=response.read(probe.MAX_BODY+1)
    if len(raw)>probe.MAX_BODY or n is not None and len(raw)!=int(n):raise probe.Stop('response_refused')
+   if path=='/install':self.r['initialization_response_bytes']=len(raw)
    try:data=probe.unique_json(raw)
    except Exception:raise probe.Stop('response_refused')from None
+   if path=='/install':
+    self.r['initialization_json_object']=True
+    form=data.get('form');self.r['initialization_form_present']=type(form)is dict
+    if type(form)is dict and len(form)<=32:
+     self.r['initialization_form_field_count']=len(form)
+     self.r['form_fields_observed']=sorted(set(form)&FORM_FIELDS)
+     self.r['unknown_form_fields']=bool(set(form)-FORM_FIELDS)
    if self.verify()is not True:raise probe.Stop('identity_changed')
    code=error_code(data);self.r['last_agent_error_code']=code
    # Initialization forms may carry a global error about an unfilled game directory.
@@ -205,6 +233,8 @@ def observe(token,port,verify,r,target,system,is_reparse,sleep=time.sleep,clock=
  r['initial_game_summary_empty']=True
  sample_disk(target,system,r)
  data=session.request('POST','/install',initialized_payload());inspect_form(data,r)
+ if r['protocol_diagnostic_only']:
+  r['status']='initialization_inspected';return
  sample_disk(target,system,r)
  session.request('POST','/install/'+PRODUCT,finalized_payload(target));r['status']='installation_queued'
  end=clock()+20*60
@@ -221,10 +251,18 @@ def observe(token,port,verify,r,target,system,is_reparse,sleep=time.sleep,clock=
   sleep(10)
  r['status']='install_observation_timeout'
 
-def run(out):
- r=blank();start=time.monotonic();target=system=None
+def record_identity(r,state,stage):
+ if state not in probe.IDENTITY_STATES or stage not in probe.IDENTITY_STAGES:raise ValueError('identity_enum')
+ r['identity_check_count']+=1;r['last_identity_state']=state;r['last_identity_stage']=stage
+ if state!='verified'and r['identity_failure_state']is None:
+  r['identity_failure_state']=state;r['identity_failure_stage']=stage
+
+def run(out,diagnostic_only=False):
+ if type(diagnostic_only)is not bool:raise ValueError('diagnostic_mode')
+ r=blank();r['protocol_diagnostic_only']=diagnostic_only;start=time.monotonic();target=system=None
  try:
   if not fresh_environment(os.environ,sys.platform):raise probe.Stop('environment_refused')
+  if diagnostic_only and os.environ.get('CLASSIC_PROTOCOL_ONCE')!=DIAGNOSTIC_APPROVAL:raise probe.Stop('environment_refused')
   r['approval_present']=True
   # New identity is read before any installation request. No use of a stale pinned build.
   try:discover(r)
@@ -241,9 +279,10 @@ def run(out):
     if target is not None:
      try:r['destination_free_after_bytes'],r['system_free_after_bytes']=disk_pair(target,system)
      except OSError:pass
-  r['handshake']=probe.run(out,after_handshake=observer,report_sink=r['handshake'])
+  def identity_observer(state,stage):record_identity(r,state,stage)
+  r['handshake']=probe.run(out,after_handshake=observer,report_sink=r['handshake'],identity_observer=identity_observer)
   if r['status']=='not_started':r['status']='handshake_not_ready'
-  if r['handshake']['status']!='handshake_token_observed'and r['status']=='baseline_agent_complete':r['status']='identity_changed'
+  if r['handshake']['status']!='handshake_token_observed'and r['status']in('baseline_agent_complete','initialization_inspected'):r['status']='identity_changed'
  except probe.Stop as e:r['status']=str(e)if str(e)in STATUSES else'stopped_safely'
  except Exception:r['status']='stopped_safely'
  finally:
@@ -253,4 +292,5 @@ def run(out):
  return r
 if __name__=='__main__':
  sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
- run(Path('output'))
+ if len(sys.argv)>2 or len(sys.argv)==2 and sys.argv[1]!='--protocol-diagnostic':raise ValueError('arguments')
+ run(Path('output'),diagnostic_only=len(sys.argv)==2)

@@ -13,7 +13,7 @@ concurrency:
 jobs:
   observe:
     if: >-
-      github.event_name == 'push' && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved Classic SDK-only disk fix 2026-10-18 b37a19d2'
+      github.event_name == 'push' && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved Classic initialization protocol diagnostic 2026-10-18 d2097c4e'
     runs-on: windows-2025
     timeout-minutes: 35
     permissions:
@@ -35,11 +35,12 @@ jobs:
           CLASSIC_INSTALL_ONCE: 'lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
           CLASSIC_DISK_PREPARE_ONCE: 'lab: approved Classic SDK-only disk fix 2026-10-18 b37a19d2'
         run: python agent-interface-lab/disk_prepare.py
-      - name: Attempt approved isolated Classic baseline install
+      - name: Diagnose initialization only without finalizing installation
         env:
           AGENT_INTERFACE_ONCE: 'lab: approved logged-out Agent interface probe 2026-10-17 6f4d2b81'
           CLASSIC_INSTALL_ONCE: 'lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
-        run: python agent-interface-lab/classic_install.py
+          CLASSIC_PROTOCOL_ONCE: 'lab: approved Classic initialization protocol diagnostic 2026-10-18 d2097c4e'
+        run: python agent-interface-lab/classic_install.py --protocol-diagnostic
       - name: Validate the nested bounded report before export
         if: always()
         shell: python
