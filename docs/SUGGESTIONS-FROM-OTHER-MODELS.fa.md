@@ -1,5 +1,10 @@
 # پیشنهادات مدل‌های دیگر
 
+<!-- project-current-status-link:start -->
+> **پیش از پیشنهاد تازه، [وضعیت جاری و گام فعال پروژه](STATUS.fa.md) را بخوانید.** عامل اجرایی همان فایل را پس از نتایج/تصمیم‌های مهم در جلسات فعال به‌روز می‌کند. تحلیل تاریخیِ پایین، بر مبنای `2614b3a` است و شواهد جدید H1/U1 را پوشش نمی‌دهد؛ متن پیشنهادهای همکاران بدون تغییر حفظ شده است.
+<!-- project-current-status-link:end -->
+
+
 > این سند فقط پیشنهاد است، نه تصمیم یا مجوز. هیچ workflow، کد یا گزارشی با آن تغییر نکرده است. مبنای بررسی: README، `NEXT-STEPS.fa.md`، `UPDATER-REMAINING.fa.md`، `CLASSIC-BASELINE-EXPERIMENT.fa.md`، `reports/classic-install-latest.json`، `reports/classic-disk-latest.json` و `reports/classic-old-build-69722-availability.json` در commit `2614b3a`.
 
 ## ۱. جمع‌بندی وضعیت از نگاه بیرونی
