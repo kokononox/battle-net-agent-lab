@@ -1,8 +1,8 @@
 import copy,json,unittest
 from publish_portable_ci import validate
-from run_portable_ci import MODULES
+from run_portable_ci import MODULES,EXPECTED_TESTS
 class Tests(unittest.TestCase):
- def fixture(self):return {'format':'updater-windows-scratch-ci-2','source_commit':'a'*40,'platform':'Windows','python_version':'3.13.1','tests_run':111,'expected_tests':111,'failed_cases':[],'native_windows_stage_synthetic_tests_passed':True,'failures':0,'errors':0,'skipped':0,'passed':True,'test_modules':MODULES,'scope':'synthetic_windows_owned_staging_and_portable_parser','game_access':False,'network_in_test_suite':False,'native_windows_staging_backend_qualified':False,'windows_installer_qualified':False,'installation_ready':False,'apply_authorized':False}
+ def fixture(self):return {'format':'updater-windows-scratch-ci-2','source_commit':'a'*40,'platform':'Windows','python_version':'3.13.1','tests_run':EXPECTED_TESTS,'expected_tests':EXPECTED_TESTS,'failed_cases':[],'native_windows_stage_synthetic_tests_passed':True,'failures':0,'errors':0,'skipped':0,'passed':True,'test_modules':MODULES,'scope':'synthetic_windows_owned_staging_and_portable_parser','game_access':False,'network_in_test_suite':False,'native_windows_staging_backend_qualified':False,'windows_installer_qualified':False,'installation_ready':False,'apply_authorized':False}
  def verify(self,r):return validate(json.dumps(r).encode(),'a'*40)
  def bad(self,key,value):
   r=self.fixture();r[key]=value

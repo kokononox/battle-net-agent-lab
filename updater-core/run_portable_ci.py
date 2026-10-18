@@ -1,8 +1,8 @@
 """Offline synthetic parser/selection CI. No staging backend/installer claims."""
 import argparse,json,os,platform,re,sys,unittest
 from pathlib import Path
-MODULES=['test_stream_blte','test_required_set','test_selection_policy.Pure','windows_stage_cases']
-EXPECTED_TESTS=111
+MODULES=['test_stream_blte','test_required_set','test_selection_policy.Pure','windows_stage_cases','windows_admission_cases']
+EXPECTED_TESTS=121
 def run(output):
  commit=os.environ.get('UPDATER_SOURCE_COMMIT','local-uncommitted');assert commit=='local-uncommitted'or re.fullmatch('[0-9a-f]{40}',commit)
  suite=unittest.defaultTestLoader.loadTestsFromNames(MODULES);result=unittest.TextTestRunner(verbosity=1).run(suite)

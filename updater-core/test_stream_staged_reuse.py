@@ -28,4 +28,14 @@ class Tests(unittest.TestCase):
   with self.assertRaises(InvalidRelease):self.run_review()
  def test_receipt_does_not_grant_apply(self):
   p=self.plan/'CANDIDATE-PLAN-to-share.json';r=json.loads(p.read_bytes());r['apply_authorized']=True;p.write_text(json.dumps(r));self.assertFalse(self.run_review()['apply_authorized'])
+class AdmissionTypeTests(unittest.TestCase):
+ def test_fake_refused_before_any_path_read(self):
+  with self.assertRaisesRegex(InvalidRelease,'stream_owned_stage_required'):reverify_stream_candidate(object(),'not-read','not-read')
+ def test_posix_subclass_refused(self):
+  class UnknownStage(StreamStage):pass
+  with self.assertRaisesRegex(InvalidRelease,'stream_owned_stage_required'):reverify_stream_candidate(UnknownStage(),'not-read','not-read')
+ def test_native_subclass_refused(self):
+  from windows_stream_stage import WindowsStreamStage
+  class UnknownStage(WindowsStreamStage):pass
+  with self.assertRaisesRegex(InvalidRelease,'stream_owned_stage_required'):reverify_stream_candidate(UnknownStage(),'not-read','not-read')
 if __name__=='__main__':unittest.main()
