@@ -1,4 +1,4 @@
-# Source and offline test instructions — 0.21
+# Source and offline test instructions — 0.22
 
 This is a research core, NOT a game updater release. Do not point it at a game installation. All automated native tests use newly created synthetic temporary fixtures only.
 
@@ -11,7 +11,7 @@ python -m unittest discover
 
 The source repository stores five public metadata fixtures in text encoding; the restoration helper checks their exact expected digests. The local source ZIP already includes those small fixtures. Large decoded metadata, SQLite databases and staged game payloads are not shipped.
 
-Linux regression: 562 tests passed. On Windows, the separate CI explicitly loads 73 portable parser/selection plus 38 native scratch and 10 native candidate admission and 53 bounded transfer and 26 local reconciliation tests: 200 passed, zero skips/errors/failures. Native cases are deliberately not part of Linux discovery. See reports/WINDOWS-RECONCILE-CI-to-share.json for the exact source commit and reports/WINDOWS-STAGE-FIRST-FAILURE-to-share.json for the fixed directory-sharing regression.
+Linux regression: 595 tests passed. The Windows-only CI suite loads 73 portable parser/selection, 38 native scratch, 10 native candidate admission, 53 bounded transfer, 26 local reconciliation and 33 scope lifecycle cases: 233 passed with zero skips/errors/failures. Actual result and immutable source commit are recorded in reports/WINDOWS-SCOPE-CI-to-share.json. Platform counts overlap and must not be added. Native-only cases are intentionally not in Linux discovery. Earlier directory-sharing failure evidence is preserved in reports/WINDOWS-STAGE-FIRST-FAILURE-to-share.json.
 
 Do not run run_portable_ci.py on Linux expecting success: it is explicitly Windows-only. It produces a new minimal JSON receipt; it never invokes an installer. The existing Agent observation workflow is separate and unchanged.
 
@@ -20,3 +20,5 @@ Synthetic native staging success is not production qualification. Exact-type Win
 The new HTTP adapter is integrated through an explicit bounded grant and durable attempt ledger. All 53 transfer tests use synthetic data; HTTP is mocked. No real game CDN transfer was executed. Ambiguous pending attempts stop and cannot auto-retry. See research/TRANSFER-SAFETY.md.
 
 Explicit local reconciliation (0.21) may accept exactly one already-journaled reserved range after predecessor reconstruction, fresh segment/full-object verification as applicable, and shared-entity checks. It does not fetch, retry, reset budget, break locks, adopt orphans or automatically continue. Uncommitted pending attempts remain blocked. See research/RECONCILIATION-SAFETY.md.
+
+Explicit scope lifecycle: see research/SCOPE-RETIREMENT-SAFETY.md. It never calls fetch/step, refunds a consumed reservation, breaks a lock or authorizes installation.
