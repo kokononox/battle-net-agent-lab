@@ -1,3 +1,5 @@
+/data/updater-core-0.17/publish_portable_ci.py:16: SyntaxWarning: invalid escape sequence '\.'
+  assert r['platform']=='Windows'and type(r['python_version'])is str and re.fullmatch('[0-9]+\.[0-9]+\.[0-9]+',r['python_version'])
 test_actual_public_archive (test_actual_archive_index.Tests.test_actual_public_archive) ... ok
 test_actual_positive_full_key_size_route (test_actual_archive_route.Tests.test_actual_positive_full_key_size_route) ... ok
 test_pinned_public_loose_index (test_actual_cdn_metadata.Tests.test_pinned_public_loose_index) ... ok
@@ -227,6 +229,16 @@ test_short_span (test_paired_prefix.Tests.test_short_span) ... ok
 test_wrong_index_hash (test_paired_prefix.Tests.test_wrong_index_hash) ... ok
 test_wrong_row (test_paired_prefix.Tests.test_wrong_row) ... ok
 test_zero_prefix_valid (test_paired_prefix.Tests.test_zero_prefix_valid) ... ok
+test_boolean_test_count_refused (test_portable_ci_report.Tests.test_boolean_test_count_refused) ... ok
+test_duplicate_field_refused (test_portable_ci_report.Tests.test_duplicate_field_refused) ... ok
+test_extra_private_field_refused (test_portable_ci_report.Tests.test_extra_private_field_refused) ... ok
+test_installation_claim_refused (test_portable_ci_report.Tests.test_installation_claim_refused) ... ok
+test_linux_not_windows_proof (test_portable_ci_report.Tests.test_linux_not_windows_proof) ... ok
+test_native_staging_claim_refused (test_portable_ci_report.Tests.test_native_staging_claim_refused) ... ok
+test_skipped_not_qualified (test_portable_ci_report.Tests.test_skipped_not_qualified) ... ok
+test_smaller_suite_not_qualified (test_portable_ci_report.Tests.test_smaller_suite_not_qualified) ... ok
+test_valid_minimal (test_portable_ci_report.Tests.test_valid_minimal) ... ok
+test_wrong_source_commit (test_portable_ci_report.Tests.test_wrong_source_commit) ... ok
 test_bad_chunk (test_range_resume.Tests.test_bad_chunk) ... ok
 test_bad_headers_before_read (test_range_resume.Tests.test_bad_headers_before_read) ... ok
 test_changed_etag (test_range_resume.Tests.test_changed_etag) ... ok
@@ -403,6 +415,61 @@ test_receipt_flags_not_an_authority (test_staged_reuse.Tests.test_receipt_flags_
 test_tampered_plan (test_staged_reuse.Tests.test_tampered_plan) ... ok
 test_tampered_stage (test_staged_reuse.Tests.test_tampered_stage) ... ok
 test_verified_input_not_installed_reuse (test_staged_reuse.Tests.test_verified_input_not_installed_reuse) ... ok
+test_boolean_size_refused (test_stream_blte.Tests.test_boolean_size_refused) ... ok
+test_checksum_failure (test_stream_blte.Tests.test_checksum_failure) ... ok
+test_compressed_twenty_mib_bounded_peak (test_stream_blte.Tests.test_compressed_twenty_mib_bounded_peak) ... ok
+test_headered_n (test_stream_blte.Tests.test_headered_n) ... ok
+test_headered_z (test_stream_blte.Tests.test_headered_z) ... ok
+test_headerless_expansion_bomb_stopped (test_stream_blte.Tests.test_headerless_expansion_bomb_stopped) ... ok
+test_headerless_n (test_stream_blte.Tests.test_headerless_n) ... ok
+test_headerless_z (test_stream_blte.Tests.test_headerless_z) ... ok
+test_huge_header_refused_before_body (test_stream_blte.Tests.test_huge_header_refused_before_body) ... ok
+test_large_n_over_old_four_mib_limit (test_stream_blte.Tests.test_large_n_over_old_four_mib_limit) ... ok
+test_matches_old_small_verifier (test_stream_blte.Tests.test_matches_old_small_verifier) ... ok
+test_mixed_chunks (test_stream_blte.Tests.test_mixed_chunks) ... ok
+test_read_over_return_refused (test_stream_blte.Tests.test_read_over_return_refused) ... ok
+test_short_reads_one_byte (test_stream_blte.Tests.test_short_reads_one_byte) ... ok
+test_trailing (test_stream_blte.Tests.test_trailing) ... ok
+test_truncated (test_stream_blte.Tests.test_truncated) ... ok
+test_unsupported_mode_no_fallback (test_stream_blte.Tests.test_unsupported_mode_no_fallback) ... ok
+test_wrong_ckey (test_stream_blte.Tests.test_wrong_ckey) ... ok
+test_wrong_decoded_total (test_stream_blte.Tests.test_wrong_decoded_total) ... ok
+test_wrong_ekey (test_stream_blte.Tests.test_wrong_ekey) ... ok
+test_wrong_flags (test_stream_blte.Tests.test_wrong_flags) ... ok
+test_wrong_headerless_ekey (test_stream_blte.Tests.test_wrong_headerless_ekey) ... ok
+test_zlib_trailing (test_stream_blte.Tests.test_zlib_trailing) ... ok
+test_zlib_truncated (test_stream_blte.Tests.test_zlib_truncated) ... ok
+test_boolean_geometry (test_stream_stage.Tests.test_boolean_geometry) ... ok
+test_changed_baseline (test_stream_stage.Tests.test_changed_baseline) ... ok
+test_changed_source (test_stream_stage.Tests.test_changed_source) ... ok
+test_changed_target (test_stream_stage.Tests.test_changed_target) ... ok
+test_changed_total (test_stream_stage.Tests.test_changed_total) ... ok
+test_complete_stream_verify (test_stream_stage.Tests.test_complete_stream_verify) ... ok
+test_corrupt_payload_restore_does_not_claim_health (test_stream_stage.Tests.test_corrupt_payload_restore_does_not_claim_health) ... ok
+test_crash_after_replace (test_stream_stage.Tests.test_crash_after_replace) ... ok
+test_crash_before_journal (test_stream_stage.Tests.test_crash_before_journal) ... ok
+test_crash_before_replace (test_stream_stage.Tests.test_crash_before_replace) ... ok
+test_duplicate_json (test_stream_stage.Tests.test_duplicate_json) ... ok
+test_gap_in_journal (test_stream_stage.Tests.test_gap_in_journal) ... ok
+test_hardlink_payload (test_stream_stage.Tests.test_hardlink_payload) ... ok
+test_incomplete_no_proof (test_stream_stage.Tests.test_incomplete_no_proof) ... ok
+test_large_n_across_segments_and_process (test_stream_stage.Tests.test_large_n_across_segments_and_process) ... ok
+test_lock_not_broken (test_stream_stage.Tests.test_lock_not_broken) ... ok
+test_missing_payload_rejected_on_verify (test_stream_stage.Tests.test_missing_payload_rejected_on_verify) ... ok
+test_orphan_never_adopted (test_stream_stage.Tests.test_orphan_never_adopted) ... ok
+test_payload_digest_and_full_ckey_both_required (test_stream_stage.Tests.test_payload_digest_and_full_ckey_both_required) ... ok
+test_restore_not_payload_proof (test_stream_stage.Tests.test_restore_not_payload_proof) ... ok
+test_stale_writer (test_stream_stage.Tests.test_stale_writer) ... ok
+test_symlink_payload (test_stream_stage.Tests.test_symlink_payload) ... ok
+test_traversal (test_stream_stage.Tests.test_traversal) ... ok
+test_wrong_etag (test_stream_stage.Tests.test_wrong_etag) ... ok
+test_wrong_url (test_stream_stage.Tests.test_wrong_url) ... ok
+test_catalogue_changed (test_stream_staged_reuse.Tests.test_catalogue_changed) ... ok
+test_corrupt_segment (test_stream_staged_reuse.Tests.test_corrupt_segment) ... ok
+test_receipt_does_not_grant_apply (test_stream_staged_reuse.Tests.test_receipt_does_not_grant_apply) ... ok
+test_target_changed (test_stream_staged_reuse.Tests.test_target_changed) ... ok
+test_unselected_object (test_stream_staged_reuse.Tests.test_unselected_object) ... ok
+test_verified_candidate (test_stream_staged_reuse.Tests.test_verified_candidate) ... ok
 test_ambiguous_representation (test_tag_crosscheck.Tests.test_ambiguous_representation) ... ok
 test_disagreement (test_tag_crosscheck.Tests.test_disagreement) ... ok
 test_missing_link (test_tag_crosscheck.Tests.test_missing_link) ... ok
@@ -411,6 +478,6 @@ test_other_schema (test_tag_crosscheck.Tests.test_other_schema) ... ok
 test_union_for_variants (test_tag_crosscheck.Tests.test_union_for_variants) ... ok
 
 ----------------------------------------------------------------------
-Ran 411 tests in 0.641s
+Ran 476 tests in 1.223s
 
 OK

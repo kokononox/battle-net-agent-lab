@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-18T01:20:01.757952+00:00",
+  "as_of_utc": "2026-10-18T01:31:20.744475+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -81,9 +81,9 @@
   },
   "current_focus": "Reusable version-independent WoW Retail updater",
   "current_updater": {
-    "release": "0.16",
+    "release": "0.17",
     "source": "updater-core/",
-    "unit_tests_linux": 411,
+    "unit_tests_linux": 476,
     "native_windows_qualified": false,
     "historical_baseline": "12.1.0.69933",
     "pinned_target": "12.1.5.70448",
@@ -104,7 +104,17 @@
     "typed_profile_review_implemented": true,
     "typed_profile_candidate_bitmaps_unchanged": true,
     "promotion_to_required_set_permitted": false,
-    "selection_policy_report": "updater-core/reports/SELECTION-POLICY-to-share.json"
+    "selection_policy_report": "updater-core/reports/SELECTION-POLICY-to-share.json",
+    "portable_windows_parser_selection_tests": 73,
+    "portable_windows_parser_selection_tests_skipped": 0,
+    "portable_windows_ci_source_commit": "f8eed3f8f25aefded34143fc1aa48fea5193ee54",
+    "portable_windows_ci_receipt_commit": "71a0f0b1e37919697402ed646c951e6bb154b637",
+    "streaming_verifier_implemented": true,
+    "streaming_existing_metadata_largest_encoded_bytes": 188062372,
+    "streaming_owned_posix_stage_implemented": true,
+    "native_windows_staging_backend_qualified": false,
+    "large_object_network_controller_integrated": false
   },
-  "github_experiment_reverified_in_this_sync": false
+  "github_experiment_reverified_in_this_sync": false,
+  "next_native_environment_requirement": "isolated Windows scratch/game-copy environment required before native CASC writer/activation qualification; do not copy or modify game yet"
 }
