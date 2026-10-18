@@ -1,0 +1,214 @@
+{
+  "schema": "bnet-startup-privacy-observation-1",
+  "source_commit": "e9ac9e9e4734539c8fcbd6a39783c4eec6324a3c",
+  "run_id": "39156465402",
+  "started_utc": "2026-10-18T18:57:16.527054+00:00",
+  "scope": "signed_bootstrap_startup_and_language_page_only_not_game_update",
+  "sampler": {
+    "interval_seconds": 0.25,
+    "samples": 460,
+    "errors": 0,
+    "endpoint_limit_hit": false,
+    "dns_snapshot_errors": 2,
+    "new_dns_address_pairs": 0
+  },
+  "endpoints": [
+    {
+      "pid": 5544,
+      "process_name": "battle.net-setup.exe",
+      "address": "54.162.166.245",
+      "port": 80,
+      "first_seconds": 2.406,
+      "last_seconds": 2.406,
+      "observations": 1,
+      "states": [
+        "FinWait1"
+      ],
+      "new_dns_cache_candidates": []
+    },
+    {
+      "pid": 5544,
+      "process_name": "battle.net-setup.exe",
+      "address": "136.110.153.89",
+      "port": 443,
+      "first_seconds": 2.672,
+      "last_seconds": 9.047,
+      "observations": 3,
+      "states": [
+        "Established"
+      ],
+      "new_dns_cache_candidates": []
+    },
+    {
+      "pid": 5544,
+      "process_name": "battle.net-setup.exe",
+      "address": "8.232.70.12",
+      "port": 443,
+      "first_seconds": 8.235,
+      "last_seconds": 8.235,
+      "observations": 1,
+      "states": [
+        "Established"
+      ],
+      "new_dns_cache_candidates": []
+    },
+    {
+      "pid": 5544,
+      "process_name": "battle.net-setup.exe",
+      "address": "23.46.228.78",
+      "port": 80,
+      "first_seconds": 8.781,
+      "last_seconds": 9.828,
+      "observations": 5,
+      "states": [
+        "Established"
+      ],
+      "new_dns_cache_candidates": []
+    },
+    {
+      "pid": 5544,
+      "process_name": "battle.net-setup.exe",
+      "address": "23.11.33.159",
+      "port": 80,
+      "first_seconds": 9.297,
+      "last_seconds": 10.11,
+      "observations": 4,
+      "states": [
+        "Established"
+      ],
+      "new_dns_cache_candidates": []
+    },
+    {
+      "pid": 7976,
+      "process_name": "battle.net-setup.exe",
+      "address": "8.232.70.12",
+      "port": 443,
+      "first_seconds": 10.641,
+      "last_seconds": 10.641,
+      "observations": 1,
+      "states": [
+        "FinWait1"
+      ],
+      "new_dns_cache_candidates": []
+    },
+    {
+      "pid": 7976,
+      "process_name": "battle.net-setup.exe",
+      "address": "23.46.228.80",
+      "port": 80,
+      "first_seconds": 10.641,
+      "last_seconds": 124.344,
+      "observations": 1255,
+      "states": [
+        "SynSent",
+        "Established"
+      ],
+      "new_dns_cache_candidates": []
+    },
+    {
+      "pid": 7976,
+      "process_name": "battle.net-setup.exe",
+      "address": "23.46.228.78",
+      "port": 80,
+      "first_seconds": 10.906,
+      "last_seconds": 124.344,
+      "observations": 1257,
+      "states": [
+        "Established"
+      ],
+      "new_dns_cache_candidates": []
+    },
+    {
+      "pid": 7976,
+      "process_name": "battle.net-setup.exe",
+      "address": "23.46.228.77",
+      "port": 80,
+      "first_seconds": 11.188,
+      "last_seconds": 124.344,
+      "observations": 1254,
+      "states": [
+        "Established"
+      ],
+      "new_dns_cache_candidates": []
+    },
+    {
+      "pid": 8740,
+      "process_name": "agent.exe",
+      "address": "8.232.70.12",
+      "port": 443,
+      "first_seconds": 19.25,
+      "last_seconds": 124.344,
+      "observations": 1163,
+      "states": [
+        "Established"
+      ],
+      "new_dns_cache_candidates": []
+    },
+    {
+      "pid": 8740,
+      "process_name": "agent.exe",
+      "address": "23.46.228.80",
+      "port": 80,
+      "first_seconds": 19.516,
+      "last_seconds": 124.344,
+      "observations": 387,
+      "states": [
+        "Established"
+      ],
+      "new_dns_cache_candidates": []
+    },
+    {
+      "pid": 8740,
+      "process_name": "agent.exe",
+      "address": "136.110.153.89",
+      "port": 443,
+      "first_seconds": 22.469,
+      "last_seconds": 43.5,
+      "observations": 90,
+      "states": [
+        "Established",
+        "CloseWait",
+        "LastAck"
+      ],
+      "new_dns_cache_candidates": []
+    },
+    {
+      "pid": 8740,
+      "process_name": "agent.exe",
+      "address": "23.46.228.78",
+      "port": 80,
+      "first_seconds": 26.266,
+      "last_seconds": 124.344,
+      "observations": 362,
+      "states": [
+        "Established"
+      ],
+      "new_dns_cache_candidates": []
+    }
+  ],
+  "tls_keylog_capability": {
+    "file_created": false,
+    "bytes": 0,
+    "recognized_line_counts": {},
+    "truncated": false,
+    "keys_exported": false,
+    "decryption_attempted": false,
+    "request_content_observed": false
+  },
+  "bootstrap_status": "agent_process_observed",
+  "bootstrap_error_code": null,
+  "limits": {
+    "tcp_only": true,
+    "udp_quic_not_observed": true,
+    "short_connections_may_be_missed": true,
+    "process_attribution_by_basename_and_pid_not_signature": true,
+    "dns_candidates_not_process_attribution": true,
+    "dns_shared_ip_not_host_proof": true,
+    "no_packet_capture": true,
+    "no_payload_inspection": true,
+    "no_zero_telemetry_claim": true,
+    "child_network_hard_byte_cap": false,
+    "no_account_or_game_actions": true
+  },
+  "collection_status": "partial"
+}
