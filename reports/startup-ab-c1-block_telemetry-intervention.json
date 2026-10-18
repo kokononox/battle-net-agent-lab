@@ -1,0 +1,26 @@
+{
+  "schema": "bnet-hosts-ab-1",
+  "runner_image_version": "20261007.264.1",
+  "windows_build": 26100,
+  "source_commit": "200c3d0911fa3b82dd30fd31b6f05279b913132c",
+  "run_id": "39158224605",
+  "mode": "block_telemetry",
+  "target_domain": "telemetry-in.battle.net",
+  "expected_bootstrap_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+  "bootstrap_pin_enforced": true,
+  "pin_match": true,
+  "hosts_changed": true,
+  "hosts_restored": true,
+  "flush_before_succeeded": true,
+  "flush_after_succeeded": true,
+  "resolution_before": "public_only",
+  "resolution_at_launch": "loopback_only",
+  "target_public_addresses_before": [
+    "136.110.153.89"
+  ],
+  "launch_precondition_passed": true,
+  "capture_invoked": true,
+  "outcome": "collector_returned",
+  "error_code": null,
+  "scope": "startup_only_not_update_or_payload_privacy_proof"
+}
