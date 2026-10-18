@@ -1,5 +1,5 @@
 """Allowlisted, no-link cleanup only on an explicitly approved disposable hosted VM.
-No OS components, profiles, Python, .NET, checkout, or game installs are candidates.
+No OS components, profiles, Python, shared .NET runtimes, checkout, or games are candidates.
 Strict evidence contains only tool labels, reason enums, counts, and free-byte readings.
 """
 import json
@@ -13,7 +13,7 @@ import time
 import classic_install as c
 
 GOAL=45*1024**3
-ONCE='lab: approved Classic compiler-only disk fix 2026-10-18 8f20c64a'
+ONCE='lab: approved Classic SDK-only disk fix 2026-10-18 b37a19d2'
 MAX_ENTRIES=500000
 MAX_SCAN_SECONDS=120
 CANDIDATES=(
@@ -28,6 +28,9 @@ CANDIDATES=(
  # MSYS2 location is documented in the Windows2025 runner image inventory.
  ('msys2-toolchain',r'C:\msys64'),
  ('llvm-toolchain',r'C:\Program Files\LLVM'),
+ # Only development SDK/reference packs; preserve dotnet/shared and PowerShell.
+ ('dotnet-build-sdk',r'C:\Program Files\dotnet\sdk'),
+ ('dotnet-reference-packs',r'C:\Program Files\dotnet\packs'),
 )
 OUTCOMES={'removed','missing','ancestor_reparse','tree_reparse','not_directory',
           'scan_limit','io_refused','unsupported_entry'}

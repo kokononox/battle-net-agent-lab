@@ -20,10 +20,11 @@ class DiskPrepareTests(unittest.TestCase):
    self.assertEqual(d.prepare({},'win32')['status'],'environment_refused')
  def test_threshold_unchanged(self):self.assertEqual(c.MIN_FREE,40*1024**3);self.assertGreater(d.GOAL,c.MIN_FREE)
  def test_literal_allowlist(self):
-  self.assertEqual(len(d.CANDIDATES),8)
+  self.assertEqual(len(d.CANDIDATES),10)
   self.assertTrue(d.CANDIDATES[5][1].endswith(r'Enterprise\VC\Tools\MSVC'))
   for label,path in d.CANDIDATES:
    p=PureWindowsPath(path);self.assertEqual(p.drive,'C:');self.assertNotIn('..',p.parts)
+   self.assertNotIn('shared',p.parts);self.assertNotIn('WindowsPowerShell',p.parts);self.assertNotIn('PowerShell',p.parts)
    self.assertNotIn('Python',path);self.assertNotIn('Users',p.parts);self.assertNotIn('Windows',p.parts)
  def test_enough_space_no_deletion(self):
   with patch.object(d.shutil,'disk_usage',return_value=SimpleNamespace(free=d.GOAL)),patch.object(d,'remove_tree')as rm:
@@ -37,11 +38,11 @@ class DiskPrepareTests(unittest.TestCase):
  def test_unsafe_paths_never_deleted(self):
   with patch.object(d.shutil,'disk_usage',return_value=SimpleNamespace(free=1)),patch.object(d,'inspect_tree',return_value=('ancestor_reparse',0,0)),patch.object(d,'remove_tree')as rm:
    r=d.prepare(self.env(),'win32')
-  rm.assert_not_called();self.assertEqual(r['status'],'space_still_low');self.assertEqual(len(r['attempts']),8)
+  rm.assert_not_called();self.assertEqual(r['status'],'space_still_low');self.assertEqual(len(r['attempts']),10)
  def test_locked_tree_no_expanded_fallback(self):
   with patch.object(d.shutil,'disk_usage',return_value=SimpleNamespace(free=1)),patch.object(d,'inspect_tree',return_value=('safe',1,10)),patch.object(d,'remove_tree',side_effect=PermissionError)as rm:
    r=d.prepare(self.env(),'win32')
-  self.assertEqual(rm.call_count,8);self.assertTrue(all(a['outcome']=='io_refused'for a in r['attempts']))
+  self.assertEqual(rm.call_count,10);self.assertTrue(all(a['outcome']=='io_refused'for a in r['attempts']))
  def test_real_tree_and_symlink_refusal(self):
   with tempfile.TemporaryDirectory()as temp:
    p=Path(temp)/'tool';p.mkdir();(p/'file').write_text('test');self.assertEqual(d.inspect_tree(p),('safe',1,4))
