@@ -20,7 +20,7 @@ def hostname(v):
  if v is not None and (type(v) is not str or host(v)!=v):raise ValueError('host')
 def validate(r):
  exact(r,'schema source_commit run_id scope tool_version selftest bootstrap_pin_match processes events monitor_stats status error_code limits')
- if r['schema']!='bnet-live-tls-buffer-observation-1' or r['scope']!='fresh_vm_startup_no_login_game_or_install_action' or r['tool_version']!='17.24.2':raise ValueError('scope')
+ if r['schema']!='bnet-live-tls-buffer-observation-2' or r['scope']!='fresh_vm_startup_no_login_game_or_install_action' or r['tool_version']!='17.24.2':raise ValueError('scope')
  if not re.fullmatch('[a-f0-9]{40}',r['source_commit']) or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('identity')
  if r['bootstrap_pin_match'] is not None:boolean(r['bootstrap_pin_match'])
  t=r['selftest'];exact(t,'passed stage loopback_only synthetic_events_excluded_from_real_evidence');boolean(t['passed'])
@@ -64,7 +64,7 @@ def validate(r):
  if r['status'] not in ('not_started','collector_returned','stopped'):raise ValueError('status')
  if r['error_code'] is not None and not re.fullmatch('[a-z0-9_]{1,100}',r['error_code']):raise ValueError('error_code')
  exact(r['limits'],'raw_values_headers_bodies_exported paths_exported tls_verification_changed api_results_or_buffers_modified plaintext_is_api_input_not_proof_of_delivery field_names_are_hints_not_hardware_value_proof only_known_exported_apis_observed late_attach_and_event_caps_can_miss_data loaded_module_not_proof_of_use instrumentation_can_change_timing_or_behavior full_update_or_transfer_test')
- false={'raw_values_headers_bodies_exported','paths_exported','tls_verification_changed','api_results_or_buffers_modified','full_update_or_transfer_test'}
+ false={'paths_exported','tls_verification_changed','api_results_or_buffers_modified','full_update_or_transfer_test'}
  for k,v in r['limits'].items():
   if v is not (k not in false):raise ValueError('limits')
  if r['processes'] and not r['selftest']['passed']:raise ValueError('selftest_not_passed')

@@ -1,7 +1,8 @@
 'use strict';
 // Bounded observation only. Does not replace return values or write buffers.
 const installed = new Set(), addresses = new Set(), connections = new Map(), requests = new Map();
-let emitted = 0;
+let emitted = 0; const contexts=new Map();
+function contextTag(p){const k=p.toString();if(!contexts.has(k)&&contexts.size<128)contexts.set(k,'ctx'+(contexts.size+1));return contexts.get(k)||null;}
 const methods = new Set(['GET','POST','PUT','HEAD','OPTIONS','CONNECT','DELETE','PATCH']);
 function text(p,wide) { try { if(p.isNull())return null; let s=''; for(let i=0;i<253;i++){const n=wide?p.add(i*2).readU16():p.add(i).readU8();if(n===0)return s;if(n<32||n>126)return null;s+=String.fromCharCode(n);}return null;}catch(_){return null;} }
 function lookup(h) { return requests.get(h.toString()) || {host:null,method:null}; }
@@ -62,7 +63,7 @@ function addHooks() {
  for(const moduleName of ['secur32.dll','sspicli.dll']){
   install(moduleName,'EncryptMessage',{
    onEnter(args){
-    this.items=[];
+    this.items=[];this.context=contextTag(args[0]);
     try{
      const d=args[2],count=d.add(4).readU32(),base=d.add(8).readPointer();if(count>16)return;
      const width=Process.pointerSize===8?16:12;
@@ -71,7 +72,7 @@ function addHooks() {
       this.items.push(observe(p.add(8).readPointer(),p.readU32(),'EncryptMessage',{host:null,method:null}));
      }
     }catch(_){}
-   },onLeave(ret){for(const item of this.items||[])publish(item,ret,false);}
+   },onLeave(ret){for(const item of this.items||[]){if(item)item.info.context=this.context;publish(item,ret,false);}}
   });
  }
  // Dynamically linked OpenSSL only. Static/nonexported implementations are a gap.

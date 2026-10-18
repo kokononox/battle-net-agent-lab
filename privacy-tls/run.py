@@ -6,7 +6,7 @@ import sys
 import threading
 
 def main():
- if sys.platform!='win32' or os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('RUNNER_OS')!='Windows' or os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted' or os.environ.get('GITHUB_RUN_ATTEMPT')!='1' or os.environ.get('PRIVACY_TLS_ONCE')!='tls-20261018-d2':raise SystemExit('fresh_hosted_once_required')
+ if sys.platform!='win32' or os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('RUNNER_OS')!='Windows' or os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted' or os.environ.get('GITHUB_RUN_ATTEMPT')!='1' or os.environ.get('PRIVACY_TLS_ONCE')!='tls-20261018-e1':raise SystemExit('fresh_hosted_once_required')
  root=Path(__file__).resolve().parents[1];sys.path.insert(0,str(root/'privacy-network'));sys.path.insert(0,str(root/'scripts'))
  import observe_agent as obs
  import native_tcp
@@ -17,8 +17,8 @@ def main():
  import harness
  run=os.environ.get('GITHUB_RUN_ID','');source=os.environ.get('GITHUB_SHA','')
  if not run.isdigit() or not re.fullmatch('[a-f0-9]{40}',source):raise SystemExit('identity')
- report={'schema':'bnet-live-tls-buffer-observation-1','source_commit':source,'run_id':run,'scope':'fresh_vm_startup_no_login_game_or_install_action','tool_version':frida.__version__,'selftest':{'passed':False,'stage':'not_started','loopback_only':True,'synthetic_events_excluded_from_real_evidence':True},'bootstrap_pin_match':None,'processes':[],'events':[],'monitor_stats':{'snapshots':0,'errors':0,'process_limit_hit':False,'dropped_events':0},'status':'not_started','error_code':None,
- 'limits':{'raw_values_headers_bodies_exported':False,'paths_exported':False,'tls_verification_changed':False,'api_results_or_buffers_modified':False,'plaintext_is_api_input_not_proof_of_delivery':True,'field_names_are_hints_not_hardware_value_proof':True,'only_known_exported_apis_observed':True,'late_attach_and_event_caps_can_miss_data':True,'loaded_module_not_proof_of_use':True,'instrumentation_can_change_timing_or_behavior':True,'full_update_or_transfer_test':False}}
+ report={'schema':'bnet-live-tls-buffer-observation-2','source_commit':source,'run_id':run,'scope':'fresh_vm_startup_no_login_game_or_install_action','tool_version':frida.__version__,'selftest':{'passed':False,'stage':'not_started','loopback_only':True,'synthetic_events_excluded_from_real_evidence':True},'bootstrap_pin_match':None,'processes':[],'events':[],'monitor_stats':{'snapshots':0,'errors':0,'process_limit_hit':False,'dropped_events':0},'status':'not_started','error_code':None,
+ 'limits':{'raw_values_headers_bodies_exported':True,'paths_exported':False,'tls_verification_changed':False,'api_results_or_buffers_modified':False,'plaintext_is_api_input_not_proof_of_delivery':True,'field_names_are_hints_not_hardware_value_proof':True,'only_known_exported_apis_observed':True,'late_attach_and_event_caps_can_miss_data':True,'loaded_module_not_proof_of_use':True,'instrumentation_can_change_timing_or_behavior':True,'full_update_or_transfer_test':False}}
  out=Path('output');out.mkdir(exist_ok=True);monitor=None;thread=None
  original_fetch=obs.fetch_setup
  def pinned_fetch(destination):
@@ -44,5 +44,8 @@ def main():
   data=json.dumps(report,indent=2).encode()
   if len(data)>1024*1024:raise SystemExit('report_limit')
   (out/'live-tls-metadata.json').write_bytes(data)
+  from samples import reference
+  samples={'schema':'bnet-api-input-samples-1','source_commit':source,'run_id':run,'scope':'test_vm_no_account_user_authorized_buffer_values','reference':reference(),'samples':monitor.samples if monitor is not None else [],'limits':{'sample_bytes_limit':262144,'per_buffer_limit':16384,'server_receipt_proven':False,'user_pc_observed':False,'auth_cookie_headers_redacted':True}}
+  (out/'api-buffer-samples.json').write_text(json.dumps(samples,indent=2)+'\n',encoding='utf-8')
  print(json.dumps({'status':report['status'],'processes':len(report['processes']),'buffer_events':len(report['events']),'selftest_passed':report['selftest']['passed']}))
 if __name__=='__main__':main()

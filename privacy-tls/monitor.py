@@ -1,3 +1,4 @@
+import base64
 import collections
 import hashlib
 import json
@@ -33,7 +34,7 @@ def path_category(path):
 class Monitor:
  def __init__(self,obs,api,frida,host_sanitizer):
   self.obs=obs;self.api=api;self.frida=frida;self.host_sanitizer=host_sanitizer;self.stop=threading.Event()
-  self.rows=[];self.sessions=[];self.attempted=set();self.events=[];self.lock=threading.Lock();self.error_count=0;self.dropped=0;self.snapshots=0;self.limit=False
+  self.samples=[];self.sample_bytes=0;self.rows=[];self.sessions=[];self.attempted=set();self.events=[];self.lock=threading.Lock();self.error_count=0;self.dropped=0;self.snapshots=0;self.limit=False
   self.device=frida.get_local_device();self.verify_signature=obs.signature
  def bounded(self,fn):
   c=self.frida.Cancellable();timer=threading.Timer(8,c.cancel);timer.daemon=True;timer.start()
@@ -53,6 +54,15 @@ class Monitor:
    n=d.get('declared_length')
    if type(n) is not int or not 0<=n<=67108864:return
    raw=bytes(data or b'')[:16384]
+   if raw and len(self.samples)<64 and self.sample_bytes+len(raw)<=262144:
+    redacted=raw
+    if re.match(rb'^(GET|POST|PUT|HEAD|OPTIONS|CONNECT|DELETE|PATCH) ',raw) and b'\r\n\r\n' in raw:
+     header,body=raw.split(b'\r\n\r\n',1)
+     header=re.sub(rb'(?im)^(authorization|proxy-authorization|cookie|set-cookie):[^\r\n]*',rb'\1: [REDACTED]',header)
+     redacted=(header+b'\r\n\r\n'+body)[:16384]
+    context=d.get('context');context=context if type(context) is str and re.fullmatch('ctx[0-9]{1,3}',context) else None
+    self.samples.append({'pid':row['pid'],'process_sha256':row['sha256'],'api':d['api'],'context':context,'sequence':len(self.samples)+1,'declared_length':n,'sample_truncated':n>len(raw),'headers_redacted':redacted!=raw,'sample_sha256':hashlib.sha256(redacted).hexdigest(),'base64':base64.b64encode(redacted).decode('ascii')})
+    self.sample_bytes+=len(redacted)
    meta=analyze_body(raw,n,d.get('readable') is True)
    meta['http_host']=self.host_sanitizer(meta['http_host']) if meta['http_host'] else None
    h=self.host_sanitizer(d.get('host')) if d.get('host') else None
