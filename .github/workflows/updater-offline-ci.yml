@@ -1,4 +1,4 @@
-name: Offline updater parser tests (no game or installer)
+name: Offline Windows scratch-stage tests (no game or installer)
 on:
   workflow_dispatch:
   push:
@@ -20,12 +20,13 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - name: Run synthetic stream parser and selection tests only
+      - name: Run synthetic native Windows staging and parser tests
         working-directory: updater-core
         env:
           UPDATER_SOURCE_COMMIT: ${{ github.sha }}
         run: python run_portable_ci.py --output ../ci-output/updater-portable-windows-to-share.json
       - name: Upload minimal JSON only, no raw logs or payload
+        if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: updater-portable-offline-receipt
@@ -33,6 +34,7 @@ jobs:
           retention-days: 3
           if-no-files-found: error
   publish_receipt:
+    if: always()
     needs: offline_windows
     runs-on: ubuntu-latest
     timeout-minutes: 3

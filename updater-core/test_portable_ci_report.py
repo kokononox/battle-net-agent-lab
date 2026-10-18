@@ -2,7 +2,7 @@ import copy,json,unittest
 from publish_portable_ci import validate
 from run_portable_ci import MODULES
 class Tests(unittest.TestCase):
- def fixture(self):return {'format':'updater-portable-offline-ci-1','source_commit':'a'*40,'platform':'Windows','python_version':'3.13.1','tests_run':73,'failures':0,'errors':0,'skipped':0,'passed':True,'test_modules':MODULES,'scope':'synthetic_stream_parser_and_selection_only','game_access':False,'network_in_test_suite':False,'native_windows_staging_backend_qualified':False,'windows_installer_qualified':False,'installation_ready':False,'apply_authorized':False}
+ def fixture(self):return {'format':'updater-windows-scratch-ci-2','source_commit':'a'*40,'platform':'Windows','python_version':'3.13.1','tests_run':111,'expected_tests':111,'failed_cases':[],'native_windows_stage_synthetic_tests_passed':True,'failures':0,'errors':0,'skipped':0,'passed':True,'test_modules':MODULES,'scope':'synthetic_windows_owned_staging_and_portable_parser','game_access':False,'network_in_test_suite':False,'native_windows_staging_backend_qualified':False,'windows_installer_qualified':False,'installation_ready':False,'apply_authorized':False}
  def verify(self,r):return validate(json.dumps(r).encode(),'a'*40)
  def bad(self,key,value):
   r=self.fixture();r[key]=value
@@ -20,3 +20,15 @@ class Tests(unittest.TestCase):
   raw=json.dumps(self.fixture()).encode();raw=raw[:-1]+b',"platform":"Windows"}'
   with self.assertRaises(AssertionError):validate(raw,'a'*40)
 if __name__=='__main__':unittest.main()
+class FailedReceiptTests(unittest.TestCase):
+ fixture=Tests.fixture
+ verify=Tests.verify
+ def fixture_failure(self):
+  r=self.fixture();r.update(passed=False,native_windows_stage_synthetic_tests_passed=False,errors=1,failed_cases=[{'test_id':'test_case (windows_stage_cases.WindowsStageTests.test_case)','error_class':'OSError','winerror_codes':[32]}]);return r
+ def test_failed_run_reported_as_failure(self):self.assertFalse(self.verify(self.fixture_failure())['passed'])
+ def test_raw_error_text_not_publishable(self):
+  r=self.fixture_failure();r['failed_cases'][0]['raw_traceback']='not allowed'
+  with self.assertRaises(AssertionError):self.verify(r)
+ def test_failure_cannot_claim_success(self):
+  r=self.fixture_failure();r['passed']=True
+  with self.assertRaises(AssertionError):self.verify(r)

@@ -25,7 +25,7 @@ def bind_stream_source(cp,spec,index,request):
 class _Segments:
  def __init__(self,stage):self.stage=stage;self.rows=stage.doc['segments'];self.at=0;self.file=None;self.left=0;self.hash=None
  def _open(self):
-  row=self.rows[self.at];p=self.stage.path/row['name'];fd=os.open(p,os.O_RDONLY|os.O_NOFOLLOW);self.file=os.fdopen(fd,'rb');s=os.fstat(fd);need(stat.S_ISREG(s.st_mode)and s.st_nlink==1 and s.st_size==row['size'],'stream_segment_type_or_size');self.left=s.st_size;self.hash=hashlib.sha256()
+  row=self.rows[self.at];self.file,self.left=self.stage._open_segment(row);self.hash=hashlib.sha256()
  def read(self,n):
   need(type(n)is int and 0<n<=65536,'stream_segment_read_budget');parts=[];left=n
   while left and self.at<len(self.rows):
@@ -38,6 +38,15 @@ class _Segments:
   if self.file is not None:self.file.close();self.file=None
 
 class StreamStage:
+ def _open_segment(self,row):
+  fd=os.open(self.path/row['name'],os.O_RDONLY|os.O_NOFOLLOW);f=os.fdopen(fd,'rb')
+  try:
+   s=os.fstat(fd);need(stat.S_ISREG(s.st_mode)and s.st_nlink==1 and s.st_size==row['size'],'stream_segment_type_or_size');return f,s.st_size
+  except BaseException:f.close();raise
+ def _read_journal(self):return _read(self.path/'journal.json',1024**2)
+ def _write(self,name,raw):_write_new(self.path/name,raw)
+ def _replace(self,source,dest):os.replace(self.path/source,self.path/dest)
+ def close(self):pass
  @staticmethod
  def _sync(path):
   fd=os.open(path,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW)
@@ -54,7 +63,7 @@ class StreamStage:
  def _root(self):
   s=self.path.lstat();need(stat.S_ISDIR(s.st_mode)and(s.st_dev,s.st_ino)==self.inode,'stream_stage_directory_changed')
  def _load(self):
-  self._root();raw=_read(self.path/'journal.json',1024**2);d=_json(raw);need(type(d)is dict and set(d)=={'format','identity','committed_bytes','etag','archive_total','segments'}and d['format']=='stream-segment-stage-1'and d['identity']==self.identity,'stream_stage_identity');need(type(d['committed_bytes'])is int and 0<=d['committed_bytes']<=self.spec.encoded_size and type(d['segments'])is list and len(d['segments'])<=MAX_SEGMENTS,'stream_stage_journal_budget');pos=0;names=set()
+  self._root();raw=self._read_journal();d=_json(raw);need(type(d)is dict and set(d)=={'format','identity','committed_bytes','etag','archive_total','segments'}and d['format']=='stream-segment-stage-1'and d['identity']==self.identity,'stream_stage_identity');need(type(d['committed_bytes'])is int and 0<=d['committed_bytes']<=self.spec.encoded_size and type(d['segments'])is list and len(d['segments'])<=MAX_SEGMENTS,'stream_stage_journal_budget');pos=0;names=set()
   for row in d['segments']:
    need(type(row)is dict and set(row)=={'name','start','size','sha256'},'stream_stage_segment_shape');name=row['name'];need(type(name)is str and re.fullmatch('[a-f0-9]{32}\\.seg',name)is not None and name not in names,'stream_stage_segment_name');names.add(name);need(type(row['start'])is int and row['start']==pos and type(row['size'])is int and 0<row['size']<=SEGMENT and pos+row['size']<=self.spec.encoded_size,'stream_stage_geometry');need(type(row['sha256'])is str and re.fullmatch('[a-f0-9]{64}',row['sha256'])is not None,'stream_stage_digest_shape');pos+=row['size']
   need(pos==d['committed_bytes'],'stream_stage_committed_geometry')
@@ -71,11 +80,11 @@ class StreamStage:
  def append(self,response,relative,*,_fault=None):
   with self._lock():
    before=self.journal_sha;self._load();need(self.journal_sha==before,'stream_stage_stale_writer');need(type(response)is ArchiveResponse and type(relative)is tuple and len(relative)==2,'stream_stage_response_type');a,b=relative;need(type(a)is int and type(b)is int and a==self.doc['committed_bytes']and a<=b<self.spec.encoded_size and b-a+1<=SEGMENT and len(self.doc['segments'])<MAX_SEGMENTS,'stream_stage_append_geometry');need(all(type(v)is int for v in(response.start,response.end,response.total))and response.url==archive_url(self.cp,self.source)and(response.start,response.end)==(self.source.offset+a,self.source.offset+b)and self.source.offset+self.spec.encoded_size<=response.total<=2**63-1 and type(response.body)is bytes and len(response.body)==b-a+1,'stream_stage_response_geometry');need(strong_etag(response.etag)and(self.doc['etag']is None or self.doc['etag']==response.etag)and(self.doc['archive_total']is None or self.doc['archive_total']==response.total),'stream_stage_entity_changed')
-   name=uuid.uuid4().hex+'.seg';_write_new(self.path/name,response.body);self._sync(self.path)
+   name=uuid.uuid4().hex+'.seg';self._write(name,response.body);self._sync(self.path)
    if _fault:_fault('segment_synced')
-   d=dict(self.doc);d.update(committed_bytes=b+1,etag=response.etag,archive_total=response.total,segments=self.doc['segments']+[{'name':name,'start':a,'size':b-a+1,'sha256':hashlib.sha256(response.body).hexdigest()}]);raw=self._encode(d);need(len(raw)<=1024**2,'stream_stage_journal_overflow');tmp=self.path/(uuid.uuid4().hex+'.tmp');_write_new(tmp,raw)
+   d=dict(self.doc);d.update(committed_bytes=b+1,etag=response.etag,archive_total=response.total,segments=self.doc['segments']+[{'name':name,'start':a,'size':b-a+1,'sha256':hashlib.sha256(response.body).hexdigest()}]);raw=self._encode(d);need(len(raw)<=1024**2,'stream_stage_journal_overflow');tmp=uuid.uuid4().hex+'.tmp';self._write(tmp,raw)
    if _fault:_fault('journal_synced')
-   os.replace(tmp,self.path/'journal.json');self._sync(self.path)
+   self._replace(tmp,'journal.json');self._sync(self.path)
    if _fault:_fault('journal_replaced')
    self._load()
   return self.summary()
