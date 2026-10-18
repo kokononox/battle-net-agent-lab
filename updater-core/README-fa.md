@@ -1,19 +1,36 @@
-# قرارداد بررسی کپی‌های نسل نصب — ۰٫۲۷
+# کد فعلی: held generation read view
 
-## پیشرفت این مرحله
-ماژول generation_copy_contract.py ساخته شد؛ فقط bytes دو دور کپیِ از پیش فراهم‌شده را می‌گیرد و هیچ فایل یا شبکه‌ای باز نمی‌کند. هر دور شامل build info، build config، control، فهرست صریح نام‌ها و دقیقاً ۱۶ ایندکس است. نام هر ایندکس باید از همان control پژوهشی آمده باشد؛ بزرگ‌ترین نام فایل یا نسل جدیدتر جایگزین نمی‌شود. هویت baseline/config، برابری هر دو دور، checksum/header/bucket و هندسهٔ پشتیبانی‌شدهٔ همهٔ ایندکس‌ها بررسی می‌شود. قالب ناشناخته، ترکیب خانوادهٔ V7/V8، دنبالهٔ پشتیبانی‌نشده، فقدان فایل و حالت reset/pending باعث توقف می‌شوند؛ نه repair یا تشخیص قطعی خرابی.
+# پیشرفت عملی — خواندن نسل با handleهای نگه‌داشته‌شده
 
-خروجی یک bundle hash متصل به همهٔ هویت‌ها می‌سازد و تگ خصوصی، نام داخلی control، مسیر نصب یا دادهٔ آرشیو منتشر نمی‌کند. V8 همچنان qwordهای مکان آرشیو را opaque نگه می‌دارد. extension کنترل نیز معنای کامل اثبات‌شده ندارد. سقف ورودی دو دور تعریف شده، اما این سقف «مجوز خواندن بازی» نیست.
+[شرح پیاده‌سازی و شاهد محدود](../updater-core/research/HELD-GENERATION-VIEW.md) · [باقی‌مانده](UPDATER-REMAINING.fa.md)
 
-## مرز ادعا
-حتی دو کپی کاملاً برابر، OS snapshot نیستند: تغییر A→B→A ممکن است بین دو مشاهده پنهان بماند. root/time/file-ID و اینکه خود client کدام نسل را مصرف می‌کند هنوز bind نشده است. پس active_generation_proven/coherent_live_snapshot_proven/local_reuse_authorized=false می‌مانند. ماژول live reader یا ابزار آمادهٔ اجرا برای کاربر نیست و هیچ مجوز اضافه‌ای از نتیجهٔ موفق تولید نمی‌کند.
+ماژول WindowsGenerationView به‌صورت کتابخانه و بدون CLI اضافه شد. ۱۹ فایل در یک context باز نگه داشته می‌شوند. پس از باز شدن همهٔ ایندکس‌های ارجاع‌شده، محتوای دو دور اعتبارسنجی و در پایان control و metadata دوباره بررسی می‌شود. هر شکست همهٔ handleها را آزاد می‌کند؛ انتخاب بزرگ‌ترین filename یا repair ندارد. ضمانت sharing پس از خروج context پایان می‌یابد.
 
-در این مرحله فقط fixture مصنوعی اجرا شد. محتوای تازهٔ control/index کاربر، shmem/LRU یا آرشیو خوانده نشد؛ فقط گزارش قدیمیِ پاک‌سازی‌شده برای تعیین محدودیت‌ها مرور شد، نه برای اثبات وضعیت امروز. هیچ CDN، Agent، update/repair، game write یا تغییر permission اجرا نشد.
+به‌جای افزودن یک بستهٔ پژوهشی دیگر، کمبود عملی capture رفع شد. البته گرفتن handle عادی معادل snapshot یا اثبات سکون client نیست. مسیر یکسان نیز معنای نام داخلی store را ثابت نمی‌کند. این دو، همراه selection کامل، مانع بعدی‌اند؛ کل milestone اول بسته نشده است.
 
-## تست
-۴۰ تست تازه؛ مجموع ۷۴۶ Linux و ۴۰۴ Windows/Python 3.12.10 با صفر failure/error/skip. تست ویندوز روی fixture و پوشهٔ موقت مصنوعی است، نه نصب بازی. شمار دو پلتفرم هم‌پوشانی دارد. source/receipt در QA.json و گزارش WINDOWS-GENERATION-CONTRACT-CI ثبت شده‌اند.
+در شاهد pinned Agent9824، cache پیش از bind تغییر می‌کند و raw return=0 دلیل کافی برای موفقیت bind نیست. این دور ۳۵۴ بایت از اسمبلی موجود بازسازی و SHA با رسید تاریخی تطبیق داده شد؛ اصل Agent یا fragment native دوباره اجرا نشد. آزمایش‌های تاریخی helper-mocked با آزمایش نصب واقعی اشتباه نشوند.
 
-## ادامه
-باید معنای control و extensionها، اتصال store/root و هویت فایل‌ها، روش capture محدود بومی و شاهد مستقلِ مصرف نسل توسط client مشخص و اعتبارسنجی شوند. قبل از این‌ها نباید ابزار «تشخیص قطعی نسل فعال» به کاربر بدهیم. قواعد کامل انتخاب و ترجیحات واقعاً تازه نیز هنوز در مرحلهٔ اول بازند. فعلاً اقدام یا فایل تازه‌ای از کاربر لازم نیست.
+## آزمون قابل بازبینی
+- Linux: 756 پاس، صفر failure/error/skip؛ شامل 10 تست تازهٔ memory-only. دادهٔ عمومی موجود و fixture؛ بدون دانلود تازه.
+- Windows/Python 3.12.10: 438 پاس، صفر failure/error/skip؛ شامل 24 تست تازهٔ native روی درخت‌های موقت کاملاً مصنوعی و همان 10 تست حافظه‌ای.
+- Source commit: f8685b73ee302c84dca80360a723606b13bd084a
+- Receipt commit: bd29f3a205a0aa320459a084dbdd575063a52496
+- Receipt: [گزارش minimal](../updater-core/reports/WINDOWS-HELD-GENERATION-CI-to-share.json)
+- شمار پلتفرم‌ها جمع‌پذیر نیست. تست sharing روی فایل مصنوعی، qualification نصب واقعی/atomicity نیست.
 
-[قرارداد و محدودیت‌ها](research/GENERATION-COPY-CONTRACT.md) · [معیارهای اثبات زنده](research/GENERATION-LIVE-PROOF-REQUIREMENTS.json) · [گزارش صرفاً مصنوعی](reports/GENERATION-COPY-CONTRACT-SYNTHETIC-to-share.json)
+# اقدامات باقی‌مانده — پس از پیاده‌سازی held read view
+
+## کار انجام‌شده
+جای خالی capture بومی ۱۹ فایل پر شد: metadata pair + control + دقیقاً ۱۶ ایندکس ارجاع‌شده، همگی در یک context با read handles نگه‌داشته‌شده. ۲۴ آزمون تازهٔ واقعی Windows روی فایل‌های کاملاً ساختگی پاس شده‌اند. ۱۰ آزمون حافظه‌ای جدا ترتیب/تغییرات را بررسی می‌کنند. مجموع رگرسیون Linux=756 و مجموعهٔ Windows=438، با صفر خطا/شکست/skip؛ این دو مجموع هم‌پوشانی دارند. [جزئیات](../updater-core/research/HELD-GENERATION-VIEW.md).
+
+## ترتیب باقی‌مانده
+1. **مرحلهٔ اول همچنان باز:** اتصال معنایی store/control به نصب و qualification حالت نگهداری آفلاین؛ گرفتن read handle به‌تنهایی snapshot یا منع همهٔ mapped writerها نیست. ارجاع منتشرشده در control با استفادهٔ موفق client یکی نیست. معنای extension و V8 location نیز هنوز کامل نیست. دیگر نباید capture را «پیاده‌سازی‌نشده» بنامیم؛ آنچه باقی است qualification همین پیاده‌سازی برای نصب واقعی است.
+2. کامل‌کردن و اعتبارسنجی feature/variant/dependency selection و اتصال ترجیحات تازه به required set. candidate تاریخی هنوز required set معتبر تولید نیست؛ شمارش آزمون بیشتر این فاصله را پر نمی‌کند.
+3. اثبات reuse محلی از همان read view معتبر و full content identity؛ سپس حجم دقیق دانلود. required_network_download_bytes=null؛ unknown به معنی صفر نیست.
+4. qualification انتقال واقعی محدود، resume/recovery و budget؛ شبکهٔ تازه فقط با scope مستقل مجاز.
+5. writer تراکنشی CASC، journal/rollback/activation و آزمون شکست/قطع روی کپی مستقل؛ سپس آزمون چندنسخه، کشف تازهٔ نسخه، UI و انتشار. writer نصب واقعی هنوز وجود ندارد.
+
+فعلاً اقدام کاربر لازم نیست. این دور فایل تازه‌ای از نصب کاربر، archive، LRU یا CDN بازی نخواند؛ هیچ نصب/repair، admin/ACL یا بازی‌نویسی انجام نشد. ZIP تازه ساخته نشد. active_generation_proven/local_reuse_authorized/installation_ready/apply_authorized=false. workflow مستقل Agent دست‌نخورده ماند.
+
+## نسخهٔ بسته‌شدهٔ قبلی
+نسخهٔ ZIP قبلی ۰٫۲۷ تغییر نکرده است؛ کد فعلی مخزن شامل افزودهٔ پس از آن است. این دور ZIP تازه ساخته نشد.

@@ -1,10 +1,10 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## وضعیت جدید مسیر اپدیتر — ۰٫۲۷
+## وضعیت جدید مسیر اپدیتر — held read view
 
-[تحویل فعلی](docs/UPDATER-SESSION-0.27.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md) · [سورس و تست](updater-core/GITHUB-SOURCE.md).
+[پیاده‌سازی و نتیجهٔ Windows](docs/UPDATER-HELD-GENERATION.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md).
 
-قرارداد bounded دو دور copied metadata/control و دقیقاً ۱۶ ایندکس ساخته و با ۴۰ تست تازه بررسی شد؛ مجموع ۷۴۶ Linux و ۴۰۴ Windows پاس‌اند. فقط fixture مصنوعی؛ بدون خواندن تازهٔ control/index کاربر یا بازی. **این detector زنده یا اثبات نسل فعال نیست:** برابری bytes snapshot/ABA protection یا استفادهٔ client را ثابت نمی‌کند. [معیارهای مشخص باقی‌مانده](updater-core/research/GENERATION-LIVE-PROOF-REQUIREMENTS.json). مرحلهٔ اول باز؛ فعلاً اقدام کاربر لازم نیست. workflow مستقل Agent دست‌نخورده است.
+Capture بومی ۱۹ فایل با read handles نگه‌داشته‌شده پیاده شد. ۲۴ تست native تازهٔ Windows روی fixture پاس شده‌اند؛ مجموع Windows=438 و Linux=756، بدون خطا/شکست/skip. **این snapshot یا اثبات استفادهٔ client از نسل نیست.** store binding، quiescence و selection کامل هنوز بازند. ZIP تازه ساخته نشد و از نصب کاربر چیزی تازه خوانده نشد. نسخهٔ ZIP قبلی ۰٫۲۷ immutable باقی ماند. فعلاً اقدام کاربر لازم نیست.
 
 ## شروع ادامهٔ پروژه — فارسی (سابقه)
 

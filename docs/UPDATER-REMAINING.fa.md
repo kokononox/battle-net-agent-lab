@@ -1,13 +1,13 @@
-# اقدامات باقی‌مانده پس از ۰٫۲۷
+# اقدامات باقی‌مانده — پس از پیاده‌سازی held read view
 
-## پیشرفت ثبت‌شده
-قرارداد pure برای دو دور copied metadata/control و دقیقاً ۱۶ ایندکس ارجاع‌شده ساخته شد؛ header/checksum/هندسهٔ شناخته‌شده بررسی و fallback بزرگ‌ترین نام رد می‌شود. اختلاف دورها، pending/reset یا قالب ناشناخته توقف می‌دهد. دادهٔ fixture کاملاً مصنوعی است. ۷۴۶ Linux و ۴۰۴ Windows پاس‌اند. [تحویل](UPDATER-SESSION-0.27.fa.md).
+## کار انجام‌شده
+جای خالی capture بومی ۱۹ فایل پر شد: metadata pair + control + دقیقاً ۱۶ ایندکس ارجاع‌شده، همگی در یک context با read handles نگه‌داشته‌شده. ۲۴ آزمون تازهٔ واقعی Windows روی فایل‌های کاملاً ساختگی پاس شده‌اند. ۱۰ آزمون حافظه‌ای جدا ترتیب/تغییرات را بررسی می‌کنند. مجموع رگرسیون Linux=756 و مجموعهٔ Windows=438، با صفر خطا/شکست/skip؛ این دو مجموع هم‌پوشانی دارند. [جزئیات](../updater-core/research/HELD-GENERATION-VIEW.md).
 
 ## ترتیب باقی‌مانده
-1. **مرحلهٔ اول هنوز باز است:** انتخاب کامل feature/variant/dependency، ترجیحات واقعاً تازه و نسل فعال همساز. برای نسل فعال اکنون قرارداد منفی و معیارهای مشخص داریم، نه detector زنده: معنای control/extension، اتصال store/root/file-ID، capture محدود بومی و شاهد مستقل استفادهٔ client باید اعتبارسنجی شوند. برابری دو دور snapshot یا محافظت ABA نیست؛ offset حدسی یا بیشترین filename کافی نیست. [معیارها](../updater-core/research/GENERATION-LIVE-PROOF-REQUIREMENTS.json).
-2. اثبات reuse محلی، required set معتبر و حجم دقیق دانلود؛ unknown صفر نیست.
-3. qualification انتقال واقعی محدود، resume/recovery با budget و approval مستقل.
-4. writer تراکنشی CASC، rollback و activation؛ ابتدا کپی مستقل و آزمون قطع عملیات/شکست. writer نصب واقعی هنوز پیاده نشده است.
-5. آزمون چندنسخه و نسخهٔ آینده با discovery تازه و stop برای قالب ناشناخته؛ سپس UI، بسته‌بندی و انتشار.
+1. **مرحلهٔ اول همچنان باز:** اتصال معنایی store/control به نصب و qualification حالت نگهداری آفلاین؛ گرفتن read handle به‌تنهایی snapshot یا منع همهٔ mapped writerها نیست. ارجاع منتشرشده در control با استفادهٔ موفق client یکی نیست. معنای extension و V8 location نیز هنوز کامل نیست. دیگر نباید capture را «پیاده‌سازی‌نشده» بنامیم؛ آنچه باقی است qualification همین پیاده‌سازی برای نصب واقعی است.
+2. کامل‌کردن و اعتبارسنجی feature/variant/dependency selection و اتصال ترجیحات تازه به required set. candidate تاریخی هنوز required set معتبر تولید نیست؛ شمارش آزمون بیشتر این فاصله را پر نمی‌کند.
+3. اثبات reuse محلی از همان read view معتبر و full content identity؛ سپس حجم دقیق دانلود. required_network_download_bytes=null؛ unknown به معنی صفر نیست.
+4. qualification انتقال واقعی محدود، resume/recovery و budget؛ شبکهٔ تازه فقط با scope مستقل مجاز.
+5. writer تراکنشی CASC، journal/rollback/activation و آزمون شکست/قطع روی کپی مستقل؛ سپس آزمون چندنسخه، کشف تازهٔ نسخه، UI و انتشار. writer نصب واقعی هنوز وجود ندارد.
 
-فعلاً اقدام کاربر لازم نیست. این مرحله هیچ فایل تازه‌ای از کنترل یا ایندکس کاربر نخواند؛ سقف API قرارداد مجوز بازی زنده نیست. نه admin/ACL، نه update/repair رسمی، نه broad upload و نه game write تقاضا شود. required_set_selected=false، active_generation_proven=false، required_network_download_bytes=null، installation_ready=false و apply_authorized=false. تست Windows qualification تولید/نصب واقعی نیست. کش‌ها حفظ و workflow مستقل Agent دست‌نخورده بماند.
+فعلاً اقدام کاربر لازم نیست. این دور فایل تازه‌ای از نصب کاربر، archive، LRU یا CDN بازی نخواند؛ هیچ نصب/repair، admin/ACL یا بازی‌نویسی انجام نشد. ZIP تازه ساخته نشد. active_generation_proven/local_reuse_authorized/installation_ready/apply_authorized=false. workflow مستقل Agent دست‌نخورده ماند.
