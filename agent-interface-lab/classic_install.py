@@ -17,7 +17,7 @@ import agent_diagnostics as diagnostics
 APPROVAL='lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
 PRODUCT='wow_classic_era'
 SCHEMA='classic-baseline-install-3'
-DIAGNOSTIC_APPROVAL='lab: approved bounded Agent path suffix diagnostic 2026-10-18 e54c708b'
+DIAGNOSTIC_APPROVAL='lab: approved clean retry Agent path diagnostic 2026-10-18 02b8fa63'
 MIN_FREE=40*1024**3
 RESERVE=10*1024**3
 MAX_POLLS=120
