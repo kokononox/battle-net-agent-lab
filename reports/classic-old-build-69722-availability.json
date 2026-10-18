@@ -1,0 +1,98 @@
+{
+  "schema": "classic-old-build-availability-1",
+  "checked_at": "2026-10-18T16:27:56.928875+00:00",
+  "goal": "Use Classic Era as a lower-volume test fixture for Battle.net Agent update behavior; Retail remains final target.",
+  "product": "wow_classic_era",
+  "old_version": "1.15.9.69722",
+  "observed_target_version": "1.15.9.70003",
+  "selection": [
+    "Windows",
+    "x86_64",
+    "enUS",
+    "EU"
+  ],
+  "build_config": "3645f0fe9dc5215ea90eaf7cdb7379ce",
+  "cdn_config": "3bf5d9d33331e68f0899bd0e32ebdf4a",
+  "build_and_cdn_config_md5_verified": true,
+  "download_manifest_blte_chunks_and_content_md5_verified": true,
+  "selected_manifest_entries": 146669,
+  "selected_encoded_bytes": 4809069540,
+  "verified_archive_indices": 1362,
+  "verified_loose_file_indices": 1,
+  "selected_entries_found_in_indices": 146669,
+  "referenced_archives": 569,
+  "original_host_head_and_extent_confirmed_archives": 543,
+  "alternative_official_host_head_present_archives": 18,
+  "unresolved_archives": 8,
+  "unresolved_archive_keys": [
+    "355e1723f3b504b2ea0a4b5e416665fe",
+    "3a0c35317cbebb2d55a806104e40104b",
+    "68e29682b9ecbf31ea741ae02684795a",
+    "84361d74dd93ea56f32b8590cee24906",
+    "b3e9952a01e65879799bd0b803f9b772",
+    "ca4ba36b5ecfcecbca805ff3248c927f",
+    "d547cd43220d746724caa26d2b6abee5",
+    "f2afaf8c3c9b87db0abc0088d2437a73"
+  ],
+  "unresolved_responses": {
+    "355e1723f3b504b2ea0a4b5e416665fe": {
+      "us.cdn.blizzard.com": 404,
+      "cdn.blizzard.com": 404,
+      "level3.blizzard.com": 403
+    },
+    "3a0c35317cbebb2d55a806104e40104b": {
+      "us.cdn.blizzard.com": 404,
+      "cdn.blizzard.com": 404,
+      "level3.blizzard.com": 403
+    },
+    "68e29682b9ecbf31ea741ae02684795a": {
+      "us.cdn.blizzard.com": 404,
+      "cdn.blizzard.com": 404,
+      "level3.blizzard.com": 403
+    },
+    "84361d74dd93ea56f32b8590cee24906": {
+      "us.cdn.blizzard.com": 404,
+      "cdn.blizzard.com": 404,
+      "level3.blizzard.com": 403
+    },
+    "b3e9952a01e65879799bd0b803f9b772": {
+      "us.cdn.blizzard.com": 404,
+      "cdn.blizzard.com": 404,
+      "level3.blizzard.com": 403
+    },
+    "ca4ba36b5ecfcecbca805ff3248c927f": {
+      "us.cdn.blizzard.com": 404,
+      "cdn.blizzard.com": 404,
+      "level3.blizzard.com": 403
+    },
+    "d547cd43220d746724caa26d2b6abee5": {
+      "us.cdn.blizzard.com": 404,
+      "cdn.blizzard.com": 404,
+      "level3.blizzard.com": 403
+    },
+    "f2afaf8c3c9b87db0abc0088d2437a73": {
+      "us.cdn.blizzard.com": 404,
+      "cdn.blizzard.com": 404,
+      "level3.blizzard.com": 403
+    }
+  },
+  "status": "complete_old_install_not_proven",
+  "limits": [
+    "HEAD and index coverage do not verify all payload bytes.",
+    "Eight referenced archives returned 404 on us.cdn.blizzard.com and cdn.blizzard.com; original host returned 403.",
+    "Alternate archive or loose-file locations for unresolved content have not been exhaustively searched.",
+    "enUS EU Windows x86_64 tag intersection only; not all platform/locale combinations.",
+    "No older installation was constructed, and no update was attempted.",
+    "Classic results do not establish Retail behavior."
+  ],
+  "game_payload_downloaded": false,
+  "install_attempted": false,
+  "eula_accepted": false,
+  "retail_accessed": false,
+  "sources": [
+    "https://wago.tools/api/builds",
+    "https://level3.blizzard.com/tpr/wow/config/36/45/3645f0fe9dc5215ea90eaf7cdb7379ce",
+    "https://level3.blizzard.com/tpr/wow/config/3b/f5/3bf5d9d33331e68f0899bd0e32ebdf4a",
+    "https://wowdev.wiki/TACT"
+  ]
+}
