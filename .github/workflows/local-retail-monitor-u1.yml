@@ -1,0 +1,95 @@
+name: One-shot local observer U1 native safety gate and portable build
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths:
+      - 'local-retail-monitor/**'
+      - '.github/workflows/local-retail-monitor-u1.yml'
+permissions: {}
+jobs:
+  build:
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved local privacy monitor selftest and portable build u1'
+    runs-on: windows-2025
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Portable safety and recovery tests (no real hosts or Blizzard launches)
+        id: units
+        continue-on-error: true
+        run: python -m unittest discover -s local-retail-monitor/tests -p 'test_*.py'
+      - name: Install only exact hash-pinned instrumentation
+        id: deps
+        if: steps.units.outcome == 'success'
+        continue-on-error: true
+        run: |
+          python -m pip install --no-deps --only-binary=:all: --require-hashes -r privacy-tls/requirements.txt
+      - name: Build isolated portable CPython and local-only observer
+        id: package
+        if: steps.deps.outcome == 'success'
+        continue-on-error: true
+        run: python local-retail-monitor/build_portable.py
+      - name: Native selftest using the exact portable runtime and hook
+        id: native
+        if: steps.package.outcome == 'success'
+        continue-on-error: true
+        run: |
+          $root = 'local-retail-monitor/release/Local-Retail-Privacy-Monitor-U1'
+          & "$root/runtime/python.exe" -I "$root/app/monitor.py" --selftest-only
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & "$root/runtime/python.exe" -I -c "import sys; from core import signature; r=signature(sys.executable); assert r['valid'] and not r['blizzard']; print('Runtime certificate gate PASS; non-Blizzard runtime correctly not accepted as Blizzard')"
+      - name: Upload portable observer only after all native gates pass
+        id: portable
+        if: steps.native.outcome == 'success'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: Local-Retail-Privacy-Monitor-U1
+          path: local-retail-monitor/release/Local-Retail-Privacy-Monitor-U1/
+          if-no-files-found: error
+          retention-days: 7
+      - name: Write bounded build receipt; no user data
+        if: always()
+        env:
+          UNIT_OUTCOME: ${{ steps.units.outcome }}
+          DEPS_OUTCOME: ${{ steps.deps.outcome }}
+          PACKAGE_OUTCOME: ${{ steps.package.outcome }}
+          NATIVE_OUTCOME: ${{ steps.native.outcome }}
+          ARTIFACT_URL: ${{ steps.portable.outputs.artifact-url }}
+          ARTIFACT_DIGEST: ${{ steps.portable.outputs.artifact-digest }}
+        run: python local-retail-monitor/build_receipt.py
+      - name: Upload build receipt only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: local-observer-u1-receipt
+          path: local-retail-monitor/build-receipt.json
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: build
+    if: always() && needs.build.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: privacy-observation-20261018-a1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: local-observer-u1-receipt
+          path: incoming
+      - name: Validate and publish build gate receipt (not game-update success)
+        run: |
+          set -euo pipefail
+          python local-retail-monitor/build_receipt.py incoming/build-receipt.json reports/local-observer-u1-build.json
+          git add -- reports/local-observer-u1-build.json
+          git config user.name 'privacy-lab-report'
+          git config user.email 'privacy-lab-report@users.noreply.github.com'
+          git commit -m 'lab: publish local observer u1 native build gate receipt'
+          git push origin HEAD:privacy-observation-20261018-a1

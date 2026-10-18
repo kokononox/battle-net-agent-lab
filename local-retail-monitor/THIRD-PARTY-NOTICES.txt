@@ -1,0 +1,5 @@
+This package bundles CPython from the standard GitHub-hosted Windows runner, Frida 17.24.2, and typing_extensions 4.16.0. Their license/copyright files are retained in runtime/LICENSE.txt and runtime/Lib/site-packages/*.dist-info/licenses (and associated package metadata). The project code is readable in app/; no game binaries are bundled.
+Frida source and versioned source distribution: https://github.com/frida/frida/tree/17.24.2 and https://pypi.org/project/frida/17.24.2/#files . Its LGPL terms, source availability and component notices remain applicable; see frida-17.24.2.dist-info/licenses/COPYING.
+CPython: https://www.python.org/ and https://github.com/python/cpython (match the exact version in BUILD-INFO.json).
+typing_extensions: https://github.com/python/typing_extensions/tree/4.16.0 .
+The package is NOT Blizzard software, is not signed by Blizzard, and does not guarantee privacy or compatibility. Do not disable antivirus, Secure Boot, certificate checks, or anti-cheat to run it. If Windows security blocks it, stop and share the warning text instead.
