@@ -134,3 +134,21 @@ def validate_transition(r):
  if r['observed_sha256']is not None and(type(r['observed_sha256'])is not str or not re.fullmatch('[0-9a-f]{64}',r['observed_sha256'])):raise ValueError('transition_hash')
  if r['status']=='inspected_read_only'and not(r['observed_sha256']is not None and r['observed_signature_accepted']is not None and r['snapshot_stable']is True and r['path_relation']in('same_as_pinned','different_within_agent_root')):raise ValueError('transition_evidence')
  return r
+
+
+def eligible_temp_transition(details,initial_hash):
+ """Necessary metadata gate only; caller MUST recheck live PID/image/socket.
+ Does not execute a file, refresh a token, or select a different endpoint.
+ """
+ try:
+  validate_transition(details)
+  initial=details['initial_relative_path'];observed=details['observed_relative_path']
+  if type(initial)is not str or type(observed)is not str:return False
+  a=initial.split('/');b=observed.split('/')
+  return (len(a)==len(b)==2 and re.fullmatch(r'Agent\.[0-9]{1,10}',a[0])is not None
+   and a[1]=='Agent.exe'and b[0]==a[0]and re.fullmatch(r'temp_[0-9a-f]{32}\.exe',b[1],re.I)is not None
+   and details['status']=='inspected_read_only'and details['path_relation']=='different_within_agent_root'
+   and details['observed_signature_accepted']is True and details['matches_initial_sha256']is True
+   and details['observed_sha256']==initial_hash and details['snapshot_stable']is True
+   and details['original_listener_still_owned']is True)
+ except (ValueError,TypeError,KeyError):return False

@@ -16,8 +16,8 @@ import agent_diagnostics as diagnostics
 
 APPROVAL='lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
 PRODUCT='wow_classic_era'
-SCHEMA='classic-baseline-install-3'
-DIAGNOSTIC_APPROVAL='lab: approved scoped Agent temp-image inspection 2026-10-18 c5e930ab'
+SCHEMA='classic-baseline-install-4'
+DIAGNOSTIC_APPROVAL='lab: approved conditional identity and form diagnostic 2026-10-18 6d084e21'
 MIN_FREE=40*1024**3
 RESERVE=10*1024**3
 MAX_POLLS=120
@@ -26,8 +26,9 @@ STATUSES={'not_started','environment_refused','disk_refused','target_refused','d
  'existing_products_refused','initialization_form_unknown','authentication_required',
  'legal_consent_required','minimum_spec_refused','game_dir_refused','installation_queued',
  'install_observation_timeout','agent_installed_build_unverified','baseline_agent_complete',
- 'stopped_safely','initialization_inspected'}
-FORM_FIELDS={'authentication','game_dir','min_spec','language','eula'}
+ 'stopped_safely','initialization_inspected','form_diagnostic_complete'}
+FORM_FIELDS={'authentication','game_dir','min_spec','language','eula','finalized','shortcut','tome_path'}
+FORM_BLOCKERS={'authentication_error','eula_error','eula_review_pending','game_dir_error','minimum_spec_error','tome_path_error','agent_error','unknown_fields','schema_invalid'}
 
 def blank():
  return dict(schema=SCHEMA,source_commit=os.environ.get('GITHUB_SHA',''),
@@ -40,6 +41,9 @@ def blank():
   destination_free_after_bytes=0,system_free_after_bytes=0,
   minimum_free_before_bytes=MIN_FREE,reserve_free_bytes=RESERVE,
   min_destination_free_observed_bytes=0,min_system_free_observed_bytes=0,
+  conditional_temp_identity_enabled=False,temp_image_verifications=0,
+  diagnostic_form_schema_valid=False,diagnostic_form_blockers=[],
+  eula_error_code=None,tome_path_error_code=None,initialization_agent_error_code=None,
   transition_diagnostic=diagnostics.blank_transition(),form_structure=diagnostics.blank_form(),
   protocol_diagnostic_only=False,identity_check_count=0,last_identity_state=None,
   last_identity_stage=None,identity_failure_state=None,identity_failure_stage=None,
@@ -63,7 +67,7 @@ def blank():
 MUTABLE_FLAGS={'approval_present','destination_fixed_drive','destination_new_empty',
  'initialization_attempted','finalization_attempted','initial_game_summary_empty',
  'initialization_response_accepted','unknown_form_fields','agent_build_identity_matches',
- 'owned_build_info_read','protocol_diagnostic_only','initialization_json_object','initialization_form_present'}
+ 'owned_build_info_read','protocol_diagnostic_only','initialization_json_object','initialization_form_present','conditional_temp_identity_enabled','diagnostic_form_schema_valid'}
 def validate(r):
  t=blank()
  if type(r)is not dict or set(r)!=set(t):raise ValueError('install_schema')
@@ -78,8 +82,8 @@ def validate(r):
   if r[k]!=r['handshake'][k]:raise ValueError('install_identity')
  for k,cap in [('total_local_requests',124),('polls',MAX_POLLS),('owned_build_info_bytes_read',65537),('elapsed_seconds',1800)]+[(x,2**60)for x in t if x.endswith('_bytes') and ('free' in x or 'observed' in x)]:
   if type(r[k])is not int or not 0<=r[k]<=cap:raise ValueError('install_count')
- if type(r['form_fields_observed'])is not list or len(r['form_fields_observed'])>5 or len(set(r['form_fields_observed']))!=len(r['form_fields_observed'])or not set(r['form_fields_observed'])<=FORM_FIELDS:raise ValueError('form_fields')
- for k in ('auth_error_code','min_spec_error_code','game_dir_error_code','last_agent_error_code'):
+ if type(r['form_fields_observed'])is not list or len(r['form_fields_observed'])>8 or len(set(r['form_fields_observed']))!=len(r['form_fields_observed'])or not set(r['form_fields_observed'])<=FORM_FIELDS:raise ValueError('form_fields')
+ for k in ('auth_error_code','min_spec_error_code','game_dir_error_code','last_agent_error_code','eula_error_code','tome_path_error_code','initialization_agent_error_code'):
   if r[k]is not None and(type(r[k])not in(int,float)or not 0<=r[k]<=2**32):raise ValueError('error_code')
  for k in ('agent_installed','agent_download_complete'):
   if r[k]is not None and type(r[k])is not bool:raise ValueError('install_boolean')
@@ -87,17 +91,22 @@ def validate(r):
  if r['observed_version']is not None and re.fullmatch(r'\d{1,4}\.\d{1,4}\.\d{1,4}\.\d{1,10}',r['observed_version'])is None:raise ValueError('version')
  for k,n in [('observed_build_config',32),('versions_sha256',64)]:
   if r[k]is not None and re.fullmatch('[0-9a-f]{'+str(n)+'}',r[k])is None:raise ValueError('hash')
- for k,cap in [('identity_check_count',256),('initialization_response_bytes',probe.MAX_BODY),('initialization_form_field_count',32)]:
+ for k,cap in [('temp_image_verifications',256),('identity_check_count',256),('initialization_response_bytes',probe.MAX_BODY),('initialization_form_field_count',32)]:
   if type(r[k])is not int or not 0<=r[k]<=cap:raise ValueError('protocol_count')
  if r['initialization_http_status']is not None and(type(r['initialization_http_status'])is not int or not 100<=r['initialization_http_status']<=599):raise ValueError('protocol_http')
  for k in ('last_identity_state','identity_failure_state'):
   if r[k]is not None and r[k]not in probe.IDENTITY_STATES:raise ValueError('identity_state')
  for k in ('last_identity_stage','identity_failure_stage'):
   if r[k]is not None and r[k]not in probe.IDENTITY_STAGES:raise ValueError('identity_stage')
- if r['identity_failure_state']=='verified':raise ValueError('identity_false_failure')
+ if r['identity_failure_state']in('verified','verified_temp_image'):raise ValueError('identity_false_failure')
  if (r['last_identity_state']is None)!=(r['last_identity_stage']is None):raise ValueError('identity_state_stage')
  if (r['identity_failure_state']is None)!=(r['identity_failure_stage']is None):raise ValueError('identity_failure_pair')
  if r['protocol_diagnostic_only']and(r['finalization_attempted']or r['total_local_requests']>2):raise ValueError('diagnostic_mutation')
+ if r['conditional_temp_identity_enabled']and not r['protocol_diagnostic_only']:raise ValueError('identity_mode_scope')
+ if r['temp_image_verifications']>r['identity_check_count']or(r['temp_image_verifications']and not r['conditional_temp_identity_enabled']):raise ValueError('identity_mode_evidence')
+ if type(r['diagnostic_form_blockers'])is not list or len(r['diagnostic_form_blockers'])>len(FORM_BLOCKERS)or len(set(r['diagnostic_form_blockers']))!=len(r['diagnostic_form_blockers'])or not set(r['diagnostic_form_blockers'])<=FORM_BLOCKERS:raise ValueError('form_blockers')
+ if r['status']=='form_diagnostic_complete'and not(r['protocol_diagnostic_only']and r['diagnostic_form_schema_valid']and r['initialization_json_object']and r['initialization_form_present']and r['initialization_http_status']in(200,201)and r['initialization_attempted']and r['total_local_requests']==2 and not r['initialization_response_accepted']and r['identity_failure_state']is None and r['identity_check_count']>0 and r['last_identity_state']in('verified','verified_temp_image')):raise ValueError('form_diagnostic_evidence')
+
  if r['status']=='initialization_inspected'and not(r['protocol_diagnostic_only']and r['initialization_response_accepted']and r['initialization_json_object']and r['identity_failure_state']is None and r['identity_check_count']>0 and r['last_identity_state']=='verified'):raise ValueError('diagnostic_evidence')
  if r['initialization_attempted'] and not all(r[k]for k in ('approval_present','destination_fixed_drive','destination_new_empty','initial_game_summary_empty')):raise ValueError('unsafe_initialization')
  if r['finalization_attempted'] and (not r['initialization_response_accepted']or not r['initialization_attempted']):raise ValueError('unsafe_finalization')
@@ -161,10 +170,48 @@ class Session:
    return data
   finally:conn.close()
 
+def validate_extra_fields(form):
+ if 'finalized'in form and type(form['finalized'])is not bool:raise probe.Stop('initialization_form_unknown')
+ if 'shortcut'in form and(type(form['shortcut'])is not str or len(form['shortcut'])>2048):raise probe.Stop('initialization_form_unknown')
+ if 'tome_path'in form:
+  t=form['tome_path']
+  if type(t)is not dict or set(t)!={'error'}:raise probe.Stop('initialization_form_unknown')
+  error_code(t)
+
+def diagnose_form(data,r):
+ # Values below are only bounded numeric error codes. No locations, country,
+ # language selections, text, EULA contents or user credentials are exported.
+ form=data.get('form');blockers=[];schema_ok=True
+ if type(form)is not dict or len(form)>32:
+  r['diagnostic_form_blockers']=['schema_invalid'];r['status']='initialization_form_unknown';return
+ r['form_fields_observed']=sorted(set(form)&FORM_FIELDS);r['unknown_form_fields']=bool(set(form)-FORM_FIELDS)
+ if r['unknown_form_fields']:blockers.append('unknown_fields');schema_ok=False
+ try:validate_extra_fields(form)
+ except probe.Stop:schema_ok=False;blockers.append('schema_invalid')
+ for name,out,blocker in [('authentication','auth_error_code','authentication_error'),('min_spec','min_spec_error_code','minimum_spec_error'),('game_dir','game_dir_error_code','game_dir_error'),('eula','eula_error_code','eula_error'),('tome_path','tome_path_error_code','tome_path_error')]:
+  if name not in form and name in('eula','tome_path'):continue
+  part=form.get(name)
+  try:
+   if type(part)is not dict or 'error'not in part:raise probe.Stop('initialization_form_unknown')
+   code=error_code(part);r[out]=code
+   if code>0:blockers.append(blocker)
+  except probe.Stop:schema_ok=False;blockers.append('schema_invalid')
+ if 'eula'in form:
+  blockers.append('eula_review_pending')
+  if type(form['eula'])is not dict or type(form['eula'].get('eula'))is not bool:schema_ok=False;blockers.append('schema_invalid')
+ try:
+  r['initialization_agent_error_code']=error_code(data)
+  if r['initialization_agent_error_code']>0:blockers.append('agent_error')
+ except probe.Stop:schema_ok=False;blockers.append('schema_invalid')
+ r['diagnostic_form_schema_valid']=schema_ok;r['diagnostic_form_blockers']=sorted(set(blockers))
+ # This reports inspection success, NOT form acceptance or permission to finalize.
+ r['status']='form_diagnostic_complete'if schema_ok else'initialization_form_unknown'
+
 def inspect_form(data,r):
  form=data.get('form')
  if type(form)is not dict or len(form)>32:raise probe.Stop('initialization_form_unknown')
  r['form_fields_observed']=sorted(set(form)&FORM_FIELDS);r['unknown_form_fields']=bool(set(form)-FORM_FIELDS)
+ validate_extra_fields(form)
  # Never auto-accept any legal checkbox, even when a third-party wrapper does.
  if 'eula'in form:raise probe.Stop('legal_consent_required')
  for name,out,stop in [('authentication','auth_error_code','authentication_required'),('min_spec','min_spec_error_code','minimum_spec_refused'),('game_dir','game_dir_error_code','game_dir_refused')]:
@@ -236,9 +283,10 @@ def observe(token,port,verify,r,target,system,is_reparse,sleep=time.sleep,clock=
  if summary not in ({},{'error':0}):raise probe.Stop('existing_products_refused')
  r['initial_game_summary_empty']=True
  sample_disk(target,system,r)
- data=session.request('POST','/install',initialized_payload());inspect_form(data,r)
+ data=session.request('POST','/install',initialized_payload())
  if r['protocol_diagnostic_only']:
-  r['status']='initialization_inspected';return
+  diagnose_form(data,r);return
+ inspect_form(data,r)
  sample_disk(target,system,r)
  session.request('POST','/install/'+PRODUCT,finalized_payload(target));r['status']='installation_queued'
  end=clock()+20*60
@@ -258,7 +306,8 @@ def observe(token,port,verify,r,target,system,is_reparse,sleep=time.sleep,clock=
 def record_identity(r,state,stage):
  if state not in probe.IDENTITY_STATES or stage not in probe.IDENTITY_STAGES:raise ValueError('identity_enum')
  r['identity_check_count']+=1;r['last_identity_state']=state;r['last_identity_stage']=stage
- if state!='verified'and r['identity_failure_state']is None:
+ if state=='verified_temp_image':r['temp_image_verifications']+=1
+ if state not in('verified','verified_temp_image')and r['identity_failure_state']is None:
   r['identity_failure_state']=state;r['identity_failure_stage']=stage
 
 def run(out,diagnostic_only=False):
@@ -267,6 +316,7 @@ def run(out,diagnostic_only=False):
  try:
   if not fresh_environment(os.environ,sys.platform):raise probe.Stop('environment_refused')
   if diagnostic_only and os.environ.get('CLASSIC_PROTOCOL_ONCE')!=DIAGNOSTIC_APPROVAL:raise probe.Stop('environment_refused')
+  r['conditional_temp_identity_enabled']=diagnostic_only
   r['approval_present']=True
   # New identity is read before any installation request. No use of a stale pinned build.
   try:discover(r)
@@ -285,9 +335,9 @@ def run(out,diagnostic_only=False):
      except OSError:pass
   def identity_observer(state,stage):record_identity(r,state,stage)
   def identity_details_observer(details):r['transition_diagnostic']=diagnostics.validate_transition(details)
-  r['handshake']=probe.run(out,after_handshake=observer,report_sink=r['handshake'],identity_observer=identity_observer,identity_details_observer=identity_details_observer)
+  r['handshake']=probe.run(out,after_handshake=observer,report_sink=r['handshake'],identity_observer=identity_observer,identity_details_observer=identity_details_observer,allow_verified_temp_image=diagnostic_only)
   if r['status']=='not_started':r['status']='handshake_not_ready'
-  if r['handshake']['status']!='handshake_token_observed'and r['status']in('baseline_agent_complete','initialization_inspected'):r['status']='identity_changed'
+  if r['handshake']['status']!='handshake_token_observed'and r['status']in('baseline_agent_complete','initialization_inspected','form_diagnostic_complete'):r['status']='identity_changed'
  except probe.Stop as e:r['status']=str(e)if str(e)in STATUSES else'stopped_safely'
  except Exception:r['status']='stopped_safely'
  finally:

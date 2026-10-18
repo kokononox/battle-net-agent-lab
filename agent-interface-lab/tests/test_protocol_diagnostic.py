@@ -59,7 +59,7 @@ class ProtocolDiagnosticTests(unittest.TestCase):
   real=c.Session
   with patch.object(c,'Session',side_effect=lambda *args:real(*args,connection_factory=factory)),patch.object(c,'disk_pair',return_value=(c.MIN_FREE,c.MIN_FREE)):
    c.observe('synthetic-private-token',1234,lambda:True,r,None,None,lambda path:False)
-  self.assertEqual(r['status'],'initialization_inspected');self.assertEqual(r['total_local_requests'],2);self.assertFalse(r['finalization_attempted']);c.validate(r)
+  self.assertEqual(r['status'],'form_diagnostic_complete');self.assertEqual(r['total_local_requests'],2);self.assertFalse(r['finalization_attempted']);c.validate(r)
  def test_diagnostic_schema_rejects_mutation_and_raw_evidence(self):
   r=report();r['protocol_diagnostic_only']=True;r['finalization_attempted']=True
   with self.assertRaises(ValueError):c.validate(r)
