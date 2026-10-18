@@ -14,6 +14,9 @@ reconcile_pending با تأیید صریح فقط یک Range قبلاً ثبت�
 ## پیشرفت تازهٔ ۰٫۲۲
 بستن صریح scope برای pending بدون commit و ساخت جانشین با تأیید تازه انجام شد. هیچ retry/fetch/ادامهٔ خودکار و هیچ بازپرداخت بودجه‌ای ندارد؛ nonce و digest سابقه در grant جدید pinned هستند. ۳۳ تست تازه، از جمله دو process تازه؛ مجموع Linux برابر ۵۹۵ و Windows واقعی ۲۳۳ با صفر failure/error/skip. این recovery عمومی crash/disk-full یا permission برای CDN/نصب نیست.
 
+## تصحیح اولویت و شاهد تازه
+مرحلهٔ اول هنوز باز است؛ خواندن .build.info و config به‌تنهایی policy انتخاب یا نسل فعال را قطعی نمی‌کند. بررسی کد مستقل CascLib/TACTSharp نشان داد handler اول tagها را رد می‌کند و ابزار استخراج دوم برای تعارض variant از US/first استفاده می‌کند؛ هیچ‌یک oracle انتخاب updater نیست. این heuristicها وارد محصول نشدند. [مرور و شاهد لازم](../updater-core/research/POLICY-BLOCKERS-FOLLOWUP.md). هیچ reader تازه یا آزمون زنده‌ای در این مرور پیاده/درخواست نشد.
+
 ## ترتیب باقی‌مانده
 1. **بستن policy انتخاب و closure:** شاهد مستقل برای feature/Alternate/Talebound، اولویت/حذف variantها، dependency و patch/full. معنای enum یا parser/extractor عمومی به‌تنهایی کافی نیست. ترجیحات تازهٔ نصب هم لازم است؛ flagهای vendor/feature فعلاً false بمانند.
 2. **نصب فقط‌خواندنی و نسل فعال:** backend منسجم Windows، baseline/profile تازه و حل معنای نسل/ایندکس؛ V8 ناشناخته حدس زده نشود. گزارش قدیمی یا کپی ایندکس اثبات وضعیت فعلی نیست. ابزار لازم باید قبل از درخواست اجرای کاربر دامنهٔ دقیق داشته باشد؛ بدون اسکن کور یا تغییر ACL.

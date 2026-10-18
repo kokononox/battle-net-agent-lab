@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-18T02:33:56.884479+00:00",
+  "as_of_utc": "2026-10-18T02:38:54.703043+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -47,7 +47,7 @@
     "hardware_field_transmission_proven": false,
     "historical_binary_findings_reverified_in_this_sync": false
   },
-  "user_action_now": "none for completed synthetic scope lifecycle; no game copy, scan, network transfer or permission change requested",
+  "user_action_now": "no unbounded upload or live execution requested; define a bounded independent-reference protocol before asking for a capture",
   "sync_scope": "0.22 explicit uncommitted scope retirement and nonce/history-bound successor, actual Windows CI and session handoff; no payload, SQLite, raw transcript or credentials",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
@@ -141,7 +141,8 @@
     "successor_grant_binds_prior_history": true,
     "scope_grant_fresh_nonce": true,
     "maximum_prior_scopes": 16,
-    "production_transfer_recovery_qualified": false
+    "production_transfer_recovery_qualified": false,
+    "selection_policy_followup": "CascLib skips Install tags; TACTTool uses US/first extraction heuristics, rejected as updater oracle. No required-set promotion."
   },
   "github_experiment_reverified_in_this_sync": false,
   "next_native_environment_requirement": "user availability confirmed; no copy or game-path probe requested until a bounded test is implemented",
@@ -151,6 +152,6 @@
     "game_copy_requested": false,
     "main_install_modification_authorized": false
   },
-  "next_offline_step": "independent official selection/variant/patch and active installed-generation evidence; bounded read-only baseline backend design before live probe; real CDN and hard-crash qualification remain closed",
+  "next_offline_step": "milestone 1 still blocked: establish independent vendor selection/variant/dependency/patch evidence, then fresh preferences and coherent installed generation; metadata pair reader alone cannot close milestone",
   "public_policy_review": "Alternate community enum clarified only; Talebound and official selection remain unqualified"
 }
