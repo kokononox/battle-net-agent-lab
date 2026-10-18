@@ -1,10 +1,10 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## وضعیت جدید مسیر اپدیتر — ۰٫۲۰
+## وضعیت جدید مسیر اپدیتر — ۰٫۲۱
 
-**نقطهٔ شروع فعلی:** [تحویل همین جلسه](docs/UPDATER-SESSION-0.20.fa.md) · [اقدامات باقی‌مانده](docs/UPDATER-REMAINING.fa.md) · [سورس و روش تست](updater-core/GITHUB-SOURCE.md).
+**نقطهٔ شروع فعلی:** [تحویل همین جلسه](docs/UPDATER-SESSION-0.21.fa.md) · [اقدامات باقی‌مانده](docs/UPDATER-REMAINING.fa.md) · [سورس و روش تست](updater-core/GITHUB-SOURCE.md).
 
-کنترلر انتقال چندشیء و اتصال HTTP محدود به staging اضافه شدند: grant صریح، رزرو پایدار پیش از درخواست، Range/ETag/total ثابت، ادامه بین commitها و توقف در attempt مبهم بدون retry خودکار. ۵۳۶ تست Linux و ۱۷۴ تست واقعی Windows پاس شدند؛ HTTP آزمون‌ها mock بود و CDN بازی تازه‌ای خوانده نشد. سیاست رسمی انتخاب، نسل فعال، CASC writer/rollback/activation و نصب نهایی هنوز qualify نشده‌اند. نصب اصلی و workflow مستقل Agent دست‌نخورده‌اند. محصول به مهاجرت دو نسخهٔ ثابت محدود نیست؛ 70448 snapshot پژوهشی تاریخی است، نه ادعای آخرین نسخه.
+بازیابی صریح و محلیِ یک Range رزروشده که stage آن commit شده ولی ledger آن قطع شده اضافه شد: بازسازی SHA journal قبلی، کنترل تازهٔ قطعات/محتوای کامل در صورت تکمیل شیء، entity مشترک و حفظ بودجه؛ بدون fetch، retry یا ادامهٔ خودکار. pending بدون commit، orphan و lock رهاشده همچنان متوقف‌اند. ۵۶۲ تست Linux و ۲۰۰ تست واقعی Windows پاس شدند؛ نصب اصلی، CDN بازی و workflow مستقل Agent دست‌نخورده‌اند. این هنوز qualification تولیدی، CASC writer یا اپدیتر آمادهٔ نصب نیست. منطق محصول به یک جفت نسخهٔ ثابت محدود نیست؛ 70448 فقط snapshot تاریخی است.
 
 ## شروع ادامهٔ پروژه — فارسی (سابقه)
 

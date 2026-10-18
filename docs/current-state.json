@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-18T02:04:33.351915+00:00",
+  "as_of_utc": "2026-10-18T02:13:13.265754+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -47,8 +47,8 @@
     "hardware_field_transmission_proven": false,
     "historical_binary_findings_reverified_in_this_sync": false
   },
-  "user_action_now": "none for repository sync or offline coding; no new scan/download/install requested",
-  "sync_scope": "0.20 bounded transfer source, synthetic native tests, strict CI receipts, policy evidence review and session handoff; no game payload, SQLite, private transcript or credentials",
+  "user_action_now": "none for this local synthetic reconciliation step; no copy, scan, download, repair or permission change requested",
+  "sync_scope": "0.21 explicit local committed-range reconciliation, native synthetic CI receipt and session handoff; no game payload, SQLite, raw transcript or credentials",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
     "zip_sha256": "c26e5f9416e7aadef0f9f7dc36c06c2e8975ae65f8f1ac3bfca0abd67fa81001",
@@ -81,9 +81,9 @@
   },
   "current_focus": "Reusable version-independent WoW Retail updater",
   "current_updater": {
-    "release": "0.20",
+    "release": "0.21",
     "source": "updater-core/",
-    "unit_tests_linux": 536,
+    "unit_tests_linux": 562,
     "native_windows_qualified": false,
     "historical_baseline": "12.1.0.69933",
     "pinned_target": "12.1.5.70448",
@@ -116,17 +116,23 @@
     "large_object_network_controller_integrated": true,
     "native_windows_owned_scratch_implemented": true,
     "native_windows_stage_synthetic_tests_passed": 38,
-    "windows_combined_ci_tests_passed": 174,
+    "windows_combined_ci_tests_passed": 200,
     "windows_combined_ci_tests_skipped": 0,
-    "windows_combined_ci_source_commit": "d9f7c14e3c40e4bf3432dd7e7b5505773384c208",
-    "windows_combined_ci_receipt_commit": "9ab5f617da43cfa5836cf7e527283844d0bece23",
+    "windows_combined_ci_source_commit": "dfb11f5e894e807e6559213fc4d484cf6a334b0d",
+    "windows_combined_ci_receipt_commit": "5a824e882443ddebc3a8e5dbb47c30ed134df005",
     "windows_stage_to_candidate_admission_integrated": true,
     "windows_native_candidate_admission_tests_passed": 10,
     "bounded_transfer_tests_per_platform": 53,
     "bounded_stream_http_controller_integrated": true,
     "actual_game_CDN_transfer_qualified": false,
     "transfer_http_tests_mocked": true,
-    "ambiguous_attempt_automatic_retry_permitted": false
+    "ambiguous_attempt_automatic_retry_permitted": false,
+    "explicit_local_reconciliation_tests_per_platform": 26,
+    "committed_attempt_explicit_local_reconciliation_implemented": true,
+    "uncommitted_pending_attempt_recovery_implemented": false,
+    "reconciliation_fetches_network": false,
+    "reconciliation_resets_budget": false,
+    "abandoned_lock_automatic_removal": false
   },
   "github_experiment_reverified_in_this_sync": false,
   "next_native_environment_requirement": "user availability confirmed; no copy or game-path probe requested until a bounded test is implemented",
@@ -136,6 +142,6 @@
     "game_copy_requested": false,
     "main_install_modification_authorized": false
   },
-  "next_offline_step": "close independent selection/variant/patch and installed-generation evidence gaps; design explicit pending-attempt reconciliation before real CDN qualification; native CASC apply remains blocked",
+  "next_offline_step": "independently qualify selection/variant/patch and installed-generation evidence; design explicit new-scope retirement for uncommitted attempts before real CDN qualification",
   "public_policy_review": "Alternate community enum clarified only; Talebound and official selection remain unqualified"
 }
