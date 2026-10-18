@@ -1,0 +1,62 @@
+{
+  "run_id": "39157489237",
+  "source_commit": "bc5aa27842e123271eb794794bb6bd4dbfa93f44",
+  "flow_rows": 41,
+  "grain": "sampled TCP tuple over capture interval; local tuple redacted; identical visible rows may be distinct flows",
+  "observed_sni_or_http_hosts": [
+    "level3.blizzard.com",
+    "nydus.battle.net",
+    "telemetry-in.battle.net",
+    "us.cdn.blizzard.com",
+    "us.version.battle.net"
+  ],
+  "blocker_entries": [
+    "telemetry-in.battle.net",
+    "breaking-news.support.blizzard.com:443",
+    "rum.battle.net",
+    "www.google-analytics.com",
+    "analytics.google.com",
+    "www.googletagmanager.com",
+    "cm.g.doubleclick.net",
+    "inn-pa.googleapis.com",
+    "fcmatch.google.com",
+    "eu.shop.battle.net",
+    "bnetstorefront.akamaized.net",
+    "catalog.blzstatic.com",
+    "blz-contentstack-images.akamaized.net",
+    "navbar.blizzard.com",
+    "content-ui.battle.net",
+    "images.blz-contentstack.com",
+    "www.youtube.com",
+    "www.youtube-nocookie.com",
+    "fcmatch.youtube.com",
+    "i.ytimg.com"
+  ],
+  "invalid_port_entries": [
+    "breaking-news.support.blizzard.com:443"
+  ],
+  "blocklist_overlap_with_observed_sni_or_http_host": [
+    "telemetry-in.battle.net"
+  ],
+  "telemetry_sni_rows": 3,
+  "telemetry_sni_processes": [
+    "battle.net-setup.exe"
+  ],
+  "dns_cache_probe_status": [
+    "timeout",
+    "timeout"
+  ],
+  "capture_parsed": "parsed",
+  "packet_stats": {
+    "packets": 8783,
+    "truncated_packets": 3340
+  },
+  "comparison_plan": [
+    {
+      "finding": "network metadata identifies named destinations; no decrypted content or efficacy comparison",
+      "grain": "hostname evidence by SNI/HTTP rather than volume",
+      "disposition": "prose",
+      "reason": "diagnostic presence/absence and source-code review, no decision-relevant numerical chart"
+    }
+  ]
+}
