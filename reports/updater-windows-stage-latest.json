@@ -1,22 +1,16 @@
 {
   "format": "updater-windows-scratch-ci-2",
-  "source_commit": "6dc4d77b6cff652ce29998802276b99ba35cf66e",
+  "source_commit": "531f95f8ccae807d078efd2876c00f86fd54d0dd",
   "platform": "Windows",
   "python_version": "3.12.10",
   "tests_run": 111,
-  "failures": 1,
+  "failures": 0,
   "errors": 0,
   "skipped": 0,
-  "passed": false,
+  "passed": true,
   "expected_tests": 111,
-  "failed_cases": [
-    {
-      "test_id": "test_held_root_denies_rename (windows_stage_cases.WindowsStageTests.test_held_root_denies_rename)",
-      "error_class": "AssertionError",
-      "winerror_codes": []
-    }
-  ],
-  "native_windows_stage_synthetic_tests_passed": false,
+  "failed_cases": [],
+  "native_windows_stage_synthetic_tests_passed": true,
   "test_modules": [
     "test_stream_blte",
     "test_required_set",
