@@ -1,5 +1,10 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
+## آزمایش جاری — نصب پایهٔ Classic در ویندوز دورریختنی
+
+کاربر دانلود/نصب آزمایشی را تأیید کرد. اجرای یک‌باره با کنترل فضای واقعی دو volume، مقصد تازه، فرم auth/min-spec/legal و عدم جعل کشور آماده شد. اینجا هنوز نتیجهٔ اجرای واقعی نصب ادعا نمی‌شود؛ گزارش پس از پایان در `reports/classic-install-latest.json` منتشر خواهد شد. [دامنه و محدودیت‌ها](docs/CLASSIC-BASELINE-EXPERIMENT.fa.md). سقف سخت ترافیک Agent وجود ندارد و نصب با حذف VM نگهداری نمی‌شود؛ محتوای بازی صادر نمی‌شود. این نصب تازه جای آزمون آپدیت نسخه‌به‌نسخه نیست.
+
+
 ## نتیجهٔ تازه — متادیتای رسمی Classic Era
 
 نسخهٔ EU برابر `1.15.9.70003` مشاهده شد؛ configهای ساخت/CDN و هویت کامل manifestهای نصب/دانلود تأیید شدند. تنها 4,957,673 بایت متادیتا دریافت شد؛ هیچ بازی، Agent یا نصب/آپدیتی اجرا نشد. جمع کل catalogue دانلود حدود 7.93 GiB است، **نه حجم نصب پروفایل انتخابی یا حجم آپدیت**. جزئیات و مرز مجوز در [نتیجهٔ بررسی](docs/CLASSIC-ERA-METADATA-RESULT.fa.md)، [receipt](reports/classic-era-metadata-preflight.json) و [اندازه‌گیری](reports/classic-era-manifest-sizing.json).

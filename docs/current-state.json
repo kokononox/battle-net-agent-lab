@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-18T05:55:32.741201+00:00",
+  "as_of_utc": "2026-10-18T06:04:17.025599+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -49,7 +49,7 @@
     "hardware_field_transmission_proven": false,
     "historical_binary_findings_reverified_in_this_sync": false
   },
-  "user_action_now": "Approve or decline separate disposable Windows Classic baseline download/install; no action on user Retail installation or login required.",
+  "user_action_now": "none: separate disposable Classic baseline download/install approved; stop rather than fabricate country/login/legal consent",
   "sync_scope": "Actual bounded official Classic metadata acquisition, full manifest identities, unfiltered sizing crosscheck and separate next-stage authorization boundary.",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
@@ -81,7 +81,7 @@
     "installation_ready": false,
     "historical_only_not_current_target": true
   },
-  "current_focus": "Classic isolated official-client experiment: metadata verified; need separate permission before game payload/install. Independent Retail policy and CASC writer remain unqualified.",
+  "current_focus": "Execute one approved disposable Windows Classic baseline attempt; inspect real receipt, not test count.",
   "current_updater": {
     "release": "0.27",
     "source": "updater-core/",
@@ -245,5 +245,17 @@
     "full_install_size_bytes": null,
     "game_payload_requested": false,
     "next_game_install_authorized": false
+  },
+  "classic_baseline_experiment": {
+    "approved_by_user": true,
+    "status": "one_shot_workflow_prepared_not_result",
+    "workflow": ".github/workflows/classic-baseline-install.yml",
+    "source": "agent-interface-lab/classic_install.py",
+    "game_payload_download_authorized": true,
+    "user_main_install_access_authorized": false,
+    "account_login_authorized": false,
+    "child_network_hard_byte_cap": false,
+    "baseline_persisted": false,
+    "version_to_version_update_proven": false
   }
 }

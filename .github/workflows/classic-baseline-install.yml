@@ -1,0 +1,76 @@
+name: Approved disposable Classic baseline install
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'agent-interface-lab/**'
+      - '.github/workflows/classic-baseline-install.yml'
+      - 'classic-metadata-lab/**'
+permissions: {}
+concurrency:
+  group: classic-baseline-install-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  observe:
+    if: >-
+      github.event_name == 'push' && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
+    runs-on: windows-2025
+    timeout-minutes: 35
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout without persistent credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Test no-login install guards and native PID/listener identity
+        run: |
+          python scripts/run_safety_tests.py --output output
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest discover -s agent-interface-lab/tests -v
+      - name: Attempt approved isolated Classic baseline install
+        env:
+          AGENT_INTERFACE_ONCE: 'lab: approved logged-out Agent interface probe 2026-10-17 6f4d2b81'
+          CLASSIC_INSTALL_ONCE: 'lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
+        run: python agent-interface-lab/classic_install.py
+      - name: Validate the nested bounded report before export
+        if: always()
+        shell: python
+        run: |
+          import json, pathlib, sys
+          sys.path.insert(0, 'agent-interface-lab')
+          import probe, classic_install
+          path = pathlib.Path('output/classic-install-to-share.json')
+          if path.stat().st_size > 16384: raise ValueError('report_size')
+          classic_install.validate(probe.unique_json(path.read_bytes()))
+          pathlib.Path('sanitized').mkdir(exist_ok=True)
+          pathlib.Path('sanitized/classic-install-to-share.json').write_text(json.dumps(probe.unique_json(path.read_bytes()), indent=2), encoding='utf-8')
+      - name: Export only the strict baseline report
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: classic-baseline-install-sanitized
+          path: sanitized/classic-install-to-share.json
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: observe
+    if: needs.observe.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout on a separate reporting runner
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: main
+      - name: Fetch only the sanitized observation
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: classic-baseline-install-sanitized
+          path: incoming
+      - name: Revalidate source identity and publish minimal evidence
+        env:
+          EXPECTED_SOURCE: ${{ github.sha }}
+        run: python agent-interface-lab/classic_publish.py incoming/classic-install-to-share.json
