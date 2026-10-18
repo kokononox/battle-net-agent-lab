@@ -40,7 +40,7 @@ class WindowsGenerationView(WindowsMetadataPair):
        'held_read_handle_capture_not_implemented_for_control_and_indexes',
        'source_root_and_capture_time_not_bound')]
    blockers += ['native_same_root_path_capture_not_product_store_semantic_binding',
-                'ordinary_share_denial_does_not_exclude_preexisting_mapped_writes',
+                'all_preexisting_mapping_cases_not_qualified',
                 'complete_inventory_not_enumerated']
    result.update(format='native-windows-held-generation-view-1',
       status='held_read_view_structurally_checked_NOT_client_generation_proof',

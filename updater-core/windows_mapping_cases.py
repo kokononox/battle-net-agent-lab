@@ -1,5 +1,5 @@
-"""Native mapped-writer counterexamples on NEW synthetic owned trees only.
-Never maps user control/index files. Demonstrates sharing is not an OS snapshot.
+"""Native mapped-writer exclusion experiments on NEW synthetic owned trees only.
+Never maps user control/index files. Checks the observed Windows share refusal, not a universal snapshot guarantee.
 """
 import ctypes,unittest
 from ctypes import wintypes as w
@@ -33,25 +33,18 @@ class MappingCases(unittest.TestCase):
   finally:k.CloseHandle(h)
   self.unmaps.append((k,address))
   return ctypes.c_ubyte.from_address(address+len(self.build.control)-1)
- def test_mapped_write_detected_if_not_restored(self):
-  mapped=self.mapping();touched=[]
-  # Native streams are fdopen objects; f.name is an integer. Use stream identity.
-  class Inject(WindowsGenerationView):
-   def _read(view,f,n):
-    raw=super()._read(f,n)
-    if len(view.streams)==19 and f is view.streams[3][0]and not touched:mapped.value=1;touched.append(True)
-    return raw
-  from release_core import InvalidRelease
-  with Inject(self.root)as view:
-   with self.assertRaisesRegex(InvalidRelease,'control_changed'):view.observe()
-  self.assertEqual(touched,[True]);mapped.value=0
- def test_mapped_ABA_is_not_proven_absent_by_equal_rounds(self):
-  mapped=self.mapping();transitions=[]
-  class Inject(WindowsGenerationView):
-   def _read(view,f,n):
-    raw=super()._read(f,n)
-    if len(view.streams)==19 and f is view.streams[3][0]and not transitions:
-     mapped.value=1;transitions.append(mapped.value);mapped.value=0;transitions.append(mapped.value)
-    return raw
-  with Inject(self.root)as view:r=view.observe()
-  self.assertEqual(transitions,[1,0]);self.assertTrue(r['both_rounds_bytes_equal']);self.assertFalse(r['no_change_between_rounds_proven']);self.assertFalse(r['coherent_live_snapshot_proven'])
+ def test_preexisting_writable_mapping_refuses_capture(self):
+  mapped=self.mapping();mapped.value=1;self.assertEqual(mapped.value,1)
+  try:
+   with WindowsGenerationView(self.root)as view:
+    with self.assertRaises(PermissionError)as error:view.observe()
+   self.assertEqual(error.exception.winerror,32)
+  finally:mapped.value=0
+ def test_capture_after_unmapping_not_after_just_byte_restore(self):
+  mapped=self.mapping();mapped.value=1;mapped.value=0
+  with WindowsGenerationView(self.root)as view:
+   with self.assertRaises(PermissionError)as error:view.observe()
+  self.assertEqual(error.exception.winerror,32)
+  k,address=self.unmaps.pop();self.assertTrue(k.UnmapViewOfFile(address))
+  with WindowsGenerationView(self.root)as view:r=view.observe()
+  self.assertTrue(r['both_rounds_bytes_equal']);self.assertFalse(r['coherent_live_snapshot_proven'])

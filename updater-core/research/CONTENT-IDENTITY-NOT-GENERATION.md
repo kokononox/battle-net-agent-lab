@@ -47,14 +47,25 @@ process-isolation/hostile-writer boundary or power-loss-qualified commit. There
 is no automatic installed-file read and no further read approval implied.
 
 ## Decision-making Windows experiment
-Two additional native tests create a writable mapping of a NEW synthetic control
-file, close the original file/section handles while retaining the mapped view,
-and use the held-read API. One leaves a changed byte for reread to catch; the
-other changes A->B->A between observations. The expected limitation is explicit:
-ordinary sharing denial is not exclusion of pre-existing writable mappings and
-identical rounds do not prove no intermediate change. Only a CI receipt for the
-exact source commit establishes what actually ran; Linux tests do not prove this.
-No user shmem/index/archive is used in these experiments.
+The initial hypothesis was that a previously writable mapping could remain usable
+while our held read view succeeded. Actual Windows CI instead returned sharing
+violation (WinError 32) in both experiments, even after the original file/section
+handles were closed. The first run also had unrelated POSIX fixture setup errors;
+those were fixed using native fixtures, without weakening production validation.
+
+Follow-up tests assert this specific observed outcome: the mapped byte remains
+writable, the held capture refuses that source with sharing violation 32, simply
+restoring the byte is insufficient, and unmapping permits the capture. This is
+positive exclusion evidence for this exact Windows profile, NOT an observed
+bypass, and NOT a proof about every possible mapping/process/Agent path. We did
+not demonstrate a successful mapped A->B->A bypass. Prior read-view blocker wording
+was narrowed to unqualified mapping cases rather than claiming a proven bypass.
+
+Only the receipt of the follow-up source establishes that these assertions passed.
+No user control/index/archive is used. Full client quiescence, all mapping modes
+and product store binding remain unqualified. Independent content capture remains
+useful because stale locators and copied/changed sources are independently handled
+by complete target identity checks, regardless of this single mapping result.
 
 ## Completion criteria and remaining work
 The independent-copy path is implemented and tested, not yet a live local reuse
