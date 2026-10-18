@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import subprocess
 import sys
 import sysconfig
 import zipfile
@@ -34,6 +35,10 @@ def build():
         shutil.copytree(matches[0],sites/matches[0].name)
     (runtime/(version+'._pth')).write_text(f'{version}.zip\n.\nDLLs\nLib/site-packages\n../app\n',encoding='utf-8')
     shutil.copytree(root/'app',dest/'app',ignore=shutil.ignore_patterns('__pycache__'))
+    csc=Path(os.environ['SystemRoot'])/'Microsoft.NET'/'Framework64'/'v4.0.30319'/'csc.exe'
+    subprocess.run([str(csc),'/nologo','/target:exe','/platform:x64','/out:'+str(dest/'app'/'AuthVerify.exe'),
+        str(dest/'app'/'authenticode_native.cs'),str(dest/'app'/'authverify_entry.cs')],check=True,timeout=30)
+
     for name in ('Start-Monitor.cmd','SelfTest-Only.cmd','Restore-Hosts-Only.cmd','README-fa.md','THIRD-PARTY-NOTICES.txt'):
         shutil.copy2(root/name,dest/name)
     (dest/'BUILD-INFO.json').write_text(json.dumps({'source_commit':os.environ.get('GITHUB_SHA'),'run_id':os.environ.get('GITHUB_RUN_ID'),'python_version':sys.version.split()[0],'frida_version':frida.__version__,'runner_image_version':os.environ.get('ImageVersion'),'native_selftest_scheduled_after_build':True,'not_user_pc_observed':True},indent=2)+'\n')

@@ -133,3 +133,14 @@ class CompletionSafetyTests(unittest.TestCase):
     def test_ready_rechecks_live_process_creation(self):
         s=(Path(__file__).resolve().parents[1]/'app'/'core.py').read_text();ready=s[s.index('    def ready(self):'):s.index('    def close(self):')]
         self.assertIn("identity(pid)['creation']==creation",ready)
+
+class NativeTrustTests(unittest.TestCase):
+    def test_policy_matches_existing_strict_native_verification(self):
+        s=(Path(__file__).resolve().parents[1]/'app'/'authenticode_native.cs').read_text()
+        self.assertIn('revocationChecks=1',s);self.assertIn('providerFlags=0x2080',s)
+        self.assertIn('if(status==0) publisher=ExpectedPublisher(data.stateData)',s)
+        self.assertIn('WTHelperGetProvSignerFromChain',s)
+        self.assertNotIn('providerFlags=0x1000',s)
+    def test_no_powershell_signature_dependency(self):
+        s=(Path(__file__).resolve().parents[1]/'app'/'core.py').read_text()
+        self.assertNotIn('Get-AuthenticodeSignature',s);self.assertIn("with_name('AuthVerify.exe')",s)

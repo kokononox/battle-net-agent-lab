@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import sys
 import tempfile
-sys.path.insert(0,str(Path(__file__).resolve().parent/'app'))
+sys.path.insert(0,str(Path(__file__).resolve().parent/'release'/'Local-Retail-Privacy-Monitor-U1'/'app'))
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from core import signature
 from observe_agent import fetch_setup
@@ -19,7 +19,8 @@ try:
         actual=signature(dest);r['bootstrap_valid']=actual['valid'];r['bootstrap_blizzard']=actual['blizzard'];r['bootstrap_status']=actual['status']
         # Unsigned/non-Blizzard Python is a negative control, not a reason to relax Blizzard checks.
         r['passed']=r['runtime_not_blizzard'] and r['bootstrap_valid'] and r['bootstrap_blizzard'];r['phase']='complete'
-except Exception:r['error_code']='certificate_policy_gate_failed'
+except Exception as exc:
+    r['error_code']=str(exc) if isinstance(exc,ValueError) and str(exc) in ('signature_check_failed','signature_check_rejected','signature_status_rejected','invalid_publisher_claim','bootstrap_pin_changed_no_execution') else 'signature_timeout' if isinstance(exc,__import__('subprocess').TimeoutExpired) else 'certificate_policy_gate_failed'
 (Path(__file__).resolve().parent/'certificate-gate.json').write_text(json.dumps(r,indent=2)+'\n')
 print(json.dumps(r))
 if not r['passed']:raise SystemExit(1)

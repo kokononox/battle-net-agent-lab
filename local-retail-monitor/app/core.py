@@ -56,16 +56,17 @@ def versions(root):
         except Exception:status='unreadable_or_unrecognized'
     return {'status':status,'retail_versions':sorted(result)}
 
-SIGNATURE=r'''$ErrorActionPreference='Stop';$s=Get-AuthenticodeSignature -LiteralPath $env:LOCAL_MONITOR_VERIFY_PATH; $ok=$s.Status -eq 'Valid';$publisher=$false;if($ok -and $null -ne $s.SignerCertificate){$name=$s.SignerCertificate.GetNameInfo([System.Security.Cryptography.X509Certificates.X509NameType]::SimpleName,$false);$publisher=$name -in @('Blizzard Entertainment, Inc.','Blizzard Entertainment, Inc','Blizzard Entertainment Inc.','Blizzard Entertainment')};ConvertTo-Json -Compress -InputObject @{valid=[bool]$ok;blizzard=[bool]$publisher;status=[string]$s.Status}'''
-
 def signature(path):
-    env=clean_env();env['LOCAL_MONITOR_VERIFY_PATH']=str(path)
-    exe=Path(os.environ['SystemRoot'])/'System32'/'WindowsPowerShell'/'v1.0'/'powershell.exe'
-    r=subprocess.run([str(exe),'-NoLogo','-NoProfile','-NonInteractive','-Command',SIGNATURE],env=env,stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=15,check=False,creationflags=0x08000000)
+    # Same WinVerifyTrust + verified-leaf policy already tested in the repository.
+    # No PowerShell cmdlet, cache-only fallback, revocation downgrade or store change.
+    exe=safe_path(Path(__file__).with_name('AuthVerify.exe'))
+    r=subprocess.run([str(exe),str(path)],env=clean_env(),stdin=subprocess.DEVNULL,
+        stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=20,check=False,creationflags=0x08000000)
     if r.returncode or len(r.stdout)>4096:raise ValueError('signature_check_failed')
     d=json.loads(r.stdout.decode('utf-8-sig'))
     if set(d)!={'valid','blizzard','status'} or type(d['valid']) is not bool or type(d['blizzard']) is not bool:raise ValueError('signature_check_rejected')
-    if d['status'] not in ('Valid','NotSigned','HashMismatch','NotTrusted','UnknownError','NotSupportedFileFormat','Incompatible'):d['status']='other'
+    if d['status'] not in ('Valid','NotTrusted'):raise ValueError('signature_status_rejected')
+    if d['blizzard'] and not d['valid']:raise ValueError('invalid_publisher_claim')
     return d
 
 def bounded(frida,operation):
