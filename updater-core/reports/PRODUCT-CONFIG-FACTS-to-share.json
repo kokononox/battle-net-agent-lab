@@ -1,0 +1,99 @@
+{
+  "format": "release-bound-product-config-facts-1",
+  "target": {
+    "scope": {
+      "product": "wow",
+      "branch": "retail",
+      "region": "eu"
+    },
+    "version": "12.1.5.70448",
+    "build_id": 70448,
+    "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+    "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+    "origins": [
+      "https://level3.ssl.blizzard.com"
+    ],
+    "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+    "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+  },
+  "product_config_key": "53020d32e1a25648c8e1eafd5771935f",
+  "product_config_sha256": "0909c89b6e5808a26791197dd722364d4b94d4b01ac64437b81bcde37d5c7519",
+  "product_config_bytes": 15764,
+  "versions_table_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+  "release_table_and_content_key_bound": true,
+  "publisher_signature_verified": false,
+  "profile_input": {
+    "platform": "Windows",
+    "architecture": "x86_64",
+    "region": "EU",
+    "text_locales": [
+      "enUS"
+    ],
+    "speech_locales": [
+      "enUS"
+    ]
+  },
+  "canonical_locale_facts": {
+    "text_locales": [
+      "enUS"
+    ],
+    "speech_locales": [
+      "enUS"
+    ]
+  },
+  "supported_locales": [
+    "enUS",
+    "esMX",
+    "ptBR",
+    "deDE",
+    "esES",
+    "frFR",
+    "itIT",
+    "ruRU",
+    "koKR",
+    "zhTW",
+    "zhCN"
+  ],
+  "replacement_locales": {
+    "enCN": "zhCN",
+    "enGB": "enUS",
+    "enSG": "enUS",
+    "enTW": "zhTW",
+    "ptPT": "ptBR"
+  },
+  "windows_platform_tags": [
+    "Windows"
+  ],
+  "windows_architecture_tags": [
+    "x86_64"
+  ],
+  "applicable_explicit_extra_tag_declarations": [],
+  "absent_extra_tags_mean_disabled": false,
+  "region_inferred_from_locale": false,
+  "region_tag_rule_qualified": false,
+  "block_copy_patch_advertised": true,
+  "block_copy_patch_implemented": false,
+  "install_uninstall_actions_interpreted": false,
+  "external_paths_used": false,
+  "profile_origin": "explicit_input_NOT_live_preferences",
+  "vendor_selection_policy_qualified": false,
+  "feature_selection_semantics_qualified": false,
+  "dependency_and_variant_policy_qualified": false,
+  "active_generation_proven": false,
+  "required_set_selected": false,
+  "promotion_to_required_set_permitted": false,
+  "required_network_download_bytes": null,
+  "network_requests": 0,
+  "game_access": false,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "candidate_database_sha256": "2078c6d2bde0e852d5c7b466bf5fe2157067d5014532965f67ed80d8d8a7be28",
+  "source_metadata_sha256": {
+    "install": "9992fcadbd41f0e3170a23b60f19ac45e870014887d81c05060ec1607b2c0957",
+    "download": "ed2606c609881db971547a240ab8b68c8a1d0bc1ed060808adf96da62b25fd4b"
+  },
+  "existing_candidate_identity_reverified": true,
+  "candidate_plan_modified": false,
+  "canonical_locale_differs_from_input": false,
+  "locale_alias_replan_review_required": false
+}
