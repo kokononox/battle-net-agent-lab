@@ -6,7 +6,7 @@ import sys
 import threading
 
 def main():
- if sys.platform!='win32' or os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('RUNNER_OS')!='Windows' or os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted' or os.environ.get('GITHUB_RUN_ATTEMPT')!='1' or os.environ.get('PRIVACY_TLS_ONCE')!='tls-20261018-e1':raise SystemExit('fresh_hosted_once_required')
+ if sys.platform!='win32' or os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('RUNNER_OS')!='Windows' or os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted' or os.environ.get('GITHUB_RUN_ATTEMPT')!='1' or os.environ.get('PRIVACY_TLS_ONCE')!='tls-20261018-e2':raise SystemExit('fresh_hosted_once_required')
  root=Path(__file__).resolve().parents[1];sys.path.insert(0,str(root/'privacy-network'));sys.path.insert(0,str(root/'scripts'))
  import observe_agent as obs
  import native_tcp

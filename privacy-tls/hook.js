@@ -63,7 +63,7 @@ function addHooks() {
  for(const moduleName of ['secur32.dll','sspicli.dll']){
   install(moduleName,'EncryptMessage',{
    onEnter(args){
-    this.items=[];this.context=contextTag(args[0]);
+    this.items=[];this.labContext=contextTag(args[0]);
     try{
      const d=args[2],count=d.add(4).readU32(),base=d.add(8).readPointer();if(count>16)return;
      const width=Process.pointerSize===8?16:12;
@@ -72,7 +72,7 @@ function addHooks() {
       this.items.push(observe(p.add(8).readPointer(),p.readU32(),'EncryptMessage',{host:null,method:null}));
      }
     }catch(_){}
-   },onLeave(ret){for(const item of this.items||[]){if(item)item.info.context=this.context;publish(item,ret,false);}}
+   },onLeave(ret){for(const item of this.items||[]){if(item)item.info.context=this.labContext;publish(item,ret,false);}}
   });
  }
  // Dynamically linked OpenSSL only. Static/nonexported implementations are a gap.

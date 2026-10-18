@@ -42,3 +42,9 @@ API success فقط مقدار بازگشتی محلی است؛ async/timeout/ا�
 
 ## اصلاح محدود d2 پس از توقف ایمن d1
 run 39159715814 در self-test مرحله attach متوقف شد و هیچ کلاینت واقعی اجرا نشد. بررسی wheel دقیق نشان داد wrapperهای sync جدید Frida 17.24.2 پارامتر cancellable را مانند نسخه قدیمی قبول نمی‌کنند و cancellation از context manager/thread-local به _invoke می‌رسد. d2 از with Cancellable استفاده می‌کند؛ dependency/هدف/سقف‌ها تغییر نمی‌کنند. receipt d1 حفظ می‌شود، d2 یک commit/nonce و گزارش جدا دارد. اگر self-test دوباره شکست بخورد، کلاینت اجرا نمی‌شود و تکرار کور مجاز نیست.
+
+## e2: اصلاح خطای hook، نه ادعای نبود payload
+E1، run 39160679721، self-test WinHTTP را پاس کرد اما دو script error و صفر buffer داشت. در تغییر جدید، this.context با property رزروشده InvocationContext در Frida تداخل داشت؛ به this.labContext تغییر کرد. self-test اکنون علاوه بر WinHttpSendRequest، مسیر EncryptMessage را با descriptor مصنوعی و context نامعتبر (مسیر خطای محلی، بدون credential/TLS network) می‌سنجد. هر دو باید قبل اجرای کلاینت دیده شوند. رسید e1 با نمونه خالی حفظ می‌شود و هیچ نتیجه حریم خصوصی از آن گرفته نمی‌شود.
+
+## e2: اصلاح خطای hook، نه ادعای نبود payload
+E1، run 39160679721، self-test WinHTTP را پاس کرد اما دو script error و صفر buffer داشت. در تغییر جدید، this.context با property رزروشده InvocationContext در Frida تداخل داشت؛ به this.labContext تغییر کرد. self-test اکنون علاوه بر WinHttpSendRequest، مسیر EncryptMessage را با descriptor مصنوعی و context نامعتبر (مسیر خطای محلی، بدون credential/TLS network) می‌سنجد. هر دو باید قبل اجرای کلاینت دیده شوند. رسید e1 با نمونه خالی حفظ می‌شود و هیچ نتیجه حریم خصوصی از آن گرفته نمی‌شود.

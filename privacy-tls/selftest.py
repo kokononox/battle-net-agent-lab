@@ -19,6 +19,10 @@ def worker(folder):
  w.WinHttpSendRequest.argtypes=[ptr,txt,u,ptr,u,u,ctypes.c_size_t];w.WinHttpSendRequest.restype=ctypes.c_int
  w.WinHttpSetTimeouts.argtypes=[ptr,ctypes.c_int,ctypes.c_int,ctypes.c_int,ctypes.c_int]
  w.WinHttpCloseHandle.argtypes=[ptr]
+ sec=ctypes.WinDLL('secur32',use_last_error=True)
+ sec.EncryptMessage.argtypes=[ptr,u,ptr,u];sec.EncryptMessage.restype=ctypes.c_int32
+ sec=ctypes.WinDLL('secur32',use_last_error=True)
+ sec.EncryptMessage.argtypes=[ptr,u,ptr,u];sec.EncryptMessage.restype=ctypes.c_int32
  (root/'ready').write_text('ready')
  start=time.monotonic()
  while not (root/'go').exists() and time.monotonic()-start<30:time.sleep(.05)
@@ -29,6 +33,18 @@ def worker(folder):
  w.WinHttpSetTimeouts(req,500,500,500,500)
  body=b'{"cpu":"SYNTHETIC_VALUE_NOT_REAL_HARDWARE"}';buf=ctypes.create_string_buffer(body)
  w.WinHttpSendRequest(req,None,0,buf,len(body),len(body),0)
+ # Documented negative-handle path; no acquired credentials or network TLS session.
+ class Buffer(ctypes.Structure):_fields_=[('size',u),('kind',u),('data',ptr)]
+ class Descriptor(ctypes.Structure):_fields_=[('version',u),('count',u),('buffers',ctypes.POINTER(Buffer))]
+ context=(ctypes.c_size_t*2)();sb=Buffer(len(body),1,ctypes.cast(buf,ptr));desc=Descriptor(0,1,ctypes.pointer(sb))
+ try:sec.EncryptMessage(ctypes.byref(context),0,ctypes.byref(desc),0)
+ except OSError:pass
+ # Documented negative-handle path; no acquired credentials or network TLS session.
+ class Buffer(ctypes.Structure):_fields_=[('size',u),('kind',u),('data',ptr)]
+ class Descriptor(ctypes.Structure):_fields_=[('version',u),('count',u),('buffers',ctypes.POINTER(Buffer))]
+ context=(ctypes.c_size_t*2)();sb=Buffer(len(body),1,ctypes.cast(buf,ptr));desc=Descriptor(0,1,ctypes.pointer(sb))
+ try:sec.EncryptMessage(ctypes.byref(context),0,ctypes.byref(desc),0)
+ except OSError:pass
  for handle in (req,conn,session):
   if handle:w.WinHttpCloseHandle(handle)
  time.sleep(1)
@@ -45,7 +61,7 @@ def run_selftest(frida,env):
  def message(msg,data):
   if msg.get('type')=='send' and isinstance(msg.get('payload'),dict):
    d=msg['payload']
-   if d.get('kind')=='buffer' and d.get('api')=='WinHttpSendRequest':events.append(analyze_body(bytes(data or b''),d.get('declared_length',0),d.get('readable') is True))
+   if d.get('kind')=='buffer' and d.get('api') in ('WinHttpSendRequest','EncryptMessage'):events.append((d['api'],analyze_body(bytes(data or b''),d.get('declared_length',0),d.get('readable') is True)))
  try:
   with tempfile.TemporaryDirectory(prefix='tls-loopback-test-',dir=os.environ['RUNNER_TEMP']) as folder:
    root=Path(folder);result['stage']='worker_start'
@@ -57,7 +73,7 @@ def run_selftest(frida,env):
    result['stage']='script_load';script=bounded(lambda c:session.create_script(Path(__file__).with_name('hook.js').read_text()));script.on('message',message);bounded(lambda c:script.load())
    (root/'go').write_text('go');result['stage']='await_event';until=time.monotonic()+8
    while not (root/'done').exists() and time.monotonic()<until:time.sleep(.05)
-   result['passed']=any(e['format']=='json' and 'cpu' in e['field_name_hints'] for e in events)
+   result['passed']=all(any(api==needed and e['format']=='json' and 'cpu' in e['field_name_hints'] for api,e in events) for needed in ('WinHttpSendRequest','EncryptMessage'))
    result['stage']='complete' if result['passed'] else 'event_not_observed'
  except Exception:pass
  finally:
