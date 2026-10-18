@@ -1,0 +1,218 @@
+{
+  "schema": "bnet-outgoing-http-3",
+  "source_commit": "87f60e78bfd60e98f71a166582017a13ed1e150b",
+  "run_id": "39164179617",
+  "scope": "fresh_vm_startup_language_only_no_account_game_install_action",
+  "reference": {
+    "cpu_model": "AMD EPYC 7763 64-Core Processor",
+    "windows_build": 26100,
+    "total_physical_memory_bytes": 8584425472,
+    "logical_processors": 2
+  },
+  "bootstrap_pin_match": true,
+  "capture": {
+    "start_code": 0,
+    "stop_code": 0,
+    "convert_code": 0,
+    "etl_bytes": 14598283,
+    "pcapng_bytes": 15356000,
+    "packet_size_requested": 0,
+    "raw_packet_files_exported": false
+  },
+  "sampler": {
+    "samples": 1114,
+    "errors": 0,
+    "flow_limit_hit": false
+  },
+  "status": "capture_parsed",
+  "bootstrap_status": "agent_process_observed",
+  "error_code": null,
+  "packet_stats": {
+    "packets": 5064
+  },
+  "flows": [
+    {
+      "flow_id": 1,
+      "process_name": "battle.net-setup.exe",
+      "pid": 9112,
+      "remote_address": "23.211.177.76",
+      "stream_status": "contiguous",
+      "parse_status": "parsed_to_end",
+      "attribution": "sampled_tcp_tuple"
+    },
+    {
+      "flow_id": 2,
+      "process_name": "agent.exe",
+      "pid": 7296,
+      "remote_address": "23.211.177.202",
+      "stream_status": "contiguous",
+      "parse_status": "parsed_to_end",
+      "attribution": "sampled_tcp_tuple"
+    },
+    {
+      "flow_id": 3,
+      "process_name": "agent.exe",
+      "pid": 7296,
+      "remote_address": "23.211.177.202",
+      "stream_status": "contiguous",
+      "parse_status": "parsed_to_end",
+      "attribution": "sampled_tcp_tuple"
+    }
+  ],
+  "requests": [
+    {
+      "flow_id": 1,
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/c8/56/c856402fe1c953bf80faeda4cfe6c234",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "range",
+          "bytes=252585721-252585761"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "flow_id": 2,
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/configs/data/bf/4b/bf4bddf3db7a5e2eb9f36b9304b47816",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "flow_id": 2,
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/configs/data/c9/dc/c9dc6de3a629d80327fc6e96256dd19e",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "flow_id": 3,
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/configs/data/e8/a9/e8a9e3b2b36cc844d7a26a18fce57792",
+      "headers": [
+        [
+          "host",
+          "level3.blizzard.com"
+        ],
+        [
+          "user-agent",
+          "agent/2.41.1.9824"
+        ],
+        [
+          "accept",
+          "*/*"
+        ]
+      ],
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "body_sample_base64": "",
+      "body_sample_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "diagnostics": {
+    "counts": {
+      "ethernet_packets": 5064,
+      "tcp_packets": 5051,
+      "outgoing_public_tcp80_observations": 2182,
+      "outgoing_tcp80_zero_payload_observations": 2130,
+      "outgoing_tcp80_payload_observed_bytes": 28174,
+      "outgoing_tcp80_payload_observations": 52,
+      "ipv4_zero_total_length": 12,
+      "ipv4_zero_length_capture_bound_used": 12,
+      "non_tcp_packets": 13,
+      "tcp80_flows": 63,
+      "tcp80_flows_with_syn": 31,
+      "tcp80_flows_with_payload": 20,
+      "tcp80_flows_in_sampler": 12,
+      "tcp80_flows_not_in_sampler": 51,
+      "flows_no_known_host_request": 60,
+      "known_host_requests": 4,
+      "known_host_requests_with_pid": 4,
+      "known_host_flows": 3
+    },
+    "stream_statuses": {
+      "empty": 43,
+      "contiguous": 17,
+      "gap": 1,
+      "gap_capture_bounds": 1,
+      "contiguous_capture_bounds": 1
+    },
+    "parse_statuses": {
+      "parsed_to_end": 62,
+      "incomplete_body": 1
+    }
+  },
+  "limits": {
+    "server_receipt_proven": false,
+    "user_pc_observed": false,
+    "full_game_update_test": false,
+    "responses_exported": false,
+    "outgoing_known_hosts_only": true,
+    "credential_headers_redacted": true,
+    "tuple_pid_link_not_cryptographic_proof": true,
+    "circular_capture_and_sampling_can_miss_data": true,
+    "child_network_hard_byte_cap": false,
+    "unattributed_known_host_requests_included": true,
+    "zero_ip_length_capture_bounds_inference": true
+  }
+}
