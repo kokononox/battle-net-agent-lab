@@ -1,35 +1,6 @@
 {
-  "as_of_utc": "2026-10-16",
+  "as_of_utc": "2026-10-18T01:01:00.736500+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
-  "downloader": {
-    "release": "WoW-Update-Scope-Preview-TagFix",
-    "zip_sha256": "c26e5f9416e7aadef0f9f7dc36c06c2e8975ae65f8f1ac3bfca0abd67fa81001",
-    "source": "downloader/",
-    "unit_tests_release": 446,
-    "installed_version": "12.1.0.69933",
-    "pinned_target": "12.1.5.70391",
-    "target_is_verified_latest_online": false,
-    "profile": {
-      "platform": "Windows",
-      "architecture": "x86_64",
-      "region": "EU",
-      "locales": [
-        "enUS"
-      ]
-    },
-    "local_review_complete": true,
-    "active_queue_refresh_complete": true,
-    "profile_scope_status": "profile_and_local_proof_scope_complete",
-    "target_objects": 2881619,
-    "profile_selected_objects": 1578013,
-    "new_without_encoded_proof_objects": 36804,
-    "new_full_encoded_representation_bytes": 5112695785,
-    "retained_conditional_objects": 41145,
-    "retained_conditional_representation_bytes": 2236684891,
-    "required_network_download_bytes": null,
-    "CASC_writer_implemented": false,
-    "installation_ready": false
-  },
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
     "previous_status": "bootstrapper_observed_agent_not_observed",
@@ -76,6 +47,60 @@
     "hardware_field_transmission_proven": false,
     "historical_binary_findings_reverified_in_this_sync": false
   },
-  "user_action_now": "preserve existing Lab; no new metadata prepare/full asset scan/broad download requested",
-  "sync_scope": "comprehensive structured handoff + released text source + five selected sanitized user reports; not raw transcript/all attachments"
+  "user_action_now": "none for repository sync or offline coding; no new scan/download/install requested",
+  "sync_scope": "0.15 source, public metadata fixtures encoded as text, sanitized receipts and structured handoff; no game asset payload, raw transcript, private Lab, SQLite or credentials",
+  "historical_downloader_snapshot": {
+    "release": "WoW-Update-Scope-Preview-TagFix",
+    "zip_sha256": "c26e5f9416e7aadef0f9f7dc36c06c2e8975ae65f8f1ac3bfca0abd67fa81001",
+    "source": "downloader/",
+    "unit_tests_release": 446,
+    "installed_version": "12.1.0.69933",
+    "pinned_target": "12.1.5.70391",
+    "target_is_verified_latest_online": false,
+    "profile": {
+      "platform": "Windows",
+      "architecture": "x86_64",
+      "region": "EU",
+      "locales": [
+        "enUS"
+      ]
+    },
+    "local_review_complete": true,
+    "active_queue_refresh_complete": true,
+    "profile_scope_status": "profile_and_local_proof_scope_complete",
+    "target_objects": 2881619,
+    "profile_selected_objects": 1578013,
+    "new_without_encoded_proof_objects": 36804,
+    "new_full_encoded_representation_bytes": 5112695785,
+    "retained_conditional_objects": 41145,
+    "retained_conditional_representation_bytes": 2236684891,
+    "required_network_download_bytes": null,
+    "CASC_writer_implemented": false,
+    "installation_ready": false,
+    "historical_only_not_current_target": true
+  },
+  "current_focus": "Reusable version-independent WoW Retail updater",
+  "current_updater": {
+    "release": "0.15",
+    "source": "updater-core/",
+    "unit_tests_linux": 383,
+    "native_windows_qualified": false,
+    "historical_baseline": "12.1.0.69933",
+    "pinned_target": "12.1.5.70448",
+    "target_is_verified_latest_online": false,
+    "candidate_install_paths": 39,
+    "candidate_download_objects": 1578022,
+    "copied_local_reference_rows": 2624530,
+    "objects_with_reported_bounded_candidate_locator": 1531166,
+    "objects_without_reference_in_copy_UNKNOWN": 46856,
+    "owned_stage_reverified_bytes": 52,
+    "installed_content_reuse_authorized": false,
+    "vendor_selection_policy_qualified": false,
+    "active_generation_proven": false,
+    "required_network_download_bytes": null,
+    "CASC_writer_implemented": false,
+    "installation_ready": false,
+    "apply_authorized": false
+  },
+  "github_experiment_reverified_in_this_sync": false
 }
