@@ -1,0 +1,107 @@
+name: One-shot local destination recon R1 native safety gate and portable build
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths:
+      - 'local-destination-recon-r1/**'
+      - '.github/workflows/local-destination-recon-r1.yml'
+permissions: {}
+jobs:
+  build:
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved bat3 destination recon build r1a'
+    runs-on: windows-2025
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Portable safety and recovery tests (no real hosts or Blizzard launches)
+        id: units
+        continue-on-error: true
+        run: python -m unittest discover -s local-destination-recon-r1/tests -p 'test_*.py'
+      - name: Install only exact hash-pinned instrumentation
+        id: deps
+        if: steps.units.outcome == 'success'
+        continue-on-error: true
+        run: |
+          python -m pip install --no-deps --only-binary=:all: --require-hashes -r privacy-tls/requirements.txt
+      - name: Build isolated portable CPython and local-only observer
+        id: package
+        if: steps.deps.outcome == 'success'
+        continue-on-error: true
+        run: python local-destination-recon-r1/build_portable.py
+      - name: Native selftest using the exact portable runtime and hook
+        id: native
+        if: steps.package.outcome == 'success'
+        continue-on-error: true
+        run: |
+          $root = 'local-destination-recon-r1/release/Local-Retail-Destination-Recon-R1'
+          & "$root/runtime/python.exe" -I "$root/app/monitor.py" --selftest-only
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & "$root/runtime/python.exe" -I "$root/app/monitor.py" --selftest-only
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & "$root/runtime/python.exe" -I "$root/app/recon.py" --selftest-network
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Verify downloaded pinned Blizzard image signature without executing it
+        id: certificate
+        if: steps.package.outcome == 'success'
+        continue-on-error: true
+        run: python local-destination-recon-r1/certificate_gate.py
+      - name: Upload portable observer only after all native gates pass
+        id: portable
+        if: steps.native.outcome == 'success' && steps.certificate.outcome == 'success'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: Local-Retail-Destination-Recon-R1
+          path: |
+            local-destination-recon-r1/release/Local-Retail-Destination-Recon-R1/
+            !local-destination-recon-r1/release/Local-Retail-Destination-Recon-R1/selftest-to-share-*.json
+            !local-destination-recon-r1/release/Local-Retail-Destination-Recon-R1/network-selftest-to-share.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Write bounded build receipt; no user data
+        if: always()
+        env:
+          UNIT_OUTCOME: ${{ steps.units.outcome }}
+          DEPS_OUTCOME: ${{ steps.deps.outcome }}
+          PACKAGE_OUTCOME: ${{ steps.package.outcome }}
+          NATIVE_OUTCOME: ${{ steps.native.outcome }}
+          CERTIFICATE_OUTCOME: ${{ steps.certificate.outcome }}
+          ARTIFACT_URL: ${{ steps.portable.outputs.artifact-url }}
+          ARTIFACT_DIGEST: ${{ steps.portable.outputs.artifact-digest }}
+        run: python local-destination-recon-r1/build_receipt.py
+      - name: Upload build receipt only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: local-destination-recon-r1-receipt
+          path: local-destination-recon-r1/build-receipt.json
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: build
+    if: always() && needs.build.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: privacy-observation-20261018-a1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: local-destination-recon-r1-receipt
+          path: incoming
+      - name: Validate and publish build gate receipt (not game-update success)
+        run: |
+          set -euo pipefail
+          python local-destination-recon-r1/build_receipt.py incoming/build-receipt.json reports/local-destination-recon-r1-build.json
+          git add -- reports/local-destination-recon-r1-build.json
+          git config user.name 'privacy-lab-report'
+          git config user.email 'privacy-lab-report@users.noreply.github.com'
+          git commit -m 'lab: publish local destination recon r1 native build gate receipt'
+          git push origin HEAD:privacy-observation-20261018-a1
