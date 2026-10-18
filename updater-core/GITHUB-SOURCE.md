@@ -1,3 +1,15 @@
+# Source state — 0.24
+
+Latest addition: product_policy_facts.py, 26 tests and a raw content-key-bound public ProductConfig fixture with exact versions bytes. 648 Linux tests passed. 286 actual Windows/Python 3.12.10 tests passed, no failures/errors/skips. Platform counts overlap. Latest receipt/source are QA.json and reports/WINDOWS-PRODUCT-FACTS-CI-to-share.json. This is release-bound configuration facts, NOT complete vendor selection, live installed identity, production transfer or installer qualification.
+
+Owned-copy CLI only (do NOT use the live game folder):
+```sh
+python product_policy_facts.py --binding-workspace BINDING --objects-workspace OBJECTS --candidate-workspace PLAN --profile-json PROFILE.json --versions-file SAVED_VERSIONS.txt --product-config-file SAVED_PRODUCT_CONFIG.json --output NEW_REPORT.json
+```
+Input config is capped at 64 KiB. No network or paths from config are used; output creation is exclusive. The candidate's full existing identity gate runs first. No run is currently requested from the user. Refer to research/PRODUCT-CONFIG-AND-SOURCES.md for provenance and limitations.
+
+## Previous source state (historical)
+
 # Source and offline test instructions — 0.23
 
 This is a research core, NOT a game updater release. Do not point it at a game installation. All automated native tests use newly created synthetic temporary fixtures only.

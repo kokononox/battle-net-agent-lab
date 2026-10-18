@@ -1,3 +1,21 @@
+# پیکربندی محصول متصل به نسخه — ۰٫۲۴
+
+پیشرفت روی خودِ مرحلهٔ اول: ProductConfig دقیق snapshot تاریخی 12.1.5.70448 از دو آرشیو عمومی GitHub پیدا شد. فایل‌ها ۱۵٬۷۶۴ بایت و byte-for-byte یکسان‌اند؛ MD5 آن‌ها 53020d32e1a25648c8e1eafd5771935f است و با ProductConfig سطر EU در همان versions ذخیره‌شده تطبیق دارد. SHA256 هر دو 0909c89b6e5808a26791197dd722364d4b94d4b01ac64437b81bcde37d5c7519 است. این تطبیق هویت محتوایی است، نه امضای ناشر یا اثبات مستقل‌بودن دو آرشیو.
+
+product_policy_facts.py ورودی byte محدود می‌گیرد: ابتدا SHA256 کل versions با target pinned، سپس Region/Version/BuildId/BuildConfig/CDNConfig و کلید ProductConfig همان سطر کنترل می‌شوند. JSON تکرار کلید را نمی‌پذیرد. محصول/چیدمان WoW Retail و نگاشت platform/architecture صریح باید شناخته‌شده باشد؛ زبان پشتیبانی‌نشده و alias چرخه‌ای یا مبهم رد می‌شود. نسخهٔ آینده در تست استفاده شده؛ کلید یا نسخهٔ تاریخی داخل منطق hardcode نیست. checkpoint قدیمی تفسیر تازه نمی‌شود؛ گزارش حقایق جدید جداگانه به bytes جدول و کلید config وصل است و مجوز اجرا به checkpoint اضافه نمی‌کند.
+
+نگاشت enGB→enUS و زبان‌های دیگر به‌عنوان fact ثبت می‌شود، نه تغییر بی‌خبر ترجیحات. text/speech جدا می‌مانند و تغییر canonical نسبت به candidate، نیاز به بازبینی/replan را علامت می‌زند. تگ‌های platform.win و architecture خوانده می‌شوند. extra_tags فقط با منشأ all/platform/region/locale گزارش می‌شود؛ نبود declaration به معنای disabled بودن نیست. zhCN جای CN فرض نمی‌شود. install/uninstall/delete/registry/binary paths داخل config صرفاً دادهٔ inert هستند و هرگز اجرا/تفسیر نمی‌شوند.
+
+اتصال به review_existing_candidate دوباره هویت target، بانک‌ها و metadata را کنترل کرده و روی متادیتای موجود اجرا شده است؛ candidate دست‌نخورده ماند. هیچ transport تازه، درخواست CDN، reader زنده، installer یا writer افزوده نشده است.
+
+۲۶ تست جدید (۲۵ synthetic و یک fixture عمومی)، مجموع ۶۴۸ Linux و ۲۸۶ Windows/Python 3.12.10 با صفر failure/error/skip پاس‌اند؛ شمار پلتفرم‌ها جمع نشود. source و receipt در QA.json و reports/WINDOWS-PRODUCT-FACTS-CI-to-share.json ثبت شده‌اند.
+
+**مرحلهٔ اول هنوز کامل نیست:** ProductConfig الگوریتم کامل feature/variant/dependency نیست؛ ترجیحات تازه و نسل فعال نصب هم اثبات نشده‌اند. required_set_selected=false، required_network_download_bytes=null و installation_ready/apply_authorized=false باقی‌اند. فعلاً از کاربر فایل، permission یا اجرای تازه‌ای لازم نیست.
+
+[شواهد و نتیجهٔ منابع مستقل](research/PRODUCT-CONFIG-AND-SOURCES.md) · [حقایق متصل به candidate](reports/PRODUCT-CONFIG-FACTS-to-share.json) · [مقایسهٔ مدل‌ها](reports/INDEPENDENT-POLICY-SOURCES-to-share.json)
+
+## سابقهٔ ۰٫۲۳
+
 # ممیزی ابهام قواعد انتخاب — ۰٫۲۳
 
 **مرحلهٔ اول هنوز باز است.** این بسته ابزار اثبات قواعد Battle.net یا اپدیتر قابل نصب نیست. هیچ ابزار جمع‌آوری زنده‌ای برای اجرا روی سیستم کاربر در این مرحله ارائه نشده است.

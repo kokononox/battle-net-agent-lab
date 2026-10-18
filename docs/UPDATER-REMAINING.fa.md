@@ -1,4 +1,4 @@
-# کارهای باقی‌مانده — پس از ۰٫۲۳
+# کارهای باقی‌مانده — پس از ۰٫۲۴
 
 اصل محصول ثابت است: در هر اجرای جدید نصب موجود و مقصد سازگار جاری تشخیص داده شوند؛ target اجرای شروع‌شده pinned بماند و انتشار جدید checkpoint را خودکار منتقل نکند.
 
@@ -20,8 +20,11 @@ reconcile_pending با تأیید صریح فقط یک Range قبلاً ثبت�
 ## پیشرفت ۰٫۲۳ — فقط ممیزی بخش اول، نه تکمیل آن
 ممیزی membership چهارگانهٔ feature/candidate، نمونه‌های محدود دارای CKey/EKey، گروه‌های label تکراری و چندنمایشی بودن Install اضافه شد. target/profile/hashها و شمارش مستقل کنترل شدند؛ هیچ candidate حذف/اضافه نشد. ۲۷ تست تازه؛ ۶۲۲ Linux و ۲۶۰ Windows واقعی پاس‌اند. [قرارداد مرجع](../updater-core/research/POLICY-REFERENCE-PROTOCOL.md) و [سؤال‌های واقعی هدف تاریخی](../updater-core/reports/POLICY-AMBIGUITY-to-share.json) آماده‌اند. دادهٔ فعلی شاهد مستقل قواعد رسمی ندارد؛ تعداد تست یا تطبیق نمونه جای آن نیست. metadata reader تازه و probe زنده در این مرحله ارائه نشده‌اند.
 
+## پیشرفت ۰٫۲۴ — ورودی پیکربندی پیدا و متصل شد
+ProductConfig دقیق هدف تاریخی از آرشیو عمومی با کلید versions تطبیق داده شد. reader محدود و اتصال به candidate برای نگاشت زبان/معماری و extra_tags دارای منشأ پیاده و اجرا شدند؛ هیچ candidate تغییر نکرد. ۲۶ تست تازه؛ ۶۴۸ Linux و ۲۸۶ Windows پاس‌اند. [شواهد](../updater-core/research/PRODUCT-CONFIG-AND-SOURCES.md). این پیکربندی قواعد کامل feature/variant/dependency یا نسل فعال نیست. فعلاً هیچ اقدام/فایل تازه از کاربر لازم نیست؛ یافتن semantics و طراحی تست bounded وظیفهٔ ادامهٔ پروژه است، نه تقاضای مبهم «plan رسمی» از کاربر.
+
 ## ترتیب باقی‌مانده
-1. **بستن policy انتخاب و closure:** شاهد مستقل برای feature/Alternate/Talebound، اولویت/حذف variantها، dependency و patch/full. معنای enum یا parser/extractor عمومی به‌تنهایی کافی نیست. ترجیحات تازهٔ نصب هم لازم است؛ flagهای vendor/feature فعلاً false بمانند.
+1. **بستن policy انتخاب و closure:** اکنون facts پیکربندی متصل به نسخه موجود است، اما هنوز قواعد کامل برای feature/Alternate/Talebound، اولویت/حذف variantها، dependency و patch/full. معنای enum یا parser/extractor عمومی به‌تنهایی کافی نیست. ترجیحات تازهٔ نصب هم لازم است؛ flagهای vendor/feature فعلاً false بمانند.
 2. **نصب فقط‌خواندنی و نسل فعال:** backend منسجم Windows، baseline/profile تازه و حل معنای نسل/ایندکس؛ V8 ناشناخته حدس زده نشود. گزارش قدیمی یا کپی ایندکس اثبات وضعیت فعلی نیست. ابزار لازم باید قبل از درخواست اجرای کاربر دامنهٔ دقیق داشته باشد؛ بدون اسکن کور یا تغییر ACL.
 3. **reuse و برنامه/حجم دقیق:** اثبات کامل محتوای نصب و source؛ چند locator خودسرانه حل نشود؛ نبود ref در کپی missing نیست. تفکیک reuse/دریافت/unknown و network/patch/write/temp/free-space؛ حجم ضروری هنوز null است.
 4. **qualification انتقال واقعی و recovery:** reconciliation محلیِ commit ثبت‌شده و retirement/successor صریح برای pending بدون commit انجام شده‌اند. qualification واقعی crash/disk-full، lock رهاشده و قطع برق همچنان لازم است؛ lock شکسته و pending خودکار پاک/تکرار نمی‌شود. سپس scope کوچک تازه برای HTTP واقعی CDN، کنترل TLS/رفتار سرور و شکست‌های عملیاتی. مجوزهای قدیمی بسته‌اند؛ سقف ۴ GiB عدد parser/grant است، نه آزمون مقیاس یا مجوز فعلی.

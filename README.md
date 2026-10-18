@@ -1,10 +1,10 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## وضعیت جدید مسیر اپدیتر — ۰٫۲۳
+## وضعیت جدید مسیر اپدیتر — ۰٫۲۴
 
-**نقطهٔ شروع فعلی:** [تحویل همین جلسه](docs/UPDATER-SESSION-0.23.fa.md) · [اقدامات باقی‌مانده](docs/UPDATER-REMAINING.fa.md) · [سورس و روش تست](updater-core/GITHUB-SOURCE.md).
+**شروع ادامه:** [تحویل همین مرحله](docs/UPDATER-SESSION-0.24.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md) · [سورس و تست](updater-core/GITHUB-SOURCE.md).
 
-**مرحلهٔ اول هنوز باز است.** ممیزی فقط‌خواندنیِ متادیتای تاریخی اکنون ابهام tag/variant را با نمونهٔ محدود و هویت دقیق فایل‌ها و شمارش per-ordinal مستقل ثبت می‌کند؛ این شاهد قواعد vendor نیست و candidateها تغییر نکرده‌اند. ۲۷ تست تازه؛ مجموع ۶۲۲ تست Linux و ۲۶۰ تست واقعی Windows پاس شدند. [قرارداد شاهد مستقل](updater-core/research/POLICY-REFERENCE-PROTOCOL.md) مشخص می‌کند چه مرجعی لازم است و چرا تطبیق چند نمونه، policy نسخه‌های آینده را اثبات نمی‌کند. هیچ بازی، CDN یا کلاینت رسمی اجرا نشده و workflow مستقل Agent تغییر نکرد. این بسته هنوز اپدیتر قابل نصب نیست.
+ProductConfig دقیق همان هدف تاریخی از دو آرشیو عمومی بازیابی شد؛ بایت/هش آن با کلید جدول نسخهٔ ذخیره‌شده تطبیق دارد. نگاشت زبان/Windows/معماری و extra_tags دارای منشأ اکنون با reader محدود و اتصال به هویت candidate بررسی می‌شود؛ هیچ فایل بازی یا candidate تغییر نکرد. **این پیشرفت روی مرحلهٔ اول است، نه تکمیل آن:** قواعد کامل feature/variant/dependency و ترجیحات/نسل فعال زنده هنوز بازند. ۶۴۸ تست Linux و ۲۸۶ تست واقعی Windows پاس شدند. [منشأ و محدودیت‌ها](updater-core/research/PRODUCT-CONFIG-AND-SOURCES.md). فعلاً اقدام تازه‌ای از کاربر لازم نیست؛ workflow مستقل Agent دست‌نخورده است.
 
 ## شروع ادامهٔ پروژه — فارسی (سابقه)
 

@@ -1,4 +1,4 @@
-> به‌روزرسانی: وضعیت فعلی اپدیتر در [UPDATER-SESSION-0.23.fa.md](UPDATER-SESSION-0.23.fa.md) و [UPDATER-REMAINING.fa.md](UPDATER-REMAINING.fa.md) است. متن زیر سابقهٔ قبلی است؛ هدف/اعداد آن به مقصد جدید تعمیم داده نشوند.
+> به‌روزرسانی: وضعیت فعلی اپدیتر در [UPDATER-SESSION-0.24.fa.md](UPDATER-SESSION-0.24.fa.md) و [UPDATER-REMAINING.fa.md](UPDATER-REMAINING.fa.md) است. متن زیر سابقهٔ قبلی است؛ هدف/اعداد آن به مقصد جدید تعمیم داده نشوند.
 
 # تحویل کامل وضعیت کاری جلسه
 

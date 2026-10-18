@@ -1,0 +1,80 @@
+{
+  "format": "independent-source-differential-investigation-1",
+  "scope": "owned historical metadata plus synthetic counterexample, not official policy qualification",
+  "historical_target": "12.1.5.70448",
+  "profile": {
+    "platform": "Windows",
+    "architecture": "x86_64",
+    "region": "EU",
+    "text_locales": [
+      "enUS"
+    ],
+    "speech_locales": [
+      "enUS"
+    ]
+  },
+  "historical_differentials": [
+    {
+      "manifest": "install",
+      "records": 274,
+      "candidate_selected": 39,
+      "nix_algorithm_model_selected": 39,
+      "nix_model_bitmap_equals_candidate": true,
+      "steed_algorithm_model_selected": 39,
+      "steed_model_bitmap_equals_candidate": true,
+      "nix_selected_count_independently_checked_per_ordinal": true,
+      "independent_official_plan_obtained": false
+    },
+    {
+      "manifest": "download",
+      "records": 2881628,
+      "candidate_selected": 1578022,
+      "nix_algorithm_model_selected": 1578022,
+      "nix_model_bitmap_equals_candidate": true,
+      "steed_algorithm_model_selected": 1432629,
+      "steed_model_bitmap_equals_candidate": false,
+      "nix_selected_count_independently_checked_per_ordinal": true,
+      "independent_official_plan_obtained": false
+    }
+  ],
+  "synthetic_counterexample": {
+    "row_meanings": [
+      "enUS/text",
+      "enUS/speech",
+      "deDE/text",
+      "deDE/speech"
+    ],
+    "paired_candidate_bitmap_hex": "90",
+    "same_type_or_model_bitmap_hex": "f0",
+    "steed_exclusive_max_type_and_model_bitmap_hex": "00",
+    "demonstrates": "single-locale equality does not establish multi-locale semantics; steed maximum tag category is excluded by its range",
+    "correct_official_choice_proven": false
+  },
+  "sources": [
+    {
+      "url": "https://github.com/DzmingLi/battlenet.nix/blob/299cc257767f1f71d7439a4a50859ee761d759b7/tact.py",
+      "local_sha256": "1450b6224314f91ec569d91f766e201dec9e8e14c987426b6d307fb02c84deec",
+      "role": "community installation planner algorithm; not official vendor oracle"
+    },
+    {
+      "url": "https://github.com/steed-rs/steed/blob/d9cee6562d6acb234686c0d8a4ab89a6d9243be6/crates/ngdp/src/tact/install.rs",
+      "local_sha256": "388e831d7ee481ff6202eef2677076ef23f6d453be8e0a3b980e257508e2ca6e",
+      "role": "prototype selection code with exclusive upper category bound; not adopted"
+    },
+    {
+      "url": "https://github.com/mdX7/tact_configs/blob/04cce332a107ca0e303c570fc86b4690d1d51b38/tpr/configs/data/53/02/53020d32e1a25648c8e1eafd5771935f",
+      "role": "public mirror; raw MD5 equals saved official versions ProductConfig key; not a signature or selection algorithm"
+    },
+    {
+      "url": "https://github.com/Arctium/bnet-tact-channel-configs/blob/e0ae5fcca1b6878ea8d79e6242e994cc7b454f3a/wow/data/53/02/53020d32e1a25648c8e1eafd5771935f",
+      "role": "second mirror agrees byte-for-byte; mirror independence not assumed"
+    }
+  ],
+  "visual_disposition": "prose: software identity assertions and semantic counterexample; no statistical/chart question",
+  "source_software_executed": false,
+  "candidate_plan_modified": false,
+  "vendor_selection_policy_qualified": false,
+  "active_generation_proven": false,
+  "installation_ready": false,
+  "apply_authorized": false
+}
