@@ -1,0 +1,136 @@
+{
+    "tool":  "RetailUpdateObserver",
+    "tool_version":  "1.2",
+    "schema_version":  3,
+    "preflight_ready":  true,
+    "started_utc":  "2026-10-18T17:36:31.6811275Z",
+    "duration_seconds":  185,
+    "stop_reason":  "user_stopped",
+    "user_reported":  {
+                          "sign_in":  "signed_out",
+                          "button_before":  "Update",
+                          "button_after":  "Update",
+                          "outcome":  "check_only"
+                      },
+    "before":  {
+                   "build_info_status":  "read",
+                   "retail_versions":  [
+                                           "12.1.0.69933"
+                                       ]
+               },
+    "after":  {
+                  "build_info_status":  "read",
+                  "retail_versions":  [
+                                          "12.1.0.69933"
+                                      ]
+              },
+    "log_statistics":  {
+                           "lines_with_keywords":  116,
+                           "keywords":  {
+                                            "download":  1,
+                                            "repair":  0,
+                                            "verify":  0,
+                                            "patch":  0,
+                                            "install":  45,
+                                            "auth":  26,
+                                            "error":  31,
+                                            "update":  24
+                                        },
+                           "discovery_limited":  false,
+                           "appended_data_seen":  true,
+                           "client_log_files_observed":  4,
+                           "read_errors":  0,
+                           "discovery_reasons":  {
+                                                     "log_file_limit":  false,
+                                                     "state_limit":  false,
+                                                     "root_reparse_skipped":  false,
+                                                     "entry_limit":  false,
+                                                     "agent_version_directory_limit":  false,
+                                                     "directory_limit":  false
+                                                 },
+                           "lines_examined":  1337,
+                           "resets":  0,
+                           "bytes_read":  143326,
+                           "discarded_long_lines":  0,
+                           "files_observed":  46,
+                           "discovery_errors":  0,
+                           "budget_reached":  false,
+                           "agent_log_files_observed":  42
+                       },
+    "samples":  [
+                    {
+                        "elapsed_seconds":  0,
+                        "keyword_lines":  {
+                                              "install":  0,
+                                              "repair":  0,
+                                              "auth":  0,
+                                              "patch":  0,
+                                              "update":  0,
+                                              "error":  0,
+                                              "verify":  0,
+                                              "download":  0
+                                          }
+                    },
+                    {
+                        "elapsed_seconds":  31,
+                        "keyword_lines":  {
+                                              "install":  0,
+                                              "repair":  0,
+                                              "auth":  0,
+                                              "patch":  0,
+                                              "update":  0,
+                                              "error":  0,
+                                              "verify":  0,
+                                              "download":  1
+                                          }
+                    },
+                    {
+                        "elapsed_seconds":  62,
+                        "keyword_lines":  {
+                                              "install":  1,
+                                              "repair":  0,
+                                              "auth":  0,
+                                              "patch":  0,
+                                              "update":  1,
+                                              "error":  0,
+                                              "verify":  0,
+                                              "download":  1
+                                          }
+                    },
+                    {
+                        "elapsed_seconds":  92,
+                        "keyword_lines":  {
+                                              "install":  1,
+                                              "repair":  0,
+                                              "auth":  0,
+                                              "patch":  0,
+                                              "update":  1,
+                                              "error":  0,
+                                              "verify":  0,
+                                              "download":  1
+                                          }
+                    },
+                    {
+                        "elapsed_seconds":  123,
+                        "keyword_lines":  {
+                                              "install":  1,
+                                              "repair":  0,
+                                              "auth":  0,
+                                              "patch":  0,
+                                              "update":  1,
+                                              "error":  1,
+                                              "verify":  0,
+                                              "download":  1
+                                          }
+                    }
+                ],
+    "limitations":  [
+                        "Keyword counts are hints, not proof of update stages or success.",
+                        "Counts may include other Blizzard products and background activity.",
+                        "Appended log data only, plus up to 3 BOM-probe bytes per opened log; first baseline line is skipped.",
+                        "Only .log files in explicit default Logs folders, with a bounded Agent-version lookup, are scanned. Other locations may be missed.",
+                        "No network capture, actual download-byte measurement, raw logs or account information.",
+                        "No Windows-native execution test was performed by the author.",
+                        "duration_seconds includes time answering the final menus; samples mark observation time."
+                    ]
+}

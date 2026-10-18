@@ -1,0 +1,13 @@
+{
+  "tool_version": "1.2",
+  "test_environment": "Linux; official PowerShell 7.4.6",
+  "assertions_passed": 27,
+  "windows_native_test_performed": false,
+  "windows_powershell_5_1_execution_performed": false,
+  "real_battlenet_update_test_performed": false,
+  "repository_modified": false,
+  "review_main_sha": "54a3d309f8a6e001d34ff4c43fa676e04d5e83ec",
+  "review_research_sha": "7916903f5378f72a28f745fd30fe3ae11670451a",
+  "review_scope": "structure, decision history and decisive relevant evidence; not every source line",
+  "changes": "Target exact Logs roots; no cache traversal; preserve caps, reduce Logs depth to 2; bounded lookup of 64 Agent version folders; refresh roots; preflight gate requires Agent log and no discovery limits/errors."
+}

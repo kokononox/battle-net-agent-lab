@@ -1,0 +1,254 @@
+{
+  "date": "2026-10-18",
+  "scope": "operative session handoff, delivered tool sources and user reports; not verbatim chat transcript or full binary archive",
+  "research_branch": "privacy-observation-20261018-a1",
+  "latest_receipt_commit": "d64629013489a4a51d93defbc11531b629aacccb",
+  "runs": [
+    {
+      "stage": "a1",
+      "run_id": "39156465402",
+      "source_commit": "e9ac9e9e4734539c8fcbd6a39783c4eec6324a3c",
+      "receipt_commit": "977b8676af12e234470880d3377a7502ddfce78f",
+      "report_paths": [
+        "reports/startup-privacy-20261018-a1.json",
+        "reports/startup-privacy-bootstrap-20261018-a1.json"
+      ]
+    },
+    {
+      "stage": "b1",
+      "run_id": "39157489237",
+      "source_commit": "bc5aa27842e123271eb794794bb6bd4dbfa93f44",
+      "receipt_commit": "2bb48956fd2f1183e131b2d165e5a8f6a22877ba",
+      "report_paths": [
+        "reports/startup-network-20261018-b1.json"
+      ]
+    },
+    {
+      "stage": "c1",
+      "run_id": "39158224605",
+      "source_commit": "200c3d0911fa3b82dd30fd31b6f05279b913132c",
+      "receipt_commit": "4a2baf5b178e21997f8726fbac89940ddf6781b2",
+      "report_paths": [
+        "reports/startup-ab-c1-baseline-intervention.json",
+        "reports/startup-ab-c1-baseline-network.json",
+        "reports/startup-ab-c1-baseline-bootstrap.json",
+        "reports/startup-ab-c1-block_telemetry-intervention.json",
+        "reports/startup-ab-c1-block_telemetry-network.json",
+        "reports/startup-ab-c1-block_telemetry-bootstrap.json"
+      ]
+    },
+    {
+      "stage": "d1",
+      "run_id": "39159715814",
+      "source_commit": "cfa39a4723bdba54b1d8ed1fa02a359838eaeb7e",
+      "receipt_commit": "31848859791561618e0ab047eab852c357f76e96",
+      "report_paths": [
+        "reports/startup-tls-d1-live.json"
+      ]
+    },
+    {
+      "stage": "d2",
+      "run_id": "39160098761",
+      "source_commit": "e30dfc0a820599aff63f36079fe6bbc24f861090",
+      "receipt_commit": "1526f066fdf5337f4124850dd38ee640a864d0db",
+      "report_paths": [
+        "reports/startup-tls-d2-live.json"
+      ]
+    },
+    {
+      "stage": "e1",
+      "run_id": "39160679721",
+      "source_commit": "cc989fea836adf354b088c32e194743483199bc2",
+      "receipt_commit": "60ed6c962f817b3409117afb2c62d06f2739c69e",
+      "report_paths": [
+        "reports/startup-tls-e1-live.json",
+        "reports/startup-tls-e1-buffers.json"
+      ]
+    },
+    {
+      "stage": "e2",
+      "run_id": "39161239853",
+      "source_commit": "5ec075aaefed9eb9dc6c33203b9b9332a982d8d9",
+      "receipt_commit": "d64629013489a4a51d93defbc11531b629aacccb",
+      "report_paths": [
+        "reports/startup-tls-e2-buffers.json",
+        "reports/startup-tls-e2-live.json",
+        "reports/startup-tls-e2-network.json",
+        "reports/startup-tls-e2-bootstrap.json"
+      ]
+    }
+  ],
+  "synced_files": [
+    {
+      "path": "docs/SESSION-HANDOFF.fa.md",
+      "sha256": "953fc4f72a07e3313f7b81ea7e7e6d3ddcbd41f0ed4cb190f312fd19d8ce4893",
+      "bytes": 13088
+    },
+    {
+      "path": "docs/SESSION-PRIVACY-2026-10-18.fa.md",
+      "sha256": "ae6e9e41435174fc3cf62dd5f889413397fc567fca37dbdf786483f73e0ea593",
+      "bytes": 17372
+    },
+    {
+      "path": "docs/ENTERPRISE-SAMIX-RELEVANCE.fa.md",
+      "sha256": "d1b664a59c98144b808eb20f1cc397736569db6a7891c51e99d9fcf35036db7d",
+      "bytes": 2936
+    },
+    {
+      "path": "user-tools/session-20261018/retail-update-observer-1.2/MANIFEST-SHA256.json",
+      "sha256": "6db5e255102b62c7cbcee66a4a7215bd1ce83ed6c5f481e27362a32820715506",
+      "bytes": 914
+    },
+    {
+      "path": "user-tools/session-20261018/retail-update-observer-1.2/QA.json",
+      "sha256": "0b8de7f2227d0f9bd109c80e093df2dc19029702891bc264855c4a8b4e46b3fc",
+      "bytes": 753
+    },
+    {
+      "path": "user-tools/session-20261018/retail-update-observer-1.2/README-fa.md",
+      "sha256": "e1035dede5e56550f3673594242fc493d70ce2b4b5d88255d37a19bd7be56647",
+      "bytes": 11676
+    },
+    {
+      "path": "user-tools/session-20261018/retail-update-observer-1.2/REVIEW-NOTES-fa.md",
+      "sha256": "9fee625c0163fde2b9a76c2eb69c577e33fafc7be58bddea2fa22091830e250c",
+      "bytes": 5971
+    },
+    {
+      "path": "user-tools/session-20261018/retail-update-observer-1.2/RetailUpdateObserver.ps1",
+      "sha256": "acd9d4d562fb193c95de10e204cefeb92720baa2143879c47813b4b34251f6d5",
+      "bytes": 17318
+    },
+    {
+      "path": "user-tools/session-20261018/retail-update-observer-1.2/Start-Observer.cmd",
+      "sha256": "a0c0a12c3ed6ce77e94382ad11afe831079796bca3236a9803405a601cfcf154",
+      "bytes": 230
+    },
+    {
+      "path": "user-tools/session-20261018/observer-windows-selftest/DEVELOPER-QA.json",
+      "sha256": "5433f9edd62d8546482d7c879b84d87a18bacae308a5dcb3f2c0682e837d5b93",
+      "bytes": 424
+    },
+    {
+      "path": "user-tools/session-20261018/observer-windows-selftest/MANIFEST-SHA256.json",
+      "sha256": "1c5f55239efd836e63bb77a0fe93eb2f1041ea99d727909c04671a19a301fdf1",
+      "bytes": 653
+    },
+    {
+      "path": "user-tools/session-20261018/observer-windows-selftest/Observer-Core-1.2.ps1",
+      "sha256": "acd9d4d562fb193c95de10e204cefeb92720baa2143879c47813b4b34251f6d5",
+      "bytes": 17318
+    },
+    {
+      "path": "user-tools/session-20261018/observer-windows-selftest/README-fa.md",
+      "sha256": "10307584657931ccdf6b6667eccb0416b57ed4fd155fd7df87e37bc6d7471b46",
+      "bytes": 5635
+    },
+    {
+      "path": "user-tools/session-20261018/observer-windows-selftest/RUN-SELFTEST.cmd",
+      "sha256": "fe782272e7b7adac086c21966c5dcb3663021519a024422c88950c3c2a7f9a77",
+      "bytes": 183
+    },
+    {
+      "path": "user-tools/session-20261018/observer-windows-selftest/Windows-SelfTest.ps1",
+      "sha256": "b384c56b4fa3da33b0e74f9f4db4d229a00cd0de9af14125dfade78082e72724",
+      "bytes": 9227
+    },
+    {
+      "path": "user-tools/session-20261018/observer-paused-log-review/MANIFEST-SHA256.json",
+      "sha256": "e36f3c217ad568216cf71b15865773ea5cdc9a2a71c9addb53160fba1665557f",
+      "bytes": 784
+    },
+    {
+      "path": "user-tools/session-20261018/observer-paused-log-review/Observer-Core-1.2.ps1",
+      "sha256": "acd9d4d562fb193c95de10e204cefeb92720baa2143879c47813b4b34251f6d5",
+      "bytes": 17318
+    },
+    {
+      "path": "user-tools/session-20261018/observer-paused-log-review/QA.json",
+      "sha256": "347029b879e2623280d1af2ae97807963d4bc92110890db7297e41a978ebce16",
+      "bytes": 410
+    },
+    {
+      "path": "user-tools/session-20261018/observer-paused-log-review/README-fa.md",
+      "sha256": "d904b35c9320df7173d70cae3ceb6448f64f374191c90e0d9d430c2375755ad9",
+      "bytes": 5959
+    },
+    {
+      "path": "user-tools/session-20261018/observer-paused-log-review/RUN-PAUSED-REVIEW.cmd",
+      "sha256": "53ff72093daffca6b3a660f6b18fcd79a9dcd0ba3219864ab43d90de5a6e8dcd",
+      "bytes": 184
+    },
+    {
+      "path": "user-tools/session-20261018/observer-paused-log-review/Review-PausedLogs.ps1",
+      "sha256": "dfa889136df1ebbc7f55ad3a8c4e85870e91fc85858ee125c8c3bdc3ee003e00",
+      "bytes": 11181
+    },
+    {
+      "path": "evidence/user-observer-20261018/observer-check-only.json",
+      "sha256": "dd6b2ad7aa21afc2176f718aa6d42b7a8eae87277dff9d1eabd83642b51777d3",
+      "bytes": 6778
+    },
+    {
+      "path": "evidence/user-observer-20261018/observer-check-v11.json",
+      "sha256": "d2e78b397cf96463db3890a82bf6a06a86cacbaed0f721dbb1ed3c749d6706dc",
+      "bytes": 4123
+    },
+    {
+      "path": "evidence/user-observer-20261018/observer-v12-user.json",
+      "sha256": "11ceb5c5e47cef2cae8d1fd899ffcd5e741f9f2e1f8504b99e04192859191e5f",
+      "bytes": 4420
+    },
+    {
+      "path": "evidence/user-observer-20261018/windows-selftest-user.json",
+      "sha256": "4a42f69d39beeb86dd3ba9131170c8738bf07bc2577145857e69cd8e4c7ef8d1",
+      "bytes": 4019
+    },
+    {
+      "path": "evidence/user-observer-20261018/observer-passive-real-logs.json",
+      "sha256": "b891a8d22f685df29f3d7e783a193a0163d7cc8688bc308421a6faaa55b02cf7",
+      "bytes": 7123
+    },
+    {
+      "path": "evidence/user-observer-20261018/observer-update-paused.json",
+      "sha256": "d28d482fffa2335ef2b9a638bcb17b355b35e52562dd104a011b768716031109",
+      "bytes": 13904
+    },
+    {
+      "path": "evidence/telemetry-e2-analysis.json",
+      "sha256": "b26d334d5b0bbc12b670890c6c0207eba83363c1e38ac48db0ba5afc326fc0e4",
+      "bytes": 17306
+    },
+    {
+      "path": "evidence/telemetry-e2-cpu-evidence.json",
+      "sha256": "a9abc9dfcf74960e52f1c5f0385f519073e9f924ee4d0c718175c3a67d360a8a",
+      "bytes": 2894
+    },
+    {
+      "path": "evidence/tls-d2-evidence.json",
+      "sha256": "b6d209030133d82d31e95869c48e510efa2742d3f918b722041ceb4a59c40710",
+      "bytes": 592
+    },
+    {
+      "path": "analysis-tools/reconstruct_tls_requests.py",
+      "sha256": "9de963fb5eb0dbef1888b340e4696f10809de11fba5bc4ca3ede537e9051b9b0",
+      "bytes": 4111
+    },
+    {
+      "path": "analysis-tools/README-privacy.fa.md",
+      "sha256": "2f9927e4f9f8701cac318fd37f1364ed89a5be82c6d87ba909527d0f21404b38",
+      "bytes": 1708
+    }
+  ],
+  "not_included": [
+    "No GitHub credentials, personal sign-in or game binaries",
+    "Research workflows and source remain on research branch, not merged into main",
+    "Original chat transcript/zip archives are not copied; operative findings and available tool sources/reports are preserved"
+  ],
+  "enterprise": {
+    "url": "https://github.com/enterprises/samix",
+    "user_reported_active": true,
+    "admin_settings_or_runner_access_verified": false,
+    "paid_runner_enabled": false
+  }
+}

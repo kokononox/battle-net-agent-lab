@@ -1,0 +1,80 @@
+{
+    "tool":  "RetailUpdateObserver",
+    "tool_version":  "1.1",
+    "schema_version":  2,
+    "started_utc":  "2026-10-18T17:10:46.5274124Z",
+    "duration_seconds":  40,
+    "stop_reason":  "user_stopped",
+    "user_reported":  {
+                          "sign_in":  "signed_out",
+                          "button_before":  "Update",
+                          "button_after":  "Update",
+                          "outcome":  "check_only"
+                      },
+    "before":  {
+                   "build_info_status":  "read",
+                   "retail_versions":  [
+                                           "12.1.0.69933"
+                                       ]
+               },
+    "after":  {
+                  "build_info_status":  "read",
+                  "retail_versions":  [
+                                          "12.1.0.69933"
+                                      ]
+              },
+    "log_statistics":  {
+                           "lines_with_keywords":  0,
+                           "keywords":  {
+                                            "download":  0,
+                                            "repair":  0,
+                                            "verify":  0,
+                                            "patch":  0,
+                                            "install":  0,
+                                            "auth":  0,
+                                            "error":  0,
+                                            "update":  0
+                                        },
+                           "discovery_limited":  true,
+                           "appended_data_seen":  false,
+                           "read_errors":  0,
+                           "discovery_reasons":  {
+                                                     "directory_limit":  true,
+                                                     "entry_limit":  false,
+                                                     "log_file_limit":  false,
+                                                     "root_reparse_skipped":  false,
+                                                     "state_limit":  false
+                                                 },
+                           "lines_examined":  0,
+                           "resets":  0,
+                           "bytes_read":  0,
+                           "discarded_long_lines":  0,
+                           "files_observed":  5,
+                           "discovery_errors":  0,
+                           "budget_reached":  false
+                       },
+    "samples":  [
+                    {
+                        "elapsed_seconds":  0,
+                        "keyword_lines":  {
+                                              "install":  0,
+                                              "repair":  0,
+                                              "auth":  0,
+                                              "patch":  0,
+                                              "update":  0,
+                                              "error":  0,
+                                              "verify":  0,
+                                              "download":  0
+                                          }
+                    }
+                ],
+    "limitations":  [
+                        "Keyword counts are hints, not proof of update stages or success.",
+                        "Counts may include other Blizzard products and background activity.",
+                        "Appended log data only, plus up to 3 BOM-probe bytes per opened log; first baseline line is skipped.",
+                        "Only .log files in bounded default Blizzard folders are scanned. Logs may be missed.",
+                        "No network capture, actual download-byte measurement, raw logs or account information.",
+                        "No Windows-native execution test was performed by the author.",
+                        "duration_seconds includes time answering the final menus; samples mark observation time."
+                    ]
+}

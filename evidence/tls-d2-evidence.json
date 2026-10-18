@@ -1,0 +1,24 @@
+{
+  "run_id": "39160098761",
+  "selftest_passed": true,
+  "identified_agent_images": [
+    {
+      "pid": 2784,
+      "sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "bytes": 7275216,
+      "version": 9824,
+      "signature_accepted": true
+    }
+  ],
+  "buffer_events": 23,
+  "apis": {
+    "EncryptMessage": 22,
+    "WinHttpSendRequest": 1
+  },
+  "telemetry_post_input_observed": true,
+  "limits": [
+    "API input is not server receipt",
+    "opaque body interpretation remains unknown",
+    "D2 kept no raw values; E1 explicitly authorized samples"
+  ]
+}

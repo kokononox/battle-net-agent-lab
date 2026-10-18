@@ -1,0 +1,99 @@
+{
+    "schema":  "observer-synthetic-windows-selftest-1",
+    "core_version":  "1.2",
+    "core_sha256":  "acd9d4d562fb193c95de10e204cefeb92720baa2143879c47813b4b34251f6d5",
+    "platform":  "Windows",
+    "powershell_version":  "5.1.26100.6899",
+    "all_passed":  true,
+    "checks_passed":  16,
+    "checks_expected":  16,
+    "last_phase":  "complete",
+    "error_type":  null,
+    "checks":  [
+                   {
+                       "name":  "synthetic_retail_version",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "version_projection_excludes_unrelated_fields",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "synthetic_build_info_unchanged",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "baseline_skips_history",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "real_file_appends_counted",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "known_first_baseline_line_skip_accounted_for",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "incomplete_line_held",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "split_line_completed_once",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "read_while_writer_handle_open",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "shorter_file_reset",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "utf16_bom",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "oversized_line_dropped",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "global_read_budget_stops_reads",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "projection_contains_no_fixture_text_or_path",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "json_saved_and_reloaded",
+                       "status":  "passed"
+                   },
+                   {
+                       "name":  "no_unexpected_io_errors_in_generated_fixture",
+                       "status":  "passed"
+                   }
+               ],
+    "scope":  "generated_files_only_no_game_or_real_logs",
+    "real_log_discovery_called":  false,
+    "game_path_requested":  false,
+    "network_requested":  false,
+    "update_requested":  false,
+    "installation_modified":  false,
+    "not_proven":  [
+                       "real_BattleNet_log_writes",
+                       "all_update_stages_captured",
+                       "log_rotation_without_loss",
+                       "complete_update_algorithm",
+                       "atomic_or_crash_safe_report_save",
+                       "rollback",
+                       "real_update_success"
+                   ],
+    "known_limitations":  [
+                              "The core skips the first line after a nonempty baseline.",
+                              "Keyword counters are not raw events, exact patch evidence or operation success.",
+                              "The main observer saves at normal stop; closing it prematurely can lose the report.",
+                              "A passed synthetic test is NOT approval to start a real update."
+                          ]
+}
