@@ -1,0 +1,19 @@
+{
+  "product_goal": "reusable updater for future compatible releases, not a fixed-version migration",
+  "installed_version_source": "runtime validated local installation",
+  "target_version_source": "runtime authoritative product/branch/region release metadata",
+  "target_snapshot_pinned_per_run": true,
+  "current_versions_are_regression_fixtures_only": [
+    "12.1.0.69933",
+    "12.1.5.70391",
+    "12.1.5.70448"
+  ],
+  "must_install_every_intermediate_version": false,
+  "unknown_format_policy": "fail_closed_without_claiming_missing_or_corrupt",
+  "dynamic_release_resolver_implemented_and_qualified": false,
+  "generic_installer_implemented_and_qualified": false,
+  "fixed_checkpoint_is_production_updater": false,
+  "dynamic_release_resolver_implemented": true,
+  "local_direct_blte_identity_verifier_implemented": true,
+  "full_windows_backend_qualified": false
+}

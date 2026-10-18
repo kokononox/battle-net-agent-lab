@@ -1,0 +1,58 @@
+{
+  "format": "dynamic-config-binding-1",
+  "target": {
+    "scope": {
+      "product": "wow",
+      "branch": "retail",
+      "region": "eu"
+    },
+    "version": "12.1.5.70448",
+    "build_id": 70448,
+    "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+    "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+    "origins": [
+      "https://level3.ssl.blizzard.com"
+    ],
+    "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+    "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+  },
+  "build_config_md5_verified": true,
+  "cdn_config_md5_verified": true,
+  "build_config_sha256": "f80e4cb45b64a3e00f94db5b6eafc45dfdd03b0734282c1369bcff9443062ba1",
+  "cdn_config_sha256": "cd1efbd680adcc8f8a77dad07011920eaa6b38c32f53217d2acc5e37b44f2c26",
+  "build_config_bytes": 87836,
+  "cdn_config_bytes": 59333,
+  "cdn_explicit_build_membership_checked": false,
+  "manifest_descriptors": [
+    {
+      "name": "install",
+      "ckey": "bfed494c95462d5e9455b75253946bd9",
+      "ekey": "d10563defeec2e7649ecaa7ae2d59a6a",
+      "decoded_size": 24078,
+      "encoded_size": 23106
+    },
+    {
+      "name": "download",
+      "ckey": "112d2678b8526ae35bd9ab73c95f2de0",
+      "ekey": "ce25548a1b6da8a9a7227924b8d20f2c",
+      "decoded_size": 74562380,
+      "encoded_size": 63424635
+    },
+    {
+      "name": "encoding",
+      "ckey": "c36d0a7a0645d12c52932ec8c8f7fea2",
+      "ekey": "6e9260e140bd5f5b116d47229e937993",
+      "decoded_size": 200255766,
+      "encoded_size": 188062372
+    }
+  ],
+  "manifest_blobs_fetched": false,
+  "game_assets_fetched": 0,
+  "vendor_required_set_proven": false,
+  "publisher_signature_verified": false,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "config_requests": 2,
+  "config_bytes": 147169,
+  "observed_at_utc": "2026-10-17T21:55:49.242073+00:00"
+}

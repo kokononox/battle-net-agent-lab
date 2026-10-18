@@ -1,0 +1,51 @@
+{
+  "format": "dynamic-release-observation-1",
+  "source": "live_official_https_release_tables",
+  "baseline": {
+    "scope": {
+      "product": "wow",
+      "branch": "retail",
+      "region": "eu"
+    },
+    "version": "12.1.0.69933",
+    "build_config": "dcfc90fffd79ba00406ae46f5f657592",
+    "info_sha256": "b571f420496ef79f7647d7264aafc348490d9e5121fb09af5b9a22cc87773e90",
+    "config_sha256": "b3a5aba3ab0161c83eb1b03e300a664ff3f6e4af2ccc54aaf0bddfdd86b1cd4d"
+  },
+  "target": {
+    "scope": {
+      "product": "wow",
+      "branch": "retail",
+      "region": "eu"
+    },
+    "version": "12.1.5.70448",
+    "build_id": 70448,
+    "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+    "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+    "origins": [
+      "https://level3.ssl.blizzard.com"
+    ],
+    "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+    "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+  },
+  "decision": "new_release_detected",
+  "installed_copies_are_not_live_snapshot": true,
+  "target_build_config_fetched_and_verified": false,
+  "target_manifests_fetched": false,
+  "publisher_manifest_signature_verified": false,
+  "vendor_required_set_proven": false,
+  "required_download_bytes": null,
+  "asset_requests": 0,
+  "game_files_read": 0,
+  "game_files_written": 0,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "observed_at_utc": "2026-10-17T21:54:42.863405+00:00",
+  "release_table_requests": 2,
+  "release_table_bytes": 2558,
+  "release_urls": [
+    "https://us.version.battle.net/v2/products/wow/versions",
+    "https://us.version.battle.net/v2/products/wow/cdns"
+  ],
+  "latest_claim_scope": "single advertised region row at observation time; not a timeless latest-version guarantee"
+}
