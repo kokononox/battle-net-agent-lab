@@ -1,3 +1,3 @@
-# Current source extension: independent local content capture
+# Current source extension: exact-span Windows archive capture
 
-Source e29fa4466e544b392c2e2235e1473ecb0a84aca0; actual Windows synthetic CI receipt b0bc825e942cca81f8f7839d47a56581920785b2: 476 pass, zero failures/errors/skips. Linux 792 pass. 36 new capture/admission cases plus 2 native Windows mapped-writer exclusion experiments. Existing owned 52-byte historical cache replay passed against pinned target candidate/catalogue; no live local archive proof. No new release ZIP, game file read/write, CDN request, guessed mutex or Agent execution. Read research/CONTENT-IDENTITY-NOT-GENERATION.md.
+Source d37c2d7aedf486a5fb06e2c10bed2d45ed3ae88f; actual Windows synthetic CI receipt 293f32927d6b72fe59ac8901291624c4936226d2: 514 pass, zero failures/errors/skips. Linux 813 pass. 20 portable span tests, 17 native archive tests, 1 archive-to-target-admission integration added. No live archive qualification, game/CDN read/write or new ZIP. Read research/EXPLICIT-ARCHIVE-CAPTURE.md and ../docs/UPDATER-REMAINING.fa.md.

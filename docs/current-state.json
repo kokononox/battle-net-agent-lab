@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-18T04:17:46.578054+00:00",
+  "as_of_utc": "2026-10-18T04:29:47.153230+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -47,8 +47,8 @@
     "hardware_field_transmission_proven": false,
     "historical_binary_findings_reverified_in_this_sync": false
   },
-  "user_action_now": "none: no new live object reader scope is prepared or approved; tests use synthetic data or the already-owned 52-byte cache; no guessed mutex/store binding or live writes",
-  "sync_scope": "independent temporary local content capture and target candidate admission; actual synthetic Windows writable-mapping sharing refusal experiments; existing owned 52-byte cache replay; no new game access",
+  "user_action_now": "none: no new live source read requested or authorized; all new archive tests use newly-created synthetic files",
+  "sync_scope": "explicit one-archive native Windows exact-span capture connected to independent verified target admission; synthetic tests only",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
     "zip_sha256": "c26e5f9416e7aadef0f9f7dc36c06c2e8975ae65f8f1ac3bfca0abd67fa81001",
@@ -79,11 +79,11 @@
     "installation_ready": false,
     "historical_only_not_current_target": true
   },
-  "current_focus": "separate content identity from installed-generation claims; complete selection policy and implement qualified bounded local archive reader before reuse; no installer writer yet",
+  "current_focus": "qualify feature/variant/dependency required-set selection; no live archive backend, durable cache or CASC writer qualification",
   "current_updater": {
     "release": "0.27",
     "source": "updater-core/",
-    "unit_tests_linux": 792,
+    "unit_tests_linux": 813,
     "native_windows_qualified": false,
     "historical_baseline": "12.1.0.69933",
     "pinned_target": "12.1.5.70448",
@@ -116,10 +116,10 @@
     "large_object_network_controller_integrated": true,
     "native_windows_owned_scratch_implemented": true,
     "native_windows_stage_synthetic_tests_passed": 38,
-    "windows_combined_ci_tests_passed": 476,
+    "windows_combined_ci_tests_passed": 514,
     "windows_combined_ci_tests_skipped": 0,
-    "windows_combined_ci_source_commit": "e29fa4466e544b392c2e2235e1473ecb0a84aca0",
-    "windows_combined_ci_receipt_commit": "b0bc825e942cca81f8f7839d47a56581920785b2",
+    "windows_combined_ci_source_commit": "d37c2d7aedf486a5fb06e2c10bed2d45ed3ae88f",
+    "windows_combined_ci_receipt_commit": "293f32927d6b72fe59ac8901291624c4936226d2",
     "windows_stage_to_candidate_admission_integrated": true,
     "windows_native_candidate_admission_tests_passed": 10,
     "bounded_transfer_tests_per_platform": 53,
@@ -172,8 +172,8 @@
     "generation_control_semantics_independently_qualified": false,
     "stable_rounds_are_atomic_snapshot": false,
     "new_historical_user_control_or_index_contents_read": false,
-    "source_extension": "independent-local-content-capture",
-    "source_extension_commit": "e29fa4466e544b392c2e2235e1473ecb0a84aca0",
+    "source_extension": "explicit-windows-archive-capture",
+    "source_extension_commit": "d37c2d7aedf486a5fb06e2c10bed2d45ed3ae88f",
     "native_held_generation_capture_library_implemented": true,
     "native_held_generation_capture_synthetic_windows_tests": 24,
     "native_held_generation_memory_logic_tests": 10,
@@ -183,7 +183,7 @@
     "store_semantic_binding_proven": false,
     "independent_local_content_capture_implemented": true,
     "local_capture_to_candidate_admission_implemented": true,
-    "local_capture_tests_per_platform": 36,
+    "local_capture_tests_per_platform": 37,
     "native_mapped_writer_exclusion_tests": 2,
     "native_preexisting_mapped_writer_bypass_demonstrated": false,
     "native_mapped_ABA_bypass_demonstrated": false,
@@ -191,7 +191,14 @@
     "existing_owned_52_byte_cache_replay_passed": true,
     "source_generation_required_for_copied_content_identity": false,
     "permanent_local_cache_implemented": false,
-    "live_local_archive_import_backend_qualified": false
+    "live_local_archive_import_backend_qualified": false,
+    "explicit_archive_capture_library_implemented": true,
+    "native_exact_span_archive_capture_library_implemented": true,
+    "explicit_archive_capture_portable_tests": 20,
+    "native_archive_capture_synthetic_tests": 17,
+    "archive_to_candidate_admission_integration_test": true,
+    "archive_source_unbuffered_fileio": true,
+    "source_read_approval_implied": false
   },
   "github_experiment_reverified_in_this_sync": false,
   "next_native_environment_requirement": "user availability confirmed; no copy or game-path probe requested until a bounded test is implemented",
@@ -201,6 +208,6 @@
     "game_copy_requested": false,
     "main_install_modification_authorized": false
   },
-  "next_offline_step": "implement exact-budget native local-object reader feeding independent capture, test synthetic archive/header/full-key errors, then qualify full selection policy and transactional writer on independent copy",
+  "next_offline_step": "resolve independent required-set selection rules; design explicit bounded user execution against independent copy without widening prior read scope",
   "public_policy_review": "Alternate community enum clarified only; Talebound and official selection remain unqualified"
 }

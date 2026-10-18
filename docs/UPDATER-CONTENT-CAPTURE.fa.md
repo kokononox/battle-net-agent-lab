@@ -1,3 +1,5 @@
+> وضعیت تازه: [آرشیو محدود تا پذیرش هدف](UPDATER-ARCHIVE-CAPTURE.fa.md) و [ترتیب باقی‌مانده](UPDATER-REMAINING.fa.md). کتابخانهٔ native روی fixture مصنوعی پاس شد، نه نصب واقعی. اقدام کاربر فعلاً لازم نیست. متن پایین سابقه است.
+
 # پیشرفت عملی: جداکردن هویت محتوا از وضعیت نسل
 
 [معماری و محدودیت‌ها](../updater-core/research/CONTENT-IDENTITY-NOT-GENERATION.md) · [باقی‌مانده](UPDATER-REMAINING.fa.md)

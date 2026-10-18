@@ -1,10 +1,10 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## وضعیت جدید مسیر اپدیتر — independent content capture
+## وضعیت جدید مسیر اپدیتر — exact-span native archive capture
 
-[پیاده‌سازی و نتیجهٔ Windows](docs/UPDATER-CONTENT-CAPTURE.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md).
+[شرح عملکرد و نتیجهٔ Windows](docs/UPDATER-ARCHIVE-CAPTURE.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md).
 
-مسیر کپی مستقل موقتِ یک شیء و full-key verification تا candidate admission پیاده شد. ۳۶ تست تازه و ۲ آزمایش native writable mapping پاس؛ مجموع Windows=476 و Linux=792، بدون شکست/خطا/skip. آزمایش mapping برخلاف فرض عبور، share violation 32 و سپس موفقیت بعد از unmap نشان داد؛ این شاهد محدود exclusion است، نه snapshot یا qualification همهٔ مسیرها. هویت محتوای کپی از نسل نصب جداست. کپی ۵۲ بایتی موجود از مسیر تازه تأیید شد، نه فایل نصب امروز. selection کامل، live archive reader، store/quiescence برای write و writer تراکنشی هنوز بازند. ZIP تازه و game/CDN access انجام نشد؛ اقدام کاربر فعلاً لازم نیست.
+خواندن دقیقاً یک span صریح از data.NNN با FileIO بدون بافر، کنترل header/full keys و کپی مستقل، تا پذیرش candidate/catalogue هدف وصل شد. Linux=813 و Windows=514 پاس؛ افزودهٔ این گام 20 تست portable، 17 native و یک integration است. تست‌ها فقط فایل مصنوعی ساخته‌اند؛ این اثبات نصب واقعی یا نسل فعال نیست. selection کامل، اجرای محدود با تأیید مستقل، کش بادوام و writer تراکنشی هنوز بازند. هیچ ZIP تازه یا game/CDN access انجام نشد؛ اکنون اقدام کاربر لازم نیست. هدف تاریخی 12.1.5.70448 آخرین نسخهٔ آنلاین اعلام نشده است.
 
 ## شروع ادامهٔ پروژه — فارسی (سابقه)
 

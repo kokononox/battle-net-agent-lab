@@ -1,16 +1,14 @@
-# اقدامات باقی‌مانده — پس از مسیر مستقل اعتبار محتوا
+# اقدامات باقی‌مانده — پس از اتصال آرشیو محدود به کپی مستقل
 
-## پیشرفت و نتیجهٔ تعیین‌کننده
-- واردکردن یک stream محدود به کپی موقت مستقل و اعتبارسنجی کامل EKey/CKey، اندازه و BLTE پیاده شد؛ سپس کپی دوباره بررسی و به candidate/catalogue همان هدف bind می‌شود. این مسیر locator و نسل را مدرک محتوا نمی‌داند و هیچ HTTP/ETag ساختگی برای ورود محلی نمی‌سازد.
-- آزمایش بومی Windows روی فایل‌های کاملاً مصنوعی برخلاف فرض bypass، خطای اشتراک 32 داد: capture با وجود writable mapping قبلی رد می‌شود؛ برگرداندن بایت کافی نیست ولی unmap امکان capture می‌دهد. این شاهد exclusion برای همین حالت است، نه snapshot یا تضمین همهٔ mappingها. عبور موفق A→B→A نشان داده نشد.
-- ۳۶ تست تازهٔ capture/admission و ۲ آزمایش native فوق پاس شدند. مجموع Linux=792 و Windows=476 با صفر شکست/خطا/skip؛ شمار دو پلتفرم هم‌پوشانی دارد.
-- همان کپی ۵۲ بایتی موجودِ قبلاً stage‌شده، از مسیر تازه وارد و با candidate/catalogue هدف تاریخی تطبیق داده شد. این اجرای تازه روی کش موجود است، نه اثبات reuse از نصب امروز. کپی موقت پس از پایان حذف شد.
+## انجام‌شده در این گام
+خوانندهٔ بومی Windows برای یک فایل data.NNN و یک بازهٔ صریح پیاده شد و به اعتبارسنجی مستقل و پذیرش candidate هدف وصل شد. offset، شمارهٔ آرشیو، اندازه، layout و byte budget باید صریح باشند؛ بدون scan، انتخاب خودکار locator، fallback، دانلود یا source write. fixture ویندوز فایل منبع را پس از آزادشدن handle تغییر می‌دهد و سپس همان کپی مستقل به candidate/catalogue پذیرفته می‌شود. هیچ نصب واقعی خوانده یا تغییر داده نشد.
 
-## ترتیب باقی‌مانده
-1. ساخت و qualification خوانندهٔ بومیِ دقیقاً محدودِ یک شیء آرشیو محلی برای تغذیهٔ همین capture؛ header/offset/archive/byte budget صریح، full key و checksum، توقف امن و بدون scan یا fallback خودکار. API فعلی stream می‌گیرد، خودش بازی را باز نمی‌کند. اجرای زنده scope و تأیید مستقل می‌خواهد؛ فعلاً هیچ درخواست اقدام کاربر وجود ندارد.
-2. qualification قواعد feature/variant/dependency و ترجیحات تازه برای required set. candidate تاریخی همچنان required set معتبر تولید نیست؛ کش معتبر این مشکل را حل نمی‌کند.
-3. reuse معتبر از کپی‌های مستقل و محاسبهٔ دقیق حجم لازم برای همان required set؛ unknown صفر نیست. انتقال واقعی و resume/recovery نیز qualification جدا دارند.
-4. writer تراکنشی CASC با journal، rollback و activation روی کپی مستقل؛ در این مرحله اتصال معنایی store/control به نصب و سکون نویسنده‌ها همچنان لازم است. آن‌ها برای صرفِ هویت محتوای کپی شرط نیستند، ولی برای ادعای نسل فعال یا write حذف نشده‌اند.
-5. آزمون چندنسخه/نسخهٔ آینده با discovery تازه و fail-closed قالب ناشناخته، سپس UI و انتشار.
+## ترتیب ادامه
+1. qualification قواعد انتخاب required set: feature/variant/dependency، locale و ترجیحات تازه. این همچنان مانع اول برای ادعای «همهٔ فایل‌های لازم نسخهٔ هدف» است؛ candidate تاریخی را با required set معتبر اشتباه نگیریم.
+2. تبدیل کتابخانهٔ فعلی به مسیر اجراییِ محدودِ کاربر: مشخصات یک خواندن صریح، تأیید مستقل، اتصال locator به کلید هدف، و qualification روی کپی مستقل نصب. API و آزمون مصنوعی به‌تنهایی اجازهٔ خواندن بازی یا اثبات نسل/سلامت آن نیستند. قالب header فعلی پژوهشی و محدود است؛ قالب ناشناخته باید رد شود، نه حدس زده شود.
+3. کش مستقل بادوام و reuse برای required set معتبر، محاسبهٔ حجم واقعاً لازم، انتقال و resume/recovery قابل اتکا. کپی موقت فعلی کش دائمی نیست؛ حجم نامعلوم صفر نیست.
+4. writer تراکنشی CASC، journal، rollback و activation روی کپی مستقل. اتصال معنایی store به نصب و سکون نویسنده‌ها برای write و ادعای نسل فعال هنوز لازم‌اند؛ مستقل‌شدن هویت محتوا این شروط را حذف نکرده است.
+5. آزمون چندنسخه و نسخه‌های آینده با discovery تازه، توقف امن در قالب ناشناخته، سپس UI و انتشار Windows.
 
-active_generation_proven، installed_content_reuse_authorized، required_set_selected، installation_ready و apply_authorized=false؛ required_network_download_bytes=null. این مسیر کش دائمی یا ابزار کاربر نهایی نیست. فایل جدیدی از بازی کاربر یا CDN خوانده نشد، mutex حدسی باز/ساخته نشد و هیچ game write/repair/admin/ACL رخ نداد. ZIP تازه ساخته نشد.
+## مرز فعلی
+برنامه هنوز اپدیتر آمادهٔ نصب نیست. vendor_selection_policy_qualified، active_generation_proven، installed_content_reuse_authorized، installation_ready و apply_authorized=false؛ required_network_download_bytes=null. هدف تاریخی 12.1.5.70448 آخرین نسخهٔ آنلاین اعلام نشده است. ZIP تازه ساخته نشد. اکنون اقدام کاربر لازم نیست؛ قبل از هر خواندن زنده، دامنهٔ روشن و تأیید مستقل لازم است. admin، ACL، repair و اجازهٔ کلی درخواست نمی‌شود.
