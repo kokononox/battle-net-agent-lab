@@ -1,0 +1,449 @@
+{
+  "experiment": "startup-ab-api-h1",
+  "arms": {
+    "baseline": {
+      "raw_files": {
+        "intervention": {
+          "name": "startup-ab-api-h1-baseline-intervention.json",
+          "sha256": "6e5262ea4b2335568055acb5cb3711e5b99a5114fc62b4dd1a8b352b9956aa4c"
+        },
+        "api": {
+          "name": "startup-ab-api-h1-baseline-api.json",
+          "sha256": "952396ccb15994570bc201f0cef59803fa41554607b2890699cd820a833fcafe"
+        },
+        "network": {
+          "name": "startup-ab-api-h1-baseline-network.json",
+          "sha256": "dec8d965f29f6286138a9c40ba3686cecd6544dbfc2bbcc0f676d75728e0abed"
+        },
+        "bootstrap": {
+          "name": "startup-ab-api-h1-baseline-bootstrap.json",
+          "sha256": "f9d532f9a44bbec1b8f65d9cb362a162eb9a0c9a52d1c834209ed3360db263d1"
+        }
+      },
+      "source_commit": "ac62d58f9b61f190f4a8279e185366bd27d1c377",
+      "run_id": "39167612892",
+      "runner_image_version": "20261007.264.1",
+      "windows_build": 26100,
+      "intervention": {
+        "launch_precondition_passed": true,
+        "hosts_changed": false,
+        "hosts_restored": false,
+        "resolution_before": "public_only",
+        "resolution_at_launch": "public_only",
+        "pin_match": true,
+        "outcome": "collector_returned",
+        "error_code": null
+      },
+      "observation_status": "agent_process_observed",
+      "observation_error": null,
+      "selftest_passed": true,
+      "sspi_fixture_passed": true,
+      "reference_cpu": "AMD EPYC 7763 64-Core Processor",
+      "bootstrap_pin_match": true,
+      "processes": [
+        {
+          "pid": 2880,
+          "parent_pid": null,
+          "process_name": "battle.net-setup.exe",
+          "sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+          "image_bytes": 4896464,
+          "authenticode_valid": true,
+          "expected_blizzard_publisher": true,
+          "status": "resumed",
+          "phase": "observing",
+          "error_kind": null,
+          "hook_ready": true,
+          "child_gating_enabled": true,
+          "instrumented_before_resume": true,
+          "installed_hooks": [
+            "connect",
+            "WSAConnect",
+            "closesocket",
+            "send",
+            "WSASend",
+            "EncryptMessage"
+          ],
+          "input_events": 29,
+          "script_errors": 0
+        },
+        {
+          "pid": 4456,
+          "parent_pid": 2880,
+          "process_name": "battle.net-setup.exe",
+          "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "image_bytes": 4700880,
+          "authenticode_valid": true,
+          "expected_blizzard_publisher": true,
+          "status": "resumed",
+          "phase": "observing",
+          "error_kind": null,
+          "hook_ready": true,
+          "child_gating_enabled": true,
+          "instrumented_before_resume": true,
+          "installed_hooks": [
+            "connect",
+            "WSAConnect",
+            "closesocket",
+            "send",
+            "WSASend",
+            "EncryptMessage"
+          ],
+          "input_events": 59,
+          "script_errors": 0
+        },
+        {
+          "pid": 8936,
+          "parent_pid": 4456,
+          "process_name": "agent.exe",
+          "sha256": "7d20ba6ef1d34a3cedbd7d3fd7c14228f173668a9a1e338351d529048de45079",
+          "image_bytes": 540880,
+          "authenticode_valid": true,
+          "expected_blizzard_publisher": true,
+          "status": "resumed",
+          "phase": "observing",
+          "error_kind": null,
+          "hook_ready": true,
+          "child_gating_enabled": true,
+          "instrumented_before_resume": true,
+          "installed_hooks": [
+            "connect",
+            "WSAConnect",
+            "closesocket",
+            "send",
+            "WSASend"
+          ],
+          "input_events": 0,
+          "script_errors": 0
+        },
+        {
+          "pid": 1188,
+          "parent_pid": 8936,
+          "process_name": "agent.exe",
+          "sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+          "image_bytes": 7275216,
+          "authenticode_valid": true,
+          "expected_blizzard_publisher": true,
+          "status": "resumed",
+          "phase": "observing",
+          "error_kind": null,
+          "hook_ready": true,
+          "child_gating_enabled": true,
+          "instrumented_before_resume": true,
+          "installed_hooks": [
+            "connect",
+            "WSAConnect",
+            "closesocket",
+            "send",
+            "WSASend",
+            "EncryptMessage"
+          ],
+          "input_events": 21,
+          "script_errors": 0
+        }
+      ],
+      "all_live_rows_resumed": true,
+      "process_hashes_by_name": {
+        "agent.exe": [
+          "7d20ba6ef1d34a3cedbd7d3fd7c14228f173668a9a1e338351d529048de45079",
+          "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5"
+        ],
+        "battle.net-setup.exe": [
+          "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+          "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6"
+        ]
+      },
+      "input_events": 109,
+      "dropped_events": 0,
+      "fatal": false,
+      "script_errors": 0,
+      "stream_gaps": 0,
+      "request_count": 80,
+      "complete_body_request_count": 80,
+      "requests_by_host": {
+        "level3.blizzard.com": 49,
+        "nydus.battle.net": 2,
+        "ocsp.digicert.com": 1,
+        "telemetry-in.battle.net": 9,
+        "us.cdn.blizzard.com": 6,
+        "us.version.battle.net": 13
+      },
+      "requests_by_channel": {
+        "winsock_http": 58,
+        "pre_tls_sspi": 22
+      },
+      "cpu_literal_requests": [
+        {
+          "index": 77,
+          "pid": 1188,
+          "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+          "host": "telemetry-in.battle.net",
+          "method": "POST",
+          "target": "/data",
+          "channel": "pre_tls_sspi",
+          "body_complete": true,
+          "body_match": true,
+          "headers_or_target_match": false
+        }
+      ],
+      "tls_input_events": 24,
+      "tls_local_success_events": 24,
+      "tls_success_with_reference_cpu_literal": 1,
+      "tls_failed_with_reference_cpu_literal": 0,
+      "network_parse_status": "parsed",
+      "network_sampler": {
+        "samples": 1117,
+        "errors": 0,
+        "flow_limit_hit": false
+      },
+      "telemetry_sni_flow_records": 4,
+      "prior_telemetry_ip_flow_records": 8,
+      "observed_network_hosts": [
+        "level3.blizzard.com",
+        "nydus.battle.net",
+        "telemetry-in.battle.net",
+        "us.version.battle.net"
+      ],
+      "bootstrap_status": "agent_process_observed",
+      "last_gui_observation_elapsed_seconds": 121.58,
+      "language_step": "continued",
+      "install_step": "not_requested"
+    },
+    "block_telemetry": {
+      "raw_files": {
+        "intervention": {
+          "name": "startup-ab-api-h1-block_telemetry-intervention.json",
+          "sha256": "b99885c244dfefc5a8c93a9e418888a0527fdea38c719af7bf25df445c69240e"
+        },
+        "api": {
+          "name": "startup-ab-api-h1-block_telemetry-api.json",
+          "sha256": "28a7236453b1818b485dceba0a96dafb3266f6212274cfa4d5c8c82f7c2020f9"
+        },
+        "network": {
+          "name": "startup-ab-api-h1-block_telemetry-network.json",
+          "sha256": "77d37099d898d980b20085b920eb1654290a8c0f7a0a97a31f9173a8541f7a96"
+        },
+        "bootstrap": {
+          "name": "startup-ab-api-h1-block_telemetry-bootstrap.json",
+          "sha256": "4dad40b683e7db89bc8d26b847389fd4307f5360c3b45431c558a64dd22fc6f1"
+        }
+      },
+      "source_commit": "ac62d58f9b61f190f4a8279e185366bd27d1c377",
+      "run_id": "39167612892",
+      "runner_image_version": "20261007.264.1",
+      "windows_build": 26100,
+      "intervention": {
+        "launch_precondition_passed": true,
+        "hosts_changed": true,
+        "hosts_restored": true,
+        "resolution_before": "public_only",
+        "resolution_at_launch": "loopback_only",
+        "pin_match": true,
+        "outcome": "collector_returned",
+        "error_code": null
+      },
+      "observation_status": "agent_process_observed",
+      "observation_error": null,
+      "selftest_passed": true,
+      "sspi_fixture_passed": true,
+      "reference_cpu": "AMD EPYC 9V74 80-Core Processor",
+      "bootstrap_pin_match": true,
+      "processes": [
+        {
+          "pid": 5836,
+          "parent_pid": null,
+          "process_name": "battle.net-setup.exe",
+          "sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+          "image_bytes": 4896464,
+          "authenticode_valid": true,
+          "expected_blizzard_publisher": true,
+          "status": "resumed",
+          "phase": "observing",
+          "error_kind": null,
+          "hook_ready": true,
+          "child_gating_enabled": true,
+          "instrumented_before_resume": true,
+          "installed_hooks": [
+            "connect",
+            "WSAConnect",
+            "closesocket",
+            "send",
+            "WSASend",
+            "EncryptMessage"
+          ],
+          "input_events": 23,
+          "script_errors": 0
+        },
+        {
+          "pid": 8432,
+          "parent_pid": 5836,
+          "process_name": "battle.net-setup.exe",
+          "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "image_bytes": 4700880,
+          "authenticode_valid": true,
+          "expected_blizzard_publisher": true,
+          "status": "resumed",
+          "phase": "observing",
+          "error_kind": null,
+          "hook_ready": true,
+          "child_gating_enabled": true,
+          "instrumented_before_resume": true,
+          "installed_hooks": [
+            "connect",
+            "WSAConnect",
+            "closesocket",
+            "send",
+            "WSASend",
+            "EncryptMessage"
+          ],
+          "input_events": 57,
+          "script_errors": 0
+        },
+        {
+          "pid": 2684,
+          "parent_pid": 8432,
+          "process_name": "agent.exe",
+          "sha256": "7d20ba6ef1d34a3cedbd7d3fd7c14228f173668a9a1e338351d529048de45079",
+          "image_bytes": 540880,
+          "authenticode_valid": true,
+          "expected_blizzard_publisher": true,
+          "status": "resumed",
+          "phase": "observing",
+          "error_kind": null,
+          "hook_ready": true,
+          "child_gating_enabled": true,
+          "instrumented_before_resume": true,
+          "installed_hooks": [
+            "connect",
+            "WSAConnect",
+            "closesocket",
+            "send",
+            "WSASend"
+          ],
+          "input_events": 0,
+          "script_errors": 0
+        },
+        {
+          "pid": 7980,
+          "parent_pid": 2684,
+          "process_name": "agent.exe",
+          "sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+          "image_bytes": 7275216,
+          "authenticode_valid": true,
+          "expected_blizzard_publisher": true,
+          "status": "resumed",
+          "phase": "observing",
+          "error_kind": null,
+          "hook_ready": true,
+          "child_gating_enabled": true,
+          "instrumented_before_resume": true,
+          "installed_hooks": [
+            "connect",
+            "WSAConnect",
+            "closesocket",
+            "send",
+            "WSASend",
+            "EncryptMessage"
+          ],
+          "input_events": 16,
+          "script_errors": 0
+        }
+      ],
+      "all_live_rows_resumed": true,
+      "process_hashes_by_name": {
+        "agent.exe": [
+          "7d20ba6ef1d34a3cedbd7d3fd7c14228f173668a9a1e338351d529048de45079",
+          "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5"
+        ],
+        "battle.net-setup.exe": [
+          "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+          "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6"
+        ]
+      },
+      "input_events": 96,
+      "dropped_events": 0,
+      "fatal": false,
+      "script_errors": 0,
+      "stream_gaps": 0,
+      "request_count": 69,
+      "complete_body_request_count": 69,
+      "requests_by_host": {
+        "level3.blizzard.com": 34,
+        "nydus.battle.net": 2,
+        "ocsp.digicert.com": 1,
+        "us.cdn.blizzard.com": 19,
+        "us.version.battle.net": 13
+      },
+      "requests_by_channel": {
+        "winsock_http": 56,
+        "pre_tls_sspi": 13
+      },
+      "cpu_literal_requests": [],
+      "tls_input_events": 13,
+      "tls_local_success_events": 13,
+      "tls_success_with_reference_cpu_literal": 0,
+      "tls_failed_with_reference_cpu_literal": 0,
+      "network_parse_status": "parsed",
+      "network_sampler": {
+        "samples": 1112,
+        "errors": 0,
+        "flow_limit_hit": false
+      },
+      "telemetry_sni_flow_records": 0,
+      "prior_telemetry_ip_flow_records": 0,
+      "observed_network_hosts": [
+        "level3.blizzard.com",
+        "ocsp.digicert.com",
+        "us.cdn.blizzard.com",
+        "us.version.battle.net"
+      ],
+      "bootstrap_status": "agent_process_observed",
+      "last_gui_observation_elapsed_seconds": 121.33,
+      "language_step": "continued",
+      "install_step": "not_requested"
+    }
+  },
+  "checks": {
+    "same_source": true,
+    "same_run": true,
+    "same_runner_image": true,
+    "same_windows_build": true,
+    "same_cpu_model": false,
+    "same_observed_image_sets": true,
+    "independent_counts_verified": true,
+    "requests_hosts_only_in_block": [],
+    "network_hosts_only_in_block": [
+      "ocsp.digicert.com",
+      "us.cdn.blizzard.com"
+    ]
+  },
+  "limitations": [
+    "One fresh VM per arm; shared source/window/image does not make hardware/IP/timing identical.",
+    "Startup language only, not full client/game/update compatibility.",
+    "SSPI success is local encryption, not successful network delivery/server storage.",
+    "No TLS plaintext for HTTP/2/OpenSSL/QUIC or uninstrumented processes.",
+    "Bounded capture, socket async completion, context reuse and concurrency can hide or misorder data.",
+    "Sampled TCP tuples can miss short connections; DNS candidates are not request destinations.",
+    "A host present only in block arm is not by itself proof of telemetry fallback.",
+    "Absence of the CPU literal is not absence of compressed/encoded or other system data.",
+    "Game-file fingerprints and A-to-B transfer remain untested."
+  ],
+  "profiling": {
+    "raw_shape": "Nested protocol report with different-grain arrays, not one rectangular row set.",
+    "normalization": "One row per reconstructed request; composite key (mode,index).",
+    "warnings_resolved": [
+      "Flat profiler cannot directly read unequal-length nested JSON arrays; normalize request table instead.",
+      "body_complete is constant True in these samples, not a whole-network coverage claim.",
+      "cpu_literal_in_target_headers is constant False; CPU match occurs in body only.",
+      "No duplicate normalized rows; PID alone is not a cross-VM join key."
+    ]
+  },
+  "comparison_plan": [
+    {
+      "grain": "one fresh startup VM per arm",
+      "population": "bounded signed root-child process inputs and sampled network connections",
+      "unit": "diagnostic presence/absence and coverage",
+      "disposition": "table",
+      "reason": "Gate and visibility comparison, not a traffic-volume effect or rate estimate; plots would encourage unsupported interpretation."
+    }
+  ]
+}
