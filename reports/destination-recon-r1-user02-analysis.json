@@ -1,0 +1,118 @@
+{
+  "schema": "recon-r1-user02-analysis-1",
+  "source_sha256": "ce4099872535dfec741ff10ac590d4a3dd1544a4b6c1e9d3ec7b0161e803ed42",
+  "source_filename": "recon-02-1792365695406801100.json",
+  "provenance": "user-uploaded, no signed provenance or independent live observation",
+  "profile_id": "02",
+  "schema_valid": true,
+  "ready": true,
+  "status": "observation_ended",
+  "error_code": null,
+  "blocked_domains": [
+    "telemetry-in.battle.net",
+    "breaking-news.support.blizzard.com",
+    "rum.battle.net",
+    "www.google-analytics.com",
+    "analytics.google.com",
+    "www.googletagmanager.com",
+    "cm.g.doubleclick.net",
+    "inn-pa.googleapis.com",
+    "fcmatch.google.com",
+    "eu.shop.battle.net",
+    "bnetstorefront.akamaized.net",
+    "catalog.blzstatic.com",
+    "blz-contentstack-images.akamaized.net",
+    "navbar.blizzard.com",
+    "content-ui.battle.net",
+    "images.blz-contentstack.com",
+    "www.youtube.com",
+    "www.youtube-nocookie.com",
+    "fcmatch.youtube.com",
+    "i.ytimg.com"
+  ],
+  "blocked_domain_count": 20,
+  "dns_loopback_checks": {
+    "resolution_after_apply": true,
+    "resolution_before_restore": true
+  },
+  "hosts_restore": "restored_exactly",
+  "blocks_remain_after_restore": false,
+  "reported_download_behavior": "reported_progress",
+  "reported_final_state": "reported_paused",
+  "planned_window_seconds": 120,
+  "ready_to_observation_end_seconds": 75.147179,
+  "window_duration_caveat": "Timestamp difference, not exact resumed download duration; user_q before 120-second limit",
+  "end_reason": "user_q",
+  "initial_versions": {
+    "status": "read",
+    "retail_versions": [
+      "12.1.5.70448"
+    ]
+  },
+  "final_versions": {
+    "status": "read",
+    "retail_versions": [
+      "12.1.5.70448"
+    ]
+  },
+  "process_count": 14,
+  "agent_processes": [
+    {
+      "index": 2,
+      "pid": 6512,
+      "process_name": "agent.exe",
+      "sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "signature_valid": true,
+      "blizzard_publisher": true
+    }
+  ],
+  "agent_public_tcp_rows": [
+    {
+      "process_index": 2,
+      "remote_address": "8.232.70.12",
+      "remote_port": 443,
+      "phase": "observation_window",
+      "sample_observations": 170
+    },
+    {
+      "process_index": 2,
+      "remote_address": "2.21.23.18",
+      "remote_port": 80,
+      "phase": "observation_window",
+      "sample_observations": 102
+    },
+    {
+      "process_index": 2,
+      "remote_address": "2.21.23.82",
+      "remote_port": 80,
+      "phase": "observation_window",
+      "sample_observations": 97
+    }
+  ],
+  "tcp_row_count": 14,
+  "unique_public_ip_port_pairs": 12,
+  "unique_public_ips": 11,
+  "sampler_errors": 0,
+  "limits_hit": {
+    "processes": false,
+    "flows": false
+  },
+  "all_processes_valid_blizzard": true,
+  "injection_used": false,
+  "content_or_cpu_collected": false,
+  "whole_update_completion_proven": false,
+  "zero_telemetry_proven": false,
+  "next_profile": "03-BAT3-Plus-OAuth.bat",
+  "next_change": "Same corrected BAT3 baseline + oauth.battle.net only; not cumulative other extras",
+  "next_test_stop": "No READY: do not Resume; record failed trial. Otherwise manual Pause/Exit and report.",
+  "profile_warning_resolution": "General profiler cannot flatten this nested report; explicit process and public_tcp_samples arrays used. No rows dropped or deduplicated; endpoint sets are separate distinct counts, not removal of samples.",
+  "visual_plan": {
+    "disposition": "prose",
+    "reason": "Single diagnostic trial with a gate decision, not a measured traffic-volume comparison or temporal trend. IP rows are sampled TCP socket observations, not bytes, requests or unique connections."
+  },
+  "independent_checks": {
+    "dns_count_by_map_and_list_agrees": true,
+    "endpoint_count_by_grouping_and_set_agrees": true,
+    "all_flow_process_refs_valid": true
+  }
+}
