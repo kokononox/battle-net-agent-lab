@@ -1,14 +1,14 @@
 {
   "format": "updater-windows-transfer-ci-3",
-  "source_commit": "bf26248d0f454c0f8c30ba20949e547af1ab919d",
+  "source_commit": "68a4f30913134014f82714468f222eba5dc2f0df",
   "platform": "Windows",
   "python_version": "3.12.10",
-  "tests_run": 286,
+  "tests_run": 332,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
   "passed": true,
-  "expected_tests": 286,
+  "expected_tests": 332,
   "failed_cases": [],
   "native_windows_stage_synthetic_tests_passed": true,
   "bounded_transfer_synthetic_tests_passed": true,
@@ -22,7 +22,9 @@
     "test_transfer_reconcile",
     "test_transfer_scope",
     "test_policy_ambiguity",
-    "test_product_policy_facts"
+    "test_product_policy_facts",
+    "test_installed_preferences",
+    "windows_metadata_cases"
   ],
   "scope": "synthetic_windows_transfer_staging_and_portable_parser",
   "game_access": false,
