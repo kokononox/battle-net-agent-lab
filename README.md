@@ -1,5 +1,12 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
+## نتیجهٔ تازه — متادیتای رسمی Classic Era
+
+نسخهٔ EU برابر `1.15.9.70003` مشاهده شد؛ configهای ساخت/CDN و هویت کامل manifestهای نصب/دانلود تأیید شدند. تنها 4,957,673 بایت متادیتا دریافت شد؛ هیچ بازی، Agent یا نصب/آپدیتی اجرا نشد. جمع کل catalogue دانلود حدود 7.93 GiB است، **نه حجم نصب پروفایل انتخابی یا حجم آپدیت**. جزئیات و مرز مجوز در [نتیجهٔ بررسی](docs/CLASSIC-ERA-METADATA-RESULT.fa.md)، [receipt](reports/classic-era-metadata-preflight.json) و [اندازه‌گیری](reports/classic-era-manifest-sizing.json).
+
+گام بعد تهیهٔ baseline آزمایشی Classic روی Windows VM جداست؛ چون دانلود/نصب بازی است به مجوز تازه نیاز دارد. هیچ workflow نصب فعالی اضافه نشده و سقف سخت شبکهٔ Agent هنوز پیاده نشده است. آزمایش‌های قبلی `/agent` و `/game` موفق بودند، نه آپدیت واقعی بازی.
+
+
 ## نتیجهٔ عملی تازه — مشاهدهٔ وضعیت Agent بدون حساب
 
 [نتیجهٔ گام دوم و مرز بعدی](docs/AGENT-STATUS-RESULT.fa.md) · [دامنهٔ دو درخواست](docs/AGENT-STATUS-EXPERIMENT.fa.md) · [گام اول](docs/AGENT-INTERFACE-RESULT.fa.md). اجرای Windows تازه، `GET /agent` و سپس `GET /game` با token محلی همان اجرا را با HTTP 200 پاسخ داد. summary خالی با صفر محصول گزارش شد. source/run تطبیق داده شد؛ هیچ حساب، دانلود بازی، initialization، update یا repair درخواست نشد. موفقیت آپدیت بازی و سیاست Retail هنوز اثبات نشده‌اند. گام بعدِ پیشنهادی، متادیتای تازهٔ Classic Era با سقف شبکهٔ مشخص است؛ درخواست دانلود بازی یا ثبت عملیات نصب نیست و منتظر تأیید همین دامنهٔ تازه است.

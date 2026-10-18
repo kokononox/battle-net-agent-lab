@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-18T04:42:13.172694+00:00",
+  "as_of_utc": "2026-10-18T05:55:32.741201+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -40,15 +40,17 @@
     "language_step_executed": false,
     "invalid_workflow_run": "38838272777",
     "language_step_helper_executed": true,
-    "language_step_status": "page_not_language"
+    "language_step_status": "page_not_language",
+    "historical_snapshot_only": true,
+    "superseded_by": "agent_status_experiment"
   },
   "telemetry": {
     "actual_in_world_capture_complete": false,
     "hardware_field_transmission_proven": false,
     "historical_binary_findings_reverified_in_this_sync": false
   },
-  "user_action_now": "none: no live client execution/update/repair/read requested; no broad logs or arbitrary upload requested",
-  "sync_scope": "integrated semantic disagreement review for both manifests; owned historical metadata replay and public source inspection, not complete vendor policy",
+  "user_action_now": "Approve or decline separate disposable Windows Classic baseline download/install; no action on user Retail installation or login required.",
+  "sync_scope": "Actual bounded official Classic metadata acquisition, full manifest identities, unfiltered sizing crosscheck and separate next-stage authorization boundary.",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
     "zip_sha256": "c26e5f9416e7aadef0f9f7dc36c06c2e8975ae65f8f1ac3bfca0abd67fa81001",
@@ -79,7 +81,7 @@
     "installation_ready": false,
     "historical_only_not_current_target": true
   },
-  "current_focus": "selection semantics remains blocked on applicable independent Retail/Agent reference and variant/dependency/patch closure; no guessed policy",
+  "current_focus": "Classic isolated official-client experiment: metadata verified; need separate permission before game payload/install. Independent Retail policy and CASC writer remain unqualified.",
   "current_updater": {
     "release": "0.27",
     "source": "updater-core/",
@@ -218,6 +220,30 @@
     "game_copy_requested": false,
     "main_install_modification_authorized": false
   },
-  "next_offline_step": "obtain inspectable applicable Agent selection function/provenance and closure evidence; otherwise design bounded independently approved official-client comparison on isolated copy",
-  "public_policy_review": "Alternate community enum clarified only; Talebound and official selection remain unqualified"
+  "next_offline_step": "After new download/install permission, implement isolated Windows baseline experiment and preflight target/staging volumes; do not claim hard child-network cap or version-to-version update from a fresh install.",
+  "public_policy_review": "Alternate community enum clarified only; Talebound and official selection remain unqualified",
+  "agent_status_experiment": {
+    "status": "game_summary_observed",
+    "source_commit": "bba31e04b2e50951e01ad4e654ede65290c06521",
+    "receipt_commit": "78254a6265f50367f2914a7664221cbc73658271",
+    "run_id": "39099954745",
+    "total_local_http_requests": 2,
+    "game_http_status": 200,
+    "game_entries": 0,
+    "account_login_attempted": false,
+    "game_update_without_login_proven": false
+  },
+  "classic_metadata_preflight": {
+    "report": "reports/classic-era-metadata-preflight.json",
+    "status": "small_manifests_identity_verified",
+    "observed_version": "1.15.9.70003",
+    "body_bytes_received": 4957673,
+    "budget_bytes": 67108864,
+    "elapsed_seconds": 43.438,
+    "all_manifest_encoded_bytes": 8516078649,
+    "selected_profile_download_bytes": null,
+    "full_install_size_bytes": null,
+    "game_payload_requested": false,
+    "next_game_install_authorized": false
+  }
 }

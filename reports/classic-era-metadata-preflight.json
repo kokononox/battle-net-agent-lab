@@ -1,0 +1,124 @@
+{
+  "schema": "classic-era-metadata-preflight-1",
+  "started_utc": "2026-10-18T05:51:30.410361+00:00",
+  "product": "wow_classic_era",
+  "region": "eu",
+  "experimental_profile": {
+    "os": "Windows",
+    "architecture": "x86_64",
+    "locale": "enUS"
+  },
+  "body_budget_bytes": 67108864,
+  "deadline_seconds": 600,
+  "game_payload_requested": false,
+  "agent_executed": false,
+  "product_initialized": false,
+  "account_login_attempted": false,
+  "user_files_accessed": false,
+  "install_requested": false,
+  "update_requested": false,
+  "repair_requested": false,
+  "requests": [
+    {
+      "url": "https://eu.version.battle.net/v2/products/wow_classic_era/versions",
+      "response_bytes": 752,
+      "http_status": 200,
+      "declared_bytes": 752,
+      "sha256": "d10f90a7d12a2c3080202a223687c6c8ec89ff6f15c4535412b4d79b4a75c37d"
+    },
+    {
+      "url": "https://eu.version.battle.net/v2/products/wow_classic_era/cdns",
+      "response_bytes": 1338,
+      "http_status": 200,
+      "declared_bytes": 1338,
+      "sha256": "850dc117def70562eb07483e18bdc35bc7762267752294269f5a30e819f3fc24"
+    },
+    {
+      "url": "https://level3.blizzard.com/tpr/wow/config/24/17/2417084b8b041ee120d02d4adf31b0bc",
+      "response_bytes": 24624,
+      "http_status": 200,
+      "declared_bytes": 24624,
+      "sha256": "bf1ffebbe3c9886b86a052d52c3b86b76600fa44f3350a4a7dd4a94ca6c728b1"
+    },
+    {
+      "url": "https://level3.blizzard.com/tpr/wow/config/f0/65/f065eade5276a5ac05606e60a4c5a1f7",
+      "response_bytes": 59333,
+      "http_status": 200,
+      "declared_bytes": 59333,
+      "sha256": "cd1efbd680adcc8f8a77dad07011920eaa6b38c32f53217d2acc5e37b44f2c26"
+    },
+    {
+      "url": "https://level3.blizzard.com/tpr/wow/data/84/54/8454e857fca5ac56f971385e77a89d11",
+      "response_bytes": 23234,
+      "http_status": 200,
+      "declared_bytes": 23234,
+      "sha256": "f880e375e9a780ada1dea3a239d510f5a070b16a54e275c70ca8b261899bab22"
+    },
+    {
+      "url": "https://level3.blizzard.com/tpr/wow/data/84/99/849918f84d79fc5016f5ebc85e079d16",
+      "response_bytes": 4848392,
+      "http_status": 200,
+      "declared_bytes": 4848392,
+      "sha256": "1f6458b01ae1c22fcfb14e8d2fef79ed2efa5a0871c9ab2a228a92ddb474f6c5"
+    }
+  ],
+  "status": "small_manifests_identity_verified",
+  "full_install_size_proven": false,
+  "required_update_bytes": null,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "version_snapshot": {
+    "Region": "eu",
+    "BuildConfig": "2417084b8b041ee120d02d4adf31b0bc",
+    "CDNConfig": "f065eade5276a5ac05606e60a4c5a1f7",
+    "KeyRing": "",
+    "BuildId": "70003",
+    "VersionsName": "1.15.9.70003",
+    "ProductConfig": "c9934edfc8f217a2e01c47e4deae8454"
+  },
+  "cdn_host": "level3.blizzard.com",
+  "cdn_path": "tpr/wow",
+  "build_config_hash": "2417084b8b041ee120d02d4adf31b0bc",
+  "cdn_config_hash": "f065eade5276a5ac05606e60a4c5a1f7",
+  "build_name": "WOW-70003patch1.15.9_ClassicRetail",
+  "metadata_declarations": {
+    "install": "067f7977cd674d6f2e440a0f49143f3d 8454e857fca5ac56f971385e77a89d11",
+    "install-size": "24114 23234",
+    "download": "cddff2e4fb06cd56cdd85c84c9b9d986 849918f84d79fc5016f5ebc85e079d16",
+    "download-size": "5669309 4848392",
+    "encoding": "940628f67d84c761239ce75eb2814ab5 ebd50ad019467814eb7b3ceb9c929656",
+    "encoding-size": "14091042 14089750",
+    "size": "1248202593a9895b520857951bd4f14f 6bae03fecfef75e63c7b26e986de029a",
+    "size-size": "3687891 3094988"
+  },
+  "body_bytes_received": 4957673,
+  "elapsed_seconds": 43.438,
+  "manifests": {
+    "install": {
+      "ckey": "067f7977cd674d6f2e440a0f49143f3d",
+      "ekey": "8454e857fca5ac56f971385e77a89d11",
+      "encoded_bytes": 23234,
+      "decoded_bytes": 24114,
+      "full_ckey_verified": true,
+      "full_ekey_verified": true,
+      "decoded_sha256": "7d2422d3af045c80384934f1e7daf16108788463860bea3f4b29c4cf735a3e4e",
+      "header_hex": "494e0110001e0000010641",
+      "layout": "IN_v1",
+      "entry_count": 262,
+      "tag_count": 30
+    },
+    "download": {
+      "ckey": "cddff2e4fb06cd56cdd85c84c9b9d986",
+      "ekey": "849918f84d79fc5016f5ebc85e079d16",
+      "encoded_bytes": 4848392,
+      "decoded_bytes": 5669309,
+      "full_ckey_verified": true,
+      "full_ekey_verified": true,
+      "decoded_sha256": "d2e8f0c75d79c40ae448790fad16837d1ca394601bc975d6c4b71423fc6dfae0",
+      "header_hex": "444c01100000035bfe001e",
+      "layout": "DL_v1",
+      "entry_count": 220158,
+      "tag_count": 30
+    }
+  }
+}

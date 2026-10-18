@@ -1,0 +1,34 @@
+{
+  "schema": "classic-era-manifest-sizing-1",
+  "grain": "one encoded object in unfiltered download manifest",
+  "population": "all platforms, architectures, locales, regions and variants; no profile selection",
+  "source_decoded_sha256": "d2e8f0c75d79c40ae448790fad16837d1ca394601bc975d6c4b71423fc6dfae0",
+  "download_object_count": 220158,
+  "distinct_download_ekeys": 220158,
+  "unfiltered_encoded_object_bytes": 8516078649,
+  "unfiltered_encoded_object_GiB": 7.931216293014586,
+  "independent_raw_binary_crosscheck": true,
+  "install_manifest_entries": 262,
+  "download_tag_count": 30,
+  "selection_policy_qualified": false,
+  "full_install_size_bytes": null,
+  "selected_profile_download_bytes": null,
+  "staging_space_bytes": null,
+  "required_update_bytes": null,
+  "duplicate_ekeys": 0,
+  "missing_values": 0,
+  "variant_tag_names": [
+    "Alternate",
+    "HighRes",
+    "Talebound"
+  ],
+  "warnings": [
+    "Unfiltered manifest sum is not game installation size, not actual Agent network traffic, not a Windows/enUS selection and not an update delta.",
+    "Config install-size describes metadata size, not the complete installation.",
+    "Actual Agent staging, patch strategy, archive layout and disk space must be observed separately."
+  ],
+  "presentation": {
+    "disposition": "prose",
+    "reason": "One catalogue total and two counts; no trend or meaningful comparison; avoid false installation-size chart."
+  }
+}
