@@ -16,9 +16,9 @@ def number(v, maximum=2**40):
     if type(v) is not int or not 0 <= v <= maximum:
         raise ValueError("number")
 
-def validate(r):
-    exact(r, "schema source_commit run_id scope reference bootstrap_pin_match capture sampler status bootstrap_status error_code packet_stats flows requests limits")
-    if r["schema"] != "bnet-outgoing-http-1" or r["scope"] != "fresh_vm_startup_language_only_no_account_game_install_action":
+def validate(r, diagnostic=False):
+    exact(r, "schema source_commit run_id scope reference bootstrap_pin_match capture sampler status bootstrap_status error_code packet_stats flows requests limits" + (" diagnostics" if diagnostic else ""))
+    if r["schema"] != ("bnet-outgoing-http-2" if diagnostic else "bnet-outgoing-http-1") or r["scope"] != "fresh_vm_startup_language_only_no_account_game_install_action":
         raise ValueError("scope")
     if not re.fullmatch("[a-f0-9]{40}", r["source_commit"]) or not re.fullmatch("[0-9]{1,30}", r["run_id"]):
         raise ValueError("identity")
@@ -62,14 +62,21 @@ def validate(r):
         raise ValueError("flows")
     ids = set()
     for f in r["flows"]:
-        exact(f, "flow_id process_name pid remote_address stream_status parse_status")
+        exact(f, "flow_id process_name pid remote_address stream_status parse_status" + (" attribution" if diagnostic else ""))
         number(f["flow_id"], 128)
         if f["flow_id"] in ids:
             raise ValueError("duplicate_flow")
         ids.add(f["flow_id"])
-        number(f["pid"], 2**32-1)
-        if f["process_name"] not in {"agent.exe", "battle.net.exe", "battle.net launcher.exe", "battle.net-setup.exe", "battle.net helper.exe", "blizzarderror.exe"}:
-            raise ValueError("process")
+        unattributed = diagnostic and f["attribution"] == "unattributed"
+        if diagnostic and f["attribution"] not in ("unattributed", "sampled_tcp_tuple"):
+            raise ValueError("attribution")
+        if unattributed:
+            if f["pid"] is not None or f["process_name"] is not None:
+                raise ValueError("unknown_process_identity")
+        else:
+            number(f["pid"], 2**32-1)
+            if f["process_name"] not in {"agent.exe", "battle.net.exe", "battle.net launcher.exe", "battle.net-setup.exe", "battle.net helper.exe", "blizzarderror.exe"}:
+                raise ValueError("process")
         if not ipaddress.ip_address(f["remote_address"]).is_global:
             raise ValueError("address")
         for k in ("stream_status", "parse_status"):
@@ -121,9 +128,32 @@ def validate(r):
         "tuple_pid_link_not_cryptographic_proof": True,
         "circular_capture_and_sampling_can_miss_data": True, "child_network_hard_byte_cap": False,
     }
+    if diagnostic:
+        expected["unattributed_known_host_requests_included"] = True
+        from capture_diagnostic import DIAG_KEYS
+        exact(r["diagnostics"], "counts stream_statuses parse_statuses")
+        d = r["diagnostics"]
+        if type(d["counts"]) is not dict or not set(d["counts"]) <= DIAG_KEYS:
+            raise ValueError("diagnostic_counts")
+        for value in d["counts"].values():
+            number(value)
+        for category in ("stream_statuses", "parse_statuses"):
+            if type(d[category]) is not dict or len(d[category]) > 64:
+                raise ValueError("diagnostic_status")
+            for key, value in d[category].items():
+                if not re.fullmatch("[a-z_]{1,80}", key):
+                    raise ValueError("diagnostic_key")
+                number(value)
+        if d["counts"].get("known_host_requests", 0) != len(r["requests"]):
+            raise ValueError("diagnostic_request_count")
+        if d["counts"].get("known_host_requests_with_pid", 0) + d["counts"].get("known_host_requests_without_pid", 0) != len(r["requests"]):
+            raise ValueError("diagnostic_attribution_count")
     if r["limits"] != expected:
         raise ValueError("limits")
     return r
+
+def validate_diagnostic(r):
+    return validate(r, diagnostic=True)
 
 if __name__ == "__main__":
     src, dst = map(Path, sys.argv[1:])
@@ -136,6 +166,7 @@ if __name__ == "__main__":
                 raise ValueError("duplicate_key")
             result[k] = v
         return result
-    data = validate(json.loads(src.read_text(encoding="utf-8"), object_pairs_hook=unique))
+    parsed = json.loads(src.read_text(encoding="utf-8"), object_pairs_hook=unique)
+    data = validate(parsed, diagnostic=parsed.get("schema") == "bnet-outgoing-http-2")
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
