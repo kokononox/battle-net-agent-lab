@@ -1,0 +1,68 @@
+{
+  "format": "approved-archived-object-phase-1",
+  "phase": "second",
+  "status": "resumed_archived_object_verified",
+  "relative_range": [
+    26,
+    51
+  ],
+  "source": {
+    "archive_key": "5794b0453d6a92824695d862abb25a31",
+    "index_sha256": "e311339624ef14c4bb78272134892a7d7566ebcdbfe86797a56b430aaba62320",
+    "offset": 268435404
+  },
+  "baseline_evidence": "historical_uploaded_metadata_not_live_installation",
+  "target": {
+    "scope": {
+      "product": "wow",
+      "branch": "retail",
+      "region": "eu"
+    },
+    "version": "12.1.5.70448",
+    "build_id": 70448,
+    "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+    "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+    "origins": [
+      "https://level3.ssl.blizzard.com"
+    ],
+    "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+    "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+  },
+  "game_access": false,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "proof": {
+    "full_ekey_verified": true,
+    "blte_chunk_checksums_verified": true,
+    "full_ckey_verified": true,
+    "decoded_bytes": 64,
+    "decoded_sha256": "ebf6d6702daa7e4953d4a7a9c05bbfa624f9cd7028df93d482707c985d12c1f7",
+    "blte_chunks": 1,
+    "status": "one_archived_object_verified",
+    "encoded_sha256": "d5d887f2c0fecd01c82bf346d8502e59cabd00f9cc353fb30b0161d136c7d284",
+    "source": {
+      "archive_key": "5794b0453d6a92824695d862abb25a31",
+      "index_sha256": "e311339624ef14c4bb78272134892a7d7566ebcdbfe86797a56b430aaba62320",
+      "offset": 268435404
+    },
+    "archive_total": 268435456,
+    "required_set_selected": false,
+    "installation_ready": false,
+    "apply_authorized": false
+  },
+  "decoded_digest_matches_prior_user_report": true,
+  "restored_after_separate_process": true,
+  "request_attempts": 1,
+  "body_bytes_read": 26,
+  "http_observations": [
+    {
+      "status": 206,
+      "final_url": "https://level3.ssl.blizzard.com/tpr/wow/data/57/94/5794b0453d6a92824695d862abb25a31",
+      "content_range": "bytes 268435430-268435455/268435456",
+      "content_length": "26",
+      "content_encoding": "identity",
+      "etag": "\"434a97b18cb19723c0a4b8d3c083ce3e\""
+    }
+  ],
+  "at_utc": "2026-10-18T00:17:26.119683+00:00"
+}

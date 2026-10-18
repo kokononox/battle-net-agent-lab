@@ -1,0 +1,38 @@
+{
+  "format": "approved-archive-route-scan-1",
+  "status": "route_unresolved_with_skipped_indices",
+  "index_requests_attempted": 1424,
+  "indices_verified": 730,
+  "index_application_body_bytes_read": 35089880,
+  "total_planned_indices": 1424,
+  "approved_index_body_ceiling": 126552712,
+  "route": null,
+  "error": {
+    "ordinal": 1423,
+    "archive_key": "ffeb2d55dde043de5540b956d0125f40",
+    "expected_size": 4148,
+    "body_bytes_read": 0,
+    "status": "stopped_safely",
+    "http_status": 200,
+    "response_metadata": {
+      "final_url": "https://level3.ssl.blizzard.com/tpr/wow/data/ff/eb/ffeb2d55dde043de5540b956d0125f40.index",
+      "content_length": "28868",
+      "content_range": null,
+      "content_encoding": "identity",
+      "transfer_encoding": null,
+      "etag": "\"c4d8b26b5d5e25c5eccb41cb0e723bb5\""
+    },
+    "error_type": "InvalidRelease",
+    "code": "metadata_framing_outside_approved_cap"
+  },
+  "skipped_or_unverified_indices": 694,
+  "skipped_indices_not_retried": true,
+  "absence_proven": false,
+  "retries": 0,
+  "redirects": 0,
+  "game_payload_bytes_read": 0,
+  "game_access": false,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "at_utc": "2026-10-18T00:10:38.115731+00:00"
+}
