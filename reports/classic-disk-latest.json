@@ -1,11 +1,11 @@
 {
   "schema": "classic-disk-preparation-2",
-  "source_commit": "32d32b31b3dbe1a8e16e3a6a9d33f4686a23a691",
-  "run_id": "39105022780",
+  "source_commit": "3d01c408fee8084c1ee38367a91e5955dc1aef55",
+  "run_id": "39105420532",
   "run_attempt": "1",
   "status": "space_still_low",
-  "system_free_before_bytes": 33663774720,
-  "system_free_after_bytes": 39047233536,
+  "system_free_before_bytes": 33697353728,
+  "system_free_after_bytes": 43101216768,
   "goal_bytes": 48318382080,
   "minimum_install_free_bytes": 42949672960,
   "attempts": [
@@ -56,6 +56,18 @@
       "outcome": "removed",
       "entries": 524,
       "logical_bytes": 2544802006
+    },
+    {
+      "tool": "dotnet-build-sdk",
+      "outcome": "removed",
+      "entries": 48472,
+      "logical_bytes": 4533245753
+    },
+    {
+      "tool": "dotnet-reference-packs",
+      "outcome": "removed",
+      "entries": 30787,
+      "logical_bytes": 6229543776
     }
   ]
 }
