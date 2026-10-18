@@ -1,0 +1,312 @@
+{
+  "schema": "destination-recon-r1-series-analysis-1",
+  "profiles": [
+    {
+      "profile": "02",
+      "extra_target": null,
+      "blocked_domain_count": 20,
+      "ready": true,
+      "status": "observation_ended",
+      "top_level_error": null,
+      "reported_download_behavior": "reported_progress",
+      "reported_final_state": "reported_paused",
+      "sampler_errors": 0,
+      "ready_to_end_seconds": 75.147179,
+      "end_reason": "user_q",
+      "planned_window_seconds": 120,
+      "dns_after_and_before_restore_all_loopback": true,
+      "restore": "restored_exactly",
+      "process_cap_hit": false,
+      "flow_cap_hit": false,
+      "initial_versions": [
+        "12.1.5.70448"
+      ],
+      "final_versions": [
+        "12.1.5.70448"
+      ],
+      "agent_endpoints": [
+        [
+          "2.21.23.18",
+          80
+        ],
+        [
+          "2.21.23.82",
+          80
+        ],
+        [
+          "8.232.70.12",
+          443
+        ]
+      ],
+      "main_agent_seen": true,
+      "source_filename": "recon-02-1792365695406801100.json",
+      "source_sha256": "ce4099872535dfec741ff10ac590d4a3dd1544a4b6c1e9d3ec7b0161e803ed42",
+      "started_utc": "2026-10-18T23:19:15.835047+00:00"
+    },
+    {
+      "profile": "03",
+      "extra_target": "oauth.battle.net",
+      "blocked_domain_count": 21,
+      "ready": true,
+      "status": "observation_ended",
+      "top_level_error": null,
+      "reported_download_behavior": "reported_progress",
+      "reported_final_state": "reported_paused",
+      "sampler_errors": 6,
+      "ready_to_end_seconds": 71.577581,
+      "end_reason": "user_q",
+      "planned_window_seconds": 120,
+      "dns_after_and_before_restore_all_loopback": true,
+      "restore": "restored_exactly",
+      "process_cap_hit": false,
+      "flow_cap_hit": false,
+      "initial_versions": [
+        "12.1.5.70448"
+      ],
+      "final_versions": [
+        "12.1.5.70448"
+      ],
+      "agent_endpoints": [
+        [
+          "2.21.23.18",
+          80
+        ],
+        [
+          "2.21.23.82",
+          80
+        ],
+        [
+          "8.232.70.12",
+          443
+        ]
+      ],
+      "main_agent_seen": true,
+      "source_filename": "recon-03-1792366075273740700.json",
+      "source_sha256": "ab2670e47b9be545d96e1ea1de8cd91c0a341ff0a192445cdd7ffa964be5803e",
+      "started_utc": "2026-10-18T23:26:23.788330+00:00"
+    },
+    {
+      "profile": "04",
+      "extra_target": "distribution.version.battle.net",
+      "blocked_domain_count": 21,
+      "ready": true,
+      "status": "observation_ended",
+      "top_level_error": null,
+      "reported_download_behavior": "reported_progress",
+      "reported_final_state": "reported_paused",
+      "sampler_errors": 1,
+      "ready_to_end_seconds": 71.129221,
+      "end_reason": "user_q",
+      "planned_window_seconds": 120,
+      "dns_after_and_before_restore_all_loopback": true,
+      "restore": "restored_exactly",
+      "process_cap_hit": false,
+      "flow_cap_hit": false,
+      "initial_versions": [
+        "12.1.5.70448"
+      ],
+      "final_versions": [
+        "12.1.5.70448"
+      ],
+      "agent_endpoints": [
+        [
+          "2.21.23.18",
+          80
+        ],
+        [
+          "2.21.23.82",
+          80
+        ],
+        [
+          "8.232.70.12",
+          443
+        ]
+      ],
+      "main_agent_seen": true,
+      "source_filename": "recon-04-1792366188307813900.json",
+      "source_sha256": "e3268ba2881354d740365ea4cbc33b4a93d2af8dc33be4566191964d24207f23",
+      "started_utc": "2026-10-18T23:28:26.091893+00:00"
+    },
+    {
+      "profile": "05",
+      "extra_target": "us.version.battle.net",
+      "blocked_domain_count": 21,
+      "ready": true,
+      "status": "observation_ended",
+      "top_level_error": null,
+      "reported_download_behavior": "reported_progress",
+      "reported_final_state": "reported_paused",
+      "sampler_errors": 2,
+      "ready_to_end_seconds": 106.315623,
+      "end_reason": "user_q",
+      "planned_window_seconds": 120,
+      "dns_after_and_before_restore_all_loopback": true,
+      "restore": "restored_exactly",
+      "process_cap_hit": false,
+      "flow_cap_hit": false,
+      "initial_versions": [
+        "12.1.5.70448"
+      ],
+      "final_versions": [
+        "12.1.5.70448"
+      ],
+      "agent_endpoints": [
+        [
+          "2.21.23.18",
+          80
+        ],
+        [
+          "2.21.23.82",
+          80
+        ]
+      ],
+      "main_agent_seen": true,
+      "source_filename": "recon-05-1792366323392751200.json",
+      "source_sha256": "26bab0d928928099e93eb9884a0538fe0d5873196f8d55de7b15a9d02029ea80",
+      "started_utc": "2026-10-18T23:30:06.600819+00:00"
+    },
+    {
+      "profile": "06",
+      "extra_target": "level3.ssl.blizzard.com",
+      "blocked_domain_count": 21,
+      "ready": true,
+      "status": "observation_ended",
+      "top_level_error": null,
+      "reported_download_behavior": "reported_progress",
+      "reported_final_state": "reported_paused",
+      "sampler_errors": 0,
+      "ready_to_end_seconds": 71.196602,
+      "end_reason": "user_q",
+      "planned_window_seconds": 120,
+      "dns_after_and_before_restore_all_loopback": true,
+      "restore": "restored_exactly",
+      "process_cap_hit": false,
+      "flow_cap_hit": false,
+      "initial_versions": [
+        "12.1.5.70448"
+      ],
+      "final_versions": [
+        "12.1.5.70448"
+      ],
+      "agent_endpoints": [
+        [
+          "2.21.23.18",
+          80
+        ],
+        [
+          "2.21.23.82",
+          80
+        ],
+        [
+          "8.232.70.12",
+          443
+        ]
+      ],
+      "main_agent_seen": true,
+      "source_filename": "recon-06-1792366432613456900.json",
+      "source_sha256": "a426adc5ca67442191702a528a0fbbb1865bb8025960c99673d44d6a2c15ba32",
+      "started_utc": "2026-10-18T23:32:31.407811+00:00"
+    },
+    {
+      "profile": "07",
+      "extra_target": "level3.blizzard.com",
+      "blocked_domain_count": 21,
+      "ready": true,
+      "status": "observation_ended",
+      "top_level_error": null,
+      "reported_download_behavior": "reported_progress",
+      "reported_final_state": "reported_paused",
+      "sampler_errors": 4,
+      "ready_to_end_seconds": 82.080969,
+      "end_reason": "user_q",
+      "planned_window_seconds": 120,
+      "dns_after_and_before_restore_all_loopback": true,
+      "restore": "restored_exactly",
+      "process_cap_hit": false,
+      "flow_cap_hit": false,
+      "initial_versions": [
+        "12.1.5.70448"
+      ],
+      "final_versions": [
+        "12.1.5.70448"
+      ],
+      "agent_endpoints": [
+        [
+          "137.221.64.6",
+          80
+        ],
+        [
+          "137.221.64.8",
+          80
+        ],
+        [
+          "8.232.70.12",
+          443
+        ]
+      ],
+      "main_agent_seen": true,
+      "source_filename": "recon-07-1792366550464285400.json",
+      "source_sha256": "3f57d19d2c954cd6ffff0f6c33138f15d10db2443bdc8f059ab621caaa5988e9",
+      "started_utc": "2026-10-18T23:34:17.044756+00:00"
+    }
+  ],
+  "unique_trial_count": 6,
+  "new_trials_beyond_previous02": 5,
+  "reattached02_is_byte_identical_to_previous": true,
+  "provenance": "user-uploaded reports, not signed attestations or live access",
+  "reported_progress_count": 6,
+  "restored_exactly_count": 6,
+  "all_ready": true,
+  "all_ended_with_q": true,
+  "min_ready_to_end_seconds": 71.129221,
+  "max_ready_to_end_seconds": 106.315623,
+  "sampling_error_profiles": [
+    "03",
+    "04",
+    "05",
+    "07"
+  ],
+  "unchanged_version_in_all": true,
+  "whole_update_completion_proven": false,
+  "zero_telemetry_proven": false,
+  "combined_extras_block_tested": false,
+  "payload_cpu_or_tls_keys_collected": false,
+  "causal_fallback_proven": false,
+  "independent_checks": {
+    "progress_from_original_reports_matches_summary": true,
+    "restores_from_original_reports_match_summary": true,
+    "dns_map_counts_match_exact_list": true,
+    "agent_endpoints_set_matches_loop_grouping": true
+  },
+  "profile_warning_resolution": "General profiler failed flattening all six nested JSON reports; analysis uses explicit arrays and fields. No trial/event discarded or deduplicated. Reattached profile02 is counted once, not as replication.",
+  "comparison_plan": [
+    {
+      "question": "Did a single extra domain block stop download in each trial?",
+      "grain": "one independently restarted profile",
+      "population": "profiles02-07",
+      "unit": "user-reported categorical outcome",
+      "finding": "progress reported in all six; no reported stall/error",
+      "disposition": "table",
+      "reason": "Identical categorical outcomes, not numerical effect sizes; a plot adds no information."
+    },
+    {
+      "question": "How complete/comparable is observation?",
+      "grain": "one profile",
+      "population": "six unequal windows",
+      "unit": "uncategorized sampler-error count and timestamp duration",
+      "finding": "03/04/05/07 record sampler errors; all end early with Q",
+      "disposition": "table",
+      "reason": "Diagnostic caveats, not comparable error rates or traffic volumes. Do not rank destinations with these counts."
+    },
+    {
+      "question": "What destinations remain?",
+      "grain": "process-attributed sampled public TCP endpoint",
+      "population": "signed Agent instances in six windows",
+      "unit": "IP:port set, not bytes/requests",
+      "finding": "Agent endpoints differ; profile07 has 137.221.64.6/.8:80 rather than sampled 2.21.23.18/.82:80 in02-06",
+      "disposition": "table",
+      "reason": "Set-membership evidence; IP labels do not establish Host/payload or causal fallback."
+    }
+  ],
+  "next_step": "Stop blind blocking. User challenged efficacy: first validate actual connection-level blocking with a positive control and process-attributed drop/connection evidence, not DNS alone; no firewall changes authorized/executed this turn. Then prepare content-level observation on baseline02. Confirm whether real download remains. No new executable/build this turn."
+}

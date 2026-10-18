@@ -1,0 +1,333 @@
+{
+  "schema": "retail-destination-recon-1",
+  "profile_id": "04",
+  "profile_label": "bat3_plus_one_extra",
+  "blocked_domains": [
+    "telemetry-in.battle.net",
+    "breaking-news.support.blizzard.com",
+    "rum.battle.net",
+    "www.google-analytics.com",
+    "analytics.google.com",
+    "www.googletagmanager.com",
+    "cm.g.doubleclick.net",
+    "inn-pa.googleapis.com",
+    "fcmatch.google.com",
+    "eu.shop.battle.net",
+    "bnetstorefront.akamaized.net",
+    "catalog.blzstatic.com",
+    "blz-contentstack-images.akamaized.net",
+    "navbar.blizzard.com",
+    "content-ui.battle.net",
+    "images.blz-contentstack.com",
+    "www.youtube.com",
+    "www.youtube-nocookie.com",
+    "fcmatch.youtube.com",
+    "i.ytimg.com",
+    "distribution.version.battle.net"
+  ],
+  "started_utc": "2026-10-18T23:28:26.091893+00:00",
+  "ready_utc": "2026-10-18T23:28:31.535822+00:00",
+  "observation_ended_utc": "2026-10-18T23:29:42.665043+00:00",
+  "ended_utc": "2026-10-18T23:29:48.307813+00:00",
+  "window_seconds": 120,
+  "end_reason": "user_q",
+  "ready": true,
+  "user_preconditions_confirmed": true,
+  "status": "observation_ended",
+  "error_code": null,
+  "initial_versions": {
+    "status": "read",
+    "retail_versions": [
+      "12.1.5.70448"
+    ]
+  },
+  "final_versions": {
+    "status": "read",
+    "retail_versions": [
+      "12.1.5.70448"
+    ]
+  },
+  "hosts": {
+    "changed": true,
+    "restored": true,
+    "restore_status": "restored_exactly",
+    "resolution_after_apply": {
+      "telemetry-in.battle.net": "loopback_only",
+      "breaking-news.support.blizzard.com": "loopback_only",
+      "rum.battle.net": "loopback_only",
+      "www.google-analytics.com": "loopback_only",
+      "analytics.google.com": "loopback_only",
+      "www.googletagmanager.com": "loopback_only",
+      "cm.g.doubleclick.net": "loopback_only",
+      "inn-pa.googleapis.com": "loopback_only",
+      "fcmatch.google.com": "loopback_only",
+      "eu.shop.battle.net": "loopback_only",
+      "bnetstorefront.akamaized.net": "loopback_only",
+      "catalog.blzstatic.com": "loopback_only",
+      "blz-contentstack-images.akamaized.net": "loopback_only",
+      "navbar.blizzard.com": "loopback_only",
+      "content-ui.battle.net": "loopback_only",
+      "images.blz-contentstack.com": "loopback_only",
+      "www.youtube.com": "loopback_only",
+      "www.youtube-nocookie.com": "loopback_only",
+      "fcmatch.youtube.com": "loopback_only",
+      "i.ytimg.com": "loopback_only",
+      "distribution.version.battle.net": "loopback_only"
+    },
+    "resolution_before_restore": {
+      "telemetry-in.battle.net": "loopback_only",
+      "breaking-news.support.blizzard.com": "loopback_only",
+      "rum.battle.net": "loopback_only",
+      "www.google-analytics.com": "loopback_only",
+      "analytics.google.com": "loopback_only",
+      "www.googletagmanager.com": "loopback_only",
+      "cm.g.doubleclick.net": "loopback_only",
+      "inn-pa.googleapis.com": "loopback_only",
+      "fcmatch.google.com": "loopback_only",
+      "eu.shop.battle.net": "loopback_only",
+      "bnetstorefront.akamaized.net": "loopback_only",
+      "catalog.blzstatic.com": "loopback_only",
+      "blz-contentstack-images.akamaized.net": "loopback_only",
+      "navbar.blizzard.com": "loopback_only",
+      "content-ui.battle.net": "loopback_only",
+      "images.blz-contentstack.com": "loopback_only",
+      "www.youtube.com": "loopback_only",
+      "www.youtube-nocookie.com": "loopback_only",
+      "fcmatch.youtube.com": "loopback_only",
+      "i.ytimg.com": "loopback_only",
+      "distribution.version.battle.net": "loopback_only"
+    }
+  },
+  "user_final_state": "reported_paused",
+  "user_download_behavior": "reported_progress",
+  "observation": {
+    "processes": [
+      {
+        "index": 1,
+        "pid": 1088,
+        "process_name": "battle.net.exe",
+        "sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 2,
+        "pid": 7624,
+        "process_name": "agent.exe",
+        "sha256": "7d20ba6ef1d34a3cedbd7d3fd7c14228f173668a9a1e338351d529048de45079",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 3,
+        "pid": 2716,
+        "process_name": "agent.exe",
+        "sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 4,
+        "pid": 7016,
+        "process_name": "battle.net.exe",
+        "sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 5,
+        "pid": 4360,
+        "process_name": "battle.net.exe",
+        "sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 6,
+        "pid": 3268,
+        "process_name": "battle.net.exe",
+        "sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 7,
+        "pid": 3724,
+        "process_name": "battle.net.exe",
+        "sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 8,
+        "pid": 2508,
+        "process_name": "battle.net.exe",
+        "sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 9,
+        "pid": 9196,
+        "process_name": "battle.net.exe",
+        "sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 10,
+        "pid": 4156,
+        "process_name": "battle.net.exe",
+        "sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 11,
+        "pid": 1316,
+        "process_name": "battle.net.exe",
+        "sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 12,
+        "pid": 5972,
+        "process_name": "battle.net.exe",
+        "sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 13,
+        "pid": 4724,
+        "process_name": "battle.net.exe",
+        "sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 14,
+        "pid": 9492,
+        "process_name": "battle.net.exe",
+        "sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      },
+      {
+        "index": 15,
+        "pid": 7444,
+        "process_name": "battle.net.exe",
+        "sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+        "signature_valid": true,
+        "blizzard_publisher": true
+      }
+    ],
+    "public_tcp_samples": [
+      {
+        "process_index": 3,
+        "remote_address": "8.232.70.12",
+        "remote_port": 443,
+        "phase": "before_ready",
+        "sample_observations": 2
+      },
+      {
+        "process_index": 3,
+        "remote_address": "8.232.70.12",
+        "remote_port": 443,
+        "phase": "observation_window",
+        "sample_observations": 158
+      },
+      {
+        "process_index": 1,
+        "remote_address": "8.232.70.12",
+        "remote_port": 443,
+        "phase": "observation_window",
+        "sample_observations": 142
+      },
+      {
+        "process_index": 6,
+        "remote_address": "63.182.92.134",
+        "remote_port": 443,
+        "phase": "observation_window",
+        "sample_observations": 135
+      },
+      {
+        "process_index": 1,
+        "remote_address": "137.221.64.6",
+        "remote_port": 80,
+        "phase": "observation_window",
+        "sample_observations": 210
+      },
+      {
+        "process_index": 1,
+        "remote_address": "3.75.62.211",
+        "remote_port": 443,
+        "phase": "observation_window",
+        "sample_observations": 43
+      },
+      {
+        "process_index": 6,
+        "remote_address": "2.18.121.10",
+        "remote_port": 443,
+        "phase": "observation_window",
+        "sample_observations": 73
+      },
+      {
+        "process_index": 6,
+        "remote_address": "54.69.78.197",
+        "remote_port": 443,
+        "phase": "observation_window",
+        "sample_observations": 130
+      },
+      {
+        "process_index": 6,
+        "remote_address": "3.75.62.211",
+        "remote_port": 443,
+        "phase": "observation_window",
+        "sample_observations": 45
+      },
+      {
+        "process_index": 3,
+        "remote_address": "2.21.23.82",
+        "remote_port": 80,
+        "phase": "observation_window",
+        "sample_observations": 59
+      },
+      {
+        "process_index": 3,
+        "remote_address": "2.21.23.18",
+        "remote_port": 80,
+        "phase": "observation_window",
+        "sample_observations": 58
+      },
+      {
+        "process_index": 6,
+        "remote_address": "192.178.24.142",
+        "remote_port": 443,
+        "phase": "observation_window",
+        "sample_observations": 7
+      }
+    ],
+    "sampler_errors": 1,
+    "process_limit_hit": false,
+    "flow_limit_hit": false
+  },
+  "limits": {
+    "injection_used": false,
+    "tls_decryption_used": false,
+    "packet_payload_captured": false,
+    "automatic_report_upload": false,
+    "game_files_changed_by_tool": false,
+    "update_or_process_control_used": false,
+    "denylist_not_allowlist": true,
+    "hosts_is_system_wide": true,
+    "short_lived_tcp_can_be_missed": true,
+    "udp_quic_doh_and_direct_ip_not_blocked_by_hosts_guaranteed": true,
+    "tcp_samples_not_bytes_or_request_counts": true,
+    "ip_not_proof_of_hostname_or_payload": true,
+    "progress_response_is_user_report": true,
+    "zero_telemetry_proven": false,
+    "whole_update_completion_proven": false
+  }
+}
