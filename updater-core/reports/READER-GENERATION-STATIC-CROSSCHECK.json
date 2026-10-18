@@ -1,0 +1,39 @@
+{
+  "format": "reader-generation-static-crosscheck-1",
+  "source_commit": "7916903f5378f72a28f745fd30fe3ae11670451a",
+  "agent9824_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "original_fragment_bytes_reconstructed_from_asm": 354,
+  "fragment_sha256": "ffe6123bd4df817d49d3b478a989dcbb5ffd6986e9d0e7b24fc91a5ebdd4867e",
+  "fragment_hash_matches_prior_build_receipt": true,
+  "original_agent_or_fragment_executed_this_turn": false,
+  "prior_experiment_is_historical_not_rerun": true,
+  "static_observations": [
+    {
+      "address": "0x71ed5a",
+      "meaning": "cache sequence stored before bind call"
+    },
+    {
+      "address": "0x71ed8e",
+      "meaning": "bind call"
+    },
+    {
+      "address": "0x71ed93",
+      "meaning": "bind result moved to ESI"
+    },
+    {
+      "address": "0x71edcd",
+      "meaning": "return value moved from EBX, not ESI"
+    }
+  ],
+  "conclusion": "control sequence, reader cache equality and raw zero return are not sufficient proof of successful client binding",
+  "limits": [
+    "single pinned Agent9824 fragment",
+    "helper-mocked historical experiment, not full production call path",
+    "not universal CASC behavior",
+    "does not diagnose user installation"
+  ],
+  "new_game_file_reads": 0,
+  "new_game_cdn_requests": 0,
+  "installation_ready": false,
+  "apply_authorized": false
+}
