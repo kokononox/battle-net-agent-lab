@@ -13,7 +13,7 @@ concurrency:
 jobs:
   observe:
     if: >-
-      github.event_name == 'push' && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved Classic retry with bounded disk cleanup 2026-10-18 c24f976b'
+      github.event_name == 'push' && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved Classic system disk fix 2026-10-18 54bf816e'
     runs-on: windows-2025
     timeout-minutes: 35
     permissions:
@@ -33,7 +33,7 @@ jobs:
         env:
           AGENT_INTERFACE_ONCE: 'lab: approved logged-out Agent interface probe 2026-10-17 6f4d2b81'
           CLASSIC_INSTALL_ONCE: 'lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
-          CLASSIC_DISK_PREPARE_ONCE: 'lab: approved Classic disk preparation 2026-10-18 c24f976b'
+          CLASSIC_DISK_PREPARE_ONCE: 'lab: approved Classic system disk fix 2026-10-18 54bf816e'
         run: python agent-interface-lab/disk_prepare.py
       - name: Attempt approved isolated Classic baseline install
         env:
@@ -46,18 +46,27 @@ jobs:
         run: |
           import json, pathlib, sys
           sys.path.insert(0, 'agent-interface-lab')
-          import probe, classic_install
+          import probe, classic_install, disk_prepare
           path = pathlib.Path('output/classic-install-to-share.json')
           if path.stat().st_size > 16384: raise ValueError('report_size')
           classic_install.validate(probe.unique_json(path.read_bytes()))
           pathlib.Path('sanitized').mkdir(exist_ok=True)
           pathlib.Path('sanitized/classic-install-to-share.json').write_text(json.dumps(probe.unique_json(path.read_bytes()), indent=2), encoding='utf-8')
+          disk_path = pathlib.Path('output/classic-disk-to-share.json')
+          if disk_path.stat().st_size > 16384: raise ValueError('disk_report_size')
+          disk = probe.unique_json(disk_path.read_bytes())
+          disk_prepare.validate(disk)
+          for key in ('source_commit', 'run_id', 'run_attempt'):
+              if disk[key] != probe.unique_json(path.read_bytes())[key]: raise ValueError('disk_report_identity')
+          pathlib.Path('sanitized/classic-disk-to-share.json').write_text(json.dumps(disk, indent=2), encoding='utf-8')
       - name: Export only the strict baseline report
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: classic-baseline-install-sanitized
-          path: sanitized/classic-install-to-share.json
+          path: |
+            sanitized/classic-install-to-share.json
+            sanitized/classic-disk-to-share.json
           if-no-files-found: error
           retention-days: 3
   publish:
