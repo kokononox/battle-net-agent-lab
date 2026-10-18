@@ -1,4 +1,4 @@
-# staging بومی Windows در محیط آزمایشی — ۰٫۱۸
+# اتصال staging بومی به بررسی نامزد — ۰٫۱۹
 
 این بسته کد، تست و رسید پژوهشی است، نه اپدیتر آمادهٔ نصب. اجرای آن روی Windows یا پوشهٔ بازی لازم نیست. فایل‌های decoded بزرگ، بانک‌های SQLite و payload نمونهٔ بازی در این ZIP نیستند.
 
@@ -9,7 +9,12 @@ WindowsStore و WindowsStreamStage اکنون I/O بومی Windows را برای
 
 ۴۷۹ تست Linux هم پاس شدند؛ ۳۸ تست native آنجا اجرا یا به‌عنوان skip شمارش نشده‌اند. شمار Linux و Windows را به‌عنوان تست‌های مستقل جمع نکنید. تست native شامل restore/verify فایل مصنوعی بیش از ۶ MiB در پردازش تازه، hardlink/junction، guard پوشه و handle خواندن، تغییر محتوا/هدف/منبع، lock و قطع شبیه‌سازی‌شده است. آزمایش‌های synthetic هیچ محتوای بازی را مصرف نمی‌کنند.
 
-WindowsStreamStage هنوز در gate نوع دقیق stream_staged_reuse.py پذیرفته نمی‌شود؛ اتصال به candidate admission کار بعدی است. کنترلر انتقال شبکهٔ بزرگ/چندشیء، سیاست انتخاب رسمی، نسل فعال نصب، CASC writer/rollback/activation و UI نهایی نیز آماده نیستند. native_windows_staging_backend_qualified=false به معنای عدم qualification تولیدی باقی است، هرچند ۳۸ تست scratch پاس شده‌اند. installation_ready=false و apply_authorized=false تغییر نکرده‌اند.
+### تغییرات ۰٫۱۹: پذیرش محدود ورودی staging بومی
+stream_staged_reuse.py اکنون فقط دو نوع دقیق StreamStage و WindowsStreamStage را می‌پذیرد؛ object جعلی و subclass ناشناخته قبل از هر خواندن receipt رد می‌شوند. URI بانک read-only با Path.as_uri ساخته می‌شود تا مسیر Windows درست encode شود. انتخاب‌شدن full EKey، اندازهٔ encoded، full CKey و اندازهٔ decoded در بانک‌های pinned کنترل می‌شوند؛ سپس verify همهٔ segmentها و هویت BLTE را از نو می‌سنجد. metadata restore به‌تنهایی proof نیست.
+
+ده آزمون synthetic SQL/Windows اضافه شدند: پذیرش سالم و restore، خرابی payload، تغییر target/catalogue، شیء انتخاب‌نشده، عدم اعطای apply از receipt، guard بسته، subclass ناشناخته و CKey نادرست حتی با hash receipt سازگار. اجرای واقعی جدید: ۱۲۱ تست Windows بدون failure/error/skip (۷۳ portable، ۳۸ native stage و ۱۰ native admission)، source 0da8bfdbec54f742f53f627e364997efd99b67cd. ۴۸۳ تست Linux پاس شدند. این اعداد روی پلتفرم‌ها قابل‌جمع به‌عنوان آزمون مستقل نیستند.
+
+این اتصال فقط eligible_as_verified_staging_input می‌دهد، نه installed reuse، required set، اعتبار نسل فعال یا مجوز نصب. کنترلر انتقال شبکهٔ بزرگ/چندشیء، سیاست انتخاب رسمی، CASC writer/rollback/activation و UI نهایی آماده نیستند. native_windows_staging_backend_qualified=false به معنای عدم qualification تولیدی باقی است؛ installation_ready=false و apply_authorized=false تغییر نکرده‌اند.
 
 کاربر وجود Windows و فضای کپی آزمایشی را تأیید کرده است؛ فعلاً کپی‌کردن بازی یا اجرای ابزار روی آن لازم نیست. workflow مستقل Agent دست‌نخورده است.
 

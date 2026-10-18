@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-18T01:44:25.669874+00:00",
+  "as_of_utc": "2026-10-18T01:49:50.306419+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -48,7 +48,7 @@
     "historical_binary_findings_reverified_in_this_sync": false
   },
   "user_action_now": "none for repository sync or offline coding; no new scan/download/install requested",
-  "sync_scope": "0.18 native owned scratch source, public fixtures, sanitized CI receipts and handoff; no game asset payload, SQLite, private transcript or credentials",
+  "sync_scope": "0.19 native owned scratch source, public fixtures, sanitized CI receipts and handoff; no game asset payload, SQLite, private transcript or credentials",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
     "zip_sha256": "c26e5f9416e7aadef0f9f7dc36c06c2e8975ae65f8f1ac3bfca0abd67fa81001",
@@ -81,9 +81,9 @@
   },
   "current_focus": "Reusable version-independent WoW Retail updater",
   "current_updater": {
-    "release": "0.18",
+    "release": "0.19",
     "source": "updater-core/",
-    "unit_tests_linux": 479,
+    "unit_tests_linux": 483,
     "native_windows_qualified": false,
     "historical_baseline": "12.1.0.69933",
     "pinned_target": "12.1.5.70448",
@@ -116,11 +116,12 @@
     "large_object_network_controller_integrated": false,
     "native_windows_owned_scratch_implemented": true,
     "native_windows_stage_synthetic_tests_passed": 38,
-    "windows_combined_ci_tests_passed": 111,
+    "windows_combined_ci_tests_passed": 121,
     "windows_combined_ci_tests_skipped": 0,
-    "windows_combined_ci_source_commit": "531f95f8ccae807d078efd2876c00f86fd54d0dd",
-    "windows_combined_ci_receipt_commit": "4f29b55f7aecdfa4d370cf594b9b236aa5e32ed1",
-    "windows_stage_to_candidate_admission_integrated": false
+    "windows_combined_ci_source_commit": "0da8bfdbec54f742f53f627e364997efd99b67cd",
+    "windows_combined_ci_receipt_commit": "f72fe90c9e52b90b7460fae7e34f6039718d913e",
+    "windows_stage_to_candidate_admission_integrated": true,
+    "windows_native_candidate_admission_tests_passed": 10
   },
   "github_experiment_reverified_in_this_sync": false,
   "next_native_environment_requirement": "user availability confirmed; no copy or game-path probe requested until a bounded test is implemented",
@@ -130,5 +131,5 @@
     "game_copy_requested": false,
     "main_install_modification_authorized": false
   },
-  "next_offline_step": "admit native Windows owned stage through freshly verified candidate gate; then integrate budgeted multiobject transfer; production gates remain closed"
+  "next_offline_step": "integrate bounded multiobject transfer and source/target revalidation; independently qualify selection/active generation before planning apply"
 }
