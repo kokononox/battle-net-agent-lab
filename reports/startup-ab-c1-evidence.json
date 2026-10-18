@@ -1,0 +1,77 @@
+{
+  "run_id": "39158224605",
+  "source_commit": "200c3d0911fa3b82dd30fd31b6f05279b913132c",
+  "report_commit": "4a2baf5b178e21997f8726fbac89940ddf6781b2",
+  "scope": "one 120-second startup observation per independent fresh Windows VM, not update",
+  "arms": {
+    "baseline": {
+      "mode": "baseline",
+      "image_version": "20261007.264.1",
+      "windows_build": 26100,
+      "pin_match": true,
+      "resolution_at_launch": "public_only",
+      "target_name_flow_rows": 3,
+      "target_prior_ip_flow_rows": 8,
+      "agent_observed": true,
+      "language_status": "continued",
+      "installation_action_requested": false,
+      "bootstrap_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "agent_file_candidate_sha256": "7d20ba6ef1d34a3cedbd7d3fd7c14228f173668a9a1e338351d529048de45079",
+      "hosts_restored": false,
+      "capture_parsed": "parsed",
+      "all_direct_hosts": [
+        "level3.blizzard.com",
+        "ocsp.digicert.com",
+        "telemetry-in.battle.net",
+        "us.cdn.blizzard.com",
+        "us.version.battle.net"
+      ]
+    },
+    "block_telemetry": {
+      "mode": "block_telemetry",
+      "image_version": "20261007.264.1",
+      "windows_build": 26100,
+      "pin_match": true,
+      "resolution_at_launch": "loopback_only",
+      "target_name_flow_rows": 0,
+      "target_prior_ip_flow_rows": 0,
+      "agent_observed": true,
+      "language_status": "continued",
+      "installation_action_requested": false,
+      "bootstrap_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "agent_file_candidate_sha256": "7d20ba6ef1d34a3cedbd7d3fd7c14228f173668a9a1e338351d529048de45079",
+      "hosts_restored": true,
+      "capture_parsed": "parsed",
+      "all_direct_hosts": [
+        "level3.blizzard.com",
+        "nydus.battle.net",
+        "us.cdn.blizzard.com",
+        "us.version.battle.net"
+      ]
+    }
+  },
+  "matching_controls": [
+    "bootstrap_hash",
+    "agent_file_candidate_hash_not_all_loaded_binaries",
+    "runner_image_version",
+    "windows_build",
+    "source_commit"
+  ],
+  "comparison_plan": [
+    {
+      "finding": "target public connection disappears in blocked arm while language step and Agent startup still observed",
+      "grain": "binary diagnostic outcomes in one run per arm",
+      "unit": "observed/not observed, not rates or traffic volume",
+      "disposition": "table",
+      "reason": "small categorical pass/fail evidence matrix; no meaningful numeric chart"
+    }
+  ],
+  "limits": [
+    "no decrypted TLS payload",
+    "no claim all telemetry absent",
+    "no full Battle.net install or WoW update tested",
+    "TCP sampling and initial-prefix capture incomplete",
+    "all child binaries and runtime modules not pinned",
+    "host differences alone not evidence of telemetry fallback"
+  ]
+}
