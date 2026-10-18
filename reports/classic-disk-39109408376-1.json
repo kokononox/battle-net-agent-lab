@@ -1,0 +1,73 @@
+{
+  "schema": "classic-disk-preparation-2",
+  "source_commit": "a64274a5a4a18cd5ac326e315eeac9c3870156d2",
+  "run_id": "39109408376",
+  "run_attempt": "1",
+  "status": "space_still_low",
+  "system_free_before_bytes": 33617743872,
+  "system_free_after_bytes": 43082317824,
+  "goal_bytes": 48318382080,
+  "minimum_install_free_bytes": 42949672960,
+  "attempts": [
+    {
+      "tool": "android-sdk",
+      "outcome": "ancestor_reparse",
+      "entries": 0,
+      "logical_bytes": 0
+    },
+    {
+      "tool": "temurin-jdk",
+      "outcome": "removed",
+      "entries": 2803,
+      "logical_bytes": 1484411574
+    },
+    {
+      "tool": "microsoft-jdk",
+      "outcome": "missing",
+      "entries": 0,
+      "logical_bytes": 0
+    },
+    {
+      "tool": "go-toolcache",
+      "outcome": "removed",
+      "entries": 48581,
+      "logical_bytes": 704931696
+    },
+    {
+      "tool": "ruby-toolcache",
+      "outcome": "removed",
+      "entries": 75640,
+      "logical_bytes": 225648120
+    },
+    {
+      "tool": "vs2022-msvc-tools",
+      "outcome": "missing",
+      "entries": 0,
+      "logical_bytes": 0
+    },
+    {
+      "tool": "msys2-toolchain",
+      "outcome": "removed",
+      "entries": 14561,
+      "logical_bytes": 282792265
+    },
+    {
+      "tool": "llvm-toolchain",
+      "outcome": "removed",
+      "entries": 524,
+      "logical_bytes": 2544802006
+    },
+    {
+      "tool": "dotnet-build-sdk",
+      "outcome": "removed",
+      "entries": 48472,
+      "logical_bytes": 4533245753
+    },
+    {
+      "tool": "dotnet-reference-packs",
+      "outcome": "removed",
+      "entries": 30787,
+      "logical_bytes": 6229543776
+    }
+  ]
+}
