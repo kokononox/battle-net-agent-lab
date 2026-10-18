@@ -13,7 +13,7 @@ import time
 import classic_install as c
 
 GOAL=45*1024**3
-ONCE='lab: approved Classic system disk fix 2026-10-18 54bf816e'
+ONCE='lab: approved Classic compiler-only disk fix 2026-10-18 8f20c64a'
 MAX_ENTRIES=500000
 MAX_SCAN_SECONDS=120
 CANDIDATES=(
@@ -25,6 +25,9 @@ CANDIDATES=(
  # Installed Visual Studio root is documented by actions/runner-images Windows2025.
  # Delete only the unused compiler toolchain, not the IDE or shared VC++ runtimes.
  ('vs2022-msvc-tools',r'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC'),
+ # MSYS2 location is documented in the Windows2025 runner image inventory.
+ ('msys2-toolchain',r'C:\msys64'),
+ ('llvm-toolchain',r'C:\Program Files\LLVM'),
 )
 OUTCOMES={'removed','missing','ancestor_reparse','tree_reparse','not_directory',
           'scan_limit','io_refused','unsupported_entry'}

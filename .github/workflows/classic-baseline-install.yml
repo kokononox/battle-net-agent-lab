@@ -13,7 +13,7 @@ concurrency:
 jobs:
   observe:
     if: >-
-      github.event_name == 'push' && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved Classic system disk fix 2026-10-18 54bf816e'
+      github.event_name == 'push' && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved Classic compiler-only disk fix 2026-10-18 8f20c64a'
     runs-on: windows-2025
     timeout-minutes: 35
     permissions:
@@ -33,7 +33,7 @@ jobs:
         env:
           AGENT_INTERFACE_ONCE: 'lab: approved logged-out Agent interface probe 2026-10-17 6f4d2b81'
           CLASSIC_INSTALL_ONCE: 'lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
-          CLASSIC_DISK_PREPARE_ONCE: 'lab: approved Classic system disk fix 2026-10-18 54bf816e'
+          CLASSIC_DISK_PREPARE_ONCE: 'lab: approved Classic compiler-only disk fix 2026-10-18 8f20c64a'
         run: python agent-interface-lab/disk_prepare.py
       - name: Attempt approved isolated Classic baseline install
         env:
