@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-18T01:31:20.744475+00:00",
+  "as_of_utc": "2026-10-18T01:44:25.669874+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -48,7 +48,7 @@
     "historical_binary_findings_reverified_in_this_sync": false
   },
   "user_action_now": "none for repository sync or offline coding; no new scan/download/install requested",
-  "sync_scope": "0.15 source, public metadata fixtures encoded as text, sanitized receipts and structured handoff; no game asset payload, raw transcript, private Lab, SQLite or credentials",
+  "sync_scope": "0.18 native owned scratch source, public fixtures, sanitized CI receipts and handoff; no game asset payload, SQLite, private transcript or credentials",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
     "zip_sha256": "c26e5f9416e7aadef0f9f7dc36c06c2e8975ae65f8f1ac3bfca0abd67fa81001",
@@ -81,9 +81,9 @@
   },
   "current_focus": "Reusable version-independent WoW Retail updater",
   "current_updater": {
-    "release": "0.17",
+    "release": "0.18",
     "source": "updater-core/",
-    "unit_tests_linux": 476,
+    "unit_tests_linux": 479,
     "native_windows_qualified": false,
     "historical_baseline": "12.1.0.69933",
     "pinned_target": "12.1.5.70448",
@@ -113,8 +113,22 @@
     "streaming_existing_metadata_largest_encoded_bytes": 188062372,
     "streaming_owned_posix_stage_implemented": true,
     "native_windows_staging_backend_qualified": false,
-    "large_object_network_controller_integrated": false
+    "large_object_network_controller_integrated": false,
+    "native_windows_owned_scratch_implemented": true,
+    "native_windows_stage_synthetic_tests_passed": 38,
+    "windows_combined_ci_tests_passed": 111,
+    "windows_combined_ci_tests_skipped": 0,
+    "windows_combined_ci_source_commit": "531f95f8ccae807d078efd2876c00f86fd54d0dd",
+    "windows_combined_ci_receipt_commit": "4f29b55f7aecdfa4d370cf594b9b236aa5e32ed1",
+    "windows_stage_to_candidate_admission_integrated": false
   },
   "github_experiment_reverified_in_this_sync": false,
-  "next_native_environment_requirement": "isolated Windows scratch/game-copy environment required before native CASC writer/activation qualification; do not copy or modify game yet"
+  "next_native_environment_requirement": "user availability confirmed; no copy or game-path probe requested until a bounded test is implemented",
+  "user_environment": {
+    "windows_available": true,
+    "space_for_separate_game_copy_available": true,
+    "game_copy_requested": false,
+    "main_install_modification_authorized": false
+  },
+  "next_offline_step": "admit native Windows owned stage through freshly verified candidate gate; then integrate budgeted multiobject transfer; production gates remain closed"
 }

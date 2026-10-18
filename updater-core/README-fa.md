@@ -1,8 +1,19 @@
-# اعتبارسنجی جریانی و staging فایل بزرگ — ۰٫۱۷
+# staging بومی Windows در محیط آزمایشی — ۰٫۱۸
 
 این بسته کد، تست و رسید پژوهشی است، نه اپدیتر آمادهٔ نصب. اجرای آن روی Windows یا پوشهٔ بازی لازم نیست. فایل‌های decoded بزرگ، بانک‌های SQLite و payload نمونهٔ بازی در این ZIP نیستند.
 
-## تغییرات ۰٫۱۷: پیشرفت مستقل از ابهام سیاست انتخاب
+## تغییرات ۰٫۱۸: staging بومی Windows، بدون دسترسی به بازی
+WindowsStore و WindowsStreamStage اکنون I/O بومی Windows را برای پوشهٔ scratch تازه و متعلق به برنامه پیاده‌سازی می‌کنند. مسیر ثابت محلی، هویت handle پوشه و والدها، رد reparse/offline/recall و hardlink، منع write/delete هنگام خواندن، فایل lock انحصاری، FlushFileBuffers و انتشار journal با MoveFileExW استفاده شده‌اند. هیچ اسکن پوشه، نصب بازی، درخواست CDN، admin یا تغییر ACL در این backend نیست. حفاظت در برابر پردازش مهاجم یا قطع برق واقعی ادعا نمی‌شود.
+
+آزمون نخست Windows یک خطای واقعی یافت: handle صرفاً FILE_READ_ATTRIBUTES جلوی rename خود ریشه را نمی‌گرفت. درخواست FILE_LIST_DIRECTORY هم اضافه شد تا share checking اعمال شود؛ این درخواست به معنی enumerate کردن پوشه نیست. پس از اصلاح، اجرای واقعی Windows/Python 3.12.10 هر ۱۱۱ تست را با صفر failure/error/skip گذراند: ۷۳ parser/انتخاب و ۳۸ تست native scratch. رسید شکست نخست و موفقیت بعدی جدا نگه داشته شده‌اند. source commit نهایی 531f95f8ccae807d078efd2876c00f86fd54d0dd است.
+
+۴۷۹ تست Linux هم پاس شدند؛ ۳۸ تست native آنجا اجرا یا به‌عنوان skip شمارش نشده‌اند. شمار Linux و Windows را به‌عنوان تست‌های مستقل جمع نکنید. تست native شامل restore/verify فایل مصنوعی بیش از ۶ MiB در پردازش تازه، hardlink/junction، guard پوشه و handle خواندن، تغییر محتوا/هدف/منبع، lock و قطع شبیه‌سازی‌شده است. آزمایش‌های synthetic هیچ محتوای بازی را مصرف نمی‌کنند.
+
+WindowsStreamStage هنوز در gate نوع دقیق stream_staged_reuse.py پذیرفته نمی‌شود؛ اتصال به candidate admission کار بعدی است. کنترلر انتقال شبکهٔ بزرگ/چندشیء، سیاست انتخاب رسمی، نسل فعال نصب، CASC writer/rollback/activation و UI نهایی نیز آماده نیستند. native_windows_staging_backend_qualified=false به معنای عدم qualification تولیدی باقی است، هرچند ۳۸ تست scratch پاس شده‌اند. installation_ready=false و apply_authorized=false تغییر نکرده‌اند.
+
+کاربر وجود Windows و فضای کپی آزمایشی را تأیید کرده است؛ فعلاً کپی‌کردن بازی یا اجرای ابزار روی آن لازم نیست. workflow مستقل Agent دست‌نخورده است.
+
+## سابقهٔ تغییرات ۰٫۱۷: پیشرفت مستقل از ابهام سیاست انتخاب
 stream_blte.py یک عبور N/Z را با بلوک خواندن حداکثر ۶۴ KiB، checksum هر chunk، EKey و CKey و SHA encoded/decoded انجام می‌دهد. فایل decoded تولید نمی‌کند و کل payload را در RAM جمع نمی‌کند. header/table تا ۶۵۵۳۶ chunk محدود است؛ حد عددی parser برابر encoded حداکثر ۴ GiB و decoded حداکثر ۳۲ GiB است، نه تضمین آزمون همهٔ این اندازه‌ها و نه مجوز خواندن/دانلود. حالت E/F/ناشناخته بدون fallback رد می‌شود. نوع StreamObjectSpec جدید است؛ سقف و مجوز کلاس‌ها و ابزارهای قبلی بزرگ نشده‌اند.
 
 stream_stage.py دادهٔ از قبل تأمین‌شده را در قطعات immutable حداکثر ۱ MiB و journal فاقد payload ذخیره می‌کند؛ هویت baseline/target/source، ترتیب قطعات، Range، ETag و اندازهٔ archive ثابت‌اند. restore فقط journal و هندسه را می‌سنجد و سلامت محتوا را ادعا نمی‌کند. verify همهٔ SHAهای قطعات و کل هویت محتوا را از نو و جریانی کنترل می‌کند. lock رهاشده شکسته نمی‌شود؛ orphanها پذیرفته/حذف نمی‌شوند. تست قطع شبیه‌سازی‌شده قبل/بعد journal وجود دارد، نه qualification قطع برق واقعی.
@@ -12,10 +23,8 @@ stream_staged_reuse.py هویت کامل این ورودی را به برنام�
 ### اجرای واقعی بدون شبکه
 هر سه فایل متادیتای موجود پروژه با verifier جدید دوباره بررسی شدند: مجموع 251510113 بایت encoded، بزرگ‌ترین فایل 188062372 بایت. decoded SHA دقیقاً با رسید تأییدشدهٔ قبلی منطبق بود؛ فایل decoded تازه‌ای صادر نشد. نمونهٔ قبلی ۵۲ بایتی کشِ پروژه در staging جدید بازپخش و کامل کنترل شد. ETag این بازپخش marker محلی است، نه مشاهدهٔ تازهٔ CDN. هیچ نصب زنده یا payload آرشیو کاربر خوانده نشد.
 
-### آزمون و مرز پلتفرم
-۴۷۶ تست Linux پاس شدند: ۴۷۱ مصنوعی و پنج fixture متادیتای عمومی. فایل مصنوعی بیش از ۶ MiB encoded از قطعات جدا و پردازشی تازه restore/verify شد؛ decoded مصنوعی ۲۰ MiB با peak تخصیص Python هنگام verifier کمتر از ۲ MiB کنترل شد. این سنجش شامل دادهٔ fixture از پیش ساخته‌شده نیست و سقف RSS کل پردازش نیست.
-
-staging فایل‌محور هنوز POSIX و محیط scratch مورد اعتماد است؛ دفاع در برابر process مهاجم، backend Windows، فعال‌سازی نصب و قطع برق واقعی qualify نشده‌اند. Workflow مستقل updater-offline-ci فقط ۷۳ تست مصنوعیِ parser/انتخاب را در Windows اجرا و گزارش حداقلی منتشر می‌کند؛ هیچ نصب‌کننده/بازی اجرا نمی‌کند. این نتیجه حتی در صورت موفقیت تأیید staging یا نصب‌کنندهٔ Windows نیست. اجرای واقعی روی Windows با Python 3.12.10، هر ۷۳ تست را بدون failure/error/skip گذراند؛ رسید source commit f8eed3f8f25aefded34143fc1aa48fea5193ee54 در reports/WINDOWS-PORTABLE-CI-to-share.json ثبت شد. موفقیت این ۷۳ تست با ۴۷۶ تست Linux جمع نمی‌شود؛ بخشی از همان منطق روی پلتفرم دوم آزموده شده است. workflow قبلی آزمایش Agent تغییر نکرده است.
+### آزمون و مرز پلتفرم در مرحلهٔ ۰٫۱۷
+مرحلهٔ قبلی ۴۷۶ تست Linux و ۷۳ تست parser/انتخاب Windows داشت. verifier فایل مصنوعی encoded بیش از ۶ MiB را در پردازش تازه کنترل کرد؛ decoded مصنوعی ۲۰ MiB با peak تخصیص Python هنگام verifier کمتر از ۲ MiB آزموده شد. این سنجش شامل fixture از پیش ساخته‌شده نیست و سقف RSS کل پردازش نیست. staging آن مرحله POSIX بود؛ افزودن backend بومی scratch در ۰٫۱۸ جای qualification نصب‌کننده را نمی‌گیرد.
 
 ## سابقهٔ تغییرات ۰٫۱۶: قواعد نوع‌دار انتخاب
 selection_policy.py پروفایل عمومی را به ابعاد platform/architecture/region و localeهای جدا برای speech/text تبدیل می‌کند. هیچ بُعد اصلی optional نیست؛ نبود یا تغییر نوع tag، ناسازگاری schema دو manifest، تزریق عبارت در پروفایل، کلید اضافه و نوع ناشناخته متوقف می‌شوند. زبان speech به‌صورت تصادفی با همهٔ زبان‌های text ضرب نمی‌شود. قرارداد ورودی اجازهٔ اعطای apply یا ادعای freshness نمی‌دهد.
@@ -30,7 +39,7 @@ https://wowdev.wiki/TACT#Tags
 
 گزارش reports/SELECTION-POLICY-to-share.json چهار شکاف را صریح نگه می‌دارد: سیاست مستقل Agent، ترجیحات زنده، وابستگی/variant/patch و معنای featureها. promotion_to_required_set_permitted=false و installation_ready=false باقی است. این مرحله هیچ درخواست CDN بازی، نوشتن نصب، خواندن payload محلی، admin یا تغییر permission نداشت.
 
-۴۷۶ تست Linux پاس شدند: ۴۷۱ مصنوعی و پنج fixture متادیتای واقعی. ۲۸ تست جدید، زبان‌های جدا و چندگانه، بعد اجباری، تغییر نوع/schema، ورودی دستکاری‌شده و ثابت‌ماندن فایل‌های برنامهٔ موجود را پوشش می‌دهند. این آزمون‌ها جای تأیید بومی Windows یا سیاست واقعی نصب نیستند.
+در تاریخچهٔ ۰٫۱۶، ۲۸ تست جدید، زبان‌های جدا و چندگانه، بعد اجباری، تغییر نوع/schema، ورودی دستکاری‌شده و ثابت‌ماندن فایل‌های برنامهٔ موجود را پوشش می‌دهند. این آزمون‌ها جای تأیید بومی Windows یا سیاست واقعی نصب نیستند.
 
 برای بررسیِ کش و برنامهٔ موجودِ متعلق به پروژه (نه پوشهٔ بازی):
 ```sh
