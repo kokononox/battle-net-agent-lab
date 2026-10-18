@@ -1,0 +1,90 @@
+{
+  "format": "existing-metadata-stream-reverification-1",
+  "target": {
+    "scope": {
+      "product": "wow",
+      "branch": "retail",
+      "region": "eu"
+    },
+    "version": "12.1.5.70448",
+    "build_id": 70448,
+    "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+    "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+    "origins": [
+      "https://level3.ssl.blizzard.com"
+    ],
+    "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+    "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+  },
+  "objects": [
+    {
+      "name": "install",
+      "proof": {
+        "format": "streaming-blte-proof-1",
+        "full_ekey_verified": true,
+        "full_ckey_verified": true,
+        "blte_chunk_checksums_verified": true,
+        "chunk_checksum_scope": "all_table_chunks",
+        "encoded_bytes": 23106,
+        "decoded_bytes": 24078,
+        "encoded_sha256": "08f7490350e63e80345b12d19b3db72d77169b4382b1a119f11562d734d8b268",
+        "decoded_sha256": "9992fcadbd41f0e3170a23b60f19ac45e870014887d81c05060ec1607b2c0957",
+        "blte_chunks": 2,
+        "maximum_source_block_bytes": 22754,
+        "header_bytes": 60,
+        "decoded_content_exported": false,
+        "installation_ready": false,
+        "apply_authorized": false
+      },
+      "decoded_digest_matches_prior_verified_metadata": true
+    },
+    {
+      "name": "download",
+      "proof": {
+        "format": "streaming-blte-proof-1",
+        "full_ekey_verified": true,
+        "full_ckey_verified": true,
+        "blte_chunk_checksums_verified": true,
+        "chunk_checksum_scope": "all_table_chunks",
+        "encoded_bytes": 63424635,
+        "decoded_bytes": 74562380,
+        "encoded_sha256": "f39104333ca5c8fd00e4712314ece624dfe346751bd9cb5fad070392de7e906e",
+        "decoded_sha256": "ed2606c609881db971547a240ab8b68c8a1d0bc1ed060808adf96da62b25fd4b",
+        "blte_chunks": 3,
+        "maximum_source_block_bytes": 65536,
+        "header_bytes": 84,
+        "decoded_content_exported": false,
+        "installation_ready": false,
+        "apply_authorized": false
+      },
+      "decoded_digest_matches_prior_verified_metadata": true
+    },
+    {
+      "name": "encoding",
+      "proof": {
+        "format": "streaming-blte-proof-1",
+        "full_ekey_verified": true,
+        "full_ckey_verified": true,
+        "blte_chunk_checksums_verified": true,
+        "chunk_checksum_scope": "all_table_chunks",
+        "encoded_bytes": 188062372,
+        "decoded_bytes": 200255766,
+        "encoded_sha256": "fd04ce39ea4495b1a2fa7eac93876708cbf6b930f71f434fd38b9920e0fe42ca",
+        "decoded_sha256": "b148cb4a900e6ef4caebc2a0e2e199d93af2fac2c79a55a15de75afcdd0ef9d8",
+        "blte_chunks": 7,
+        "maximum_source_block_bytes": 65536,
+        "header_bytes": 180,
+        "decoded_content_exported": false,
+        "installation_ready": false,
+        "apply_authorized": false
+      },
+      "decoded_digest_matches_prior_verified_metadata": true
+    }
+  ],
+  "network_requests": 0,
+  "game_access": false,
+  "decoded_content_exported": false,
+  "live_installation_proven": false,
+  "installation_ready": false,
+  "apply_authorized": false
+}

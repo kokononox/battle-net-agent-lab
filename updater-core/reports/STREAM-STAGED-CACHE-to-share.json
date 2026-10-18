@@ -1,0 +1,81 @@
+{
+  "format": "streaming-staged-candidate-reverify-1",
+  "target": {
+    "scope": {
+      "product": "wow",
+      "branch": "retail",
+      "region": "eu"
+    },
+    "version": "12.1.5.70448",
+    "build_id": 70448,
+    "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+    "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+    "origins": [
+      "https://level3.ssl.blizzard.com"
+    ],
+    "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+    "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+  },
+  "object": {
+    "ckey": "752c5f5f275a8044c478a6cf41fee61a",
+    "ekey": "2bf8296553eb812b17ced6e1b07036d3",
+    "decoded_size": 64,
+    "encoded_size": 52
+  },
+  "status": "one_owned_staged_candidate_freshly_stream_verified",
+  "proof": {
+    "format": "streaming-blte-proof-1",
+    "full_ekey_verified": true,
+    "full_ckey_verified": true,
+    "blte_chunk_checksums_verified": true,
+    "chunk_checksum_scope": "all_table_chunks",
+    "encoded_bytes": 52,
+    "decoded_bytes": 64,
+    "encoded_sha256": "d5d887f2c0fecd01c82bf346d8502e59cabd00f9cc353fb30b0161d136c7d284",
+    "decoded_sha256": "ebf6d6702daa7e4953d4a7a9c05bbfa624f9cd7028df93d482707c985d12c1f7",
+    "blte_chunks": 1,
+    "maximum_source_block_bytes": 28,
+    "header_bytes": 36,
+    "decoded_content_exported": false,
+    "installation_ready": false,
+    "apply_authorized": false,
+    "all_segment_sha256_reverified": true,
+    "active_generation_proven": false,
+    "source": {
+      "archive_key": "5794b0453d6a92824695d862abb25a31",
+      "index_sha256": "e311339624ef14c4bb78272134892a7d7566ebcdbfe86797a56b430aaba62320",
+      "offset": 268435404
+    },
+    "target": {
+      "scope": {
+        "product": "wow",
+        "branch": "retail",
+        "region": "eu"
+      },
+      "version": "12.1.5.70448",
+      "build_id": 70448,
+      "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+      "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+      "origins": [
+        "https://level3.ssl.blizzard.com"
+      ],
+      "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+      "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+    },
+    "network_requests": 0,
+    "game_access": false
+  },
+  "eligible_as_verified_staging_input": true,
+  "verified_staging_input_bytes": 52,
+  "installed_content_reuse_authorized": false,
+  "active_generation_proven": false,
+  "vendor_selection_policy_qualified": false,
+  "required_network_download_bytes": null,
+  "network_requests": 0,
+  "game_access": false,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "offline_copy_of_previously_verified_owned_stage": true,
+  "no_new_cdn_entity_observation": true,
+  "source_etag_is_local_replay_marker_not_remote_evidence": true
+}
