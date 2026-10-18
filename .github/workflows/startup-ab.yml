@@ -1,0 +1,98 @@
+name: One-shot telemetry-domain startup A-B comparison
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths:
+      - 'privacy-ab/**'
+      - '.github/workflows/startup-ab.yml'
+permissions: {}
+jobs:
+  observe:
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved telemetry hosts A-B startup comparison 20261018-c1'
+    runs-on: windows-2025
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [baseline, block_telemetry]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Test safety, parser and intervention validation
+        run: |
+          python scripts/run_safety_tests.py --output output
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest discover -s privacy-network -p 'test_*.py'
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest discover -s privacy-ab -p 'test_*.py'
+      - name: Single pinned-bootstrap run in assigned fresh VM
+        env:
+          PRIVACY_AB_ONCE: ab-20261018-c1
+          AB_MODE: ${{ matrix.mode }}
+        run: python privacy-ab/run.py
+      - name: Whitelist intervention and optional capture/bootstrap reports
+        if: always()
+        run: |
+          python privacy-ab/validate.py output/ab-intervention.json sanitized/ab-intervention.json
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if (Test-Path output/network-metadata.json) {
+            python privacy-network/validate.py output/network-metadata.json sanitized/network-metadata.json
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
+          if (Test-Path output/agent-observation-to-share.json) {
+            python scripts/validate_report.py --input output/agent-observation-to-share.json --output sanitized/agent-observation-to-share.json
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
+      - name: Upload only explicitly validated JSON files
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: startup-ab-${{ matrix.mode }}
+          path: |
+            sanitized/ab-intervention.json
+            sanitized/network-metadata.json
+            sanitized/agent-observation-to-share.json
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: observe
+    if: needs.observe.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: privacy-observation-20261018-a1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: startup-ab-baseline
+          path: incoming/baseline
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: startup-ab-block_telemetry
+          path: incoming/block_telemetry
+      - name: Revalidate and publish both arms from clean runner
+        run: |
+          set -euo pipefail
+          for mode in baseline block_telemetry; do
+            python privacy-ab/validate.py incoming/$mode/ab-intervention.json reports/startup-ab-c1-$mode-intervention.json
+            git add -- reports/startup-ab-c1-$mode-intervention.json
+            if test -f incoming/$mode/network-metadata.json; then
+              python privacy-network/validate.py incoming/$mode/network-metadata.json reports/startup-ab-c1-$mode-network.json
+              git add -- reports/startup-ab-c1-$mode-network.json
+            fi
+            if test -f incoming/$mode/agent-observation-to-share.json; then
+              python scripts/validate_report.py --input incoming/$mode/agent-observation-to-share.json --output reports/startup-ab-c1-$mode-bootstrap.json
+              git add -- reports/startup-ab-c1-$mode-bootstrap.json
+            fi
+          done
+          git config user.name 'privacy-lab-report'
+          git config user.email 'privacy-lab-report@users.noreply.github.com'
+          git commit -m 'lab: publish sanitized A-B startup evidence 20261018-c1'
+          git push origin HEAD:privacy-observation-20261018-a1
