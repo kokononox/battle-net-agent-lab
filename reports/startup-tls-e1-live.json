@@ -1,0 +1,83 @@
+{
+  "schema": "bnet-live-tls-buffer-observation-2",
+  "source_commit": "cc989fea836adf354b088c32e194743483199bc2",
+  "run_id": "39160679721",
+  "scope": "fresh_vm_startup_no_login_game_or_install_action",
+  "tool_version": "17.24.2",
+  "selftest": {
+    "passed": true,
+    "stage": "complete",
+    "loopback_only": true,
+    "synthetic_events_excluded_from_real_evidence": true
+  },
+  "bootstrap_pin_match": true,
+  "processes": [
+    {
+      "pid": 9124,
+      "process_name": "battle.net-setup.exe",
+      "image_basename_match": true,
+      "sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "image_bytes": 4896464,
+      "path_category": "temporary_tree",
+      "agent_directory_version": null,
+      "signature_accepted": true,
+      "authenticode_valid": true,
+      "expected_blizzard_publisher": true,
+      "module_status": "ok",
+      "network_module_categories": [
+        "bcrypt.dll",
+        "crypt32.dll",
+        "dnsapi.dll",
+        "secur32.dll",
+        "sspicli.dll",
+        "winhttp.dll",
+        "wininet.dll",
+        "ws2_32.dll"
+      ],
+      "attach_status": "attached",
+      "failure_phase": null,
+      "error_kind": null,
+      "numeric_error_code": null,
+      "installed_hooks": [
+        "WinHttpConnect",
+        "WinHttpOpenRequest",
+        "WinHttpSendRequest",
+        "WinHttpWriteData",
+        "WinHttpCloseHandle",
+        "InternetConnectW",
+        "HttpOpenRequestW",
+        "HttpSendRequestW",
+        "InternetConnectA",
+        "HttpOpenRequestA",
+        "HttpSendRequestA",
+        "InternetWriteFile",
+        "InternetCloseHandle",
+        "EncryptMessage"
+      ],
+      "buffer_events": 0,
+      "script_error_count": 2
+    }
+  ],
+  "events": [],
+  "monitor_stats": {
+    "snapshots": 588,
+    "errors": 0,
+    "process_limit_hit": false,
+    "dropped_events": 0
+  },
+  "status": "collector_returned",
+  "error_code": null,
+  "limits": {
+    "raw_values_headers_bodies_exported": true,
+    "paths_exported": false,
+    "tls_verification_changed": false,
+    "api_results_or_buffers_modified": false,
+    "plaintext_is_api_input_not_proof_of_delivery": true,
+    "field_names_are_hints_not_hardware_value_proof": true,
+    "only_known_exported_apis_observed": true,
+    "late_attach_and_event_caps_can_miss_data": true,
+    "loaded_module_not_proof_of_use": true,
+    "instrumentation_can_change_timing_or_behavior": true,
+    "full_update_or_transfer_test": false
+  }
+}

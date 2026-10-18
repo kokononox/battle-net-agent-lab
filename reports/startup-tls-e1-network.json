@@ -1,0 +1,125 @@
+{
+  "schema": "bnet-network-metadata-1",
+  "source_commit": "cc989fea836adf354b088c32e194743483199bc2",
+  "run_id": "39160679721",
+  "scope": "startup_language_only_no_account_game_or_install_action",
+  "capture": {
+    "start_code": 0,
+    "stop_code": 0,
+    "convert_code": 0,
+    "etl_bytes": 1200900,
+    "pcapng_bytes": 2245936,
+    "parse_status": "parsed",
+    "raw_files_exported": false,
+    "requested_etl_megabytes": 32,
+    "requested_packet_bytes": 1536,
+    "logging_mode": "circular"
+  },
+  "dns_probe_before": {
+    "status": "not_started",
+    "category": "none",
+    "hresult": 0,
+    "row_count": 0,
+    "old_json_shape": "not_tested"
+  },
+  "dns_probe_after": {
+    "status": "not_started",
+    "category": "none",
+    "hresult": 0,
+    "row_count": 0,
+    "old_json_shape": "not_tested"
+  },
+  "sampler": {
+    "samples": 1117,
+    "errors": 0,
+    "flow_limit_hit": false
+  },
+  "packet_stats": {
+    "packets": 3251,
+    "truncated_packets": 1002
+  },
+  "flows": [
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 9124,
+      "address": "54.162.166.245",
+      "port": 80,
+      "matched_outbound_packet_observations": 6,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "nydus.battle.net"
+      ],
+      "tls_sni": null,
+      "http_host": "nydus.battle.net",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 9124,
+      "address": "136.110.153.89",
+      "port": 443,
+      "matched_outbound_packet_observations": 10,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "telemetry-in.battle.net"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 9124,
+      "address": "136.110.153.89",
+      "port": 443,
+      "matched_outbound_packet_observations": 8,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "telemetry-in.battle.net"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    }
+  ],
+  "binary_hints": [
+    {
+      "role": "bootstrap",
+      "sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "fixed_string_hints": {
+        "schannel.dll": false,
+        "secur32.dll": true,
+        "winhttp.dll": true,
+        "wininet.dll": true,
+        "libssl": false,
+        "libcurl": true,
+        "sslkeylogfile": false
+      }
+    }
+  ],
+  "bootstrap_status": "bootstrapper_observed_agent_not_observed",
+  "bootstrap_error_code": null,
+  "limits": {
+    "decryption_performed": false,
+    "keylog_experiment_repeated": false,
+    "raw_headers_urls_bodies_exported": false,
+    "no_hardware_privacy_guarantee": true,
+    "no_game_update_test": true,
+    "sampling_can_miss_connections": true,
+    "tuple_correlation_not_cryptographic_pid_proof": true,
+    "dns_candidates_not_hostname_proof": true,
+    "nic_duplicates_retransmissions_offload_possible": true,
+    "packet_counts_not_requests_or_wire_byte_totals": true,
+    "initial_contiguous_prefix_only": true,
+    "fragments_ipv6_extensions_quic_doh_not_decoded": true,
+    "circular_capture_may_lose_early_packets": true,
+    "sni_may_be_outer_name_under_ech": true,
+    "bootstrap_child_network_hard_byte_cap": false
+  }
+}
