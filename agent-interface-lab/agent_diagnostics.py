@@ -9,7 +9,9 @@ import re
 MAX_BINARY=128*1024**2
 NAME=re.compile(r'[a-z][a-z0-9_-]{0,31}\Z')
 TYPES={'null','boolean','number','string','object','array','other'}
-PATH_PATTERN=re.compile(r'(?:Agent\.[0-9]{1,10}/)?Agent(?:[._-][A-Za-z0-9_-]{1,32})?\.exe(?:\.(?:old|bak|tmp|[0-9]{1,10}))?\Z',re.I)
+# Labels are bounded ASCII paths relative to the already-scoped Agent root.
+# A label is evidence only, never an allowlist for session adoption.
+PATH_PATTERN=re.compile(r'(?:[A-Za-z0-9_.-]{1,80}/){0,3}[A-Za-z0-9_.-]{1,80}\Z')
 TRANSITION_STATUSES={'not_observed','inspected_read_only','outside_scope','path_refused',
  'process_exited','snapshot_unstable','inspection_failed'}
 RELATIONS={None,'same_as_pinned','different_within_agent_root','outside_agent_root'}
@@ -64,10 +66,11 @@ def blank_transition():
 def relative_label(path,root):
  try:text='/'.join(path.relative_to(root).parts)
  except ValueError:return None
- return text if PATH_PATTERN.fullmatch(text)else None
+ return text if PATH_PATTERN.fullmatch(text)and all(part not in('.', '..')for part in text.split('/'))else None
 
 def scoped_file(path,root,is_reparse):
  if not path.is_absolute()or '..'in path.parts:return False
+ if not path.name.lower().lstrip('_').startswith('agent')or '.exe'not in path.name.lower():return False
  try:path.relative_to(root)
  except ValueError:return False
  # Test all lexical ancestors before opening anything. No link resolution first.
@@ -119,7 +122,7 @@ def validate_transition(r):
  if type(r)is not dict or set(r)!=set(blank_transition()):raise ValueError('transition_schema')
  if r['status']not in TRANSITION_STATUSES or r['path_relation']not in RELATIONS:raise ValueError('transition_enum')
  for k in ('initial_relative_path','observed_relative_path'):
-  if r[k]is not None and(type(r[k])is not str or not PATH_PATTERN.fullmatch(r[k])):raise ValueError('transition_path')
+  if r[k]is not None and(type(r[k])is not str or not PATH_PATTERN.fullmatch(r[k])or any(part in('.', '..')for part in r[k].split('/'))):raise ValueError('transition_path')
  for k in ('pinned_path_exists','observed_path_exists','same_file_as_pinned','observed_signature_accepted','matches_initial_sha256','original_listener_still_owned','snapshot_stable'):
   if r[k]is not None and type(r[k])is not bool:raise ValueError('transition_boolean')
  if type(r['observed_bytes_hashed'])is not int or not 0<=r['observed_bytes_hashed']<=MAX_BINARY:raise ValueError('transition_size')

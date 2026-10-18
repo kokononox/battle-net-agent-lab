@@ -13,7 +13,7 @@ concurrency:
 jobs:
   observe:
     if: >-
-      github.event_name == 'push' && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved Classic path and form diagnostic 2026-10-18 1af67e38'
+      github.event_name == 'push' && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved bounded Agent path suffix diagnostic 2026-10-18 e54c708b'
     runs-on: windows-2025
     timeout-minutes: 35
     permissions:
@@ -39,7 +39,7 @@ jobs:
         env:
           AGENT_INTERFACE_ONCE: 'lab: approved logged-out Agent interface probe 2026-10-17 6f4d2b81'
           CLASSIC_INSTALL_ONCE: 'lab: approved disposable Classic baseline install 2026-10-18 73ca6e92'
-          CLASSIC_PROTOCOL_ONCE: 'lab: approved Classic path and form diagnostic 2026-10-18 1af67e38'
+          CLASSIC_PROTOCOL_ONCE: 'lab: approved bounded Agent path suffix diagnostic 2026-10-18 e54c708b'
         run: python agent-interface-lab/classic_install.py --protocol-diagnostic
       - name: Validate the nested bounded report before export
         if: always()

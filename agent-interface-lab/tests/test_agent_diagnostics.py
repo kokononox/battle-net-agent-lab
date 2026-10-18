@@ -39,6 +39,16 @@ class AgentDiagnosticsTests(unittest.TestCase):
    root,pinned,observed,proc,hash=self.fixture(tmp)
    r=self.inspect(root,pinned,observed,proc,hash)
    self.assertEqual(r['status'],'inspected_read_only');self.assertEqual(r['path_relation'],'different_within_agent_root');self.assertTrue(r['observed_signature_accepted']);self.assertTrue(r['matches_initial_sha256']);self.assertFalse(r['pinned_path_exists']);self.assertTrue(r['original_listener_still_owned']);self.assertEqual(r['observed_relative_path'],'Agent.1234/Agent.exe.old');self.assertNotIn(tmp,json.dumps(r));self.assertTrue(observed.exists());self.assertFalse(pinned.exists())
+ def test_bounded_renamed_agent_suffix_is_diagnostic_not_trusted(self):
+  with tempfile.TemporaryDirectory()as tmp:
+   root,pinned,observed,proc,hash=self.fixture(tmp)
+   renamed=observed.with_name('Agent.exe.delete.1234.5678');observed.rename(renamed)
+   r=self.inspect(root,pinned,renamed,proc,hash)
+   self.assertEqual(r['status'],'inspected_read_only');self.assertEqual(r['observed_relative_path'],'Agent.1234/Agent.exe.delete.1234.5678');self.assertTrue(r['matches_initial_sha256'])
+ def test_path_label_cannot_traverse_or_export_full_path(self):
+  for value in ('../Agent.exe','./Agent.exe','Agent.1/../Agent.exe','C:/private/Agent.exe','Agent.1/secret?token.exe'):
+   r=d.blank_transition();r['observed_relative_path']=value
+   with self.assertRaises(ValueError,msg=value):d.validate_transition(r)
  def test_outside_path_never_opened_or_signed(self):
   with tempfile.TemporaryDirectory()as tmp:
    root,pinned,observed,proc,hash=self.fixture(tmp)
