@@ -1,0 +1,37 @@
+{
+  "schema": "bnet-live-tls-buffer-observation-1",
+  "source_commit": "cfa39a4723bdba54b1d8ed1fa02a359838eaeb7e",
+  "run_id": "39159715814",
+  "scope": "fresh_vm_startup_no_login_game_or_install_action",
+  "tool_version": "17.24.2",
+  "selftest": {
+    "passed": false,
+    "stage": "attach",
+    "loopback_only": true,
+    "synthetic_events_excluded_from_real_evidence": true
+  },
+  "bootstrap_pin_match": null,
+  "processes": [],
+  "events": [],
+  "monitor_stats": {
+    "snapshots": 0,
+    "errors": 0,
+    "process_limit_hit": false,
+    "dropped_events": 0
+  },
+  "status": "stopped",
+  "error_code": "owned_loopback_selftest_failed",
+  "limits": {
+    "raw_values_headers_bodies_exported": false,
+    "paths_exported": false,
+    "tls_verification_changed": false,
+    "api_results_or_buffers_modified": false,
+    "plaintext_is_api_input_not_proof_of_delivery": true,
+    "field_names_are_hints_not_hardware_value_proof": true,
+    "only_known_exported_apis_observed": true,
+    "late_attach_and_event_caps_can_miss_data": true,
+    "loaded_module_not_proof_of_use": true,
+    "instrumentation_can_change_timing_or_behavior": true,
+    "full_update_or_transfer_test": false
+  }
+}
