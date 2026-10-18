@@ -1,13 +1,13 @@
-# اقدامات باقی‌مانده پس از ۰٫۲۶
+# اقدامات باقی‌مانده پس از ۰٫۲۷
 
-## پیشرفت واقعی
-بندهای عمومی ترجیحات کپی تاریخی، بدون حذف optional یا قاطی‌کردن زبان متن/صدا، به نامزد hash-verified وصل شد. حذف تگ خصوصی فقط پس از اثبات غیبت نامش در هر دو manifest ممکن است. bitmap نامزدها مستقل برای تک‌تک رکوردها بررسی شد؛ نامزد تغییر نکرد. ۷۰۶ Linux و ۳۶۴ Windows پاس‌اند. [تحویل](UPDATER-SESSION-0.26.fa.md).
+## پیشرفت ثبت‌شده
+قرارداد pure برای دو دور copied metadata/control و دقیقاً ۱۶ ایندکس ارجاع‌شده ساخته شد؛ header/checksum/هندسهٔ شناخته‌شده بررسی و fallback بزرگ‌ترین نام رد می‌شود. اختلاف دورها، pending/reset یا قالب ناشناخته توقف می‌دهد. دادهٔ fixture کاملاً مصنوعی است. ۷۴۶ Linux و ۴۰۴ Windows پاس‌اند. [تحویل](UPDATER-SESSION-0.27.fa.md).
 
 ## ترتیب باقی‌مانده
-1. **مرحلهٔ اول هنوز باز است:** قواعد کامل feature/variant/dependency، ترجیحات واقعاً تازه و نسل فعال همساز. اتصال candidate و تگ تاریخی oracle رسمی یا live capture نیست. برای نسل فعال ابتدا قرارداد bounded/versioned شامل مسیر/حجم/حریم خصوصی و معیار مستقل سازگاری طراحی شود؛ نه حدس offset و نه بزرگ‌ترین filename. هیچ خواندن تازه shmem/LRU یا اجرای کاربر در این مرحله خواسته نشده است.
-2. اثبات reuse محلی، required set معتبر و حجم دقیق شبکه؛ unknown صفر نیست.
+1. **مرحلهٔ اول هنوز باز است:** انتخاب کامل feature/variant/dependency، ترجیحات واقعاً تازه و نسل فعال همساز. برای نسل فعال اکنون قرارداد منفی و معیارهای مشخص داریم، نه detector زنده: معنای control/extension، اتصال store/root/file-ID، capture محدود بومی و شاهد مستقل استفادهٔ client باید اعتبارسنجی شوند. برابری دو دور snapshot یا محافظت ABA نیست؛ offset حدسی یا بیشترین filename کافی نیست. [معیارها](../updater-core/research/GENERATION-LIVE-PROOF-REQUIREMENTS.json).
+2. اثبات reuse محلی، required set معتبر و حجم دقیق دانلود؛ unknown صفر نیست.
 3. qualification انتقال واقعی محدود، resume/recovery با budget و approval مستقل.
-4. writer تراکنشی CASC، rollback و activation؛ ابتدا کپی مستقل و آزمون شکست/قطع عملیات. writer نصب واقعی هنوز پیاده نشده است.
-5. آزمون نسخه‌های متفاوت و نسخهٔ آینده، stop برای قالب ناشناخته؛ سپس UI، بسته‌بندی و انتشار.
+4. writer تراکنشی CASC، rollback و activation؛ ابتدا کپی مستقل و آزمون قطع عملیات/شکست. writer نصب واقعی هنوز پیاده نشده است.
+5. آزمون چندنسخه و نسخهٔ آینده با discovery تازه و stop برای قالب ناشناخته؛ سپس UI، بسته‌بندی و انتشار.
 
-فعلاً اقدام کاربر لازم نیست. admin/ACL، update/repair رسمی، broad upload و game write درخواست یا مجاز نشده‌اند. required_set_selected=false، active_generation_proven=false، required_network_download_bytes=null، installation_ready=false و apply_authorized=false. تست‌های Windows پوشهٔ موقت‌اند و qualification تولید/نصب واقعی محسوب نمی‌شوند. کش‌ها حفظ و دوباره دانلود نشوند؛ workflow مستقل Agent تغییر نکند.
+فعلاً اقدام کاربر لازم نیست. این مرحله هیچ فایل تازه‌ای از کنترل یا ایندکس کاربر نخواند؛ سقف API قرارداد مجوز بازی زنده نیست. نه admin/ACL، نه update/repair رسمی، نه broad upload و نه game write تقاضا شود. required_set_selected=false، active_generation_proven=false، required_network_download_bytes=null، installation_ready=false و apply_authorized=false. تست Windows qualification تولید/نصب واقعی نیست. کش‌ها حفظ و workflow مستقل Agent دست‌نخورده بماند.

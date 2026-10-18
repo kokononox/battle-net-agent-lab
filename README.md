@@ -1,10 +1,10 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## وضعیت جدید مسیر اپدیتر — ۰٫۲۶
+## وضعیت جدید مسیر اپدیتر — ۰٫۲۷
 
-[تحویل فعلی](docs/UPDATER-SESSION-0.26.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md) · [سورس و تست](updater-core/GITHUB-SOURCE.md).
+[تحویل فعلی](docs/UPDATER-SESSION-0.27.fa.md) · [باقی‌مانده](docs/UPDATER-REMAINING.fa.md) · [سورس و تست](updater-core/GITHUB-SOURCE.md).
 
-ترجیحات واقعی کپی تاریخی با حفظ بندها/optional و تفکیک text/speech به نامزد hash-verified وصل شد. تگ خصوصی فقط در صورت غیبت در هر دو manifest حذف می‌شود. کنترل مستقل هر رکورد همان bitmap نامزدهای قبلی را تأیید کرد؛ candidate تغییر نکرد. ۷۰۶ Linux و ۳۶۴ Windows پاس‌اند. **مرحلهٔ اول هنوز باز است:** انتخاب کامل، ترجیحات واقعاً تازه و نسل فعال اثبات نشده‌اند. فعلاً اقدام کاربر لازم نیست؛ هیچ بازی یا workflow مستقل Agent تغییر نکرد. [شواهد](updater-core/research/PREFERENCE-SELECTION-BRIDGE.md).
+قرارداد bounded دو دور copied metadata/control و دقیقاً ۱۶ ایندکس ساخته و با ۴۰ تست تازه بررسی شد؛ مجموع ۷۴۶ Linux و ۴۰۴ Windows پاس‌اند. فقط fixture مصنوعی؛ بدون خواندن تازهٔ control/index کاربر یا بازی. **این detector زنده یا اثبات نسل فعال نیست:** برابری bytes snapshot/ABA protection یا استفادهٔ client را ثابت نمی‌کند. [معیارهای مشخص باقی‌مانده](updater-core/research/GENERATION-LIVE-PROOF-REQUIREMENTS.json). مرحلهٔ اول باز؛ فعلاً اقدام کاربر لازم نیست. workflow مستقل Agent دست‌نخورده است.
 
 ## شروع ادامهٔ پروژه — فارسی (سابقه)
 

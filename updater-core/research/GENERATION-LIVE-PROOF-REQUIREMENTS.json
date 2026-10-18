@@ -1,0 +1,40 @@
+{
+  "format": "generation-live-proof-requirements-1",
+  "status": "design_NOT_approval_or_live_tool",
+  "implemented": "pure bounded two-round byte consistency and supported index structure review",
+  "user_action_now": "none",
+  "maximum_per_round_supplied_bytes": 72417280,
+  "maximum_two_round_supplied_bytes": 144834560,
+  "live_game_read_approved": false,
+  "live_capture_implemented": false,
+  "requirements": [
+    {
+      "id": "protocol_and_generation_slot_semantics",
+      "qualified": false
+    },
+    {
+      "id": "native_store_root_file_identity_binding",
+      "qualified": false
+    },
+    {
+      "id": "stable_pending_extension_state_semantics",
+      "qualified": false
+    },
+    {
+      "id": "bounded_native_control_and_index_capture",
+      "qualified": false
+    },
+    {
+      "id": "independent_client_generation_use_evidence",
+      "qualified": false
+    }
+  ],
+  "two_equal_rounds_prove_no_intervening_change": false,
+  "active_generation_proven": false,
+  "coherent_live_snapshot_proven": false,
+  "local_reuse_authorized": false,
+  "required_set_selected": false,
+  "required_network_download_bytes": null,
+  "installation_ready": false,
+  "apply_authorized": false
+}
