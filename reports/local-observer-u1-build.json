@@ -1,15 +1,15 @@
 {
   "schema": "local-observer-build-2",
-  "source_commit": "2e5794ddf6fbdcea3adca0cd2f707c3451285aa4",
-  "run_id": "39171035543",
+  "source_commit": "a73531277544939348e8c1e77bd4e92121ac2041",
+  "run_id": "39171328838",
   "runner_kind": "windows-2025",
   "unit_outcome": "success",
   "deps_outcome": "success",
   "package_outcome": "success",
   "native_outcome": "success",
-  "certificate_outcome": "failure",
-  "artifact_url": "",
-  "artifact_digest": "",
+  "certificate_outcome": "success",
+  "artifact_url": "https://github.com/kokononox/battle-net-agent-lab/actions/runs/39171328838/artifacts/12152851621",
+  "artifact_digest": "d699bb8072e45f19897a0145dab1c1d05325a97203284ccf55d607dae09e09bb",
   "selftest": {
     "passed": true,
     "loopback_only": true,
@@ -22,21 +22,21 @@
     "error_code": null
   },
   "python_version": "3.12.10",
-  "build_manifest_sha256": "506bef82382150e2bdee83d7f13f4fe7fc8de59f67bdc0b1b5c911e5a046eeed",
+  "build_manifest_sha256": "a7a4e904259c3ea3fcee9c2685d64217ea8612465ea9d6e037d20077f4bb4ee1",
   "game_update_tested": false,
   "user_pc_accessed": false,
   "standard_runner_only": true,
   "certificate_gate": {
-    "passed": false,
-    "runtime_valid": false,
-    "runtime_not_blizzard": false,
-    "runtime_status": "not_tested",
-    "bootstrap_valid": false,
-    "bootstrap_blizzard": false,
-    "bootstrap_status": "not_tested",
-    "bootstrap_sha256": null,
+    "passed": true,
+    "runtime_valid": true,
+    "runtime_not_blizzard": true,
+    "runtime_status": "Valid",
+    "bootstrap_valid": true,
+    "bootstrap_blizzard": true,
+    "bootstrap_status": "Valid",
+    "bootstrap_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
     "downloaded_only_never_executed": true,
-    "phase": "runtime",
-    "error_code": "certificate_policy_gate_failed"
+    "phase": "complete",
+    "error_code": null
   }
 }
