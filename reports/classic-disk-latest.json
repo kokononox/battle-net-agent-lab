@@ -1,11 +1,11 @@
 {
   "schema": "classic-disk-preparation-2",
-  "source_commit": "ff01e666bb876fdb4af9ecf9135d07b0c5259141",
-  "run_id": "39104647546",
+  "source_commit": "32d32b31b3dbe1a8e16e3a6a9d33f4686a23a691",
+  "run_id": "39105022780",
   "run_attempt": "1",
   "status": "space_still_low",
-  "system_free_before_bytes": 33637388288,
-  "system_free_after_bytes": 36184903680,
+  "system_free_before_bytes": 33663774720,
+  "system_free_after_bytes": 39047233536,
   "goal_bytes": 48318382080,
   "minimum_install_free_bytes": 42949672960,
   "attempts": [
@@ -44,6 +44,18 @@
       "outcome": "missing",
       "entries": 0,
       "logical_bytes": 0
+    },
+    {
+      "tool": "msys2-toolchain",
+      "outcome": "removed",
+      "entries": 14561,
+      "logical_bytes": 282792265
+    },
+    {
+      "tool": "llvm-toolchain",
+      "outcome": "removed",
+      "entries": 524,
+      "logical_bytes": 2544802006
     }
   ]
 }

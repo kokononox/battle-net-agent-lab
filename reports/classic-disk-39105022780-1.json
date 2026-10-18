@@ -1,0 +1,61 @@
+{
+  "schema": "classic-disk-preparation-2",
+  "source_commit": "32d32b31b3dbe1a8e16e3a6a9d33f4686a23a691",
+  "run_id": "39105022780",
+  "run_attempt": "1",
+  "status": "space_still_low",
+  "system_free_before_bytes": 33663774720,
+  "system_free_after_bytes": 39047233536,
+  "goal_bytes": 48318382080,
+  "minimum_install_free_bytes": 42949672960,
+  "attempts": [
+    {
+      "tool": "android-sdk",
+      "outcome": "ancestor_reparse",
+      "entries": 0,
+      "logical_bytes": 0
+    },
+    {
+      "tool": "temurin-jdk",
+      "outcome": "removed",
+      "entries": 2803,
+      "logical_bytes": 1484411574
+    },
+    {
+      "tool": "microsoft-jdk",
+      "outcome": "missing",
+      "entries": 0,
+      "logical_bytes": 0
+    },
+    {
+      "tool": "go-toolcache",
+      "outcome": "removed",
+      "entries": 48581,
+      "logical_bytes": 704931696
+    },
+    {
+      "tool": "ruby-toolcache",
+      "outcome": "removed",
+      "entries": 75640,
+      "logical_bytes": 225648120
+    },
+    {
+      "tool": "vs2022-msvc-tools",
+      "outcome": "missing",
+      "entries": 0,
+      "logical_bytes": 0
+    },
+    {
+      "tool": "msys2-toolchain",
+      "outcome": "removed",
+      "entries": 14561,
+      "logical_bytes": 282792265
+    },
+    {
+      "tool": "llvm-toolchain",
+      "outcome": "removed",
+      "entries": 524,
+      "logical_bytes": 2544802006
+    }
+  ]
+}
