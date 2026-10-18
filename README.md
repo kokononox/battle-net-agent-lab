@@ -2,7 +2,7 @@
 
 ## تصمیم معماری لازم — نه اعلام حل کامل
 
-[بررسی مسیر Agent و شرط استقلال](docs/UPDATER-BACKEND-DECISION.fa.md). موتور مستقل هنوز قواعد کامل انتخاب Retail و نویسندهٔ تراکنشی CASC ندارد. مسیر جایگزینِ بررسی‌شده به Agent رسمی و ورود اخیر Battle.net وابسته است؛ بدون تأیید کاربر جایگزین معماری نمی‌شود. هیچ Agent یا درخواست آپدیت اجرا نشد. اکنون فقط تصمیم دربارهٔ قابل‌قبول‌بودن این وابستگی لازم است؛ نه فایل تازه، رمز حساب یا اجازهٔ نصب.
+[بررسی مسیر Agent و شرط استقلال](docs/UPDATER-BACKEND-DECISION.fa.md). موتور مستقل هنوز قواعد کامل انتخاب Retail و نویسندهٔ تراکنشی CASC ندارد. مسیر جایگزین به Agent رسمی وابسته است؛ ورود حساب شرط عمومی آپدیت Battle.net اعلام نمی‌شود. شرط ورودِ README ابزار واسط نباید به خود موتور تعمیم داده شود. کاربر امکان آپدیت بدون لاگین را گزارش کرده است؛ سازگاری کلاینت ما با آن مسیر هنوز آزمایش نشده. بدون تأیید کاربر معماری عوض نمی‌شود. هیچ Agent یا درخواست آپدیت اجرا نشد؛ برای تحقیق فعلی رمز حساب یا ورود لازم نیست.
 
 ## وضعیت پیشین مسیر اپدیتر — selection semantic discrimination
 
@@ -105,4 +105,5 @@ network download estimate.
 - https://docs.github.com/en/actions/concepts/runners/github-hosted-runners
 - https://docs.github.com/en/actions/reference/runners/github-hosted-runners
 - https://github.com/barncastle/Battle.Net-Installer — delegates to the Battle.net
-  Agent and requires a recent login for game installation; it is not run here.
+  Agent; its README states a recent-login prerequisite for that third-party tool,
+  not a universal Battle.net update requirement. It is not run here.
