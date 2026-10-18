@@ -49,6 +49,19 @@ class AgentDiagnosticsTests(unittest.TestCase):
   for value in ('../Agent.exe','./Agent.exe','Agent.1/../Agent.exe','C:/private/Agent.exe','Agent.1/secret?token.exe'):
    r=d.blank_transition();r['observed_relative_path']=value
    with self.assertRaises(ValueError,msg=value):d.validate_transition(r)
+ def test_exact_temp_image_in_same_version_directory_can_be_inspected(self):
+  with tempfile.TemporaryDirectory()as tmp:
+   root,pinned,observed,proc,hash=self.fixture(tmp)
+   temp=observed.with_name('temp_'+('a'*32)+'.exe');observed.rename(temp)
+   r=self.inspect(root,pinned,temp,proc,hash)
+   self.assertEqual(r['status'],'inspected_read_only');self.assertTrue(r['matches_initial_sha256']);self.assertTrue(r['observed_signature_accepted'])
+ def test_temp_image_in_other_version_is_not_inspected(self):
+  with tempfile.TemporaryDirectory()as tmp:
+   root,pinned,observed,proc,hash=self.fixture(tmp);other=root/'Agent.9999';other.mkdir()
+   temp=other/('temp_'+('a'*32)+'.exe');observed.rename(temp)
+   def forbidden(*args):raise AssertionError('signature_unexpected')
+   r=self.inspect(root,pinned,temp,proc,hash,signature=forbidden)
+   self.assertEqual(r['status'],'path_refused');self.assertEqual(r['observed_bytes_hashed'],0)
  def test_outside_path_never_opened_or_signed(self):
   with tempfile.TemporaryDirectory()as tmp:
    root,pinned,observed,proc,hash=self.fixture(tmp)

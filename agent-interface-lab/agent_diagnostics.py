@@ -70,7 +70,9 @@ def relative_label(path,root):
 
 def scoped_file(path,root,is_reparse):
  if not path.is_absolute()or '..'in path.parts:return False
- if not path.name.lower().lstrip('_').startswith('agent')or '.exe'not in path.name.lower():return False
+ agent_name=path.name.lower().lstrip('_').startswith('agent')and '.exe'in path.name.lower()
+ temp_name=re.fullmatch(r'temp_[0-9a-f]{32}\.exe',path.name,re.I)is not None
+ if not agent_name and not temp_name:return False
  try:path.relative_to(root)
  except ValueError:return False
  # Test all lexical ancestors before opening anything. No link resolution first.
@@ -89,6 +91,9 @@ def inspect_transition(process,pinned,selected,root,initial_hash,process_image,l
    result['status']='outside_scope';result['path_relation']='outside_agent_root';return result
   result['path_relation']='same_as_pinned'if observed==pinned else'different_within_agent_root'
   result['observed_relative_path']=relative_label(observed,root)
+  is_temp=re.fullmatch(r'temp_[0-9a-f]{32}\.exe',observed.name,re.I)is not None
+  if is_temp and observed.parent!=pinned.parent:
+   result['status']='path_refused';return result
   if result['observed_relative_path']is None or not scoped_file(observed,root,is_reparse):
    result['status']='path_refused';return result
   result['observed_path_exists']=True
