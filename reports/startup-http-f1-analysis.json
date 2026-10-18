@@ -1,0 +1,68 @@
+{
+  "run_id": "39162766730",
+  "source_commit": "d65a2e226baaf4fe232fc9dfc83dcc559b3e1f61",
+  "receipt_commit": "411d9f0125a477284f8ca1ef318ca3435f32df52",
+  "raw_report_sha256": "217d28343e0aa5dd32e9245fe74aa57733bd9a2a8de38e47614c0094720dbe1c",
+  "status": "capture_parsed",
+  "error_code": null,
+  "captured_request_count": 3,
+  "hosts_with_complete_request_evidence": [
+    "level3.blizzard.com"
+  ],
+  "no_complete_request_evidence": [
+    "nydus.battle.net",
+    "ocsp.digicert.com",
+    "us.cdn.blizzard.com"
+  ],
+  "requests": [
+    {
+      "flow_id": 5,
+      "process_name": "battle.net-setup.exe",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt001/data/c8/56/c856402fe1c953bf80faeda4cfe6c234",
+      "headers": "[[\"host\", \"level3.blizzard.com\"], [\"range\", \"bytes=252585721-252585761\"], [\"accept\", \"*/*\"]]",
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "cpu_model_found_in_recorded_request": false
+    },
+    {
+      "flow_id": 6,
+      "process_name": "agent.exe",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/configs/data/e8/a9/e8a9e3b2b36cc844d7a26a18fce57792",
+      "headers": "[[\"host\", \"level3.blizzard.com\"], [\"user-agent\", \"agent/2.41.1.9824\"], [\"accept\", \"*/*\"]]",
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "cpu_model_found_in_recorded_request": false
+    },
+    {
+      "flow_id": 8,
+      "process_name": "agent.exe",
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "target": "/tpr/bnt002/config/97/16/9716142876376fa69386c7b79f78755f",
+      "headers": "[[\"host\", \"level3.blizzard.com\"], [\"accept\", \"*/*\"]]",
+      "body_observed_bytes": 0,
+      "body_complete": true,
+      "cpu_model_found_in_recorded_request": false
+    }
+  ],
+  "recorded_request_body_bytes_total": 0,
+  "cpu_model_found_in_recorded_requests": false,
+  "important_caveats": [
+    "Only observed requests, not all requests or destinations are covered.",
+    "Resource paths and byte ranges describe requested content, not necessarily unique hardware IDs.",
+    "Opaque 32-hex path values are not proof of per-machine fingerprinting or proof against it.",
+    "No response payload or server-side storage analysis.",
+    "No game update, A-to-B test or user-PC observation.",
+    "Empty captured streams do not prove an endpoint was silent or clean."
+  ],
+  "comparison_plan": [
+    {
+      "disposition": "prose",
+      "reason": "Three diagnostic requests, no comparable traffic-volume population."
+    }
+  ]
+}
