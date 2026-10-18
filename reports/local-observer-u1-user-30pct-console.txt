@@ -1,0 +1,29 @@
+Local Privacy Monitor U1 - observation, NOT a privacy firewall.
+It NEVER clicks Update/Pause/Play, signs in, edits game files or uploads reports.
+Read-only API hooks can affect timing or stability. No anti-cheat/game process is attached.
+Keep WoW CLOSED, game updates PAUSED and automatic game updates OFF.
+Self-test uses only an owned loopback worker. Certificate checks may contact certificate services.
+WoW folder containing .build.info [G:\World of Warcraft]: G:\World of Warcraft
+Observed Retail versions: 12.1.0.69933
+Confirm: backup exists; automatic game updates OFF; no game/account login; update is paused.
+Type CONFIRM, or anything else to stop: CONFIRM
+1. Observe only (hosts unchanged)
+2. Temporarily block ONLY telemetry-in.battle.net (H1 test)
+Choose 1 or 2: 2
+Type BLOCK to allow this one temporary hosts change: BLOCK
+Now open Battle.net yourself. Keep game update PAUSED and stay signed out.
+Waiting up to 180 seconds for a verified signed Agent with HTTP + SSPI hooks. DO NOT resume yet.
+READY FOR OBSERVATION ONLY - not a zero-telemetry guarantee.
+You may now manually resume Update if you choose. Initializing and downloading are both observed.
+No automatic Pause or cancellation. Maximum window: 4 hours.
+After update is finished OR manually paused, press Q here. Do not launch WoW while attached.
+API observation has now stopped; this program did not pause the update.
+Before ending observation/restoring hosts: ensure Update is finished or manually paused.
+1. Finished  2. Paused  3. Error/stopped  4. Unknown
+State (your answer, not independently proven): 2
+Local shareable report: output\report-20261018T224239Z.json
+Hosts restoration: restored_exactly
+Send ONLY the report JSON, never PRIVATE-RECOVERY or game/account files.
+Observation has ended. Restored hosts no longer blocks telemetry for ongoing Battle.net activity.
+
+Press any key to continue . . .

@@ -1,0 +1,173 @@
+{
+  "source": {
+    "report_filename": "report-20261018T224239Z.json",
+    "report_sha256": "f87b3a93ecdd92cef83bea4a0afc8ec3bedd2ab8c4dad727781554a2135e3b52",
+    "console_sha256": "e6a7b5d9e47b3a4a78947034f7e10902889d962b006147ccc0f0f220a5d801c0",
+    "provenance": "user-uploaded, not independently observed or signed",
+    "reported_started_utc": "2026-10-18T22:42:39.921135+00:00"
+  },
+  "user_statement": {
+    "download_progress_percent": 30,
+    "independently_measured": false
+  },
+  "report_status": "observation_ended",
+  "user_final_state": "reported_paused",
+  "mode": "block_telemetry",
+  "ready": true,
+  "initial_versions": {
+    "status": "read",
+    "retail_versions": [
+      "12.1.0.69933"
+    ]
+  },
+  "final_versions": {
+    "status": "read",
+    "retail_versions": [
+      "12.1.5.70448"
+    ]
+  },
+  "hosts": {
+    "changed_by_tool": true,
+    "restored": true,
+    "restore_status": "restored_exactly",
+    "resolution_after_apply": "loopback_only",
+    "resolution_at_end": "loopback_only"
+  },
+  "events": 1407,
+  "cpu_reference_available": true,
+  "cpu_literal_hits": 0,
+  "telemetry_host_hint_events": 0,
+  "host_hints": [
+    "127.0.0.1",
+    "breaking-news.support.blizzard.com",
+    "distribution.version.battle.net",
+    "level3.blizzard.com",
+    "level3.ssl.blizzard.com",
+    "oauth.battle.net",
+    "us.version.battle.net"
+  ],
+  "phase_counts": {
+    "before_user_update": 29,
+    "user_update_window": 1378
+  },
+  "successful_sspi_inputs": 20,
+  "elapsed_event_range_seconds": [
+    14.92,
+    294.89
+  ],
+  "aggregate_inputs": [
+    {
+      "host_hint": "127.0.0.1",
+      "api": "send",
+      "local_api_success": true,
+      "cpu_literal_match": false,
+      "input_events": 673
+    },
+    {
+      "host_hint": "breaking-news.support.blizzard.com",
+      "api": "EncryptMessage",
+      "local_api_success": true,
+      "cpu_literal_match": false,
+      "input_events": 2
+    },
+    {
+      "host_hint": "distribution.version.battle.net",
+      "api": "EncryptMessage",
+      "local_api_success": true,
+      "cpu_literal_match": false,
+      "input_events": 4
+    },
+    {
+      "host_hint": "level3.blizzard.com",
+      "api": "send",
+      "local_api_success": true,
+      "cpu_literal_match": false,
+      "input_events": 714
+    },
+    {
+      "host_hint": "level3.ssl.blizzard.com",
+      "api": "EncryptMessage",
+      "local_api_success": true,
+      "cpu_literal_match": false,
+      "input_events": 8
+    },
+    {
+      "host_hint": "oauth.battle.net",
+      "api": "EncryptMessage",
+      "local_api_success": true,
+      "cpu_literal_match": false,
+      "input_events": 2
+    },
+    {
+      "host_hint": "us.version.battle.net",
+      "api": "EncryptMessage",
+      "local_api_success": true,
+      "cpu_literal_match": false,
+      "input_events": 4
+    }
+  ],
+  "attached_processes": 12,
+  "agent_processes": [
+    {
+      "index": 2,
+      "pid": 2036,
+      "process_name": "agent.exe",
+      "sha256": "7d20ba6ef1d34a3cedbd7d3fd7c14228f173668a9a1e338351d529048de45079",
+      "authenticode_valid": true,
+      "blizzard_publisher": true,
+      "status": "not_attached",
+      "hook_ready": false,
+      "installed_hooks": [],
+      "script_errors": 0,
+      "input_events": 0,
+      "hook_limit_hit": false,
+      "late_attach": true,
+      "error_code": "attach_failed"
+    },
+    {
+      "index": 6,
+      "pid": 5712,
+      "process_name": "agent.exe",
+      "sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "authenticode_valid": true,
+      "blizzard_publisher": true,
+      "status": "attached",
+      "hook_ready": true,
+      "installed_hooks": [
+        "EncryptMessage",
+        "connect",
+        "WSAConnect",
+        "closesocket",
+        "send",
+        "WSASend"
+      ],
+      "script_errors": 0,
+      "input_events": 773,
+      "hook_limit_hit": false,
+      "late_attach": true,
+      "error_code": null
+    }
+  ],
+  "script_errors": 0,
+  "sampler_errors": 1,
+  "limits_hit": {
+    "event_detail": false,
+    "flows": false,
+    "processes": false,
+    "hooks": false
+  },
+  "all_late_attach": true,
+  "cpu_negative_not_zero_telemetry": true,
+  "whole_update_completion_proven": false,
+  "checks": {
+    "schema_validator": "VALID",
+    "event_aggregate_counts_reconciled": true,
+    "process_event_counts_reconciled": true,
+    "cpu_count_independently_reconciled": true
+  },
+  "profile_warning_resolution": "Nested single-report JSON was incorrectly flattened into 42 pseudo-rows by general profiler. Analysis uses explicit observation.events / processes arrays. Flattening duplicate/null/constant warnings are not missing samples or records to deduplicate. No events dropped or deduplicated.",
+  "visual_plan": {
+    "disposition": "prose",
+    "reason": "Diagnostic gate result, coverage limitations and version markers, not a quantitative comparative or trend question. Host counts are API-input observations, not traffic volumes or uploads."
+  }
+}
