@@ -1,75 +1,15 @@
 {
   "format": "updater-windows-transfer-ci-3",
-  "source_commit": "b352f423562a58fd3f937b606d15abc0319eb256",
+  "source_commit": "3bfad06f3547bd17f06b902535b17119bee3d1eb",
   "platform": "Windows",
   "python_version": "3.12.10",
   "tests_run": 476,
   "failures": 0,
-  "errors": 14,
+  "errors": 2,
   "skipped": 0,
   "passed": false,
   "expected_tests": 476,
   "failed_cases": [
-    {
-      "test_id": "test_changed_catalogue_bytes_refused (test_local_capture_admission.Cases.test_changed_catalogue_bytes_refused)",
-      "error_class": "InvalidRelease",
-      "winerror_codes": []
-    },
-    {
-      "test_id": "test_changed_full_content_key_refused (test_local_capture_admission.Cases.test_changed_full_content_key_refused)",
-      "error_class": "InvalidRelease",
-      "winerror_codes": []
-    },
-    {
-      "test_id": "test_changed_plan_bytes_refused (test_local_capture_admission.Cases.test_changed_plan_bytes_refused)",
-      "error_class": "InvalidRelease",
-      "winerror_codes": []
-    },
-    {
-      "test_id": "test_changed_target_refused (test_local_capture_admission.Cases.test_changed_target_refused)",
-      "error_class": "InvalidRelease",
-      "winerror_codes": []
-    },
-    {
-      "test_id": "test_closed_capture_refused (test_local_capture_admission.Cases.test_closed_capture_refused)",
-      "error_class": "InvalidRelease",
-      "winerror_codes": []
-    },
-    {
-      "test_id": "test_copy_corrupted_after_capture_refused (test_local_capture_admission.Cases.test_copy_corrupted_after_capture_refused)",
-      "error_class": "InvalidRelease",
-      "winerror_codes": []
-    },
-    {
-      "test_id": "test_fake_capture_refused_before_path_read (test_local_capture_admission.Cases.test_fake_capture_refused_before_path_read)",
-      "error_class": "InvalidRelease",
-      "winerror_codes": []
-    },
-    {
-      "test_id": "test_receipt_flag_does_not_grant_install (test_local_capture_admission.Cases.test_receipt_flag_does_not_grant_install)",
-      "error_class": "InvalidRelease",
-      "winerror_codes": []
-    },
-    {
-      "test_id": "test_source_generation_and_installation_still_not_claimed (test_local_capture_admission.Cases.test_source_generation_and_installation_still_not_claimed)",
-      "error_class": "InvalidRelease",
-      "winerror_codes": []
-    },
-    {
-      "test_id": "test_unknown_capture_subclass_refused (test_local_capture_admission.Cases.test_unknown_capture_subclass_refused)",
-      "error_class": "InvalidRelease",
-      "winerror_codes": []
-    },
-    {
-      "test_id": "test_unselected_key_refused (test_local_capture_admission.Cases.test_unselected_key_refused)",
-      "error_class": "InvalidRelease",
-      "winerror_codes": []
-    },
-    {
-      "test_id": "test_valid_copy_is_target_candidate_input (test_local_capture_admission.Cases.test_valid_copy_is_target_candidate_input)",
-      "error_class": "InvalidRelease",
-      "winerror_codes": []
-    },
     {
       "test_id": "test_mapped_ABA_is_not_proven_absent_by_equal_rounds (windows_mapping_cases.MappingCases.test_mapped_ABA_is_not_proven_absent_by_equal_rounds)",
       "error_class": "PermissionError",
