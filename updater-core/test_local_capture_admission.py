@@ -17,6 +17,19 @@ class Cases(unittest.TestCase):
   for stage in reversed(self.stages):stage.close()
  update_db=fixtures.Tests.update_db
  def review(self):return admit_capture(self.capture,self.plan,self.o)
+ def test_archive_capture_to_target_candidate_end_to_end(self):
+  from local_archive_capture import ArchiveReadRequest,capture_archive_stream
+  from test_local_archive_capture import archive_fixture
+  req=ArchiveReadRequest(self.cp.target,StreamObjectSpec(**self.spec.public()),3,700,'prefix30-agent9824',30+len(self.raw))
+  data=archive_fixture(self.raw,req.spec)
+  if os.name=='nt':
+   from windows_archive_capture import WindowsArchiveCapture
+   root=self.root/'owned-archive';p=root/'Data'/'data'/'data.003';p.parent.mkdir(parents=True);p.write_bytes(data)
+   with WindowsArchiveCapture(root)as reader:c,r=reader.capture(req,scratch=self.root)
+   p.write_bytes(b'source replaced after handle release')
+  else:c,r=capture_archive_stream(io.BytesIO(data),archive_size=len(data),request=req,scratch=self.root)
+  with c:
+   result=admit_capture(c,self.plan,self.o);self.assertTrue(result['eligible_as_verified_staging_input']);self.assertFalse(result['installed_content_reuse_authorized']);self.assertFalse(result['apply_authorized']);self.assertEqual(r['archive_application_content_bytes_read'],req.span)
  def test_valid_copy_is_target_candidate_input(self):
   r=self.review();self.assertTrue(r['eligible_as_verified_staging_input']);self.assertEqual(r['verified_staging_input_bytes'],len(self.raw));self.assertFalse(r['generation_proof_needed_for_copied_content_identity'])
  def test_source_generation_and_installation_still_not_claimed(self):
