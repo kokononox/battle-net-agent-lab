@@ -56,7 +56,8 @@ def review_tags(install_tags,install_count,download_tags,download_count,profile)
   for name,(kind,bits)in sorted(table.items()):
    if kind!=16384:continue
    bi=int.from_bytes(bits,'big');feature.append({'tag':name,'kind':kind,'selected_members':(mi&bi).bit_count(),'selected_nonmembers':(mi&~bi).bit_count(),'meaning_and_preference_qualified':False})
-  reviews[label]={'records':count,'selected_records':selection['selected_records'],'bitmap_sha256':selection['bitmap_sha256'],'unresolved_feature_tags':feature}
+  from selection_semantics import discriminate
+  reviews[label]={'records':count,'selected_records':selection['selected_records'],'bitmap_sha256':selection['bitmap_sha256'],'unresolved_feature_tags':feature,'semantic_discrimination':discriminate(tags,count,p,mask)}
  return expression,masks,{'format':'typed-profile-selection-review-1','profile':p,'expression':expression,'expression_generated_from_typed_dimensions':True,'optional_missing_dimensions_allowed':False,'schema_name_and_kind_agreement':True,'manifest_tag_schema':[{'name':n,'kind':k}for n,(k,b)in sorted(it.items())],'manifests':reviews,'vendor_selection_policy_qualified':False,'fresh_installed_preferences_proven':False,'dependency_and_variant_policy_qualified':False,'patch_route_policy_qualified':False,'required_set_selected':False,'promotion_to_required_set_permitted':False,'blockers':['independent_vendor_selection_policy_not_qualified','live_installed_preferences_not_proven','dependency_variant_and_patch_policy_not_qualified']+(['feature_tag_meanings_and_preferences_not_qualified']if any(k==16384 for k,b in it.values())else[]),'required_network_download_bytes':None,'network_requests':0,'game_access':False,'installation_ready':False,'apply_authorized':False}
 
 def review_existing_candidate(base,objects,plan_dir,profile):
