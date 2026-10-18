@@ -1,21 +1,73 @@
 {
   "format": "updater-windows-scratch-ci-2",
-  "source_commit": "531f95f8ccae807d078efd2876c00f86fd54d0dd",
+  "source_commit": "5b346620175874f2bdbc4fa183fc23346cdb76b0",
   "platform": "Windows",
   "python_version": "3.12.10",
-  "tests_run": 111,
+  "tests_run": 121,
   "failures": 0,
-  "errors": 0,
+  "errors": 10,
   "skipped": 0,
-  "passed": true,
-  "expected_tests": 111,
-  "failed_cases": [],
-  "native_windows_stage_synthetic_tests_passed": true,
+  "passed": false,
+  "expected_tests": 121,
+  "failed_cases": [
+    {
+      "test_id": "test_changed_catalogue_not_admitted (windows_admission_cases.WindowsAdmissionTests.test_changed_catalogue_not_admitted)",
+      "error_class": "TypeError",
+      "winerror_codes": []
+    },
+    {
+      "test_id": "test_changed_target_not_admitted (windows_admission_cases.WindowsAdmissionTests.test_changed_target_not_admitted)",
+      "error_class": "TypeError",
+      "winerror_codes": []
+    },
+    {
+      "test_id": "test_closed_guard_not_admitted (windows_admission_cases.WindowsAdmissionTests.test_closed_guard_not_admitted)",
+      "error_class": "TypeError",
+      "winerror_codes": []
+    },
+    {
+      "test_id": "test_corrupt_payload_not_admitted (windows_admission_cases.WindowsAdmissionTests.test_corrupt_payload_not_admitted)",
+      "error_class": "TypeError",
+      "winerror_codes": []
+    },
+    {
+      "test_id": "test_freshly_verified_native_input (windows_admission_cases.WindowsAdmissionTests.test_freshly_verified_native_input)",
+      "error_class": "TypeError",
+      "winerror_codes": []
+    },
+    {
+      "test_id": "test_native_full_ckey_mismatch_not_admitted (windows_admission_cases.WindowsAdmissionTests.test_native_full_ckey_mismatch_not_admitted)",
+      "error_class": "TypeError",
+      "winerror_codes": []
+    },
+    {
+      "test_id": "test_receipt_cannot_grant_apply (windows_admission_cases.WindowsAdmissionTests.test_receipt_cannot_grant_apply)",
+      "error_class": "TypeError",
+      "winerror_codes": []
+    },
+    {
+      "test_id": "test_restored_metadata_still_reverified (windows_admission_cases.WindowsAdmissionTests.test_restored_metadata_still_reverified)",
+      "error_class": "TypeError",
+      "winerror_codes": []
+    },
+    {
+      "test_id": "test_unknown_subclass_refused_before_io (windows_admission_cases.WindowsAdmissionTests.test_unknown_subclass_refused_before_io)",
+      "error_class": "TypeError",
+      "winerror_codes": []
+    },
+    {
+      "test_id": "test_unselected_object_not_admitted (windows_admission_cases.WindowsAdmissionTests.test_unselected_object_not_admitted)",
+      "error_class": "TypeError",
+      "winerror_codes": []
+    }
+  ],
+  "native_windows_stage_synthetic_tests_passed": false,
   "test_modules": [
     "test_stream_blte",
     "test_required_set",
     "test_selection_policy.Pure",
-    "windows_stage_cases"
+    "windows_stage_cases",
+    "windows_admission_cases"
   ],
   "scope": "synthetic_windows_owned_staging_and_portable_parser",
   "game_access": false,
