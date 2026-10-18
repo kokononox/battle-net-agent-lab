@@ -1,0 +1,70 @@
+{
+  "format": "approved-pinned-metadata-recovery-1",
+  "status": "three_metadata_objects_identity_and_blte_verified",
+  "target": {
+    "scope": {
+      "product": "wow",
+      "branch": "retail",
+      "region": "eu"
+    },
+    "version": "12.1.5.70448",
+    "build_id": 70448,
+    "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+    "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+    "origins": [
+      "https://level3.ssl.blizzard.com"
+    ],
+    "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+    "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+  },
+  "max_requests": 3,
+  "body_ceiling_bytes": 251510113,
+  "automatic_retries": 0,
+  "redirects": 0,
+  "game_asset_requests": 0,
+  "game_access": false,
+  "game_writes": false,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "metadata": [
+    {
+      "name": "install",
+      "encoded_bytes": 23106,
+      "decoded_bytes": 24078,
+      "ckey": "bfed494c95462d5e9455b75253946bd9",
+      "decoded_sha256": "9992fcadbd41f0e3170a23b60f19ac45e870014887d81c05060ec1607b2c0957",
+      "ekey": "d10563defeec2e7649ecaa7ae2d59a6a",
+      "blte_chunks_verified": 2,
+      "decoded_readback_verified": true,
+      "encoded_file_sha256": "08f7490350e63e80345b12d19b3db72d77169b4382b1a119f11562d734d8b268",
+      "encoded_file_md5_not_always_ekey": "091217b06d2c9f42016b816987000efb"
+    },
+    {
+      "name": "download",
+      "encoded_bytes": 63424635,
+      "decoded_bytes": 74562380,
+      "ckey": "112d2678b8526ae35bd9ab73c95f2de0",
+      "decoded_sha256": "ed2606c609881db971547a240ab8b68c8a1d0bc1ed060808adf96da62b25fd4b",
+      "ekey": "ce25548a1b6da8a9a7227924b8d20f2c",
+      "blte_chunks_verified": 3,
+      "decoded_readback_verified": true,
+      "encoded_file_sha256": "f39104333ca5c8fd00e4712314ece624dfe346751bd9cb5fad070392de7e906e",
+      "encoded_file_md5_not_always_ekey": "c43980d400270c282b5ad034235b659f"
+    },
+    {
+      "name": "encoding",
+      "encoded_bytes": 188062372,
+      "decoded_bytes": 200255766,
+      "ckey": "c36d0a7a0645d12c52932ec8c8f7fea2",
+      "decoded_sha256": "b148cb4a900e6ef4caebc2a0e2e199d93af2fac2c79a55a15de75afcdd0ef9d8",
+      "ekey": "6e9260e140bd5f5b116d47229e937993",
+      "blte_chunks_verified": 7,
+      "decoded_readback_verified": true,
+      "encoded_file_sha256": "fd04ce39ea4495b1a2fa7eac93876708cbf6b930f71f434fd38b9920e0fe42ca",
+      "encoded_file_md5_not_always_ekey": "354b42af7444134c0aaba33b4c986cea"
+    }
+  ],
+  "network_requests": 3,
+  "application_body_bytes_read": 251510113,
+  "at_utc": "2026-10-18T00:36:31.037533+00:00"
+}

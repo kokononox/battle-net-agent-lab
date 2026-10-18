@@ -1,0 +1,170 @@
+{
+  "format": "copied-control-sequence-review-1",
+  "status": "copied_control_geometry_and_index_inventory_consistent",
+  "protocol": 5,
+  "sha256": "3eccad40a8ad14e05008e34bde4e3e979db5a82a5ef646f43ef3b8615ab63961",
+  "copied_member_bytes": 20480,
+  "declared_header_bytes": 340,
+  "payload_offset": 4096,
+  "payload_bytes": 10936,
+  "v5_flags_profile_value": 2,
+  "extension_bitmap_profile_value": 1,
+  "extension_observations": [
+    {
+      "slot": 0,
+      "bytes": 552,
+      "recognized_diagnostic_state": true,
+      "raw_contents_exported": false,
+      "full_semantics_proven": false
+    }
+  ],
+  "primary_observation": {
+    "research_state": 1,
+    "state_label": "state_one_observed_NOT_health_proof",
+    "record_count_opaque_allocation_semantics": 1031,
+    "record_count_is_NOT_archive_count": true,
+    "rollback_pending_observed": false,
+    "arrays_or_saved_values_exported": false
+  },
+  "matched_buckets": 16,
+  "expected_buckets": 16,
+  "sequence_observations": [
+    {
+      "bucket": 0,
+      "sequence": 200,
+      "sequence_filename": "00000000c8.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 1,
+      "sequence": 181,
+      "sequence_filename": "01000000b5.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 2,
+      "sequence": 181,
+      "sequence_filename": "02000000b5.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 3,
+      "sequence": 195,
+      "sequence_filename": "03000000c3.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 4,
+      "sequence": 171,
+      "sequence_filename": "04000000ab.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 5,
+      "sequence": 194,
+      "sequence_filename": "05000000c2.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 6,
+      "sequence": 191,
+      "sequence_filename": "06000000bf.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 7,
+      "sequence": 150,
+      "sequence_filename": "0700000096.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 8,
+      "sequence": 217,
+      "sequence_filename": "08000000d9.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 9,
+      "sequence": 174,
+      "sequence_filename": "09000000ae.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 10,
+      "sequence": 179,
+      "sequence_filename": "0a000000b3.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 11,
+      "sequence": 182,
+      "sequence_filename": "0b000000b6.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 12,
+      "sequence": 202,
+      "sequence_filename": "0c000000ca.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 13,
+      "sequence": 203,
+      "sequence_filename": "0d000000cb.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 14,
+      "sequence": 149,
+      "sequence_filename": "0e00000095.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    },
+    {
+      "bucket": 15,
+      "sequence": 147,
+      "sequence_filename": "0f00000093.idx",
+      "file_in_uploaded_inventory": true,
+      "inventory_has_newer_sequence": false
+    }
+  ],
+  "name_field_exported": false,
+  "name_source_binding_proven": false,
+  "live_game_access": false,
+  "live_generation_proven": false,
+  "coherent_live_snapshot_proven": false,
+  "requires_repair_proven": false,
+  "required_download_bytes": null,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "source_reference": "https://github.com/kokononox/battle-net-agent-lab/blob/7916903f5378f72a28f745fd30fe3ae11670451a/downloader/patch_audit_lab/shmem_readonly.py",
+  "source_zip_sha256": "a939aca051a353378e56d866baea6dfb99295d448839e45257807b9951c34850",
+  "member": "shmem",
+  "scope": "user-approved copied member only; no live-game access",
+  "approval_record": "User yes after explicit offline 20480-byte copied-shmem request",
+  "independent_sequence_comparison_passed": true,
+  "index_payload_members_opened_this_review": 0,
+  "lru_bytes_read_this_review": 0,
+  "archive_payload_bytes_read_this_review": 0,
+  "network_requests": 0,
+  "game_modified": false,
+  "permission_changes": false,
+  "member_content_budget": 20480,
+  "copied_member_read_passes_this_phase": 2,
+  "copied_shmem_logical_bytes_read_total_this_phase": 40960,
+  "logical_read_passes_explanation": "One bounded preflight plus one bounded full observer pass, both on the same uploaded 20480-byte member; no live game read"
+}

@@ -1,0 +1,126 @@
+{
+  "format": "offline-target-candidate-plan-1",
+  "status": "candidate_selection_and_crosswalk_checked_NOT_vendor_required_set",
+  "target": {
+    "scope": {
+      "product": "wow",
+      "branch": "retail",
+      "region": "eu"
+    },
+    "version": "12.1.5.70448",
+    "build_id": 70448,
+    "build_config": "88d5e8ef05ec5a8446cdec93d142d7c6",
+    "cdn_config": "f065eade5276a5ac05606e60a4c5a1f7",
+    "origins": [
+      "https://level3.ssl.blizzard.com"
+    ],
+    "versions_sha256": "88824e3367bc0c446e0c2877990fc6170169b3cd56b9a7754034bb095adad407",
+    "cdns_sha256": "b7ef75108cc94acfe46d7ef2101488c2c33155b15a291e1d2b010b021018b540"
+  },
+  "source_metadata_sha256": {
+    "install": "9992fcadbd41f0e3170a23b60f19ac45e870014887d81c05060ec1607b2c0957",
+    "download": "ed2606c609881db971547a240ab8b68c8a1d0bc1ed060808adf96da62b25fd4b",
+    "encoding": "b148cb4a900e6ef4caebc2a0e2e199d93af2fac2c79a55a15de75afcdd0ef9d8"
+  },
+  "source_catalogue_sha256": "51fb47fe60bf6b7cbba3cb858b9db0a12552bd67a017c260dea144ddc1a207aa",
+  "install_selection": {
+    "format": "candidate-tag-selection-1",
+    "expression": "Windows x86_64 EU? enUS speech?:Windows x86_64 EU? enUS text?",
+    "manifest_records": 274,
+    "selected_records": 39,
+    "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+    "clauses": [
+      {
+        "used_tags": [
+          "Windows",
+          "x86_64",
+          "EU",
+          "enUS",
+          "speech"
+        ],
+        "optional_tags_absent": [],
+        "selected_records": 39
+      },
+      {
+        "used_tags": [
+          "Windows",
+          "x86_64",
+          "EU",
+          "enUS",
+          "text"
+        ],
+        "optional_tags_absent": [],
+        "selected_records": 39
+      }
+    ],
+    "bit_order": "MSB-first",
+    "semantics": "candidate OR of AND clauses; optional absent ignored with audit",
+    "vendor_policy_qualified": false,
+    "required_set_selected": false,
+    "installation_ready": false,
+    "apply_authorized": false
+  },
+  "download_selection": {
+    "format": "candidate-tag-selection-1",
+    "expression": "Windows x86_64 EU? enUS speech?:Windows x86_64 EU? enUS text?",
+    "manifest_records": 2881628,
+    "selected_records": 1578022,
+    "bitmap_sha256": "59a99da1e71380f03eea22f89f80422d5bdcc713a16cf599d4a3eee2f291dd79",
+    "clauses": [
+      {
+        "used_tags": [
+          "Windows",
+          "x86_64",
+          "EU",
+          "enUS",
+          "speech"
+        ],
+        "optional_tags_absent": [],
+        "selected_records": 1560743
+      },
+      {
+        "used_tags": [
+          "Windows",
+          "x86_64",
+          "EU",
+          "enUS",
+          "text"
+        ],
+        "optional_tags_absent": [],
+        "selected_records": 1449908
+      }
+    ],
+    "bit_order": "MSB-first",
+    "semantics": "candidate OR of AND clauses; optional absent ignored with audit",
+    "vendor_policy_qualified": false,
+    "required_set_selected": false,
+    "installation_ready": false,
+    "apply_authorized": false
+  },
+  "selected_install_paths": 39,
+  "selected_download_objects": 1578022,
+  "candidate_encoded_bytes_if_all_selected_objects_missing": 132638072244,
+  "independent_per_bit_reference_agrees": true,
+  "crosswalk_checks": {
+    "download_without_encoding": 0,
+    "download_size_conflicts": 0,
+    "install_without_selected_download_route": 0
+  },
+  "expression_origin": "public historical profile subset; not live installation preferences",
+  "private_optional_qualifiers_omitted": true,
+  "vendor_policy_qualified": false,
+  "required_set_selected": false,
+  "active_generation_proven": false,
+  "fresh_local_reuse_proven": false,
+  "required_network_download_bytes": null,
+  "network_requests": 0,
+  "game_access": false,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "at_utc": "2026-10-18T00:38:44.335161+00:00",
+  "database": {
+    "bytes": 91103232,
+    "sha256": "2078c6d2bde0e852d5c7b466bf5fe2157067d5014532965f67ed80d8d8a7be28",
+    "integrity_check": "ok"
+  }
+}

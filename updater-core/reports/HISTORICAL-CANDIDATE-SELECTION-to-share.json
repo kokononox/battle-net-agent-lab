@@ -1,0 +1,116 @@
+{
+  "format": "historical-candidate-required-set-review-1",
+  "status": "candidate_filters_and_windows_paths_checked_NOT_required_set",
+  "historical_build_name": "WOW-70391patch12.1.5_Retail",
+  "current_target_replaced": false,
+  "input_identity": {
+    "install": {
+      "decoded_bytes": 24078,
+      "ckey_verified": true,
+      "decoded_sha256": "1e9a735e4ec5ffe7fc10b9f39e347cf6f9745a89d15ba700a3982399644d92a6"
+    },
+    "download": {
+      "decoded_bytes": 74562151,
+      "ckey_verified": true,
+      "decoded_sha256": "02f0ccb262e1a202e8beaf89ee9011a800b37f29cb34edbc36fe600204686ce1"
+    }
+  },
+  "install_selection": {
+    "format": "candidate-tag-selection-1",
+    "expression": "Windows x86_64 EU? enUS speech?:Windows x86_64 EU? enUS text?",
+    "manifest_records": 274,
+    "selected_records": 39,
+    "bitmap_sha256": "795ee0c7d0c9a88ea809f34d6d79fc3b5aa66211921d95c67f545ee7ff5f382d",
+    "clauses": [
+      {
+        "used_tags": [
+          "Windows",
+          "x86_64",
+          "EU",
+          "enUS",
+          "speech"
+        ],
+        "optional_tags_absent": [],
+        "selected_records": 39
+      },
+      {
+        "used_tags": [
+          "Windows",
+          "x86_64",
+          "EU",
+          "enUS",
+          "text"
+        ],
+        "optional_tags_absent": [],
+        "selected_records": 39
+      }
+    ],
+    "bit_order": "MSB-first",
+    "semantics": "candidate OR of AND clauses; optional absent ignored with audit",
+    "vendor_policy_qualified": false,
+    "required_set_selected": false,
+    "installation_ready": false,
+    "apply_authorized": false
+  },
+  "install_candidate_paths_checked": 39,
+  "download_selection": {
+    "format": "candidate-tag-selection-1",
+    "expression": "Windows x86_64 EU? enUS speech?:Windows x86_64 EU? enUS text?",
+    "manifest_records": 2881619,
+    "selected_records": 1578013,
+    "bitmap_sha256": "dcbb3ae6d5656e7b8bddd6721deff91808285bd32059a3ad06fcac09d49aadaf",
+    "clauses": [
+      {
+        "used_tags": [
+          "Windows",
+          "x86_64",
+          "EU",
+          "enUS",
+          "speech"
+        ],
+        "optional_tags_absent": [],
+        "selected_records": 1560734
+      },
+      {
+        "used_tags": [
+          "Windows",
+          "x86_64",
+          "EU",
+          "enUS",
+          "text"
+        ],
+        "optional_tags_absent": [],
+        "selected_records": 1449899
+      }
+    ],
+    "bit_order": "MSB-first",
+    "semantics": "candidate OR of AND clauses; optional absent ignored with audit",
+    "vendor_policy_qualified": false,
+    "required_set_selected": false,
+    "installation_ready": false,
+    "apply_authorized": false
+  },
+  "download_candidate_summary": {
+    "selected_records": 1578013,
+    "unique_encoded_object_bytes_if_all_selected_candidates_missing": 132637194719,
+    "priority_counts": {
+      "0": 1287,
+      "1": 1240747,
+      "2": 335979
+    },
+    "required_network_download_bytes": null,
+    "reuse_proven": false,
+    "vendor_policy_qualified": false,
+    "installation_ready": false,
+    "apply_authorized": false
+  },
+  "private_optional_qualifiers_omitted": true,
+  "vendor_policy_qualified": false,
+  "required_set_selected": false,
+  "fresh_local_reuse_proven": false,
+  "required_network_download_bytes": null,
+  "network_requests": 0,
+  "game_access": false,
+  "installation_ready": false,
+  "apply_authorized": false
+}

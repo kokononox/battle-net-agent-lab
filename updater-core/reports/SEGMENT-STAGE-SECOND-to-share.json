@@ -1,0 +1,26 @@
+{
+  "format": "bounded-segment-stage-summary-1",
+  "identity": "17f526e6f29f96ac1ef58a35df3601dd1f18be012bf2e6750822f3c1c84b54eb",
+  "committed_bytes": 52,
+  "segments": 2,
+  "payload_in_journal": false,
+  "network_requests": 0,
+  "installation_ready": false,
+  "apply_authorized": false,
+  "phase": "second",
+  "evidence": "offline replay of previously verified CDN object, no additional network",
+  "baseline_evidence": "historical metadata, not live installation",
+  "proof": {
+    "full_ekey_verified": true,
+    "blte_chunk_checksums_verified": true,
+    "full_ckey_verified": true,
+    "decoded_bytes": 64,
+    "decoded_sha256": "ebf6d6702daa7e4953d4a7a9c05bbfa624f9cd7028df93d482707c985d12c1f7",
+    "blte_chunks": 1,
+    "encoded_sha256": "d5d887f2c0fecd01c82bf346d8502e59cabd00f9cc353fb30b0161d136c7d284",
+    "file_backed_segments": true,
+    "installation_ready": false,
+    "apply_authorized": false
+  },
+  "restored_in_separate_process": true
+}
