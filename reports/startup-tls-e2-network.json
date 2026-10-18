@@ -1,0 +1,764 @@
+{
+  "schema": "bnet-network-metadata-1",
+  "source_commit": "5ec075aaefed9eb9dc6c33203b9b9332a982d8d9",
+  "run_id": "39161239853",
+  "scope": "startup_language_only_no_account_game_or_install_action",
+  "capture": {
+    "start_code": 0,
+    "stop_code": 0,
+    "convert_code": 0,
+    "etl_bytes": 3637369,
+    "pcapng_bytes": 6705364,
+    "parse_status": "parsed",
+    "raw_files_exported": false,
+    "requested_etl_megabytes": 32,
+    "requested_packet_bytes": 1536,
+    "logging_mode": "circular"
+  },
+  "dns_probe_before": {
+    "status": "not_started",
+    "category": "none",
+    "hresult": 0,
+    "row_count": 0,
+    "old_json_shape": "not_tested"
+  },
+  "dns_probe_after": {
+    "status": "not_started",
+    "category": "none",
+    "hresult": 0,
+    "row_count": 0,
+    "old_json_shape": "not_tested"
+  },
+  "sampler": {
+    "samples": 1105,
+    "errors": 0,
+    "flow_limit_hit": false
+  },
+  "packet_stats": {
+    "packets": 8832,
+    "truncated_packets": 3477
+  },
+  "flows": [
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "3.219.186.109",
+      "port": 80,
+      "matched_outbound_packet_observations": 6,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "nydus.battle.net"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "136.110.153.89",
+      "port": 443,
+      "matched_outbound_packet_observations": 16,
+      "prefix_gap": true,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "telemetry-in.battle.net"
+      ],
+      "tls_sni": "telemetry-in.battle.net",
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "8.232.70.12",
+      "port": 443,
+      "matched_outbound_packet_observations": 12,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "us.version.battle.net",
+        "versionpyfrog.usprod.version.battle.net"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "8.232.70.12",
+      "port": 443,
+      "matched_outbound_packet_observations": 14,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "us.version.battle.net",
+        "versionpyfrog.usprod.version.battle.net"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "137.221.64.4",
+      "port": 80,
+      "matched_outbound_packet_observations": 10,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "cdn.blizzard.com",
+        "us.cdn.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "us.cdn.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "137.221.64.5",
+      "port": 80,
+      "matched_outbound_packet_observations": 6,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "cdn.blizzard.com",
+        "us.cdn.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "us.cdn.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "137.221.64.1",
+      "port": 80,
+      "matched_outbound_packet_observations": 6,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "cdn.blizzard.com",
+        "us.cdn.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "us.cdn.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "137.221.64.4",
+      "port": 80,
+      "matched_outbound_packet_observations": 16,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "cdn.blizzard.com",
+        "us.cdn.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "us.cdn.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "23.11.232.12",
+      "port": 80,
+      "matched_outbound_packet_observations": 10,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "level3.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "137.221.64.8",
+      "port": 80,
+      "matched_outbound_packet_observations": 14,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "cdn.blizzard.com",
+        "us.cdn.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "us.cdn.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "23.11.232.10",
+      "port": 80,
+      "matched_outbound_packet_observations": 10,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "level3.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "23.11.232.12",
+      "port": 80,
+      "matched_outbound_packet_observations": 8,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "level3.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "137.221.64.8",
+      "port": 80,
+      "matched_outbound_packet_observations": 6,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "cdn.blizzard.com",
+        "us.cdn.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "us.cdn.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "137.221.64.4",
+      "port": 80,
+      "matched_outbound_packet_observations": 118,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "cdn.blizzard.com",
+        "us.cdn.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "us.cdn.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "137.221.64.2",
+      "port": 80,
+      "matched_outbound_packet_observations": 402,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "cdn.blizzard.com",
+        "us.cdn.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "136.110.153.89",
+      "port": 443,
+      "matched_outbound_packet_observations": 14,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "telemetry-in.battle.net"
+      ],
+      "tls_sni": "telemetry-in.battle.net",
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 7056,
+      "address": "23.11.33.159",
+      "port": 80,
+      "matched_outbound_packet_observations": 4,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "eip-terr-na.cdp1.digicert.com.akahost.net",
+        "ocsp.digicert.com"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "3.219.186.109",
+      "port": 80,
+      "matched_outbound_packet_observations": 4,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "nydus.battle.net"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "8.232.70.12",
+      "port": 443,
+      "matched_outbound_packet_observations": 18,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "us.version.battle.net",
+        "versionpyfrog.usprod.version.battle.net"
+      ],
+      "tls_sni": "us.version.battle.net",
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "136.110.153.89",
+      "port": 443,
+      "matched_outbound_packet_observations": 10,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "telemetry-in.battle.net"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "8.232.70.12",
+      "port": 443,
+      "matched_outbound_packet_observations": 8,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "us.version.battle.net",
+        "versionpyfrog.usprod.version.battle.net"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "23.46.228.80",
+      "port": 80,
+      "matched_outbound_packet_observations": 12,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com",
+        "level3.ssl.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "level3.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "23.11.232.12",
+      "port": 80,
+      "matched_outbound_packet_observations": 258,
+      "prefix_gap": true,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "level3.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "23.11.232.12",
+      "port": 80,
+      "matched_outbound_packet_observations": 626,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "level3.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "23.11.232.12",
+      "port": 80,
+      "matched_outbound_packet_observations": 20,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "level3.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "23.11.232.10",
+      "port": 80,
+      "matched_outbound_packet_observations": 286,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "level3.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "23.11.232.10",
+      "port": 80,
+      "matched_outbound_packet_observations": 384,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "level3.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "23.11.232.10",
+      "port": 80,
+      "matched_outbound_packet_observations": 6,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "137.221.64.8",
+      "port": 80,
+      "matched_outbound_packet_observations": 8,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "cdn.blizzard.com",
+        "us.cdn.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "137.221.64.8",
+      "port": 80,
+      "matched_outbound_packet_observations": 10,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "cdn.blizzard.com",
+        "us.cdn.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "us.cdn.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "137.221.64.8",
+      "port": 80,
+      "matched_outbound_packet_observations": 10,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "cdn.blizzard.com",
+        "us.cdn.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "us.cdn.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "agent.exe",
+      "pid": 3452,
+      "address": "8.232.70.12",
+      "port": 443,
+      "matched_outbound_packet_observations": 24,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "us.version.battle.net",
+        "versionpyfrog.usprod.version.battle.net"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "agent.exe",
+      "pid": 3452,
+      "address": "8.232.70.12",
+      "port": 443,
+      "matched_outbound_packet_observations": 10,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "us.version.battle.net",
+        "versionpyfrog.usprod.version.battle.net"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "agent.exe",
+      "pid": 3452,
+      "address": "8.232.70.12",
+      "port": 443,
+      "matched_outbound_packet_observations": 18,
+      "prefix_gap": true,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "us.version.battle.net",
+        "versionpyfrog.usprod.version.battle.net"
+      ],
+      "tls_sni": "us.version.battle.net",
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "agent.exe",
+      "pid": 3452,
+      "address": "8.232.70.12",
+      "port": 443,
+      "matched_outbound_packet_observations": 12,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "us.version.battle.net",
+        "versionpyfrog.usprod.version.battle.net"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "agent.exe",
+      "pid": 3452,
+      "address": "23.46.228.80",
+      "port": 80,
+      "matched_outbound_packet_observations": 16,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com",
+        "level3.ssl.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "agent.exe",
+      "pid": 3452,
+      "address": "136.110.153.89",
+      "port": 443,
+      "matched_outbound_packet_observations": 14,
+      "prefix_gap": true,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "telemetry-in.battle.net"
+      ],
+      "tls_sni": "telemetry-in.battle.net",
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "agent.exe",
+      "pid": 3452,
+      "address": "23.11.232.12",
+      "port": 80,
+      "matched_outbound_packet_observations": 32,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com"
+      ],
+      "tls_sni": null,
+      "http_host": "level3.blizzard.com",
+      "http_method": "GET",
+      "cache_candidates": []
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "pid": 8108,
+      "address": "136.110.153.89",
+      "port": 443,
+      "matched_outbound_packet_observations": 16,
+      "prefix_gap": false,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "telemetry-in.battle.net"
+      ],
+      "tls_sni": "telemetry-in.battle.net",
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    },
+    {
+      "process_name": "agent.exe",
+      "pid": 3452,
+      "address": "136.110.153.89",
+      "port": 443,
+      "matched_outbound_packet_observations": 10,
+      "prefix_gap": true,
+      "prefix_limit_hit": false,
+      "dns_candidates": [
+        "telemetry-in.battle.net"
+      ],
+      "tls_sni": "telemetry-in.battle.net",
+      "http_host": null,
+      "http_method": null,
+      "cache_candidates": []
+    }
+  ],
+  "binary_hints": [
+    {
+      "role": "bootstrap",
+      "sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+      "fixed_string_hints": {
+        "schannel.dll": false,
+        "secur32.dll": true,
+        "winhttp.dll": true,
+        "wininet.dll": true,
+        "libssl": false,
+        "libcurl": true,
+        "sslkeylogfile": false
+      }
+    },
+    {
+      "role": "agent_file_candidate",
+      "sha256": "7d20ba6ef1d34a3cedbd7d3fd7c14228f173668a9a1e338351d529048de45079",
+      "fixed_string_hints": {
+        "schannel.dll": false,
+        "secur32.dll": false,
+        "winhttp.dll": false,
+        "wininet.dll": false,
+        "libssl": false,
+        "libcurl": false,
+        "sslkeylogfile": false
+      }
+    }
+  ],
+  "bootstrap_status": "agent_process_observed",
+  "bootstrap_error_code": null,
+  "limits": {
+    "decryption_performed": false,
+    "keylog_experiment_repeated": false,
+    "raw_headers_urls_bodies_exported": false,
+    "no_hardware_privacy_guarantee": true,
+    "no_game_update_test": true,
+    "sampling_can_miss_connections": true,
+    "tuple_correlation_not_cryptographic_pid_proof": true,
+    "dns_candidates_not_hostname_proof": true,
+    "nic_duplicates_retransmissions_offload_possible": true,
+    "packet_counts_not_requests_or_wire_byte_totals": true,
+    "initial_contiguous_prefix_only": true,
+    "fragments_ipv6_extensions_quic_doh_not_decoded": true,
+    "circular_capture_may_lose_early_packets": true,
+    "sni_may_be_outer_name_under_ech": true,
+    "bootstrap_child_network_hard_byte_cap": false
+  }
+}
