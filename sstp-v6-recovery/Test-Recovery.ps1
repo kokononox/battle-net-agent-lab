@@ -3,12 +3,17 @@ Set-StrictMode -Version 2.0
 $ErrorActionPreference='Stop'
 . (Join-Path $PSScriptRoot 'Overlay.ps1')
 . (Join-Path $PSScriptRoot 'Resume.ps1')
-$script:checks=0;$script:sets=0;$script:cleaned=0
+$script:checks=0;$script:sets=0;$script:cleaned=0;$script:childError=$null
 function Check($Value){if(-not $Value){throw ('resume_check_'+($script:checks+1))};$script:checks++}
 function Reject([scriptblock]$Code,[string]$Expected){$got='';try{& $Code|Out-Null}catch{$got=$_.Exception.Message};Check ($got -ceq $Expected)}
 function FreshResume([string]$Root,[string]$Fault='None',[int]$Code=0){
  $p=Start-Process -FilePath (Join-Path $PSHOME 'powershell.exe') -ArgumentList @('-NoLogo','-NoProfile','-ExecutionPolicy','Bypass','-File',('"'+(Join-Path $PSScriptRoot 'Test-ResumeWorker.ps1')+'"'),'-Root',('"'+$Root+'"'),'-Fault',$Fault) -WindowStyle Hidden -Wait -PassThru
- Check ($p.ExitCode -eq $Code)
+ $ok=$p.HasExited -and $p.ExitCode -eq $Code
+ if(-not $ok){
+  $outcome=Join-Path $Root 'resume-worker-result.json'
+  if([IO.File]::Exists($outcome)){$script:childError=ConvertFrom-Json -InputObject ([IO.File]::ReadAllText($outcome))}
+ }
+ Check $ok
 }
 function MakePending([string]$Root,[bool]$LeaveV6){
  NewOverlay $Root @('192.0.2.1','2001:db8::1') -Scope Fixture -FixtureProgram $script:program|Out-Null
@@ -70,7 +75,7 @@ try{
  $r.error_code='resume_test_failed';if($_.Exception.Message -cmatch '^(resume|overlay|journal)_[a-z_0-9]{1,80}$'){$r.error_code=$_.Exception.Message}
  [Console]::Error.WriteLine('resume_test_line_'+$_.InvocationInfo.ScriptLineNumber+'_type_'+$_.Exception.GetType().Name)
 }finally{
- $r.checks=$script:checks;$r.sets=$script:sets;$r.cleaned_sets=$script:cleaned
+ $r['child_error']=$script:childError;$r.checks=$script:checks;$r.sets=$script:sets;$r.cleaned_sets=$script:cleaned
  if($OutputPath){[IO.File]::WriteAllText($OutputPath,($r|ConvertTo-Json -Depth 5),(New-Object Text.UTF8Encoding($false)))}
 }
 $r|ConvertTo-Json -Depth 5
