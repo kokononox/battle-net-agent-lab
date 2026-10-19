@@ -11,7 +11,7 @@ import zipfile
 
 def build():
     if sys.platform!='win32' or sys.maxsize<2**32:raise SystemExit('windows_x64_required')
-    root=Path(__file__).resolve().parent;dest=root/'release'/'Level3-Request-Audit-T1'
+    root=Path(__file__).resolve().parent;dest=root/'release'/'Level3-Request-Audit-T1.1'
     if dest.exists():raise SystemExit('fresh_build_destination_required')
     runtime=dest/'runtime';runtime.mkdir(parents=True);source=Path(sys.base_prefix)
     for f in source.glob('*'):

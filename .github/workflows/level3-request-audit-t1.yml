@@ -1,4 +1,4 @@
-name: One-shot Level3 request audit T1 native safety gate
+name: One-shot Level3 request audit T1.1 DNS guard correction
 on:
   push:
     branches: [privacy-observation-20261018-a1]
@@ -9,7 +9,7 @@ permissions: {}
 jobs:
   build:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved Level3 outgoing request audit build t1a'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved explicit HOSTS Windows no-data guard fix t11a'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -38,7 +38,7 @@ jobs:
         if: steps.package.outcome == 'success'
         continue-on-error: true
         run: |
-          $root = 'level3-request-audit-t1/release/Level3-Request-Audit-T1'
+          $root = 'level3-request-audit-t1/release/Level3-Request-Audit-T1.1'
           & "$root/runtime/python.exe" -I "$root/app/target_monitor.py" --selftest-only
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           & "$root/runtime/python.exe" -I "$root/app/target_monitor.py" --selftest-only
@@ -53,10 +53,10 @@ jobs:
         if: steps.native.outcome == 'success' && steps.certificate.outcome == 'success'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: Level3-Request-Audit-T1
+          name: Level3-Request-Audit-T1.1
           path: |
-            level3-request-audit-t1/release/Level3-Request-Audit-T1/
-            !level3-request-audit-t1/release/Level3-Request-Audit-T1/selftest-to-share-*.json
+            level3-request-audit-t1/release/Level3-Request-Audit-T1.1/
+            !level3-request-audit-t1/release/Level3-Request-Audit-T1.1/selftest-to-share-*.json
           if-no-files-found: error
           retention-days: 7
       - name: Write bounded build receipt; no user data
@@ -74,7 +74,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: level3-request-audit-t1-receipt
+          name: level3-request-audit-t11-receipt
           path: level3-request-audit-t1/build-receipt.json
           if-no-files-found: error
           retention-days: 3
@@ -91,14 +91,14 @@ jobs:
           ref: privacy-observation-20261018-a1
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         with:
-          name: level3-request-audit-t1-receipt
+          name: level3-request-audit-t11-receipt
           path: incoming
       - name: Validate and publish build gate receipt (not game-update success)
         run: |
           set -euo pipefail
-          python level3-request-audit-t1/build_receipt.py incoming/build-receipt.json reports/level3-request-audit-t1-build.json
-          git add -- reports/level3-request-audit-t1-build.json
+          python level3-request-audit-t1/build_receipt.py incoming/build-receipt.json reports/level3-request-audit-t11-build.json
+          git add -- reports/level3-request-audit-t11-build.json
           git config user.name 'privacy-lab-report'
           git config user.email 'privacy-lab-report@users.noreply.github.com'
-          git commit -m 'lab: publish Level3 audit t1 native build gate receipt'
+          git commit -m 'lab: publish Level3 audit t11 native build gate receipt'
           git push origin HEAD:privacy-observation-20261018-a1

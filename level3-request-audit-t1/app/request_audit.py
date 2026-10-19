@@ -17,22 +17,10 @@ CAP_EVENTS=32768;CAP_BYTES=32*1024**2;CAP_CHANNELS=4096;CAP_REQUESTS=2048
 REQUEST_KEYS=set('process_index channel layer host method path_class query_present query_pairs query_field_hints header_names unknown_header_count header_field_hints credential_header_present body_declared_bytes body_observed_bytes body_complete body_sample_truncated body_format body_field_hints cpu_literal_match user_agent_present local_api_only'.split())
 
 def alias(k):return FIELD_ALIASES.get(re.sub('[^a-z0-9]','',k.lower()))
-def classify_addresses(addresses):
-    try:ips={ipaddress.ip_address(a) for a in addresses}
-    except ValueError:return 'invalid_address'
-    if not ips:return 'no_addresses'
-    if all(a.is_loopback or a.is_unspecified for a in ips):return 'sink_only'
-    if all(a.is_global for a in ips):return 'public_only'
-    return 'mixed_or_nonpublic'
+from profile_gate import classify_addresses,resolution_probe,check_profile
 
-def probe():
-    result={}
-    for h in (*BLOCKED,TARGET):
-        try:result[h]=classify_addresses(x[4][0] for x in socket.getaddrinfo(h,None,0,socket.SOCK_STREAM))
-        except OSError:result[h]='resolution_failed'
-    return result
-
-def profile_ok(r):return set(r)==set((*BLOCKED,TARGET)) and all(r[h]=='sink_only' for h in BLOCKED) and r[TARGET]=='public_only'
+def probe():return resolution_probe(BLOCKED,TARGET)
+def profile_ok(r):return check_profile(r,BLOCKED,TARGET)
 
 def summarize_request(r,process,channel,needle):
     # Raw headers/target/body exist only inside this function and caller RAM.

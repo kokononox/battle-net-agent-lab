@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import sys
 import tempfile
-sys.path.insert(0,str(Path(__file__).resolve().parent/'release'/'Level3-Request-Audit-T1'/'app'))
+sys.path.insert(0,str(Path(__file__).resolve().parent/'release'/'Level3-Request-Audit-T1.1'/'app'))
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from core import signature
 from observe_agent import fetch_setup

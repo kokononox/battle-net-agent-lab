@@ -23,7 +23,7 @@ class ReceiptTests(unittest.TestCase):
             with self.assertRaises(ValueError):make_receipt(x,e)
     def test_positive_full_build_receipt(self):
         with tempfile.TemporaryDirectory() as x:
-            root=Path(x);package=root/'release'/'Level3-Request-Audit-T1';package.mkdir(parents=True)
+            root=Path(x);package=root/'release'/'Level3-Request-Audit-T1.1';package.mkdir(parents=True)
             (package/'BUILD-INFO.json').write_text(json.dumps({'python_version':'3.12.10'}));(package/'MANIFEST-SHA256.json').write_text('{}')
             s=dict(passed=True,loopback_only=True,send_observed=True,wsasend_observed=True,sspi_negative_input_observed=True,fixture_excluded_from_real_report=True,worker_exited=True,script_errors=0,error_code=None)
             (package/'selftest-to-share-123.json').write_text(json.dumps(s))

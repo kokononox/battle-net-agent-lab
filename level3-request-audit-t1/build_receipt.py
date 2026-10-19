@@ -10,7 +10,7 @@ STATES={'success','failure','skipped','cancelled',''}
 FIELDS=set('schema source_commit run_id runner_kind unit_outcome deps_outcome package_outcome native_outcome certificate_outcome artifact_url artifact_digest selftest python_version build_manifest_sha256 game_update_tested user_pc_accessed standard_runner_only certificate_gate'.split())
 
 def validate(r):
-    if type(r) is not dict or set(r)!=FIELDS or r['schema']!='local-observer-build-6':raise ValueError('schema')
+    if type(r) is not dict or set(r)!=FIELDS or r['schema']!='local-observer-build-7':raise ValueError('schema')
     if not re.fullmatch('[a-f0-9]{40}',r['source_commit']) or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('identity')
     if r['runner_kind']!='windows-2025' or r['game_update_tested'] is not False or r['user_pc_accessed'] is not False or r['standard_runner_only'] is not True:raise ValueError('scope')
     for k in ('unit_outcome','deps_outcome','package_outcome','native_outcome','certificate_outcome'):
@@ -44,10 +44,10 @@ def validate(r):
     return r
 
 def make_receipt(root,env):
-    root=Path(root);package=root/'release'/'Level3-Request-Audit-T1'
+    root=Path(root);package=root/'release'/'Level3-Request-Audit-T1.1'
     tests=sorted(package.glob('selftest-to-share-*.json'));test=tests[-1] if tests else None
     build=package/'BUILD-INFO.json';manifest=package/'MANIFEST-SHA256.json';cert=root/'certificate-gate.json'
-    return validate({'schema':'local-observer-build-6','source_commit':env['GITHUB_SHA'],'run_id':env['GITHUB_RUN_ID'],'runner_kind':'windows-2025',
+    return validate({'schema':'local-observer-build-7','source_commit':env['GITHUB_SHA'],'run_id':env['GITHUB_RUN_ID'],'runner_kind':'windows-2025',
         **{key.lower():env.get(key,'') for key in ('UNIT_OUTCOME','DEPS_OUTCOME','PACKAGE_OUTCOME','NATIVE_OUTCOME','CERTIFICATE_OUTCOME')},
         'artifact_url':env.get('ARTIFACT_URL',''),'artifact_digest':env.get('ARTIFACT_DIGEST',''),
         'selftest':json.loads(test.read_text()) if test else None,

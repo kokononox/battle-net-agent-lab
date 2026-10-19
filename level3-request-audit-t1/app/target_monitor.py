@@ -19,7 +19,7 @@ def main(args):
     handle=single_instance() # Kept alive through process exit; shared across observer versions.
     import frida
     if frida.__version__!='17.24.2':raise ValueError('unexpected_frida_version')
-    print('Level3 Request Audit T1 - NOT a privacy firewall. Outgoing HTTP/1 inputs only.')
+    print('Level3 Request Audit T1.1 - NOT a privacy firewall. Outgoing HTTP/1 inputs only.')
     print('No hosts/game writes, clicks, uploads, TLS changes, or Blizzard process lifecycle control.')
     print('Read-only hooks can affect stability. Close WoW; keep updates paused and automatic updates OFF.')
     print('Existing BAT06 blocks PERSIST after this tool exits; it does not restore or alter them.')
@@ -34,7 +34,12 @@ def main(args):
     if snapshot(NAMES|WOW)['processes']:raise ValueError('close_battlenet_agent_and_wow_first')
     print('Apply only 06-All-Except-Level3.bat yourself first. Other observers must be closed.')
     dns=probe()
-    if not profile_ok(dns):raise ValueError('bat06_resolution_not_confirmed_do_not_resume')
+    if not profile_ok(dns):
+        from request_audit import BLOCKED,TARGET
+        for host,state in dns.items():
+            expected={'public_only'} if host==TARGET else {'sink_only','explicit_hosts_sink_windows_no_data'}
+            if state not in expected:print('MISMATCH:',host,'state='+state)
+        raise ValueError('bat06_resolution_not_confirmed_do_not_resume')
     root=Path(input('Game folder [G:\\World of Warcraft]: ').strip().strip('"') or r'G:\World of Warcraft')
     before=versions(root)
     if not before['retail_versions']:raise ValueError('retail_version_not_found')
