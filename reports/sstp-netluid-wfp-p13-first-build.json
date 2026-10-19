@@ -1,0 +1,39 @@
+{
+  "schema": "sstp-netluid-build-1",
+  "source_commit": "6e5dbbee6be79cfefcfca2f8fe8083f25ea55eb9",
+  "run_id": "39290196696",
+  "native_outcome": "failure",
+  "native": {
+    "schema": "sstp-netluid-test-1",
+    "source_commit": "6e5dbbee6be79cfefcfca2f8fe8083f25ea55eb9",
+    "run_id": "39290196696",
+    "passed": false,
+    "error_code": "wfp_test_failed",
+    "checks": 1,
+    "fault_cases": 0,
+    "fresh_process_recoveries": 0,
+    "packet_pairs": 0,
+    "owned_conflict_stops": 0,
+    "fixture_sets": 0,
+    "cleanup_sets": 0,
+    "remaining_objects": 0,
+    "unrelated_windows_firewall_policy_equal": false,
+    "unrelated_display_changes": -1,
+    "whole_machine_guard_tested": false,
+    "active_sstp_tested": false,
+    "ipv6_packet_tested": false,
+    "reboot_tested": false,
+    "user_device_tested": false,
+    "ready_for_user_apply": false
+  },
+  "hashes": {
+    "WfpLab.cpp": "d7714e0fb70d79f3eff604aaf385db1545ae31ecb0e1e7f0680e508c15cb18b9",
+    "Worker.ps1": "862f54d35fd053e08dbe5c2e3d20051f896c6079a39735019e49756a1811e541",
+    "Test-Wfp.ps1": "d99c5241aee8a86dfa74692296b2cb23a1d4b881828a37e82b9cd2d41519e140",
+    "Probe.cs": "2e50087a2653334a5f871e7768c49bf6faa2454bea45721c9bc5d23b4f5c8af8",
+    "receipt.py": "bc589121ec0c99d2811524325edec2a1c70b98d694e323e5e9e3e44ddaa679b3",
+    "Journal.ps1": "95b1346d4ce0f43d74e9338fec586adbb004ad87fb6861913b54947e1ae24762",
+    "Inventory.ps1": "e78ec114e4a00cb67a91952fd9be4d4788b4169f2a42ca98f99d8cb9baf9bc13"
+  },
+  "ready_for_user_apply": false
+}
