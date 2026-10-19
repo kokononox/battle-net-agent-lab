@@ -1,12 +1,12 @@
 {
   "schema": "sstp-unset-s3u-build-1",
-  "source_commit": "4a046fbd5459c28e6aa7e1b1c9e40eea98b7331d",
-  "run_id": "39194616498",
+  "source_commit": "d62a0e6c548515ed5bd4139eb06983b99249fd37",
+  "run_id": "39195750447",
   "runner_kind": "windows-2025",
-  "native_outcome": "cancelled",
+  "native_outcome": "success",
   "native": {
     "schema": "sstp-unset-s3u-native-1",
-    "passed": false,
+    "passed": true,
     "fixture_checks": 13,
     "rounds": [
       {
@@ -30,9 +30,31 @@
         "task_last_result": 0,
         "task_removed": true,
         "controller_fallback_used": false
+      },
+      {
+        "round": 2,
+        "baseline_profile_count": 3,
+        "baseline_notconfigured_count": 3,
+        "observed_block_count": 3,
+        "outbound_registry_mutation_observed": true,
+        "driver_abrupt_exit_verified": true,
+        "system_timer_verified": true,
+        "restore_write_calls": 3,
+        "stored_state_exact": true,
+        "registry_profile_values_exact": true,
+        "effective_cim_exact": true,
+        "effective_com_exact": true,
+        "selected_rule_properties_exact": true,
+        "registry_outbound_values_before": 0,
+        "registry_outbound_values_during": 3,
+        "registry_outbound_values_after": 0,
+        "repeat_restore_write_calls": 0,
+        "task_last_result": 0,
+        "task_removed": true,
+        "controller_fallback_used": false
       }
     ],
-    "stage": "round_2_driver",
+    "stage": "complete",
     "error_code": null,
     "error_id": null,
     "diagnostic_line": null,
