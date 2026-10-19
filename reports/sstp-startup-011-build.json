@@ -1,0 +1,41 @@
+{
+  "schema": "sstp-startup-build-1",
+  "source_commit": "1acd6b83fdda1c3bec56d06e4e5ce312082bf5e7",
+  "run_id": "39310639214",
+  "passed": true,
+  "test": {
+    "schema": "sstp-visible-startup-test-1",
+    "passed": true,
+    "checks": 24,
+    "error_code": null,
+    "spaced_unicode_path_tested": true,
+    "ui_smoke_passed": true,
+    "missing_dependency_reported": true,
+    "syntax_error_reported": true,
+    "module_error_reported": true,
+    "policy_code_changed": false,
+    "unrelated_policy_equal": true,
+    "foreign_display_changes": 0,
+    "uac_nonadmin_path_tested": false,
+    "user_device_tested": false
+  },
+  "sha256": {
+    "base-policy-sha256.json": "b9457aa33e76bff78dfbaa8a6bf48bf191f363b1f759b8a50d1395b519f70a84",
+    "ConfigCore.ps1": "df7f68c1f32f5ef0f4312ecbb31dbf0b8d384f05c1ea3070b96a22597f47bfda",
+    "Disable.cmd": "ddb8b557583ea9d03aafe8433e01dc7c08247ccae76e91e3297efcb3f44c33fb",
+    "Inventory.ps1": "e78ec114e4a00cb67a91952fd9be4d4788b4169f2a42ca98f99d8cb9baf9bc13",
+    "Journal.ps1": "95b1346d4ce0f43d74e9338fec586adbb004ad87fb6861913b54947e1ae24762",
+    "Launcher.ps1": "c44c6c361a0b08f8c70afd816899138718c0eab14bf9d628e2a8e77c29c25c08",
+    "Overlay.ps1": "beaf743a7647179858877c54bb734d529041809aceced861585e70378cc1dd74",
+    "Policy.ps1": "6c71203e3ddb91f922bffd0e67fac1c3193b7a96941fa68ebac5af6b427de4d8",
+    "Preflight.ps1": "02da68bb1e3a78373b47fe2feff268285b360da082264c0d547d4faf08258f20",
+    "Ranges.ps1": "0dd7a3ea71eb270271dd5552817abc107a0fd7b325ba8172e8e0b1ea5a5175f7",
+    "receipt.py": "0973c959e397d4c94c77d0433e0f9b9fa1a88b47428309487f82a6f55dd97970",
+    "Run.ps1": "3927f891b47a8a6c5c72990dbae49560ddb1875dab63866f23b73132cb65faae",
+    "Start-Diagnostic.cmd": "902ab9b95dbc3792b392c98260891b06a65a3cf5b5fc80bd45b75c446f994099",
+    "Start.cmd": "ed8d489a9e53cd78b851ce0166542bacbe0f5f1403dfb7fb5dd330ebd1a54e98",
+    "Test-Startup.ps1": "77c16ada22608bd9634e54bcfa892c96a6efc5aef265f35528b625062eb77ab2"
+  },
+  "uac_nonadmin_path_tested": false,
+  "user_device_tested": false
+}
