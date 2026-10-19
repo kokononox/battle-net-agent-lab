@@ -1,0 +1,44 @@
+name: One-shot persistent scoped guard and native TCP proof
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths: ['sstp-persistent-guard/**', '.github/workflows/sstp-persistent-guard.yml']
+permissions: {}
+jobs:
+  scoped_guard_tests:
+    if: "${{ github.run_attempt == 1 && startsWith(github.event.head_commit.message, 'lab: approved persistent scoped guard p10') }}"
+    runs-on: windows-2025
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse and test program-scoped guard only
+        id: native
+        continue-on-error: true
+        shell: powershell
+        run: |
+          foreach($f in Get-ChildItem 'sstp-persistent-guard' -Filter '*.ps1') {
+            $tokens=$null;$errors=$null
+            $ast=[Management.Automation.Language.Parser]::ParseFile($f.FullName,[ref]$tokens,[ref]$errors)
+            if($errors.Count -gt 0) { throw 'guard_parse_error' }
+          }
+          $text=[IO.File]::ReadAllText((Resolve-Path 'sstp-persistent-guard/Test-Guard.ps1'))
+          if($text -match '(?i)-Scope\s+WholeMachine|Set-NetFirewallProfile|advfirewall|Set-VpnConnection|Register-ScheduledTask') { throw 'guard_test_forbidden_operation' }
+          & './sstp-persistent-guard/Test-Guard.ps1' -OutputPath (Join-Path $env:RUNNER_TEMP 'guard.json')
+          if($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Validate bounded receipt only
+        if: always()
+        env:
+          NATIVE_OUTCOME: ${{ steps.native.outcome }}
+        run: python sstp-persistent-guard/receipt.py
+      - name: Upload bounded receipt only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: sstp-persistent-guard-receipt
+          path: sstp-persistent-guard/build-receipt.json
+          retention-days: 3
+          if-no-files-found: error
