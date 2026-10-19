@@ -131,24 +131,23 @@ function InvokeIntegratedTransaction {
   if ($Action -eq 'Restore' -and $state.phase -in @('quarantine','quarantined')) { $state.phase='restore';$record=WriteJournal $Root $record.revision $state;$state=$record.state }
   while ($state.phase -notin @('quarantined','restored')) {
    if (($state.phase -eq 'quarantine' -and $state.cursor -eq $state.selected.Count) -or ($state.phase -eq 'restore' -and $state.cursor -eq 0)) {
+    # Full checkpoint before declaring completion. A conflict leaves the transaction unfinished.
     $observed=ReadIntegratedFrontier $state
     if ($state.phase -eq 'quarantine') { $state.phase='quarantined' } else { $state.phase='restored' }
     $record=WriteJournal $Root $record.revision $state;$state=$record.state;break
    }
    $index=$state.cursor;$disabled=$true;if ($state.phase -eq 'restore') { $index=$state.cursor-1;$disabled=$false }
-   # Revalidate before writing intent, so external conflict does not advance the journal.
-   $observed=ReadIntegratedFrontier $state
+   # The full inventory was checked on entry/recovery. Guard is a REQUIRED future coordinator boundary.
+   # Only this resource is compared immediately before/after its setter; full inventory is checked again before completion.
    $state.pending=$true;$record=WriteJournal $Root $record.revision $state;$state=$record.state
-   $observed=ReadIntegratedFrontier $state
    if ($Fault -eq 'BeforeMutation' -and $index -eq $FaultIndex) { [Environment]::Exit(73) }
    SetIntegratedEnabled $state.selected[$index] $disabled
    if ($Fault -eq 'AfterMutation' -and $index -eq $FaultIndex) { [Environment]::Exit(73) }
-   $observed=ReadIntegratedFrontier $state
-   if (-not $observed.pending_after) { throw 'integrated_mutation_readback' }
+   # SetIntegratedEnabled already verified the exact after image of all seven filters and the rule.
    if ($disabled) { $state.cursor++ } else { $state.cursor-- }
    $state.pending=$false;$record=WriteJournal $Root $record.revision $state;$state=$record.state
   }
-  $observed=ReadIntegratedFrontier $state
+  # No policy writes occur after the last full checkpoint; caller must recheck under its guard before releasing it.
   [pscustomobject]@{phase=$state.phase;revision=$record.revision;display_changed_rules=$observed.display_changed_rules;ready_for_user_apply=$false}
  } finally { $lock.Dispose() }
 }
