@@ -1,0 +1,95 @@
+name: One-shot S2 export and SYSTEM receipt-only recovery rehearsal
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths:
+      - 'sstp-recovery-s2/**'
+      - '.github/workflows/sstp-recovery-s2.yml'
+permissions: {}
+jobs:
+  validate:
+    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved no-network-change recovery rehearsal s2a' }}"
+    runs-on: windows-2025
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Native syntax, safety, fixtures, export and timed SYSTEM receipt probe
+        id: native
+        continue-on-error: true
+        shell: powershell
+        run: |
+          $root=(Resolve-Path 'sstp-recovery-s2').Path
+          $badNames=@('Set-NetFirewallProfile','New-NetFirewallRule','Set-NetFirewallRule','Enable-NetFirewallRule','Disable-NetFirewallRule','Remove-NetFirewallRule','Import-Clixml','Invoke-Expression','Invoke-WebRequest','Invoke-RestMethod','Start-Process','Stop-Process','Set-NetRoute','New-NetRoute','Remove-NetRoute','Set-DnsClientServerAddress','Set-VpnConnection','rasdial','rasphone','Set-ExecutionPolicy')
+          foreach ($name in @('Recovery-Rehearsal.ps1','Rollback-Probe.ps1')) {
+            $file=Join-Path $root $name
+            $tokens=$null;$errors=$null
+            $ast=[Management.Automation.Language.Parser]::ParseFile($file,[ref]$tokens,[ref]$errors)
+            if ($errors.Count -ne 0) { $errors | Format-List;throw 'powershell_parse_failed' }
+            $bad=@($ast.FindAll({param($n) $n -is [Management.Automation.Language.CommandAst] -and $badNames -contains $n.GetCommandName()},$true))
+            if ($bad.Count -gt 0) { throw 'network_mutation_or_unsafe_command_found' }
+            $text=[IO.File]::ReadAllText($file)
+            if ($text -match '(?i)advfirewall\s+(import|reset|set)|New-NetFirewall|Set-NetFirewall') { throw 'firewall_mutation_found' }
+          }
+          $worker=Join-Path $root 'Rollback-Probe.ps1'
+          $tokens=$null;$errors=$null
+          $ast=[Management.Automation.Language.Parser]::ParseFile($worker,[ref]$tokens,[ref]$errors)
+          $allowedWorker=@('Split-Path','Get-Item','Get-Acl','New-Object','ConvertTo-Json')
+          $commands=@($ast.FindAll({param($n) $n -is [Management.Automation.Language.CommandAst]},$true))
+          if (@($commands | Where-Object { $allowedWorker -notcontains $_.GetCommandName() }).Count -gt 0) { throw 'unexpected_worker_command' }
+          $ps=Join-Path $env:SystemRoot 'System32/WindowsPowerShell/v1.0/powershell.exe'
+          $main=Join-Path $root 'Recovery-Rehearsal.ps1'
+          $fixture=& $ps -NoProfile -ExecutionPolicy Bypass -File $main -SelfTest
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $text=$fixture -join "`n";$f=$text | ConvertFrom-Json
+          if (-not $f.passed -or $f.checks -ne 17) { throw 'fixture_not_passed' }
+          [IO.File]::WriteAllText((Join-Path $root 'fixture-result.json'),$text,(New-Object Text.UTF8Encoding($false)))
+          & $ps -NoProfile -ExecutionPolicy Bypass -File $main
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $reports=@(Get-ChildItem (Join-Path $root 'output') -Filter 's2-rehearsal-to-share-*.json')
+          if ($reports.Count -ne 1) { throw 'report_count' }
+          $p=Get-Content -Raw -LiteralPath $reports[0].FullName | ConvertFrom-Json
+          $summary=[ordered]@{}
+          foreach ($key in @('passed','firewall_backup_exported','private_acl_checked','system_probe_receipt_verified','task_last_result','owned_task_removed','firewall_profile_summary_unchanged','firewall_restore_import_tested','network_settings_changed_by_tool')) { $summary[$key]=$p.$key }
+          if (-not $p.passed -or $p.ready_to_apply_isolation -or $p.independent_network_rollback_proven) { throw 'native_rehearsal_not_passed' }
+          [IO.File]::WriteAllText((Join-Path $root 'native-summary.json'),($summary | ConvertTo-Json),(New-Object Text.UTF8Encoding($false)))
+      - name: Write bounded receipt only; no private policy upload
+        if: always()
+        env:
+          NATIVE_OUTCOME: ${{ steps.native.outcome }}
+        run: python sstp-recovery-s2/validate_receipt.py
+      - name: Upload receipt only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: sstp-recovery-s2-receipt
+          path: sstp-recovery-s2/build-receipt.json
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: validate
+    if: always() && needs.validate.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: privacy-observation-20261018-a1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: sstp-recovery-s2-receipt
+          path: incoming
+      - name: Validate and publish receipt, not a claim of isolation
+        run: |
+          set -euo pipefail
+          python sstp-recovery-s2/validate_receipt.py incoming/build-receipt.json reports/sstp-recovery-s2-build.json
+          git add -- reports/sstp-recovery-s2-build.json
+          git config user.name 'privacy-lab-report'
+          git config user.email 'privacy-lab-report@users.noreply.github.com'
+          git commit -m 'lab: publish S2 SYSTEM rehearsal receipt only'
+          git push origin HEAD:privacy-observation-20261018-a1
