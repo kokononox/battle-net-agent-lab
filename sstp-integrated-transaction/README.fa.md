@@ -21,3 +21,5 @@ CI فقط fixtureهای ساختگی GUIDدار، برنامهٔ ناموجود 
 هیچ resident/task/expiry محصول ساخته نمی‌شود و دستگاه کاربر تغییر نمی‌کند. هنوز بستهٔ اجرا یا فرمان Enable برای کاربر وجود ندارد؛ ready_for_user_apply=false.
 
 اجرای اولیهٔ 29317e9 به علت هزینهٔ تکرار inventory کامل به‌ازای هر mutation توسط عامل لغو شد؛ نه شکست اثبات‌شدهٔ setter و نه PASS. نسخهٔ بعد checkpointها را به مرزهای action/recovery محدود می‌کند و direct readback هر resource و write-ahead را نگه می‌دارد. این یک تفاوت واقعی در زمان تشخیص تغییرات هم‌زمان است و پنهان نشده است.
+
+اجرای checkpoint نسخهf7cceb3 شش fault/recovery و حفظ metadata خارجی را تکمیل کرد، اما پیش از انتهای suite در پاک‌سازی fixture به PropertyNotFoundException رسید و passed=false ماند. گیت Group پاک‌سازی باید از property عمومی Get-NetFirewallRule یعنی Rule.Group خوانده شود، نه فرضِ وجود همان alias در CimInstanceProperties. شرط hash کامل و Group حذف نشده؛ فقط accessor مدل داده اصلاح شد و suite کامل باید تکرار شود.

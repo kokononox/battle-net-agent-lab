@@ -30,7 +30,7 @@ function CheckEnabled([string[]]$Names,[string]$Value='1') { foreach($name in $N
 function DeleteFixture($Original) {
  $rule=GetIntegratedRule $Original.name;$row=ReadIntegratedRow $rule;$actual=SealIntegratedRow $row $false
  $trueSeal=SealIntegratedRow $Original $false;$falseSeal=SealIntegratedRow (IntegratedExpected $Original $true) $false
- if ($actual.policy_sha256 -cnotin @($trueSeal.policy_sha256,$falseSeal.policy_sha256) -or $row.rule.Group -cne $group) { throw 'integrated_cleanup_conflict' }
+ if ($actual.policy_sha256 -cnotin @($trueSeal.policy_sha256,$falseSeal.policy_sha256) -or [string]$rule.Group -cne $group) { throw 'integrated_cleanup_conflict' }
  Remove-NetFirewallRule -InputObject $rule -ErrorAction Stop
  $script:deleted[$Original.name]=$true
 }
@@ -132,7 +132,7 @@ try {
   $after=ReadPolicyInventory;$remaining=@($after.rules | Where-Object { $_.name -like ($prefix+'*') }).Count
   $c=ComparePolicyInventory $before $after;$globalEqual=$c.policy_equal;$displayDrift=$c.display_rule_changes
   if ($remaining -ne 0 -or -not $globalEqual) { $passed=$false;$errorCode='integrated_baseline_mismatch' }
- } catch { $passed=$false;$errorCode='integrated_cleanup_failure' }
+ } catch { $passed=$false;$errorCode='integrated_cleanup_failure';Write-Host ('integrated_cleanup_exception_'+$_.Exception.GetType().Name.ToLowerInvariant()) }
  foreach($root in $script:roots) { if (Test-Path -LiteralPath $root) { Remove-Item -LiteralPath $root -Recurse -Force } }
  $receipt=[ordered]@{schema='sstp-integrated-test-1';source_commit=$env:GITHUB_SHA;run_id=$env:GITHUB_RUN_ID;passed=$passed;error_code=$errorCode;checks=$script:checks;seal_field_cases=$sealCases;fault_cases=$faults;fresh_process_recoveries=$recoveries;partial_quarantine_restores=$partials;external_conflict_stops=$conflicts;metadata_preserved_cases=$metadataPreserved;capacity_rejections=$capacityRejects;corrupt_journal_stops=$corruptStops;missing_journal_stops=$missingStops;verified_fixture_rules=$script:fixtures.Count;remaining_test_rules=$remaining;journal_baseline_seals_min=$journalMin;unrelated_full_policy_equal=$globalEqual;unrelated_display_changes=$displayDrift;verified_native_enabled_changes=$nativeChanged;profile_defaults_changed=$false;real_guard_tested=$false;enforcement_tested=$false;sstp_binding_tested=$false;user_device_tested=$false;ready_for_user_apply=$false}
  [IO.File]::WriteAllText($OutputPath,($receipt | ConvertTo-Json -Depth 6),[Text.UTF8Encoding]::new($false))
