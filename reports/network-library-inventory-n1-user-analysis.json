@@ -1,0 +1,137 @@
+{
+  "schema": "n1-user-inventory-analysis-1",
+  "input_sha256": "dae90a504fb1f0c230bc02e95327326eb125900aeabbf66f9a8d18e27df8bdc4",
+  "provenance": "user-uploaded report, not independently signed",
+  "started_utc": "2026-10-19T00:50:47.232988+00:00",
+  "ended_utc": "2026-10-19T00:51:47.399434+00:00",
+  "elapsed_seconds": 60.166446,
+  "status": "window_ended",
+  "error_code": null,
+  "sampling_errors": 0,
+  "sample_count": 12,
+  "limit_hit": false,
+  "process_count": 9,
+  "process_name_counts": {
+    "battle.net.exe": 8,
+    "agent.exe": 1
+  },
+  "process_status_counts": {
+    "verified": 9
+  },
+  "module_files": 13,
+  "pe_status_counts": {
+    "parsed": 13
+  },
+  "https_distinct_process_address_port_tuples": 3,
+  "https_owners": [
+    {
+      "process_index": 5,
+      "process_name": "battle.net.exe",
+      "pid": 4540,
+      "parent_pid": 2940,
+      "image_sha256": "171d749cf2d6e915a4c581a8c30d05bcd4dcb4caf973f1f80bf1778227d525fe",
+      "status": "verified",
+      "module_statuses": [
+        "ok"
+      ],
+      "loaded_known_modules": [
+        "battle.net.exe",
+        "bcrypt.dll",
+        "chrome_elf.dll",
+        "crypt32.dll",
+        "libcef.dll",
+        "ncrypt.dll",
+        "secur32.dll",
+        "sspicli.dll",
+        "winhttp.dll",
+        "wininet.dll",
+        "ws2_32.dll"
+      ],
+      "cef_file_sha256": "40a9dbe47f3a2b76d1065db8ac11a0f92bc0d5c0f938050ec252f8f28eeec91f",
+      "cef_file_bytes": 165258368,
+      "cef_exports": [
+        "cef_browser_host_create_browser",
+        "cef_initialize",
+        "cef_version_info"
+      ],
+      "cef_imports": [
+        "AcquireCredentialsHandleA",
+        "AcquireCredentialsHandleW",
+        "InitializeSecurityContextA",
+        "InitializeSecurityContextW",
+        "WSAIoctl",
+        "WSASend",
+        "WSASendTo",
+        "WinHttpConnect",
+        "WinHttpOpen",
+        "WinHttpOpenRequest",
+        "WinHttpReadData",
+        "WinHttpReceiveResponse",
+        "WinHttpSendRequest",
+        "WinHttpWriteData"
+      ],
+      "cef_import_libraries": [
+        "chrome_elf.dll",
+        "crypt32.dll",
+        "ncrypt.dll",
+        "secur32.dll",
+        "winhttp.dll",
+        "wininet.dll",
+        "ws2_32.dll"
+      ],
+      "cef_delay_imports_present": true,
+      "cef_ssl_write_export_present": false,
+      "tls_engine_actually_used_proven": false,
+      "public_tcp_destinations": [
+        {
+          "process_index": 5,
+          "remote_address": "3.125.253.166",
+          "remote_port": 443,
+          "sample_observations": 18,
+          "states": [
+            "Established"
+          ]
+        },
+        {
+          "process_index": 5,
+          "remote_address": "2.21.23.89",
+          "remote_port": 443,
+          "sample_observations": 12,
+          "states": [
+            "Established",
+            "CloseWait"
+          ]
+        },
+        {
+          "process_index": 5,
+          "remote_address": "54.69.78.197",
+          "remote_port": 443,
+          "sample_observations": 16,
+          "states": [
+            "Established"
+          ]
+        }
+      ]
+    }
+  ],
+  "pause_condition": "user confirmed via N1 prompt and conversation, not an independent Battle.net UI measurement",
+  "payloads_keys_or_hooks_used": false,
+  "new_download_requested": false,
+  "traffic_contents_observed": false,
+  "boringssl_confirmed": false,
+  "no_personal_upload_proven": false,
+  "next_step": "route-only API call counters with caller-module classification, before choosing a pre-TLS interception point; not another identical inventory or a new block profile",
+  "limits": [
+    "Module/import/export presence does not prove calls or identify actual TLS engine.",
+    "No SSL_write exported by this parsed file does not exclude statically linked or dynamically resolved TLS.",
+    "Delay imports were present and not inspected; UDP/QUIC not sampled.",
+    "IP changes from the preceding run are not an A/B privacy improvement or hostname proof.",
+    "sample_observations aggregates matching TCP rows across snapshots; may exceed sample_count because concurrent connections share a remote tuple. It is not request/byte count.",
+    "No command lines or arbitrary module names/full paths were exported; process roles beyond observed TCP ownership are not established."
+  ],
+  "profile_note": "13 distinct module-file records; no duplicates. Constant parsed/status and false limit columns are expected findings, no rows dropped.",
+  "presentation": {
+    "disposition": "prose",
+    "reason": "categorical diagnostic evidence chain, not a meaningful plotted comparison"
+  }
+}

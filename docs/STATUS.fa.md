@@ -1,7 +1,7 @@
 # وضعیت جاری پروژه — مرجع هماهنگی عامل و همکاران
 
-**آخرین به‌روزرسانی: 2026-10-19 00:47 (UTC)**  
-**مرحلهٔ فعلی: با درخواست «شروع کن»، مکمل N1 برای شناسایی فقط‌خواندنی کتابخانه/API فرایند صاحب HTTPSها آماده شد. بدون hook، تغییر BAT/hosts/TLS یا Resume؛ اجرا در حالت Pause.۲۵ آزمون آفلاین با PE مصنوعی/mock API پاس؛ خود مکمل هنوز Windows-tested نیست. هیچ workflow/runner تازه برای ساخت این ZIP درخواست نشد. محتوای چهار HTTPS همچنان نامعلوم است.**
+**آخرین به‌روزرسانی: 2026-10-19 00:55 (UTC)**  
+**مرحلهٔ فعلی: گزارش N1 کاربر دریافت و تحلیل شد؛۱۲ چرخه،۰ sampling error،بدون cap. فرایند صاحب سه TCP/443 دارای libcef/chrome_elf و کتابخانه‌های Windows شبکه است؛ export استاندارد SSL_write/SSL_write_ex در libcef دیده نشده است. استفاده واقعی BoringSSL یا محتوای HTTPS هنوز ثابت نیست. گام بعد پیشنهادی call-route counters است؛ N2 هنوز ساخته نشده، Pause حفظ شود و تکرار N1 لازم نیست.**
 
 این فایل مرجع وضعیت روز است. README و اسناد قدیمی مسیر تحقیق را نگه می‌دارند، اما تیترهای «آزمایش جاری» یا «گام بعد» در آن‌ها لزوماً وضعیت امروز نیستند. پیشنهادهای همکاران در [سند پیشنهادها](SUGGESTIONS-FROM-OTHER-MODELS.fa.md) قرار می‌گیرد؛ پیشنهاد به‌تنهایی تصمیم، مجوز یا شاهد اجرای موفق نیست.
 
@@ -23,6 +23,14 @@
 | محل کد آزمایشی و گزارش‌های تازه | T1/R1/U2 در شاخه privacy-observation-20261018-a1؛ BATهای ساده در plain-hosts-leave-one-open روی main. کد پژوهشی خودکار merge نمی‌شود |
 
 ## شواهد معتبر جدید — مبنای راهنمایی همکاران
+### N1 کاربر — CEF در فرایند صاحب HTTPS، نه اثبات BoringSSL یا محتوا
+- [تحلیل](../reports/network-library-inventory-n1-user-analysis.fa.md) · [شواهد ماشینی](../reports/network-library-inventory-n1-user-analysis.json) · [گزارش](../reports/network-library-inventory-n1-user.json).
+- اجرای کاربر window_ended بدون error، sampling_errors=0،sample_count=12 وlimit_hit=false؛۹ فرایند verified و۱۳ فایل ماژول PE parsed بدون cap. این گزارش ارسالی کاربر است؛ سابقه «N1 هنوز Windows-tested نیست» پیش از این اجرا تاریخی است، نه وضعیت اجرای جدید.
+- سه tuple TCP/443 همگی process_index5 این گزارش:3.125.253.166،2.21.23.89،54.69.78.197. Index/PID به نمونه قبلی قابل تعمیم نیست و تفاوت مقصدها A/B کنترل‌شده نیست.
+- همان battle.net.exe امضاشده libcef.dll/chrome_elf.dll،winhttp/wininet/ws2_32/secur32/sspicli را بار کرده است. exportهای CEF حاضر؛ SSL_write/SSL_write_ex استاندارد در exportهای بررسی‌شده libcef نیستند. WSASend/WinHTTP/SSPI import شده‌اند، اما import/presence شاهد call واقعی نیست.
+- محتوای HTTPS، hostname، TLS engine واقعی و علت دقیق کور بودن T1.1 همچنان نامعلوم‌اند. BoringSSL فرضیه است، نه یافته. N1 هیچ payload/key/hook ندارد؛ از نتیجه آن نبود hardware upload استنتاج نشود.
+- تصمیم بعدی: call-route counter برای Winsock حتی غیرHTTP و APIهای WinHTTP/WinINet/SSPI با caller-module classification، سپس انتخاب نقطه پیش-TLS. N2 در این پاسخ ساخته/اجرا نشده و runner تازه‌ای فعال نشده است؛ قبل تحویل به gate fixture/native و caveat پایداری نیاز دارد. فعلاً Pause؛ N1 یا تست Level3 تکرار نشود.
+
 ### N1 — مکمل شناسایی فقط‌خواندنی شبکه، بدون آزمایش دانلود
 - source: `1469d04971ebcf069f4911b2c85c3a3c23881f9a` در شاخه پژوهش، مسیر `network-library-inventory-n1/`؛ [راهنمای تحویل](NETWORK-LIBRARY-INVENTORY-N1.fa.md) و [رسید آفلاین](../reports/network-library-inventory-n1-offline-validation.json).
 - شواهد قدیمی D2/E2 بازبینی شد: categories محدود setup/Agent داشتند؛ شناسایی actual battle.net.exe صاحب چهار HTTPS نمونه اخیر نیستند. libcef/BoringSSL/OpenSSL برای آن فرایند هنوز تشخیص داده نشده است؛ پیشنهاد به یافته تبدیل نشود.
