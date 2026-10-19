@@ -8,7 +8,7 @@ S1 کاربر: holand متصل، split_tunneling=true ولی دو IP فعلی Le
 ## دقیقاً چه ساخته شده؟
 [منبع S2 در commit fb58194](https://github.com/kokononox/battle-net-agent-lab/tree/fb58194a84e9e70c9b3fd61ff99b1d17209a18dc/sstp-recovery-s2). اسکریپت PowerShell5.1، export فایروال در پوشه ProgramData یکتا با ACL فقط Admin/SYSTEM، worker hash-pinned، task SYSTEM یکتا با trigger45s، انتظار محدود120s، بررسی receipt/session/LastTaskResult و حذف فقط task خود.
 
-worker **هیچ import یا تغییر شبکه ندارد**؛ فقط رسید می‌نویسد. خروجی shareable حاوی policy/private paths/credentials نیست. network rollback واقعی همچنان false است. syntax/fixture و اجرای همین export/probe روی Windows runner استاندارد درخواست شده؛ **هنوز رسید بررسی نشده**. روی دستگاه کاربر اجرا نشده و Apply ساخته نشده است.
+worker **هیچ import یا تغییر شبکه ندارد**؛ فقط رسید می‌نویسد. خروجی shareable حاوی policy/private paths/credentials نیست. network rollback واقعی همچنان false است. syntax/fixture و اجرای همین export/probe روی Windows runner استاندارد درخواست شده؛ **تلاش اول native ناموفق، fixture/rehearsal ثبت نشده؛ نسخه تشخیصی محدود برای تعیین علت در حال آزمون است**. روی دستگاه کاربر اجرا نشده و Apply ساخته نشده است.
 
 ## کمک مشخص مورد نیاز — به ترتیب اولویت
 1. **Rollback واقعی:** netsh export/import چه چیزهایی را دقیقاً پوشش نمی‌دهد (ActiveStore/GPO/IPsec/WFP/تغییر همزمان)؟ برای تغییر موقت فقط ruleهای local قابل‌ویرایش و profile defaults چه transaction/journal و fail-safeای پیشنهاد می‌کنید که policy دیگر را overwrite نکند؟ چه آزمون failure-injection روی runner موقت لازم است؟
