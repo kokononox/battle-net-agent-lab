@@ -141,3 +141,70 @@ CASC محتوامحور است؛ اگر هش فایل‌های دادهٔ دان
 - پیش از هر اجرای تازه، سؤال، شاهد مورد انتظار، هزینه/ریسک و شرط توقف مشخص شود. بازبینی اسناد و طراحی آزمون به‌خودی‌خود نیازمند runner یا دانلود/نصب دوباره بازی نیست.
 - تا تصمیم بعدی، Pause مطابق وضعیت مبنا حفظ شود. این پیشنهادها مجوز Resume، login، تکمیل آپدیت، Repair، حذف/rollback بازی، تغییر block یا اجرای runner بزرگ/پولی نیستند.
 - نتیجه Level3، پوشش HTTPS، تکمیل دانلود و سؤال fingerprint انتقال A→B جدا بمانند؛ از پاسخ یکی نتیجه دیگری گرفته نشود.
+
+---
+
+## ۹. بازخورد تازه Notion AI — پس از PASS واقعی S2، پیش از rollback و Apply
+
+> مبنای بازبینی: commit `8b28e7929a3ac2ed984114bb54a80ae0e1af2e7b`، وضعیت ثبت‌شده در 2026-10-19 01:52 UTC. این بخش صرفاً پیشنهاد طراحی و آزمون است؛ نه مجوز اعمال ایزولاسیون و نه شاهد اجرای آزمون‌های زیر. فقط این سند تکمیل می‌شود؛ هیچ کد، policy، BAT، VPN یا فایل بازی با این ثبت تغییر نمی‌کند و هیچ workflow آزمایشی دستی راه‌اندازی نمی‌شود. متن بخش‌های قبلی حفظ شده است.
+
+### ۹.۱. جمع‌بندی جدید و تغییر اولویت
+- [STATUS مبنا](https://github.com/kokononox/battle-net-agent-lab/blob/8b28e7929a3ac2ed984114bb54a80ae0e1af2e7b/docs/STATUS.fa.md)، [درخواست نقد S2](https://github.com/kokononox/battle-net-agent-lab/blob/8b28e7929a3ac2ed984114bb54a80ae0e1af2e7b/docs/PEER-REQUEST-SSTP-S2.fa.md)، [تحلیل واقعی S2](https://github.com/kokononox/battle-net-agent-lab/blob/8b28e7929a3ac2ed984114bb54a80ae0e1af2e7b/reports/sstp-recovery-s2-user-analysis.fa.md) و [تحلیل واقعی S1](https://github.com/kokononox/battle-net-agent-lab/blob/8b28e7929a3ac2ed984114bb54a80ae0e1af2e7b/reports/sstp-preflight-s1-user-analysis.fa.md) خوانده شدند.
+- پیشرفت معتبر: export/ACL/hash، اجرای زمان‌دار SYSTEM، receipt و cleanup روی دستگاه کاربر PASS شده‌اند. اما import، rollback واقعی، enforcement و قطع/وصل امن SSTP اثبات نشده‌اند؛ `ready_to_apply_isolation=false` درست است و فعلاً باید false بماند.
+- تغییر جهت صریح کاربر به allowlist کل Windows پذیرفته شود. ادامه DLL/N2 و تکرار T1 یا S2 اولویت جاری نیست؛ پیشنهادهای بخش ۸ در این زمینه تاریخی‌اند، نه دستور ادامه خودکار.
+- **اولویت پیشنهادی: ابتدا rollback محدود و قابل‌ممیزی، سپس اثبات enforcement.** هیچ‌یک به‌تنهایی نبود telemetry در مقصد مجاز یا نبود fingerprint انتقال A→B را ثابت نمی‌کنند.
+
+### ۹.۲. P0 — rollback مبتنی بر delta و journal، نه import کورکورانه
+**یافته/مستند:** `ActiveStore` حاصل سیاست مؤثر چند store از جمله GPO، PersistentStore و service hardening است؛ PersistentStore همان سیاست محلی پایدار است. بنابراین مقدار مؤثرِ دیده‌شده الزاماً همان مقداری نیست که باید در store محلی بازگردانده شود. برای مثال، بازگرداندن Allow مؤثر به‌جای مقدار محلی قبلی NotConfigured می‌تواند معنای تنظیم را عوض کند. [مستند storeها](https://learn.microsoft.com/en-us/powershell/module/netsecurity/get-netfirewallrule?view=windowsserver2025-ps). مستند netsh، export/import را برای policy store فایروال معرفی می‌کند، نه snapshot تراکنشی تمام route/VPN/ابزارهای WFP و نویسندگان همزمان سیاست؛ از آن تضمین بازگردانی کل شبکه نتیجه نگیریم و درباره پوشش IPsec نیز حکم کلیِ بدون بررسی ندهیم. [مستند netsh](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netsh-advfirewall).
+
+**الگوریتم پیشنهادی برای بازبینی، نه patch اجراشده:**
+1. snapshot تازه از مقدار محلی قابل‌ویرایش و نتیجه مؤثر بگیرید؛ نام داخلی rule و store، profile defaults و فیلترهای برنامه/سرویس/آدرس/پورت/interface را کامل و بدون truncation نگه دارید. فقط مواردی که قرار است تغییر کنند وارد مجموعه مجاز mutation شوند؛ Blockهای موجود، GPO و موارد با منشأ مبهم دست‌نخورده بمانند.
+2. پیش از هر فرمان، intent پایدار بنویسید: شناسه جلسه/عملیات، هدف و property دقیق، مقدار قبلی `B`، مقدار مورد انتظار بعدی `A` و وضعیت اجرا. نوشتن باید قطع‌پذیری و کمبود فضای دیسک را تحمل/تشخیص دهد؛ پس از ثبت پایدار و arm شدن recovery تازه mutation مجاز شود.
+3. پیش از mutation، مقدار جاری دوباره با `B` تطبیق داده شود؛ پس از آن مقدار واقعی با `A` کنترل و نتیجه در journal ثبت شود. crash میان اجرای فرمان و ثبت موفقیت، با بازخوانی وضعیت تعیین تکلیف شود، نه با تکرار کور فرمان.
+4. در rollback، برای هر property تغییریافته مقدار جاری `C` را بسنجید: اگر `C=A`، به `B` برگردانید؛ اگر `C=B`، no-op؛ در غیر این صورت conflict ثبت کنید و مقدار خارجی را overwrite نکنید. rule افزوده‌شده فقط با هویت یکتا و تطابق تعریف مورد انتظار همان جلسه حذف شود؛ نه با wildcard یا نام نمایشی مشترک.
+5. ترتیب برگشت وابستگی‌ها از قبل طراحی و تست شود و ترتیب ناموفق میانی هم پوشش داده شود؛ هدف برگشت فقط delta خود ابزار است. فایل .wfw پشتیبان خصوصی بماند، نه مسیر پیش‌فرض و بی‌قیدِ recovery.
+
+**محدودیت مهم:** این compare/recheck، CAS اتمی فایروال نیست. mutex ابزار، GPO/EDR/مدیر دیگری را قفل نمی‌کند. حفظ هر تغییر خارجی و تضمین بازگشت کامل در همه تعارض‌ها همزمان قابل تضمین نیست؛ drift هم‌پوشان باید نتیجه `rollback_conflict` و توقف بدهد، نه PASS یا import کلی. برنامه recovery محلی برای چنین تعارضی باید پیش از تحویل تعریف شود؛ هیچ EmergencyReset عمومی یا تحمیل outbound=Allow جایگزین بازگردانی دقیق نشود.
+
+### ۹.۳. P0 — چرخه عمر watchdog باید با probe فعلی فرق کند
+**یافته مشخص منبع:** در `Recovery-Rehearsal.ps1`، بلوک `finally` حتی در مسیر شکست برای حذف task اقدام می‌کند؛ برای worker فعلی که فقط receipt می‌نویسد خطر تغییر شبکه ندارد، اما همین الگو نباید عیناً به Apply منتقل شود. worker فعلی نیز receipt را با `CreateNew` می‌نویسد؛ این رفتار به‌خودی‌خود الگوی rollback تکرارپذیر نیست. [main آزموده‌شده](https://github.com/kokononox/battle-net-agent-lab/blob/684626bec2cb7e7c610126b46187eb61db508e4b/sstp-recovery-s2/Recovery-Rehearsal.ps1)؛ [worker آزموده‌شده](https://github.com/kokononox/battle-net-agent-lab/blob/684626bec2cb7e7c610126b46187eb61db508e4b/sstp-recovery-s2/Rollback-Probe.ps1).
+
+**طرح پیشنهادی:**
+- ماشین حالت روشن: `PREPARED → ARMED → APPLYING → ROLLING_BACK → VERIFIED`؛ خطا/تعارض وضعیت جدا دارد. پیش از اولین تغییر شبکه، worker محلی، journal، deadline، ACL/hash و تعریف task شامل principal/action/trigger/settings بازخوانی و تأیید شوند. recovery به مرورگر، VPN، DNS یا دریافت فایل تازه وابسته نباشد.
+- Apply، rollback دستی و task زمان‌دار باید قفل/فنس مشترک همان جلسه داشته باشند. پس از ورود به ROLLING_BACK، Apply دیگر حق mutation نداشته باشد؛ وگرنه ممکن است پس از برگشت worker دوباره rule اعمال کند. `MultipleInstances IgnoreNew` فقط سیاست نمونه‌های همان task است، نه قفل rollback دستی.
+- بستن پنجره، exception یا شکست Apply نباید در `finally` تنها مسیر recovery را حذف کند. task/journal تا تأیید برگشت delta و ثبت receipt معتبر نگه داشته شوند؛ cleanup فقط هویت همان جلسه را هدف بگیرد.
+- `StartWhenAvailable` و تنظیمات باتری در S2 همین حالا وجود دارند؛ آن‌ها را پیشنهادِ هنوز پیاده‌نشده معرفی نکنیم. با این حال suspend/reboot و deadline ازدست‌رفته هنوز آزمون جدا می‌خواهند. برای boot recovery، intent پایدار و trigger/سازوکار محلی مشخص با جلوگیری از اجرای همزمان لازم است؛ در خواب/خاموشی تضمین «برگشت دقیقاً پس از ۴۵ ثانیه» ندهیم. [معنای رسمی تنظیمات Task](https://learn.microsoft.com/en-us/powershell/module/scheduledtasks/new-scheduledtasksettingsset?view=windowsserver2025-ps).
+- محدودیت یک‌دقیقه‌ای worker فعلی را بدون اندازه‌گیری به rollback واقعی منتقل نکنید. قطع worker در میانه restore باید قابل ادامه و آزموده باشد؛ timeout یا خراب‌شدن journal نباید به cleanup موفق یا بازکردن عمومی شبکه ترجمه شود.
+
+### ۹.۴. آزمون‌های تمایزبخش قبل از تحویل ابزار Apply
+این‌ها **پیشنهاد آزمون در Windows موقت با دسترسی recovery محلی مستقل** هستند، نه دستور آزمایش روی دستگاه کاربر. fixture مصنوعی و PASS ویندوز Server runner به‌تنهایی اثبات Windows 11/SSTP کاربر نیستند.
+
+| failure injection پیشنهادی | شاهد پذیرش مورد انتظار |
+| --- | --- |
+| شکست پیش از arm یا پیش از اولین mutation | هیچ تغییر شبکه؛ STOP روشن و بدون ادعای rollback اجراشده |
+| crash پس از ثبت intent و پیش/پس از فرمان، قبل از ثبت نتیجه | بازیابی با تشخیص B/A؛ بدون گم‌شدن عملیات یا اعمال دوباره ناسازگار |
+| crash بعد از هر مرحله partial apply و بستن کامل parent | worker محلی مستقل، برگشت delta ثبت‌شده و رسید واقعی پس از verification |
+| همزمانی rollback دستی/زمان‌دار و ادامه parent | تنها یک مسیر مؤثر؛ Apply پس از شروع rollback دیگر نمی‌نویسد |
+| تغییر rule نامرتبط و تغییر هم‌پوشان policy/GPO | اولی حفظ شود؛ دومی conflict بدهد، نه overwrite یا PASS |
+| sleep/reboot پس از mutation و عبور deadline | journal باقی بماند؛ recovery پس از امکان اجرا و بدون وابستگی اینترنت؛ زمان تأخیر صادقانه ثبت شود |
+| خطای restore، journal ناقص/دیسک پر یا termination worker | خطا قابل‌مشاهده و recovery قابل‌ادامه؛ پاک‌سازی مسیر بازیابی انجام نشود |
+
+کنترل native باید mutation و restore واقعی یک delta مجاز را بسنجد؛ باز هم receipt-only کافی نیست. snapshot معنایی مقادیر محلی/مؤثر، ruleها و فیلترهای مرتبط قبل/بعد مقایسه شود؛ تغییرات نامرتبطِ عمدی نیز باید حفظ شوند. برابری چند profile، exit code صفر، hash فایل .wfw یا اتصال loopback به‌تنهایی enforcement غیرloopback یا بازیابی همه policyها را ثابت نمی‌کنند. شواهد عمومی فقط نتیجه/خطا/شمار موارد حل‌نشده و هش‌های لازم باشند؛ backup، endpoint خصوصی و rule dump عمومی نشوند.
+
+### ۹.۵. P1 — default-deny باید در سیاست مؤثر ثابت شود
+- افزودن Allowهای محدود در کنار Allowهای گسترده موجود یا صرف تغییر default به Block کافی نیست. فقط Allowهای محلی مشخص و قابل‌بازیابی، مطابق طرح مجاز، موقتاً مدیریت شوند؛ اگر سیاست مؤثر یا منشأ ruleها کامل قابل‌خواندن/بازیابی نیست، Apply متوقف شود.
+- برای قواعد معمول، Block صریح بر Allow تعارض‌دار مقدم است؛ پس الگوی «Block همه + Allow چند مقصد» راه‌حل ساده‌ای نیست. Blockهای قبلی هم برای راه‌انداختن آپدیت تضعیف نشوند. [قواعد تقدم و local merge](https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-firewall/rules).
+- استثنای authenticated allow-bypass نیز جدا بررسی شود؛ ادعای مطلق «هر Block از هر Allow جلوتر است» دقیق نیست. GPO/MDM، merge و connection-security مؤثر باید gate داشته باشند؛ وجود مانع مدیریت‌شده مجوز تغییر GPO نیست. [ترتیب رسمی Allow-bypass/Block/Allow](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fasp/702e3c23-c9d8-43db-8380-b4c670dd7f7d).
+
+### ۹.۶. P1 — اثبات زیرلایه/تونل و تضاد احتمالی bootstrap
+پس از اثبات rollback، آزمون enforcement جدا با ترافیک کنترل‌شده غیرloopback و شاهد واقعی allow/drop طراحی شود:
+- زیرلایه: ارتباط لازم SSTP به endpoint معتبر مجاز باشد، ولی برنامه نامرتبط نتواند صرفاً از استثنای همان server:443 استفاده کند؛ تطابق IP یا یک PID مشترک svchost به‌تنهایی binding سرویس/پروفایل نیست.
+- درون تونل: مقصد مجاز فقط از رابط واقعاً منتسب به holand عبور کند؛ خروج همان مقصد از رابط فیزیکی، مقصد غیرمجاز در VPN و fallback IPv4/IPv6/UDP بررسی شوند. تغییر interface/index یا IP پس از reconnect نباید خودکار به مجوز گسترده تبدیل شود.
+- جریان ازپیش‌برقرار و اتصال تازه هر دو در آزمون باشند؛ از رفتار یکی نتیجه دیگری نگیریم. افت VPN باید معیار توقف/بازیابی مشخص داشته باشد، نه ادامه دانلود از مسیر دیگر. دانلود مستقل از گزارش کلیک کاربر اندازه‌گیری شود؛ شمار TCP معادل بایت دانلود نیست.
+- DNS bootstrap، تغییر IP CDN/VPN و CRL/OCSP جدا بررسی شوند. اگر پس از انقضای cache، شرط سخت «فقط endpoint VPN و مقصدهای آپدیت» با reconnect/اعتبارسنجی امن ناسازگار شد، تضاد مستند و تصمیم دامنه از کاربر گرفته شود؛ نه DNS/HTTPS عمومی دائمی باز شود، نه TLS/revocation خاموش گردد. IPهای snapshot نیز allowlist دائمی همه CDN نیستند.
+
+### ۹.۷. هزینه، معیار توقف و تحویل مورد انتظار
+- تحویل نزدیک و کم‌دامنه: طرح state/journal و بازگشت، harness failure-injection محدود، سپس شواهد native mutation/restore واقعی در محیط موقت مجاز. نصب دوباره بازی، login، ادامه N2 یا تکرار S1/S2 لازم نیست. این بازبینی هیچ runnerی را دستی اجرا نکرده؛ هزینه اجرای آزمون آینده باید پیش از شروع روشن باشد و larger/paid runner اضافه نشود.
+- **STOP قبل از تحویل Apply:** recovery مستقل arm/verify نمی‌شود؛ journal پایدار یا policy inventory کامل نیست؛ overlap خارجی/GPO حل‌نشده است؛ رفتار reboot/timeout در محدوده وعده‌داده‌شده آزموده نیست؛ یا برای اتصال امن باید از حدود مصوب عبور کرد.
+- گزارش بعدی چهار نتیجه را جدا کند: بازیابی delta خود ابزار، تعارض خارجی، سیاست مؤثر/enforcement و اتصال امن/پیشرفت واقعی آپدیت. هیچ boolean واحدی به نام PASS جای این تفکیک را نگیرد.
+- فعلاً مطابق وضعیت مبنا WoW بسته، آپدیت Pause، تنظیمات موجود و backup خصوصی حفظ شوند؛ نه S2 دوباره، نه BAT99/Enable/Disable/EmergencyReset. این بند مجوز تغییر شبکه کاربر یا Resume نیست.
