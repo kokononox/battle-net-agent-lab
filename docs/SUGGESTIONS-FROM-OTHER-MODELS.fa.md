@@ -208,3 +208,81 @@ CASC محتوامحور است؛ اگر هش فایل‌های دادهٔ دان
 - **STOP قبل از تحویل Apply:** recovery مستقل arm/verify نمی‌شود؛ journal پایدار یا policy inventory کامل نیست؛ overlap خارجی/GPO حل‌نشده است؛ رفتار reboot/timeout در محدوده وعده‌داده‌شده آزموده نیست؛ یا برای اتصال امن باید از حدود مصوب عبور کرد.
 - گزارش بعدی چهار نتیجه را جدا کند: بازیابی delta خود ابزار، تعارض خارجی، سیاست مؤثر/enforcement و اتصال امن/پیشرفت واقعی آپدیت. هیچ boolean واحدی به نام PASS جای این تفکیک را نگیرد.
 - فعلاً مطابق وضعیت مبنا WoW بسته، آپدیت Pause، تنظیمات موجود و backup خصوصی حفظ شوند؛ نه S2 دوباره، نه BAT99/Enable/Disable/EmergencyReset. این بند مجوز تغییر شبکه کاربر یا Resume نیست.
+
+---
+
+## ۱۰. بازخورد Notion AI — baseline محلی NotConfigured و بازیابی دقیق unset
+
+> مبنای بازبینی: commit `1232b2687e0ec1bca67dd446edad7efccb4d31bb`، وضعیت ثبت‌شده در 2026-10-19 02:19 UTC. این بخش صرفاً پیشنهاد طراحی/آزمون است؛ نه مجوز Apply، نه شاهد اجرای آزمون‌های زیر، و نه تکرار فرمان روی دستگاه کاربر. فقط همین سند تکمیل می‌شود؛ کد، workflow، BAT، VPN، hosts، فایروال کاربر و فایل بازی با این ثبت تغییر نمی‌کنند. متن بخش‌های قبلی حفظ شده است.
+
+### ۱۰.۱. یافته‌ها نسبت به اولویت اعلام‌شده
+- [STATUS](https://github.com/kokononox/battle-net-agent-lab/blob/1232b2687e0ec1bca67dd446edad7efccb4d31bb/docs/STATUS.fa.md)، [درخواست نقد](https://github.com/kokononox/battle-net-agent-lab/blob/1232b2687e0ec1bca67dd446edad7efccb4d31bb/docs/PEER-REQUEST-SSTP-S2.fa.md)، [خروجی محلی کاربر](https://github.com/kokononox/battle-net-agent-lab/blob/1232b2687e0ec1bca67dd446edad7efccb4d31bb/reports/sstp-user-local-outbound.json) و [تحلیل دو نسخه S3](https://github.com/kokononox/battle-net-agent-lab/blob/1232b2687e0ec1bca67dd446edad7efccb4d31bb/reports/sstp-rollback-s3-analysis.fa.md) خوانده شدند.
+- خروجی کاربر فقط `Get-NetFirewallProfile -PolicyStore PersistentStore | Select-Object Name, DefaultOutboundAction` است: Domain/Private/Public هر سه `NotConfigured`. این خروجی effective action را ثابت نمی‌کند و تنظیمات را عوض نکرده است.
+- S1 قبلی ActiveStore را outbound=`Allow` و firewall enabled ثبت کرده بود. این دو لایه یکی نیستند: PersistentStore مقدار ذخیره‌شدهٔ محلی است؛ ActiveStore جمع PersistentStore + RSOP/GPO + service hardening است. [توضیح storeها در Set-NetFirewallProfile](https://learn.microsoft.com/en-us/powershell/module/netsecurity/set-netfirewallprofile?view=windowsserver2025-ps).
+- gate نسخه سخت‌گیرتر S3 (`9f7b568c`) پیش از mutation در `full_setup` با `s3_no_real_profile_transition_available` ایستاد؛۱۷fixture پاس شد، live scenario صفر. PASS نسخه اول (`40fd1b53` / run `39187957739`) جایگزین این gate نیست و مجوز Apply نیست.
+- از داده کاربر علت قطعی توقف runner استنتاج نشود؛ از توقف runner هم baseline کاربر حدس زده نشود. receipt فعلی مقدارهای Persistent/Active را منتشر نمی‌کند.
+
+### ۱۰.۲. P0 — observability گیت ترکیبی، بدون دورزدن guard
+**یافته مشخص منبع:** در [Run-CI-Tests.ps1 نسخه سخت‌گیرتر](https://github.com/kokononox/battle-net-agent-lab/blob/9f7b568c902c9028358d464e2d6bd8a9781feefb/sstp-rollback-s3/Run-CI-Tests.ps1) یک شرط واحد سه چیز را با هم رد می‌کند: تعداد profile ≠ ۳، هر outbound غیر `Allow`/`Block`، یا صفر بودن `Allow`. throw واحد `s3_no_real_profile_transition_available` است؛ `native-result.json` / [build receipt](https://github.com/kokononox/battle-net-agent-lab/blob/1232b2687e0ec1bca67dd446edad7efccb4d31bb/reports/sstp-rollback-s3-build.json) فقط همین کد، `stage=full_setup` و `diagnostic_line=38` را دارد.
+
+**پیشنهاد کوچک، نه حذف gate:**
+1. کدهای توقف جدا: `s3_profile_count_mismatch`، `s3_persistent_outbound_not_allow_or_block`، `s3_no_allow_profile_for_partial_conflict`.
+2. حتی در STOP، enumهای `baseline_persistent` و `baseline_active` در receipt عمومی نوشته شوند: برای هر سه نام، `DefaultOutboundAction`؛ برای ActiveStore همچنین `Enabled` و `DefaultInboundAction`. dump قانون، مسیر خصوصی، endpoint و backup نه.
+3. علت نیاز به «دست‌کم یک Allow» در همین harness است، نه یک اصل فایروال: [Crash-Driver](https://github.com/kokononox/battle-net-agent-lab/blob/9f7b568c902c9028358d464e2d6bd8a9781feefb/sstp-rollback-s3/Crash-Driver.ps1) در `partial_conflict` اولین profile با `before -ceq 'Allow'` را برمی‌گزیند. اگر baseline همه NotConfigured باشد، آن selector خالی می‌ماند حتی اگر mutation مجاز می‌بود.
+
+این patch رفتار restore را عوض نمی‌کند؛ فقط مانع حدس پس‌از‌واقعه می‌شود. هزینه: یک run استاندارد windows-2025 پس از اعمال، نه larger/paid runner.
+
+### ۱۰.۳. P0 — round-trip دقیق unset آزمایش جدا است؛ gate فعلی شل نشود
+**مستند رسمی در برابر رفتار provider:**
+- برای `-DefaultOutboundAction`، مقدار `NotConfigured` «فقط هنگام پیکربندی GPO معتبر است» و تنظیم را از GPO برمی‌دارد؛ پیش‌فرض هنگام مدیریت خود رایانه `Allow` است. [Set-NetFirewallProfile](https://learn.microsoft.com/en-us/powershell/module/netsecurity/set-netfirewallprofile?view=windowsserver2025-ps).
+- netsh هم می‌گوید `notconfigured` فقط برای Group Policy store معتبر است؛ در عین حال برای `firewallpolicy` نوشته «مقدار را به حالت پیکربندی‌نشده برمی‌گرداند». این دو جمله باید با آزمون تمایزبخش حل شوند، نه با فرض. [netsh advfirewall](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netsh-advfirewall).
+- نسخه قدیمی‌تر همان خانواده فرمان، `notconfigured` را صریحاً به `set store` روی GPO محدود کرده است. [Netsh Commands for WFAS](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771920(v=ws.10)).
+- [MS-GPFAS DefaultOutboundAction](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-gpfas/bccac98d-1973-49d0-9100-aceb3bf557df) کلید GPO زیر `Software\Policies\Microsoft\WindowsFirewall\...` است (۰=allow، ۱=block)، نه PersistentStore محلی. این مسیر را با store محلی یکی نگیرید و restore را روی کلید سیاست دامنه بنا نکنید.
+
+**تفاوت دو نسخه S3 که باید جدا گزارش شود:**
+- نسخه اول journal مقدار `before∈{Allow,Block,NotConfigured}` را می‌پذیرفت و restore با `Set-NetFirewallProfile -PolicyStore PersistentStore -DefaultOutboundAction $p.before` انجام می‌شد؛ gate فقط وقتی می‌ایستاد که هیچ profileای غیر Block نباشد. [Core.ps1 اول](https://github.com/kokononox/battle-net-agent-lab/blob/40fd1b53b13cc03d77f0054dd467667958207474/sstp-rollback-s3/Core.ps1).
+- نسخه سخت‌گیرتر `before=NotConfigured` را در `AssertJournal` رد می‌کند و live mutation را به Allow/Block محدود می‌کند. [Core.ps1 سخت‌گیرتر](https://github.com/kokononox/battle-net-agent-lab/blob/9f7b568c902c9028358d464e2d6bd8a9781feefb/sstp-rollback-s3/Core.ps1).
+- چون receipt نسخه اول baseline Persistent را ندارد، PASS آن **اثبات round-trip دقیق NotConfigured نیست**. ممکن است runner Allow بوده باشد، یا Setِ NotConfigured روی PersistentStore ظاهراً موفق شده باشد. هر دو باید با شاهد enum جدا مشخص شوند؛ رفتار بدون‌مستند provider راهکار عمومی کاربر نیست.
+
+**آزمون پیشنهادی جدا (S3u)، فقط CI github-hosted/Windows، بدون لانچر کاربر:**
+schema جدا مثل `s3u-ci-journal-1`؛ `s3-ci-journal-1` شل نشود.
+1. snapshot فقط‌خواندنی PersistentStore + ActiveStore + در صورت وجود SystemDefaults: enum نام/Enabled/Inbound/Outbound. اگر RSOP خالی یا خطا داد، همان را ثبت کنید نه حدس GPO.
+2. اگر Persistent هر سه profile از قبل `NotConfigured` است، همان fixture واقعی است؛ runner را با نوشتن Allow «آمادهٔ S3 سخت‌گیرتر» نکنید.
+3. اگر Persistent از قبل Allow/Block است، S3u را با `s3u_baseline_not_unset` متوقف کنید؛ PASS نگرفتن به‌خاطر نبود fixture، شکست restore نیست.
+4. فقط **یک** profile را به Block تغییر دهید (ترجیحاً غیر Domain)، نه هر سه. دو profile دیگر شاهد عدم‌دستکاری‌اند.
+5. پس از mutation، Persistent همان profile باید Block باشد؛ Active outbound/inbound/enabled جدا سنجیده شوند. از تغییر effective، stored unset بودنِ قبل نتیجه گرفته نشود و برعکس.
+6. restore را فقط با candidate مستند و به ترتیب، روی همان یک property، آزمایش کنید. موفقیت یعنی Persistent دوباره دقیقاً `NotConfigured` است **و** snapshot Active همان profile و دو profile دیگر با پیش از mutation برابرند.
+
+Candidate A — همان cmdlet نسخه اول، این بار با شاهد stored: `Set-NetFirewallProfile -Name <one> -PolicyStore PersistentStore -DefaultOutboundAction NotConfigured`. اگر throw شد، Persistent=`Allow` شد، یا inbound عوض شد → این روش FAIL است، نه «نزدیک به PASS».
+Candidate B — netsh `firewallpolicy` فقط اگر بتوان outbound را بدون دست‌زدن به inbound هدف گرفت. الگوی رایج inbound و outbound را با هم می‌نویسد (`blockinbound,allowoutbound`). اگر `notconfigured` هر دو را unset کند یا store را عوض کند → FAIL آن روش. [نمونه رسمی جفت inbound/outbound](https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-firewall/configure-with-command-line).
+
+**معیار PASS S3u:** Persistent هدف = `NotConfigured`؛ Active هدف = مقدار پیش از mutation؛ دو profile دیگر دست‌نخورده؛ هیچ netsh import/reset و هیچ نوشتن Allow به‌عنوان restore؛ rule نامرتبط حفظ شود.
+**معیار FAIL صریح:** Persistent پس از restore برابر `Allow` باشد، حتی اگر Active همچنان Allow بماند. این همان تغییر semantics است که STATUS ممنوع کرده.
+
+### ۱۰.۴. بازگرداندن Allow به‌جای unset باید conflict بماند
+`RollbackDecision` همین حالا `Current=Allow, Before=NotConfigured, Applied=Block` را `conflict_value` می‌دهد؛ این را نگه دارید. اگر journal به‌اشتباه `before=Allow` بنویسد در حالی که stored واقعی NotConfigured بوده، restoreِ Allow همان mutation معنایی است.
+
+چرا معادل نیستند:
+- Unset محلی یعنی این store مقدار را تعیین نمی‌کند؛ Allow محلی یعنی این store صریحاً Allow می‌نویسد و در merge بعدی با GPO/RSOP فرق دارد.
+- پیش‌فرض «وقتی رایانه را مدیریت می‌کنید Allow است» توصیف effective/default محصول است، نه مجوز بازنویسی stored unset.
+- EmergencyReset / import کلی / `netsh advfirewall reset` خارج از دامنه است.
+
+تا S3u PASS نشده، Apply روی baseline کاربر متوقف بماند. تکرار S3 سخت‌گیرتر روی runner بدون observability یا با normalize کردن baseline به Allow، PASS کاذب می‌سازد.
+
+### ۱۰.۵. آزمون‌های تمایزبخش پیشنهادی (فقط محیط موقت)
+| failure injection | شاهد پذیرش |
+| --- | --- |
+| STOP پیش از mutation با baseline NotConfigured در S3 سخت‌گیرتر | کد توقف تفکیک‌شده + enum Persistent/Active؛ بدون Set |
+| Set NotConfigured روی PersistentStore پس از Block موقت یک profile | Persistent هدف = NotConfigured نه Allow؛ inbound همان profile و دو profile دیگر ثابت |
+| restore با نوشتن Allow | FAIL معنایی، حتی اگر Active=Allow |
+| تغییر خارجی همان profile به Allow هنگام rollback | `conflict_value`؛ overwrite نشود |
+| netsh firewallpolicy notconfigured | اگر inbound یا store عوض شد، روش رد شود |
+| replay پس از restore دقیق | decision=`already_before`؛ Set تازه صفر |
+
+compare-before-write همچنان CAS نیست؛ این جدول آن را حل نمی‌کند. enforcement SSTP/Level3، IPv6، DNS/CRL و صفر telemetry از S3u نتیجه گرفته نشود.
+
+### ۱۰.۶. هزینه، توقف و کارهای غیرمجاز فعلی
+- تحویل نزدیک: (۱) receipt با baseline enum و کد توقف جدا برای S3 موجود؛ (۲) طرح/harness S3u تک‌profile در CI استاندارد. login، Resume، تکرار S1/S2/T1/N2، BAT99، Enable/Disable/EmergencyReset، upload backup و larger/paid runner لازم نیستند و پیشنهاد نمی‌شوند.
+- **STOP پیش از Apply کاربر:** روش مستند round-trip، Persistent را دقیقاً به NotConfigured برنمی‌گرداند؛ inbound یا profile نامرتبط عوض می‌شود؛ یا برای PASS باید Allow نوشته شود.
+- خروجی اضافی از کاربر فعلاً لازم نیست؛ ورودی Persistent کافی است. WoW بسته، آپدیت Pause، VPN/تنظیمات فعلی و backup خصوصی حفظ شوند.
+- این بند مجوز تغییر شبکه کاربر نیست. پیشنهادهای بخش ۹ برای journal/watchdog/enforcement همچنان معتبرند ولی تا حل unset، اولویت اجرا نیستند.
