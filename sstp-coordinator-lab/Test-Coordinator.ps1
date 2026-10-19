@@ -109,6 +109,8 @@ try{
  $missing=Root;Check ((Worker $missing Disable) -eq 1);Check (GuardEnabled)
 }catch{
  $code='coord_test_failed';Write-Host ('coord_checks_before_failure_'+$checks)
+ Write-Host ('coord_failure_at_'+[IO.Path]::GetFileName($_.InvocationInfo.ScriptName)+'_'+$_.InvocationInfo.ScriptLineNumber)
+ if($_.Exception.Message -cmatch "property '([A-Za-z][A-Za-z0-9_]{0,80})'"){Write-Host ('coord_missing_property_'+$Matches[1])}
  if($_.Exception.Message -match '^(coord|profile|journal|integrated|inventory)_[a-z_]+$'){Write-Host $_.Exception.Message}else{Write-Host ('coord_provider_failure_'+$_.Exception.GetType().Name.ToLowerInvariant())}
 }finally{
  # CI cleanup only, NOT product recovery: original images known in THIS process, exact owned scope.
