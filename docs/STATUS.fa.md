@@ -1,7 +1,7 @@
 # وضعیت جاری پروژه — مرجع هماهنگی عامل و همکاران
 
-**آخرین به‌روزرسانی: 2026-10-19 00:38 (UTC)**  
-**مرحلهٔ فعلی: اولین گزارش محتوایی T1.1 دریافت شد؛ READY و پیشرفت/Pause به گزارش کاربر.۲۶ GET روشن از Agent به Level3، بدون بدنه/query/credential header و بدون CPU literal در نمونه. اما چهار مقصد عمومی HTTPS از battle.net.exe بدون هیچ input capture دیده شده‌اند؛ «فقط آپدیت/صفر تله‌متری» اثبات نشده است. گام بعد رفع شکاف پوشش همین HTTPSها، نه تغییر BAT یا تکرار Level3.**
+**آخرین به‌روزرسانی: 2026-10-19 00:47 (UTC)**  
+**مرحلهٔ فعلی: با درخواست «شروع کن»، مکمل N1 برای شناسایی فقط‌خواندنی کتابخانه/API فرایند صاحب HTTPSها آماده شد. بدون hook، تغییر BAT/hosts/TLS یا Resume؛ اجرا در حالت Pause.۲۵ آزمون آفلاین با PE مصنوعی/mock API پاس؛ خود مکمل هنوز Windows-tested نیست. هیچ workflow/runner تازه برای ساخت این ZIP درخواست نشد. محتوای چهار HTTPS همچنان نامعلوم است.**
 
 این فایل مرجع وضعیت روز است. README و اسناد قدیمی مسیر تحقیق را نگه می‌دارند، اما تیترهای «آزمایش جاری» یا «گام بعد» در آن‌ها لزوماً وضعیت امروز نیستند. پیشنهادهای همکاران در [سند پیشنهادها](SUGGESTIONS-FROM-OTHER-MODELS.fa.md) قرار می‌گیرد؛ پیشنهاد به‌تنهایی تصمیم، مجوز یا شاهد اجرای موفق نیست.
 
@@ -23,6 +23,16 @@
 | محل کد آزمایشی و گزارش‌های تازه | T1/R1/U2 در شاخه privacy-observation-20261018-a1؛ BATهای ساده در plain-hosts-leave-one-open روی main. کد پژوهشی خودکار merge نمی‌شود |
 
 ## شواهد معتبر جدید — مبنای راهنمایی همکاران
+### N1 — مکمل شناسایی فقط‌خواندنی شبکه، بدون آزمایش دانلود
+- source: `1469d04971ebcf069f4911b2c85c3a3c23881f9a` در شاخه پژوهش، مسیر `network-library-inventory-n1/`؛ [راهنمای تحویل](NETWORK-LIBRARY-INVENTORY-N1.fa.md) و [رسید آفلاین](../reports/network-library-inventory-n1-offline-validation.json).
+- شواهد قدیمی D2/E2 بازبینی شد: categories محدود setup/Agent داشتند؛ شناسایی actual battle.net.exe صاحب چهار HTTPS نمونه اخیر نیستند. libcef/BoringSSL/OpenSSL برای آن فرایند هنوز تشخیص داده نشده است؛ پیشنهاد به یافته تبدیل نشود.
+- N1 از runtime/helperهای اصلی T1.1 استفاده می‌کند، manifest/source همان build موفق را کنترل می‌کند، فایل قبلی را جایگزین یا manifest را بازنویسی نمی‌کند. فایل‌های مکمل SHA مستقل دارند و عضو manifest قدیمی نیستند؛ source ثبت شده است.
+- فقط image معتبر Blizzard و هویت PID/creation پیش و پس از snapshot تازه TCP، module enumeration استاندارد Windows، hash و جدول PE import/export روی دیسک. فقط نام ثابت کتابخانه/API، هش، اندازه و دسته مسیر؛ نه مسیر کامل/نام ماژول نامرتبط/command line/payload/key یا dump حافظه.
+- بدون hook/injection، درخواست Update/Pause، اجرای/kill/gate فرایند، hosts/firewall/cache/game-file write، TLS downgrade یا upload خودکار. بررسی امضا می‌تواند ارتباط certificate service داشته باشد؛ خود Battle.net باز ممکن است ترافیک خودش را بسازد. وضعیت Pause حفظ شود.
+-۲۵ آزمون آفلاین parser/bounds، PE32/PE64، PID reuse، signature rejection، TCP attribution mock، privacy و non-mutation پاس شدند. helperهای native پایه قبلاً در T1.1 تست Windows داشتند؛ **خود N1 جدید هنوز روی Windows اجرا نشده**. هیچ workflow تازه یا runner برای ساخت ZIP راه‌اندازی نشده است.
+- presence کتابخانه/export/import به معنی API usage واقعی نیست؛ delay import، static/dynamic resolving و UDP/QUIC پوشش کامل ندارند. نبود symbol یا نبود TCP در حالت Pause، نبود مسیر/ترافیک را ثابت نمی‌کند. این گام فقط انتخاب مسیر مشاهده بعدی است، نه verdict محتوا.
+- ZIP مکمل بدون runtime است؛ باید داخل همان root بسته T1.1 که runtime/app دارد استخراج شود. فقط observerهای قبلی بسته شوند؛ Battle.net می‌تواند باز و paused/signed-out بماند. تا گزارش N1، هیچ Resume یا تعویض BAT لازم نیست.
+
 ### نتیجه واقعی T1.1 — Level3 بدون نشانه حساسِ تشخیص‌داده‌شده؛ HTTPSهای دیگر نامعلوم
 - [تحلیل کامل](../reports/level3-audit-t11-user-analysis.fa.md) · [شواهد](../reports/level3-audit-t11-user-analysis.json) · [گزارش اصلی](../reports/level3-audit-t11-user.json).
 - READY=true، observation_ended، error=null؛ reported_progress و reported_paused انتخاب کاربرند. بایت دانلود مستقل نداریم. hosts_changed_by_tool=false و hash برابر؛ پروفایل DNS نرمال‌شده قبل/READY/بعد پاس شد؛ نقص guard قبلی مانع این اجرا نشده است.
