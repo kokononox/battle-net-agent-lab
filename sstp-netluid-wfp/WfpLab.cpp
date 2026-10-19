@@ -64,7 +64,7 @@ static void CheckProvider(const Plan& p,const FWPM_PROVIDER0& x){auto y=Provider
 static void CheckSub(const Plan& p,const FWPM_SUBLAYER0& x){auto y=Sub(p);if(x.weight!=y.weight)std::cout<<"wfp_sub_weight_observed_"<<x.weight<<"_expected_"<<y.weight<<std::endl;Fields({
  {Eq(x.subLayerKey,y.subLayerKey),"sub_key"},{Text(x.displayData.name,Label),"sub_name"},{Text(x.displayData.description,Label),"sub_description"},
  {x.flags==y.flags,"sub_flags"},{x.providerKey&&Eq(*x.providerKey,p.keys[0]),"sub_provider"},{Blob(x.providerData,y.providerData),"sub_data"},{x.weight==y.weight,"sub_weight"}});}
-static void CheckFilter(const Plan& p,int k,const FWPM_FILTER0& x){Filter y(p,k);const auto& f=y.f;
+static void CheckFilter(const Plan& p,int k,const FWPM_FILTER0& x){Filter y(p,k);const auto& f=y.f;if(x.flags!=f.flags)std::cout<<"wfp_filter_flags_observed_"<<x.flags<<"_expected_"<<f.flags<<std::endl;
  Fields({{Eq(x.filterKey,f.filterKey),"filter_key"},{Text(x.displayData.name,Label),"filter_name"},{Text(x.displayData.description,Label),"filter_description"},
  {x.flags==f.flags,"filter_flags"},{x.providerKey&&Eq(*x.providerKey,p.keys[0]),"filter_provider"},{Blob(x.providerData,f.providerData),"filter_data"},
  {Eq(x.layerKey,f.layerKey),"filter_layer"},{Eq(x.subLayerKey,f.subLayerKey),"filter_sub"},
