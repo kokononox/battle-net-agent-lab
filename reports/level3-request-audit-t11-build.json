@@ -1,0 +1,42 @@
+{
+  "schema": "local-observer-build-7",
+  "source_commit": "7eacb50b04ffe4676ff85a8c37df9f5e03d1a97e",
+  "run_id": "39180867922",
+  "runner_kind": "windows-2025",
+  "unit_outcome": "success",
+  "deps_outcome": "success",
+  "package_outcome": "success",
+  "native_outcome": "success",
+  "certificate_outcome": "success",
+  "artifact_url": "https://github.com/kokononox/battle-net-agent-lab/actions/runs/39180867922/artifacts/12156645195",
+  "artifact_digest": "db78a6f82946e35555533ffaf995f6606ec3271ef7aec9b6fa2b64586eed2f5b",
+  "selftest": {
+    "passed": true,
+    "loopback_only": true,
+    "send_observed": true,
+    "wsasend_observed": true,
+    "sspi_negative_input_observed": true,
+    "fixture_excluded_from_real_report": true,
+    "worker_exited": true,
+    "script_errors": 0,
+    "error_code": null
+  },
+  "python_version": "3.12.10",
+  "build_manifest_sha256": "49404242dfc41d4d0734d4d42a2e395ed749b747393d49884a7769b13b5cd5cc",
+  "game_update_tested": false,
+  "user_pc_accessed": false,
+  "standard_runner_only": true,
+  "certificate_gate": {
+    "passed": true,
+    "runtime_valid": true,
+    "runtime_not_blizzard": true,
+    "runtime_status": "Valid",
+    "bootstrap_valid": true,
+    "bootstrap_blizzard": true,
+    "bootstrap_status": "Valid",
+    "bootstrap_sha256": "de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf",
+    "downloaded_only_never_executed": true,
+    "phase": "complete",
+    "error_code": null
+  }
+}
