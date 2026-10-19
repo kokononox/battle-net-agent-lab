@@ -4,6 +4,36 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
 . (Join-Path $PSScriptRoot '../sstp-allowlist-backend/Journal.ps1')
 . (Join-Path $PSScriptRoot '../sstp-allowlist-adapter/Firewall.ps1')
+function GetQRule([string]$Name) {
+ # This path REQUIRES presence. Any provider error, including not-found, stops; none means absence.
+ # Escape wildcard metacharacters, then still require one exact local identity.
+ $literal=[Management.Automation.WildcardPattern]::Escape($Name)
+ $rules=@(Get-NetFirewallRule -PolicyStore PersistentStore -Name $literal -ErrorAction Stop)
+ if ($rules.Count -ne 1 -or $rules[0].Name -cne $Name -or [string]$rules[0].PolicyStoreSourceType -cne 'Local') { throw 'quarantine_rule_identity' }
+ return $rules[0]
+}
+function ReadQSnapshot([string]$Name) {
+ $rule=GetQRule $Name
+ if ($null -eq $rule) { return $null }
+ $image=[ordered]@{rule=(ConvertAdapterCim $rule)}
+ $view=[ordered]@{name=[string]$rule.Name;display_name=[string]$rule.DisplayName;description=[string]$rule.Description;group=[string]$rule.Group;enabled=[string]$rule.Enabled;direction=[string]$rule.Direction;action=[string]$rule.Action;profile=[string]$rule.Profile}
+ foreach($pair in @(@('address','Get-NetFirewallAddressFilter'),@('port','Get-NetFirewallPortFilter'),@('application','Get-NetFirewallApplicationFilter'),@('service','Get-NetFirewallServiceFilter'),@('interface','Get-NetFirewallInterfaceFilter'),@('interface_type','Get-NetFirewallInterfaceTypeFilter'),@('security','Get-NetFirewallSecurityFilter'))) {
+  $filters=@(& $pair[1] -AssociatedNetFirewallRule $rule -ErrorAction Stop)
+  if ($filters.Count -ne 1) { throw 'adapter_filter_count' }
+  $image[$pair[0]]=ConvertAdapterCim $filters[0]
+  switch($pair[0]) {
+   'address' { $view.local_address=@($filters[0].LocalAddress);$view.remote_address=@($filters[0].RemoteAddress) }
+   'port' { $view.protocol=[string]$filters[0].Protocol;$view.local_port=@($filters[0].LocalPort);$view.remote_port=@($filters[0].RemotePort) }
+   'application' { $view.program=[string]$filters[0].Program }
+   'service' { $view.service=[string]$filters[0].Service }
+   'interface' { $view.alias=@($filters[0].InterfaceAlias) }
+   'interface_type' { $view.interface_type=[string]$filters[0].InterfaceType }
+  }
+ }
+ $image['view']=[pscustomobject]$view
+ $json=ConvertTo-Json -InputObject $image -Depth 8 -Compress
+ [pscustomobject]@{schema='sstp-rule-snapshot-1';name=$Name;image=[pscustomobject]$image;sha256=(AdapterHash $json)}
+}
 function AssertQSnapshot($Snapshot) {
  if ($null -eq $Snapshot -or (($Snapshot.PSObject.Properties.Name | Sort-Object) -join ',') -cne 'image,name,schema,sha256' -or $Snapshot.schema -cne 'sstp-rule-snapshot-1') { throw 'quarantine_snapshot_schema' }
  if ($Snapshot.name -isnot [string] -or [string]::IsNullOrWhiteSpace($Snapshot.name) -or $Snapshot.name.Length -gt 512 -or $Snapshot.sha256 -cnotmatch '^[a-f0-9]{64}$') { throw 'quarantine_snapshot_schema' }
@@ -34,7 +64,7 @@ function AssertQFrontier($State) {
  AssertQState $State
  $pendingAfter=$false
  for($i=0;$i -lt $State.rules.Count;$i++) {
-  $b=$State.rules[$i];$a=ReadStagedRule $b.name
+  $b=$State.rules[$i];$a=ReadQSnapshot $b.name
   if ($null -eq $a) { throw 'quarantine_missing_rule' }
   $disabled=($i -lt $State.cursor)
   $expected=QExpected $b $disabled
@@ -50,15 +80,15 @@ function AssertQFrontier($State) {
 }
 function SetQEnabled($Before,[bool]$Disabled) {
  $from=QExpected $Before (-not $Disabled);$to=QExpected $Before $Disabled
- $actual=ReadStagedRule $Before.name
+ $actual=ReadQSnapshot $Before.name
  if ($null -eq $actual -or $actual.sha256 -cne $from.sha256) { throw 'quarantine_external_change' }
  # InputObject rather than -Name avoids interpreting existing rule names as wildcard expressions.
- $rule=GetExactLocalRule $Before.name
- $latest=ReadStagedRule $Before.name
+ $rule=GetQRule $Before.name
+ $latest=ReadQSnapshot $Before.name
  if ($null -eq $rule -or $null -eq $latest -or $latest.sha256 -cne $from.sha256) { throw 'quarantine_external_change' }
  $value='True';if ($Disabled) { $value='False' }
  Set-NetFirewallRule -InputObject $rule -Enabled $value -ErrorAction Stop | Out-Null
- $readback=ReadStagedRule $Before.name
+ $readback=ReadQSnapshot $Before.name
  if ($null -eq $readback -or $readback.sha256 -cne $to.sha256) { throw 'quarantine_mutation_readback' }
 }
 function InvokeNativeQuarantine {

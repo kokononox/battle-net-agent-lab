@@ -12,7 +12,23 @@ function ProfileImage {
 }
 function ExistingRuleImage {
  # Baseline of unrelated rule PROPERTIES, not a claim that all unrelated filters were inspected.
- $items=@(Get-NetFirewallRule -PolicyStore PersistentStore -ErrorAction Stop | Where-Object { $_.Name -notlike ($prefix+'*') } | Sort-Object Name | ForEach-Object { ConvertAdapterCim $_ });ConvertTo-Json -InputObject $items -Depth 5 -Compress
+ $items=@(Get-NetFirewallRule -PolicyStore PersistentStore -ErrorAction Stop | Where-Object { $_.Name -notlike ($prefix+'*') } | Sort-Object Name | ForEach-Object { [pscustomobject][ordered]@{name=[string]$_.Name;image=(ConvertAdapterCim $_)} });ConvertTo-Json -InputObject $items -Depth 6 -Compress
+}
+function RulePropertyDiff([string]$Before,[string]$After) {
+ $b=@{};$a=@{};$names=@();$added=0;$removed=0;$modified=0
+ $decoded=$Before | ConvertFrom-Json;foreach($r in @($decoded)) { $b[$r.name]=$r.image }
+ $decoded=$After | ConvertFrom-Json;foreach($r in @($decoded)) { $a[$r.name]=$r.image }
+ foreach($name in $b.Keys) {
+  if (-not $a.ContainsKey($name)) { $removed++;continue }
+  if (($b[$name] | ConvertTo-Json -Depth 6 -Compress) -ceq ($a[$name] | ConvertTo-Json -Depth 6 -Compress)) { continue }
+  $modified++;$fields=@($b[$name].PSObject.Properties.Name)+@($a[$name].PSObject.Properties.Name)
+  foreach($field in @($fields | Sort-Object -Unique)) {
+   $bp=$b[$name].PSObject.Properties[$field];$ap=$a[$name].PSObject.Properties[$field]
+   if ($null -eq $bp -or $null -eq $ap -or (ConvertTo-Json -InputObject $bp.Value -Depth 4 -Compress) -cne (ConvertTo-Json -InputObject $ap.Value -Depth 4 -Compress)) { $names+=,$field }
+  }
+ }
+ foreach($name in $a.Keys) { if (-not $b.ContainsKey($name)) { $added++ } }
+ [pscustomobject][ordered]@{added=$added;removed=$removed;modified=$modified;property_names=@($names | Sort-Object -Unique)}
 }
 function NewFixture([int]$Count=2) {
  $root=InitializeJournalRoot (Join-Path $env:RUNNER_TEMP ('sstp-quarantine-'+[guid]::NewGuid().ToString('N')));$script:roots+=,$root;$snaps=@()
@@ -20,7 +36,7 @@ function NewFixture([int]$Count=2) {
   $script:counter++;$name=$prefix+$script:counter.ToString('000')
   # Only synthetic rules: nonexistent executable, documentation-only addresses and one high TCP port.
   New-NetFirewallRule -PolicyStore PersistentStore -Name $name -DisplayName $name -Group $group -Description 'P7 controlled fixture' -Enabled True -Direction Outbound -Action Allow -Profile Any -Program $program -Protocol TCP -RemotePort 65534 -RemoteAddress @('192.0.2.44','2001:db8::44') -EdgeTraversalPolicy Block -ErrorAction Stop | Out-Null
-  $s=ReadStagedRule $name;AssertQSnapshot $s;$snaps+=,$s;$script:snapshots+=,$s
+  $s=ReadQSnapshot $name;AssertQSnapshot $s;$snaps+=,$s;$script:snapshots+=,$s
  }
  [pscustomobject]@{root=$root;snapshots=$snaps}
 }
@@ -32,7 +48,7 @@ function Worker([string]$Root,[string]$Action,[string]$Fault='None',[int]$Index=
  $out=@(& (Join-Path $PSHOME 'powershell.exe') -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$PSScriptRoot/Worker.ps1" -Root $Root -Action $Action -Fault $Fault -FaultIndex $Index 2>&1);$code=$LASTEXITCODE
  if ($code -notin @(0,73)) { foreach($line in $out) { if ([string]$line -match '^(quarantine|adapter|journal|policy)_[a-z_0-9]+$') { Write-Host ([string]$line) } } };return $code
 }
-function AssertOriginal($Fixture) { foreach($s in $Fixture.snapshots) { Check ((ReadStagedRule $s.name).sha256 -ceq $s.sha256) } }
+function AssertOriginal($Fixture) { foreach($s in $Fixture.snapshots) { Check ((ReadQSnapshot $s.name).sha256 -ceq $s.sha256) } }
 $beforeProfiles=ProfileImage;$beforeRules=ExistingRuleImage
 try {
  Check (-not (Test-Path -LiteralPath $program))
@@ -41,7 +57,7 @@ try {
  Check ((QExpected $f.snapshots[0] $true).sha256 -cne $f.snapshots[0].sha256)
  $r=InvokeNativeQuarantine -Root $f.root -Action Quarantine -Snapshots $f.snapshots
  Check ($r.phase -eq 'quarantined')
- foreach($s in $f.snapshots) { Check ((ReadStagedRule $s.name).sha256 -ceq (QExpected $s $true).sha256) }
+ foreach($s in $f.snapshots) { Check ((ReadQSnapshot $s.name).sha256 -ceq (QExpected $s $true).sha256) }
  $rev=(ReadJournal $f.root).record.revision;InvokeNativeQuarantine $f.root Quarantine | Out-Null
  Check ((ReadJournal $f.root).record.revision -eq $rev)
  InvokeNativeQuarantine $f.root Restore | Out-Null;AssertOriginal $f
@@ -58,6 +74,7 @@ try {
   Check ((ReadJournal $f.root).record.state.phase -eq $(if ($action -eq 'Quarantine') {'quarantined'} else {'restored'}))
   if ($action -eq 'Quarantine') { InvokeNativeQuarantine $f.root Restore | Out-Null }
   AssertOriginal $f
+  Write-Host ('quarantine_fault_case_completed_'+$script:faults)
  } } }
  # Restore directly from an interrupted quarantine, including the uncertain completed mutation.
  foreach($point in @('BeforeMutation','AfterMutation')) {
@@ -68,19 +85,19 @@ try {
  }
  # Full filter snapshots, not only Enabled or display names, protect against external changes.
  $f=NewFixture 2;InvokeNativeQuarantine -Root $f.root -Action Quarantine -Snapshots $f.snapshots | Out-Null
- $s=$f.snapshots[0];$rule=GetExactLocalRule $s.name
+ $s=$f.snapshots[0];$rule=GetQRule $s.name
  Set-NetFirewallRule -InputObject $rule -RemoteAddress '192.0.2.45' -ErrorAction Stop | Out-Null
- $changed=ReadStagedRule $s.name;$rev=(ReadJournal $f.root).record.revision
+ $changed=ReadQSnapshot $s.name;$rev=(ReadJournal $f.root).record.revision
  Reject { InvokeNativeQuarantine $f.root Restore } 'quarantine_external_change'
- Check ((ReadStagedRule $s.name).sha256 -ceq $changed.sha256 -and (ReadJournal $f.root).record.revision -eq $rev)
- Set-NetFirewallRule -InputObject (GetExactLocalRule $s.name) -RemoteAddress @('192.0.2.44','2001:db8::44') -ErrorAction Stop | Out-Null
+ Check ((ReadQSnapshot $s.name).sha256 -ceq $changed.sha256 -and (ReadJournal $f.root).record.revision -eq $rev)
+ Set-NetFirewallRule -InputObject (GetQRule $s.name) -RemoteAddress @('192.0.2.44','2001:db8::44') -ErrorAction Stop | Out-Null
  InvokeNativeQuarantine $f.root Restore | Out-Null;AssertOriginal $f
  # A conflict in a later frontier resource prevents even the first mutation.
  $f=NewFixture 2;Prepare $f;$s=$f.snapshots[1]
- Set-NetFirewallRule -InputObject (GetExactLocalRule $s.name) -Description 'P7 external edit' -ErrorAction Stop | Out-Null
+ Set-NetFirewallRule -InputObject (GetQRule $s.name) -Description 'P7 external edit' -ErrorAction Stop | Out-Null
  Reject { InvokeNativeQuarantine $f.root Quarantine } 'quarantine_external_change'
- Check ((ReadStagedRule $f.snapshots[0].name).sha256 -ceq $f.snapshots[0].sha256)
- Set-NetFirewallRule -InputObject (GetExactLocalRule $s.name) -Description 'P7 controlled fixture' -ErrorAction Stop | Out-Null
+ Check ((ReadQSnapshot $f.snapshots[0].name).sha256 -ceq $f.snapshots[0].sha256)
+ Set-NetFirewallRule -InputObject (GetQRule $s.name) -Description 'P7 controlled fixture' -ErrorAction Stop | Out-Null
  InvokeNativeQuarantine $f.root Restore | Out-Null;AssertOriginal $f
  # No journal means no restoration authority; no fallback reset or EnableAll.
  $f=NewFixture 1;Reject { InvokeNativeQuarantine $f.root Restore } 'quarantine_missing_journal';AssertOriginal $f
@@ -91,9 +108,9 @@ try {
  Check ((ReadJournal $f.root).status -eq 'absent');AssertOriginal $f
  # A retained backup does not silently authorize replay of a damaged primary.
  $f=NewFixture 1;InvokeNativeQuarantine -Root $f.root -Action Quarantine -Snapshots $f.snapshots | Out-Null
- $disabled=ReadStagedRule $f.snapshots[0].name;[IO.File]::WriteAllText((Join-Path $f.root 'journal.json'),'broken')
+ $disabled=ReadQSnapshot $f.snapshots[0].name;[IO.File]::WriteAllText((Join-Path $f.root 'journal.json'),'broken')
  Reject { InvokeNativeQuarantine $f.root Restore } 'quarantine_journal_recovery_required'
- Check ((ReadStagedRule $disabled.name).sha256 -ceq $disabled.sha256)
+ Check ((ReadQSnapshot $disabled.name).sha256 -ceq $disabled.sha256)
  # Lock contention does not mutate the real fixture.
  $f=NewFixture 1;$lock=OpenQLock $f.root
  try { $busy=$false;try { InvokeNativeQuarantine -Root $f.root -Action Quarantine -Snapshots $f.snapshots | Out-Null } catch { $busy=$true };Check $busy } finally { $lock.Dispose() }
@@ -107,16 +124,16 @@ try {
  # Explicit CI-only cleanup: exact GUID identity AND full known before/after filter hash.
  foreach($s in $script:snapshots) {
   try {
-   $a=ReadStagedRule $s.name;if ($null -eq $a) { continue }
+   $a=ReadQSnapshot $s.name;if ($null -eq $a) { continue }
    if ($a.sha256 -cnotin @($s.sha256,(QExpected $s $true).sha256) -or $a.image.view.group -cne $group) { throw 'quarantine_cleanup_conflict' }
-   Remove-NetFirewallRule -InputObject (GetExactLocalRule $s.name) -ErrorAction Stop
+   Remove-NetFirewallRule -InputObject (GetQRule $s.name) -ErrorAction Stop
   } catch { $passed=$false;$errorCode='quarantine_cleanup_failure' }
  }
  $remaining=@(Get-NetFirewallRule -PolicyStore PersistentStore -ErrorAction Stop | Where-Object { $_.Name -like ($prefix+'*') }).Count
- $profilesUnchanged=((ProfileImage) -ceq $beforeProfiles);$rulesUnchanged=((ExistingRuleImage) -ceq $beforeRules)
+ $profilesUnchanged=((ProfileImage) -ceq $beforeProfiles);$afterRules=ExistingRuleImage;$rulesUnchanged=($afterRules -ceq $beforeRules);$ruleDelta=RulePropertyDiff $beforeRules $afterRules
  if ($remaining -ne 0 -or -not $profilesUnchanged -or -not $rulesUnchanged) { $passed=$false;$errorCode='quarantine_baseline_mismatch' }
  foreach($root in $script:roots) { if (Test-Path -LiteralPath $root) { Remove-Item -LiteralPath $root -Recurse -Force } }
- $receipt=[ordered]@{schema='sstp-quarantine-test-1';source_commit=$env:GITHUB_SHA;run_id=$env:GITHUB_RUN_ID;passed=$passed;checks=$script:checks;fault_cases=$script:faults;fresh_process_recoveries=$script:recoveries;partial_quarantine_restores=$script:partialRestores;error_code=$errorCode;verified_fixture_rules=$script:snapshots.Count;remaining_test_rules=$remaining;profiles_unchanged=$profilesUnchanged;existing_rule_properties_unchanged=$rulesUnchanged;test_rule_enabled_states_changed=($script:snapshots.Count -gt 0);profile_defaults_changed=$false;dns_queried=$false;resident_program_created=$false;real_guard_tested=$false;enforcement_tested=$false;sstp_binding_tested=$false;user_device_tested=$false;ready_for_user_apply=$false}
+ $receipt=[ordered]@{schema='sstp-quarantine-test-2';source_commit=$env:GITHUB_SHA;run_id=$env:GITHUB_RUN_ID;passed=$passed;checks=$script:checks;fault_cases=$script:faults;fresh_process_recoveries=$script:recoveries;partial_quarantine_restores=$script:partialRestores;error_code=$errorCode;verified_fixture_rules=$script:snapshots.Count;remaining_test_rules=$remaining;profiles_unchanged=$profilesUnchanged;existing_rule_properties_unchanged=$rulesUnchanged;unrelated_rule_delta=$ruleDelta;test_rule_enabled_states_changed=($script:snapshots.Count -gt 0);profile_defaults_changed=$false;dns_queried=$false;resident_program_created=$false;real_guard_tested=$false;enforcement_tested=$false;sstp_binding_tested=$false;user_device_tested=$false;ready_for_user_apply=$false}
  [IO.File]::WriteAllText($OutputPath,($receipt | ConvertTo-Json -Depth 5),[Text.UTF8Encoding]::new($false))
 }
 if (-not $passed) { exit 1 };exit 0
