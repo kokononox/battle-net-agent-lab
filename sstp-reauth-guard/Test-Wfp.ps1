@@ -2,7 +2,7 @@ param([Parameter(Mandatory=$true)][string]$OutputPath)
 Set-StrictMode -Version Latest;$ErrorActionPreference='Stop'
 . "$PSScriptRoot/../sstp-allowlist-backend/Journal.ps1"
 . "$PSScriptRoot/../sstp-policy-compare/Inventory.ps1"
-$script:checks=0;$script:faults=0;$script:recoveries=0;$script:conflicts=0;$script:flows=0;$script:controls=0;$script:fresh=0;$script:payloadBytes=-1;$script:fixtures=@();$script:children=@();$script:servers=@();$script:native=$null;$script:stage='setup';$passed=$false;$errorCode=$null;$baseline=$null;$equal=$false;$display=-1;$cleanup=0;$remaining=-1
+$script:checks=0;$script:faults=0;$script:recoveries=0;$script:conflicts=0;$script:flows=0;$script:controls=0;$script:freshCases=0;$script:payloadBytes=-1;$script:fixtures=@();$script:children=@();$script:servers=@();$script:native=$null;$script:stage='setup';$passed=$false;$errorCode=$null;$baseline=$null;$equal=$false;$display=-1;$cleanup=0;$remaining=-1
 function Check([bool]$Ok){if(-not $Ok){throw 'reauth_assertion'};$script:checks++}
 function RunNative($Plan,[string]$Mode,[int]$Expected=0){
  $argsNative=@($Mode)+@($Plan.keys)+@([string]$Plan.app);$t=& $script:native @argsNative;$code=$LASTEXITCODE
@@ -54,7 +54,7 @@ try {
   $delta=[long]$server.Bytes($a.tag)-$before;if($script:payloadBytes -lt 0){$script:payloadBytes=0};$script:payloadBytes+=[int]$delta
   Check ($delta -eq 0);Check ($server.Bytes($b.tag) -eq 66);$script:flows++
   # This primitive blocks reauthorization, not initial authorization: fresh A must work.
-  $fresh=StartProbe $script:probeA $ip $server.Port;InvokeFlowEcho $fresh;Check ($server.Bytes($fresh.tag) -eq 33);$script:fresh++
+  $freshClient=StartProbe $script:probeA $ip $server.Port;InvokeFlowEcho $freshClient;Check ($server.Bytes($freshClient.tag) -eq 33);$script:freshCases++
   Worker $f 'Install';Audit $f 'installed'
   if(-not $v6){
    $wrong=($f.plan|ConvertTo-Json -Depth 8 -Compress)|ConvertFrom-Json;$wrong.app=$probeC;$null=RunNative $wrong 'audit' 1;$null=RunNative $wrong 'remove' 1;Audit $f 'installed';$script:conflicts++
@@ -62,8 +62,8 @@ try {
    $jp=Join-Path $f.root 'journal.json';$bytes=[IO.File]::ReadAllBytes($jp);[IO.File]::WriteAllText($jp,'corrupt');Worker $f 'Remove' 'none' 1;Audit $f 'installed';[IO.File]::WriteAllBytes($jp,$bytes);$script:conflicts++
   }
   InvokeFlowEcho $b;$script:controls++
-  Worker $f 'Remove';Phase $f 'removed';Audit $f 'absent';InvokeFlowEcho $fresh;InvokeFlowEcho $b;$script:controls++;Worker $f 'Remove'
-  foreach($p in @($a,$b,$fresh)){CloseProbe $p};$server.Dispose()
+  Worker $f 'Remove';Phase $f 'removed';Audit $f 'absent';InvokeFlowEcho $freshClient;InvokeFlowEcho $b;$script:controls++;Worker $f 'Remove'
+  foreach($p in @($a,$b,$freshClient)){CloseProbe $p};$server.Dispose()
  }
  $script:stage='fault_recovery'
  foreach($case in @('before-native','abort-add','after-install-commit','abort-remove','after-remove-commit')){
@@ -87,7 +87,7 @@ try {
   try{foreach($f in $script:fixtures){$null=RunNative $f.plan 'remove';Audit $f 'absent';$cleanup++};$remaining=0}catch{$passed=$false;$errorCode='reauth_cleanup_failed';Write-Host 'reauth_cleanup_stopped'}
  }elseif($script:fixtures.Count -eq 0){$remaining=0}
  if($null -ne $baseline){try{$c=ComparePolicyInventory $baseline (ReadPolicyInventory);$equal=[bool]$c.policy_equal;$display=[int]$c.display_rule_changes;if(-not $equal){$passed=$false;$errorCode='reauth_policy_drift'}}catch{$passed=$false;$errorCode='reauth_inventory_failed'}}
- $r=[ordered]@{schema='sstp-reauth-test-1';source_commit=$env:GITHUB_SHA;run_id=$env:GITHUB_RUN_ID;passed=$passed;error_code=$errorCode;checks=$script:checks;fault_cases=$script:faults;fresh_process_recoveries=$script:recoveries;existing_flow_cases=$script:flows;control_roundtrips=$script:controls;fresh_flow_cases=$script:fresh;post_guard_payload_bytes=$script:payloadBytes;owned_conflict_stops=$script:conflicts;fixture_sets=$script:fixtures.Count;cleanup_sets=$cleanup;remaining_objects=$remaining;unrelated_windows_firewall_policy_equal=$equal;unrelated_display_changes=$display;whole_machine_guard_tested=$false;active_sstp_tested=$false;vpn_disconnect_tested=$false;reboot_tested=$false;wire_capture_tested=$false;synchronous_commit_barrier_tested=$false;user_device_tested=$false;ready_for_user_apply=$false}
+ $r=[ordered]@{schema='sstp-reauth-test-1';source_commit=$env:GITHUB_SHA;run_id=$env:GITHUB_RUN_ID;passed=$passed;error_code=$errorCode;checks=$script:checks;fault_cases=$script:faults;fresh_process_recoveries=$script:recoveries;existing_flow_cases=$script:flows;control_roundtrips=$script:controls;fresh_flow_cases=$script:freshCases;post_guard_payload_bytes=$script:payloadBytes;owned_conflict_stops=$script:conflicts;fixture_sets=$script:fixtures.Count;cleanup_sets=$cleanup;remaining_objects=$remaining;unrelated_windows_firewall_policy_equal=$equal;unrelated_display_changes=$display;whole_machine_guard_tested=$false;active_sstp_tested=$false;vpn_disconnect_tested=$false;reboot_tested=$false;wire_capture_tested=$false;synchronous_commit_barrier_tested=$false;user_device_tested=$false;ready_for_user_apply=$false}
  [IO.File]::WriteAllText($OutputPath,(ConvertTo-Json -InputObject $r -Depth 8),[Text.Encoding]::UTF8)
  if($remaining -eq 0 -and (Get-Variable work -Scope Script -ErrorAction SilentlyContinue)){Remove-Item -LiteralPath $script:work -Recurse -Force -ErrorAction SilentlyContinue}
 }
