@@ -27,7 +27,7 @@ function MakePending([string]$Root,[bool]$LeaveV6){
  }
  $rec.state.phase='staging';$rec.state.pending=[pscustomobject]@{index=2;operation='create';target=$false}
  $rec.state.objects[2].exists=$false;$rec.state.objects[2].original=$null
- $rec.state.objects[2].spec.remote=@(ComplementAddresses @($rec.state.allowed_ips) 128)
+ $rec.state.objects[2].spec.remote=ComplementAddresses @($rec.state.allowed_ips) 128
  $rec=OverlaySave $Root $rec
  return $original
 }
