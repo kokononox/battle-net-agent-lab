@@ -1,0 +1,33 @@
+{
+  "schema": "sstp-policy-compare-build-1",
+  "source_commit": "bbe671f4b8c294050fc45dbf2e2a302da7c6fed5",
+  "run_id": "39213456004",
+  "native_outcome": "success",
+  "native": {
+    "schema": "sstp-policy-compare-test-1",
+    "source_commit": "bbe671f4b8c294050fc45dbf2e2a302da7c6fed5",
+    "run_id": "39213456004",
+    "passed": true,
+    "error_code": null,
+    "checks": 222,
+    "raw_field_cases": 152,
+    "filter_types_tested": 7,
+    "owned_display_cases": 3,
+    "missing_filter_cases": 7,
+    "association_checks": 42,
+    "native_rule_count": 348,
+    "native_display_changes": 0,
+    "read_only": true,
+    "firewall_mutations": false,
+    "mutation_modules_imported": false,
+    "enforcement_tested": false,
+    "user_device_tested": false,
+    "ready_for_user_apply": false
+  },
+  "hashes": {
+    "Inventory.ps1": "933d355f35193e4d7ce6847adf44f1d86195cc851157a17bfa707be090627116",
+    "Test-Inventory.ps1": "fd4c63c587a25c687d3986f8340424f90b9dde1476af85d51bd5eac05fdb02f8",
+    "receipt.py": "f50d7b8bc8681ce69db76f01d23e55a593275220fe44211187c5cb5630980f38"
+  },
+  "ready_for_user_apply": false
+}
