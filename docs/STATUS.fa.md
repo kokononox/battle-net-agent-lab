@@ -1,7 +1,7 @@
 # وضعیت جاری پروژه — مرجع هماهنگی عامل و همکاران
 
-**آخرین به‌روزرسانی: 2026-10-19 02:01 (UTC)**  
-**مرحلهٔ فعلی: S3 فقط در Windows موقت CI برای rollback واقعی محدود در حال آزمون است: default outbound profileها و Enabled قواعد fixture خود ابزار، خروج ناگهانی driver و timer مستقل SYSTEM، حفظ تغییر خارجی/نامرتبط و replay. هنوز نتیجه native تأیید نشده؛ هیچ Apply یا بسته کاربری جدید وجود ندارد. دستگاه کاربر دست‌نخورده و آپدیت Pause است.**
+**آخرین به‌روزرسانی: 2026-10-19 02:06 (UTC)**  
+**مرحلهٔ فعلی: نخستین S3 روی Windows موقت PASS شد:۱۶fixture و دو سناریوی rollback واقعی محدود پس از خروج driver، بدون fallback controller. نسخه سخت‌گیرتر برای رد NotConfigured در store محلی و اندازه‌گیری تعداد تغییر profile اکنون در آزمون است. هیچ S3/Apply روی کاربر اجرا یا تحویل نشده؛ Pause و تنظیمات فعلی حفظ شوند.**
 
 این فایل مرجع وضعیت روز است. README و اسناد قدیمی مسیر تحقیق را نگه می‌دارند، اما تیترهای «آزمایش جاری» یا «گام بعد» در آن‌ها لزوماً وضعیت امروز نیستند. پیشنهادهای همکاران در [سند پیشنهادها](SUGGESTIONS-FROM-OTHER-MODELS.fa.md) قرار می‌گیرد؛ پیشنهاد به‌تنهایی تصمیم، مجوز یا شاهد اجرای موفق نیست.
 
@@ -14,7 +14,7 @@
 ## الان دقیقاً کجا هستیم؟
 | مورد | وضعیت |
 | --- | --- |
-| تمرکز جاری | S3 فقط CI: آزمایش واقعی بازگردانی تغییرات محدود، نه netsh import یا enforcement SSTP؛ نتیجه هنوز تأیید نشده |
+| تمرکز جاری | S3 فقط CI: آزمایش واقعی بازگردانی تغییرات محدود، نه netsh import یا enforcement SSTP؛ نسخه اول PASS؛ نسخه سخت‌گیرتر در حال آزمون |
 | بستهٔ ویندوز U1 | ساخته و در Windows runner آزموده شده؛ کاربر اعلام کرد ZIP را دانلود کرده است |
 | خودآزمایی روی HP/Windows 11 کاربر | **گزارش ارسالی کاربر PASS**؛ send، WSASend و ورودی منفی EncryptMessage مشاهده شدند؛ خطای اسکریپت صفر |
 | آپدیت واقعی تحت مانیتور U1 و بلوک دامنه | **دانلود تا ۳۰٪ به گزارش کاربر**؛ READY/Agent واقعی/hosts در گزارش ثبت شده؛ پایان Paused، تکمیل اثبات نشده |
@@ -26,7 +26,7 @@
 ### S3 در حال آزمون — تغییر واقعی محدود فقط روی runner موقت
 - [منبع](https://github.com/kokononox/battle-net-agent-lab/tree/40fd1b53b13cc03d77f0054dd467667958207474/sstp-rollback-s3) · [طرح/حدود](SSTP-ROLLBACK-S3.fa.md). فقط standard windows-2025 و receipt publisher ubuntu-latest؛ larger/paid runner فعال نشده، هزینه صفر تضمین نشده است.
 - دو سناریو: full و partial_conflict. journal پیش از write، snapshot PersistentStore و ActiveStore، task SYSTEM قبل Apply، driver خود ابزار عمداً Environment.Exit(73) بدون cleanup؛ timer باید propertyهای برنامه‌ریزی‌شده را restore کند. فقط fixture ruleهای GUID خود ابزار و default outbound profiles تغییر می‌کنند؛ Allowهای موجود runner disable نمی‌شوند و هیچ Blizzard/game/VPN اجرا نمی‌شود.
-- fixtureB با تغییر بیرونی مصنوعی باید conflict بماند، نه overwrite؛ fixtureC نامرتبط باید تغییر بیرونی‌اش را حفظ کند. replay و cleanup task/ruleهای همان تست سنجیده می‌شود؛ fallback controller به معنی موفقیت timer نیست. نتیجه هنوز مشخص نیست.
+- fixtureB با تغییر بیرونی مصنوعی باید conflict بماند، نه overwrite؛ fixtureC نامرتبط باید تغییر بیرونی‌اش را حفظ کند. replay و cleanup task/ruleهای همان تست سنجیده می‌شود؛ fallback controller به معنی موفقیت timer نیست. نخستین run39187957739 با۱۶fixture و دو سناریو موفق شد؛ نسخه تکمیلی در حال آزمون است.
 - این compare-before-write است، **CAS اتمیک نیست**؛ race بین read/write و منشأ تغییر هم‌مقدار حل نشده‌اند. fingerprint فقط fixtureهاست، نه تمام ruleهای کاربر؛ GPO/IPsec/WFP/reboot و SSTP/IPv6/DNS/certificate/enforcement آزمون این مرحله نیست. موفقیت runner مجوز Apply روی کاربر نیست.
 - هیچ بسته/لانچر S3 برای کاربر ساخته نمی‌شود؛ source هم با guard فقط CI است که attestation امنیتی محسوب نمی‌شود. کاربر S2 را تکرار نکند، backup خصوصی را نگه دارد، Pause و تنظیمات فعلی را حفظ کند.
 

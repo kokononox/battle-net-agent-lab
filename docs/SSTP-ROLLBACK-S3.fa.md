@@ -6,7 +6,7 @@
 آیا بعد از خروج ناگهانی driver آزمایش، یک Scheduled Task مستقل SYSTEM می‌تواند propertyهایی را که journal از قبل ثبت کرده به مقدار قبلی برگرداند؟ آیا یک تغییر تشخیص‌داده‌شده بیرونی و rule نامرتبط حفظ می‌شوند؟ S2 فقط export و timer receipt بود؛ S3 واقعاً Set-NetFirewallProfile و Set-NetFirewallRule را در runner موقت اجرا می‌کند.
 
 ## طراحی
-- snapshot محلی PersistentStore برای مقدار واقعی تنظیم‌شده، نه فقط ActiveStore effective؛ مقادیر NotConfigured نیز دقیق نگه داشته می‌شوند. مقدار effective قبل/بعد جدا سنجیده می‌شود.
+- snapshot محلی PersistentStore برای مقدار واقعی تنظیم‌شده، نه فقط ActiveStore effective؛ طبق مستند Microsoft، NotConfigured برای GPO است؛ اگر مقدار محلی Allow/Block نباشد پیش از mutation توقف می‌کند، نه اینکه مقدار نامستند restore کند. مقدار effective قبل/بعد جدا سنجیده می‌شود.
 - پوشه ProgramData یکتا با ACL فقط Admin/SYSTEM؛ journal قبل هر mutation با CreateNew و Flush(true) نوشته می‌شود. lock بین driver/worker مستقل از شبکه و با انتظار محدود است؛ خروج driver قفل سیستم‌عامل را آزاد می‌کند.
 - سه fixture rule یکتا، محدود به IP مستندسازی198.51.100.17 و TCP9؛ هیچ درخواستی ارسال نمی‌شود. ruleهای موجود runner حذف یا disable نمی‌شوند. default outbound سه profile موقتاً Block می‌شود؛ Allowهای قبلی باقی‌اند، بنابراین این تست **اثبات default-deny/enforcement کل اینترنت نیست**.
 - timer SYSTEM برای۷۵ثانیه بعد، قبل تغییرات ثبت و هویت task کنترل می‌شود. driver عمداً با Environment.Exit(73)، بدون finally/rollback خارج می‌شود. این crash تزریقی متعلق به ابزار است، نه فرایند Blizzard.
@@ -19,8 +19,11 @@
 fingerprint فقط fixtureهای ساخته‌شده خود تست را پوشش می‌دهد؛ موتور عمومی برای همه ruleهای Local کاربر نیست. GPO، IPsec/WFP شخص ثالث، reconnect/IPv6/DNS/CRL/OCSP، reboot/power loss و enforcement SSTP/Level3 پوشش این gate نیستند. هیچ netsh import/reset یا snapshot سراسری overwrite نمی‌شود. journal stale/نام‌ها و enum نامعتبر رد می‌شوند؛ failure-injection همه پنجره‌ها را پوشش نمی‌دهد.
 
 ## معیار عبور
-۱۶fixture تصمیم/schema، دو سناریوی زنده، مشاهده تغییر پیش از crash، receipt SYSTEM، baseline دقیق profile/Persistent+effective، برگشت fixtureA، conflict مورد انتظار B بدون overwrite، حفظ تغییر C، idempotence بدون Set تازه، حذف task/ruleهای همین آزمایش. receipt باید success و همه این شاهدها را داشته باشد؛ نداشتن receipt/پاس ناقص به معنی شکست است.
+۱۷fixture تصمیم/schema، دو سناریوی زنده، مشاهده تغییر پیش از crash، receipt SYSTEM، baseline دقیق profile/Persistent+effective، برگشت fixtureA، conflict مورد انتظار B بدون overwrite، حفظ تغییر C، idempotence بدون Set تازه، حذف task/ruleهای همین آزمایش. receipt باید success و همه این شاهدها را داشته باشد؛ نداشتن receipt/پاس ناقص به معنی شکست است.
 
 موفقیت روی runner **مجوز Apply روی دستگاه کاربر نیست**. ready-to-apply از این آزمایش استنتاج نمی‌شود. کاربر فعلاً Pause را نگه می‌دارد و S2 تکرار/BAT99/Enable/Disable انجام نمی‌دهد. backup خصوصی کاربر لازم نیست آپلود شود.
 
 مرجع cmdlet profile و تفاوت storeها: https://learn.microsoft.com/en-us/powershell/module/netsecurity/set-netfirewallprofile?view=windowsserver2025-ps
+
+## وضعیت آزمون
+نسخه اول source40fd1b53 در run39187957739 با۱۶fixture و دو سناریو PASS شد. نسخه تکمیلی source9f7b568c برای رد مقدار NotConfigured محلی و اندازه‌گیری transition اکنون در حال آزمون است؛ هنوز receipt نسخه تکمیلی نداریم. هیچ بسته کاربری یا Apply تحویل نشده است.
