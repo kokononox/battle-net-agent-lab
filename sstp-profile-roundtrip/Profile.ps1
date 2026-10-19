@@ -43,7 +43,17 @@ function CompareProfileObserved($S,$Actual){
  AssertProfileState $S;AssertProfileImages $Actual
  $normal=ProfileExpected $S.original $S.blocked
  if((IntegratedHash $Actual) -ceq (IntegratedHash $normal)){return [pscustomobject]@{settled=$true;blocked=$S.blocked}}
- if(-not $S.pending){throw 'profile_external_conflict'}
+ if(-not $S.pending){
+  $deltaCount=0
+  foreach($p in $Actual){
+   $matches=@($normal|Where-Object{$_.name -ceq $p.name -and $_.store -ceq $p.store})
+   if($matches.Count -eq 1){foreach($f in (RawDifferenceFields $matches[0].image $p.image)){
+    if($f -cmatch '^[A-Za-z][A-Za-z0-9_]{0,80}$'){Write-Host ('profile_delta_'+$p.store+'_'+$p.name+'_'+$f);$deltaCount++}
+   }}
+  }
+  if($deltaCount -eq 0){Write-Host 'profile_serialization_shape_mismatch'}
+  throw 'profile_external_conflict'
+ }
  $next=ProfileExpected $S.original $S.target
  if((IntegratedHash $Actual) -ceq (IntegratedHash $next)){return [pscustomobject]@{settled=$true;blocked=$S.target}}
  # Only known before/after values in the TWO Domain action fields may be temporarily mixed.
@@ -75,9 +85,9 @@ function InitializeProfileRoundtrip([string]$Root){
   $p=GetStoredDomain
   # Native no-op FIRST. If exact NotConfigured cannot be set/read back, never write Block.
   if([string]$p.DefaultOutboundAction -cne 'NotConfigured' -or [int]$p.DefaultOutboundAction -ne 0){throw 'profile_enum_contract'}
-  ReadProfileFrontier $s|Out-Null;AssertInactiveDomain
+  ReadProfileFrontier $s|Out-Null;Write-Host 'profile_probe_before_noop_verified';AssertInactiveDomain
   Set-NetFirewallProfile -InputObject $p -DefaultOutboundAction NotConfigured -ErrorAction Stop|Out-Null
-  ReadProfileFrontier $s Original|Out-Null
+  Write-Host 'profile_probe_noop_setter_returned';ReadProfileFrontier $s Original|Out-Null
   $s.restore_probe=$true;WriteJournal $Root $record.revision $s|Out-Null
   return [pscustomobject]@{phase='prepared';native_notconfigured_noop=$true}
  }finally{$lock.Dispose()}
