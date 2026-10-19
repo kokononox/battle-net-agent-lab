@@ -1,0 +1,71 @@
+{
+  "schema": "sstp-runner-signals-1",
+  "source_commit": "4a046fbd5459c28e6aa7e1b1c9e40eea98b7331d",
+  "run_id": "39194616498",
+  "native_outcome": "cancelled",
+  "runner_version": null,
+  "diag_roots_found": 1,
+  "files_scanned": 2,
+  "files_unreadable": 0,
+  "scan_complete": true,
+  "signals": {
+    "server_cancel_request": {
+      "matches": 0,
+      "first_seconds": null,
+      "last_seconds": null
+    },
+    "worker_cancel_received": {
+      "matches": 1,
+      "first_seconds": 88,
+      "last_seconds": 88
+    },
+    "renew_exception": {
+      "matches": 1,
+      "first_seconds": 88,
+      "last_seconds": 88
+    },
+    "renew_retry_exhausted": {
+      "matches": 0,
+      "first_seconds": null,
+      "last_seconds": null
+    },
+    "renew_job_invalid": {
+      "matches": 0,
+      "first_seconds": null,
+      "last_seconds": null
+    },
+    "cancel_sent_to_worker": {
+      "matches": 1,
+      "first_seconds": 88,
+      "last_seconds": 88
+    },
+    "runner_shutdown": {
+      "matches": 0,
+      "first_seconds": null,
+      "last_seconds": null
+    },
+    "os_shutdown": {
+      "matches": 0,
+      "first_seconds": null,
+      "last_seconds": null
+    },
+    "http_exception": {
+      "matches": 19,
+      "first_seconds": 11,
+      "last_seconds": 88
+    },
+    "socket_exception": {
+      "matches": 11,
+      "first_seconds": 11,
+      "last_seconds": 88
+    },
+    "null_reference_exception": {
+      "matches": 0,
+      "first_seconds": null,
+      "last_seconds": null
+    }
+  },
+  "network_exception_added": false,
+  "user_device_tested": false,
+  "ready_for_user_apply": false
+}
