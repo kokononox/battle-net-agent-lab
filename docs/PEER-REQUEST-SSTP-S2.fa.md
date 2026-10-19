@@ -1,6 +1,8 @@
 # درخواست نقد همکاران — S2 و طراحی ایزولاسیون SSTP / Level3
 
 ## وضعیت مبنا
+**S3U اکنون در حال اجراست:** [طرح مستقل](SSTP-UNSET-S3U.fa.md)، round-trip محلی NotConfigured با timer SYSTEM و تطبیق registry فقط‌خواندنی/CIM/COM؛ نه حذف guard S3 و نه Apply کاربر. هنوز PASS نداریم. نقد مفید: کفایت هفت مسیر محدود/نوع و وجود value، تفاوت اثبات runtime با پشتیبانی مستند، و عدم تعمیم WindowsServer runner به Windows11 کاربر. raw registry/backup/credential لازم نیست ارسال شود.
+
 **baseline کاربر اکنون قطعی است:** Domain/Private/Public در PersistentStore هر سه NotConfigured؛ [خلاصه](../reports/sstp-user-local-outbound.json). S1 قبلی effective outbound=Allow و firewall enabled داشت. خودسرانه local unset را با Allow جایگزین نکنید؛ اولویت نقد، round-trip دقیق unset و اختلاف docs GPO-only با رفتار مشاهده‌شده provider در نسخه اولیه است. از داده کاربر علت قطعی توقف runner را استنتاج نکنید. خروجی بیشتری فعلاً از کاربر لازم نیست.
 
 **S3 نتیجه تازه:** نسخه اول دو سناریوی واقعی محدود را پاس کرد؛ نسخه سخت‌گیرتر پس از۱۷fixture پیش از mutation در full_setup متوقف شد و PASS نیست. [تحلیل](../reports/sstp-rollback-s3-analysis.fa.md). baseline در receipt نیست، پس NotConfigured علت قطعی اعلام نشود. نقد اولویت‌دار: تمایز مقدار unset/NotConfigured محلی از ActiveStore/effective، روش مستند و قابل‌آزمون برگشت semantics محلی و تشخیص دقیق guard ترکیبی؛ PASS نسخه قدیمی را مجوز Apply نگیرید.
