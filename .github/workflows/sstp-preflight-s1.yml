@@ -1,0 +1,74 @@
+name: One-shot read-only holand SSTP preflight fixture validation
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths:
+      - 'sstp-preflight-s1/**'
+      - '.github/workflows/sstp-preflight-s1.yml'
+permissions: {}
+jobs:
+  validate:
+    if: github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved read-only holand isolation preflight s1a'
+    runs-on: windows-2025
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse actual script and run fixtures only; never real VPN or firewall
+        id: native
+        continue-on-error: true
+        shell: powershell
+        run: |
+          $file = (Resolve-Path 'sstp-preflight-s1/SSTP-Preflight.ps1').Path
+          $tokens = $null; $errors = $null
+          $ast = [Management.Automation.Language.Parser]::ParseFile($file,[ref]$tokens,[ref]$errors)
+          if ($errors.Count -ne 0) { throw 'powershell_parse_failed' }
+          $forbidden = @('Set-NetFirewallProfile','New-NetFirewallRule','Remove-NetFirewallRule','Set-NetFirewallRule','Disable-NetFirewallRule','Enable-NetFirewallRule','Set-VpnConnection','Add-VpnConnection','Remove-VpnConnection','Set-NetRoute','New-NetRoute','Remove-NetRoute','Set-DnsClientServerAddress','Clear-DnsClientCache','Start-Process','Invoke-Expression','Register-ScheduledTask','Start-ScheduledTask','netsh','rasdial','rasphone','schtasks','Set-ExecutionPolicy')
+          $bad = @($ast.FindAll({param($n) $n -is [Management.Automation.Language.CommandAst] -and $forbidden -contains $n.GetCommandName()},$true))
+          if ($bad.Count -ne 0) { throw 'mutating_command_found' }
+          $output = & "$env:SystemRoot/System32/WindowsPowerShell/v1.0/powershell.exe" -NoProfile -ExecutionPolicy Bypass -File $file -SelfTest
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $text = $output -join "`n"
+          $result = $text | ConvertFrom-Json
+          if (-not $result.passed -or $result.tests -ne 20 -or $result.real_vpn_or_firewall_queried -or $result.settings_changed -or $result.network_dns_queried) { throw 'fixture_failed' }
+          [IO.File]::WriteAllText((Join-Path (Get-Location) 'sstp-preflight-s1/fixture-result.json'),$text,(New-Object Text.UTF8Encoding($false)))
+      - name: Write validation receipt
+        if: always()
+        env:
+          NATIVE_OUTCOME: ${{ steps.native.outcome }}
+        run: python sstp-preflight-s1/validate_receipt.py
+      - name: Upload fixture receipt only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: sstp-preflight-s1-receipt
+          path: sstp-preflight-s1/build-receipt.json
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: validate
+    if: always() && needs.validate.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: privacy-observation-20261018-a1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: sstp-preflight-s1-receipt
+          path: incoming
+      - name: Validate and publish receipt, not real VPN success
+        run: |
+          set -euo pipefail
+          python sstp-preflight-s1/validate_receipt.py incoming/build-receipt.json reports/sstp-preflight-s1-build.json
+          git add -- reports/sstp-preflight-s1-build.json
+          git config user.name 'privacy-lab-report'
+          git config user.email 'privacy-lab-report@users.noreply.github.com'
+          git commit -m 'lab: publish read-only S1 PowerShell fixture validation receipt'
+          git push origin HEAD:privacy-observation-20261018-a1
