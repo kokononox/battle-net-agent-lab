@@ -1,0 +1,69 @@
+{
+  "schema": "sstp-rollback-s3-build-1",
+  "source_commit": "40fd1b53b13cc03d77f0054dd467667958207474",
+  "run_id": "39187957739",
+  "runner_kind": "windows-2025",
+  "native_outcome": "success",
+  "native": {
+    "schema": "sstp-targeted-rollback-s3-native-1",
+    "passed": true,
+    "fixture_checks": 16,
+    "scenarios": [
+      {
+        "scenario": "full",
+        "driver_abrupt_exit_verified": true,
+        "driver_exit_code": 73,
+        "profile_transition_observed": true,
+        "system_timer_verified": true,
+        "targeted_profile_restore_verified": true,
+        "fixture_a_restore_verified": true,
+        "expected_conflicts": 0,
+        "observed_conflicts": 0,
+        "conflict_fixture_preserved": false,
+        "unrelated_fixture_edit_preserved": true,
+        "repeat_no_writes_verified": true,
+        "task_last_result": 0,
+        "task_removed": true,
+        "fixture_rules_removed": true,
+        "emergency_controller_restore_used": false
+      },
+      {
+        "scenario": "partial_conflict",
+        "driver_abrupt_exit_verified": true,
+        "driver_exit_code": 73,
+        "profile_transition_observed": true,
+        "system_timer_verified": true,
+        "targeted_profile_restore_verified": true,
+        "fixture_a_restore_verified": true,
+        "expected_conflicts": 1,
+        "observed_conflicts": 1,
+        "conflict_fixture_preserved": true,
+        "unrelated_fixture_edit_preserved": true,
+        "repeat_no_writes_verified": true,
+        "task_last_result": 2,
+        "task_removed": true,
+        "fixture_rules_removed": true,
+        "emergency_controller_restore_used": false
+      }
+    ],
+    "stage": "complete",
+    "error_code": null,
+    "diagnostic_line": null,
+    "error_id": null,
+    "exception_type": null,
+    "user_device_tested": false,
+    "sstp_or_level3_enforcement_tested": false,
+    "firewall_import_used": false,
+    "concurrent_write_protection_atomic": false
+  },
+  "hashes": {
+    "Core.ps1": "7df0f8d86ec3d77b3fd1b0db0c625b71b2cd8dcbadae5fbcef671276b023f8a9",
+    "Timed-Rollback.ps1": "24e09b8c13054e027d1707da39637c0bcbdb68a14091c28e82f1e0b39fc8b15c",
+    "Crash-Driver.ps1": "777b8820c873a75ab551e46220ac5f7b5001bd32bfcaeb32f38817839e59cf9d",
+    "Run-CI-Tests.ps1": "4fb15597d96cc646beae483c234965dbd89b6fd2978c3fc848f40ae41a5c0655"
+  },
+  "parse_error": null,
+  "user_device_tested": false,
+  "firewall_import_used": false,
+  "enforcement_tested": false
+}
