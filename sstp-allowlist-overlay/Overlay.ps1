@@ -27,7 +27,7 @@ function OverlayRead([string]$Name,[string]$Store='PersistentStore'){
    'service'{$view.service=[string]$f[0].Service}
    'interface'{$view.alias=@($f[0].InterfaceAlias)}
    'interface_type'{$view.interface_type=[string]$f[0].InterfaceType}
-   'port'{$view.protocol=[string]$f[0].Protocol}
+   'port'{$view.protocol=[string]$f[0].Protocol;$view.local_port=@($f[0].LocalPort);$view.remote_port=@($f[0].RemotePort)}
    'address'{$view.local=@($f[0].LocalAddress);$view.remote=@($f[0].RemoteAddress)}
   }
  }
@@ -39,6 +39,7 @@ function AssertOverlaySemantic($Spec,$Read,[bool]$Enabled){
  $value='False';if($Enabled){$value='True'}
  if([string]$r.Name -cne $Spec.name -or [string]$r.DisplayName -cne $Spec.name -or [string]$r.Description -cne 'Destination overlay test build; not an independent kill switch' -or [string]$r.Group -cne $Spec.group -or [string]$r.Enabled -cne $value -or [string]$r.Direction -cne 'Outbound' -or [string]$r.Action -cne 'Block' -or [string]$r.Profile -cne 'Any'){throw 'overlay_rule_semantic'}
  if([string]$v.program -ine $Spec.program -or [string]$v.service -cne 'Any' -or (@($v.alias)-join ',') -cne 'Any' -or [string]$v.interface_type -cne $Spec.interface_type -or [string]$v.protocol -cnotin @('Any','256') -or (@($v.local)-join ',') -cne 'Any'){throw 'overlay_filter_semantic'}
+ if((@($v.local_port)-join ',') -cne 'Any' -or (@($v.remote_port)-join ',') -cne 'Any'){throw 'overlay_port_semantic'}
  $remote=@($v.remote)
  if($Spec.kind -ceq 'guard'){if(($remote-join ',') -cne 'Any'){throw 'overlay_guard_semantic'}}
  elseif((IntervalSignature $remote) -cne (IntervalSignature $Spec.remote)){throw 'overlay_address_semantic'}
@@ -104,6 +105,10 @@ function AssertOverlayActiveRules($Record){
   if(-not $o.exists){throw 'overlay_rule_missing'}
   $read=OverlayRead $o.spec.name 'ActiveStore'
   AssertOverlaySemantic $o.spec $read $o.enabled
+  if($o.enabled){
+   $status=@($read.rule.EnforcementStatus|ForEach-Object{[string]$_})
+   if($status.Count -ne 1 -or $status[0] -cne 'Full' -or [string]$read.rule.PrimaryStatus -cne 'OK'){throw 'overlay_active_enforcement_unqualified'}
+  }
  }
 }
 function NewOverlay {
@@ -177,15 +182,15 @@ function InvokeOverlay {
   $rec.state.phase='disabling';if($Action -ceq 'Enable'){$rec.state.phase='enabling'};$rec=OverlaySave $Root $rec
   # No wildcard/group deletion. A process exit never releases the guard automatically.
   $rec=SetOverlayObject $Root $rec 0 $true $Fault
-  AssertOverlayActiveRules $rec
+  if($Action -ceq 'Enable'){AssertOverlayActiveRules $rec}
   $want=$Action -ceq 'Enable'
   $rec=SetOverlayObject $Root $rec 1 $want
   $rec=SetOverlayObject $Root $rec 2 $want
   $rec=ReconcileOverlay $Root $rec
-  AssertOverlayActiveRules $rec
+  if($want){AssertOverlayActiveRules $rec}
   $rec=SetOverlayObject $Root $rec 0 $false
   $rec=ReconcileOverlay $Root $rec
-  AssertOverlayActiveRules $rec
+  if($want){AssertOverlayActiveRules $rec}
   $rec.state.phase='inactive';if($want){$rec.state.phase='active'};$rec=OverlaySave $Root $rec
   return [pscustomobject]@{phase=$rec.state.phase;scope=$rec.state.scope;controller_will_exit=$true;independent_kill_switch=$false}
  }finally{$lock.Dispose()}

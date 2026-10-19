@@ -28,6 +28,15 @@ jobs:
           & './sstp-allowlist-overlay/Test-Ranges.ps1' -OutputPath (Join-Path $env:RUNNER_TEMP 'overlay-ranges.json')
           if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
           exit 0
+      - name: Construct and dispose test window without network actions
+        id: ui
+        if: steps.pure.outcome == 'success'
+        continue-on-error: true
+        shell: powershell
+        run: |
+          & "$PSHOME/powershell.exe" -NoLogo -NoProfile -ExecutionPolicy Bypass -File './sstp-allowlist-overlay/Run.ps1' -Action UiSmoke
+          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+          exit 0
       - name: Test exact fixture rules and fresh TCP connects
         id: native
         if: steps.pure.outcome == 'success'
@@ -42,6 +51,7 @@ jobs:
         env:
           PURE_OUTCOME: ${{ steps.pure.outcome }}
           NATIVE_OUTCOME: ${{ steps.native.outcome }}
+          UI_OUTCOME: ${{ steps.ui.outcome }}
         run: python sstp-allowlist-overlay/receipt.py
       - name: Upload bounded receipt only
         if: always()

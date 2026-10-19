@@ -3,7 +3,7 @@ Set-StrictMode -Version 2.0
 $ErrorActionPreference='Stop'
 . (Join-Path $PSScriptRoot 'Overlay.ps1')
 $script:checks=0;$script:workers=0;$script:probePairs=0
-function Check($Value){if(-not $Value){throw ('overlay_check_'+($script:checks+1))};$script:checks++}
+function Check($Value){if(-not $Value){throw ('overlay_check_'+($script:checks+1))};$script:checks++;if(($script:checks % 10) -eq 0){[Console]::WriteLine('overlay_checks_'+$script:checks)}}
 function Worker([string]$Root,[string]$Action,[string]$Fault='None',[int]$Expected=0){
  $a=@('-NoLogo','-NoProfile','-ExecutionPolicy','Bypass','-File',('"'+(Join-Path $PSScriptRoot 'Test-Worker.ps1')+'"'),'-Root',('"'+$Root+'"'),'-Action',$Action,'-Fault',$Fault)
  $p=Start-Process -FilePath (Join-Path $PSHOME 'powershell.exe') -ArgumentList $a -Wait -PassThru -WindowStyle Hidden

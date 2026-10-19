@@ -1,4 +1,4 @@
-param([ValidateSet('Window','Check','Status','Disable')][string]$Action='Window')
+param([ValidateSet('Window','Check','Status','Disable','UiSmoke')][string]$Action='Window')
 Set-StrictMode -Version 2.0
 $ErrorActionPreference='Stop'
 . (Join-Path $PSScriptRoot 'ConfigCore.ps1')
@@ -82,6 +82,11 @@ try{
  )
  foreach($a in $actions){$button=New-Object Windows.Forms.Button;$button.Text=$a[0];$button.Location=New-Object Drawing.Point($a[1],$a[2]);$button.Size=New-Object Drawing.Size(165,32);$button.Add_Click($a[3]);$form.Controls.Add($button)}
  $status.Text='Start with Check only. No automatic connection, no automatic Enable, no resident component.'
+ if($Action -ceq 'UiSmoke'){
+  if($form.Controls.Count -ne 11){throw 'overlay_ui_control_count'}
+  $form.CreateControl();$form.Dispose()
+  [Console]::WriteLine('overlay_ui_smoke_ok');exit 0
+ }
  [Windows.Forms.Application]::Run($form)
  exit 0
 }catch{

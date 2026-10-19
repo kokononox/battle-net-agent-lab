@@ -61,7 +61,7 @@ function AssertPublicTarget([string]$Text) {
  $a=AddressNumber $Text;$n=$a.number
  if($a.bits -eq 32){
   $forbidden=@('0.0.0.0/8','10.0.0.0/8','100.64.0.0/10','127.0.0.0/8','169.254.0.0/16','172.16.0.0/12','192.168.0.0/16','224.0.0.0/3')
- }else{$forbidden=@('::/96','::1','fc00::/7','fe80::/10','ff00::/8')}
+ }else{$forbidden=@('::/96','::1','fc00::/7','fe80::/10','fec0::/10','ff00::/8')}
  foreach($r in $forbidden){$x=ParseAddressInterval $r;if($n -ge $x.low -and $n -le $x.high){throw 'overlay_non_public_target'}}
  return $a.canonical
 }

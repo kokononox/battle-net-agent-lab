@@ -6,7 +6,7 @@ function TestOverlayPrerequisites {
  if(-not $p.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)){throw 'overlay_admin_required'}
  $profiles=@(Get-NetFirewallProfile -PolicyStore ActiveStore -ErrorAction Stop)
  if($profiles.Count -ne 3){throw 'overlay_profile_coverage'}
- foreach($f in $profiles){if([string]$f.Enabled -cne 'True' -or [string]$f.DefaultOutboundAction -cne 'Block'){throw 'overlay_enable_existing_kill_switch_first'}}
+ foreach($f in $profiles){if([string]$f.AllowLocalFirewallRules -ceq 'False'){throw 'overlay_local_policy_disallowed'};if(@($f.DisabledInterfaceAliases|Where-Object{$_ -and [string]$_ -cne 'NotConfigured'}).Count -gt 0){throw 'overlay_profile_interface_exclusions'};if([string]$f.Enabled -cne 'True' -or [string]$f.DefaultOutboundAction -cne 'Block'){throw 'overlay_enable_existing_kill_switch_first'}}
  $vpns=@();$vpns+=@(Get-VpnConnection -ErrorAction Stop);$vpns+=@(Get-VpnConnection -AllUserConnection -ErrorAction Stop)
  $connected=@($vpns|Where-Object{[string]$_.ConnectionStatus -ceq 'Connected'})
  if($connected.Count -ne 1 -or [string]$connected[0].TunnelType -cne 'Sstp'){throw 'overlay_one_connected_sstp_required'}
