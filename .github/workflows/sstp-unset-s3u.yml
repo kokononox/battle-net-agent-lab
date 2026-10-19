@@ -5,10 +5,11 @@ on:
     paths:
       - 'sstp-unset-s3u/**'
       - '.github/workflows/sstp-unset-s3u.yml'
+      - 'ci-runner-control/**'
 permissions: {}
 jobs:
   validate:
-    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved ephemeral Windows unset roundtrip s3u3-diagnostic' }}"
+    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved ephemeral Windows unset roundtrip s3u4-ci-control' }}"
     runs-on: windows-2025
     timeout-minutes: 8
     permissions:
@@ -35,8 +36,20 @@ jobs:
           }
           $meta=[ordered]@{roots=@($roots | Select-Object -First 2);cutoff_utc=[DateTime]::UtcNow.ToString('o');runner_version=$version}
           [IO.File]::WriteAllText((Join-Path $env:RUNNER_TEMP 's3u-private-diag-roots.json'),($meta | ConvertTo-Json -Depth 4),(New-Object Text.UTF8Encoding($false)))
+      - name: Arm narrow CI-only runner control fixture and independent expiry
+        id: control
+        continue-on-error: true
+        shell: powershell
+        run: |
+          $path=(Resolve-Path 'ci-runner-control/Control.ps1').Path
+          $tokens=$null;$errors=$null
+          [void][Management.Automation.Language.Parser]::ParseFile($path,[ref]$tokens,[ref]$errors)
+          if ($errors.Count -gt 0) { throw 'ci_control_parse_error' }
+          & $path -Mode Arm
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Parse and qualify provider unset roundtrip on ephemeral CI only
         id: native
+        if: steps.control.outcome == 'success'
         continue-on-error: true
         shell: powershell
         run: |
@@ -55,6 +68,19 @@ jobs:
           $ps=Join-Path $env:SystemRoot 'System32/WindowsPowerShell/v1.0/powershell.exe'
           & $ps -NoProfile -ExecutionPolicy Bypass -File (Join-Path $root 'Run-CI.ps1')
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Remove only exact owned CI fixture rules and verify restoration
+        if: always()
+        continue-on-error: true
+        shell: powershell
+        run: |
+          & './ci-runner-control/Control.ps1' -Mode Cleanup
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Validate bounded CI fixture receipt
+        if: always()
+        env:
+          EXPECTED_COMMIT: ${{ github.sha }}
+          EXPECTED_RUN_ID: ${{ github.run_id }}
+        run: python ci-runner-control/validate.py --pack sstp-unset-s3u/ci-control-receipt.json
       - name: Write bounded receipt, never private journal or policy
         if: always()
         env:
@@ -73,6 +99,7 @@ jobs:
           path: |
             sstp-unset-s3u/build-receipt.json
             sstp-unset-s3u/control-diagnostic.json
+            sstp-unset-s3u/ci-control-receipt.json
           if-no-files-found: error
           retention-days: 3
   publish:
@@ -99,7 +126,8 @@ jobs:
           python sstp-unset-s3u/validate_receipt.py incoming/build-receipt.json reports/sstp-unset-s3u-build.json
           python -c "import json,os; r=json.load(open('reports/sstp-unset-s3u-build.json')); assert r['source_commit']==os.environ['EXPECTED_COMMIT'] and r['run_id']==os.environ['EXPECTED_RUN_ID'], 'receipt_identity_mismatch'"
           python sstp-unset-s3u/collect_runner_signals.py --validate incoming/control-diagnostic.json reports/sstp-control-diagnostic.json
-          git add -- reports/sstp-unset-s3u-build.json reports/sstp-control-diagnostic.json
+          python ci-runner-control/validate.py incoming/ci-control-receipt.json reports/sstp-ci-control-fixture.json
+          git add -- reports/sstp-unset-s3u-build.json reports/sstp-control-diagnostic.json reports/sstp-ci-control-fixture.json
           git config user.name 'privacy-lab-report'
           git config user.email 'privacy-lab-report@users.noreply.github.com'
           git commit -m 'lab: publish S3U local unset qualification CI receipt'
