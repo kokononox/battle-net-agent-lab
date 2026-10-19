@@ -93,9 +93,9 @@ function InitializeCoordinatorLab([string]$Root,[string[]]$Names){
   $s=[pscustomobject][ordered]@{schema='sstp-coordinator-lab-1';phase='enable';cursor=0;pending=$false;restore_probe=$false;bits=@($false,$true,$false,$false);origin=@($false,$true,$false,$false);rows=$rows;profiles=$two.profiles;baseline=$seals}
   AssertCoordState $s;AssertCoordCapacity $s
   # Hard CI fixture gate; never relax this into a production apply endpoint.
-  $program=$rows[0].application.Program
+  $program=$rows[0].application.AppPath
   if($program -isnot [string] -or $program -cnotmatch 'sstp-coordinator-fixture-[a-f0-9]{32}\.exe$' -or (Test-Path -LiteralPath $program)){throw 'coord_fixture_scope'}
-  foreach($r in $rows){if($r.application.Program -cne $program){throw 'coord_fixture_scope'}}
+  foreach($r in $rows){if($r.application.AppPath -cne $program){throw 'coord_fixture_scope'}}
   $record=WriteJournal $Root -1 $s
   $p=GetStoredDomain;if([string]$p.DefaultOutboundAction -cne 'NotConfigured'){throw 'coord_restore_contract'}
   ReadCoordFrontier $s|Out-Null;AssertInactiveDomain

@@ -60,7 +60,7 @@ try{
  # Shared frontier rejects nonselected-filter, owned metadata, membership and profile drift in memory.
  $x=StateInventory $s $s.bits;$x.rules=@($x.rules|Where-Object{$_.name -cne $names[2]});Reject {CompareCoordFrontier $s $x} 'coord_membership_conflict'
  $x=StateInventory $s $s.bits;$a=@($x.rules|Where-Object{$_.name -ceq $names[2]})[0];$a.rule.Description='external';Reject {CompareCoordFrontier $s $x} 'coord_policy_conflict'
- $x=StateInventory $s $s.bits;$a=@($x.rules|Where-Object{$_.name -cnotin $names})[0];$a.address.RemoteAddress=@('192.0.2.99');Reject {CompareCoordFrontier $s $x} 'coord_policy_conflict'
+ $x=StateInventory $s $s.bits;$a=@($x.rules|Where-Object{$_.name -cnotin $names})[0];$field=@($a.address.PSObject.Properties|Where-Object{$_.Name -cne 'InstanceID'})[0];if($field.Value -is [array]){$a.address.($field.Name)=@($field.Value)+@('fixture-drift')}else{$a.address.($field.Name)='fixture-drift'};Reject {CompareCoordFrontier $s $x} 'coord_policy_conflict'
  $x=StateInventory $s $s.bits;$x.profiles[0].image.NotifyOnListen='external';Reject {CompareCoordFrontier $s $x} 'profile_external_conflict'
  $lock=OpenIntegratedLock $root;try{Check ((Worker $root Enable) -eq 1)}finally{$lock.Dispose()}
  Check ((Worker $root Enable) -eq 0);$r=ReadCoordRecord $root;Check ($r.state.phase -ceq 'enabled');Check (($r.state.bits-join ',') -ceq 'False,False,True,True')
