@@ -1,0 +1,31 @@
+{
+  "schema": "sstp-adapter-build-1",
+  "source_commit": "62788c8bb86c4e00021ebe7c512a5495d73f2ce4",
+  "run_id": "39199357447",
+  "native_outcome": "failure",
+  "native": {
+    "schema": "sstp-adapter-test-1",
+    "source_commit": "62788c8bb86c4e00021ebe7c512a5495d73f2ce4",
+    "run_id": "39199357447",
+    "passed": false,
+    "checks": 12,
+    "error_code": "adapter_native_failure",
+    "disabled_rules_created": true,
+    "remaining_test_rules": 0,
+    "profiles_unchanged": true,
+    "existing_rule_properties_unchanged": true,
+    "effective_network_policy_changed": false,
+    "dns_queried": false,
+    "resident_program_created": false,
+    "enforcement_tested": false,
+    "sstp_binding_tested": false,
+    "user_device_tested": false,
+    "ready_for_user_apply": false
+  },
+  "hashes": {
+    "Firewall.ps1": "e3cbc913dc16fffa9e47618627ce5f6bcc28fc3df346e56fd06a68c3ec2885f6",
+    "Test-Firewall.ps1": "c3d0d22e7d8ded8de72dcdce28274fa125f13a9cc432c14def6263cd54dd57a5",
+    "Policy.ps1": "6c71203e3ddb91f922bffd0e67fac1c3193b7a96941fa68ebac5af6b427de4d8"
+  },
+  "ready_for_user_apply": false
+}
