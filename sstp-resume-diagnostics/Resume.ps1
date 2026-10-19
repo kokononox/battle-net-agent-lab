@@ -4,7 +4,7 @@ $script:ResumeNativeError=$null
 # Bounded exception message only; never serialize an ErrorRecord or journal.
 function ResumeSafeMessage([string]$Message,[string[]]$PrivateValues){
  $text=$Message
- foreach($v in @($PrivateValues|Where-Object{$null -ne $_ -and $_.Length -gt 2}|Sort-Object Length -Descending -Unique)){
+ foreach($v in @($PrivateValues|Where-Object{$null -ne $_ -and $_.Length -gt 2}|Sort-Object -Unique|Sort-Object Length -Descending)){
   $text=[regex]::Replace($text,[regex]::Escape($v),'[private]',[Text.RegularExpressions.RegexOptions]::IgnoreCase)
  }
  $text=[regex]::Replace($text,'(?i)https?://\S+','[url]')

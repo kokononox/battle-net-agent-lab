@@ -15,6 +15,7 @@ try{
  Check ((ResumeSafeMessage "error`ncode" @()) -ceq "error`ncode")
  Check ((ResumeSafeMessage "x$([char]1)y" @()) -ceq 'x y')
  Check ((ResumeSafeMessage 'HOSTPRIV bad' @('hostpriv')) -ceq '[private] bad')
+ Check ((ResumeSafeMessage 'alpha beta1' @('alpha','beta1')) -ceq '[private] [private]')
  $r.passed=$true
 }finally{
  $r.checks=$script:checks
