@@ -49,7 +49,7 @@ function PolicySummary {
 }
 function SelfTests {
     $script:Checks=0
-    function Check($Condition) { if (-not $Condition) { throw 'fixture_assertion_failed' };$script:Checks++ }
+    function Check($Condition) { if (-not $Condition) { throw ('fixture_assertion_'+($script:Checks+1)) };$script:Checks++ }
     function Rejected($Value,[string]$Id) { try { AssertProbeReceipt $Value $Id;return $false } catch { return $true } }
     $id='0123456789abcdef0123456789abcdef'
     Check (ValidId $id)

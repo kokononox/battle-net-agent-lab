@@ -2,13 +2,16 @@ import hashlib,json,os,re,sys
 from pathlib import Path
 
 def validate(r):
-    keys='schema source_commit run_id runner_kind native_outcome fixture rehearsal main_sha256 worker_sha256 firewall_import_tested network_isolation_tested user_device_tested'.split()
+    keys='schema source_commit run_id runner_kind native_outcome fixture rehearsal main_sha256 worker_sha256 firewall_import_tested network_isolation_tested user_device_tested native_diagnostic'.split()
     if type(r) is not dict or set(r)!=set(keys) or r['schema']!='sstp-recovery-s2-build-1' or r['runner_kind']!='windows-2025':raise ValueError('schema')
     if not re.fullmatch('[a-f0-9]{40}',r['source_commit']) or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('identity')
     for k in ['main_sha256','worker_sha256']:
         if not re.fullmatch('[a-f0-9]{64}',r[k]):raise ValueError('hash')
     if any(r[k] is not False for k in ['firewall_import_tested','network_isolation_tested','user_device_tested']):raise ValueError('scope')
     if r['native_outcome'] not in ['success','failure','skipped','cancelled']:raise ValueError('outcome')
+    if r.get('native_diagnostic') is not None:
+        d=r['native_diagnostic']
+        if type(d) is not dict or set(d)!=set(['stage','code','line']) or not re.fullmatch('[a-z_]{1,64}',d['stage']) or not re.fullmatch('[a-z_0-9]{1,100}',d['code']) or type(d['line']) is not int:raise ValueError('diagnostic')
     if r['native_outcome']=='success':
         f=r['fixture'];p=r['rehearsal']
         if type(f) is not dict or set(f)!=set('schema passed checks network_settings_changed scheduled_task_created firewall_policy_exported'.split()) or f['schema']!='s2-rehearsal-fixture-1' or f['passed'] is not True or f['checks']!=17:raise ValueError('fixture')
@@ -25,6 +28,6 @@ def main():
     def read(n):
         p=root/n
         return json.loads(p.read_text(encoding='utf-8-sig')) if p.exists() else None
-    r={'schema':'sstp-recovery-s2-build-1','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'runner_kind':'windows-2025','native_outcome':os.environ.get('NATIVE_OUTCOME','skipped'),'fixture':read('fixture-result.json'),'rehearsal':read('native-summary.json'),'main_sha256':hashlib.sha256((root/'Recovery-Rehearsal.ps1').read_bytes()).hexdigest(),'worker_sha256':hashlib.sha256((root/'Rollback-Probe.ps1').read_bytes()).hexdigest(),'firewall_import_tested':False,'network_isolation_tested':False,'user_device_tested':False}
+    r={'schema':'sstp-recovery-s2-build-1','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'runner_kind':'windows-2025','native_outcome':os.environ.get('NATIVE_OUTCOME','skipped'),'fixture':read('fixture-result.json'),'rehearsal':read('native-summary.json'),'main_sha256':hashlib.sha256((root/'Recovery-Rehearsal.ps1').read_bytes()).hexdigest(),'worker_sha256':hashlib.sha256((root/'Rollback-Probe.ps1').read_bytes()).hexdigest(),'firewall_import_tested':False,'network_isolation_tested':False,'user_device_tested':False,'native_diagnostic':read('native-diagnostic.json')}
     validate(r);(root/'build-receipt.json').write_text(json.dumps(r,indent=2)+'\n')
 if __name__=='__main__':main()

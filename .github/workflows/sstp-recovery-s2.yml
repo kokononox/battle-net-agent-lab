@@ -8,7 +8,7 @@ on:
 permissions: {}
 jobs:
   validate:
-    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved no-network-change recovery rehearsal s2a' }}"
+    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved no-network-change recovery rehearsal s2b' }}"
     runs-on: windows-2025
     timeout-minutes: 5
     permissions:
@@ -23,6 +23,15 @@ jobs:
         shell: powershell
         run: |
           $root=(Resolve-Path 'sstp-recovery-s2').Path
+          $stage='parse_and_safety';$script:detailCode=$null
+          trap {
+            $code='native_step_failed'
+            if ($null -ne $script:detailCode) { $code=$script:detailCode }
+            elseif ($_.Exception.Message -match '^(powershell_parse_failed|network_mutation_or_unsafe_command_found|firewall_mutation_found|unexpected_worker_command|fixture_not_passed|report_count|native_rehearsal_not_passed)$') { $code=$_.Exception.Message }
+            $d=[ordered]@{stage=$stage;code=$code;line=[int]$_.InvocationInfo.ScriptLineNumber}
+            [IO.File]::WriteAllText((Join-Path $root 'native-diagnostic.json'),($d | ConvertTo-Json),(New-Object Text.UTF8Encoding($false)))
+            break
+          }
           $badNames=@('Set-NetFirewallProfile','New-NetFirewallRule','Set-NetFirewallRule','Enable-NetFirewallRule','Disable-NetFirewallRule','Remove-NetFirewallRule','Import-Clixml','Invoke-Expression','Invoke-WebRequest','Invoke-RestMethod','Start-Process','Stop-Process','Set-NetRoute','New-NetRoute','Remove-NetRoute','Set-DnsClientServerAddress','Set-VpnConnection','rasdial','rasphone','Set-ExecutionPolicy')
           foreach ($name in @('Recovery-Rehearsal.ps1','Rollback-Probe.ps1')) {
             $file=Join-Path $root $name
@@ -42,13 +51,29 @@ jobs:
           if (@($commands | Where-Object { $allowedWorker -notcontains $_.GetCommandName() }).Count -gt 0) { throw 'unexpected_worker_command' }
           $ps=Join-Path $env:SystemRoot 'System32/WindowsPowerShell/v1.0/powershell.exe'
           $main=Join-Path $root 'Recovery-Rehearsal.ps1'
-          $fixture=& $ps -NoProfile -ExecutionPolicy Bypass -File $main -SelfTest
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $stage='fixture'
+          $ErrorActionPreference='Continue'
+          $fixture=@(& $ps -NoProfile -ExecutionPolicy Bypass -File $main -SelfTest 2>&1)
+          $childExit=$LASTEXITCODE;$ErrorActionPreference='Stop'
+          if ($childExit -ne 0) {
+            $joined=$fixture -join "`n"
+            if ($joined -match 'fixture_assertion_[0-9]{1,3}|probe_schema|probe_identity|probe_scope|stale_probe') { $script:detailCode=$Matches[0] }
+            else { $script:detailCode='fixture_child_failed' }
+            throw 'fixture_child_failed'
+          }
           $text=$fixture -join "`n";$f=$text | ConvertFrom-Json
           if (-not $f.passed -or $f.checks -ne 17) { throw 'fixture_not_passed' }
           [IO.File]::WriteAllText((Join-Path $root 'fixture-result.json'),$text,(New-Object Text.UTF8Encoding($false)))
+          $stage='rehearsal'
           & $ps -NoProfile -ExecutionPolicy Bypass -File $main
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if ($LASTEXITCODE -ne 0) {
+            $failedReports=@(Get-ChildItem (Join-Path $root 'output') -Filter 's2-rehearsal-to-share-*.json' -ErrorAction SilentlyContinue)
+            if ($failedReports.Count -eq 1) {
+              $failed=Get-Content -Raw -LiteralPath $failedReports[0].FullName | ConvertFrom-Json
+              if ($failed.error_code -match '^[a-z_]{1,100}$') { $script:detailCode=$failed.error_code }
+            }
+            throw 'rehearsal_child_failed'
+          }
           $reports=@(Get-ChildItem (Join-Path $root 'output') -Filter 's2-rehearsal-to-share-*.json')
           if ($reports.Count -ne 1) { throw 'report_count' }
           $p=Get-Content -Raw -LiteralPath $reports[0].FullName | ConvertFrom-Json
