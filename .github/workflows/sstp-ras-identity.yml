@@ -1,0 +1,41 @@
+name: One-shot read-only RAS identity ABI and native metadata tests
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths: ['sstp-ras-identity/**', '.github/workflows/sstp-ras-identity.yml']
+permissions: {}
+jobs:
+  ras_identity_tests:
+    if: "${{ github.run_attempt == 1 && startsWith(github.event.head_commit.message, 'lab: approved read-only RAS identity p6') }}"
+    runs-on: windows-2025
+    timeout-minutes: 4
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Compile SDK ABI probe, test identity decisions and read-only native metadata
+        id: native
+        continue-on-error: true
+        shell: powershell
+        run: |
+          foreach ($file in Get-ChildItem 'sstp-ras-identity' -File | Where-Object { $_.Extension -in @('.ps1','.cs','.cpp') }) {
+            $text=[IO.File]::ReadAllText($file.FullName)
+            if ($text -match '(?i)(Set|New|Remove|Disable|Enable)-NetFirewall|Set-VpnConnection|Remove-VpnConnection|Resolve-DnsName|GetHostAddresses|Invoke-WebRequest|Invoke-Expression|Register-ScheduledTask|Start-Process|advfirewall|RasDial[A-Z]|RasHangUp|RasSetCredentials|RasGetCredentials|RasGetEntryDialParams|HttpClient') { throw 'binding_forbidden_operation' }
+          }
+          & './sstp-ras-identity/Test-RasIdentity.ps1' -OutputPath (Join-Path $env:RUNNER_TEMP 'ras-identity-native.json')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Validate and write bounded receipt only
+        if: always()
+        env:
+          NATIVE_OUTCOME: ${{ steps.native.outcome }}
+        run: python sstp-ras-identity/receipt.py
+      - name: Upload receipt only, no native identifiers or raw state
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: sstp-ras-identity-receipt
+          path: sstp-ras-identity/build-receipt.json
+          retention-days: 3
+          if-no-files-found: error
