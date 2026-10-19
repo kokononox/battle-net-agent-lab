@@ -18,7 +18,7 @@ try{
  $r=Prepare;$s=(ReadProfileRecord $r).state
  # Every raw field of all six profile images remains under comparison; no display exceptions.
  for($i=0;$i -lt 6;$i++){foreach($p in $s.original[$i].image.PSObject.Properties){
-  $x=ProfileClone $s.original
+  $x=ProfileExpected $s.original $false
   if($p.Value -is [array]){$x[$i].image.($p.Name)=@($p.Value)+@('test')}else{$x[$i].image.($p.Name)='test'}
   Reject {CompareProfileObserved $s $x} 'profile_external_conflict';$fields++
  }}
@@ -47,7 +47,7 @@ try{
  Reject {InvokeProfileRoundtrip $r Restore} 'profile_external_conflict';$conflicts++;Check ((ReadProfileRecord $r).revision -eq $rev)
  # Undo our explicit negative-test mutation, not any unknown concurrent change.
  $known=ProfileExpected $original $true;foreach($p in $known){if($p.name -ceq 'Domain'){$p.image.DefaultOutboundAction='2'}}
- Check ((IntegratedHash (ReadProfileImages)) -ceq (IntegratedHash $known));AssertInactiveDomain
+ Check ((TestProfileImagesEqual (ReadProfileImages) $known));AssertInactiveDomain
  Set-NetFirewallProfile -InputObject (GetStoredDomain) -DefaultOutboundAction Block -ErrorAction Stop|Out-Null
  Check ((Worker $r Restore) -eq 0);$restores++
  $r=Prepare;Check ((Worker $r Block) -eq 0)
@@ -63,11 +63,11 @@ try{
  try{
   if($null -ne $original){
    AssertInactiveDomain;$actual=ReadProfileImages;$blocked=ProfileExpected $original $true
-   if((IntegratedHash $actual) -ceq (IntegratedHash $blocked)){
+   if((TestProfileImagesEqual $actual $blocked)){
     Set-NetFirewallProfile -InputObject (GetStoredDomain) -DefaultOutboundAction NotConfigured -ErrorAction Stop|Out-Null
-   }elseif((IntegratedHash $actual) -cne (IntegratedHash $original)){throw 'profile_cleanup_conflict'}
-   for($i=0;$i -lt 12;$i++){if((IntegratedHash (ReadProfileImages)) -ceq (IntegratedHash $original)){break};Start-Sleep -Milliseconds 250}
-   $cleanup=(IntegratedHash (ReadProfileImages)) -ceq (IntegratedHash $original)
+   }elseif(-not (TestProfileImagesEqual $actual $original)){throw 'profile_cleanup_conflict'}
+   for($i=0;$i -lt 12;$i++){if((TestProfileImagesEqual (ReadProfileImages) $original)){break};Start-Sleep -Milliseconds 250}
+   $cleanup=(TestProfileImagesEqual (ReadProfileImages) $original)
    $finalNC=[string](GetStoredDomain).DefaultOutboundAction -ceq 'NotConfigured'
    $d=ComparePolicyInventory $baseline (ReadPolicyInventory);$baselineEqual=$d.policy_equal;$drift=$d.display_rule_changes
   }

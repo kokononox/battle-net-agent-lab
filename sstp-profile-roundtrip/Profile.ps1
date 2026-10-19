@@ -26,9 +26,21 @@ function AssertProfileImages($Images){
   if($null -eq $p.image.PSObject.Properties['DefaultOutboundAction']){throw 'profile_action_field'}
  }
 }
+function TestProfileImagesEqual($Before,$After){
+ AssertProfileImages $Before;AssertProfileImages $After
+ foreach($p in $Before){
+  $other=@($After|Where-Object{$_.store -ceq $p.store -and $_.name -ceq $p.name})
+  if($other.Count -ne 1 -or (RawDifferenceFields $p.image $other[0].image).Count -ne 0){return $false}
+ };return $true
+}
 function ProfileExpected($Original,[bool]$Blocked){
- $copy=ProfileClone $Original
- if($Blocked){foreach($p in $copy){if($p.name -ceq 'Domain'){$p.image.DefaultOutboundAction='4'}}};return ,$copy
+ AssertProfileImages $Original;$out=@()
+ # Clone EACH raw image, never a root array through the PowerShell pipeline.
+ foreach($p in $Original){
+  $image=ProfileClone $p.image
+  if($Blocked -and $p.name -ceq 'Domain'){$image.DefaultOutboundAction='4'}
+  $out+=,[pscustomobject][ordered]@{store=$p.store;name=$p.name;image=$image}
+ };AssertProfileImages $out;return ,$out
 }
 function AssertProfileState($S){
  if($null -eq $S -or (($S.PSObject.Properties.Name|Sort-Object)-join ',') -cne 'blocked,original,pending,phase,restore_probe,schema,target' -or $S.schema -cne 'sstp-profile-roundtrip-1' -or $S.phase -cnotin @('prepared','blocking','blocked','restoring','restored') -or $S.blocked -isnot [bool] -or $S.pending -isnot [bool] -or $S.target -isnot [bool] -or $S.restore_probe -isnot [bool]){throw 'profile_state_schema'}
@@ -42,7 +54,7 @@ function ReadProfileRecord([string]$Root){$j=ReadJournal $Root;if($j.status -cne
 function CompareProfileObserved($S,$Actual){
  AssertProfileState $S;AssertProfileImages $Actual
  $normal=ProfileExpected $S.original $S.blocked
- if((IntegratedHash $Actual) -ceq (IntegratedHash $normal)){return [pscustomobject]@{settled=$true;blocked=$S.blocked}}
+ if((TestProfileImagesEqual $Actual $normal)){return [pscustomobject]@{settled=$true;blocked=$S.blocked}}
  if(-not $S.pending){
   $deltaCount=0
   foreach($p in $Actual){
@@ -55,12 +67,12 @@ function CompareProfileObserved($S,$Actual){
   throw 'profile_external_conflict'
  }
  $next=ProfileExpected $S.original $S.target
- if((IntegratedHash $Actual) -ceq (IntegratedHash $next)){return [pscustomobject]@{settled=$true;blocked=$S.target}}
+ if((TestProfileImagesEqual $Actual $next)){return [pscustomobject]@{settled=$true;blocked=$S.target}}
  # Only known before/after values in the TWO Domain action fields may be temporarily mixed.
  foreach($p in $Actual){
   $b=@($normal|Where-Object{$_.name -ceq $p.name -and $_.store -ceq $p.store})[0]
   $a=@($next|Where-Object{$_.name -ceq $p.name -and $_.store -ceq $p.store})[0]
-  if((IntegratedHash $p) -cne (IntegratedHash $b) -and (IntegratedHash $p) -cne (IntegratedHash $a)){throw 'profile_external_conflict'}
+  if((RawDifferenceFields $p.image $b.image).Count -ne 0 -and (RawDifferenceFields $p.image $a.image).Count -ne 0){throw 'profile_external_conflict'}
  };return [pscustomobject]@{settled=$false;blocked=$false}
 }
 function ReadProfileFrontier($S,[ValidateSet('Either','Blocked','Original')][string]$Require='Either'){
@@ -79,7 +91,7 @@ function InitializeProfileRoundtrip([string]$Root){
  try{
   $j=ReadJournal $Root;if($j.status -cne 'absent'){throw 'profile_existing_journal'}
   AssertInactiveDomain;$one=ReadProfileImages;$two=ReadProfileImages
-  if((IntegratedHash $one) -cne (IntegratedHash $two)){throw 'profile_unstable_original'}
+  if(-not (TestProfileImagesEqual $one $two)){throw 'profile_unstable_original'}
   $s=[pscustomobject][ordered]@{schema='sstp-profile-roundtrip-1';phase='prepared';blocked=$false;pending=$false;target=$false;restore_probe=$false;original=$two}
   AssertProfileState $s;$record=WriteJournal $Root -1 $s
   $p=GetStoredDomain

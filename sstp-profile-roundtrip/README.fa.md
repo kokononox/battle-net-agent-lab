@@ -25,3 +25,6 @@ state مستقل در journal با write-ahead/pending/revision/lock نگه دا
 ## منابع
 - https://learn.microsoft.com/en-us/powershell/module/netsecurity/set-netfirewallprofile?view=windowsserver2025-ps
 - https://learn.microsoft.com/en-us/windows/win32/fwp/wmi/wfascimprov/msft-netfirewallprofile
+
+## بازبینی شکل داده
+دو اجرای نخست پیش از canary setter و بدون Block در مقایسهٔ تصویر متوقف شدند. اجرای تشخیصی اختلاف شکل serialization ریشهٔ آرایه را گزارش کرد؛ شکست setter NotConfigured از این‌ها نتیجه نمی‌شود. نسخهٔ اصلاحی هر image را جدا clone می‌کند و برابری شش profile را با هویت store/name و RawDifferenceFields کامل P8 می‌سنجد، نه hash serialization کل آرایه. هیچ field/نوع/value از مقایسه حذف نشده است.
