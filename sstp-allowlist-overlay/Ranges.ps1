@@ -65,3 +65,12 @@ function AssertPublicTarget([string]$Text) {
  foreach($r in $forbidden){$x=ParseAddressInterval $r;if($n -ge $x.low -and $n -le $x.high){throw 'overlay_non_public_target'}}
  return $a.canonical
 }
+# MSFT_NetFirewallRule: aggregate status can be Full=1 plus InactiveProfile=5
+# for a rule scoped to Any profiles. Never accept inactive-only or error states.
+function QualifiedOverlayEnforcement([int[]]$Status,[int]$Primary){
+ if($null -eq $Status -or $Status.Count -lt 1 -or $Status.Count -gt 2 -or $Primary -ne 1){return $false}
+ $unique=@($Status|Sort-Object -Unique)
+ if($unique.Count -ne $Status.Count -or $Status -notcontains 1){return $false}
+ foreach($v in $Status){if($v -notin @(1,5)){return $false}}
+ return $true
+}

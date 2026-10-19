@@ -110,7 +110,7 @@ function AssertOverlayActiveRules($Record){
    # Do not compare localized/PowerShell presentation enum labels.
    $status=@($read.rule.CimInstanceProperties['EnforcementStatus'].Value)
    $primary=$read.rule.CimInstanceProperties['PrimaryStatus'].Value
-   if($status.Count -ne 1 -or [int]$status[0] -ne 1 -or [int]$primary -ne 1){throw 'overlay_active_enforcement_unqualified'}
+   if(-not (QualifiedOverlayEnforcement $status ([int]$primary))){throw 'overlay_active_enforcement_unqualified'}
   }
  }
 }

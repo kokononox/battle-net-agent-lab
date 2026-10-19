@@ -11,7 +11,7 @@ for name in ['overlay-ranges','overlay-native']:
 r={'schema':'sstp-overlay-build-1','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'pure_outcome':os.environ.get('PURE_OUTCOME'),'native_outcome':os.environ.get('NATIVE_OUTCOME'),'ui_outcome':os.environ.get('UI_OUTCOME'),'pure':pure,'native':native,'sha256':{},'ready_for_production':False}
 for p in sorted(root.iterdir()):
  if p.suffix in ('.ps1','.cs','.cmd') or p.name=='receipt.py':r['sha256'][p.name]=hashlib.sha256(p.read_bytes()).hexdigest()
-valid=isinstance(pure,dict) and pure.get('schema')=='sstp-overlay-ranges-1' and pure.get('passed') is True and pure.get('checks')==247
+valid=isinstance(pure,dict) and pure.get('schema')=='sstp-overlay-ranges-1' and pure.get('passed') is True and pure.get('checks')==257
 valid=valid and isinstance(native,dict) and native.get('schema')=='sstp-overlay-native-1' and native.get('passed') is True
 if valid:
  for field in ['checks','worker_exits','fault_recoveries','probe_pairs','remaining_objects','foreign_display_changes']:
