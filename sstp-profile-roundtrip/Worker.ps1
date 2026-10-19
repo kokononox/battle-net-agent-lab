@@ -1,0 +1,2 @@
+param([string]$Root,[ValidateSet('Block','Restore')][string]$Action,[ValidateSet('None','BeforeMutation','AfterMutation')][string]$Fault='None')
+try{. "$PSScriptRoot/Profile.ps1";InvokeProfileRoundtrip -Root $Root -Action $Action -Fault $Fault|Out-Null;exit 0}catch{if($_.Exception.Message -match '^(profile|journal|integrated|inventory)_[a-z_]+$'){Write-Host $_.Exception.Message}else{Write-Host ('profile_provider_failure_'+$_.Exception.GetType().Name.ToLowerInvariant())};exit 1}

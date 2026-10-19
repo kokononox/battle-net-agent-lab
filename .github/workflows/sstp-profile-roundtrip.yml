@@ -1,0 +1,48 @@
+name: One-shot inactive Domain exact NotConfigured roundtrip
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths: ['sstp-profile-roundtrip/**', '.github/workflows/sstp-profile-roundtrip.yml']
+permissions: {}
+jobs:
+  inactive_profile_tests:
+    if: "${{ github.run_attempt == 1 && startsWith(github.event.head_commit.message, 'lab: approved inactive Domain exact profile p11') }}"
+    runs-on: windows-2025
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse and qualify inactive Domain NotConfigured only
+        id: native
+        continue-on-error: true
+        shell: powershell
+        run: |
+          foreach($f in Get-ChildItem 'sstp-profile-roundtrip' -Filter '*.ps1') {
+            $tokens=$null;$errors=$null
+            $ast=[Management.Automation.Language.Parser]::ParseFile($f.FullName,[ref]$tokens,[ref]$errors)
+            if($errors.Count -gt 0) { throw 'profile_parse_error' }
+            $text=[IO.File]::ReadAllText($f.FullName)
+            if($text -match '(?i)Set-NetConnectionProfile|Set-NetFirewallRule|New-NetFirewallRule|Remove-NetFirewallRule|Set-VpnConnection|Register-ScheduledTask|advfirewall|Set-ItemProperty|Remove-ItemProperty') { throw 'profile_forbidden_operation' }
+            foreach($cmd in $ast.FindAll({param($n) $n -is [Management.Automation.Language.CommandAst] -and $n.GetCommandName() -eq 'Set-NetFirewallProfile'},$true)) {
+              $names=@($cmd.CommandElements|Where-Object{$_ -is [Management.Automation.Language.CommandParameterAst]}|ForEach-Object{$_.ParameterName})
+              if($names.Count -ne 3 -or 'InputObject' -notin $names -or 'DefaultOutboundAction' -notin $names -or 'ErrorAction' -notin $names) { throw 'profile_setter_scope' }
+            }
+          }
+          & './sstp-profile-roundtrip/Test-Profile.ps1' -OutputPath (Join-Path $env:RUNNER_TEMP 'profile.json')
+          if($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Validate bounded receipt only
+        if: always()
+        env:
+          NATIVE_OUTCOME: ${{ steps.native.outcome }}
+        run: python sstp-profile-roundtrip/receipt.py
+      - name: Upload bounded receipt only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: sstp-profile-roundtrip-receipt
+          path: sstp-profile-roundtrip/build-receipt.json
+          retention-days: 3
+          if-no-files-found: error
