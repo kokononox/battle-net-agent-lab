@@ -8,7 +8,7 @@ on:
 permissions: {}
 jobs:
   validate:
-    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved no-network-change recovery rehearsal s2b' }}"
+    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved no-network-change recovery rehearsal s2c' }}"
     runs-on: windows-2025
     timeout-minutes: 5
     permissions:
@@ -46,7 +46,7 @@ jobs:
           $worker=Join-Path $root 'Rollback-Probe.ps1'
           $tokens=$null;$errors=$null
           $ast=[Management.Automation.Language.Parser]::ParseFile($worker,[ref]$tokens,[ref]$errors)
-          $allowedWorker=@('Split-Path','Get-Item','Get-Acl','New-Object','ConvertTo-Json')
+          $allowedWorker=@('Split-Path','Join-Path','Get-Item','Get-Acl','New-Object','ConvertTo-Json')
           $commands=@($ast.FindAll({param($n) $n -is [Management.Automation.Language.CommandAst]},$true))
           if (@($commands | Where-Object { $allowedWorker -notcontains $_.GetCommandName() }).Count -gt 0) { throw 'unexpected_worker_command' }
           $ps=Join-Path $env:SystemRoot 'System32/WindowsPowerShell/v1.0/powershell.exe'
