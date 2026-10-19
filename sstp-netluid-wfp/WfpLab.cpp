@@ -15,6 +15,8 @@
 #include <stdexcept>
 #include <cwctype>
 #include <cerrno>
+#include <initializer_list>
+#include <utility>
 #pragma comment(lib,"Fwpuclnt.lib")
 #pragma comment(lib,"Iphlpapi.lib")
 #pragma comment(lib,"Ws2_32.lib")
@@ -23,6 +25,7 @@ static const GUID EmptyGuid={};
 static const wchar_t* Label=L"sstp-netluid-lab-v1";
 static void Require(bool ok,int line) { if(!ok) { std::cout<<"wfp_assert_line_"<<line<<std::endl;throw DWORD(ERROR_INVALID_DATA); } }
 #define Need(ok) Require((ok),__LINE__)
+static void Fields(std::initializer_list<std::pair<bool,const char*>> fields){bool pass=true;for(const auto& f:fields)if(!f.first){std::cout<<"wfp_field_"<<f.second<<std::endl;pass=false;}if(!pass)throw DWORD(ERROR_INVALID_DATA);}
 static void Ok(DWORD rc) { if(rc!=ERROR_SUCCESS) throw rc; }
 static bool Eq(const GUID& a,const GUID& b) { return InlineIsEqualGUID(a,b)!=0; }
 static bool Text(const wchar_t* a,const wchar_t* b) { return a && b && wcscmp(a,b)==0; }
@@ -58,9 +61,16 @@ struct Filter {
  Filter(const Filter&)=delete;Filter& operator=(const Filter&)=delete;
 };
 static void CheckProvider(const Plan& p,const FWPM_PROVIDER0& x){auto y=Provider(p);Need(Eq(x.providerKey,y.providerKey)&&Text(x.displayData.name,Label)&&Text(x.displayData.description,Label)&&x.flags==y.flags&&Blob(x.providerData,y.providerData)&&x.serviceName==nullptr);}
-static void CheckSub(const Plan& p,const FWPM_SUBLAYER0& x){auto y=Sub(p);Need(Eq(x.subLayerKey,y.subLayerKey)&&Text(x.displayData.name,Label)&&Text(x.displayData.description,Label)&&x.flags==y.flags&&x.providerKey&&Eq(*x.providerKey,p.keys[0])&&Blob(x.providerData,y.providerData)&&x.weight==y.weight);}
+static void CheckSub(const Plan& p,const FWPM_SUBLAYER0& x){auto y=Sub(p);Fields({
+ {Eq(x.subLayerKey,y.subLayerKey),"sub_key"},{Text(x.displayData.name,Label),"sub_name"},{Text(x.displayData.description,Label),"sub_description"},
+ {x.flags==y.flags,"sub_flags"},{x.providerKey&&Eq(*x.providerKey,p.keys[0]),"sub_provider"},{Blob(x.providerData,y.providerData),"sub_data"},{x.weight==y.weight,"sub_weight"}});}
 static void CheckFilter(const Plan& p,int k,const FWPM_FILTER0& x){Filter y(p,k);const auto& f=y.f;
- Need(Eq(x.filterKey,f.filterKey)&&Text(x.displayData.name,Label)&&Text(x.displayData.description,Label)&&x.flags==f.flags&&x.providerKey&&Eq(*x.providerKey,p.keys[0])&&Blob(x.providerData,f.providerData)&&Eq(x.layerKey,f.layerKey)&&Eq(x.subLayerKey,f.subLayerKey)&&x.weight.type==FWP_UINT64&&x.weight.uint64&&*x.weight.uint64==y.weight&&x.action.type==FWP_ACTION_BLOCK&&Eq(x.action.filterType,EmptyGuid)&&x.rawContext==0&&x.reserved==nullptr&&x.filterId!=0&&x.numFilterConditions==f.numFilterConditions&&x.filterCondition);
+ Fields({{Eq(x.filterKey,f.filterKey),"filter_key"},{Text(x.displayData.name,Label),"filter_name"},{Text(x.displayData.description,Label),"filter_description"},
+ {x.flags==f.flags,"filter_flags"},{x.providerKey&&Eq(*x.providerKey,p.keys[0]),"filter_provider"},{Blob(x.providerData,f.providerData),"filter_data"},
+ {Eq(x.layerKey,f.layerKey),"filter_layer"},{Eq(x.subLayerKey,f.subLayerKey),"filter_sub"},
+ {x.weight.type==FWP_UINT64&&x.weight.uint64&&*x.weight.uint64==y.weight,"filter_weight"},{x.action.type==FWP_ACTION_BLOCK,"filter_action"},
+ {Eq(x.action.filterType,EmptyGuid),"filter_action_guid"},{x.rawContext==0,"filter_context"},{x.reserved==nullptr,"filter_reserved"},{x.filterId!=0,"filter_runtime_id"},
+ {x.numFilterConditions==f.numFilterConditions&&x.filterCondition,"filter_conditions"}});
  Need(x.effectiveWeight.type==FWP_UINT64&&x.effectiveWeight.uint64);
  bool seen[2]={false,false};for(UINT32 i=0;i<x.numFilterConditions;i++){const auto& a=x.filterCondition[i];int j=-1;for(UINT32 t=0;t<f.numFilterConditions;t++)if(Eq(a.fieldKey,y.c[t].fieldKey))j=static_cast<int>(t);Need(j>=0&&!seen[j]);seen[j]=true;const auto& b=y.c[j];Need(a.matchType==b.matchType&&a.conditionValue.type==b.conditionValue.type);
  if(b.conditionValue.type==FWP_BYTE_BLOB_TYPE)Need(a.conditionValue.byteBlob&&Blob(*a.conditionValue.byteBlob,*b.conditionValue.byteBlob));
