@@ -1,7 +1,7 @@
 # وضعیت جاری پروژه — مرجع هماهنگی عامل و همکاران
 
-**آخرین به‌روزرسانی: 2026-10-19 01:27 (UTC)**  
-**مرحلهٔ فعلی: ایزولاسیون کل Windows با VPN داخلی SSTP پروفایل holand تأیید شده است. S1 فقط‌خواندنی آمادهٔ دریافت وضعیت دستگاه است؛ syntax/AST و۲۰ fixture بومی پاس شدند، نه VPN/firewall واقعی. هیچ rule/route/VPN تغییر یا isolation اعمال نشده است. گام کاربر: اجرای S1 و ارسال JSON، WoW بسته و آپدیت Pause. N2 همچنان متوقف است.**
+**آخرین به‌روزرسانی: 2026-10-19 01:32 (UTC)**  
+**مرحلهٔ فعلی: گزارش واقعی S1 کاربر دریافت و تحلیل شد. holand متصل و مسیر دو IP فعلی Level3 روی VPN است؛ ولی outbound هر سه پروفایل Allow، گروه Kill Switch بدون قانون خروجی فعال/state مورد انتظار غایب، و مسیر IPv6 خارج VPN است. ایزولاسیون اعمال نشده. گام بعد طراحی و تست بازیابی مستقل قبل هر Apply؛ فعلاً Pause، بدون BAT99 یا toggle کیل‌سوییچ.**
 
 این فایل مرجع وضعیت روز است. README و اسناد قدیمی مسیر تحقیق را نگه می‌دارند، اما تیترهای «آزمایش جاری» یا «گام بعد» در آن‌ها لزوماً وضعیت امروز نیستند. پیشنهادهای همکاران در [سند پیشنهادها](SUGGESTIONS-FROM-OTHER-MODELS.fa.md) قرار می‌گیرد؛ پیشنهاد به‌تنهایی تصمیم، مجوز یا شاهد اجرای موفق نیست.
 
@@ -18,11 +18,18 @@
 | بستهٔ ویندوز U1 | ساخته و در Windows runner آزموده شده؛ کاربر اعلام کرد ZIP را دانلود کرده است |
 | خودآزمایی روی HP/Windows 11 کاربر | **گزارش ارسالی کاربر PASS**؛ send، WSASend و ورودی منفی EncryptMessage مشاهده شدند؛ خطای اسکریپت صفر |
 | آپدیت واقعی تحت مانیتور U1 و بلوک دامنه | **دانلود تا ۳۰٪ به گزارش کاربر**؛ READY/Agent واقعی/hosts در گزارش ثبت شده؛ پایان Paused، تکمیل اثبات نشده |
-| اقدام بعدی کاربر | S1 در پوشه تازه، Start-Preflight.cmd با Administrator؛ ارسال output/sstp-preflight-*.json. WoW بسته و آپدیت Pause؛ هیچ Resume یا toggle Kill Switch برای این مرحله نیست |
+| اقدام بعدی کاربر | S1 دریافت شد؛ فعلاً تست تکراری، BAT99، Resume یا تغییر VPN/کیل‌سوییچ نه. WoW بسته و آپدیت Pause؛ عامل ابتدا طرح بازیابی و Apply قابل‌آزمون را آماده کند |
 | دریافت ZIP/ورود GitHub | ZIP ساده BAT قبلاً تحویل شد؛ کاربر فقط۰۶ را موفق گزارش کرد. T1 با artifact آماده است؛ ورود GitHub دوباره درخواست نشود |
 | محل کد آزمایشی و گزارش‌های تازه | T1/R1/U2 در شاخه privacy-observation-20261018-a1؛ BATهای ساده در plain-hosts-leave-one-open روی main. کد پژوهشی خودکار merge نمی‌شود |
 
 ## شواهد معتبر جدید — مبنای راهنمایی همکاران
+### S1 واقعی کاربر — مسیر Level3 روی VPN، نه ایزولاسیون
+- [تحلیل و تصمیم](../reports/sstp-preflight-s1-user-analysis.fa.md) · [شواهد redacted](../reports/sstp-preflight-s1-user-analysis.json). raw report و آدرس VPN کاربر عمومی نشده‌اند.
+- holand یک تطابق user، Connected/Sstp، interface49/IPv4؛ split_tunneling=true ولی هر دو IP جاری Level3 با مسیر /1 روی49 هستند. flag به‌تنهایی اثبات bypass نیست. یک TCP443 Established سرویس SSTP مطابق DNS سرور، نه binding قطعی پروفایل.
+- هر سه پروفایل firewall روشن ولی default outbound=Allow؛۱۲۱ rule فعال شامل۱۰۰Allow و۲۱Block، خلاصه همگیLocal و بدونcap. گروه SSTP Kill Switch قانون خروجی فعال ندارد و state مورد انتظار غایب است؛ دیگر WFP/kill-switchها از این گزارش نفی نمی‌شوند.
+- یک default route IPv6 خارج VPN دیده شده؛ ریسک طراحی، نه اثبات leak. query_errors=0،review_blockers=0 اما ready_to_apply=false و rollback_prepared=false. S1 تنظیمی تغییر نداده است.
+- گام بعد عامل: طرح Apply کوتاه با snapshot/rollback کامل مستقل محلی/زمان‌دار و gateهای non-mutating، مدیریت قابل‌بازیابی Allowهای فعلی، IPv6، DNS/certificate/reconnect. هنوز Apply ساخته/اجرا نشده؛ هیچ runner تازه در تحلیل گزارش فعال نشد. کاربر Pause را نگه دارد؛ S1 تکرار، BAT99 یا toggle کیل‌سوییچ لازم نیست.
+
 ### S1 — دامنه روشن و Kill Switch فعلی بازبینی شد
 - کاربر کل Windows و VPN داخلی SSTP با نام holand را تأیید کرد. Connect-rus ارسالی برای پروفایل دیگری است؛ KillSwitch1.2 اولین SSTP متصل را برمی‌گزیند، نه الزاماً holand. exeهای آپلودشده شورتکات تبدیل‌شده بودند و بنا به درخواست کاربر کنار گذاشته شدند.
 - Kill Switch فعلی RemoteAccess را به همه مقصدها/برنامه‌ها باز می‌گذارد، DNS و server TCP443 دارد و Allowهای قبلی را خنثی نمی‌کند. بنابراین فقط‌Level3 نیست؛ Disable/Reset کورکورانه توصیه نمی‌شود. فایل state خصوصی خوانده یا منتشر نشده است. مخزن SSTP فقط خوانده شد.

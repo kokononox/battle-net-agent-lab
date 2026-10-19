@@ -1,0 +1,72 @@
+{
+  "schema": "sstp-preflight-s1-user-analysis-1",
+  "source_sha256": "44f7daf99ca38a5e175eea33685ee267a95a04cecfbeba93ce53dc4c8a2e59bd",
+  "source_kind": "user_uploaded_json_not_live_agent_access",
+  "started_utc": "2026-10-19T01:30:09.5821248Z",
+  "ended_utc": "2026-10-19T01:30:13.4095069Z",
+  "grain": "one_device_snapshot_with_nested_queries_not_rectangular_rows",
+  "profiler_resolution": "Generic dataframe profiler rejected unequal nested arrays; parsed as one JSON snapshot, validated each named collection without dropping nulls or rows.",
+  "vpn": {
+    "exact_profile": "holand",
+    "profile_matches": 1,
+    "connected": true,
+    "sstp": true,
+    "split_tunneling_reported": true,
+    "interface_indices": [
+      49
+    ]
+  },
+  "firewall": {
+    "profile_count": 3,
+    "enabled_profile_count": 3,
+    "outbound_allow_profile_count": 3,
+    "enabled_outbound_rules": 121,
+    "action_counts": {
+      "Allow": 100,
+      "Block": 21
+    },
+    "source_type_counts": {
+      "Local": 121
+    },
+    "truncated": false
+  },
+  "existing_kill_switch": {
+    "group_enabled_outbound_rule_count": 0,
+    "state_file_present": false,
+    "other_kill_switch_or_wfp_filters_excluded": false
+  },
+  "routes": {
+    "level3_address_count": 2,
+    "level3_checked_count": 2,
+    "level3_via_exact_vpn_count": 2,
+    "level3_matched_prefix_lengths": [
+      [
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "sstp_dns_matching_established_candidate_count": 1,
+    "sstp_exact_profile_binding_proven": false,
+    "ipv6_default_outside_vpn_count": 1,
+    "ipv6_egress_or_leak_proven": false,
+    "all_destinations_checked": false
+  },
+  "query_error_count": 0,
+  "review_blocker_count": 0,
+  "ready_to_apply_isolation": false,
+  "independent_local_rollback_prepared": false,
+  "network_settings_changed_by_tool": false,
+  "vpn_endpoint_and_raw_report_published": false,
+  "comparison_plan": [
+    {
+      "grain": "one configuration snapshot",
+      "population": "selected VPN and queried Windows policy",
+      "unit": "configuration and route states",
+      "finding": "VPN connected, not an enforced only-update isolation",
+      "disposition": "prose",
+      "reason": "Diagnostic boolean and categorical evidence; no quantitative shape or trend to visualize."
+    }
+  ]
+}
