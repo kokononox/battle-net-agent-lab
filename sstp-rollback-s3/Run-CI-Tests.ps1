@@ -19,7 +19,7 @@ function TestFixtures {
     Check ((RollbackDecision 'Allow' 'NotConfigured' 'Block' $true) -ceq 'conflict_value')
     $id='0123456789abcdef0123456789abcdef'
     $j=[pscustomobject]@{schema='s3-ci-journal-1';session_id=$id;purpose='github_hosted_ci_fixtures_only';scenario='full';prepared_utc=[DateTime]::UtcNow.ToString('o');profiles=@();rules=@()}
-    foreach ($name in @('Domain','Private','Public')) { $j.profiles+=,[pscustomobject]@{name=$name;before='NotConfigured';applied='Block'} }
+    foreach ($name in @('Domain','Private','Public')) { $j.profiles+=,[pscustomobject]@{name=$name;before='Allow';applied='Block'} }
     foreach ($letter in @('A','B')) { $j.rules+=,[pscustomobject]@{name=('RetailIsolation-S3-'+$id+'-'+$letter);before='True';applied='False';identity_sha256=('a'*64)} }
     AssertJournal $j $id;Check $true
     function Reject($Journal,[string]$Id) { try { AssertJournal $Journal $Id;return $false } catch { return $true } }
@@ -27,6 +27,7 @@ function TestFixtures {
     $copy=$j | ConvertTo-Json -Depth 8 | ConvertFrom-Json;$copy.rules[0].name='Unrelated-Rule';Check (Reject $copy $id)
     $copy=$j | ConvertTo-Json -Depth 8 | ConvertFrom-Json;$copy.profiles[0].name='Unknown';Check (Reject $copy $id)
     $copy=$j | ConvertTo-Json -Depth 8 | ConvertFrom-Json;$copy.profiles[0].before='Unknown';Check (Reject $copy $id)
+    $copy=$j | ConvertTo-Json -Depth 8 | ConvertFrom-Json;$copy.profiles[0].before='NotConfigured';Check (Reject $copy $id)
     $copy=$j | ConvertTo-Json -Depth 8 | ConvertFrom-Json;$copy.prepared_utc=[DateTime]::UtcNow.AddHours(-1).ToString('o');Check (Reject $copy $id)
     $copy=$j | ConvertTo-Json -Depth 8 | ConvertFrom-Json;$copy.purpose='user_device_apply';Check (Reject $copy $id)
     $copy=$j | ConvertTo-Json -Depth 8 | ConvertFrom-Json;$copy.rules[0].identity_sha256='not_a_hash';Check (Reject $copy $id)
@@ -34,7 +35,7 @@ function TestFixtures {
 function RunScenario([string]$Scenario) {
     $script:Stage=$Scenario+'_setup'
     $baseline=ProfileSnapshot;$effectiveBefore=EffectiveProfileSnapshot
-    if (@($baseline).Count -ne 3 -or @($baseline | Where-Object { $_.outbound -ne 'Block' }).Count -eq 0) { throw 's3_no_real_profile_transition_available' }
+    if (@($baseline).Count -ne 3 -or @($baseline | Where-Object { $_.outbound -notin @('Allow','Block') }).Count -gt 0 -or @($baseline | Where-Object { $_.outbound -eq 'Allow' }).Count -eq 0) { throw 's3_no_real_profile_transition_available' }
     $id=[Guid]::NewGuid().ToString('N');$folder=Join-Path ([Environment]::GetFolderPath('CommonApplicationData')) ('RetailIsolation-S3-'+$id)
     $group='RetailIsolation-S3-'+$id;$taskName=$group+'-Timer';$description='CI-only targeted rollback '+$id
     $ps=Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
@@ -67,6 +68,8 @@ function RunScenario([string]$Scenario) {
         $marker=[IO.File]::ReadAllText((Join-Path $folder 'driver-applied.json')) | ConvertFrom-Json
         if ($marker.a_enabled -cne 'False' -or $marker.b_enabled -cne 'False') { throw 's3_rule_mutation_not_observed' }
         if ($Scenario -eq 'full' -and @($marker.profiles | Where-Object { $_.outbound -ne 'Block' }).Count -gt 0) { throw 's3_full_profile_mutation_not_observed' }
+        $changedProfiles=@($marker.profiles | Where-Object { $name=$_.name;$old=@($baseline | Where-Object { $_.name -ceq $name });$_.outbound -cne $old[0].outbound })
+        if ($changedProfiles.Count -lt 1 -or ($Scenario -eq 'partial_conflict' -and $changedProfiles.Count -ne 1)) { throw 's3_actual_profile_transition_not_observed' }
         # A separate fixture simulates a concurrent unrelated edit, excluded from the journal.
         Set-NetFirewallRule -Name ($group+'-C') -PolicyStore PersistentStore -Description ('external-unrelated-'+$id) -ErrorAction Stop
         $unrelatedFingerprint=FixtureIdentity (GetFixtureRule ($group+'-C'))
@@ -92,7 +95,7 @@ function RunScenario([string]$Scenario) {
         $repeat=InvokeS3Rollback $folder $id
         if ($repeat.conflicts -ne $expectedConflicts -or @($repeat.items | Where-Object { $_.decision -eq 'restore' }).Count -ne 0) { throw 's3_repeat_not_idempotent' }
         $timerSucceeded=$true
-        $result=[ordered]@{scenario=$Scenario;driver_abrupt_exit_verified=$true;driver_exit_code=$driver.ExitCode;profile_transition_observed=$true;system_timer_verified=$true;targeted_profile_restore_verified=$true;fixture_a_restore_verified=$true;expected_conflicts=$expectedConflicts;observed_conflicts=[int]$receipt.conflicts;conflict_fixture_preserved=($Scenario -eq 'partial_conflict');unrelated_fixture_edit_preserved=$true;repeat_no_writes_verified=$true;task_last_result=[long]$info.LastTaskResult;task_removed=$false;fixture_rules_removed=$false;emergency_controller_restore_used=$false}
+        $result=[ordered]@{scenario=$Scenario;driver_abrupt_exit_verified=$true;driver_exit_code=$driver.ExitCode;profile_transition_observed=$true;observed_changed_profile_count=$changedProfiles.Count;system_timer_verified=$true;targeted_profile_restore_verified=$true;fixture_a_restore_verified=$true;expected_conflicts=$expectedConflicts;observed_conflicts=[int]$receipt.conflicts;conflict_fixture_preserved=($Scenario -eq 'partial_conflict');unrelated_fixture_edit_preserved=$true;repeat_no_writes_verified=$true;task_last_result=[long]$info.LastTaskResult;task_removed=$false;fixture_rules_removed=$false;emergency_controller_restore_used=$false}
     } finally {
         # Controller fallback prevents leaving CI default policy altered when an assertion fails.
         # A fallback is never counted as proof that the timer worked.
@@ -123,7 +126,7 @@ $summary=[ordered]@{schema='sstp-targeted-rollback-s3-native-1';passed=$false;fi
 try {
     TestFixtures;$summary.fixture_checks=$script:Checks
     foreach ($scenario in @('full','partial_conflict')) { $summary.scenarios+=,(RunScenario $scenario) }
-    if ($summary.fixture_checks -ne 16) { throw 's3_fixture_count' }
+    if ($summary.fixture_checks -ne 17) { throw 's3_fixture_count' }
     $summary.passed=$true;$script:Stage='complete'
 } catch {
     $summary.error_code='s3_native_failed'

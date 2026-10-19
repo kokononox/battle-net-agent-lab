@@ -15,7 +15,7 @@ foreach ($p in $j.rules) {
     Set-NetFirewallRule -Name $p.name -PolicyStore PersistentStore -Enabled False -ErrorAction Stop
 }
 if ($j.scenario -eq 'partial_conflict') {
-    $p=$j.profiles[0]
+    $p=@($j.profiles | Where-Object { $_.before -ceq 'Allow' })[0]
     Set-NetFirewallProfile -Name $p.name -PolicyStore PersistentStore -DefaultOutboundAction Block -ErrorAction Stop
     # Fixture B deliberately changed by the simulated other administrator; the rollback must refuse it.
     Set-NetFirewallRule -Name $j.rules[1].name -PolicyStore PersistentStore -Description ('foreign-change-'+$SessionId) -ErrorAction Stop

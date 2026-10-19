@@ -8,7 +8,7 @@ on:
 permissions: {}
 jobs:
   validate:
-    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved ephemeral Windows targeted rollback s3a' }}"
+    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved ephemeral Windows targeted rollback s3b' }}"
     runs-on: windows-2025
     timeout-minutes: 8
     permissions:

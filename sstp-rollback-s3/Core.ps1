@@ -80,7 +80,7 @@ function AssertJournal($J,[string]$Id) {
     if ($Id -cnotmatch '^[a-f0-9]{32}$' -or $J.schema -cne 's3-ci-journal-1' -or $J.session_id -cne $Id -or $J.purpose -cne 'github_hosted_ci_fixtures_only') { throw 's3_journal_identity' }
     if ($J.scenario -notin @('full','partial_conflict') -or @($J.profiles).Count -ne 3 -or @($J.rules).Count -ne 2) { throw 's3_journal_shape' }
     if ((@($J.profiles | ForEach-Object { $_.name } | Sort-Object) -join ',') -cne 'Domain,Private,Public') { throw 's3_journal_profiles' }
-    foreach ($p in $J.profiles) { if ($p.before -notin @('Allow','Block','NotConfigured') -or $p.applied -cne 'Block') { throw 's3_journal_profile_value' } }
+    foreach ($p in $J.profiles) { if ($p.before -notin @('Allow','Block') -or $p.applied -cne 'Block') { throw 's3_journal_profile_value' } }
     $expected=@(('RetailIsolation-S3-'+$Id+'-A'),('RetailIsolation-S3-'+$Id+'-B'))
     if ((@($J.rules | ForEach-Object { $_.name } | Sort-Object) -join ',') -cne (($expected | Sort-Object) -join ',')) { throw 's3_journal_rule_names' }
     foreach ($p in $J.rules) { if ($p.before -cne 'True' -or $p.applied -cne 'False' -or $p.identity_sha256 -cnotmatch '^[a-f0-9]{64}$') { throw 's3_journal_rule_value' } }

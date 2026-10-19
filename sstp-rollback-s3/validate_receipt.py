@@ -9,12 +9,13 @@ def validate(r):
     if r['native_outcome'] not in ['success','failure','skipped','cancelled']:raise ValueError('outcome')
     if r['native_outcome']=='success':
         n=r['native']
-        if not n or n['schema']!='sstp-targeted-rollback-s3-native-1' or n['passed'] is not True or n['fixture_checks']!=16 or n['stage']!='complete' or n['error_code'] is not None:raise ValueError('native')
+        if not n or n['schema']!='sstp-targeted-rollback-s3-native-1' or n['passed'] is not True or n['fixture_checks']!=17 or n['stage']!='complete' or n['error_code'] is not None:raise ValueError('native')
         if any(n[k] is not False for k in ['user_device_tested','sstp_or_level3_enforcement_tested','firewall_import_used','concurrent_write_protection_atomic']):raise ValueError('native_scope')
         rows=n['scenarios']
         if len(rows)!=2 or [x['scenario'] for x in rows]!=['full','partial_conflict']:raise ValueError('scenario_count')
         for i,p in enumerate(rows):
             if any(p[k] is not True for k in ['driver_abrupt_exit_verified','profile_transition_observed','system_timer_verified','targeted_profile_restore_verified','fixture_a_restore_verified','unrelated_fixture_edit_preserved','repeat_no_writes_verified','task_removed','fixture_rules_removed']):raise ValueError('scenario_check')
+            if p['observed_changed_profile_count']<1:raise ValueError('no_profile_transition')
             if p['emergency_controller_restore_used'] is not False or p['driver_exit_code']!=73 or p['expected_conflicts']!=i or p['observed_conflicts']!=i or p['task_last_result']!=2*i or p['conflict_fixture_preserved'] is not bool(i):raise ValueError('scenario_scope')
     return r
 
