@@ -8,7 +8,7 @@ on:
 permissions: {}
 jobs:
   validate:
-    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved ephemeral Windows unset roundtrip s3u1' }}"
+    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved ephemeral Windows unset roundtrip s3u2' }}"
     runs-on: windows-2025
     timeout-minutes: 8
     permissions:
@@ -52,7 +52,7 @@ jobs:
           retention-days: 3
   publish:
     needs: validate
-    if: always() && needs.validate.result == 'success'
+    if: always() && needs.validate.result != 'skipped'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -60,15 +60,19 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          ref: privacy-observation-20261018-a1
+          ref: ${{ github.sha }}
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         with:
           name: sstp-unset-s3u-receipt
           path: incoming
       - name: Validate and publish receipt
+        env:
+          EXPECTED_COMMIT: ${{ github.sha }}
+          EXPECTED_RUN_ID: ${{ github.run_id }}
         run: |
           set -euo pipefail
           python sstp-unset-s3u/validate_receipt.py incoming/build-receipt.json reports/sstp-unset-s3u-build.json
+          python -c "import json,os; r=json.load(open('reports/sstp-unset-s3u-build.json')); assert r['source_commit']==os.environ['EXPECTED_COMMIT'] and r['run_id']==os.environ['EXPECTED_RUN_ID'], 'receipt_identity_mismatch'"
           git add -- reports/sstp-unset-s3u-build.json
           git config user.name 'privacy-lab-report'
           git config user.email 'privacy-lab-report@users.noreply.github.com'

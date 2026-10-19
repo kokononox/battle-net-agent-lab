@@ -4,7 +4,8 @@ Set-StrictMode -Version 2.0
 $ErrorActionPreference='Stop'
 if ($env:GITHUB_ACTIONS -ne 'true' -or $env:RUNNER_ENVIRONMENT -ne 'github-hosted' -or $env:RUNNER_OS -ne 'Windows' -or $env:GITHUB_REPOSITORY -ne 'kokononox/battle-net-agent-lab' -or -not [Environment]::Is64BitProcess) { throw 's3u_ci_only_not_for_user_pc' }
 . (Join-Path $PSScriptRoot 'Core.ps1')
-$script:Stage='fixtures';$script:Checks=0
+function SetStage([string]$Value) { $script:Stage=$Value;Write-Host ('S3U_STAGE '+$Value+' '+[DateTime]::UtcNow.ToString('o')) }
+SetStage 'fixtures';$script:Checks=0
 function Check($Ok) { if (-not $Ok) { throw ('s3u_assertion_'+($script:Checks+1)) };$script:Checks++ }
 function Fixtures {
     Check ((UnsetDecision 'Block') -ceq 'restore_notconfigured')
@@ -26,7 +27,7 @@ function Fixtures {
     Check ((OutboundPresenceCount @([pscustomobject]@{values=@([pscustomobject]@{name='DefaultOutboundAction'})})) -eq 1)
 }
 function RunRound([int]$Round) {
-    $script:Stage='round_'+$Round+'_baseline'
+    SetStage ('round_'+$Round+'_baseline')
     $before=ProfileSnapshot
     if (@($before).Count -ne 3 -or @($before | Where-Object { $_.outbound -cne 'NotConfigured' }).Count -gt 0) { throw 's3u_baseline_not_all_notconfigured' }
     $effective=EffectiveProfileSnapshot;$com=(ReadComEffective | ConvertTo-Json -Compress);$ruleDigest=RulePropertyDigest
@@ -50,13 +51,13 @@ function RunRound([int]$Round) {
         [void](Register-ScheduledTask -TaskName $taskName -TaskPath '\' -InputObject $task -ErrorAction Stop);$registered=$true
         $verify=Get-ScheduledTask -TaskName $taskName -TaskPath '\'
         if ($verify.Description -cne $description -or @($verify.Actions).Count -ne 1 -or $verify.Actions[0].Arguments -cne $taskArguments) { throw 's3u_task_identity' }
-        $script:Stage='round_'+$Round+'_driver'
+        SetStage ('round_'+$Round+'_driver')
         $driverArgs='-NoProfile -NonInteractive -ExecutionPolicy Bypass -File "'+(Join-Path $folder 'Driver.ps1')+'" -SessionId '+$id
         $child=Start-Process -FilePath $ps -ArgumentList $driverArgs -PassThru -Wait -NoNewWindow
         if ($child.ExitCode -ne 73) { throw 's3u_driver_did_not_reach_exit' }
         $applied=[IO.File]::ReadAllText((Join-Path $folder 'applied.json')) | ConvertFrom-Json
         if (@($applied.profiles).Count -ne 3 -or @($applied.profiles | Where-Object { $_.outbound -cne 'Block' }).Count -gt 0 -or $applied.registry_sha256 -ceq $registryBefore -or $applied.outbound_registry_sha256 -ceq $outboundBefore) { throw 's3u_real_mutation_not_observed' }
-        $script:Stage='round_'+$Round+'_timer'
+        SetStage ('round_'+$Round+'_timer')
         $until=[DateTime]::UtcNow.AddSeconds(150);$r=$null;$receiptPath=Join-Path $folder 'timer-receipt.json'
         while ([DateTime]::UtcNow -lt $until) {
             if (Test-Path -LiteralPath $receiptPath) { try { $r=[IO.File]::ReadAllText($receiptPath) | ConvertFrom-Json;break } catch {} }
@@ -65,7 +66,7 @@ function RunRound([int]$Round) {
         if ($null -eq $r -or $r.schema -cne 's3u-timer-receipt-1' -or $r.ran_as_system -ne $true -or $r.restore_write_calls -ne 3 -or $r.conflicts -ne 0) { throw 's3u_timer_not_success' }
         for ($n=0;$n -lt 10;$n++) { $info=Get-ScheduledTaskInfo -TaskName $taskName -TaskPath '\';if ($info.LastTaskResult -eq 0) { break };Start-Sleep -Seconds 1 }
         if ($info.LastTaskResult -ne 0) { throw 's3u_task_exit_not_zero' }
-        $script:Stage='round_'+$Round+'_exact_state'
+        SetStage ('round_'+$Round+'_exact_state')
         $afterRegistry=ReadRegistryProfiles;$afterDigest=RegistryDigest $afterRegistry
         if (((ProfileSnapshot) | ConvertTo-Json -Compress) -cne ($before | ConvertTo-Json -Compress)) { throw 's3u_stored_state_not_exact' }
         if ($afterDigest -cne $registryBefore) { throw 's3u_registry_profile_values_not_exact' }
@@ -94,7 +95,7 @@ try {
     Fixtures;$result.fixture_checks=$script:Checks
     if ($result.fixture_checks -ne 13) { throw 's3u_fixture_count' }
     foreach ($round in @(1,2)) { $result.rounds+=,(RunRound $round) }
-    $result.passed=$true;$script:Stage='complete'
+    $result.passed=$true;SetStage 'complete'
 } catch {
     $result.error_code='s3u_native_failed'
     if ($_.Exception.Message -cmatch '^s3u_[a-z_0-9]{1,100}$') { $result.error_code=$_.Exception.Message }
