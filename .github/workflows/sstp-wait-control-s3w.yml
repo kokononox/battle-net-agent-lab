@@ -1,0 +1,70 @@
+name: One-shot S3W wait-only CI control (no network changes)
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths: ['.github/workflows/sstp-wait-control-s3w.yml']
+permissions: {}
+jobs:
+  wait_control:
+    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved wait-only Windows CI control s3w1' }}"
+    runs-on: windows-2025
+    timeout-minutes: 6
+    permissions: {}
+    steps:
+      - name: Observe three minutes without changing network configuration
+        id: wait
+        continue-on-error: true
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $sw=[Diagnostics.Stopwatch]::StartNew()
+          $state=[ordered]@{schema='sstp-wait-state-1';intervals_completed=0;elapsed_seconds=0;completed=$false}
+          $path=Join-Path $env:RUNNER_TEMP 'sstp-wait-state.json'
+          function SaveState {
+            $state.elapsed_seconds=[int][Math]::Floor($sw.Elapsed.TotalSeconds)
+            [IO.File]::WriteAllText($path,($state | ConvertTo-Json -Compress),(New-Object Text.UTF8Encoding($false)))
+          }
+          SaveState
+          try {
+            foreach ($i in @(1,2,3,4)) {
+              Start-Sleep -Seconds 45
+              $state.intervals_completed=$i
+              SaveState
+              Write-Host ('WAIT_HEARTBEAT '+$i+' '+[DateTime]::UtcNow.ToString('o'))
+            }
+            $state.completed=($state.elapsed_seconds -ge 180)
+          } finally { SaveState }
+          if (-not $state.completed) { throw 'wait_control_incomplete' }
+      - name: Write bounded wait-only receipt
+        if: always()
+        shell: python
+        env:
+          NATIVE_OUTCOME: ${{ steps.wait.outcome }}
+        run: |
+          import json,os,re
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])
+          p=root/'sstp-wait-state.json'
+          state=json.loads(p.read_text(encoding='utf-8-sig')) if p.exists() else None
+          if state is not None:
+              assert set(state)==set('schema intervals_completed elapsed_seconds completed'.split())
+              assert state['schema']=='sstp-wait-state-1'
+              assert type(state['intervals_completed']) is int and 0<=state['intervals_completed']<=4
+              assert type(state['elapsed_seconds']) is int and 0<=state['elapsed_seconds']<=360
+              assert type(state['completed']) is bool
+              if state['completed']: assert state['intervals_completed']==4 and state['elapsed_seconds']>=180
+          outcome=os.environ['NATIVE_OUTCOME']
+          assert outcome in ['success','failure','cancelled','skipped']
+          if outcome=='success': assert state and state['completed']
+          sha=os.environ['GITHUB_SHA'];run=os.environ['GITHUB_RUN_ID']
+          assert re.fullmatch('[a-f0-9]{40}',sha) and re.fullmatch('[0-9]{1,30}',run)
+          r=dict(schema='sstp-wait-control-1',source_commit=sha,run_id=run,runner_kind='windows-2025',native_outcome=outcome,state=state,network_configuration_changed=False,user_device_tested=False,ready_for_user_apply=False)
+          (root/'sstp-wait-receipt.json').write_text(json.dumps(r,indent=2)+'\n')
+      - name: Upload bounded receipt only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: sstp-wait-control-s3w-receipt
+          path: ${{ runner.temp }}/sstp-wait-receipt.json
+          if-no-files-found: error
+          retention-days: 3
