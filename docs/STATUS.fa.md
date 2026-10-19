@@ -1,7 +1,7 @@
 # وضعیت جاری پروژه — مرجع هماهنگی عامل و همکاران
 
-**آخرین به‌روزرسانی: 2026-10-19 04:07 (UTC)**  
-**مرحلهٔ فعلی: دامنه نهایی کاربر تأیید شد: Allowlist مقصدها فقط از SSTP همراه کیل‌سوییچ کل Windows؛ اتصال دستی، LAN بسته، بدون resident و انقضا، Enable/Disable اعمال و خروج، config قابل ویرایش. انتخاب A/B دیگر باز نیست. هسته P1 با۳۵fixture بدون تغییر شبکه/DNS روی Windows پاس شد؛ backend اجرایی هنوز آماده نیست و ready_for_user_apply=false. تست دو دور provider قبلی PASS محدود CI باقی است. دستگاه کاربر دست‌نخورده و Pause محفوظ است.**
+**آخرین به‌روزرسانی: 2026-10-19 04:18 (UTC)**  
+**مرحلهٔ فعلی: دامنه نهایی کاربر تأیید شد: Allowlist مقصدها فقط از SSTP همراه کیل‌سوییچ کل Windows؛ اتصال دستی، LAN بسته، بدون resident و انقضا، Enable/Disable اعمال و خروج، config قابل ویرایش. انتخاب A/B دیگر باز نیست. هسته P1 با۳۵fixture و زیرساخت journal در P2 با۳۰بررسی بومی Windows پاس شدند؛ P2 هیچ firewall/DNS تغییری نداد، guard/adapter اجرایی هنوز ساخته و qualified نشده و backend اجرایی هنوز آماده نیست و ready_for_user_apply=false. تست دو دور provider قبلی PASS محدود CI باقی است. دستگاه کاربر دست‌نخورده و Pause محفوظ است.**
 
 این فایل مرجع وضعیت روز است. README و اسناد قدیمی مسیر تحقیق را نگه می‌دارند، اما تیترهای «آزمایش جاری» یا «گام بعد» در آن‌ها لزوماً وضعیت امروز نیستند. پیشنهادهای همکاران در [سند پیشنهادها](SUGGESTIONS-FROM-OTHER-MODELS.fa.md) قرار می‌گیرد؛ پیشنهاد به‌تنهایی تصمیم، مجوز یا شاهد اجرای موفق نیست.
 
@@ -27,7 +27,8 @@
 - [نیاز قطعی کاربر](SSTP-ALLOWLIST-REQUIREMENTS.fa.md): Allowlist واقعی، فقط داخل SSTP، kill switch fail-closed کل Windows، LAN بسته، اتصال دستی، فعال/موجود یکتا با holand ترجیحی و توقف در ambiguity. Enable/Disable باید تنظیمات را اعمال و خارج شوند؛ بدون فرایند/سرویس/task دوره‌ای اختصاصی، بدون انقضا و با ماندگاری reboot.
 - [P1 config و plan](SSTP-ALLOWLIST-POLICY-P1.fa.md): ۳۵fixture خالص در run39197656262 پاس شد. source7b64da0705c00c8884102b9c3f1ff4e2624199fa؛ هیچ firewall/VPN/hosts/route/DNS تغییر یا query نشد، هیچ resident ساخته نشد. این هسته backend Enable/Disable ندارد و مجوز Apply نیست.
 - مبنای نمونه فهرست مجاز level3.blizzard.com است، نه بازکردن نام‌های مسدود BAT۶. DNS/CDN به Refresh صریح نیاز پیدا می‌کند و IP مشترک معادل هویت انحصاری hostname نیست. bootstrap محدود SSTP استثناست، نه Allow عمومی. تعریف «فقط VPN+denylist» دیگر دامنه نهایی نیست و پرسش A/B پاسخ داده شده است.
-- مرحله بعد backend journal/transition guard و مدیریت Allowهای قدیمی/GPO، سپس qualification binding/قطع‌وصل/DNS/IPv6/boot؛ محصول نباید با watchdog دائمی یا زمان انقضا ساخته شود. دستگاه کاربر تغییر نکرده و ورودی تازه فعلاً لازم نیست.
+- [P2 journal](SSTP-ALLOWLIST-JOURNAL-P2.fa.md): run39198636057 با۳۰بررسی بومی پاس شد؛ ACL، قفل، revision، جایگزینی فایل/backup، توقف پس از خرابی و تصمیم‌های خالص restore آزمایش شدند. نه adapter فایروال، guard واقعی، state machine کامل یا enforcement؛ ready_for_user_apply=false.
+- مرحله بعد تکمیل قرارداد snapshot/write-ahead، adapter و transition guard واقعی، مدیریت Allowهای قدیمی/GPO، سپس qualification binding/قطع‌وصل/DNS/IPv6/boot؛ محصول نباید با watchdog دائمی یا زمان انقضا ساخته شود. دستگاه کاربر تغییر نکرده و ورودی تازه فعلاً لازم نیست.
 
 ### سابقه معتبر S3U — PASS محدود provider با fixture کنترل CI
 - [گزارش و سه رسید](../reports/sstp-ci-control-success-analysis.fa.md): run39195750447 و منبع d62a0e6c548515ed5bd4139eb06983b99249fd37؛ دو دور کامل با همان native code، زمان۷۵ثانیه و guardها. native passed=true؛ نه SSTP/enforcement یا Windows11 کاربر و نه مجوز Apply.
