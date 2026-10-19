@@ -61,7 +61,7 @@ struct Filter {
  Filter(const Filter&)=delete;Filter& operator=(const Filter&)=delete;
 };
 static void CheckProvider(const Plan& p,const FWPM_PROVIDER0& x){auto y=Provider(p);Need(Eq(x.providerKey,y.providerKey)&&Text(x.displayData.name,Label)&&Text(x.displayData.description,Label)&&x.flags==y.flags&&Blob(x.providerData,y.providerData)&&x.serviceName==nullptr);}
-static void CheckSub(const Plan& p,const FWPM_SUBLAYER0& x){auto y=Sub(p);Fields({
+static void CheckSub(const Plan& p,const FWPM_SUBLAYER0& x){auto y=Sub(p);if(x.weight!=y.weight)std::cout<<"wfp_sub_weight_observed_"<<x.weight<<"_expected_"<<y.weight<<std::endl;Fields({
  {Eq(x.subLayerKey,y.subLayerKey),"sub_key"},{Text(x.displayData.name,Label),"sub_name"},{Text(x.displayData.description,Label),"sub_description"},
  {x.flags==y.flags,"sub_flags"},{x.providerKey&&Eq(*x.providerKey,p.keys[0]),"sub_provider"},{Blob(x.providerData,y.providerData),"sub_data"},{x.weight==y.weight,"sub_weight"}});}
 static void CheckFilter(const Plan& p,int k,const FWPM_FILTER0& x){Filter y(p,k);const auto& f=y.f;
@@ -91,7 +91,7 @@ int wmain(int argc,wchar_t** argv){try{WSADATA ws={};Ok(static_cast<DWORD>(WSASt
  Need(cmd==L"install"||cmd==L"audit"||cmd==L"remove");Plan p;LoadPlan(argc,argv,p);std::wstring fault=argc==11?argv[10]:L"none";Need(fault==L"none"||(cmd==L"install"&&(fault==L"abort-add"||fault==L"after-install-commit"))||(cmd==L"remove"&&(fault==L"abort-remove"||fault==L"after-remove-commit")));
  Engine e;if(cmd==L"audit"){bool installed=Audit(e,p);std::cout<<"{\"state\":\""<<(installed?"installed":"absent")<<"\",\"filters\":"<<(installed?3:0)<<",\"strict_readback\":true}"<<std::endl;return 0;}
  e.Begin();bool exists=Audit(e,p);
- if(cmd==L"install"&&!exists){auto provider=Provider(p);auto sub=Sub(p);Ok(FwpmProviderAdd0(e.h,&provider,nullptr));Ok(FwpmSubLayerAdd0(e.h,&sub,nullptr));for(int k=0;k<3;k++){Filter f(p,k);Ok(FwpmFilterAdd0(e.h,&f.f,nullptr,nullptr));if(k==0)Crash(fault==L"abort-add");}Need(Audit(e,p));}
+ if(cmd==L"install"&&!exists){auto provider=Provider(p);auto sub=Sub(p);Ok(FwpmProviderAdd0(e.h,&provider,nullptr));Ok(FwpmSubLayerAdd0(e.h,&sub,nullptr));for(int k=0;k<3;k++){Filter f(p,k);Ok(FwpmFilterAdd0(e.h,&f.f,nullptr,nullptr));if(k==0)Crash(fault==L"abort-add");}}
  if(cmd==L"remove"&&exists){for(int k=0;k<3;k++){Ok(FwpmFilterDeleteByKey0(e.h,&p.keys[k+2]));if(k==0)Crash(fault==L"abort-remove");}Ok(FwpmSubLayerDeleteByKey0(e.h,&p.keys[1]));Ok(FwpmProviderDeleteByKey0(e.h,&p.keys[0]));Need(!Audit(e,p));}
  e.Commit();Crash(fault==L"after-install-commit"||fault==L"after-remove-commit");Need(Audit(e,p)==(cmd==L"install"));std::cout<<"{\"mutation_verified\":true}"<<std::endl;return 0;
  }catch(DWORD rc){std::cout<<"wfp_error_"<<rc<<std::endl;return 1;}catch(...){std::cout<<"wfp_error_internal"<<std::endl;return 1;}}
