@@ -1,0 +1,44 @@
+name: One-shot SSTP native Allow quarantine recovery tests
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths: ['sstp-allowlist-quarantine/**', '.github/workflows/sstp-allowlist-quarantine.yml']
+permissions: {}
+jobs:
+  quarantine_tests:
+    if: "${{ github.run_attempt == 1 && startsWith(github.event.head_commit.message, 'lab: approved SSTP native Allow quarantine p7') }}"
+    runs-on: windows-2025
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse and test exact native rule Enabled changes and recovery
+        id: native
+        continue-on-error: true
+        shell: powershell
+        run: |
+          foreach ($file in Get-ChildItem 'sstp-allowlist-quarantine' -Filter '*.ps1') {
+            $tokens=$null;$errors=$null
+            $ast=[Management.Automation.Language.Parser]::ParseFile($file.FullName,[ref]$tokens,[ref]$errors)
+            if ($errors.Count -gt 0) { throw 'quarantine_parse_error' }
+            $text=[IO.File]::ReadAllText($file.FullName)
+            if ($text -match '(?i)Set-NetFirewallProfile|Set-VpnConnection|Remove-VpnConnection|Get-VpnConnection|Resolve-DnsName|GetHostAddresses|Invoke-WebRequest|Invoke-Expression|Register-ScheduledTask|Start-Process|advfirewall|rasdial|HttpClient') { throw 'quarantine_forbidden_operation' }
+          }
+          & './sstp-allowlist-quarantine/Test-Quarantine.ps1' -OutputPath (Join-Path $env:RUNNER_TEMP 'quarantine.json')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Validate bounded receipt
+        if: always()
+        env:
+          NATIVE_OUTCOME: ${{ steps.native.outcome }}
+        run: python sstp-allowlist-quarantine/receipt.py
+      - name: Upload bounded receipt only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: sstp-allowlist-quarantine-receipt
+          path: sstp-allowlist-quarantine/build-receipt.json
+          retention-days: 3
+          if-no-files-found: error
