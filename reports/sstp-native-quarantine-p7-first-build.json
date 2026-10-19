@@ -1,0 +1,39 @@
+{
+  "schema": "sstp-quarantine-build-1",
+  "source_commit": "5126e36144b2538c2837f384c9fd67e8e8b7da48",
+  "run_id": "39206606322",
+  "native_outcome": "failure",
+  "native": {
+    "schema": "sstp-quarantine-test-1",
+    "source_commit": "5126e36144b2538c2837f384c9fd67e8e8b7da48",
+    "run_id": "39206606322",
+    "passed": false,
+    "checks": 87,
+    "fault_cases": 10,
+    "fresh_process_recoveries": 10,
+    "partial_quarantine_restores": 2,
+    "error_code": "quarantine_baseline_mismatch",
+    "verified_fixture_rules": 29,
+    "remaining_test_rules": 0,
+    "profiles_unchanged": true,
+    "existing_rule_properties_unchanged": false,
+    "test_rule_enabled_states_changed": true,
+    "profile_defaults_changed": false,
+    "dns_queried": false,
+    "resident_program_created": false,
+    "real_guard_tested": false,
+    "enforcement_tested": false,
+    "sstp_binding_tested": false,
+    "user_device_tested": false,
+    "ready_for_user_apply": false
+  },
+  "hashes": {
+    "Quarantine.ps1": "975d2409348992f0efb35ddae0d9ed1dfdea7607eed9093c93ec634082ac4473",
+    "Worker.ps1": "291ce65b4e86ba280653098126a228bf60b8481d87ee938c93b342cf78765631",
+    "Test-Quarantine.ps1": "800b17746f4d049576c58629ccef06c4af4c9307e5759d8ef0e21e35b44f3eb4",
+    "Journal.ps1": "95b1346d4ce0f43d74e9338fec586adbb004ad87fb6861913b54947e1ae24762",
+    "Firewall.ps1": "75feae4d6c890eb3875e30d6a2f035f1e4f887b9f030f517d1857c92ded5aed7",
+    "Policy.ps1": "6c71203e3ddb91f922bffd0e67fac1c3193b7a96941fa68ebac5af6b427de4d8"
+  },
+  "ready_for_user_apply": false
+}
