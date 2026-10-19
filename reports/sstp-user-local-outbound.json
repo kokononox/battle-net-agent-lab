@@ -1,0 +1,21 @@
+{
+  "source": "user_pasted_PowerShell_output",
+  "command": "Get-NetFirewallProfile -PolicyStore PersistentStore | Select-Object Name, DefaultOutboundAction",
+  "profiles": [
+    {
+      "name": "Domain",
+      "default_outbound_action": "NotConfigured"
+    },
+    {
+      "name": "Private",
+      "default_outbound_action": "NotConfigured"
+    },
+    {
+      "name": "Public",
+      "default_outbound_action": "NotConfigured"
+    }
+  ],
+  "effective_policy_proven_by_this_output": false,
+  "settings_changed_by_read_command": false,
+  "runner_baseline_inferred_from_user_output": false
+}

@@ -1,7 +1,7 @@
 # وضعیت جاری پروژه — مرجع هماهنگی عامل و همکاران
 
-**آخرین به‌روزرسانی: 2026-10-19 02:13 (UTC)**  
-**مرحلهٔ فعلی: S3 اولیه۱۶fixture/دو سناریوی واقعی محدود PASS؛ نسخه سخت‌گیرتر۱۷fixture را پاس کرد اما پیش از mutation در full_setup متوقف شد و PASS نیست. علت دقیق baseline از receipt معلوم نیست. Apply کاربر آماده/تحویل نشده؛ گام کم‌خطر کاربر فقط خواندن PersistentStore Name/DefaultOutboundAction است. WoW بسته، آپدیت Pause و تنظیمات فعلی حفظ شوند.**
+**آخرین به‌روزرسانی: 2026-10-19 02:19 (UTC)**  
+**مرحلهٔ فعلی: خروجی واقعی کاربر PersistentStore را روشن کرد: Domain/Private/Public هر سه NotConfigured؛ S1 قبلی ActiveStore outbound=Allow و firewall enabled داشت. این خطا یا خاموش‌بودن firewall نیست. gate فعلی S3 این baseline را نمی‌پذیرد؛ بازیابی دقیق حالت unset باید اختصاصی طراحی/آزموده شود، نه جایگزینی با Allow. Apply نداریم و خروجی اضافی فعلاً لازم نیست؛ WoW بسته، آپدیت Pause و تنظیمات فعلی حفظ شوند.**
 
 این فایل مرجع وضعیت روز است. README و اسناد قدیمی مسیر تحقیق را نگه می‌دارند، اما تیترهای «آزمایش جاری» یا «گام بعد» در آن‌ها لزوماً وضعیت امروز نیستند. پیشنهادهای همکاران در [سند پیشنهادها](SUGGESTIONS-FROM-OTHER-MODELS.fa.md) قرار می‌گیرد؛ پیشنهاد به‌تنهایی تصمیم، مجوز یا شاهد اجرای موفق نیست.
 
@@ -14,15 +14,21 @@
 ## الان دقیقاً کجا هستیم؟
 | مورد | وضعیت |
 | --- | --- |
-| تمرکز جاری | S3 نسخه اولیه PASS؛ نسخه سخت‌گیرتر در precondition متوقف. تعیین baseline محلی و گذر gate سخت‌گیرتر لازم است؛ Apply نداریم |
+| تمرکز جاری | baseline محلی کاربر معلوم شد: هر سه NotConfigured. طراحی و آزمون بازیابی دقیق unset لازم است؛ نسخه سخت‌گیرتر S3/Apply هنوز مجوز اجرا ندارد |
 | بستهٔ ویندوز U1 | ساخته و در Windows runner آزموده شده؛ کاربر اعلام کرد ZIP را دانلود کرده است |
 | خودآزمایی روی HP/Windows 11 کاربر | **گزارش ارسالی کاربر PASS**؛ send، WSASend و ورودی منفی EncryptMessage مشاهده شدند؛ خطای اسکریپت صفر |
 | آپدیت واقعی تحت مانیتور U1 و بلوک دامنه | **دانلود تا ۳۰٪ به گزارش کاربر**؛ READY/Agent واقعی/hosts در گزارش ثبت شده؛ پایان Paused، تکمیل اثبات نشده |
-| اقدام بعدی کاربر | فقط خروجی Get-NetFirewallProfile -PolicyStore PersistentStore با Name/DefaultOutboundAction؛ S2 تکرار و backup upload/BAT99/toggle/Resume نه. WoW بسته و آپدیت Pause |
+| اقدام بعدی کاربر | خروجی لازم دریافت شد؛ فرمان/تست دیگری فعلاً لازم نیست. S2 تکرار، backup upload/BAT99/Enable/Disable/Resume نه. WoW بسته، آپدیت Pause و VPN فعلی حفظ شوند |
 | دریافت ZIP/ورود GitHub | ZIP ساده BAT قبلاً تحویل شد؛ کاربر فقط۰۶ را موفق گزارش کرد. T1 با artifact آماده است؛ ورود GitHub دوباره درخواست نشود |
 | محل کد آزمایشی و گزارش‌های تازه | T1/R1/U2 در شاخه privacy-observation-20261018-a1؛ BATهای ساده در plain-hosts-leave-one-open روی main. کد پژوهشی خودکار merge نمی‌شود |
 
 ## شواهد معتبر جدید — مبنای راهنمایی همکاران
+### baseline محلی کاربر تأیید شد — NotConfigured در هر سه profile
+- [خروجی خلاصه بدون اطلاعات خصوصی](../reports/sstp-user-local-outbound.json). Domain/Private/Public در PersistentStore هر سه DefaultOutboundAction=NotConfigured هستند. این خروجی فقط local stored setting است؛ به‌تنهایی effective action یا خاموش‌بودن firewall را نشان نمی‌دهد. S1 پیش‌تر هر سه firewall enabled و ActiveStore outbound=Allow را ثبت کرده بود.
+- اکنون می‌دانیم **gate فعلی S3 baseline دستگاه کاربر را هم رد می‌کند**؛ این به معنی اجرای S3 روی کاربر یا اثبات علت دقیق توقف runner نیست. مقدارهای runner از این خروجی کاربر استنتاج نشوند.
+- NotConfigured خودسرانه به Allow تبدیل نشود؛ بازگردانی effective Allow با بازگرداندن دقیق local unset یکی نیست. مستند Microsoft برای Set-NetFirewallProfile و netsh، NotConfigured را GPO-only توصیف می‌کند؛ رفتار provider در آزمون اولیه به‌تنهایی راهکار عمومی/مستند برای Windows کاربر نیست.
+- گام بعد طراحی/آزمون اختصاصی round-trip حالت unset با شاهد مقدار stored/effective و حفظ ruleهای نامرتبط است؛ نه حذف guard یا reset/import کل policy. هیچ کد Apply تازه، تغییر دستگاه کاربر یا runner تازه برای این بررسی اجرا نشد. ورودی کاربر کافی است؛ خروجی اضافی فعلاً لازم نیست و Pause حفظ شود.
+
 ### نتیجه نهایی این گام S3 — PASS قدیمی جایگزین gate تازه نیست
 - [تحلیل دقیق دو نسخه](../reports/sstp-rollback-s3-analysis.fa.md) · [شواهد](../reports/sstp-rollback-s3-analysis.json) · [رسید نخست](../reports/sstp-rollback-s3-first-build.json) · [رسید نسخه سخت‌گیرتر](../reports/sstp-rollback-s3-build.json).
 - run39187957739:۱۶fixture و دو سناریوی واقعی محدود پس از abrupt exit موفق؛ SYSTEM timer بدون fallback، حفظ conflict و fixture نامرتبط، replay و cleanup. run39188345339:۱۷fixture پاس، اما full_setup پیش از mutation با s3_no_real_profile_transition_available متوقف؛ live scenario صفر. نسخه اخیر PASS نیست.

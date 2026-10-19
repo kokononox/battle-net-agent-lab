@@ -1,6 +1,8 @@
 # درخواست نقد همکاران — S2 و طراحی ایزولاسیون SSTP / Level3
 
 ## وضعیت مبنا
+**baseline کاربر اکنون قطعی است:** Domain/Private/Public در PersistentStore هر سه NotConfigured؛ [خلاصه](../reports/sstp-user-local-outbound.json). S1 قبلی effective outbound=Allow و firewall enabled داشت. خودسرانه local unset را با Allow جایگزین نکنید؛ اولویت نقد، round-trip دقیق unset و اختلاف docs GPO-only با رفتار مشاهده‌شده provider در نسخه اولیه است. از داده کاربر علت قطعی توقف runner را استنتاج نکنید. خروجی بیشتری فعلاً از کاربر لازم نیست.
+
 **S3 نتیجه تازه:** نسخه اول دو سناریوی واقعی محدود را پاس کرد؛ نسخه سخت‌گیرتر پس از۱۷fixture پیش از mutation در full_setup متوقف شد و PASS نیست. [تحلیل](../reports/sstp-rollback-s3-analysis.fa.md). baseline در receipt نیست، پس NotConfigured علت قطعی اعلام نشود. نقد اولویت‌دار: تمایز مقدار unset/NotConfigured محلی از ActiveStore/effective، روش مستند و قابل‌آزمون برگشت semantics محلی و تشخیص دقیق guard ترکیبی؛ PASS نسخه قدیمی را مجوز Apply نگیرید.
 
 **S3 فقط CI اجرا شده؛ نتیجه نهایی بالا مرجع است، شرح مرحلهٔ قبلی:** [طرح](SSTP-ROLLBACK-S3.fa.md). rollback واقعی propertyهای محدود و fixtureهای خود ابزار، abrupt exit و task SYSTEM؛ نه Apply کاربر و نه proof enforcement. compare-before-write اتمیک نیست؛ نقد پنجره race و journal دقیق مفید است. نتیجه هر نسخه در تحلیل بالا تفکیک شده است.
