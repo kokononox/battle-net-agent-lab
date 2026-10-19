@@ -19,6 +19,7 @@
 #pragma comment(lib,"Iphlpapi.lib")
 #pragma comment(lib,"Ws2_32.lib")
 #pragma comment(lib,"Ole32.lib")
+static const GUID EmptyGuid={};
 static const wchar_t* Label=L"sstp-netluid-lab-v1";
 static void Need(bool ok) { if(!ok) throw DWORD(ERROR_INVALID_DATA); }
 static void Ok(DWORD rc) { if(rc!=ERROR_SUCCESS) throw rc; }
@@ -36,7 +37,7 @@ static bool Blob(const FWP_BYTE_BLOB& a,const FWP_BYTE_BLOB& b){return a.size==b
 static FWP_BYTE_BLOB Marker(const Plan& p){FWP_BYTE_BLOB b={sizeof(GUID),reinterpret_cast<UINT8*>(const_cast<GUID*>(&p.keys[0]))};return b;}
 static void LoadPlan(int argc,wchar_t** argv,Plan& p){
  Need(argc==10 || argc==11);
- for(int i=0;i<5;i++){Need(SUCCEEDED(CLSIDFromString(argv[2+i],&p.keys[i])));Need(!Eq(p.keys[i],GUID_NULL));for(int j=0;j<i;j++)Need(!Eq(p.keys[i],p.keys[j]));}
+ for(int i=0;i<5;i++){Need(SUCCEEDED(CLSIDFromString(argv[2+i],&p.keys[i])));Need(!Eq(p.keys[i],EmptyGuid));for(int j=0;j<i;j++)Need(!Eq(p.keys[i],p.keys[j]));}
  std::wstring n=argv[7];Need(!n.empty() && n.size()<=20);for(auto c:n)Need(c>=L'0'&&c<=L'9');errno=0;wchar_t* end=nullptr;p.luid=_wcstoui64(n.c_str(),&end,10);Need(errno==0 && end && *end==0 && p.luid!=0);
  IN_ADDR ip={};Need(InetPtonW(AF_INET,argv[8],&ip)==1);p.ip=ntohl(ip.S_un.S_addr);Need(p.ip!=0 && p.ip!=0xffffffff && (p.ip>>24)!=127 && (p.ip>>24)<224);
  p.app=argv[9];Need(p.app.size()>3 && p.app[1]==L':' && p.app[2]==L'\\');size_t sep=p.app.find_last_of(L"\\/");Need(sep!=std::wstring::npos);std::wstring base=p.app.substr(sep+1);const std::wstring prefix=L"sstp-luid-probe-";Need(base.size()==prefix.size()+32+4 && base.compare(0,prefix.size(),prefix)==0 && base.substr(base.size()-4)==L".exe");for(size_t i=prefix.size();i<prefix.size()+32;i++)Need((base[i]>=L'0'&&base[i]<=L'9')||(base[i]>=L'a'&&base[i]<=L'f'));
@@ -58,7 +59,7 @@ struct Filter {
 static void CheckProvider(const Plan& p,const FWPM_PROVIDER0& x){auto y=Provider(p);Need(Eq(x.providerKey,y.providerKey)&&Text(x.displayData.name,Label)&&Text(x.displayData.description,Label)&&x.flags==y.flags&&Blob(x.providerData,y.providerData)&&x.serviceName==nullptr);}
 static void CheckSub(const Plan& p,const FWPM_SUBLAYER0& x){auto y=Sub(p);Need(Eq(x.subLayerKey,y.subLayerKey)&&Text(x.displayData.name,Label)&&Text(x.displayData.description,Label)&&x.flags==y.flags&&x.providerKey&&Eq(*x.providerKey,p.keys[0])&&Blob(x.providerData,y.providerData)&&x.weight==y.weight);}
 static void CheckFilter(const Plan& p,int k,const FWPM_FILTER0& x){Filter y(p,k);const auto& f=y.f;
- Need(Eq(x.filterKey,f.filterKey)&&Text(x.displayData.name,Label)&&Text(x.displayData.description,Label)&&x.flags==f.flags&&x.providerKey&&Eq(*x.providerKey,p.keys[0])&&Blob(x.providerData,f.providerData)&&Eq(x.layerKey,f.layerKey)&&Eq(x.subLayerKey,f.subLayerKey)&&x.weight.type==FWP_UINT64&&x.weight.uint64&&*x.weight.uint64==y.weight&&x.action.type==FWP_ACTION_BLOCK&&Eq(x.action.filterType,GUID_NULL)&&x.rawContext==0&&x.reserved==nullptr&&x.filterId!=0&&x.numFilterConditions==f.numFilterConditions&&x.filterCondition);
+ Need(Eq(x.filterKey,f.filterKey)&&Text(x.displayData.name,Label)&&Text(x.displayData.description,Label)&&x.flags==f.flags&&x.providerKey&&Eq(*x.providerKey,p.keys[0])&&Blob(x.providerData,f.providerData)&&Eq(x.layerKey,f.layerKey)&&Eq(x.subLayerKey,f.subLayerKey)&&x.weight.type==FWP_UINT64&&x.weight.uint64&&*x.weight.uint64==y.weight&&x.action.type==FWP_ACTION_BLOCK&&Eq(x.action.filterType,EmptyGuid)&&x.rawContext==0&&x.reserved==nullptr&&x.filterId!=0&&x.numFilterConditions==f.numFilterConditions&&x.filterCondition);
  Need(x.effectiveWeight.type==FWP_UINT64&&x.effectiveWeight.uint64);
  bool seen[2]={false,false};for(UINT32 i=0;i<x.numFilterConditions;i++){const auto& a=x.filterCondition[i];int j=-1;for(UINT32 t=0;t<f.numFilterConditions;t++)if(Eq(a.fieldKey,y.c[t].fieldKey))j=static_cast<int>(t);Need(j>=0&&!seen[j]);seen[j]=true;const auto& b=y.c[j];Need(a.matchType==b.matchType&&a.conditionValue.type==b.conditionValue.type);
  if(b.conditionValue.type==FWP_BYTE_BLOB_TYPE)Need(a.conditionValue.byteBlob&&Blob(*a.conditionValue.byteBlob,*b.conditionValue.byteBlob));
