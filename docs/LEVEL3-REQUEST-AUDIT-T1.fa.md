@@ -26,3 +26,9 @@
 - DNSِ sink شامل 0.0.0.0 و loopback است؛ این فقط نتیجه resolver در زمان بررسی است، نه اثبات منع همه اتصال‌های موجود/IPv6/DoH/IP مستقیم. تطابق hash ابتدا/انتها هم مانع تغییر موقت همزمان نیست.
 - نبود تطبیق CPU یا بدنه/کلید حساس در نمونه، **نبود همه اطلاعات شخصی را ثابت نمی‌کند**. هیچ verdict پاک/فقط دانلود خودکار داده نمی‌شود. completion و مسئله fingerprint انتقال A→B جدا و حل‌نشده‌اند.
 - تأیید امضای native با سیاست قبلی و revocation حفظ شده و ممکن است با سرویس گواهی ارتباط بگیرد. SelfTest واقعی فقط worker loopback متعلق به ابزار است؛ Windows runner، ویندوز شما یا آپدیت کامل بازی را شبیه‌سازی نمی‌کند.
+
+## ساخت تحویلی
+
+source: `321a2634871223c24e5018c6145c4e18690c682f`؛ [بسته ZIP](https://github.com/kokononox/battle-net-agent-lab/actions/runs/39179835020/artifacts/12155548669)؛ [رسید build](../reports/level3-request-audit-t1-build.json). همه gateها success؛ ۷۹ unit/regression test محلی پاس.
+
+SHA256 آرتیفکت: `6f93d90d14b9b42f945929537dff3308aeaab8cea22c3f439d088122a5a6e231`. نگهداری۷روز. این نتیجه build/fixture است، نه تأیید محتوای ترافیک یا تکمیل آپدیت روی سیستم کاربر.

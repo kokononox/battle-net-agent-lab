@@ -1,0 +1,77 @@
+{
+  "schema": "historical-level3-review-1",
+  "scope": "old_disposable_vm_startup_not_user_wow_update",
+  "rows": [
+    {
+      "sample": "G1",
+      "input_sha256": "44fb336a5fddb00804ab368a3babbf8ae7a279d1e66a9a387bef21f6edc4e179",
+      "run_id": "39166365884",
+      "source_commit": "86ad2d71b8c21e2b3df01d1ede3b65c86eaa16a9",
+      "target_requests": 54,
+      "methods": {
+        "GET": 54
+      },
+      "nonzero_bodies": 0,
+      "query_present": 0,
+      "all_bodies_complete": true,
+      "all_paths_tpr": true,
+      "header_names": [
+        "accept",
+        "connection",
+        "host",
+        "range",
+        "user-agent"
+      ],
+      "unknown_headers": []
+    },
+    {
+      "sample": "H1-baseline",
+      "input_sha256": "952396ccb15994570bc201f0cef59803fa41554607b2890699cd820a833fcafe",
+      "run_id": "39167612892",
+      "source_commit": "ac62d58f9b61f190f4a8279e185366bd27d1c377",
+      "target_requests": 49,
+      "methods": {
+        "GET": 49
+      },
+      "nonzero_bodies": 0,
+      "query_present": 0,
+      "all_bodies_complete": true,
+      "all_paths_tpr": true,
+      "header_names": [
+        "accept",
+        "connection",
+        "host",
+        "range",
+        "user-agent"
+      ],
+      "unknown_headers": []
+    },
+    {
+      "sample": "H1-blocked",
+      "input_sha256": "28a7236453b1818b485dceba0a96dafb3266f6212274cfa4d5c8c82f7c2020f9",
+      "run_id": "39167612892",
+      "source_commit": "ac62d58f9b61f190f4a8279e185366bd27d1c377",
+      "target_requests": 34,
+      "methods": {
+        "GET": 34
+      },
+      "nonzero_bodies": 0,
+      "query_present": 0,
+      "all_bodies_complete": true,
+      "all_paths_tpr": true,
+      "header_names": [
+        "accept",
+        "connection",
+        "host",
+        "range",
+        "user-agent"
+      ],
+      "unknown_headers": []
+    }
+  ],
+  "total_target_requests": 137,
+  "personal_information_absence_proven": false,
+  "server_receipt_proven": false,
+  "user_agent_values_exported": false,
+  "user_bat06_content_tested": false
+}
