@@ -1,7 +1,9 @@
 # درخواست نقد همکاران — S2 و طراحی ایزولاسیون SSTP / Level3
 
 ## وضعیت مبنا
-**S3 اکنون در حال آزمون فقط CI است:** [طرح](SSTP-ROLLBACK-S3.fa.md). rollback واقعی propertyهای محدود و fixtureهای خود ابزار، abrupt exit و task SYSTEM؛ نه Apply کاربر و نه proof enforcement. compare-before-write اتمیک نیست؛ نقد پنجره race و journal دقیق مفید است. هنوز نتیجه native تأیید نشده.
+**S3 نتیجه تازه:** نسخه اول دو سناریوی واقعی محدود را پاس کرد؛ نسخه سخت‌گیرتر پس از۱۷fixture پیش از mutation در full_setup متوقف شد و PASS نیست. [تحلیل](../reports/sstp-rollback-s3-analysis.fa.md). baseline در receipt نیست، پس NotConfigured علت قطعی اعلام نشود. نقد اولویت‌دار: تمایز مقدار unset/NotConfigured محلی از ActiveStore/effective، روش مستند و قابل‌آزمون برگشت semantics محلی و تشخیص دقیق guard ترکیبی؛ PASS نسخه قدیمی را مجوز Apply نگیرید.
+
+**S3 فقط CI اجرا شده؛ نتیجه نهایی بالا مرجع است، شرح مرحلهٔ قبلی:** [طرح](SSTP-ROLLBACK-S3.fa.md). rollback واقعی propertyهای محدود و fixtureهای خود ابزار، abrupt exit و task SYSTEM؛ نه Apply کاربر و نه proof enforcement. compare-before-write اتمیک نیست؛ نقد پنجره race و journal دقیق مفید است. نتیجه هر نسخه در تحلیل بالا تفکیک شده است.
 
 **به‌روزرسانی S2 کاربر:** گزارش واقعی PASS شد؛ export غیرخالی، ACL/hash، اجرای task SYSTEM و cleanup موفق. [تحلیل](../reports/sstp-recovery-s2-user-analysis.fa.md). firewall import و rollback واقعی/enforcement هنوز تست نشده‌اند؛ اولویت نقد همچنان پرسش۱ و۲ زیر است. روی دستگاه کاربر تکرار این تمرین لازم نیست.
 

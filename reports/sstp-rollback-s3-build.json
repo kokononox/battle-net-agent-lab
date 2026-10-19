@@ -1,0 +1,32 @@
+{
+  "schema": "sstp-rollback-s3-build-1",
+  "source_commit": "9f7b568c902c9028358d464e2d6bd8a9781feefb",
+  "run_id": "39188345339",
+  "runner_kind": "windows-2025",
+  "native_outcome": "failure",
+  "native": {
+    "schema": "sstp-targeted-rollback-s3-native-1",
+    "passed": false,
+    "fixture_checks": 17,
+    "scenarios": [],
+    "stage": "full_setup",
+    "error_code": "s3_no_real_profile_transition_available",
+    "diagnostic_line": 38,
+    "error_id": "s3_no_real_profile_transition_available",
+    "exception_type": "System.Management.Automation.RuntimeException",
+    "user_device_tested": false,
+    "sstp_or_level3_enforcement_tested": false,
+    "firewall_import_used": false,
+    "concurrent_write_protection_atomic": false
+  },
+  "hashes": {
+    "Core.ps1": "c28d55554091fd4c09375261c6b3563b0d7f2b80edf6a25df27ef3aa97c58434",
+    "Timed-Rollback.ps1": "24e09b8c13054e027d1707da39637c0bcbdb68a14091c28e82f1e0b39fc8b15c",
+    "Crash-Driver.ps1": "98cacce7f81754e0b48368a61cd96a7b97918c66d2bf13c6e52e7fa2203c4f1c",
+    "Run-CI-Tests.ps1": "5a2a114dc6ffcd0fae2b6c2be03d1f383b8a1090ff81d17ad43177a848dc70cb"
+  },
+  "parse_error": null,
+  "user_device_tested": false,
+  "firewall_import_used": false,
+  "enforcement_tested": false
+}

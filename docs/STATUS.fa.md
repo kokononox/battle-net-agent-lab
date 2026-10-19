@@ -1,7 +1,7 @@
 # وضعیت جاری پروژه — مرجع هماهنگی عامل و همکاران
 
-**آخرین به‌روزرسانی: 2026-10-19 02:06 (UTC)**  
-**مرحلهٔ فعلی: نخستین S3 روی Windows موقت PASS شد:۱۶fixture و دو سناریوی rollback واقعی محدود پس از خروج driver، بدون fallback controller. نسخه سخت‌گیرتر برای رد NotConfigured در store محلی و اندازه‌گیری تعداد تغییر profile اکنون در آزمون است. هیچ S3/Apply روی کاربر اجرا یا تحویل نشده؛ Pause و تنظیمات فعلی حفظ شوند.**
+**آخرین به‌روزرسانی: 2026-10-19 02:13 (UTC)**  
+**مرحلهٔ فعلی: S3 اولیه۱۶fixture/دو سناریوی واقعی محدود PASS؛ نسخه سخت‌گیرتر۱۷fixture را پاس کرد اما پیش از mutation در full_setup متوقف شد و PASS نیست. علت دقیق baseline از receipt معلوم نیست. Apply کاربر آماده/تحویل نشده؛ گام کم‌خطر کاربر فقط خواندن PersistentStore Name/DefaultOutboundAction است. WoW بسته، آپدیت Pause و تنظیمات فعلی حفظ شوند.**
 
 این فایل مرجع وضعیت روز است. README و اسناد قدیمی مسیر تحقیق را نگه می‌دارند، اما تیترهای «آزمایش جاری» یا «گام بعد» در آن‌ها لزوماً وضعیت امروز نیستند. پیشنهادهای همکاران در [سند پیشنهادها](SUGGESTIONS-FROM-OTHER-MODELS.fa.md) قرار می‌گیرد؛ پیشنهاد به‌تنهایی تصمیم، مجوز یا شاهد اجرای موفق نیست.
 
@@ -14,15 +14,22 @@
 ## الان دقیقاً کجا هستیم؟
 | مورد | وضعیت |
 | --- | --- |
-| تمرکز جاری | S3 فقط CI: آزمایش واقعی بازگردانی تغییرات محدود، نه netsh import یا enforcement SSTP؛ نسخه اول PASS؛ نسخه سخت‌گیرتر در حال آزمون |
+| تمرکز جاری | S3 نسخه اولیه PASS؛ نسخه سخت‌گیرتر در precondition متوقف. تعیین baseline محلی و گذر gate سخت‌گیرتر لازم است؛ Apply نداریم |
 | بستهٔ ویندوز U1 | ساخته و در Windows runner آزموده شده؛ کاربر اعلام کرد ZIP را دانلود کرده است |
 | خودآزمایی روی HP/Windows 11 کاربر | **گزارش ارسالی کاربر PASS**؛ send، WSASend و ورودی منفی EncryptMessage مشاهده شدند؛ خطای اسکریپت صفر |
 | آپدیت واقعی تحت مانیتور U1 و بلوک دامنه | **دانلود تا ۳۰٪ به گزارش کاربر**؛ READY/Agent واقعی/hosts در گزارش ثبت شده؛ پایان Paused، تکمیل اثبات نشده |
-| اقدام بعدی کاربر | S2 دریافت و تحلیل شد؛ تکرار نکند. backup خصوصی نگه دارد و نفرستد؛ WoW بسته، آپدیت Pause، بدون BAT99 یا Enable/Disable کیل‌سوییچ |
+| اقدام بعدی کاربر | فقط خروجی Get-NetFirewallProfile -PolicyStore PersistentStore با Name/DefaultOutboundAction؛ S2 تکرار و backup upload/BAT99/toggle/Resume نه. WoW بسته و آپدیت Pause |
 | دریافت ZIP/ورود GitHub | ZIP ساده BAT قبلاً تحویل شد؛ کاربر فقط۰۶ را موفق گزارش کرد. T1 با artifact آماده است؛ ورود GitHub دوباره درخواست نشود |
 | محل کد آزمایشی و گزارش‌های تازه | T1/R1/U2 در شاخه privacy-observation-20261018-a1؛ BATهای ساده در plain-hosts-leave-one-open روی main. کد پژوهشی خودکار merge نمی‌شود |
 
 ## شواهد معتبر جدید — مبنای راهنمایی همکاران
+### نتیجه نهایی این گام S3 — PASS قدیمی جایگزین gate تازه نیست
+- [تحلیل دقیق دو نسخه](../reports/sstp-rollback-s3-analysis.fa.md) · [شواهد](../reports/sstp-rollback-s3-analysis.json) · [رسید نخست](../reports/sstp-rollback-s3-first-build.json) · [رسید نسخه سخت‌گیرتر](../reports/sstp-rollback-s3-build.json).
+- run39187957739:۱۶fixture و دو سناریوی واقعی محدود پس از abrupt exit موفق؛ SYSTEM timer بدون fallback، حفظ conflict و fixture نامرتبط، replay و cleanup. run39188345339:۱۷fixture پاس، اما full_setup پیش از mutation با s3_no_real_profile_transition_available متوقف؛ live scenario صفر. نسخه اخیر PASS نیست.
+- guard جدید براساس مستند Microsoft، baseline محلی غیر Allow/Block را نمی‌پذیرد؛ سه profile و حداقل یک Allow هم می‌خواهد. baseline در receipt نیست؛ نسبت‌دادن قطعی توقف به NotConfigured یا هر حالت مشخص دیگر مجاز نیست. هیچ guard حذف/دور زده نشده و برای PASS تنظیمات runner normalize نشده‌اند.
+- ورودی کم‌خطر لازم از کاربر فقط PersistentStore Name/DefaultOutboundAction است؛ S1 ActiveStore را می‌داد. Apply/لانچر S3 کاربری وجود ندارد؛ settings کاربر تغییر نکرده‌اند. S2 تکرار و backup upload/BAT99/toggle/Resume نه؛ Pause حفظ شود.
+- اولویت نقد همکاران: تفاوت unset/NotConfigured و مقدار effective، بازیابی مستند و بدون تغییر semantics store محلی، خطای ترکیبی precondition و observability. compare-before-write اتمیک نیست؛ فعلاً enforcement SSTP/Level3 یا صفرtelemetry اثبات نشده است.
+
 ### S3 در حال آزمون — تغییر واقعی محدود فقط روی runner موقت
 - [منبع](https://github.com/kokononox/battle-net-agent-lab/tree/40fd1b53b13cc03d77f0054dd467667958207474/sstp-rollback-s3) · [طرح/حدود](SSTP-ROLLBACK-S3.fa.md). فقط standard windows-2025 و receipt publisher ubuntu-latest؛ larger/paid runner فعال نشده، هزینه صفر تضمین نشده است.
 - دو سناریو: full و partial_conflict. journal پیش از write، snapshot PersistentStore و ActiveStore، task SYSTEM قبل Apply، driver خود ابزار عمداً Environment.Exit(73) بدون cleanup؛ timer باید propertyهای برنامه‌ریزی‌شده را restore کند. فقط fixture ruleهای GUID خود ابزار و default outbound profiles تغییر می‌کنند؛ Allowهای موجود runner disable نمی‌شوند و هیچ Blizzard/game/VPN اجرا نمی‌شود.

@@ -25,5 +25,5 @@ fingerprint فقط fixtureهای ساخته‌شده خود تست را پوشش
 
 مرجع cmdlet profile و تفاوت storeها: https://learn.microsoft.com/en-us/powershell/module/netsecurity/set-netfirewallprofile?view=windowsserver2025-ps
 
-## وضعیت آزمون
-نسخه اول source40fd1b53 در run39187957739 با۱۶fixture و دو سناریو PASS شد. نسخه تکمیلی source9f7b568c برای رد مقدار NotConfigured محلی و اندازه‌گیری transition اکنون در حال آزمون است؛ هنوز receipt نسخه تکمیلی نداریم. هیچ بسته کاربری یا Apply تحویل نشده است.
+## نتیجه فعلی
+[تحلیل دو نسخه](../reports/sstp-rollback-s3-analysis.fa.md): نسخه اول PASS شد ولی نسخه سخت‌گیرتر با۱۷fixture و صفر سناریوی زنده در setup متوقف شد. این نسخه PASS نیست؛ guard حفظ شد و Apply کاربری وجود ندارد. علت دقیق حالت baseline از receipt مشخص نیست؛ NotConfigured فقط یکی از حالات ممکن است، نه یافته قطعی.

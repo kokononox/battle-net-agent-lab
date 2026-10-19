@@ -1,0 +1,89 @@
+{
+  "schema": "sstp-rollback-s3-analysis-1",
+  "provenance": [
+    {
+      "file": "first.json",
+      "sha256": "db11e97ca0c18e6c6567428d6771aa65d7b5612617df3022857379cf467ea795",
+      "run_id": "39187957739",
+      "source_commit": "40fd1b53b13cc03d77f0054dd467667958207474"
+    },
+    {
+      "file": "hardened.json",
+      "sha256": "d2cd924ed10dbc078f04678c6b26ef6f7da3f9c08db60077fdf83a5d34b6fe19",
+      "run_id": "39188345339",
+      "source_commit": "9f7b568c902c9028358d464e2d6bd8a9781feefb"
+    }
+  ],
+  "grain": "one receipt per source/run, two distinct versions; not repeated trials of a common implementation",
+  "first": {
+    "outcome": "success",
+    "fixture_checks": 16,
+    "live_scenarios_passed": 2,
+    "controller_fallback_used": false,
+    "scenarios": [
+      {
+        "scenario": "full",
+        "driver_abrupt_exit_verified": true,
+        "driver_exit_code": 73,
+        "profile_transition_observed": true,
+        "system_timer_verified": true,
+        "targeted_profile_restore_verified": true,
+        "fixture_a_restore_verified": true,
+        "expected_conflicts": 0,
+        "observed_conflicts": 0,
+        "conflict_fixture_preserved": false,
+        "unrelated_fixture_edit_preserved": true,
+        "repeat_no_writes_verified": true,
+        "task_last_result": 0,
+        "task_removed": true,
+        "fixture_rules_removed": true,
+        "emergency_controller_restore_used": false
+      },
+      {
+        "scenario": "partial_conflict",
+        "driver_abrupt_exit_verified": true,
+        "driver_exit_code": 73,
+        "profile_transition_observed": true,
+        "system_timer_verified": true,
+        "targeted_profile_restore_verified": true,
+        "fixture_a_restore_verified": true,
+        "expected_conflicts": 1,
+        "observed_conflicts": 1,
+        "conflict_fixture_preserved": true,
+        "unrelated_fixture_edit_preserved": true,
+        "repeat_no_writes_verified": true,
+        "task_last_result": 2,
+        "task_removed": true,
+        "fixture_rules_removed": true,
+        "emergency_controller_restore_used": false
+      }
+    ]
+  },
+  "hardened": {
+    "outcome": "failure",
+    "fixture_checks_passed": 17,
+    "live_scenarios_completed": 0,
+    "stage": "full_setup",
+    "stop_code": "s3_no_real_profile_transition_available",
+    "precondition_failed_before_network_mutation": true,
+    "exact_baseline_values_recorded": false,
+    "NotConfigured_as_specific_cause_proven": false
+  },
+  "ready_to_apply_on_user": false,
+  "user_pc_network_changes_performed": false,
+  "enforcement_tested": false,
+  "atomic_concurrent_write_protection_proven": false,
+  "next_needed_input": "read-only PersistentStore Name,DefaultOutboundAction on user Windows; ActiveStore from S1 is not the raw local configuration",
+  "profiler_resolution": "Generic profiler expanded nested object keys into artificial 17-row tables. True grain is one JSON document per run; no raw duplicate rows removed. Null parse/error values are meaningful, boolean flags remain booleans, run IDs are identifiers not numerical measures, and raw hash maps are complete.",
+  "independent_check_passed": true,
+  "comparison_plan": [
+    {
+      "grain": "per-version diagnostic gate",
+      "population": "two CI builds",
+      "unit": "typed pass/stop states",
+      "finding": "Original limited rollback passed; hardened version correctly stopped at precondition, therefore no user apply",
+      "disposition": "prose",
+      "reason": "Categorical gate with different implementations; bar/line comparison would imply comparable performance measurements."
+    }
+  ]
+}
