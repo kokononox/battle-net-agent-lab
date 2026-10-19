@@ -8,7 +8,7 @@ on:
 permissions: {}
 jobs:
   validate:
-    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved ephemeral Windows unset roundtrip s3u2' }}"
+    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved ephemeral Windows unset roundtrip s3u3-diagnostic' }}"
     runs-on: windows-2025
     timeout-minutes: 8
     permissions:
@@ -17,6 +17,24 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
+      - name: Locate runner diagnostic directories without printing paths
+        shell: powershell
+        run: |
+          $roots=@();$version=$null
+          foreach ($proc in @(Get-Process -Name Runner.Listener,Runner.Worker -ErrorAction SilentlyContinue)) {
+            try {
+              $exe=$proc.Path
+              if ($exe) {
+                $root=Split-Path (Split-Path $exe -Parent) -Parent
+                $diag=Join-Path $root '_diag'
+                if ((Test-Path -LiteralPath $diag) -and $roots -notcontains $diag) { $roots+=,$diag }
+                $v=[Diagnostics.FileVersionInfo]::GetVersionInfo($exe).ProductVersion
+                if ($v -match '^[0-9.]{1,40}$') { $version=$v }
+              }
+            } catch {}
+          }
+          $meta=[ordered]@{roots=@($roots | Select-Object -First 2);cutoff_utc=[DateTime]::UtcNow.ToString('o');runner_version=$version}
+          [IO.File]::WriteAllText((Join-Path $env:RUNNER_TEMP 's3u-private-diag-roots.json'),($meta | ConvertTo-Json -Depth 4),(New-Object Text.UTF8Encoding($false)))
       - name: Parse and qualify provider unset roundtrip on ephemeral CI only
         id: native
         continue-on-error: true
@@ -42,12 +60,19 @@ jobs:
         env:
           NATIVE_OUTCOME: ${{ steps.native.outcome }}
         run: python sstp-unset-s3u/validate_receipt.py
+      - name: Extract fixed diagnostic counters only, never raw runner logs
+        if: always()
+        env:
+          NATIVE_OUTCOME: ${{ steps.native.outcome }}
+        run: python sstp-unset-s3u/collect_runner_signals.py
       - name: Upload receipt only
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: sstp-unset-s3u-receipt
-          path: sstp-unset-s3u/build-receipt.json
+          path: |
+            sstp-unset-s3u/build-receipt.json
+            sstp-unset-s3u/control-diagnostic.json
           if-no-files-found: error
           retention-days: 3
   publish:
@@ -73,7 +98,8 @@ jobs:
           set -euo pipefail
           python sstp-unset-s3u/validate_receipt.py incoming/build-receipt.json reports/sstp-unset-s3u-build.json
           python -c "import json,os; r=json.load(open('reports/sstp-unset-s3u-build.json')); assert r['source_commit']==os.environ['EXPECTED_COMMIT'] and r['run_id']==os.environ['EXPECTED_RUN_ID'], 'receipt_identity_mismatch'"
-          git add -- reports/sstp-unset-s3u-build.json
+          python sstp-unset-s3u/collect_runner_signals.py --validate incoming/control-diagnostic.json reports/sstp-control-diagnostic.json
+          git add -- reports/sstp-unset-s3u-build.json reports/sstp-control-diagnostic.json
           git config user.name 'privacy-lab-report'
           git config user.email 'privacy-lab-report@users.noreply.github.com'
           git commit -m 'lab: publish S3U local unset qualification CI receipt'
