@@ -1,0 +1,28 @@
+name: One-shot read-only SSTP inspector parsing and selection tests
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths: ['sstp-binding-inspect/**', '.github/workflows/sstp-binding-inspect.yml']
+permissions: {}
+jobs:
+  inspector_tests:
+    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved read-only SSTP binding inspector' }}"
+    runs-on: windows-2025
+    timeout-minutes: 2
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse and test selection only, never inspect runner VPN or change policy
+        shell: powershell
+        run: |
+          $path=(Resolve-Path 'sstp-binding-inspect/Inspect-SstpBinding.ps1').Path
+          $tokens=$null;$errors=$null
+          [Management.Automation.Language.Parser]::ParseFile($path,[ref]$tokens,[ref]$errors) | Out-Null
+          if ($errors.Count -ne 0) { throw 'inspect_parse_error' }
+          $text=[IO.File]::ReadAllText($path)
+          if ($text -match '(?i)(Set|New|Remove|Disable|Enable)-NetFirewall|Set-VpnConnection|Remove-VpnConnection|Resolve-DnsName|GetHostAddresses|Invoke-WebRequest|Invoke-Expression|Register-ScheduledTask|Start-Process|advfirewall|rasdial|HttpClient') { throw 'inspect_forbidden_operation' }
+          & $path -SelfTest
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
