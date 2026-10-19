@@ -1,0 +1,40 @@
+{
+  "schema": "sstp-guard-build-1",
+  "source_commit": "f9f86eaf606f19d4c1e7af23d6c506f4fffbfe35",
+  "run_id": "39221080984",
+  "native_outcome": "success",
+  "native": {
+    "schema": "sstp-guard-test-1",
+    "source_commit": "f9f86eaf606f19d4c1e7af23d6c506f4fffbfe35",
+    "run_id": "39221080984",
+    "passed": true,
+    "error_code": null,
+    "checks": 64,
+    "fault_cases": 6,
+    "fresh_process_recoveries": 6,
+    "packet_block_pairs": 2,
+    "owned_conflict_stops": 2,
+    "fixture_rules": 9,
+    "remaining_test_rules": 0,
+    "unrelated_full_policy_equal": true,
+    "unrelated_display_changes": 0,
+    "whole_machine_guard_tested": false,
+    "profile_defaults_changed": false,
+    "ipv6_packet_tested": false,
+    "sstp_tested": false,
+    "reboot_tested": false,
+    "user_device_tested": false,
+    "ready_for_user_apply": false
+  },
+  "hashes": {
+    "Guard.ps1": "677a39e5efe5fa85765d8e191f55da8616e543df776d48e3d78a7dc8d09d102f",
+    "Worker.ps1": "d714779b7832db21f9852c2e55dbe9f1e38e9b1cd45783491bc8131cf0f44790",
+    "Test-Guard.ps1": "27f30eb79445215660bc3477bdf9b3711bd5a68fef6b0da00ce94238945c1507",
+    "Probe.cs": "2e50087a2653334a5f871e7768c49bf6faa2454bea45721c9bc5d23b4f5c8af8",
+    "receipt.py": "a26850a08088b49a4c116da328975f578d6b763689b776290a050097ad64954f",
+    "Journal.ps1": "95b1346d4ce0f43d74e9338fec586adbb004ad87fb6861913b54947e1ae24762",
+    "Inventory.ps1": "e78ec114e4a00cb67a91952fd9be4d4788b4169f2a42ca98f99d8cb9baf9bc13",
+    "Engine.ps1": "b5a10b10164b0804bde6bf928c472de35580816deb2e161f3d1e0f8f490b1ba5"
+  },
+  "ready_for_user_apply": false
+}
