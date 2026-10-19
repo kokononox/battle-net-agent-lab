@@ -106,8 +106,11 @@ function AssertOverlayActiveRules($Record){
   $read=OverlayRead $o.spec.name 'ActiveStore'
   AssertOverlaySemantic $o.spec $read $o.enabled
   if($o.enabled){
-   $status=@($read.rule.EnforcementStatus|ForEach-Object{[string]$_})
-   if($status.Count -ne 1 -or $status[0] -cne 'Full' -or [string]$read.rule.PrimaryStatus -cne 'OK'){throw 'overlay_active_enforcement_unqualified'}
+   # Official MSFT_NetFirewallRule CIM values: Enforcement Full=1, Primary OK=1.
+   # Do not compare localized/PowerShell presentation enum labels.
+   $status=@($read.rule.CimInstanceProperties['EnforcementStatus'].Value)
+   $primary=$read.rule.CimInstanceProperties['PrimaryStatus'].Value
+   if($status.Count -ne 1 -or [int]$status[0] -ne 1 -or [int]$primary -ne 1){throw 'overlay_active_enforcement_unqualified'}
   }
  }
 }

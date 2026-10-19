@@ -2,12 +2,21 @@ param([string]$OutputPath)
 Set-StrictMode -Version 2.0
 $ErrorActionPreference='Stop'
 . (Join-Path $PSScriptRoot 'Overlay.ps1')
-$script:checks=0;$script:workers=0;$script:probePairs=0
+$script:checks=0;$script:workers=0;$script:probePairs=0;$script:lastWorkerError=$null;$script:lastEnforcement=$null
 function Check($Value){if(-not $Value){throw ('overlay_check_'+($script:checks+1))};$script:checks++;if(($script:checks % 10) -eq 0){[Console]::WriteLine('overlay_checks_'+$script:checks)}}
 function Worker([string]$Root,[string]$Action,[string]$Fault='None',[int]$Expected=0){
  $a=@('-NoLogo','-NoProfile','-ExecutionPolicy','Bypass','-File',('"'+(Join-Path $PSScriptRoot 'Test-Worker.ps1')+'"'),'-Root',('"'+$Root+'"'),'-Action',$Action,'-Fault',$Fault)
+ $outcome=Join-Path $Root 'worker-result.json';if([IO.File]::Exists($outcome)){[IO.File]::Delete($outcome)}
  $p=Start-Process -FilePath (Join-Path $PSHOME 'powershell.exe') -ArgumentList $a -Wait -PassThru -WindowStyle Hidden
- Check ($p.HasExited -and $p.ExitCode -eq $Expected);$script:workers++
+ $ok=$p.HasExited -and $p.ExitCode -eq $Expected
+ if($Expected -ne 73){
+  if(-not [IO.File]::Exists($outcome)){$ok=$false}else{
+   $wr=ConvertFrom-Json -InputObject ([IO.File]::ReadAllText($outcome))
+   if($Expected -eq 1){$ok=$ok -and $wr.error_code -ceq 'overlay_owned_conflict'}
+   if(-not $ok){$script:lastWorkerError=$wr.error_code;$script:lastEnforcement=$wr.enforcement}
+  }
+ }
+ Check $ok;$script:workers++
 }
 function Probe([string]$Exe,[string]$HostIp,[int]$Port){
  $p=Start-Process -FilePath $Exe -ArgumentList @($HostIp,[string]$Port) -Wait -PassThru -WindowStyle Hidden
@@ -82,6 +91,7 @@ try{
   try{InvokeOverlay $root Disable|Out-Null;InvokeOverlay $root Remove|Out-Null;$rr=OverlayLoad $root;$left=0;foreach($o in $rr.state.objects){if($null -ne (OverlayRead $o.spec.name)){$left++}};$r.remaining_objects=$left}catch{}
  }
  if($null -ne $before -and $r.remaining_objects -eq 0){try{$cmp=ComparePolicyInventory $before (ReadPolicyInventory);$r.unrelated_policy_equal=$cmp.policy_equal;$r.foreign_display_changes=$cmp.display_rule_changes}catch{}}
+ $r['last_worker_error']=$script:lastWorkerError;$r['last_owned_enforcement']=$script:lastEnforcement
  $r.checks=$script:checks;$r.worker_exits=$script:workers;$r.probe_pairs=$script:probePairs
  if($OutputPath){[IO.File]::WriteAllText($OutputPath,($r|ConvertTo-Json -Depth 5),(New-Object Text.UTF8Encoding($false)))}
 }
