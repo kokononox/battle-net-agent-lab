@@ -1,0 +1,32 @@
+{
+  "schema": "sstp-transaction-build-1",
+  "source_commit": "cab16a4a8d3ddea55e49167db102cc3baf8bef53",
+  "run_id": "39201053220",
+  "native_outcome": "success",
+  "native": {
+    "schema": "sstp-transaction-test-1",
+    "source_commit": "cab16a4a8d3ddea55e49167db102cc3baf8bef53",
+    "run_id": "39201053220",
+    "passed": true,
+    "checks": 243,
+    "fault_cases": 38,
+    "fresh_process_recoveries": 38,
+    "error_code": null,
+    "adapter_kind": "file_model_only",
+    "firewall_changed": false,
+    "dns_queried": false,
+    "resident_program_created": false,
+    "real_guard_tested": false,
+    "enforcement_tested": false,
+    "sstp_binding_tested": false,
+    "user_device_tested": false,
+    "ready_for_user_apply": false
+  },
+  "hashes": {
+    "ModelEngine.ps1": "4cbb60db9738a9a8e04c4e799cfe62b858157fdd0f8227794dc73ff15a649a03",
+    "Worker.ps1": "dae2f9ed868819901970856f50f22e26c25940f58908e85c9fc178316a7a412f",
+    "Test-Transactions.ps1": "dd5a4a197d53f4187ef3ef8c2f143d264496f7cc8bce865f64efa25d99705575",
+    "Journal.ps1": "95b1346d4ce0f43d74e9338fec586adbb004ad87fb6861913b54947e1ae24762"
+  },
+  "ready_for_user_apply": false
+}
