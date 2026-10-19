@@ -1,7 +1,7 @@
 # وضعیت جاری پروژه — مرجع هماهنگی عامل و همکاران
 
-**آخرین به‌روزرسانی: 2026-10-19 00:55 (UTC)**  
-**مرحلهٔ فعلی: گزارش N1 کاربر دریافت و تحلیل شد؛۱۲ چرخه،۰ sampling error،بدون cap. فرایند صاحب سه TCP/443 دارای libcef/chrome_elf و کتابخانه‌های Windows شبکه است؛ export استاندارد SSL_write/SSL_write_ex در libcef دیده نشده است. استفاده واقعی BoringSSL یا محتوای HTTPS هنوز ثابت نیست. گام بعد پیشنهادی call-route counters است؛ N2 هنوز ساخته نشده، Pause حفظ شود و تکرار N1 لازم نیست.**
+**آخرین به‌روزرسانی: 2026-10-19 01:06 (UTC)**  
+**مرحلهٔ فعلی: کاربر هدف را به ایزولاسیون allowlist روشن کرد: فقط مقصدهای آزمون۶/Level3 و سرور SSTP خودش، نه ادامه بررسی تمام DLLها. N2 فقط draft محلی است؛ منتشر/ساخته روی runner/تحویل نشده و ادامه آن فعلاً متوقف است. طراحی فایروال در انتظار تعیین محدوده کل Windows یا فقط Battle.net/Agent، نوع کلاینت SSTP و IP/پورت سرور است. هیچ firewall/routing/VPN تغییر نکرده است.**
 
 این فایل مرجع وضعیت روز است. README و اسناد قدیمی مسیر تحقیق را نگه می‌دارند، اما تیترهای «آزمایش جاری» یا «گام بعد» در آن‌ها لزوماً وضعیت امروز نیستند. پیشنهادهای همکاران در [سند پیشنهادها](SUGGESTIONS-FROM-OTHER-MODELS.fa.md) قرار می‌گیرد؛ پیشنهاد به‌تنهایی تصمیم، مجوز یا شاهد اجرای موفق نیست.
 
@@ -23,6 +23,14 @@
 | محل کد آزمایشی و گزارش‌های تازه | T1/R1/U2 در شاخه privacy-observation-20261018-a1؛ BATهای ساده در plain-hosts-leave-one-open روی main. کد پژوهشی خودکار merge نمی‌شود |
 
 ## شواهد معتبر جدید — مبنای راهنمایی همکاران
+### تغییر جهت صریح کاربر — allowlist واقعی برای SSTP و مسیر آپدیت
+- کاربر توضیح داد منظورش ایزولاسیونی است که فقط سرور/مقصدهای آزمون۶ و سرور VPN خودش (SSTP) از اینترنت عبور کنند؛ هدف صرفاً denylist hosts یا ادامه دنبال‌کردن DLLها نیست.
+- طرح مفهومی، نه پیکربندی اجراشده: زیرلایه فیزیکی برای tunnel فقط endpoint سرور SSTP؛ درون VPN فقط مقصدهای ضروری آپدیت. چند IP متغیر Level3، DNS bootstrap، سیاست IPv6، route/interface و اعتبارسنجی گواهی باید جدا بررسی شوند. این‌ها هنوز حل/آزموده نشده‌اند؛ خاموش‌کردن TLS/revocation راه‌حل نیست.
+- پیش از کدنویسی apply باید روشن شود کل Windows مدنظر است یا فقط Battle.net/Agent؛ native Windows SSTP یا client دیگر؛ IP/hostname و پورت سرور VPN. هیچ username/password/certificate private key لازم نیست.
+- محدودیت کل سیستم می‌تواند مرورگر/چت و بقیه سرویس‌ها را هم تا rollback قطع کند؛ قبل اجرای هر change باید snapshot سیاست فعال، ruleهای allow موجود/GPO، تونل و مسیرها، backup و recovery محلی قابل اجرا آماده و آزمایش شوند. صرف افزودن rule allow به معنی default-deny واقعی نیست.
+- N2 شمارنده API فقط در draft محلی `/data/network-route-observer-n2` ایجاد شد؛ source/workflow آن push نشده و runner/build/native test آن اجرا نشده است. بررسی libcef/route دیگر اقدام بعدی خودکار نیست. هیچ rule، hosts، route، VPN یا فایل بازی تغییر نکرده است.
+- این شبکه allowlist هم به‌تنهایی نبود داده شخصی در درخواست‌های مجاز یا fingerprint انتقال A→B را ثابت نمی‌کند. نتیجه۲۶GET Level3 و نامعلوم بودن HTTPSهای دیگر حفظ می‌شود؛ با طرح تازه پاک یا تعمیم داده نشود.
+
 ### N1 کاربر — CEF در فرایند صاحب HTTPS، نه اثبات BoringSSL یا محتوا
 - [تحلیل](../reports/network-library-inventory-n1-user-analysis.fa.md) · [شواهد ماشینی](../reports/network-library-inventory-n1-user-analysis.json) · [گزارش](../reports/network-library-inventory-n1-user.json).
 - اجرای کاربر window_ended بدون error، sampling_errors=0،sample_count=12 وlimit_hit=false؛۹ فرایند verified و۱۳ فایل ماژول PE parsed بدون cap. این گزارش ارسالی کاربر است؛ سابقه «N1 هنوز Windows-tested نیست» پیش از این اجرا تاریخی است، نه وضعیت اجرای جدید.
