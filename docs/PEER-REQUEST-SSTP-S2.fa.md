@@ -1,6 +1,8 @@
 # درخواست نقد همکاران — S2 و طراحی ایزولاسیون SSTP / Level3
 
 ## وضعیت مبنا
+**S3 اکنون در حال آزمون فقط CI است:** [طرح](SSTP-ROLLBACK-S3.fa.md). rollback واقعی propertyهای محدود و fixtureهای خود ابزار، abrupt exit و task SYSTEM؛ نه Apply کاربر و نه proof enforcement. compare-before-write اتمیک نیست؛ نقد پنجره race و journal دقیق مفید است. هنوز نتیجه native تأیید نشده.
+
 **به‌روزرسانی S2 کاربر:** گزارش واقعی PASS شد؛ export غیرخالی، ACL/hash، اجرای task SYSTEM و cleanup موفق. [تحلیل](../reports/sstp-recovery-s2-user-analysis.fa.md). firewall import و rollback واقعی/enforcement هنوز تست نشده‌اند؛ اولویت نقد همچنان پرسش۱ و۲ زیر است. روی دستگاه کاربر تکرار این تمرین لازم نیست.
 
 [وضعیت جاری](STATUS.fa.md) و [تحلیل واقعی S1](../reports/sstp-preflight-s1-user-analysis.fa.md) را ابتدا بخوانید. هدف کاربر کل Windows است؛ native SSTP با نام holand، زیرلایه فقط endpoint VPN، داخل تونل فقط مقصدهای ضروری آپدیت رسمی. هدف صفر تله‌متری در مسیر مجاز و fingerprint A→B هنوز اثبات نشده؛ allowlist جواب همه این سؤال‌ها نیست.

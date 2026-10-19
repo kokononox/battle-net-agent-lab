@@ -1,7 +1,7 @@
 # وضعیت جاری پروژه — مرجع هماهنگی عامل و همکاران
 
-**آخرین به‌روزرسانی: 2026-10-19 01:52 (UTC)**  
-**مرحلهٔ فعلی: S2 واقعی کاربر PASS شد: export غیرخالی، ACL/hash، receipt اجرای زمان‌دار SYSTEM، LastTaskResult=0 و حذف task خودش. هنوز firewall import/rollback واقعی و isolation تست نشده‌اند؛ ready_to_apply=false. گام بعد عامل: طراحی و آزمون rollback واقعی در محیط موقت قبل تحویل Apply. کاربر S2 را تکرار نکند؛ WoW بسته، آپدیت Pause و تنظیمات فعلی حفظ شوند.**
+**آخرین به‌روزرسانی: 2026-10-19 02:01 (UTC)**  
+**مرحلهٔ فعلی: S3 فقط در Windows موقت CI برای rollback واقعی محدود در حال آزمون است: default outbound profileها و Enabled قواعد fixture خود ابزار، خروج ناگهانی driver و timer مستقل SYSTEM، حفظ تغییر خارجی/نامرتبط و replay. هنوز نتیجه native تأیید نشده؛ هیچ Apply یا بسته کاربری جدید وجود ندارد. دستگاه کاربر دست‌نخورده و آپدیت Pause است.**
 
 این فایل مرجع وضعیت روز است. README و اسناد قدیمی مسیر تحقیق را نگه می‌دارند، اما تیترهای «آزمایش جاری» یا «گام بعد» در آن‌ها لزوماً وضعیت امروز نیستند. پیشنهادهای همکاران در [سند پیشنهادها](SUGGESTIONS-FROM-OTHER-MODELS.fa.md) قرار می‌گیرد؛ پیشنهاد به‌تنهایی تصمیم، مجوز یا شاهد اجرای موفق نیست.
 
@@ -14,7 +14,7 @@
 ## الان دقیقاً کجا هستیم؟
 | مورد | وضعیت |
 | --- | --- |
-| تمرکز جاری | S2 روی دستگاه کاربر هم PASS؛ طراحی و آزمون rollback واقعی در محیط موقت گام بعد است. Apply هنوز ساخته/تحویل/اجرا نشده |
+| تمرکز جاری | S3 فقط CI: آزمایش واقعی بازگردانی تغییرات محدود، نه netsh import یا enforcement SSTP؛ نتیجه هنوز تأیید نشده |
 | بستهٔ ویندوز U1 | ساخته و در Windows runner آزموده شده؛ کاربر اعلام کرد ZIP را دانلود کرده است |
 | خودآزمایی روی HP/Windows 11 کاربر | **گزارش ارسالی کاربر PASS**؛ send، WSASend و ورودی منفی EncryptMessage مشاهده شدند؛ خطای اسکریپت صفر |
 | آپدیت واقعی تحت مانیتور U1 و بلوک دامنه | **دانلود تا ۳۰٪ به گزارش کاربر**؛ READY/Agent واقعی/hosts در گزارش ثبت شده؛ پایان Paused، تکمیل اثبات نشده |
@@ -23,6 +23,13 @@
 | محل کد آزمایشی و گزارش‌های تازه | T1/R1/U2 در شاخه privacy-observation-20261018-a1؛ BATهای ساده در plain-hosts-leave-one-open روی main. کد پژوهشی خودکار merge نمی‌شود |
 
 ## شواهد معتبر جدید — مبنای راهنمایی همکاران
+### S3 در حال آزمون — تغییر واقعی محدود فقط روی runner موقت
+- [منبع](https://github.com/kokononox/battle-net-agent-lab/tree/40fd1b53b13cc03d77f0054dd467667958207474/sstp-rollback-s3) · [طرح/حدود](SSTP-ROLLBACK-S3.fa.md). فقط standard windows-2025 و receipt publisher ubuntu-latest؛ larger/paid runner فعال نشده، هزینه صفر تضمین نشده است.
+- دو سناریو: full و partial_conflict. journal پیش از write، snapshot PersistentStore و ActiveStore، task SYSTEM قبل Apply، driver خود ابزار عمداً Environment.Exit(73) بدون cleanup؛ timer باید propertyهای برنامه‌ریزی‌شده را restore کند. فقط fixture ruleهای GUID خود ابزار و default outbound profiles تغییر می‌کنند؛ Allowهای موجود runner disable نمی‌شوند و هیچ Blizzard/game/VPN اجرا نمی‌شود.
+- fixtureB با تغییر بیرونی مصنوعی باید conflict بماند، نه overwrite؛ fixtureC نامرتبط باید تغییر بیرونی‌اش را حفظ کند. replay و cleanup task/ruleهای همان تست سنجیده می‌شود؛ fallback controller به معنی موفقیت timer نیست. نتیجه هنوز مشخص نیست.
+- این compare-before-write است، **CAS اتمیک نیست**؛ race بین read/write و منشأ تغییر هم‌مقدار حل نشده‌اند. fingerprint فقط fixtureهاست، نه تمام ruleهای کاربر؛ GPO/IPsec/WFP/reboot و SSTP/IPv6/DNS/certificate/enforcement آزمون این مرحله نیست. موفقیت runner مجوز Apply روی کاربر نیست.
+- هیچ بسته/لانچر S3 برای کاربر ساخته نمی‌شود؛ source هم با guard فقط CI است که attestation امنیتی محسوب نمی‌شود. کاربر S2 را تکرار نکند، backup خصوصی را نگه دارد، Pause و تنظیمات فعلی را حفظ کند.
+
 ### S2 واقعی کاربر PASS — بدون Apply، بدون اثبات rollback شبکه
 - [تحلیل](../reports/sstp-recovery-s2-user-analysis.fa.md) · [شواهد redacted](../reports/sstp-recovery-s2-user-analysis.json). export غیرخالی، ACL و hash worker تأیید شده؛ task SYSTEM و receipt موفق، LastTaskResult=0 و task خودش حذف شده است. خلاصه profileهای firewall قبل/بعد برابر است، نه تمام rule/filterها.
 - firewall_restore_import_tested=false، independent_network_rollback_proven=false و ready_to_apply_isolation=false؛ هیچ network setting، VPN/game process یا Resume توسط ابزار تغییر نکرده است. snapshot/user report موفق به معنی enforcement یا نبود telemetry نیست.
