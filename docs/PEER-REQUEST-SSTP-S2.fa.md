@@ -6,9 +6,11 @@
 S1 کاربر: holand متصل، split_tunneling=true ولی دو IP فعلی Level3 واقعاً با route /1 روی interface49 هستند. هر سه پروفایل firewall روشن اما outbound=Allow؛۱۲۱rule فعال شامل۱۰۰Allow و۲۱Block. گروه Kill Switch فعلی بدون rule خروجی فعال و state مورد انتظار غایب؛ سایر فیلترهای WFP/ابزارها نفی نشده‌اند. IPv6 default خارج VPN؛ ترافیک یا نشت IPv6 هنوز اندازه‌گیری نشده. IP/دامنه سرور VPN و policy خصوصی عمداً عمومی نشده‌اند.
 
 ## دقیقاً چه ساخته شده؟
-[منبع S2 در commit fb58194](https://github.com/kokononox/battle-net-agent-lab/tree/fb58194a84e9e70c9b3fd61ff99b1d17209a18dc/sstp-recovery-s2). اسکریپت PowerShell5.1، export فایروال در پوشه ProgramData یکتا با ACL فقط Admin/SYSTEM، worker hash-pinned، task SYSTEM یکتا با trigger45s، انتظار محدود120s، بررسی receipt/session/LastTaskResult و حذف فقط task خود.
+**نتیجه تازه:** native در run `39186827205` پاس شد:۱۷fixture + export خصوصی + task زمان‌دار SYSTEM + cleanup؛ [رسید](../reports/sstp-recovery-s2-build.json). روی دستگاه کاربر هنوز اجرا نشده؛ firewall import، rollback واقعی و isolation تست نشده‌اند. دو نقص whitelist در harness اصلاح شد، نه حفاظت شبکه.
 
-worker **هیچ import یا تغییر شبکه ندارد**؛ فقط رسید می‌نویسد. خروجی shareable حاوی policy/private paths/credentials نیست. network rollback واقعی همچنان false است. syntax/fixture و اجرای همین export/probe روی Windows runner استاندارد درخواست شده؛ **تلاش اول native ناموفق، fixture/rehearsal ثبت نشده؛ نسخه تشخیصی محدود برای تعیین علت در حال آزمون است**. روی دستگاه کاربر اجرا نشده و Apply ساخته نشده است.
+[منبع S2 در commit 684626b](https://github.com/kokononox/battle-net-agent-lab/tree/684626bec2cb7e7c610126b46187eb61db508e4b/sstp-recovery-s2). اسکریپت PowerShell5.1، export فایروال در پوشه ProgramData یکتا با ACL فقط Admin/SYSTEM، worker hash-pinned، task SYSTEM یکتا با trigger45s، انتظار محدود120s، بررسی receipt/session/LastTaskResult و حذف فقط task خود.
+
+worker **هیچ import یا تغییر شبکه ندارد**؛ فقط رسید می‌نویسد. خروجی shareable حاوی policy/private paths/credentials نیست. network rollback واقعی همچنان false است. syntax/fixture و اجرای همین export/probe روی Windows runner استاندارد درخواست شده؛ **تلاش‌های اولیه ناموفق بودند؛ سپس harness اصلاح و native نهایی موفق شد**. روی دستگاه کاربر اجرا نشده و Apply ساخته نشده است.
 
 ## کمک مشخص مورد نیاز — به ترتیب اولویت
 1. **Rollback واقعی:** netsh export/import چه چیزهایی را دقیقاً پوشش نمی‌دهد (ActiveStore/GPO/IPsec/WFP/تغییر همزمان)؟ برای تغییر موقت فقط ruleهای local قابل‌ویرایش و profile defaults چه transaction/journal و fail-safeای پیشنهاد می‌کنید که policy دیگر را overwrite نکند؟ چه آزمون failure-injection روی runner موقت لازم است؟
@@ -22,4 +24,4 @@ worker **هیچ import یا تغییر شبکه ندارد**؛ فقط رسید �
 در [سند پیشنهادهای همکاران](SUGGESTIONS-FROM-OTHER-MODELS.fa.md) بخش تازه اضافه کنید: commit مرجع، یافته یا فرضیه، شاهد/مستند رسمی، patch کوچک یا الگوریتم دقیق، تست تمایزبخش، failure mode، هزینه/ریسک، معیار توقف. کد/سند همکار دیگر را حذف یا بازنویسی نکنید. پیشنهاد به‌تنهایی مجوز اجرای آن نیست؛ عامل بررسی و تصمیم را ثبت می‌کند.
 
 ## مرزها
-نه larger/paid runner، نه login، نه نصب/حذف/Repair/Resume بازی، نه اسکن گسترده یا آپلود policy/credential/TLS key، نه خاموش‌کردن Security/TLS، نه تغییر سرور SSTP. کاربر فعلاً Pause را حفظ می‌کند و BAT99/Enable/Disable اجرا نمی‌کند. ادامه N2/تکرار Classic یا تحقیق DLLها گام فعال نیست. نظرات مفید درباره fingerprint را جدا نگه دارید تا با enforcement مخلوط نشوند.
+نه larger/paid runner، نه login، نه نصب/حذف/Repair/Resume بازی، نه اسکن گسترده یا آپلود policy/credential/TLS key، نه خاموش‌کردن Security/TLS، نه تغییر سرور SSTP. کاربر فعلاً Pause را حفظ می‌کند و BAT99/Enable/Disable اجرا نمی‌کند؛ فقط تمرین S2 پس از تحویل رسمی مجاز است. ادامه N2/تکرار Classic یا تحقیق DLLها گام فعال نیست. نظرات مفید درباره fingerprint را جدا نگه دارید تا با enforcement مخلوط نشوند.

@@ -1,7 +1,7 @@
 # وضعیت جاری پروژه — مرجع هماهنگی عامل و همکاران
 
-**آخرین به‌روزرسانی: 2026-10-19 01:40 (UTC)**  
-**مرحلهٔ فعلی: S1 واقعی تحلیل شد؛ ایزولاسیون هنوز فعال نیست. S2 «تمرین export خصوصی و اجرای زمان‌دار رسید تحت SYSTEM» در شاخه پژوهش push شد و تلاش اول Windows ناموفق بود و نسخه تشخیصی محدود در حال آزمون است؛ هنوز تحویل/اجرا روی دستگاه کاربر نشده و firewall import واقعی را تست نمی‌کند. گام موازی همکاران: نقد بازیابی/سیاست Allow/IPv6 و معیار عبور به Apply؛ نه تکرار مشاهده DLLها. آپدیت Pause، کیل‌سوییچ فعلی تغییر نکند.**
+**آخرین به‌روزرسانی: 2026-10-19 01:49 (UTC)**  
+**مرحلهٔ فعلی: S2 آزمون native را پاس کرد و بستهٔ تمرین آماده تحویل است:۱۷fixture، export خصوصی policy، اجرای زمان‌دار SYSTEM و حذف task خودش، بدون تغییر شبکه. این به معنی rollback/import واقعی یا isolation نیست. گام کاربر: اجرای یک‌بار S2 و ارسال فقط JSON قابل‌اشتراک؛ WoW بسته، آپدیت Pause، بدون BAT99 یا toggle کیل‌سوییچ. همکاران روی طراحی rollback واقعی و enforcement نقد بدهند.**
 
 این فایل مرجع وضعیت روز است. README و اسناد قدیمی مسیر تحقیق را نگه می‌دارند، اما تیترهای «آزمایش جاری» یا «گام بعد» در آن‌ها لزوماً وضعیت امروز نیستند. پیشنهادهای همکاران در [سند پیشنهادها](SUGGESTIONS-FROM-OTHER-MODELS.fa.md) قرار می‌گیرد؛ پیشنهاد به‌تنهایی تصمیم، مجوز یا شاهد اجرای موفق نیست.
 
@@ -14,21 +14,22 @@
 ## الان دقیقاً کجا هستیم؟
 | مورد | وضعیت |
 | --- | --- |
-| تمرکز جاری | S2 تمرین مقدماتی بازیابی: export خصوصی policy + task زمان‌دار SYSTEM که فقط رسید می‌نویسد؛ native test اول ناموفق؛ علت در حال بررسی. Apply هنوز ساخته/اجرا نشده است |
+| تمرکز جاری | S2 تمرین مقدماتی بازیابی روی runner موفق؛ بسته آماده تحویل. آزمون دستگاه کاربر و rollback واقعی هنوز انجام نشده‌اند؛ Apply ساخته/اجرا نشده است |
 | بستهٔ ویندوز U1 | ساخته و در Windows runner آزموده شده؛ کاربر اعلام کرد ZIP را دانلود کرده است |
 | خودآزمایی روی HP/Windows 11 کاربر | **گزارش ارسالی کاربر PASS**؛ send، WSASend و ورودی منفی EncryptMessage مشاهده شدند؛ خطای اسکریپت صفر |
 | آپدیت واقعی تحت مانیتور U1 و بلوک دامنه | **دانلود تا ۳۰٪ به گزارش کاربر**؛ READY/Agent واقعی/hosts در گزارش ثبت شده؛ پایان Paused، تکمیل اثبات نشده |
-| اقدام بعدی کاربر | فعلاً WoW بسته و آپدیت Pause؛ BAT99 یا Enable/Disable کیل‌سوییچ نه. S2 تا بررسی رسید native و تحویل رسمی اجرا نشود؛ S1 تکرار لازم نیست |
+| اقدام بعدی کاربر | پس از تحویل بسته، S2 در پوشه تازه با Administrator، حدود یک دقیقه انتظار و ارسال فقط output/s2-rehearsal-to-share-*.json. فایل wfw خصوصی نفرستد؛ WoW بسته، آپدیت Pause و VPN/کیل‌سوییچ فعلی تغییر نکند |
 | دریافت ZIP/ورود GitHub | ZIP ساده BAT قبلاً تحویل شد؛ کاربر فقط۰۶ را موفق گزارش کرد. T1 با artifact آماده است؛ ورود GitHub دوباره درخواست نشود |
 | محل کد آزمایشی و گزارش‌های تازه | T1/R1/U2 در شاخه privacy-observation-20261018-a1؛ BATهای ساده در plain-hosts-leave-one-open روی main. کد پژوهشی خودکار merge نمی‌شود |
 
 ## شواهد معتبر جدید — مبنای راهنمایی همکاران
-### S2 در حال آزمون — نقد همکاران الان روی کدام مسئله مفید است؟
-- [درخواست نقد دقیق](PEER-REQUEST-SSTP-S2.fa.md). [منبع S2](https://github.com/kokononox/battle-net-agent-lab/tree/fb58194a84e9e70c9b3fd61ff99b1d17209a18dc/sstp-recovery-s2)؛ شاخه privacy-observation-20261018-a1. رسید تلاش اول native با outcome=failure و fixture=null/rehearsal=null دریافت شد؛ علت هنوز مشخص نیست و بسته به کاربر تحویل نشده است.
-- S2 شبکه را تغییر نمی‌دهد، اما فقط‌خواندنی مطلق نیست: export خصوصی فایروال در ProgramData با ACL محدود و task یکتای SYSTEM برای۴۵ثانیه بعد می‌سازد؛ worker فقط رسید می‌نویسد، task خودش را با کنترل هویت حذف می‌کند. policy/backup خصوصی آپلود نمی‌شود.
-- موفقیت آینده S2 هم فقط export/scheduler/receipt/cleanup و خلاصه profile قبل/بعد را می‌سنجد؛ نه firewall import، نه rollback واقعی، نه enforcement. هیچ گواهی/TLS پایین آورده نمی‌شود. independent_network_rollback_proven=false و ready_to_apply_isolation=false باقی می‌مانند.
-- کاربر گفت احتمالاً کیل‌سوییچ روی این دستگاه فعال نکرده؛ با فقدان rule/state مورد انتظار سازگار است، ولی به نبود همه فیلترهای شبکه تعمیم داده نمی‌شود. Enable فعلاً درخواست نشد.
-- همکاران پیشنهادها را به سند خودشان اضافه کنند؛ عامل نظرات را بازنویسی/حذف نمی‌کند. فقط runner استاندارد windows-2025/ubuntu-latest در این build، نه larger/paid runner؛ هزینه صفر تضمین نشده است. N2 متوقف و سؤال fingerprint A→B هنوز باز است.
+### S2 — native موفق، اما نه rollback واقعی یا isolation
+- [راهنما و حدود](SSTP-RECOVERY-S2.fa.md) · [رسید Windows](../reports/sstp-recovery-s2-build.json) · [درخواست نقد همکاران](PEER-REQUEST-SSTP-S2.fa.md).
+- منبع `684626bec2cb7e7c610126b46187eb61db508e4b`؛ run `39186827205`. syntax/AST،۱۷ fixture، export policy خصوصی، ACL خصوصی، task زمان‌دار SYSTEM، receipt، LastTaskResult=0 و حذف task خودش پاس شدند. خلاصه profileهای فایروال قبل/بعد برابر بود؛ تمام rules/filters مقایسه نشده‌اند. هیچ policy خصوصی از runner آپلود نشد.
+- تلاش‌های اول gate را نگذشتند؛ در دو رسید diagnostic، unexpected_worker_command ثبت شد. whitelist آزمون Join-Path و Set-StrictMode موجود در worker را جا انداخته بود؛ فهرست دقیق اصلاح شد، محدودیت فرمان تغییر شبکه حذف نشد. تلاش اول علت جزئی در receipt نداشت. شکست‌ها موفق جا زده نشدند و بسته پیش از PASS تحویل نشد.
+- S2 شبکه را تغییر نمی‌دهد، اما فقط‌خواندنی مطلق نیست: export خصوصی در ProgramData با ACL Admin/SYSTEM و task یکتا برای۴۵ثانیه بعد می‌سازد؛ worker فقط رسید می‌نویسد. backup و task رسید، بازیابی شبکه نیستند. firewall import/enforcement/user-device هنوز تست نشده؛ ready_to_apply=false و independent_network_rollback_proven=false.
+- بسته مستقل PowerShell5.1؛ دو PS1 تحویلی CRLF و دقیقاً هم‌هش با بایت‌های آزموده‌شده‌اند. فقط JSON قابل‌اشتراک فرستاده شود، نه wfw یا پوشه خصوصی. هیچ تغییر VPN/game/hosts/firewall rule یا Resume انجام نمی‌شود.
+- کاربر احتمال داد کیل‌سوییچ روی دستگاه فعال نشده؛ با نبود group/state مورد انتظار سازگار است، نه نفی هر فیلتر WFP. Enable/Disable/BAT99 لازم نیست. فقط runner استاندارد استفاده شد؛ هزینه صفر تضمین نشده و larger/paid runner فعال نشده است. N2 متوقف و سؤال fingerprint A→B باز است.
 
 ### S1 واقعی کاربر — مسیر Level3 روی VPN، نه ایزولاسیون
 - [تحلیل و تصمیم](../reports/sstp-preflight-s1-user-analysis.fa.md) · [شواهد redacted](../reports/sstp-preflight-s1-user-analysis.json). raw report و آدرس VPN کاربر عمومی نشده‌اند.
