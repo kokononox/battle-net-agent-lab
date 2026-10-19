@@ -1,0 +1,43 @@
+name: One-shot read-only firewall rule drift control
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths: ['sstp-rule-readonly-control/**', '.github/workflows/sstp-rule-readonly-control.yml']
+permissions: {}
+jobs:
+  readonly_control:
+    if: "${{ github.run_attempt == 1 && startsWith(github.event.head_commit.message, 'lab: approved read-only firewall drift control p7c') }}"
+    runs-on: windows-2025
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Observe without firewall mutation for eleven minutes
+        id: native
+        continue-on-error: true
+        shell: powershell
+        run: |
+          $file=(Resolve-Path 'sstp-rule-readonly-control/Control.ps1').Path
+          $tokens=$null;$errors=$null
+          $ast=[Management.Automation.Language.Parser]::ParseFile($file,[ref]$tokens,[ref]$errors)
+          if ($errors.Count -gt 0) { throw 'control_parse_error' }
+          $text=[IO.File]::ReadAllText($file)
+          if ($text -match '(?i)(New|Set|Enable|Disable|Remove)-NetFirewall|Set-VpnConnection|Resolve-DnsName|GetHostAddresses|Invoke-WebRequest|Invoke-Expression|Register-ScheduledTask|Start-Process|advfirewall|rasdial|HttpClient|Import-Module|Invoke-Command') { throw 'control_forbidden_operation' }
+          & $file -OutputPath (Join-Path $env:RUNNER_TEMP 'readonly-control.json')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Validate bounded observation receipt
+        if: always()
+        env:
+          NATIVE_OUTCOME: ${{ steps.native.outcome }}
+        run: python sstp-rule-readonly-control/receipt.py
+      - name: Upload receipt only, never raw rule names or values
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: sstp-rule-readonly-control-receipt
+          path: sstp-rule-readonly-control/build-receipt.json
+          retention-days: 3
+          if-no-files-found: error
