@@ -69,7 +69,14 @@ function ComparePolicyInventory($Before,$After,[string[]]$OwnedRuleNames=@()) {
   $policy=$false;$display=$false
   foreach($part in @('rule')+$script:InventoryParts) {
    foreach($field in (RawDifferenceFields $b[$name].$part $a[$name].$part)) {
-    if ($part -ceq 'rule' -and $field -cin @('Description','DisplayGroup','DisplayName')) { $display=$true;$displayFields+=,$field;if ($owned.ContainsKey($name)) { $policy=$true;$policyFields+=,($part+'.'+$field);$components+=,$part } }
+    if ($part -ceq 'rule' -and $field -cin @('Description','DisplayGroup','DisplayName')) {
+     $display=$true;$displayFields+=,$field
+     $bp=$b[$name].rule.PSObject.Properties[$field];$ap=$a[$name].rule.PSObject.Properties[$field]
+     $safeDisplay=$null -ne $bp -and $null -ne $ap
+     if ($safeDisplay) { $safeDisplay=($null -eq $bp.Value -or $bp.Value -is [string]) -and ($null -eq $ap.Value -or $ap.Value -is [string]) }
+     # A missing field or provider TYPE change is NOT ordinary label drift.
+     if ($owned.ContainsKey($name) -or -not $safeDisplay) { $policy=$true;$policyFields+=,($part+'.'+$field);$components+=,$part }
+    }
     else { $policy=$true;$policyFields+=,($part+'.'+$field);$components+=,$part }
    }
   }

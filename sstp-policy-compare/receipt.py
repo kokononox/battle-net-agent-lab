@@ -11,7 +11,7 @@ def validate(n):
  for k,hi in [('checks',2000),('raw_field_cases',1500),('filter_types_tested',7),('owned_display_cases',3),('missing_filter_cases',7),('association_checks',42)]:integer(n[k],0,hi)
  integer(n['native_rule_count'],-1,10000);integer(n['native_display_changes'],-1,10000)
  if n['error_code'] not in [None,'inventory_native_failure','inventory_native_unavailable']:raise ValueError('error')
- if n['passed'] and (n['checks']!=n['raw_field_cases']+70 or n['raw_field_cases']<50 or n['filter_types_tested']!=7 or n['owned_display_cases']!=3 or n['missing_filter_cases']!=7 or n['association_checks']!=42 or n['native_rule_count']<6 or n['native_display_changes']<0 or n['error_code'] is not None):raise ValueError('pass')
+ if n['passed'] and (n['checks']!=n['raw_field_cases']+72 or n['raw_field_cases']<50 or n['filter_types_tested']!=7 or n['owned_display_cases']!=3 or n['missing_filter_cases']!=7 or n['association_checks']!=42 or n['native_rule_count']<6 or n['native_display_changes']<0 or n['error_code'] is not None):raise ValueError('pass')
  return n
 if __name__=='__main__':
  root=Path(__file__).parent;src=os.environ['GITHUB_SHA'];run=os.environ['GITHUB_RUN_ID'];p=Path(os.environ['RUNNER_TEMP'])/'policy-compare.json'

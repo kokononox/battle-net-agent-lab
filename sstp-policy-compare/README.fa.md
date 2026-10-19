@@ -5,7 +5,7 @@
 ReadPolicyInventory همهٔ قواعد PersistentStore و هفت نوع فیلتر را به‌صورت bulk می‌خواند. هر rule باید از Local باشد و InstanceID/Name دقیق، یکتا و غیرخالی داشته باشد؛ هر فیلتر با همان InstanceID و پوشش کامل یک‌به‌یک join می‌شود. orphan/duplicate/missing یا خطای provider متوقف‌کننده است؛ نه تبدیل خطا به absence. پروفایل‌های هر سه حالت در هر دو PersistentStore/ActiveStore با همهٔ CIM propertyهای قابل تبدیل snapshot می‌شوند، نه فقط defaultها. آرایه‌ها به‌صورت محافظه‌کارانه با ترتیب واقعی حفظ می‌شوند؛ reorder فیلدهای ناشناخته مخفی نمی‌شود.
 
 ComparePolicyInventory خروجی دوگانه دارد:
-- برای ruleهای غیرمتعلق به برنامه، فقط Description/DisplayGroup/DisplayName از بخش policy جدا و در audit نمایشی گزارش می‌شوند. raw Group، Enabled، Action، InstanceID و هر فیلد دیگر، از جمله فیلد ناشناختهٔ آینده، strict هستند.
+- برای ruleهای غیرمتعلق به برنامه، فقط Description/DisplayGroup/DisplayName از بخش policy جدا و در audit نمایشی گزارش می‌شوند. فقط مقدار string/null در دو طرفِ همان فیلد شناخته‌شده می‌تواند نمایشی باشد؛ حذف فیلد یا تغییر نوع حتی برای label موجب stop است. raw Group، Enabled، Action، InstanceID و هر فیلد دیگر، از جمله فیلد ناشناختهٔ آینده، strict هستند.
 - هیچ property از هفت فیلتر معاف نیست؛ address،port،application،service،interface،interface_type،security همگی وارد مقایسه می‌شوند.
 - برای OwnedRuleNames صریح، حتی همان سه برچسب هم strict و موجب stop هستند. ownership از display یا prefix حدس زده نمی‌شود. نام ownership ناموجود/ناهمسان/تکراری رد می‌شود.
 - snapshot کامل حفظ می‌شود؛ هیچ label/value پاک یا بازنویسی نمی‌شود. خروجی فقط unchanged/display_only/stop_policy_change و شمارش/نام property و component است؛ نه نام rule یا مقدار خصوصی.

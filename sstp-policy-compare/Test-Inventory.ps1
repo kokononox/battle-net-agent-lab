@@ -48,6 +48,11 @@ try {
  $changed=Clone $base;$changed.rules=@($changed.rules[0],$changed.rules[0]);Reject { ComparePolicyInventory $base $changed }
  Reject { ComparePolicyInventory $base $base @('not-an-owned-rule') }
  $changed=Clone $base;$changed.rules=[object[]]@($changed.rules[1],$changed.rules[0]);Check ((ComparePolicyInventory $base $changed).decision -ceq 'unchanged')
+ # Display exemptions require the same known string/null field shape on BOTH sides.
+ $changed=Clone $base;$changed.rules[0].rule.PSObject.Properties.Remove('DisplayName')
+ Check ((ComparePolicyInventory $base $changed).decision -ceq 'stop_policy_change')
+ $changed=Clone $base;$changed.rules[0].rule.DisplayName=@('not-a-display-string')
+ Check ((ComparePolicyInventory $base $changed).decision -ceq 'stop_policy_change')
  # Qualify all seven bulk joins against actual AssociatedNetFirewallRule reads on six spaced rules.
  $indices=@(0,[int][Math]::Floor($ruleCount/5),[int][Math]::Floor(2*$ruleCount/5),[int][Math]::Floor(3*$ruleCount/5),[int][Math]::Floor(4*$ruleCount/5),($ruleCount-1))
  foreach($index in $indices) {
