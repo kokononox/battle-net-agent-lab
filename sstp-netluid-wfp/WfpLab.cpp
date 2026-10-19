@@ -53,7 +53,7 @@ static FWPM_SUBLAYER0 Sub(const Plan& p){FWPM_SUBLAYER0 x={};x.subLayerKey=p.key
 struct Filter {
  FWPM_FILTER0 f={};FWPM_FILTER_CONDITION0 c[2]={};UINT64 weight=0xf000000000000001ULL;UINT64 luid;
  Filter(const Plan& p,int k):luid(p.luid){
- f.filterKey=p.keys[k+2];f.displayData.name=const_cast<wchar_t*>(Label);f.displayData.description=const_cast<wchar_t*>(Label);f.flags=FWPM_FILTER_FLAG_PERSISTENT;f.providerKey=const_cast<GUID*>(&p.keys[0]);f.providerData=Marker(p);f.layerKey=(k==2?FWPM_LAYER_ALE_AUTH_CONNECT_V6:FWPM_LAYER_ALE_AUTH_CONNECT_V4);f.subLayerKey=p.keys[1];f.weight.type=FWP_UINT64;f.weight.uint64=&weight;f.action.type=FWP_ACTION_BLOCK;f.numFilterConditions=(k==2?1u:2u);f.filterCondition=c;
+ f.filterKey=p.keys[k+2];f.displayData.name=const_cast<wchar_t*>(Label);f.displayData.description=const_cast<wchar_t*>(Label);f.flags=FWPM_FILTER_FLAG_PERSISTENT|FWPM_FILTER_FLAG_INDEXED;f.providerKey=const_cast<GUID*>(&p.keys[0]);f.providerData=Marker(p);f.layerKey=(k==2?FWPM_LAYER_ALE_AUTH_CONNECT_V6:FWPM_LAYER_ALE_AUTH_CONNECT_V4);f.subLayerKey=p.keys[1];f.weight.type=FWP_UINT64;f.weight.uint64=&weight;f.action.type=FWP_ACTION_BLOCK;f.numFilterConditions=(k==2?1u:2u);f.filterCondition=c;
  c[0].fieldKey=FWPM_CONDITION_ALE_APP_ID;c[0].matchType=FWP_MATCH_EQUAL;c[0].conditionValue.type=FWP_BYTE_BLOB_TYPE;c[0].conditionValue.byteBlob=static_cast<FWP_BYTE_BLOB*>(p.appid.p);
  if(k==0){c[1].fieldKey=FWPM_CONDITION_IP_LOCAL_INTERFACE;c[1].matchType=FWP_MATCH_NOT_EQUAL;c[1].conditionValue.type=FWP_UINT64;c[1].conditionValue.uint64=&luid;}
  if(k==1){c[1].fieldKey=FWPM_CONDITION_IP_REMOTE_ADDRESS;c[1].matchType=FWP_MATCH_NOT_EQUAL;c[1].conditionValue.type=FWP_UINT32;c[1].conditionValue.uint32=p.ip;}
