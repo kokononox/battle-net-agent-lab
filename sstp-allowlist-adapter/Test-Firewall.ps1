@@ -1,7 +1,7 @@
 param([Parameter(Mandatory=$true)][string]$OutputPath)
 $ErrorActionPreference='Stop';Set-StrictMode -Version Latest
 . "$PSScriptRoot/Firewall.ps1"
-$script:checks=0;$passed=$false;$errorCode=$null;$remaining=-1;$profilesUnchanged=$false;$rulesUnchanged=$false
+$script:checks=0;$passed=$false;$errorCode=$null;$verifiedCreated=0;$remaining=-1;$profilesUnchanged=$false;$rulesUnchanged=$false
 $session=[guid]::NewGuid().ToString('N');$prefix='SstpAllowlist-'+$session+'-';$group='SstpAllowlist-'+$session
 function Check([bool]$Ok) { if (-not $Ok) { throw 'adapter_test_assertion' };$script:checks++ }
 function Reject([scriptblock]$Body,[string]$Expected) {
@@ -42,7 +42,7 @@ try {
  $changed=$spec | ConvertTo-Json -Depth 4 | ConvertFrom-Json;$changed.interface_type='Any'
  Reject { AssertStagedRuleSpec $changed } 'adapter_spec_noncanonical'
  Check ($null -eq (ReadStagedRule (StagedRuleName $spec)))
- $snapshot=NewDisabledStagedRule $spec
+ $snapshot=NewDisabledStagedRule $spec;$verifiedCreated++
  Check ($snapshot.image.view.enabled -eq 'False' -and $snapshot.image.view.action -eq 'Allow')
  Check (AssertStagedRuleReadback $spec $snapshot)
  Reject { NewDisabledStagedRule $spec } 'adapter_name_exists'
@@ -57,13 +57,13 @@ try {
  Check ((RemoveDisabledStagedRule $spec $snapshot.sha256) -eq 'already_absent')
  foreach($kind in @('dns-tcp','dns-udp','transport')) {
   $s=NewStagedRuleSpec $session $kind $kind $alias @('192.0.2.45')
-  $r=NewDisabledStagedRule $s
+  $r=NewDisabledStagedRule $s;$verifiedCreated++
   Check (AssertStagedRuleReadback $s $r)
   Check ((RemoveDisabledStagedRule $s $r.sha256) -eq 'removed')
  }
  Check ($script:checks -eq 28)
  $passed=$true
-} catch { $errorCode='adapter_native_failure';Write-Host ('Adapter check failed after '+$script:checks+' checks.');if ($_.Exception.Message -match '^(adapter|policy)_[a-z_]+$') { Write-Host $_.Exception.Message } else { Write-Host 'adapter_provider_failure' } }
+} catch { $errorCode='adapter_native_failure';Write-Host ('Adapter check failed after '+$script:checks+' checks.');if ($_.Exception.Message -match '^(adapter|policy)_[a-z_]+$') { Write-Host $_.Exception.Message } else { Write-Host ('adapter_provider_failure_'+$_.Exception.GetType().Name) } }
 finally {
  # CI cleanup: only this invocation's GUID-named DISABLED fixtures with exact group.
  $left=@(Get-NetFirewallRule -PolicyStore PersistentStore -ErrorAction Stop | Where-Object { $_.Name -like ($prefix+'*') })
@@ -74,7 +74,7 @@ finally {
  $remaining=@(Get-NetFirewallRule -PolicyStore PersistentStore -ErrorAction Stop | Where-Object { $_.Name -like ($prefix+'*') }).Count
  $profilesUnchanged=((ProfileImage) -ceq $beforeProfiles);$rulesUnchanged=((ExistingRuleImage) -ceq $beforeRules)
  if ($remaining -ne 0 -or -not $profilesUnchanged -or -not $rulesUnchanged) { $passed=$false;$errorCode='adapter_baseline_mismatch' }
- $receipt=[ordered]@{schema='sstp-adapter-test-1';source_commit=$env:GITHUB_SHA;run_id=$env:GITHUB_RUN_ID;passed=$passed;checks=$script:checks;error_code=$errorCode;disabled_rules_created=$true;remaining_test_rules=$remaining;profiles_unchanged=$profilesUnchanged;existing_rule_properties_unchanged=$rulesUnchanged;effective_network_policy_changed=$false;dns_queried=$false;resident_program_created=$false;enforcement_tested=$false;sstp_binding_tested=$false;user_device_tested=$false;ready_for_user_apply=$false}
+ $receipt=[ordered]@{schema='sstp-adapter-test-1';source_commit=$env:GITHUB_SHA;run_id=$env:GITHUB_RUN_ID;passed=$passed;checks=$script:checks;error_code=$errorCode;verified_disabled_rules_created=($verifiedCreated -gt 0);remaining_test_rules=$remaining;profiles_unchanged=$profilesUnchanged;existing_rule_properties_unchanged=$rulesUnchanged;effective_network_policy_changed=$false;dns_queried=$false;resident_program_created=$false;enforcement_tested=$false;sstp_binding_tested=$false;user_device_tested=$false;ready_for_user_apply=$false}
  [IO.File]::WriteAllText($OutputPath,($receipt | ConvertTo-Json -Depth 5),[Text.UTF8Encoding]::new($false))
 }
 if (-not $passed) { exit 1 }

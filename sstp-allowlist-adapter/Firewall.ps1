@@ -28,9 +28,9 @@ function AssertStagedRuleSpec($Spec) {
 function StagedRuleName($Spec) { 'SstpAllowlist-'+$Spec.session+'-'+$Spec.id }
 function StagedRuleGroup($Spec) { 'SstpAllowlist-'+$Spec.session }
 function GetExactLocalRule([string]$Name) {
- # Never suppress permission/provider errors as if the rule were absent.
- try { $rules=@(Get-NetFirewallRule -PolicyStore PersistentStore -Name $Name -ErrorAction Stop) }
- catch { if ($_.FullyQualifiedErrorId -like 'CmdletizationQuery_NotFound_Name,*') { return $null };throw }
+ # Query the local store successfully, then filter exact names; provider errors never mean absent.
+ $rules=@(Get-NetFirewallRule -PolicyStore PersistentStore -ErrorAction Stop | Where-Object { $_.Name -ceq $Name })
+ if ($rules.Count -eq 0) { return $null }
  if ($rules.Count -ne 1 -or $rules[0].Name -cne $Name -or [string]$rules[0].PolicyStoreSourceType -ne 'Local') { throw 'adapter_rule_identity' }
  return $rules[0]
 }
@@ -72,7 +72,9 @@ function AssertStagedRuleReadback($Spec,$Snapshot) {
  $Spec=AssertStagedRuleSpec $Spec
  if ($null -eq $Snapshot) { throw 'adapter_missing_readback' }
  $v=$Snapshot.image.view
- if ($Snapshot.name -cne (StagedRuleName $Spec) -or $v.name -cne $Snapshot.name -or $v.display_name -cne $Snapshot.name -or $v.description -cne 'SSTP allowlist P3 staging only; never enabled' -or $v.group -cne (StagedRuleGroup $Spec) -or $v.enabled -ne 'False' -or $v.direction -ne 'Outbound' -or $v.action -ne 'Allow' -or $v.profile -ne 'Any') { throw 'adapter_rule_readback' }
+ if ($Snapshot.name -cne (StagedRuleName $Spec)) { throw 'adapter_rule_name' }
+ $required=[ordered]@{name=$Snapshot.name;display_name=$Snapshot.name;description='SSTP allowlist P3 staging only; never enabled';group=(StagedRuleGroup $Spec);enabled='False';direction='Outbound';action='Allow';profile='Any'}
+ foreach($key in $required.Keys) { if ($v.$key -cne $required[$key]) { throw ('adapter_readback_'+$key) } }
  if ((@($v.alias) -join ',') -cne $Spec.alias -or (@($v.local_address) -join ',') -ne 'Any') { throw 'adapter_interface_readback' }
  $remote=@($v.remote_address | ForEach-Object { PolicyIp ([string]$_) } | Sort-Object -Unique)
  if (($remote -join ',') -cne ($Spec.addresses -join ',')) { throw 'adapter_address_readback' }
