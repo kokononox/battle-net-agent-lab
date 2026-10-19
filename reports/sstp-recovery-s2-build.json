@@ -1,19 +1,32 @@
 {
   "schema": "sstp-recovery-s2-build-1",
-  "source_commit": "c812980a678c16b761b1f306f27decf26a3c4e55",
-  "run_id": "39186605802",
+  "source_commit": "684626bec2cb7e7c610126b46187eb61db508e4b",
+  "run_id": "39186827205",
   "runner_kind": "windows-2025",
-  "native_outcome": "failure",
-  "fixture": null,
-  "rehearsal": null,
+  "native_outcome": "success",
+  "fixture": {
+    "schema": "s2-rehearsal-fixture-1",
+    "passed": true,
+    "checks": 17,
+    "network_settings_changed": false,
+    "scheduled_task_created": false,
+    "firewall_policy_exported": false
+  },
+  "rehearsal": {
+    "passed": true,
+    "firewall_backup_exported": true,
+    "private_acl_checked": true,
+    "system_probe_receipt_verified": true,
+    "task_last_result": 0,
+    "owned_task_removed": true,
+    "firewall_profile_summary_unchanged": true,
+    "firewall_restore_import_tested": false,
+    "network_settings_changed_by_tool": false
+  },
   "main_sha256": "1f99a45904cc2038925b93e7f3cbf11af54b959e13055bd7e5dba22632cbde8b",
   "worker_sha256": "744383c486e407797fce26beebba2568c5c83bc7d0c769c37d06bd700b4c7180",
   "firewall_import_tested": false,
   "network_isolation_tested": false,
   "user_device_tested": false,
-  "native_diagnostic": {
-    "stage": "parse_and_safety",
-    "code": "unexpected_worker_command",
-    "line": 28
-  }
+  "native_diagnostic": null
 }
