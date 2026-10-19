@@ -21,7 +21,8 @@
 #pragma comment(lib,"Ole32.lib")
 static const GUID EmptyGuid={};
 static const wchar_t* Label=L"sstp-netluid-lab-v1";
-static void Need(bool ok) { if(!ok) throw DWORD(ERROR_INVALID_DATA); }
+static void Require(bool ok,int line) { if(!ok) { std::cout<<"wfp_assert_line_"<<line<<std::endl;throw DWORD(ERROR_INVALID_DATA); } }
+#define Need(ok) Require((ok),__LINE__)
 static void Ok(DWORD rc) { if(rc!=ERROR_SUCCESS) throw rc; }
 static bool Eq(const GUID& a,const GUID& b) { return InlineIsEqualGUID(a,b)!=0; }
 static bool Text(const wchar_t* a,const wchar_t* b) { return a && b && wcscmp(a,b)==0; }

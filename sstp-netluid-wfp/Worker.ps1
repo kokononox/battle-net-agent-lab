@@ -17,7 +17,7 @@ try {
    $a=@($Mode)+@($s.plan.keys)+@([string]$s.plan.luid,[string]$s.plan.ip,[string]$s.plan.app)
    if($Crash -ne 'none'){$a+=,$Crash}
    $out=& $native @a;$code=$LASTEXITCODE
-   if($code -eq 73){exit 73};if($code -ne 0){throw 'wfp_native_failed'}
+   if($code -eq 73){exit 73};if($code -ne 0){$safe=($out -join '') -replace '[^a-zA-Z0-9_]','';Write-Host ('wfp_child_'+$code+'_'+$safe.Substring(0,[Math]::Min(100,$safe.Length)));throw 'wfp_native_failed'}
    return (($out -join "`n")|ConvertFrom-Json)
   }
   $observed=InvokeNative 'audit'
@@ -42,4 +42,4 @@ try {
   }
  } finally {if($null -ne $op){$op.Dispose()}}
  exit 0
-} catch {Write-Host 'wfp_worker_stopped';exit 1}
+} catch {Write-Host ('wfp_worker_stopped_line_'+$_.InvocationInfo.ScriptLineNumber+'_type_'+$_.Exception.GetType().Name);$m=[string]$_.Exception.Message;if($m -cmatch '^(?:wfp|journal)_[a-z_]+$'){Write-Host $m};exit 1}
