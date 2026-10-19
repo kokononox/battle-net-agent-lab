@@ -1,0 +1,58 @@
+{
+  "schema": "sstp-unset-s3u-build-1",
+  "source_commit": "51fd173698446377d29b1366cb5aa624348eb840",
+  "run_id": "39192387719",
+  "runner_kind": "windows-2025",
+  "native_outcome": "cancelled",
+  "native": {
+    "schema": "sstp-unset-s3u-native-1",
+    "passed": false,
+    "fixture_checks": 13,
+    "rounds": [
+      {
+        "round": 1,
+        "baseline_profile_count": 3,
+        "baseline_notconfigured_count": 3,
+        "observed_block_count": 3,
+        "outbound_registry_mutation_observed": true,
+        "driver_abrupt_exit_verified": true,
+        "system_timer_verified": true,
+        "restore_write_calls": 3,
+        "stored_state_exact": true,
+        "registry_profile_values_exact": true,
+        "effective_cim_exact": true,
+        "effective_com_exact": true,
+        "selected_rule_properties_exact": true,
+        "registry_outbound_values_before": 0,
+        "registry_outbound_values_during": 3,
+        "registry_outbound_values_after": 0,
+        "repeat_restore_write_calls": 0,
+        "task_last_result": 0,
+        "task_removed": true,
+        "controller_fallback_used": false
+      }
+    ],
+    "stage": "round_2_timer",
+    "error_code": null,
+    "error_id": null,
+    "diagnostic_line": null,
+    "os_version": "10.0.26100",
+    "os_build": "26100",
+    "ps_version": "5.1.26100.33438",
+    "user_device_tested": false,
+    "enforcement_tested": false,
+    "registry_written_directly": false,
+    "policy_reset_or_import_used": false,
+    "s3_hardened_guard_changed": false,
+    "ready_for_user_apply": false
+  },
+  "hashes": {
+    "Core.ps1": "925355c232e0d5d8cc2bb2bd7e26fa90d016d3487494a83b36a65f5d961e6ddf",
+    "Timer.ps1": "af0b39f04c38f0d9e654605060d2e3a502ad5456cde7b3ee31f701623c3cac9b",
+    "Driver.ps1": "e63c09f252a745b1bd5a73cd96bdfc6e50d22de9c510c32100f5abf3db7c9ca7",
+    "Run-CI.ps1": "c2d03e3e746bfda53393102e15cc5c31982f8eb5921df9a9575d37c99c3ea1b7"
+  },
+  "parse_error": null,
+  "user_device_tested": false,
+  "ready_for_user_apply": false
+}
