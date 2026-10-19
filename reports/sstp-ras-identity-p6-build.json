@@ -1,0 +1,36 @@
+{
+  "schema": "sstp-ras-identity-build-1",
+  "source_commit": "a3f13770aac2056c8c05bde23b86d8ad0cb6a4a9",
+  "run_id": "39205045945",
+  "native_outcome": "success",
+  "native": {
+    "schema": "sstp-ras-identity-test-1",
+    "source_commit": "a3f13770aac2056c8c05bde23b86d8ad0cb6a4a9",
+    "run_id": "39205045945",
+    "passed": true,
+    "checks": 40,
+    "error_code": null,
+    "sdk_abi_verified": true,
+    "native_iphelper_roundtrip_tested": true,
+    "ras_enumeration_available": true,
+    "ras_enumeration_error_code": null,
+    "ras_enumerated_connection_count": 0,
+    "live_sstp_projection_tested": false,
+    "user_identity_chain_tested": false,
+    "network_policy_changed": false,
+    "dns_queried": false,
+    "credentials_read": false,
+    "resident_program_created": false,
+    "firewall_filter_binding_qualified": false,
+    "enforcement_tested": false,
+    "ready_for_user_apply": false
+  },
+  "hashes": {
+    "RasIdentity.cs": "fca973f26788c1a2b37988073c35626d72b2a5d59363c001fbc7bf3f157222f3",
+    "Policy.ps1": "a7e1ad14d786515dba3f73a72bea21fe0369bbbef4f335c6954d7bbb0b3b9927",
+    "Inspect-RasIdentity.ps1": "7deb67adf99876eb4e1d3fc256a12dde96292cd7384b2ce12ab4e43c72da37d4",
+    "Test-RasIdentity.ps1": "8691a71e530024d866600d36f8d270c243a1df5fd9a3778bb64dee72c68a667d",
+    "AbiProbe.cpp": "a8c204de732c90ab4bfe5e06cf5f5f2d6ad9622c80af4349d8ccec770398a7a1"
+  },
+  "ready_for_user_apply": false
+}
