@@ -1,0 +1,30 @@
+{
+  "schema": "t1-dns-stop-analysis-1",
+  "input_sha256": "c83d8ecfb9df01d261545e389834ce906c62d3d58bba5560aed50d89975f7faf",
+  "source_created_utc": "2026-10-19T00:24:37.151095+00:00",
+  "grain": "one fixed hostname per row",
+  "rows": 25,
+  "blocked_rows": 24,
+  "blocked_explicit_zero_and_11004": 24,
+  "original_failed_hosts": 24,
+  "target": "level3.blizzard.com",
+  "target_public_addresses": [
+    "2.21.23.18",
+    "2.21.23.82"
+  ],
+  "target_had_hosts_override": false,
+  "original_gate_passed": false,
+  "corrected_gate_report_replay_passed": true,
+  "corrected_gate_state_counts": {
+    "explicit_hosts_sink_windows_no_data": 24,
+    "public_only": 1
+  },
+  "real_windows_rerun_yet": false,
+  "actual_network_enforcement_proven": false,
+  "user_content_observed": false,
+  "profile_note": "Nested diagnostic JSON is not a rectangular dataframe; profile_data was rerun on 25 derived rows. Numeric error-code null is expected for the successful target; no rows excluded.",
+  "presentation": {
+    "disposition": "prose",
+    "reason": "diagnostic branch evidence, not a time series or meaningful plotted comparison"
+  }
+}
