@@ -1,0 +1,43 @@
+{
+  "schema": "sstp-recovery-s2-user-analysis-1",
+  "source_kind": "user_uploaded_report_not_live_agent_observation",
+  "source_sha256": "b6c786914dca3eff205cfaa59f684a008110f322a3f3e3a67d37a1cd148975ba",
+  "grain": "one_flat_json_snapshot",
+  "profiler_resolution": "Generic table profiler rejected an all-scalar JSON object; parsed as one snapshot, strict boolean/result checks performed without dropped fields or invented rows.",
+  "findings": {
+    "schema": "sstp-recovery-rehearsal-s2",
+    "started_utc": "2026-10-19T01:50:20.5504940Z",
+    "ended_utc": "2026-10-19T01:51:09.8324108Z",
+    "error_code": null,
+    "task_last_result": 0,
+    "passed": true,
+    "firewall_backup_exported": true,
+    "firewall_backup_nonempty": true,
+    "private_acl_checked": true,
+    "worker_hash_checked": true,
+    "task_registered": true,
+    "system_probe_receipt_verified": true,
+    "owned_task_removed": true,
+    "firewall_profile_summary_unchanged": true,
+    "firewall_restore_import_tested": false,
+    "independent_network_rollback_proven": false,
+    "ready_to_apply_isolation": false,
+    "network_settings_changed_by_tool": false,
+    "vpn_or_game_process_control": false,
+    "game_resume_requested": false,
+    "automatic_upload": false,
+    "private_backup_contents_exported_to_report": false
+  },
+  "independent_headline_check_passed": true,
+  "comparison_plan": [
+    {
+      "grain": "one device run",
+      "population": "S2 export and scheduler rehearsal",
+      "unit": "boolean diagnostic states",
+      "finding": "Rehearsal passed, actual network rollback and isolation not tested",
+      "disposition": "prose",
+      "reason": "Categorical diagnostic result, no quantitative trend or shape requiring a chart."
+    }
+  ],
+  "private_backup_or_session_identifiers_published": false
+}

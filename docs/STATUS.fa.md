@@ -1,7 +1,7 @@
 # وضعیت جاری پروژه — مرجع هماهنگی عامل و همکاران
 
-**آخرین به‌روزرسانی: 2026-10-19 01:49 (UTC)**  
-**مرحلهٔ فعلی: S2 آزمون native را پاس کرد و بستهٔ تمرین آماده تحویل است:۱۷fixture، export خصوصی policy، اجرای زمان‌دار SYSTEM و حذف task خودش، بدون تغییر شبکه. این به معنی rollback/import واقعی یا isolation نیست. گام کاربر: اجرای یک‌بار S2 و ارسال فقط JSON قابل‌اشتراک؛ WoW بسته، آپدیت Pause، بدون BAT99 یا toggle کیل‌سوییچ. همکاران روی طراحی rollback واقعی و enforcement نقد بدهند.**
+**آخرین به‌روزرسانی: 2026-10-19 01:52 (UTC)**  
+**مرحلهٔ فعلی: S2 واقعی کاربر PASS شد: export غیرخالی، ACL/hash، receipt اجرای زمان‌دار SYSTEM، LastTaskResult=0 و حذف task خودش. هنوز firewall import/rollback واقعی و isolation تست نشده‌اند؛ ready_to_apply=false. گام بعد عامل: طراحی و آزمون rollback واقعی در محیط موقت قبل تحویل Apply. کاربر S2 را تکرار نکند؛ WoW بسته، آپدیت Pause و تنظیمات فعلی حفظ شوند.**
 
 این فایل مرجع وضعیت روز است. README و اسناد قدیمی مسیر تحقیق را نگه می‌دارند، اما تیترهای «آزمایش جاری» یا «گام بعد» در آن‌ها لزوماً وضعیت امروز نیستند. پیشنهادهای همکاران در [سند پیشنهادها](SUGGESTIONS-FROM-OTHER-MODELS.fa.md) قرار می‌گیرد؛ پیشنهاد به‌تنهایی تصمیم، مجوز یا شاهد اجرای موفق نیست.
 
@@ -14,15 +14,20 @@
 ## الان دقیقاً کجا هستیم؟
 | مورد | وضعیت |
 | --- | --- |
-| تمرکز جاری | S2 تمرین مقدماتی بازیابی روی runner موفق؛ بسته آماده تحویل. آزمون دستگاه کاربر و rollback واقعی هنوز انجام نشده‌اند؛ Apply ساخته/اجرا نشده است |
+| تمرکز جاری | S2 روی دستگاه کاربر هم PASS؛ طراحی و آزمون rollback واقعی در محیط موقت گام بعد است. Apply هنوز ساخته/تحویل/اجرا نشده |
 | بستهٔ ویندوز U1 | ساخته و در Windows runner آزموده شده؛ کاربر اعلام کرد ZIP را دانلود کرده است |
 | خودآزمایی روی HP/Windows 11 کاربر | **گزارش ارسالی کاربر PASS**؛ send، WSASend و ورودی منفی EncryptMessage مشاهده شدند؛ خطای اسکریپت صفر |
 | آپدیت واقعی تحت مانیتور U1 و بلوک دامنه | **دانلود تا ۳۰٪ به گزارش کاربر**؛ READY/Agent واقعی/hosts در گزارش ثبت شده؛ پایان Paused، تکمیل اثبات نشده |
-| اقدام بعدی کاربر | پس از تحویل بسته، S2 در پوشه تازه با Administrator، حدود یک دقیقه انتظار و ارسال فقط output/s2-rehearsal-to-share-*.json. فایل wfw خصوصی نفرستد؛ WoW بسته، آپدیت Pause و VPN/کیل‌سوییچ فعلی تغییر نکند |
+| اقدام بعدی کاربر | S2 دریافت و تحلیل شد؛ تکرار نکند. backup خصوصی نگه دارد و نفرستد؛ WoW بسته، آپدیت Pause، بدون BAT99 یا Enable/Disable کیل‌سوییچ |
 | دریافت ZIP/ورود GitHub | ZIP ساده BAT قبلاً تحویل شد؛ کاربر فقط۰۶ را موفق گزارش کرد. T1 با artifact آماده است؛ ورود GitHub دوباره درخواست نشود |
 | محل کد آزمایشی و گزارش‌های تازه | T1/R1/U2 در شاخه privacy-observation-20261018-a1؛ BATهای ساده در plain-hosts-leave-one-open روی main. کد پژوهشی خودکار merge نمی‌شود |
 
 ## شواهد معتبر جدید — مبنای راهنمایی همکاران
+### S2 واقعی کاربر PASS — بدون Apply، بدون اثبات rollback شبکه
+- [تحلیل](../reports/sstp-recovery-s2-user-analysis.fa.md) · [شواهد redacted](../reports/sstp-recovery-s2-user-analysis.json). export غیرخالی، ACL و hash worker تأیید شده؛ task SYSTEM و receipt موفق، LastTaskResult=0 و task خودش حذف شده است. خلاصه profileهای firewall قبل/بعد برابر است، نه تمام rule/filterها.
+- firewall_restore_import_tested=false، independent_network_rollback_proven=false و ready_to_apply_isolation=false؛ هیچ network setting، VPN/game process یا Resume توسط ابزار تغییر نکرده است. snapshot/user report موفق به معنی enforcement یا نبود telemetry نیست.
+- S2 تکرار نشود؛ backup خصوصی نگه داشته و upload نشود. گام بعد عامل: طراحی/آزمون rollback واقعی مجاز در محیط موقت با journal/failed partial apply و watchdog، بدون overwrite کورکورانه policy/GPO. هنوز ابزار Apply یا restore واقعی ساخته/تحویل نشده؛ هیچ runner تازه برای این تحلیل اجرا نشد. کاربر Pause و تنظیمات فعلی را حفظ کند.
+
 ### S2 — native موفق، اما نه rollback واقعی یا isolation
 - [راهنما و حدود](SSTP-RECOVERY-S2.fa.md) · [رسید Windows](../reports/sstp-recovery-s2-build.json) · [درخواست نقد همکاران](PEER-REQUEST-SSTP-S2.fa.md).
 - منبع `684626bec2cb7e7c610126b46187eb61db508e4b`؛ run `39186827205`. syntax/AST،۱۷ fixture، export policy خصوصی، ACL خصوصی، task زمان‌دار SYSTEM، receipt، LastTaskResult=0 و حذف task خودش پاس شدند. خلاصه profileهای فایروال قبل/بعد برابر بود؛ تمام rules/filters مقایسه نشده‌اند. هیچ policy خصوصی از runner آپلود نشد.
