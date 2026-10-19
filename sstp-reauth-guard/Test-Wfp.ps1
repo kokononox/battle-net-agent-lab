@@ -26,7 +26,7 @@ function StartProbe([string]$Exe,[string]$Ip,[int]$Port){
  $tag=[guid]::NewGuid().ToString('N');$si=New-Object Diagnostics.ProcessStartInfo;$si.FileName=$Exe;$si.Arguments=$Ip+' '+$Port+' '+$tag;$si.UseShellExecute=$false;$si.RedirectStandardInput=$true;$si.RedirectStandardOutput=$true;$si.RedirectStandardError=$true;$si.CreateNoWindow=$true
  $p=New-Object Diagnostics.Process;$p.StartInfo=$si;$null=$p.Start();$v=[pscustomobject]@{process=$p;tag=$tag};$script:children+=,$v;Check ((ReadProbe $v) -ceq 'READY');return $v
 }
-function Echo($Probe,[string]$Expected='OK'){$Probe.process.StandardInput.WriteLine([guid]::NewGuid().ToString('N'));$Probe.process.StandardInput.Flush();Check ((ReadProbe $Probe) -ceq $Expected)}
+function InvokeFlowEcho($Probe,[string]$Expected='OK'){$Probe.process.StandardInput.WriteLine([guid]::NewGuid().ToString('N'));$Probe.process.StandardInput.Flush();Check ((ReadProbe $Probe) -ceq $Expected)}
 function CloseProbe($Probe){if(-not $Probe.process.HasExited){try{$Probe.process.StandardInput.WriteLine('QUIT');$Probe.process.StandardInput.Flush()}catch{};if(-not $Probe.process.WaitForExit(2000)){$Probe.process.Kill();$Probe.process.WaitForExit()}}}
 try {
  $script:work=Join-Path $env:RUNNER_TEMP ('sstp-reauth-'+[guid]::NewGuid().ToString('N'));$null=InitializeJournalRoot $script:work
@@ -45,24 +45,24 @@ try {
  $script:stage='baseline';$baseline=ReadPolicyInventory
  foreach($family in @('IPv4','IPv6')){
   $script:stage='existing_'+$family;$v6=$family -ceq 'IPv6';$server=New-Object FlowLabServer($v6);$script:servers+=,$server;$ip=if($v6){'::1'}else{'127.0.0.1'}
-  $a=StartProbe $script:probeA $ip $server.Port;$b=StartProbe $probeB $ip $server.Port;Echo $a;Echo $b
+  $a=StartProbe $script:probeA $ip $server.Port;$b=StartProbe $probeB $ip $server.Port;InvokeFlowEcho $a;InvokeFlowEcho $b
   $before=[long]$server.Bytes($a.tag);Check ($before -eq 33);Check ($server.Bytes($b.tag) -eq 33)
   $f=NewFixture;Audit $f 'absent';Worker $f 'Install';Phase $f 'installed';Audit $f 'installed'
   # The installer has exited. Only the client fixtures retain their old TCP sockets.
-  Echo $b;$script:controls++;Echo $a 'BLOCKED'
+  InvokeFlowEcho $b;$script:controls++;InvokeFlowEcho $a 'BLOCKED'
   Start-Sleep -Milliseconds 500
   $delta=[long]$server.Bytes($a.tag)-$before;if($script:payloadBytes -lt 0){$script:payloadBytes=0};$script:payloadBytes+=[int]$delta
   Check ($delta -eq 0);Check ($server.Bytes($b.tag) -eq 66);$script:flows++
   # This primitive blocks reauthorization, not initial authorization: fresh A must work.
-  $fresh=StartProbe $script:probeA $ip $server.Port;Echo $fresh;Check ($server.Bytes($fresh.tag) -eq 33);$script:fresh++
+  $fresh=StartProbe $script:probeA $ip $server.Port;InvokeFlowEcho $fresh;Check ($server.Bytes($fresh.tag) -eq 33);$script:fresh++
   Worker $f 'Install';Audit $f 'installed'
   if(-not $v6){
    $wrong=($f.plan|ConvertTo-Json -Depth 8 -Compress)|ConvertFrom-Json;$wrong.app=$probeC;$null=RunNative $wrong 'audit' 1;$null=RunNative $wrong 'remove' 1;Audit $f 'installed';$script:conflicts++
    $wrong=($f.plan|ConvertTo-Json -Depth 8 -Compress)|ConvertFrom-Json;$wrong.keys[1]=[guid]::NewGuid().ToString('B');$null=RunNative $wrong 'audit' 1;$null=RunNative $wrong 'remove' 1;Audit $f 'installed';$script:conflicts++
    $jp=Join-Path $f.root 'journal.json';$bytes=[IO.File]::ReadAllBytes($jp);[IO.File]::WriteAllText($jp,'corrupt');Worker $f 'Remove' 'none' 1;Audit $f 'installed';[IO.File]::WriteAllBytes($jp,$bytes);$script:conflicts++
   }
-  Echo $b;$script:controls++
-  Worker $f 'Remove';Phase $f 'removed';Audit $f 'absent';Echo $fresh;Echo $b;$script:controls++;Worker $f 'Remove'
+  InvokeFlowEcho $b;$script:controls++
+  Worker $f 'Remove';Phase $f 'removed';Audit $f 'absent';InvokeFlowEcho $fresh;InvokeFlowEcho $b;$script:controls++;Worker $f 'Remove'
   foreach($p in @($a,$b,$fresh)){CloseProbe $p};$server.Dispose()
  }
  $script:stage='fault_recovery'
