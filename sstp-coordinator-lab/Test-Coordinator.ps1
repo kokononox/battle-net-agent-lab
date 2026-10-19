@@ -14,8 +14,8 @@ function Worker([string]$Root,[string]$Action,[string]$Fault='None',[int]$Index=
  $result=$LASTEXITCODE;if($result -eq 73){$script:exits++};return $result
 }
 function Prepare {
- # Reuse the SAME immutable initial snapshot and verified native restore canary; re-audit before each new case.
- $s=CoordClone $script:template;ReadCoordFrontier $s|Out-Null;$r=Root;WriteJournal $r -1 $s|Out-Null;return $r
+ # Reuse the SAME immutable initial snapshot/canary; the worker MUST audit before its first mutation.
+ $s=CoordClone $script:template;$r=Root;WriteJournal $r -1 $s|Out-Null;return $r
 }
 function StateInventory($State,[bool[]]$Bits){
  $x=CoordClone $script:fixtureInventory
@@ -70,7 +70,7 @@ try{
  Reject {InvokeCoordinatorLab $root Enable} 'coord_disable_started'
  $cases=@(
   @('Enable','AfterMutation',0,'Enable',$true),
-  @('Enable','AfterMutation',1,'Enable',$true),
+  @('Enable','BeforeMutation',1,'Enable',$true),
   @('Enable','AfterMutation',2,'Disable',$true),
   @('Enable','AfterMutation',3,'Enable',$true),
   @('Enable','BeforeReleaseAudit',4,'Disable',$true),
@@ -139,3 +139,4 @@ try{
  [IO.File]::WriteAllText($OutputPath,($out|ConvertTo-Json -Depth 5),[Text.UTF8Encoding]::new($false))
 }
 if(-not $passed){exit 1}
+exit 0

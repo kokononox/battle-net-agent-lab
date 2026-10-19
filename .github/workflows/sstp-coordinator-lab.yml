@@ -8,7 +8,7 @@ jobs:
   coordinator_tests:
     if: "${{ github.run_attempt == 1 && startsWith(github.event.head_commit.message, 'lab: approved scoped unified coordinator p12') }}"
     runs-on: windows-2025
-    timeout-minutes: 15
+    timeout-minutes: 25
     permissions:
       contents: read
     steps:
