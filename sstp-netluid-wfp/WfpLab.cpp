@@ -6,6 +6,7 @@
 #include <initguid.h>
 #include <fwpmu.h>
 #include <iphlpapi.h>
+#include <ipifcons.h>
 #include <netioapi.h>
 #include <objbase.h>
 #include <string>

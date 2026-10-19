@@ -35,7 +35,7 @@ try {
  $vc=Join-Path $vs 'Common7\Tools\VsDevCmd.bat';$source=Join-Path $PSScriptRoot 'WfpLab.cpp';$obj=Join-Path $script:work 'native.obj';$log=Join-Path $script:work 'compile.log';$batch=Join-Path $script:work 'compile.cmd'
  $commands="@echo off`r`ncall `"$vc`" -arch=x64 -host_arch=x64 >nul 2>&1`r`nif errorlevel 1 exit /b 1`r`ncl.exe /nologo /EHsc /W4 /WX /MT /Fe:`"$script:native`" /Fo:`"$obj`" `"$source`" >`"$log`" 2>&1`r`nexit /b %errorlevel%`r`n"
  [IO.File]::WriteAllText($batch,$commands,[Text.Encoding]::ASCII);& $batch
- if($LASTEXITCODE -ne 0){$errors=@([regex]::Matches([IO.File]::ReadAllText($log),'(?:error|warning) [A-Z]+[0-9]+')|ForEach-Object{$_.Value}|Select-Object -Unique -First 8);Write-Host ('wfp_compile_'+($errors -join '_'));throw 'wfp_compile_failed'}
+ if($LASTEXITCODE -ne 0){$errors=@([regex]::Matches([IO.File]::ReadAllText($log),'(?:error|warning) [A-Z]+[0-9]+')|ForEach-Object{$_.Value}|Select-Object -Unique -First 8);Write-Host ('wfp_compile_'+($errors -join '_'));foreach($m in [regex]::Matches([IO.File]::ReadAllText($log),"WfpLab\.cpp\(([0-9]+)\): error (C[0-9]+): '([A-Za-z_][A-Za-z_0-9]*)'")){Write-Host ('wfp_source_line_'+$m.Groups[1].Value+'_'+$m.Groups[2].Value+'_'+$m.Groups[3].Value)};throw 'wfp_compile_failed'}
  Check (Test-Path -LiteralPath $script:native)
  Add-Type -TypeDefinition ([IO.File]::ReadAllText("$PSScriptRoot/Probe.cs")) -OutputAssembly $script:probeA -OutputType ConsoleApplication
  Copy-Item -LiteralPath $script:probeA -Destination $script:probeB;Check (Test-Path -LiteralPath $script:probeB)
