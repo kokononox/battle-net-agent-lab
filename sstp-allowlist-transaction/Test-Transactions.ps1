@@ -36,8 +36,13 @@ function NewFixture {
 }
 function Worker([string]$Root,[string]$Action,[int]$Before=-1,[int]$After=-1) {
  $exe=Join-Path $PSHOME 'powershell.exe'
- & $exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$PSScriptRoot/Worker.ps1" -Root $Root -Action $Action -FaultBefore $Before -FaultAfter $After | Out-Null
- return $LASTEXITCODE
+ $output=@(& $exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$PSScriptRoot/Worker.ps1" -Root $Root -Action $Action -FaultBefore $Before -FaultAfter $After 2>&1)
+ $code=$LASTEXITCODE
+ if ($code -notin @(0,73)) {
+  Write-Host ('transaction_worker_exit_'+$code)
+  foreach($line in $output) { if ([string]$line -match '^transaction_[a-z_0-9]+$') { Write-Host ([string]$line) } }
+ }
+ return $code
 }
 try {
  $opCount=@(GetModelOperations $prototype).Count
