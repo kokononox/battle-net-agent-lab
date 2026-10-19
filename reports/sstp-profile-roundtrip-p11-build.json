@@ -1,0 +1,43 @@
+{
+  "schema": "sstp-profile-build-1",
+  "source_commit": "3d2119235af5d0b7018e3bd3c93d1349dd279f17",
+  "run_id": "39224713268",
+  "native_outcome": "success",
+  "native": {
+    "schema": "sstp-profile-test-1",
+    "source_commit": "3d2119235af5d0b7018e3bd3c93d1349dd279f17",
+    "run_id": "39224713268",
+    "passed": true,
+    "error_code": null,
+    "checks": 191,
+    "profile_field_cases": 132,
+    "fault_cases": 6,
+    "fresh_process_recoveries": 6,
+    "partial_restores": 2,
+    "native_notconfigured_noops": 9,
+    "verified_restore_completions": 8,
+    "observed_inactive_domain_block": true,
+    "external_conflict_stops": 1,
+    "cleanup_exact": true,
+    "final_stored_notconfigured": true,
+    "unrelated_full_policy_equal": true,
+    "unrelated_display_changes": 0,
+    "active_profile_targeted": false,
+    "whole_machine_enforcement_tested": false,
+    "guard_coordinator_tested": false,
+    "sstp_tested": false,
+    "reboot_tested": false,
+    "user_device_tested": false,
+    "ready_for_user_apply": false
+  },
+  "hashes": {
+    "Profile.ps1": "20ae231e4c20808ee34792cb8001b383f815f889cbac04e56b3cd7a3c385664b",
+    "Worker.ps1": "8fdae42361237785e855b2e354a475747ef007a6c9be34eda672d00d069c113f",
+    "Test-Profile.ps1": "9cbd009a195b5aa1cb1ec586fef74ab07a1ca7a73c547520d72fb164fb824402",
+    "receipt.py": "737980f2347901d7777309704a040298f150db51535ddab92d26ff7fd021832c",
+    "Journal.ps1": "95b1346d4ce0f43d74e9338fec586adbb004ad87fb6861913b54947e1ae24762",
+    "Inventory.ps1": "e78ec114e4a00cb67a91952fd9be4d4788b4169f2a42ca98f99d8cb9baf9bc13",
+    "Engine.ps1": "b5a10b10164b0804bde6bf928c472de35580816deb2e161f3d1e0f8f490b1ba5"
+  },
+  "ready_for_user_apply": false
+}
