@@ -1,7 +1,7 @@
 # وضعیت جاری پروژه — مرجع هماهنگی عامل و همکاران
 
-**آخرین به‌روزرسانی: 2026-10-19 03:45 (UTC)**  
-**مرحلهٔ فعلی: S3U با دو Allow محدودِ اختصاصی CI موفق شد: دو دور بازگردانی دقیق، حذف هر دو قاعده و task fixture، remaining_rules=0 و بدون fallback. فایل‌های native/guard/زمان تایمر تغییر نکردند. این PASS آزمایشگاهی است؛ Apply محصول/Windows11 کاربر آماده نیست. BAT۶ و holand دست‌نخورده‌اند. پیش از نسخه نهایی، تأیید کاربر لازم است: A حفظ BAT۶+فقط مسیر SSTP، یا B علاوه بر آن فقط Level3 داخل تونل. تست و task این اجرا پایان یافته؛ منتظر روشن‌شدن دامنه هستیم.**
+**آخرین به‌روزرسانی: 2026-10-19 04:07 (UTC)**  
+**مرحلهٔ فعلی: دامنه نهایی کاربر تأیید شد: Allowlist مقصدها فقط از SSTP همراه کیل‌سوییچ کل Windows؛ اتصال دستی، LAN بسته، بدون resident و انقضا، Enable/Disable اعمال و خروج، config قابل ویرایش. انتخاب A/B دیگر باز نیست. هسته P1 با۳۵fixture بدون تغییر شبکه/DNS روی Windows پاس شد؛ backend اجرایی هنوز آماده نیست و ready_for_user_apply=false. تست دو دور provider قبلی PASS محدود CI باقی است. دستگاه کاربر دست‌نخورده و Pause محفوظ است.**
 
 این فایل مرجع وضعیت روز است. README و اسناد قدیمی مسیر تحقیق را نگه می‌دارند، اما تیترهای «آزمایش جاری» یا «گام بعد» در آن‌ها لزوماً وضعیت امروز نیستند. پیشنهادهای همکاران در [سند پیشنهادها](SUGGESTIONS-FROM-OTHER-MODELS.fa.md) قرار می‌گیرد؛ پیشنهاد به‌تنهایی تصمیم، مجوز یا شاهد اجرای موفق نیست.
 
@@ -14,7 +14,7 @@
 ## الان دقیقاً کجا هستیم؟
 | مورد | وضعیت |
 | --- | --- |
-| تمرکز جاری | S3U دو دور PASS با fixture محدود CI و حذف کامل دو قاعده؛ Apply کاربر آماده نیست. تأیید دامنه A فقط‌مسیرSSTP+BAT۶ یا B فقط‌Level3 داخل تونل لازم است |
+| تمرکز جاری | Allowlist+SSTP kill switch با اعمال و خروج، بدون resident/انقضا؛ دامنه قطعی ثبت شد. P1 config/plan:۳۵fixture PASS، backend و Apply هنوز آماده نیست |
 | بستهٔ ویندوز U1 | ساخته و در Windows runner آزموده شده؛ کاربر اعلام کرد ZIP را دانلود کرده است |
 | خودآزمایی روی HP/Windows 11 کاربر | **گزارش ارسالی کاربر PASS**؛ send، WSASend و ورودی منفی EncryptMessage مشاهده شدند؛ خطای اسکریپت صفر |
 | آپدیت واقعی تحت مانیتور U1 و بلوک دامنه | **دانلود تا ۳۰٪ به گزارش کاربر**؛ READY/Agent واقعی/hosts در گزارش ثبت شده؛ پایان Paused، تکمیل اثبات نشده |
@@ -23,11 +23,17 @@
 | محل کد آزمایشی و گزارش‌های تازه | T1/R1/U2 در شاخه privacy-observation-20261018-a1؛ BATهای ساده در plain-hosts-leave-one-open روی main. کد پژوهشی خودکار merge نمی‌شود |
 
 ## شواهد معتبر جدید — مبنای راهنمایی همکاران
-### S3U موفق با fixture کنترل CI — نتیجه فعلی، جایگزین وضعیت‌های تاریخی زیر
+### دامنه نهایی Allowlist و هسته P1 — مبنای فعلی
+- [نیاز قطعی کاربر](SSTP-ALLOWLIST-REQUIREMENTS.fa.md): Allowlist واقعی، فقط داخل SSTP، kill switch fail-closed کل Windows، LAN بسته، اتصال دستی، فعال/موجود یکتا با holand ترجیحی و توقف در ambiguity. Enable/Disable باید تنظیمات را اعمال و خارج شوند؛ بدون فرایند/سرویس/task دوره‌ای اختصاصی، بدون انقضا و با ماندگاری reboot.
+- [P1 config و plan](SSTP-ALLOWLIST-POLICY-P1.fa.md): ۳۵fixture خالص در run39197656262 پاس شد. source7b64da0705c00c8884102b9c3f1ff4e2624199fa؛ هیچ firewall/VPN/hosts/route/DNS تغییر یا query نشد، هیچ resident ساخته نشد. این هسته backend Enable/Disable ندارد و مجوز Apply نیست.
+- مبنای نمونه فهرست مجاز level3.blizzard.com است، نه بازکردن نام‌های مسدود BAT۶. DNS/CDN به Refresh صریح نیاز پیدا می‌کند و IP مشترک معادل هویت انحصاری hostname نیست. bootstrap محدود SSTP استثناست، نه Allow عمومی. تعریف «فقط VPN+denylist» دیگر دامنه نهایی نیست و پرسش A/B پاسخ داده شده است.
+- مرحله بعد backend journal/transition guard و مدیریت Allowهای قدیمی/GPO، سپس qualification binding/قطع‌وصل/DNS/IPv6/boot؛ محصول نباید با watchdog دائمی یا زمان انقضا ساخته شود. دستگاه کاربر تغییر نکرده و ورودی تازه فعلاً لازم نیست.
+
+### سابقه معتبر S3U — PASS محدود provider با fixture کنترل CI
 - [گزارش و سه رسید](../reports/sstp-ci-control-success-analysis.fa.md): run39195750447 و منبع d62a0e6c548515ed5bd4139eb06983b99249fd37؛ دو دور کامل با همان native code، زمان۷۵ثانیه و guardها. native passed=true؛ نه SSTP/enforcement یا Windows11 کاربر و نه مجوز Apply.
 - helper جداگانه دو Allow مخصوص binaryهای runner و چهار host-IP مشاهده‌شدهٔ TCP443 اضافه کرد؛ هر دو قاعده و task helper حذف شدند، remaining_rules=0 و snapshot منتخب قبل/بعد برابر. مسیر انقضای helper فقط مسلح شد و در این اجرا لازم نشد؛ timer_fallback_used=false. هیچ Allow عمومی یا تغییر دستگاه کاربر وجود ندارد.
 - خطاهای HTTP/Socket/renewal در diagnostic این اجرا مشاهده نشدند. فیلد ثابت network_exception_added=false در schema قدیمی diagnostic نماینده کل workflow نیست؛ وجود و حذف دو Allow در رسید fixture و کد آشکار است. هیچ IP/path/credential/raw log منتشر نشد.
-- کاربر دامنه ساده‌تر «بستن بیرون SSTP در کنار BAT۶» را مطرح کرد؛ A فقط‌مسیرSSTP+BAT۶ و B سخت‌گیرانه فقط‌Level3 داخل تونل از هم تفکیک و سؤال تأیید پرسیده شد. پیش از ساخت/اجرای محصول منتظر پاسخ بمانید؛ هیچ کدام خودسرانه انتخاب نشود.
+- این پرسش دامنه بعداً با توضیح نهایی کاربر حل شد: Allowlist مقصدها همراه کیل‌سوییچ فقط از VPN؛ سند نیاز قطعی بالاتر مبناست. این بند سابقه سؤال قبلی است، نه blocker جاری.
 
 ### سابقه S3U تشخیصی پیش از اصلاح CI — شاهد اختلال کانال کنترل
 - [تحلیل و شمارنده‌های محدود](../reports/sstp-runner-control-analysis.fa.md): run 39194616498، منبع 4a046fbd5459c28e6aa7e1b1c9e40eea98b7331d؛ HTTP/Socket از ثانیه۱۱، exception renewal و لغو worker در ثانیه۸۸ نسبت به cutoff. در فایل‌های بررسی‌شده درخواست cancel از سرور مشاهده نشد؛ این نبودِ مطلق یا انتساب به عامل خاص را ثابت نمی‌کند. مقصد/stacktrace/raw log خصوصی منتشر نشد و نسخه runner نامعلوم است.

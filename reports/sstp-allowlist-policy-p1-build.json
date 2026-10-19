@@ -1,0 +1,26 @@
+{
+  "schema": "sstp-allowlist-policy-build-1",
+  "source_commit": "7b64da0705c00c8884102b9c3f1ff4e2624199fa",
+  "run_id": "39197656262",
+  "native_outcome": "success",
+  "native": {
+    "schema": "sstp-allowlist-policy-test-1",
+    "source_commit": "7b64da0705c00c8884102b9c3f1ff4e2624199fa",
+    "run_id": "39197656262",
+    "passed": true,
+    "checks": 35,
+    "error_code": null,
+    "network_changed": false,
+    "dns_queried": false,
+    "resident_program_created": false,
+    "enforcement_tested": false,
+    "user_device_tested": false,
+    "ready_for_user_apply": false
+  },
+  "hashes": {
+    "Policy.ps1": "6c71203e3ddb91f922bffd0e67fac1c3193b7a96941fa68ebac5af6b427de4d8",
+    "Test-Policy.ps1": "114a3fce497fd2ef130a4151f0816f116bfcd366319b5b13a22cce506d9327e6",
+    "allowlist.example.json": "e54be3abf37887fb97d2d1b75f47525181ea15a4d6536fde521f928ea33d98b1"
+  },
+  "ready_for_user_apply": false
+}
