@@ -1,14 +1,19 @@
 {
   "schema": "sstp-recovery-s2-build-1",
-  "source_commit": "fb58194a84e9e70c9b3fd61ff99b1d17209a18dc",
-  "run_id": "39186235628",
+  "source_commit": "126cbc56332d0dc552e3cfaab63af434b68d8a03",
+  "run_id": "39186445850",
   "runner_kind": "windows-2025",
   "native_outcome": "failure",
   "fixture": null,
   "rehearsal": null,
-  "main_sha256": "c8595ca23d7d87e99fdd7a2941a8460741841f5f97859ae5d75c52e2e85bafb5",
+  "main_sha256": "1f99a45904cc2038925b93e7f3cbf11af54b959e13055bd7e5dba22632cbde8b",
   "worker_sha256": "744383c486e407797fce26beebba2568c5c83bc7d0c769c37d06bd700b4c7180",
   "firewall_import_tested": false,
   "network_isolation_tested": false,
-  "user_device_tested": false
+  "user_device_tested": false,
+  "native_diagnostic": {
+    "stage": "parse_and_safety",
+    "code": "unexpected_worker_command",
+    "line": 28
+  }
 }
