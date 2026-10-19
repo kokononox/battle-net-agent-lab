@@ -1,0 +1,75 @@
+name: Disabled preparation recovery Windows test
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths: ['sstp-v6-recovery/**', '.github/workflows/sstp-v6-recovery.yml']
+permissions: {}
+jobs:
+  windows:
+    if: "${{ github.run_attempt == 1 && startsWith(github.event.head_commit.message, 'test: approved disabled preparation recovery') }}"
+    runs-on: windows-2025
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse scripts and run pure address tests
+        id: pure
+        continue-on-error: true
+        shell: powershell
+        run: |
+          foreach($f in Get-ChildItem 'sstp-v6-recovery' -Filter '*.ps1') {
+            $tokens=$null;$errors=$null
+            $null=[Management.Automation.Language.Parser]::ParseFile($f.FullName,[ref]$tokens,[ref]$errors)
+            if($errors.Count -gt 0){throw 'overlay_parse_error'}
+          }
+          & './sstp-v6-recovery/Test-Ranges.ps1' -OutputPath (Join-Path $env:RUNNER_TEMP 'overlay-ranges.json')
+          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+          & './sstp-v6-recovery/Test-Cidrs.ps1' -OutputPath (Join-Path $env:RUNNER_TEMP 'overlay-cidrs.json')
+          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+          exit 0
+      - name: Construct and dispose test window without network actions
+        id: ui
+        if: steps.pure.outcome == 'success'
+        continue-on-error: true
+        shell: powershell
+        run: |
+          & "$PSHOME/powershell.exe" -NoLogo -NoProfile -ExecutionPolicy Bypass -File './sstp-v6-recovery/Run.ps1' -Action UiSmoke
+          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+          exit 0
+      - name: Recover disabled fixture preparations with strict conflict refusal
+        id: recovery
+        if: steps.pure.outcome == 'success'
+        continue-on-error: true
+        shell: powershell
+        run: |
+          & './sstp-v6-recovery/Test-Recovery.ps1' -OutputPath (Join-Path $env:RUNNER_TEMP 'overlay-recovery.json')
+          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+          exit 0
+      - name: Test exact fixture rules and fresh TCP connects
+        id: native
+        if: steps.pure.outcome == 'success'
+        continue-on-error: true
+        shell: powershell
+        run: |
+          & './sstp-v6-recovery/Test-Native.ps1' -OutputPath (Join-Path $env:RUNNER_TEMP 'overlay-native.json')
+          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+          exit 0
+      - name: Validate bounded receipt
+        if: always()
+        env:
+          PURE_OUTCOME: ${{ steps.pure.outcome }}
+          NATIVE_OUTCOME: ${{ steps.native.outcome }}
+          RECOVERY_OUTCOME: ${{ steps.recovery.outcome }}
+          UI_OUTCOME: ${{ steps.ui.outcome }}
+        run: python sstp-v6-recovery/receipt.py
+      - name: Upload bounded receipt only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: disabled-prepare-receipt
+          path: sstp-v6-recovery/build-receipt.json
+          retention-days: 3
+          if-no-files-found: error
