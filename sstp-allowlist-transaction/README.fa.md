@@ -10,7 +10,7 @@ Enable: ثبت snapshot اولیه؛ ثبت intent پیش از هر عملیات
 قفل جداگانهٔ transaction.lock کل یک فراخوانی را می‌پوشاند؛ قفل داخلی journal نیز برای نوشتن‌ها برقرار است. پس از خروج هیچ فرایند یا handle اختصاصی باقی نمی‌ماند. نبود یا خرابی journal اجازهٔ reset یا بازکردن شبکه نمی‌دهد. تغییر جهت Enable وسط Disable ناتمام رد می‌شود. Disable از Enable نیمه‌تمام در مدل قابل تعریف است، ولی این به معنی آزمون restore واقعی Windows نیست.
 
 ## آزمون
-۳۶ حالت termination فرایند: قبل/بعد هر کدام از۹عملیات در هر دو جهت Enable/Disable. intent پیش از termination به فایل نوشته شده، worker با Environment.Exit(73) واقعاً خاتمه می‌یابد و recovery در powershell.exe جدید اجرا می‌شود. termination داخل syscall فایل، قطع برق و reboot واقعی در این آزمون نیست. مدل adapter فایل را عادی می‌نویسد؛ مدل خرابی دیسک/WFP نیست.
+۳۸ حالت termination فرایند: ۳۶ حالت قبل/بعد هر کدام از۹عملیات در هر دو جهت Enable/Disable. intent پیش از termination به فایل نوشته شده، worker با Environment.Exit(73) واقعاً خاتمه می‌یابد و recovery در powershell.exe جدید اجرا می‌شود. دو حالت اضافه، Disable از Enable نیمه‌تمام را پیش/پس از یک تغییر پروفایل مدل بررسی می‌کنند. termination داخل syscall فایل، قطع برق و reboot واقعی در این آزمون نیست. مدل adapter فایل را عادی می‌نویسد؛ مدل خرابی دیسک/WFP نیست.
 
 برای هر حالت، journal، نتیجهٔ بازیابی، تکرار بی‌اثر و این invariant مدل بررسی می‌شوند: یا guard مدل blocked است یا کل مدل دقیقاً baseline یا policy نهایی است. **این invariant هیچ ادعایی دربارهٔ بسته‌های شبکه ندارد.** تست اضافه: journal مفقود/primary خراب/ساختار semantically نامعتبر، تغییر خارجی، قفل همزمان و منع برگشت از Disable نیمه‌تمام.
 

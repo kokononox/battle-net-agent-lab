@@ -68,6 +68,20 @@ try {
    }
   }
  }
+ # Disable may safely target the original baseline from a partially applied Enable.
+ foreach($side in @('Before','After')) {
+  $root=NewFixture;$before=-1;$after=-1
+  if ($side -eq 'Before') { $before=3 } else { $after=3 }
+  Check ((Worker $root 'Enable' $before $after) -eq 73);$script:faultCases++
+  Check ((ReadModelWorld $root).guard -eq 'blocked')
+  Check ((Worker $root 'Disable') -eq 0);$script:recoveries++
+  Check (SameWorld (ReadModelWorld $root) (ModelBaseline $prototype))
+  $j=ReadJournal $root
+  Check ($j.record.state.phase -eq 'disable' -and $j.record.state.cursor -eq $opCount -and $null -eq $j.record.state.pending)
+  $revision=$j.record.revision
+  InvokeModelPolicyTransaction $root 'Disable' $resources | Out-Null
+  Check ((ReadJournal $root).record.revision -eq $revision)
+ }
  # Missing journal: Disable must not invent a reset or open anything.
  $root=NewFixture;$before=ReadModelWorld $root
  Reject { InvokeModelPolicyTransaction $root 'Disable' } 'transaction_missing_journal'
@@ -98,11 +112,11 @@ try {
  $before=ReadModelWorld $root
  Reject { InvokeModelPolicyTransaction $root 'Enable' $resources } 'transaction_finish_disable_first'
  Check (SameWorld $before (ReadModelWorld $root))
- $bad=@(ModelClone $resources);$bad[1].before='Any'
+ $bad=ModelClone $resources;$bad=[object[]]$bad;$bad[1].before='Any'
  Reject { NewModelTransaction $bad } 'transaction_profile_schema'
- $bad=@(ModelClone $resources);$bad[1].key=$bad[0].key
+ $bad=ModelClone $resources;$bad=[object[]]$bad;$bad[1].key=$bad[0].key
  Reject { NewModelTransaction $bad } 'transaction_resource_schema'
- Check ($script:checks -eq 230 -and $script:faultCases -eq 36 -and $script:recoveries -eq 36)
+ Check ($script:checks -eq 242 -and $script:faultCases -eq 38 -and $script:recoveries -eq 38)
  $passed=$true
 } catch {
  $errorCode='transaction_native_failure';Write-Host ('Transaction check failed after '+$script:checks+' checks.')

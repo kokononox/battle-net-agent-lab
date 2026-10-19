@@ -2,7 +2,8 @@ param([string]$Root,[ValidateSet('Enable','Disable')][string]$Action,[int]$Fault
 $ErrorActionPreference='Stop'
 . "$PSScriptRoot/ModelEngine.ps1"
 try {
- $resources=@([IO.File]::ReadAllText((Join-Path $Root 'plan.json')) | ConvertFrom-Json)
+ $decoded=[IO.File]::ReadAllText((Join-Path $Root 'plan.json')) | ConvertFrom-Json
+ $resources=[object[]]$decoded
  InvokeModelPolicyTransaction -Root $Root -Action $Action -Resources $resources -FaultBefore $FaultBefore -FaultAfter $FaultAfter | Out-Null
  exit 0
 } catch {

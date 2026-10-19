@@ -6,11 +6,11 @@ def validate(n):
  if type(n) is not dict or set(n)!=KEYS or n['schema']!='sstp-transaction-test-1' or n['adapter_kind']!='file_model_only':raise ValueError('schema')
  if not re.fullmatch('[a-f0-9]{40}',n['source_commit']) or not re.fullmatch('[0-9]{1,30}',n['run_id']):raise ValueError('identity')
  if type(n['passed']) is not bool:raise ValueError('bool')
- for k,m in [('checks',231),('fault_cases',36),('fresh_process_recoveries',36)]:
+ for k,m in [('checks',243),('fault_cases',38),('fresh_process_recoveries',38)]:
   if type(n[k]) is not int or not 0<=n[k]<=m:raise ValueError('counts')
  if any(n[k] is not False for k in FLAGS):raise ValueError('scope')
  if n['error_code'] not in [None,'transaction_native_failure','transaction_native_unavailable']:raise ValueError('error')
- if n['passed'] and (n['checks']!=231 or n['fault_cases']!=36 or n['fresh_process_recoveries']!=36 or n['error_code'] is not None):raise ValueError('pass')
+ if n['passed'] and (n['checks']!=243 or n['fault_cases']!=38 or n['fresh_process_recoveries']!=38 or n['error_code'] is not None):raise ValueError('pass')
  return n
 if __name__=='__main__':
  root=Path(__file__).parent;src=os.environ['GITHUB_SHA'];run=os.environ['GITHUB_RUN_ID'];p=Path(os.environ['RUNNER_TEMP'])/'transaction-native.json'
