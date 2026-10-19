@@ -1,0 +1,238 @@
+{
+  "schema": "t11-user-content-analysis-1",
+  "input_sha256": "19561731a5aa01e83ebc3c66eda153c8e87f81aceb1c02ddbab9741ca3b9c508",
+  "source_started_utc": "2026-10-19T00:33:31.567858+00:00",
+  "provenance": "user_uploaded_report_not_independently_signed",
+  "ready": true,
+  "status": "observation_ended",
+  "error_code": null,
+  "user_final_state": "reported_paused",
+  "user_download_behavior": "reported_progress",
+  "download_progress_independently_measured": false,
+  "initial_versions": {
+    "status": "read",
+    "retail_versions": [
+      "12.1.5.70448"
+    ]
+  },
+  "final_versions": {
+    "status": "read",
+    "retail_versions": [
+      "12.1.5.70448"
+    ]
+  },
+  "hosts_changed_by_tool": false,
+  "hosts_hash_unchanged": true,
+  "dns_checks": {
+    "dns_before": {
+      "normalized_profile_matches": true,
+      "states": {
+        "explicit_hosts_sink_windows_no_data": 24,
+        "public_only": 1
+      }
+    },
+    "dns_ready": {
+      "normalized_profile_matches": true,
+      "states": {
+        "explicit_hosts_sink_windows_no_data": 24,
+        "public_only": 1
+      }
+    },
+    "dns_after": {
+      "normalized_profile_matches": true,
+      "states": {
+        "explicit_hosts_sink_windows_no_data": 24,
+        "public_only": 1
+      }
+    }
+  },
+  "request_counts": {
+    "exported_requests": 26,
+    "target_requests": 26,
+    "target_complete_requests": 26,
+    "target_nonzero_body_requests": 0,
+    "target_cpu_literal_matches": 0,
+    "target_credential_header_requests": 0,
+    "target_query_requests": 0,
+    "parsed_requests_before_export_cap": 26,
+    "method_counts": {
+      "GET": 26
+    }
+  },
+  "target_channel_count": 7,
+  "target_layers": {
+    "plaintext_winsock_input": 26
+  },
+  "target_path_classes": {
+    "tpr": 26
+  },
+  "target_header_names": [
+    "accept",
+    "host",
+    "range"
+  ],
+  "target_unknown_header_total": 0,
+  "target_user_agent_requests": 0,
+  "field_hints": {
+    "query_field_hints": [],
+    "header_field_hints": [],
+    "body_field_hints": []
+  },
+  "cpu_reference_available": true,
+  "event_cpu_literal_hits": 0,
+  "agent": {
+    "index": 3,
+    "process_name": "agent.exe",
+    "sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+    "status": "attached",
+    "input_events": 26,
+    "script_errors": 0,
+    "authenticode_valid": true,
+    "blizzard_publisher": true
+  },
+  "public_tcp_destinations": [
+    {
+      "process_index": 6,
+      "remote_address": "52.29.86.120",
+      "remote_port": 443,
+      "sample_observations": 184
+    },
+    {
+      "process_index": 6,
+      "remote_address": "2.21.23.89",
+      "remote_port": 443,
+      "sample_observations": 143
+    },
+    {
+      "process_index": 6,
+      "remote_address": "54.149.134.39",
+      "remote_port": 443,
+      "sample_observations": 197
+    },
+    {
+      "process_index": 3,
+      "remote_address": "2.21.23.18",
+      "remote_port": 80,
+      "sample_observations": 66
+    },
+    {
+      "process_index": 6,
+      "remote_address": "192.178.24.142",
+      "remote_port": 443,
+      "sample_observations": 57
+    },
+    {
+      "process_index": 3,
+      "remote_address": "2.21.23.82",
+      "remote_port": 80,
+      "sample_observations": 65
+    }
+  ],
+  "https_content_unobserved": [
+    {
+      "process_index": 6,
+      "remote_address": "52.29.86.120",
+      "remote_port": 443,
+      "sample_observations": 184,
+      "process_name": "battle.net.exe",
+      "process_input_events": 0
+    },
+    {
+      "process_index": 6,
+      "remote_address": "2.21.23.89",
+      "remote_port": 443,
+      "sample_observations": 143,
+      "process_name": "battle.net.exe",
+      "process_input_events": 0
+    },
+    {
+      "process_index": 6,
+      "remote_address": "54.149.134.39",
+      "remote_port": 443,
+      "sample_observations": 197,
+      "process_name": "battle.net.exe",
+      "process_input_events": 0
+    },
+    {
+      "process_index": 6,
+      "remote_address": "192.178.24.142",
+      "remote_port": 443,
+      "sample_observations": 57,
+      "process_name": "battle.net.exe",
+      "process_input_events": 0
+    }
+  ],
+  "https_unobserved_distinct_destinations": 4,
+  "sampler_errors": 1,
+  "attach_failures": [
+    {
+      "process_index": 1,
+      "process_name": "battle.net launcher.exe",
+      "error_code": "attach_failed"
+    },
+    {
+      "process_index": 13,
+      "process_name": "battle.net.exe",
+      "error_code": "attach_failed"
+    }
+  ],
+  "base_limits_hit": {
+    "event_detail": false,
+    "flows": false,
+    "processes": false,
+    "hooks": false
+  },
+  "audit_buffer_limit_hit": false,
+  "sampling_thread_stopped": true,
+  "streams": {
+    "total": 187,
+    "parse_states": [
+      {
+        "parse_status": "parsed_to_end",
+        "api_input_gap": false,
+        "streams": 187
+      }
+    ],
+    "by_process": {
+      "2": 180,
+      "3": 7
+    }
+  },
+  "input_events": 206,
+  "event_phase_counts": {
+    "before_user_update": 11,
+    "user_update_window": 195
+  },
+  "input_host_hints": {
+    "127.0.0.1": 180,
+    "level3.blizzard.com": 26
+  },
+  "event_first_last_elapsed_seconds": [
+    11.16,
+    90.28
+  ],
+  "requests_attributable_to_resume_instant": false,
+  "received_bytes_measured": false,
+  "zero_personal_data_proven": false,
+  "coverage_notes": [
+    "Full paths and header values were intentionally not exported: encoded identifiers cannot be excluded.",
+    "Four public TCP/443 destinations from battle.net.exe were sampled but that process had zero captured input events; contents and hostnames unknown.",
+    "All streams say parsed_to_end, but this parser can silently omit requests with unsupported Host values; not proof that all streams yielded audited requests.",
+    "Late attach, two attach failures, one sampler error, and unsupported APIs/protocols constrain coverage.",
+    "Repeated sanitized metadata rows are expected; raw URLs are absent and rows must not be deduplicated as identical network requests."
+  ],
+  "comparison_plan": [
+    {
+      "disposition": "prose",
+      "grain": "captured target requests",
+      "finding": "26 plaintext GETs without body/query/credential headers; CPU literal absent",
+      "reason": "bounded diagnostic finding, no meaningful chart geometry"
+    },
+    {
+      "disposition": "prose",
+      "grain": "sampled process/destination TCP tuples",
+      "finding": "four TLS destinations without captured contents",
+      "reason": "coverage boundary, not a comparable traffic-volume series"
+    }
+  ]
+}
