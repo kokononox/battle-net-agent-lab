@@ -5,7 +5,7 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 namespace SstpIdentityV1 {
- [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
+ [StructLayout(LayoutKind.Sequential, Pack=4, CharSet=CharSet.Unicode)]
  public struct RasConnW {
   public uint Size; public IntPtr Handle;
   [MarshalAs(UnmanagedType.ByValTStr,SizeConst=257)] public string EntryName;
@@ -16,7 +16,7 @@ namespace SstpIdentityV1 {
   // This is a LOGON SESSION LUID, NOT a NET_LUID. Never pass it to IP Helper.
   public uint LogonLuidLow; public int LogonLuidHigh; public Guid CorrelationGuid;
  }
- [StructLayout(LayoutKind.Sequential,CharSet=CharSet.Unicode)]
+ [StructLayout(LayoutKind.Sequential,Pack=4,CharSet=CharSet.Unicode)]
  public struct RasPppIpW {
   public uint Size; public uint Error;
   [MarshalAs(UnmanagedType.ByValTStr,SizeConst=16)] public string ClientAddress;
@@ -53,7 +53,7 @@ namespace SstpIdentityV1 {
   public static int Offset(string member) { return Marshal.OffsetOf(typeof(RasConnW),member).ToInt32(); }
   public static RasRecord[] Enumerate() {
    int size=RasSize;
-   if (size!=(IntPtr.Size==8?1392:1384) || ProjectionSize!=80) throw new InvalidOperationException("binding_abi_unexpected");
+   if (size!=(IntPtr.Size==8?1388:1384) || ProjectionSize!=80) throw new InvalidOperationException("binding_abi_unexpected");
    const int cap=128;int total=checked(size*cap);IntPtr p=Marshal.AllocHGlobal(total);
    try {
     Marshal.Copy(new byte[total],0,p,total);Marshal.WriteInt32(p,size);

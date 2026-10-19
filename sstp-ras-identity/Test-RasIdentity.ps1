@@ -27,6 +27,7 @@ try {
  if($LASTEXITCODE -ne 0) { throw 'binding_sdk_compile_failed' }
  $text=& $sdkExe
  if($LASTEXITCODE -ne 0) { throw 'binding_sdk_probe_failed' };$abi=$text | ConvertFrom-Json
+ Write-Host ('binding_abi_ras_sdk_'+$abi.ras_size+'_managed_'+[SstpIdentityV1.Native]::RasSize)
  Check ($abi.ras_size -eq [SstpIdentityV1.Native]::RasSize)
  Check ($abi.projection_size -eq [SstpIdentityV1.Native]::ProjectionSize)
  Check ($abi.entry_name_offset -eq [SstpIdentityV1.Native]::Offset('EntryName'))
