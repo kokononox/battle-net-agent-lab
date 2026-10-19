@@ -1,0 +1,43 @@
+name: Visible startup diagnostic patch
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths: ['sstp-startup-fix/**', '.github/workflows/sstp-startup-fix.yml']
+permissions: {}
+jobs:
+  startup:
+    if: "${{ github.run_attempt == 1 && startsWith(github.event.head_commit.message, 'fix: approved visible startup') }}"
+    runs-on: windows-2025
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse and test visible startup only
+        id: test
+        continue-on-error: true
+        shell: powershell
+        run: |
+          foreach($f in Get-ChildItem 'sstp-startup-fix' -Filter '*.ps1') {
+            $t=$null;$e=$null
+            $null=[Management.Automation.Language.Parser]::ParseFile($f.FullName,[ref]$t,[ref]$e)
+            if($e.Count){throw 'startup_parse_error'}
+          }
+          & './sstp-startup-fix/Test-Startup.ps1' -OutputPath (Join-Path $env:RUNNER_TEMP 'startup.json')
+          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+          exit 0
+      - name: Validate bounded startup receipt
+        if: always()
+        env:
+          TEST_OUTCOME: ${{ steps.test.outcome }}
+        run: python sstp-startup-fix/receipt.py
+      - name: Upload receipt only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: visible-startup-receipt
+          path: sstp-startup-fix/build-receipt.json
+          retention-days: 3
+          if-no-files-found: error
