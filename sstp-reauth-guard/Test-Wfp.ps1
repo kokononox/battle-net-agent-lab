@@ -26,7 +26,7 @@ function StartProbe([string]$Exe,[string]$Ip,[int]$Port){
  $tag=[guid]::NewGuid().ToString('N');$si=New-Object Diagnostics.ProcessStartInfo;$si.FileName=$Exe;$si.Arguments=$Ip+' '+$Port+' '+$tag;$si.UseShellExecute=$false;$si.RedirectStandardInput=$true;$si.RedirectStandardOutput=$true;$si.RedirectStandardError=$true;$si.CreateNoWindow=$true
  $p=New-Object Diagnostics.Process;$p.StartInfo=$si;$null=$p.Start();$v=[pscustomobject]@{process=$p;tag=$tag};$script:children+=,$v;Check ((ReadProbe $v) -ceq 'READY');return $v
 }
-function InvokeFlowEcho($Probe,[string]$Expected='OK'){$Probe.process.StandardInput.WriteLine([guid]::NewGuid().ToString('N'));$Probe.process.StandardInput.Flush();Check ((ReadProbe $Probe) -ceq $Expected)}
+function InvokeFlowEcho($Probe,[string]$Expected='OK'){$Probe.process.StandardInput.WriteLine([guid]::NewGuid().ToString('N'));$Probe.process.StandardInput.Flush();$reply=ReadProbe $Probe;if($reply -cne $Expected){$safe=if($reply -cin @('READY','OK','BLOCKED','CONNECT_FAILED')){$reply}else{'eof_or_invalid'};$code='running';if($Probe.process.WaitForExit(50)){$code=[string]$Probe.process.ExitCode};Write-Host ('reauth_probe_reply_'+$safe+'_exit_'+$code)};Check ($reply -ceq $Expected)}
 function CloseProbe($Probe){if(-not $Probe.process.HasExited){try{$Probe.process.StandardInput.WriteLine('QUIT');$Probe.process.StandardInput.Flush()}catch{};if(-not $Probe.process.WaitForExit(2000)){$Probe.process.Kill();$Probe.process.WaitForExit()}}}
 try {
  $script:work=Join-Path $env:RUNNER_TEMP ('sstp-reauth-'+[guid]::NewGuid().ToString('N'));$null=InitializeJournalRoot $script:work
