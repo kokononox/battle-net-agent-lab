@@ -1,0 +1,42 @@
+{
+  "schema": "sstp-system-audit-build-1",
+  "source_commit": "af842e70f57c3c5bf3186e2a268931b59ced0f8e",
+  "run_id": "39329245844",
+  "runner_os": "windows-2025",
+  "sha256": {
+    "Audit.ps1": "5ca417f9811b9ddcd3de2cc8f3ba32ad3259c3b0ff9552df412b95b0938d9e63",
+    "AuditReadCore.ps1": "33b0a8365748f1e56d41a00bfc05aafd26f3b9f210e2f04ec313be769bd3c6b0",
+    "Inventory.ps1": "e78ec114e4a00cb67a91952fd9be4d4788b4169f2a42ca98f99d8cb9baf9bc13",
+    "KnownHosts.ps1": "0a9cd1aa14f60dcb2ef1c422628593a009430333f2e12f8884f62ded29ed4bfb",
+    "Ranges.ps1": "5598667ba78e41f88d105c2c4a589903a4689e055157075504b5b1e7cc6f6d02",
+    "Read-System.cmd": "092c540e80cfad3cf6c32d048d2bd8e007c53194e9716af9da1241d3ffb1ca39",
+    "Read-System.ps1": "a58412fe2105ac6c6721ec77977176e9b47281f9ebbdf1fafbff1c374c1f25a3",
+    "receipt.py": "65c0aa27d55d262bb771b94a94ce8f4df7ba08f5fdd381c5f9b7e89f893ea6e1",
+    "Test-Model.ps1": "fd5df626acebba14f603e6c63d91ae9bd7473d8801b5c42ffd89e1788493bddb",
+    "Test-NativeAudit.ps1": "5ebabfedd154f27af5d1e7732f614f075c60d12727c55445a9354131011dddf9"
+  },
+  "user_device_tested": false,
+  "complete_security_audit": false,
+  "model": {
+    "schema": "sstp-audit-model-test-1",
+    "passed": true,
+    "checks": 20,
+    "network_settings_changed": false
+  },
+  "model_outcome": "success",
+  "native": {
+    "schema": "sstp-audit-native-test-1",
+    "passed": true,
+    "checks": 22,
+    "firewall_strict_equal": true,
+    "hosts_equal": true,
+    "ipv6_registry_equal": true,
+    "overlay_directory_presence_equal": true,
+    "launcher_admin_path_tested": true,
+    "launcher_nonadmin_uac_tested": false,
+    "user_device_tested": false,
+    "error_code": null
+  },
+  "native_outcome": "success",
+  "passed": true
+}
