@@ -1,0 +1,76 @@
+name: One-shot S3U CI-only exact local unset round-trip qualification
+on:
+  push:
+    branches: [privacy-observation-20261018-a1]
+    paths:
+      - 'sstp-unset-s3u/**'
+      - '.github/workflows/sstp-unset-s3u.yml'
+permissions: {}
+jobs:
+  validate:
+    if: "${{ github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved ephemeral Windows unset roundtrip s3u1' }}"
+    runs-on: windows-2025
+    timeout-minutes: 8
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse and qualify provider unset roundtrip on ephemeral CI only
+        id: native
+        continue-on-error: true
+        shell: powershell
+        run: |
+          $root=(Resolve-Path 'sstp-unset-s3u').Path
+          foreach ($file in Get-ChildItem $root -Filter '*.ps1') {
+            $tokens=$null;$errors=$null
+            $ast=[Management.Automation.Language.Parser]::ParseFile($file.FullName,[ref]$tokens,[ref]$errors)
+            if ($errors.Count -gt 0) {
+              $e=[ordered]@{file=$file.Name;error_ids=@($errors | ForEach-Object { $_.ErrorId });lines=@($errors | ForEach-Object { $_.Extent.StartLineNumber })}
+              [IO.File]::WriteAllText((Join-Path $root 'parse-error.json'),($e | ConvertTo-Json -Depth 6),(New-Object Text.UTF8Encoding($false)))
+              throw 's3_parse_error'
+            }
+            $text=[IO.File]::ReadAllText($file.FullName)
+            if ($text -match '(?i)advfirewall\s+(import|reset)|Remove-VpnConnection|Set-VpnConnection|rasdial|rasphone|Set-ExecutionPolicy|Stop-Process|CreateSubKey|DeleteSubKey|DeleteValue|SetValue|New-NetFirewallRule|Remove-NetFirewallRule|Set-NetFirewallRule') { throw 's3_forbidden_operation' }
+          }
+          $ps=Join-Path $env:SystemRoot 'System32/WindowsPowerShell/v1.0/powershell.exe'
+          & $ps -NoProfile -ExecutionPolicy Bypass -File (Join-Path $root 'Run-CI.ps1')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Write bounded receipt, never private journal or policy
+        if: always()
+        env:
+          NATIVE_OUTCOME: ${{ steps.native.outcome }}
+        run: python sstp-unset-s3u/validate_receipt.py
+      - name: Upload receipt only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: sstp-unset-s3u-receipt
+          path: sstp-unset-s3u/build-receipt.json
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: validate
+    if: always() && needs.validate.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: privacy-observation-20261018-a1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: sstp-unset-s3u-receipt
+          path: incoming
+      - name: Validate and publish receipt
+        run: |
+          set -euo pipefail
+          python sstp-unset-s3u/validate_receipt.py incoming/build-receipt.json reports/sstp-unset-s3u-build.json
+          git add -- reports/sstp-unset-s3u-build.json
+          git config user.name 'privacy-lab-report'
+          git config user.email 'privacy-lab-report@users.noreply.github.com'
+          git commit -m 'lab: publish S3U local unset qualification CI receipt'
+          git push origin HEAD:privacy-observation-20261018-a1
