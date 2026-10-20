@@ -1,0 +1,1 @@
+Historical overlay patch only, not a standalone runtime. Game attachment in 0.1.6–0.1.8 FAILED before hook_ready; zero events is NOT zero telemetry. Do not retry injection based only on this archived code. Frida/runtime binaries are omitted. For current qualified observation use the passive source snapshot and its stated limits.

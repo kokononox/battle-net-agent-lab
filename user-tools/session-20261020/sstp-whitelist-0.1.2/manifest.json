@@ -1,0 +1,28 @@
+{
+  "schema": "sstp-whitelist-app-manifest-1",
+  "version": "0.1.2",
+  "scope": "all_programs_all_RemoteAccess_interfaces_only",
+  "network_dns": "explicit_consent_windows_resolver_not_tunnel_pinned",
+  "image_equality_exception": "only exact string multiset permutation of address.RemoteAddress; all other fields strict",
+  "full_requested_protection_ready": false,
+  "files": {
+    "App-Core.ps1": "795183ebce33fa17abdce158826a499316b34981aeef37acc6d85affcbd8610e",
+    "ConfigCore.ps1": "f84a07d12863791935438fded1437d44237aeb173b07ceb7f97cddedda849e5c",
+    "Identity.ps1": "dd85d5b2c94c10569fb3d213857b66055124e50545bfe5ff11f972c5ef369d52",
+    "IdentityPolicy.ps1": "e65311433807a83f41b36f3e78a183b63fb5e719a1016afb61fe14fac5cd1fdf",
+    "Inventory.ps1": "44a96aa2176c4f5d02572219ad8b021573647bf24fad5b50f01f136b0a9391cb",
+    "Journal.ps1": "4862d8cdfc4376cf152f13c7151e9f0bd60a7b2eb6a6b67f9d872154970f4dd7",
+    "Local-QA.json": "95bc36c5af2ccc9cc586064abdba615f1e1239f00b48f55afd267b122200d02a",
+    "Overlay.ps1": "1495d10df3bbaf30256420f2dea5f86018f12a8b06fe33c6a802d6010c6a298a",
+    "Policy.ps1": "02b80744c9f755bd4a2417a4863fd118001058de90d5c08b5da17166770d7d05",
+    "README.fa.md": "7712a12d444a5d7767eb64d2e329fa4cc8903988dc41ba8a79e1563dd036c538",
+    "Ranges.ps1": "775d998b7d90c2c90d3cf41bfde9c9d25757d34063c05de9f4064dbc9d9ed9aa",
+    "RasIdentity.cs": "7ef16ae763ec52223f30986a375b32d3027a0e8b276c231bb17fbc39cd2de88e",
+    "Restore.cmd": "b9efa5434bed9a78d9f32d75c2c56ac554d5356ab25027c72b761567fa237758",
+    "Restore.ps1": "8d073e9c29d02ad153390697f4f142fb94e721f78ff6cc00c5dda059d17cb892",
+    "Start.cmd": "d297f330da8bf8857c1600a70621abfa44053734cb8cd91795d205580cf20c58",
+    "Start.ps1": "91a5bee41be5d90d8121d37c2aba5aa07b041c35502a51110ea1f253577ba384",
+    "Window.ps1": "e052ca6baea824995a0a185a8f1f9173dcc7c2bdb8f86a6c4ae16ab3c9c04ffe",
+    "seed.json": "01c3fe08e616be2a06769f52ebc99c9bb5c8c899383a44dcd690f875dbebc26f"
+  }
+}

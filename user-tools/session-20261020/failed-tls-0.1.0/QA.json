@@ -1,0 +1,51 @@
+{
+  "version": "0.1.0",
+  "scope": "selected executable basename; multiple destination hosts",
+  "unit_mock_tests_passed": 35,
+  "powershell_parser_passed": [
+    "Start.ps1",
+    "Cleanup.ps1",
+    "Restore-All.ps1"
+  ],
+  "powershell_parser_version": "7.4.7; Windows PowerShell 5.1 runtime not tested",
+  "native_windows_or_game_validation": false,
+  "linux_bootstrap": {
+    "addon_ready": true,
+    "ca_created": true,
+    "exit_code": 0,
+    "outbound_target_requests_sent": false
+  },
+  "owned_loopback_multi_destination_tls": {
+    "network_scope": "owned loopback fixture only",
+    "native_windows_or_game_tested": false,
+    "https_fixture_response_status": 200,
+    "second_destination_status": 200,
+    "proxy_exit_code": 0,
+    "client_tls_established_count": 2,
+    "request_count": 2,
+    "field_name_hints": [
+      "bios_version",
+      "cpu_model"
+    ],
+    "private_values_absent_from_shared_report": true,
+    "outbound_body_forwarded_unchanged": true,
+    "reported_domains": [
+      "oauth.battle.net",
+      "wow.ingest.gdp.blizzard.com"
+    ],
+    "destination_metadata_count": 6,
+    "private_sample_local_only": true
+  },
+  "upstream": {
+    "url": "https://downloads.mitmproxy.org/12.2.3/mitmproxy-12.2.3-windows-x86_64.zip",
+    "archive_sha256": "04a01ea95ae96df75058a893e774957d294e69012dab1f4e256ce2b0c6725483",
+    "archive_digest_matches_published_dsse_subject": true,
+    "sigstore_full_crypto_verification_performed": false,
+    "mitmdump_sha256": "36a45aadeb842185b8064b8f0be3730e079c9f9c125bc8be22363332969857bf"
+  },
+  "documentation": [
+    "https://docs.mitmproxy.org/stable/concepts/modes/",
+    "https://docs.mitmproxy.org/stable/concepts/certificates/",
+    "https://docs.mitmproxy.org/stable/concepts/options/"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "version": "0.1.8-manual-stable-login-trigger",
+  "python_content_tests_passed": 22,
+  "python_regression_tests_passed": 28,
+  "js_inherited_and_domain_parser_mock_checks_passed": 40,
+  "syntax_check": "passed",
+  "native_windows_qualification_completed_by_builder": false,
+  "native_dns_hook_positive_control_completed": false,
+  "native_sspi_positive_control_completed": false,
+  "runtime_selftest": "owned loopback HTTP/hardware marker + synthetic ClientHello, required before target attach",
+  "signature_policy": "valid WinVerifyTrust and Blizzard publisher required, no bypass",
+  "only_download_or_zero_telemetry_proven": false,
+  "coverage": "bounded outgoing HTTP/1 + SSPI inputs, literal hardware matches in Winsock prefixes, process name-lookup calls and complete ClientHello SNI",
+  "not_covered": [
+    "all TLS libraries",
+    "general proprietary protocol decryption",
+    "UDP/QUIC",
+    "HTTP/2",
+    "first pre-attach requests",
+    "unobserved helpers"
+  ],
+  "attachment_diagnostic_tests_passed": 4,
+  "native_target_attachment_fixed_or_cause_proven": false,
+  "manual_trigger_source_flow_tests_passed": 6,
+  "capture_start_mode": "manual_after_stable_login_screen",
+  "initial_launch_traffic_covered": false
+}
