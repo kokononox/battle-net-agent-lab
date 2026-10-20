@@ -1,0 +1,26 @@
+{
+  "schema": "sanitized-control-fixture-failure-03",
+  "previous_version": "0.1.2",
+  "previous_status": "debugger_control_failed_game_not_launched",
+  "previous_control_exit_hex": "0xC000013A",
+  "previous_observations": {
+    "api_control_marker": true,
+    "int3_dispatch_marker": true,
+    "fixture_completion_verified": false,
+    "game_launched": false
+  },
+  "root_cause_proven": false,
+  "next_package": "WoW-CDB-Control-0.1.3",
+  "next_scope": "Baseline and CDB runs of own fixture only. Fixed 64-byte phase record distinguishes handler entry, RIP category, own-context adjustment and post-call completion. No game branch.",
+  "qa": {
+    "version": "0.1.3",
+    "core_tests_passed": 27,
+    "synthetic_handler_tests_passed": 8,
+    "gui_and_fixture_cross_compile": "passed: C#5, .NET Framework 4.8 reference assemblies, x64",
+    "native_windows_cdb_veh_execution_tested": false,
+    "game_launched": false,
+    "scope": "Own control fixture only; no game launch, attach, memory/context modification, or payload capture. Synthetic tests are not native integration validation."
+  },
+  "runtime_validation": "pending user lab result",
+  "raw_user_logs_or_paths_included": false
+}
