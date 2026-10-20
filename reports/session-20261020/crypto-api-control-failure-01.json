@@ -1,0 +1,14 @@
+{
+  "source_version": "0.1.0",
+  "user_cdb_version": "10.0.26100.9457 AMD64",
+  "control_status": "debugger_control_failed_game_not_launched",
+  "startup_script_progress_confirmed": true,
+  "first_dll_load_callback_error": "Command file execution failed / Win32 2",
+  "control_exit_code": -1073741510,
+  "exact_root_cause_beyond_callback_failure_proven": false,
+  "game_crypto_or_payload_evidence": false,
+  "replacement_version": "0.1.1",
+  "change": "Eliminate DLL-load script reopening entirely; inline bootstrap commands and named deferred breakpoints; narrower explicit later-module coverage",
+  "replacement_windows_runtime_verified": false,
+  "raw_user_log_or_private_paths_synced": false
+}

@@ -1,0 +1,24 @@
+{
+  "version": "0.1.1",
+  "core_tests_passed": 25,
+  "ui_and_control_cross_compile_passed": true,
+  "language": "C#5",
+  "reference_framework": ".NET Framework 4.8",
+  "platform": "x64",
+  "native_windows_runtime_tested": false,
+  "actual_cdb_script_execution_tested_by_developer": false,
+  "dll_load_external_script_callback_removed": true,
+  "control_script_contains_no_ssl_scan": true,
+  "uses_deferred_named_ssl_breakpoints_and_initial_scan": true,
+  "all_crypto_paths_covered": false,
+  "real_game_api_hits_observed": false,
+  "raw_logs_or_game_binary_shipped": false,
+  "previous_failure_confirmed": {
+    "cdb_amd64_started": true,
+    "startup_script_reached": true,
+    "dll_load_callback_reported_win32_error": 2,
+    "control_passed": false,
+    "game_launched_by_probe": false
+  },
+  "important_limit": "Structural regression tests and cross-compile only; not proof of fixed Windows runtime."
+}
