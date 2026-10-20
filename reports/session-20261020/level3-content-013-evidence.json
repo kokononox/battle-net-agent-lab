@@ -1,0 +1,93 @@
+{
+  "provenance": {
+    "file": "content-result-1792482477631772700.json",
+    "file_uri": "session-file://5e9b2503-8de1-454f-97ad-615f15882c04",
+    "scope": "captured signed Blizzard process inputs during one user-controlled run; not all processes/interfaces",
+    "raw_profiler_note": "nested report is not a rectangular dataframe; request rows normalized without dropping any requests",
+    "profile_warning_resolution": "17 repeated redacted metadata projections are not duplicate capture events; raw paths and Range values were intentionally omitted, so all 19 requests retained. Constant fields describe this bounded uniform sample, not data-cleaning errors."
+  },
+  "status": "observation_ended",
+  "error_code": null,
+  "native_loopback_selftest_passed": true,
+  "request_count": 19,
+  "all_get": true,
+  "all_tpr": true,
+  "all_target_host": true,
+  "all_direct_bound_allowed": true,
+  "all_bodies_complete_empty": true,
+  "query_count": 0,
+  "credential_header_count": 0,
+  "hardware_literal_count": 0,
+  "known_field_hint_count": 0,
+  "header_name_sets": [
+    [
+      "accept",
+      "host",
+      "range"
+    ]
+  ],
+  "unknown_header_count": 0,
+  "public_request_peers": [
+    {
+      "ip": "2.21.244.146",
+      "port": 80,
+      "requests": 10
+    },
+    {
+      "ip": "2.21.72.210",
+      "port": 80,
+      "requests": 9
+    }
+  ],
+  "public_counter_peers": [
+    [
+      "2.21.244.146",
+      80
+    ],
+    [
+      "2.21.72.210",
+      80
+    ]
+  ],
+  "winsock_calls_by_peer_class": {
+    "loopback": 2312,
+    "public": 19
+  },
+  "locally_accepted_bytes_by_peer_class": {
+    "loopback": 472317,
+    "public": 2681
+  },
+  "acceptance_unknown_calls_by_peer_class": {
+    "loopback": 0,
+    "public": 0
+  },
+  "unbound_counter_groups": [],
+  "stream_parse_status_counts": {
+    "invalid_or_unsupported_host": 254,
+    "parsed_to_end": 7
+  },
+  "all_api_input_gaps_false": true,
+  "sampler_errors": 2,
+  "buffer_limit_hit": false,
+  "all_runtime_limit_flags_false": true,
+  "state_unchanged_at_endpoints": true,
+  "policy_unchanged_at_endpoints": true,
+  "hardware_reference_categories": [
+    "bios_release_date",
+    "bios_version",
+    "board_model",
+    "cpu_model",
+    "system_model"
+  ],
+  "user_final_state": "reported_paused",
+  "comparison_plan": [
+    {
+      "grain": "captured request",
+      "population": "nineteen reconstructed HTTP1 requests",
+      "unit": "requests",
+      "finding": "same target and zero known sensitive markers",
+      "disposition": "prose",
+      "reason": "single bounded diagnostic finding, no meaningful quantitative shape or temporal comparison; no chart needed"
+    }
+  ]
+}

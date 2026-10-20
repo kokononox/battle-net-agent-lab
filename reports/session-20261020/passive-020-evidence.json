@@ -1,0 +1,256 @@
+{
+  "source_attachment": "d61e7b08-489d-496f-b4a8-c458aa51f0cc",
+  "sha256": "77cf14e2ef375debab3563dce1c5d5ce927655154d6bab308284cb49d8c9db0d",
+  "status": "observation_ended",
+  "error_code": null,
+  "capture": {
+    "end_reason": "time_limit",
+    "duration_seconds": 60.77,
+    "owned_capture_stop_verified": true,
+    "raw_file_count": 2,
+    "packet_logging_loss_counters": [
+      {
+        "events_lost_before_stop": 0,
+        "log_buffers_lost_before_stop": 0
+      }
+    ],
+    "existing_filters_not_modified_or_certified": true,
+    "nic_capture_vpn_inner_visibility_not_certified": true,
+    "raw_files_kept_local": true,
+    "parse_files": [
+      {
+        "file_index": 1,
+        "status": "parsed"
+      },
+      {
+        "file_index": 2,
+        "status": "parsed"
+      }
+    ]
+  },
+  "sampling": {
+    "processes": [
+      {
+        "index": 1,
+        "pid": 6940,
+        "name": "wow.exe",
+        "role": "selected_exe",
+        "parent_index": null
+      },
+      {
+        "index": 2,
+        "pid": 6240,
+        "name": "agent.exe",
+        "role": "observed_descendant",
+        "parent_index": 1
+      },
+      {
+        "index": 3,
+        "pid": 2748,
+        "name": "agent.exe",
+        "role": "observed_descendant",
+        "parent_index": 2
+      },
+      {
+        "index": 4,
+        "pid": 1016,
+        "name": "conhost.exe",
+        "role": "observed_descendant",
+        "parent_index": 3
+      },
+      {
+        "index": 5,
+        "pid": 7624,
+        "name": "agent.exe",
+        "role": "observed_descendant",
+        "parent_index": 1
+      }
+    ],
+    "sampler_errors": 1,
+    "identity_read_errors": 0,
+    "limits_hit": false,
+    "sampled_tcp_tuple_count": 53,
+    "sampling_thread_stopped": true,
+    "failure": null,
+    "udp_process_attribution_available": false
+  },
+  "analysis_limits": [
+    "stream_prefix_limit_or_overlap_conflict"
+  ],
+  "parse_errors": {},
+  "flow_count": 12,
+  "flow_process_indices": [
+    1
+  ],
+  "visible_sni_domains": [
+    "breaking-news.support.blizzard.com",
+    "eu.account.battle.net",
+    "oauth.battle.net",
+    "prod.depot.battle.net",
+    "wow.ingest.gdp.blizzard.com"
+  ],
+  "plaintext_requests": [
+    {
+      "method": "GET",
+      "host": "level3.blizzard.com",
+      "path_hint": "/tpr/...",
+      "query_present": false,
+      "body_complete": true,
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_format_hint": "http_headers_only",
+      "known_field_name_hints": [],
+      "hardware_literal_categories": [],
+      "credential_header_present": false
+    },
+    {
+      "method": "GET",
+      "host": "level3.blizzard.com",
+      "path_hint": "/tpr/...",
+      "query_present": false,
+      "body_complete": true,
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_format_hint": "http_headers_only",
+      "known_field_name_hints": [],
+      "hardware_literal_categories": [],
+      "credential_header_present": false
+    }
+  ],
+  "connections": [
+    {
+      "ip": "2.21.23.92",
+      "port": 80,
+      "process_index": 1,
+      "sni": null,
+      "http_host": "level3.blizzard.com",
+      "dns_candidates_not_proof": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com"
+      ]
+    },
+    {
+      "ip": "2.21.23.7",
+      "port": 80,
+      "process_index": 1,
+      "sni": null,
+      "http_host": "level3.blizzard.com",
+      "dns_candidates_not_proof": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com"
+      ]
+    },
+    {
+      "ip": "34.110.236.123",
+      "port": 443,
+      "process_index": 1,
+      "sni": "breaking-news.support.blizzard.com",
+      "http_host": null,
+      "dns_candidates_not_proof": [
+        "breaking-news.support.blizzard.com"
+      ]
+    },
+    {
+      "ip": "34.147.98.69",
+      "port": 1119,
+      "process_index": 1,
+      "sni": null,
+      "http_host": null,
+      "dns_candidates_not_proof": [
+        "eu.actual.battle.net"
+      ]
+    },
+    {
+      "ip": "3.72.198.61",
+      "port": 443,
+      "process_index": 1,
+      "sni": "eu.account.battle.net",
+      "http_host": null,
+      "dns_candidates_not_proof": [
+        "eu.account.battle.net"
+      ]
+    },
+    {
+      "ip": "37.244.29.11",
+      "port": 3724,
+      "process_index": 1,
+      "sni": null,
+      "http_host": null,
+      "dns_candidates_not_proof": []
+    },
+    {
+      "ip": "35.201.91.89",
+      "port": 443,
+      "process_index": 1,
+      "sni": "wow.ingest.gdp.blizzard.com",
+      "http_host": null,
+      "dns_candidates_not_proof": [
+        "wow.ingest.gdp.blizzard.com"
+      ]
+    },
+    {
+      "ip": "35.201.91.89",
+      "port": 443,
+      "process_index": 1,
+      "sni": "wow.ingest.gdp.blizzard.com",
+      "http_host": null,
+      "dns_candidates_not_proof": [
+        "wow.ingest.gdp.blizzard.com"
+      ]
+    },
+    {
+      "ip": "34.117.122.6",
+      "port": 443,
+      "process_index": 1,
+      "sni": "prod.depot.battle.net",
+      "http_host": null,
+      "dns_candidates_not_proof": [
+        "prod.depot.battle.net"
+      ]
+    },
+    {
+      "ip": "3.75.62.211",
+      "port": 443,
+      "process_index": 1,
+      "sni": "oauth.battle.net",
+      "http_host": null,
+      "dns_candidates_not_proof": [
+        "oauth.battle.net"
+      ]
+    },
+    {
+      "ip": "35.201.91.89",
+      "port": 443,
+      "process_index": 1,
+      "sni": "wow.ingest.gdp.blizzard.com",
+      "http_host": null,
+      "dns_candidates_not_proof": [
+        "wow.ingest.gdp.blizzard.com"
+      ]
+    },
+    {
+      "ip": "35.201.91.89",
+      "port": 443,
+      "process_index": 1,
+      "sni": null,
+      "http_host": null,
+      "dns_candidates_not_proof": [
+        "wow.ingest.gdp.blizzard.com"
+      ]
+    }
+  ],
+  "interpretation": {
+    "ingest_name_suggests_telemetry_but_payload_not_read": true,
+    "actual_battle_net_dns_candidate_only": true,
+    "no_global_no_hardware_claim": true
+  },
+  "comparison_plan": [
+    {
+      "grain": "connection domain identification",
+      "unit": "categorical evidence",
+      "disposition": "table",
+      "reason": "Not a numeric comparison; maps visible names to endpoints and confidence."
+    }
+  ],
+  "profiler_warning_resolution": "Input is one nested diagnostic object, not a row table. Flattened duplicate/null/constant fields and rate hint are artifacts; use native nested flow/request arrays without dropping rows."
+}

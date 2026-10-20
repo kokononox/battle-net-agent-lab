@@ -1,0 +1,435 @@
+{
+  "file": "BlizzardError.exe",
+  "size": 796296,
+  "sha256": "f4c18bdce30be63b9f523ca5a1f38aef68fcd68bb959f10b68c0172186c1bc46",
+  "machine": "0x14c",
+  "image_base": "0x400000",
+  "entry_rva": "0x655e7",
+  "managed_clr_directory_present": false,
+  "version": {
+    "CompanyName": "Blizzard Entertainment, Inc.",
+    "FileDescription": "BlizzardError",
+    "FileVersion": "2.4.2.0",
+    "InternalName": "BlizzardError",
+    "LegalCopyright": "© 2011-2019 Blizzard Entertainment, Inc.",
+    "OriginalFilename": "BlizzardError.exe",
+    "ProductName": "BlizzardError",
+    "ProductVersion": "Version 2.4.2.0"
+  },
+  "sections": [
+    {
+      "name": ".text",
+      "rva": "0x1000",
+      "virtual_size": 590311,
+      "raw_size": 590336,
+      "entropy": 6.58,
+      "executable": true,
+      "writable": false
+    },
+    {
+      "name": ".rdata",
+      "rva": "0x92000",
+      "virtual_size": 132394,
+      "raw_size": 132608,
+      "entropy": 5.861,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".data",
+      "rva": "0xb3000",
+      "virtual_size": 1593612,
+      "raw_size": 5632,
+      "entropy": 3.633,
+      "executable": false,
+      "writable": true
+    },
+    {
+      "name": ".rsrc",
+      "rva": "0x239000",
+      "virtual_size": 31688,
+      "raw_size": 31744,
+      "entropy": 4.506,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".reloc",
+      "rva": "0x241000",
+      "virtual_size": 24432,
+      "raw_size": 24576,
+      "entropy": 6.67,
+      "executable": false,
+      "writable": false
+    }
+  ],
+  "certificate_table_bytes": 10376,
+  "certificate_present_is_not_trust_verification": true,
+  "exports": [],
+  "imports": [
+    {
+      "dll": "COMCTL32.dll",
+      "delayed": false,
+      "symbols": [
+        "ImageList_ReplaceIcon",
+        "ImageList_Create",
+        "InitCommonControlsEx"
+      ]
+    },
+    {
+      "dll": "WINHTTP.dll",
+      "delayed": false,
+      "symbols": [
+        "WinHttpCloseHandle",
+        "WinHttpGetDefaultProxyConfiguration",
+        "WinHttpGetProxyForUrl",
+        "WinHttpGetIEProxyConfigForCurrentUser",
+        "WinHttpOpen"
+      ]
+    },
+    {
+      "dll": "RPCRT4.dll",
+      "delayed": false,
+      "symbols": [
+        "RpcStringFreeA",
+        "UuidCreate",
+        "UuidToStringA"
+      ]
+    },
+    {
+      "dll": "credui.dll",
+      "delayed": false,
+      "symbols": [
+        "CredUIPromptForCredentialsW"
+      ]
+    },
+    {
+      "dll": "KERNEL32.dll",
+      "delayed": false,
+      "symbols": [
+        "lstrcmpW",
+        "GetNativeSystemInfo",
+        "FreeLibrary",
+        "LoadLibraryW",
+        "WideCharToMultiByte",
+        "FindResourceExW",
+        "LoadResource",
+        "LockResource",
+        "EnumResourceLanguagesW",
+        "GetUserDefaultUILanguage",
+        "GlobalFree",
+        "GetCurrentProcess",
+        "GetVersion",
+        "MultiByteToWideChar",
+        "FindClose",
+        "FindFirstFileW",
+        "OutputDebugStringA",
+        "CloseHandle",
+        "CreateProcessW",
+        "GetModuleFileNameW",
+        "GetModuleHandleA",
+        "GlobalMemoryStatus",
+        "SystemTimeToTzSpecificLocalTime",
+        "FileTimeToSystemTime",
+        "GetCommandLineW",
+        "FindResourceW",
+        "WriteConsoleW",
+        "SetEndOfFile",
+        "SetEnvironmentVariableW",
+        "FreeEnvironmentStringsW",
+        "GetEnvironmentStringsW",
+        "GetCommandLineA",
+        "GetOEMCP",
+        "GetACP",
+        "IsValidCodePage",
+        "FindNextFileW",
+        "FindFirstFileExW",
+        "SetStdHandle",
+        "GetFullPathNameW",
+        "GetCurrentDirectoryW",
+        "GetTimeZoneInformation",
+        "GetFileSizeEx",
+        "FlushFileBuffers",
+        "EnumSystemLocalesW",
+        "GetUserDefaultLCID",
+        "IsValidLocale",
+        "GetLocaleInfoW",
+        "LCMapStringW",
+        "CompareStringW",
+        "GetProcAddress",
+        "GetConsoleOutputCP",
+        "ReadConsoleW",
+        "GetConsoleMode",
+        "WriteFile",
+        "GetModuleHandleW",
+        "DeleteCriticalSection",
+        "GetProcessHeap",
+        "HeapSize",
+        "HeapFree",
+        "HeapReAlloc",
+        "HeapAlloc",
+        "GetLastError",
+        "RaiseException",
+        "GetStdHandle",
+        "ExitProcess",
+        "SetFilePointerEx",
+        "PeekNamedPipe",
+        "GetFileType",
+        "GetFileInformationByHandle",
+        "GetDriveTypeW",
+        "CreateFileW",
+        "GetModuleHandleExW",
+        "FreeLibraryAndExitThread",
+        "ExitThread",
+        "CreateThread",
+        "ReadFile",
+        "LoadLibraryExW",
+        "TlsFree",
+        "TlsSetValue",
+        "TlsGetValue",
+        "TlsAlloc",
+        "RtlUnwind",
+        "OutputDebugStringW",
+        "InitializeSListHead",
+        "GetCurrentProcessId",
+        "GetStartupInfoW",
+        "IsDebuggerPresent",
+        "IsProcessorFeaturePresent",
+        "TerminateProcess",
+        "SetUnhandledExceptionFilter",
+        "UnhandledExceptionFilter",
+        "CreateEventW",
+        "ResetEvent",
+        "SetEvent",
+        "GetCPInfo",
+        "GetStringTypeW",
+        "InitializeCriticalSectionAndSpinCount",
+        "SetLastError",
+        "FormatMessageA",
+        "GetTickCount64",
+        "EnterCriticalSection",
+        "LeaveCriticalSection",
+        "InitializeCriticalSectionEx",
+        "Sleep",
+        "SleepEx",
+        "VerSetConditionMask",
+        "GetSystemDirectoryW",
+        "VerifyVersionInfoW",
+        "WaitForSingleObjectEx",
+        "ExpandEnvironmentStringsA",
+        "GetCurrentThreadId",
+        "QueryPerformanceCounter",
+        "LCMapStringEx",
+        "GetSystemTimeAsFileTime"
+      ]
+    },
+    {
+      "dll": "USER32.dll",
+      "delayed": false,
+      "symbols": [
+        "GetDlgItemTextW",
+        "CheckDlgButton",
+        "SendMessageW",
+        "SetDlgItemTextA",
+        "SetTimer",
+        "KillTimer",
+        "EnableWindow",
+        "GetSystemMetrics",
+        "SetDlgItemTextW",
+        "EndDialog",
+        "GetDlgItem",
+        "DialogBoxParamW",
+        "IsWindowVisible",
+        "SetWindowPos",
+        "MoveWindow",
+        "ShowWindow",
+        "SetFocus",
+        "CreateWindowExW",
+        "IsDlgButtonChecked",
+        "DrawTextW",
+        "SetForegroundWindow",
+        "SetWindowTextW",
+        "DestroyIcon",
+        "LoadIconW",
+        "SetWindowLongW",
+        "GetWindowLongW",
+        "ScreenToClient",
+        "MessageBoxW",
+        "GetWindowRect",
+        "GetClientRect",
+        "GetWindowTextW"
+      ]
+    },
+    {
+      "dll": "COMDLG32.dll",
+      "delayed": false,
+      "symbols": [
+        "GetOpenFileNameW"
+      ]
+    },
+    {
+      "dll": "ADVAPI32.dll",
+      "delayed": false,
+      "symbols": [
+        "CryptEncrypt",
+        "RegOpenKeyExW",
+        "RegQueryMultipleValuesW",
+        "CryptImportKey",
+        "CryptDestroyKey",
+        "CryptDestroyHash",
+        "CryptHashData",
+        "CryptCreateHash",
+        "CryptGetHashParam",
+        "CryptGenRandom",
+        "CryptReleaseContext",
+        "CryptAcquireContextW",
+        "RegCloseKey",
+        "CredReadW",
+        "GetUserNameW",
+        "RegSetValueExW",
+        "RegQueryValueExW",
+        "RegFlushKey",
+        "RegCreateKeyExW",
+        "CredDeleteW"
+      ]
+    },
+    {
+      "dll": "SHELL32.dll",
+      "delayed": false,
+      "symbols": [
+        "DragQueryFileW",
+        "ShellExecuteW",
+        "ExtractIconW",
+        "SHGetFileInfoW",
+        "SHGetDesktopFolder",
+        "CommandLineToArgvW",
+        "DragFinish"
+      ]
+    },
+    {
+      "dll": "WS2_32.dll",
+      "delayed": false,
+      "symbols": [
+        "send",
+        "WSAGetLastError",
+        "__WSAFDIsSet",
+        "select",
+        "WSASetLastError",
+        "bind",
+        "closesocket",
+        "connect",
+        "WSACleanup",
+        "getsockname",
+        "getsockopt",
+        "htons",
+        "ntohs",
+        "setsockopt",
+        "socket",
+        "WSAIoctl",
+        "getaddrinfo",
+        "freeaddrinfo",
+        "recv",
+        "WSAStartup",
+        "gethostbyname",
+        "ioctlsocket",
+        "getpeername"
+      ]
+    },
+    {
+      "dll": "CRYPT32.dll",
+      "delayed": false,
+      "symbols": [
+        "CertFreeCertificateContext"
+      ]
+    }
+  ],
+  "debug": [
+    {
+      "pdb_basename": "BlizzardError.pdb"
+    }
+  ],
+  "string_matches": {
+    "destination": [
+      {
+        "offset": "0x90b8c",
+        "rva": "0x9258c",
+        "encoding": "ascii",
+        "text": "https://jira.blizzard.com/"
+      },
+      {
+        "offset": "0x90ba8",
+        "rva": "0x925a8",
+        "encoding": "ascii",
+        "text": "https://api-jira.blizzard.com/rest/api/2/"
+      },
+      {
+        "offset": "0x91d60",
+        "rva": "0x93760",
+        "encoding": "ascii",
+        "text": "https://excp.blizzard.com/submit"
+      }
+    ],
+    "hardware": [
+      {
+        "offset": "0x90ea8",
+        "rva": "0x928a8",
+        "encoding": "ascii",
+        "text": "CPU.Vendor"
+      },
+      {
+        "offset": "0x90eb4",
+        "rva": "0x928b4",
+        "encoding": "ascii",
+        "text": "CPU.Brand"
+      },
+      {
+        "offset": "0x90ec8",
+        "rva": "0x928c8",
+        "encoding": "ascii",
+        "text": "CPU.Signature"
+      },
+      {
+        "offset": "0x90edc",
+        "rva": "0x928dc",
+        "encoding": "ascii",
+        "text": "CPU.LogicalProcessors"
+      },
+      {
+        "offset": "0x90ef4",
+        "rva": "0x928f4",
+        "encoding": "ascii",
+        "text": "CPU.ClockRate.Grouping"
+      },
+      {
+        "offset": "0x94090",
+        "rva": "0x95a90",
+        "encoding": "utf16le",
+        "text": "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0"
+      },
+      {
+        "offset": "0x94114",
+        "rva": "0x95b14",
+        "encoding": "utf16le",
+        "text": "ProcessorNameString"
+      }
+    ],
+    "telemetry": []
+  },
+  "string_match_total": {
+    "destination": 3,
+    "hardware": 7
+  },
+  "string_cap_per_category": 500,
+  "candidate_xref_count": 0,
+  "candidate_xrefs": [],
+  "candidate_xref_cap": 180,
+  "unwind_function_count": 0,
+  "executed": false,
+  "limitations": [
+    "String presence is not use or upload proof",
+    "RIP candidates are not validated control-flow or data-flow",
+    "Indirect/dynamic/encoded references can be missed",
+    "No original source reconstruction or complete decompilation",
+    "No online certificate trust validation"
+  ]
+}

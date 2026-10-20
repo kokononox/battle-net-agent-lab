@@ -1,0 +1,162 @@
+{
+  "source_attachment": "cc64c5ac-8211-4e94-9dd7-e75b45108351",
+  "sha256": "f2c044eba0ec2e1a114685ad04815e2aab9320036e74ce39230a2122f016a19b",
+  "capture": {
+    "end_reason": "time_limit",
+    "duration_seconds": 66.35,
+    "owned_capture_stop_verified": true,
+    "raw_file_count": 2,
+    "packet_logging_loss_counters": [
+      {
+        "events_lost_before_stop": 0,
+        "log_buffers_lost_before_stop": 0
+      }
+    ],
+    "existing_filters_not_modified_or_certified": true,
+    "nic_capture_vpn_inner_visibility_not_certified": true,
+    "raw_files_kept_local": true,
+    "parse_files": [
+      {
+        "file_index": 1,
+        "status": "parsed"
+      },
+      {
+        "file_index": 2,
+        "status": "parsed"
+      }
+    ]
+  },
+  "status": "observation_ended",
+  "sampler_errors": 0,
+  "identity_read_errors": 0,
+  "flow_count": 8,
+  "observed_flow_process_indices": [
+    1
+  ],
+  "visible_sni": [
+    "eu.account.battle.net",
+    "oauth.battle.net",
+    "prod.depot.battle.net"
+  ],
+  "connections": [
+    {
+      "ip": "2.21.23.77",
+      "port": 80,
+      "process_index": 1,
+      "http_host": "level3.blizzard.com",
+      "sni": null,
+      "dns_candidates_not_proof": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com",
+        "level3.ssl.blizzard.com"
+      ]
+    },
+    {
+      "ip": "2.21.23.7",
+      "port": 80,
+      "process_index": 1,
+      "http_host": "level3.blizzard.com",
+      "sni": null,
+      "dns_candidates_not_proof": [
+        "a1219.dscd.akamai.net",
+        "level3.blizzard.com"
+      ]
+    },
+    {
+      "ip": "34.147.74.225",
+      "port": 1119,
+      "process_index": 1,
+      "http_host": null,
+      "sni": null,
+      "dns_candidates_not_proof": [
+        "eu.actual.battle.net"
+      ]
+    },
+    {
+      "ip": "52.29.86.120",
+      "port": 443,
+      "process_index": 1,
+      "http_host": null,
+      "sni": "eu.account.battle.net",
+      "dns_candidates_not_proof": [
+        "eu.account.battle.net"
+      ]
+    },
+    {
+      "ip": "37.244.29.93",
+      "port": 3724,
+      "process_index": 1,
+      "http_host": null,
+      "sni": null,
+      "dns_candidates_not_proof": []
+    },
+    {
+      "ip": "34.117.122.6",
+      "port": 443,
+      "process_index": 1,
+      "http_host": null,
+      "sni": "prod.depot.battle.net",
+      "dns_candidates_not_proof": []
+    },
+    {
+      "ip": "3.125.189.135",
+      "port": 443,
+      "process_index": 1,
+      "http_host": null,
+      "sni": "oauth.battle.net",
+      "dns_candidates_not_proof": [
+        "oauth.battle.net"
+      ]
+    },
+    {
+      "ip": "66.40.180.165",
+      "port": 3724,
+      "process_index": 1,
+      "http_host": null,
+      "sni": null,
+      "dns_candidates_not_proof": []
+    }
+  ],
+  "plaintext_requests": [
+    {
+      "method": "GET",
+      "host": "level3.blizzard.com",
+      "path_hint": "/tpr/...",
+      "query_present": false,
+      "body_complete": true,
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_format_hint": "http_headers_only",
+      "known_field_name_hints": [],
+      "hardware_literal_categories": [],
+      "credential_header_present": false
+    },
+    {
+      "method": "GET",
+      "host": "level3.blizzard.com",
+      "path_hint": "/tpr/...",
+      "query_present": false,
+      "body_complete": true,
+      "body_declared_bytes": 0,
+      "body_observed_bytes": 0,
+      "body_format_hint": "http_headers_only",
+      "known_field_name_hints": [],
+      "hardware_literal_categories": [],
+      "credential_header_present": false
+    }
+  ],
+  "parse_errors": {},
+  "limits_hit": [
+    "stream_prefix_limit_or_overlap_conflict"
+  ],
+  "blocked_name_observed_in_flow_metadata": false,
+  "known_previous_ingest_ip_flow_seen": false,
+  "profiler_resolution": "A single nested diagnostic object. Flattening duplicates, mixed types/nulls, and additive-rate hints are not meaningful. Analyze nested arrays without dropping rows.",
+  "comparison_plan": [
+    {
+      "grain": "destination identities and evidence type",
+      "disposition": "table",
+      "reason": "Categorical mapping, not a numeric comparison or trend."
+    }
+  ]
+}

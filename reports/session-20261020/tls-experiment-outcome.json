@@ -1,0 +1,28 @@
+{
+  "schema": "tls-experiment-scoped-outcome-1",
+  "failed_game_test": {
+    "source_attachment": "3b58ff2b-7008-4411-974c-3af0959c2a9b",
+    "report_status": "stopped",
+    "error": "proxy_graceful_stop_timeout_cleanup_required",
+    "root_absence_verified_at_stop": false,
+    "tls_client_established_count": 3,
+    "tls_client_failed_count": 0,
+    "tls_server_failed_count": 0,
+    "visible_http_requests": 2,
+    "game_login_failed": "user reported",
+    "exact_login_failure_cause_proven": false,
+    "input_sha256": "dd4c1c3bbf0f6505069e8b376316bbc572f1aff6679aeb78844a0751b10a0176"
+  },
+  "independent_recovery": {
+    "source_attachment": "2cfc5ee4-6430-4d08-a315-603e27a52d97",
+    "status": "owned_certificate_cleanup_checked",
+    "root_absence_verified": true,
+    "certificate_removed": false,
+    "error": null,
+    "proxy_result": "no_matching_owned_proxy_found_not_a_global_absence_proof",
+    "user_reported_game_error_resolved": true,
+    "input_sha256": "aea28d4f3eafba805d96bd4f205febd484f7cc1e463520ec7d02f8e992bab04b"
+  },
+  "not_a_blanket_TLS_or_root_store_audit": true,
+  "raw_report_synced": false
+}

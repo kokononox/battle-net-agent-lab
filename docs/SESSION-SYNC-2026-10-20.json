@@ -1,0 +1,625 @@
+{
+  "schema": "session-network-static-sync-1",
+  "as_of_utc": "2026-10-20T17:59:37.137471+00:00",
+  "repository": "kokononox/battle-net-agent-lab",
+  "branch": "main",
+  "base_read_commit": "ce03fb2361adf24c6b3fd73979aad26fc8eb4adf",
+  "scope": "Structured handoff and reviewed text artifacts, not every raw message/attachment",
+  "game_archive_metadata": "reports/wow-static-20261020/archive-identity.json",
+  "excluded": [
+    "raw transcripts",
+    "raw original diagnostic attachments",
+    "packet capture ETL/PCAPNG",
+    "TLS private keys/CA/run state",
+    "game executables/DLLs/data",
+    "Frida/mitmproxy/CPython binary runtimes",
+    "other research branch merge"
+  ],
+  "local_previously_delivered_artifacts": [
+    {
+      "name": "Sstp-Whitelist-0.1.2.zip",
+      "size": 39942,
+      "sha256": "1a6eea81e85c9a9d2cdeebeafcb551ad56e80921f75eebd22ec6ef92f761a2eb",
+      "binary_zip_uploaded_to_git": false,
+      "status": "historical delivered artifact; see scoped qualification in handoff"
+    },
+    {
+      "name": "Level3-Content-Check-0.1.8-Manual-Attach-Patch.zip",
+      "size": 50729,
+      "sha256": "cb84ad18930abae28e2767f5fdd50fc575f0d3bb9617c78ccd44b6f6c4ea7b8e",
+      "binary_zip_uploaded_to_git": false,
+      "status": "historical delivered artifact; see scoped qualification in handoff"
+    },
+    {
+      "name": "Game-Passive-Network-0.2.1-Full.zip",
+      "size": 10979240,
+      "sha256": "2e796ead7558607e0e4b2acc0fd24c551cf728c304aa625d2035d1f386a2bf19",
+      "binary_zip_uploaded_to_git": false,
+      "status": "historical delivered artifact; see scoped qualification in handoff"
+    },
+    {
+      "name": "Game-TLS-Inspector-0.1.0.zip",
+      "size": 26956798,
+      "sha256": "47146853747678066cb788be4f2e2c92a8a0c1b10625b3e39169b9359e7d7b2f",
+      "binary_zip_uploaded_to_git": false,
+      "status": "FAILED game login; historical only"
+    },
+    {
+      "name": "Game-TLS-Recovery-0.1.0.zip",
+      "size": 3897,
+      "sha256": "d234cf0cc1e9263e74d2dfd62b76412dca5c6e88fb029523618879ebaaf87533",
+      "binary_zip_uploaded_to_git": false,
+      "status": "historical delivered artifact; see scoped qualification in handoff"
+    }
+  ],
+  "files_excluding_this_manifest": [
+    {
+      "path": "README.md",
+      "bytes": 13182,
+      "sha256": "bbb1f840f12671b2f08a8932f0a5b48da469c57797c71e1d86d33d45bb5153cd"
+    },
+    {
+      "path": "analysis-tools/session-20261020/README.md",
+      "bytes": 286,
+      "sha256": "f1c821ea2cdb6a0f8f4344e4e853070c317fb42b7044719d6a6530e70983ad82"
+    },
+    {
+      "path": "analysis-tools/session-20261020/analyze_game_destinations_015.py",
+      "bytes": 2491,
+      "sha256": "54dcccb56b82316f1cc39b36266e7c504ba0126020f1e6f13b1850e69b847640"
+    },
+    {
+      "path": "analysis-tools/session-20261020/analyze_level3_content_013.py",
+      "bytes": 5418,
+      "sha256": "277cbf36f44107410e4af7b89d627852719442cad064e4dd65a83a4e94988066"
+    },
+    {
+      "path": "analysis-tools/session-20261020/analyze_passive_020.py",
+      "bytes": 2489,
+      "sha256": "378f7c9ca12726d96a4f82ca1b0ea69f5484547786977f2d032c409e259c7100"
+    },
+    {
+      "path": "analysis-tools/session-20261020/analyze_passive_021.py",
+      "bytes": 2570,
+      "sha256": "d02c7ced679d245adc9f2312afe5ea097fd34264dfd29ab701f9114b8727f272"
+    },
+    {
+      "path": "analysis-tools/wow-static-20261020/README.md",
+      "bytes": 1079,
+      "sha256": "c0a8df9d5e758b61f05fa3e8a62ad55b01db77cf518dc56a6c61b76acd7ccc68"
+    },
+    {
+      "path": "analysis-tools/wow-static-20261020/extract_telemetry_schema.py",
+      "bytes": 3056,
+      "sha256": "5bc1752c635b4872264973d5fbd6c1bbbf00939974a72a1c87626f06f5cffa0e"
+    },
+    {
+      "path": "analysis-tools/wow-static-20261020/requirements.txt",
+      "bytes": 51,
+      "sha256": "97354de63908d5bbbfb271d7d0f84f49fcca12cbe46e69b10a4531e207eab798"
+    },
+    {
+      "path": "analysis-tools/wow-static-20261020/static_inventory.py",
+      "bytes": 6864,
+      "sha256": "55642d37ed6a37d1504686aac088015271b3bf7eae65e76226080834e3cfb6c5"
+    },
+    {
+      "path": "analysis-tools/wow-static-20261020/test_schema.py",
+      "bytes": 1659,
+      "sha256": "d699902cd6035925033875fb74db6aa971a682d8c8f7388cabc9ac0dee763dfe"
+    },
+    {
+      "path": "docs/SESSION-HANDOFF.fa.md",
+      "bytes": 13458,
+      "sha256": "bcba7b1ea87932bb0d46c4d5d00673cc5a70d6b4e4063988eed4a930a8c0c2ab"
+    },
+    {
+      "path": "docs/SESSION-NETWORK-2026-10-20.fa.md",
+      "bytes": 14245,
+      "sha256": "3dd16ffbf3f49cb694617bd54dbdb5d6b776943ce03e5f869a6ed06cbe439e13"
+    },
+    {
+      "path": "docs/STATUS.fa.md",
+      "bytes": 84141,
+      "sha256": "8ea9a08ed6c8816f4765b4fca556de58a84a76731aa0030cabf33d271c4d77af"
+    },
+    {
+      "path": "docs/WOW-STATIC-2026-10-20.fa.md",
+      "bytes": 7456,
+      "sha256": "33d77f8cdd30fa0e4730fb4b099384b3020f316b52b9ba916d231d9b9d7d335a"
+    },
+    {
+      "path": "docs/current-state.json",
+      "bytes": 14654,
+      "sha256": "b8735e68e27eca2c11075c42e69eec36eac2563838948296fc1bcbd76e234000"
+    },
+    {
+      "path": "reports/session-20261020/game-destinations-015-evidence.json",
+      "bytes": 4680,
+      "sha256": "c74b42ee8e43dce0e5e6e2f8a29add1beeb9add95364a012cb8e845faebaf515"
+    },
+    {
+      "path": "reports/session-20261020/level3-content-013-evidence.json",
+      "bytes": 2635,
+      "sha256": "f0d01718f1796b4112bd3b2eac5911f5404480f0b69d2f40bc7d5559046ff99c"
+    },
+    {
+      "path": "reports/session-20261020/passive-020-evidence.json",
+      "bytes": 6380,
+      "sha256": "df46cad9a41eefcb99288c7c70335d759bf3173c3514f95a0e7687b1b29ae501"
+    },
+    {
+      "path": "reports/session-20261020/passive-021-evidence.json",
+      "bytes": 4137,
+      "sha256": "a3bec8e8040688c3e21e139fac650cd901567926187d9a6bd865e0f2eaed2cb4"
+    },
+    {
+      "path": "reports/session-20261020/sync-qa.json",
+      "bytes": 496,
+      "sha256": "eb1956a4c3880491f4ec517ec2e994d9cacd66d8855d8f0218e483a9fe399e56"
+    },
+    {
+      "path": "reports/session-20261020/tls-experiment-outcome.json",
+      "bytes": 1126,
+      "sha256": "f2eb5dec3e1b13110c61b5c8dd98e094320f53e6d31a9cd5dbac5ec09378e451"
+    },
+    {
+      "path": "reports/wow-static-20261020/BlizzardError.exe.json",
+      "bytes": 10419,
+      "sha256": "d941bc631a6695b6fdb62836adf6fa8ee853b81220b73fafc83f5aff2a02d899"
+    },
+    {
+      "path": "reports/wow-static-20261020/GFSDK_Aftermath_Lib.x64.dll.json",
+      "bytes": 36212,
+      "sha256": "257b8a07b507b22e31a713055328163066999b5ba7cbd590e5652fa2be7dcb82"
+    },
+    {
+      "path": "reports/wow-static-20261020/Wow.exe.json",
+      "bytes": 157954,
+      "sha256": "f8fc9309833811f34b600486de4318ec87d1fbcb6da979f1d22472bdd7d84b1b"
+    },
+    {
+      "path": "reports/wow-static-20261020/archive-identity.json",
+      "bytes": 1407,
+      "sha256": "c3daefaeadccca5e64dacb9eeb81446bfbf6d1c888aa0a7c0fbe761bb9d3b479"
+    },
+    {
+      "path": "reports/wow-static-20261020/archive-index.json",
+      "bytes": 871,
+      "sha256": "ec7c0b822a7cb2bd818799b58e39f7b2030ab5a68be2eadb09db8f768e283723"
+    },
+    {
+      "path": "reports/wow-static-20261020/libxell.dll.json",
+      "bytes": 71916,
+      "sha256": "dd0b493ee441db9d6c732f7398333704f2146ac896fd5337b7ac6331e5e7119c"
+    },
+    {
+      "path": "reports/wow-static-20261020/summary.json",
+      "bytes": 3144,
+      "sha256": "afe89f057dfe3e5879bb96ebcddbe8751195df609cdb7ba47825e6919672da85"
+    },
+    {
+      "path": "reports/wow-static-20261020/telemetry-descriptors.json",
+      "bytes": 217720,
+      "sha256": "77ae57ea4e4dfb241dcdfb5d19a6dd0e01a31e53937fdecb5782f853d2e0b64e"
+    },
+    {
+      "path": "reports/wow-static-20261020/wow_loader.dll.json",
+      "bytes": 16123,
+      "sha256": "2d00837b6a3082555ccedb9c368031d745fa301363fb6f898d4e31ebbd6e6b52"
+    },
+    {
+      "path": "user-tools/session-20261020/failed-tls-0.1.0/Cleanup.ps1",
+      "bytes": 4475,
+      "sha256": "f37153eca02922c275c15ea8db0268a6380be55da3dcf89881a137039990bd9d"
+    },
+    {
+      "path": "user-tools/session-20261020/failed-tls-0.1.0/DO-NOT-RUN.md",
+      "bytes": 769,
+      "sha256": "ed132c0c7cc7011acb59e5f07ea58f1d1c49124b1a037959715ed1e00a8cef43"
+    },
+    {
+      "path": "user-tools/session-20261020/failed-tls-0.1.0/MITMPROXY-LICENSE.txt",
+      "bytes": 1079,
+      "sha256": "cc4ab04ed7180af6c0ede7147f9ec2aa05212c088d7b3c8e38bbffe91c9c8f82"
+    },
+    {
+      "path": "user-tools/session-20261020/failed-tls-0.1.0/QA.json",
+      "bytes": 1762,
+      "sha256": "84e513e583df723c27724a64f92d36d55fa491af70377fc475963e8dbcd157c7"
+    },
+    {
+      "path": "user-tools/session-20261020/failed-tls-0.1.0/README.fa.txt",
+      "bytes": 9403,
+      "sha256": "01b3fbbbd65aa6e85208ae2e8a50bd7dcf01453f2007c4e084d4e859f6472b2a"
+    },
+    {
+      "path": "user-tools/session-20261020/failed-tls-0.1.0/Restore-All.cmd",
+      "bytes": 177,
+      "sha256": "c1844cc3078cdf829809006d82ee4f5944dfa84a0ea93d5213d4a3e93b04b6a5"
+    },
+    {
+      "path": "user-tools/session-20261020/failed-tls-0.1.0/Restore-All.ps1",
+      "bytes": 920,
+      "sha256": "99d90928035bcff5a6ff1d362c258208c3dc38087c8bd110ab2d5dd6ff07e292"
+    },
+    {
+      "path": "user-tools/session-20261020/failed-tls-0.1.0/SHA256.json",
+      "bytes": 968,
+      "sha256": "858c4418c8923a5578e5bb928e0a7104cdbb8e8816572caa4225b0db007b306b"
+    },
+    {
+      "path": "user-tools/session-20261020/failed-tls-0.1.0/Start.cmd",
+      "bytes": 171,
+      "sha256": "4c71cc28ff73d6c93c23c2cb54d41cf88fc72f04e9b2d9416201f9b145275fc7"
+    },
+    {
+      "path": "user-tools/session-20261020/failed-tls-0.1.0/Start.ps1",
+      "bytes": 11840,
+      "sha256": "b0e6a867b20c19be1b0de8761854fdad63729952cfccb5325ef6407dc4e08570"
+    },
+    {
+      "path": "user-tools/session-20261020/failed-tls-0.1.0/app/ingest_probe.py",
+      "bytes": 12472,
+      "sha256": "ebd36c4ad377b3236b08c8fe41cabda2ed726df6ceade7fb84b6bc1430658611"
+    },
+    {
+      "path": "user-tools/session-20261020/failed-tls-0.1.0/qa/test_probe.py",
+      "bytes": 7886,
+      "sha256": "5ee1394be8661c55ffa77a8ab497192935fb58cb632ce449915cf26c3fa81bcb"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.3/LOCAL-QA.json",
+      "bytes": 1188,
+      "sha256": "2e5ae91629d207e7aeb25647c880da1f33a377838939ab2029a7ab454d869cec"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.3/MANIFEST-SHA256.json",
+      "bytes": 7502,
+      "sha256": "6db74b0ef97448ea3d81fd1e56f6a0a57baa4f7bf400e7944dae460f0263e6a3"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.3/PATCH-README.fa.txt",
+      "bytes": 1622,
+      "sha256": "7a1ceaf468957a9464160350e3f442933f5593d6d567e8cad6905868afe66848"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.3/README.fa.md",
+      "bytes": 14978,
+      "sha256": "2cb78ad31aad0cd3c301ded57e9b6b3b27505dac1eec954d73618efced98fef2"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.3/SNAPSHOT-NOTICE.md",
+      "bytes": 333,
+      "sha256": "64d6dda7a986183617d5f96fbdbd968f79bd6dc17c59f07c6f56adcf4f6bc09e"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.3/app/main.py",
+      "bytes": 10484,
+      "sha256": "306384d88277a75d40c98c9dfe06e3b06d9800c47e19c908124f54a839c171dd"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.3/app/policy.py",
+      "bytes": 7600,
+      "sha256": "7f7b35702d6b98f670b90156dd95e014a29497dc25df7185e360401043798657"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.3/app/policy_read.ps1",
+      "bytes": 4243,
+      "sha256": "f2bd87c97ce91c8405ed4370159e4848d29d8574bb98a5f38100e06009efec50"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/GAME-CONTENT-QA.json",
+      "bytes": 1235,
+      "sha256": "9c9d6885e4d102a2e7a3ba1bf4f7fed99874478b779852bfe28a6dd83cd74de1"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/GAME-CONTENT-README.fa.txt",
+      "bytes": 8146,
+      "sha256": "3f5542ec288c0b5a276a8dc5d7dbaad7d2847828ede6906a7ff5b5f59c3f3096"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/LAUNCHER-QA.json",
+      "bytes": 509,
+      "sha256": "d6d6cd28cdaf98f312e2d682a347cb620a4d3f1f23164ec8f3d9e335802696e1"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/LAUNCHER-README.fa.txt",
+      "bytes": 4073,
+      "sha256": "429ed1650184e49f95b7b199bdeea6a0e348ee72897b4e748f445689f96dd2ab"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/LOCAL-QA.json",
+      "bytes": 1188,
+      "sha256": "2e5ae91629d207e7aeb25647c880da1f33a377838939ab2029a7ab454d869cec"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/MANIFEST-SHA256.json",
+      "bytes": 8448,
+      "sha256": "0976a070fc5961a515f04114913d19819c66493a779a55850bed0cd44f5b7da2"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/PATCH-README.fa.txt",
+      "bytes": 1622,
+      "sha256": "7a1ceaf468957a9464160350e3f442933f5593d6d567e8cad6905868afe66848"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/README.fa.md",
+      "bytes": 14978,
+      "sha256": "2cb78ad31aad0cd3c301ded57e9b6b3b27505dac1eec954d73618efced98fef2"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/SNAPSHOT-NOTICE.md",
+      "bytes": 333,
+      "sha256": "64d6dda7a986183617d5f96fbdbd968f79bd6dc17c59f07c6f56adcf4f6bc09e"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/Start-Game-Content.cmd",
+      "bytes": 173,
+      "sha256": "960c52fbaaa24439680092053af9d72c041ec94c39e01f69f26486f7493aeed6"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/Start-Launcher.cmd",
+      "bytes": 176,
+      "sha256": "bd06d93a75176d9625099b06bd35c328ede7b62a347dd84b0d82aad5d0276295"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/app/core.py",
+      "bytes": 15270,
+      "sha256": "895b955d512c2957a23b4273999fda16ba0f88bd09d4cd64b74ac24ad8c5376b"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/app/game_content.py",
+      "bytes": 18309,
+      "sha256": "132728201294a840ae15acb81d6e291f03e9a2b85b0b2204d2e7565f167e0a83"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/app/game_fixture.py",
+      "bytes": 1202,
+      "sha256": "688ab6bc0e9f2275f809d576eecd1494500912b2974487bb2772f84eb0dd1ce3"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/app/game_hook.js",
+      "bytes": 11055,
+      "sha256": "a9abdb7d1f711602d9cdf65705730ef4ab231567b33d8152ae2ad376859b2be4"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/app/launcher_destinations.py",
+      "bytes": 14062,
+      "sha256": "a7ff367b3117c2a73525675e8a8e7eeb83d98a0fba65829f10da3ae6045a1c31"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/app/main.py",
+      "bytes": 10484,
+      "sha256": "306384d88277a75d40c98c9dfe06e3b06d9800c47e19c908124f54a839c171dd"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/app/native_selftest.py",
+      "bytes": 2705,
+      "sha256": "3a5b68f4ea02148c58615e93c04aee31c942061ae66f1c99f14c15caf5822b38"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/app/policy.py",
+      "bytes": 7600,
+      "sha256": "7f7b35702d6b98f670b90156dd95e014a29497dc25df7185e360401043798657"
+    },
+    {
+      "path": "user-tools/session-20261020/historical-content-patch-0.1.8/app/policy_read.ps1",
+      "bytes": 4243,
+      "sha256": "f2bd87c97ce91c8405ed4370159e4848d29d8574bb98a5f38100e06009efec50"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/DEPENDENCY-RECEIPT.json",
+      "bytes": 332,
+      "sha256": "ba5c4287376071d0160d0a13037f497ffa685848798a4c437806daa02182763c"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/MANIFEST-SHA256.json",
+      "bytes": 4671,
+      "sha256": "273adda0b7cf0849a59602536774fa11020186b3f7ede9458628ca890fe19410"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/QA.json",
+      "bytes": 592,
+      "sha256": "d25d98fb7d39d103550c71fff400e65b84ad8807c4c62bfb6ef5f33d6109e4d2"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/README.fa.txt",
+      "bytes": 5688,
+      "sha256": "aa75d840658768382e74a9576e7b5e3bc038ff0c55698166455f180e555523f3"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/SOURCE-ONLY.md",
+      "bytes": 684,
+      "sha256": "ddd24c8a8b2be1596ff71a00c36efbfcfb9a5a1b00600a5b080e5449defb84ae"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/Start.cmd",
+      "bytes": 167,
+      "sha256": "3d3657ab25b9ff5cb4441b602f5c5c37aa70b5de42fa54eed311eaec63f0a57f"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/app/body_meta.py",
+      "bytes": 3576,
+      "sha256": "7d6e32782a8fe306d1ed1d8bcd3d70994299498be337051ead6a6b696e37680e"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/app/capture_platform.py",
+      "bytes": 6240,
+      "sha256": "5a6f6e8308cca36bfac442c3d36aafda91f3678d8081c9a1cace7cc2f39656b3"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/app/hardware.py",
+      "bytes": 1998,
+      "sha256": "559aaa60c258dd7133b380a1116d98c048be7b3a43e4cc09e7319b09a67d7fee"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/app/http_input.py",
+      "bytes": 5335,
+      "sha256": "5ca8669276026ae36526628cd7317c6bba360e1f95ade0c7dfe32e56189c81ba"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/app/launcher_destinations.py",
+      "bytes": 14070,
+      "sha256": "739b3cce48358846d5aaada0ad1938156bd2f844f23b3b303ad953a3a2bac397"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/app/native_tcp.py",
+      "bytes": 4659,
+      "sha256": "eff7c44413cf73d47bbd1e5489629da872f3b6fc671b6d1519534648a71feb70"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/app/passive_boot.py",
+      "bytes": 1012,
+      "sha256": "cd87af0e6fe71a680bd1fe71df6fa0687d3fa6191367872b1b41fccd104bd56d"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/app/passive_game.py",
+      "bytes": 9152,
+      "sha256": "547a2c22bdb08e51c6c3a648ad18c336dcc47402ab1ed9272682e822282fa2d8"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/app/passive_packets.py",
+      "bytes": 15765,
+      "sha256": "7d05968226ba840c7338d69da771fa2c389444db35c4c5378dbcb40c0635e7ff"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/app/passive_watchdog.py",
+      "bytes": 866,
+      "sha256": "a32e680e8b1446f7b8b25f3d69e99df1142d0b31297c6cbc76550f75356e8efe"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/app/safepaths.py",
+      "bytes": 462,
+      "sha256": "38dadfcd7d6826da01b5da6f7df890b856c37f9b85e65f632bd72cff8a54b12d"
+    },
+    {
+      "path": "user-tools/session-20261020/passive-0.2.1/qa/test_passive.py",
+      "bytes": 10018,
+      "sha256": "340fb1466e4cde73dfe7219976cb559271c09a24f02393975cd6921d5418c728"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/App-Core.ps1",
+      "bytes": 14622,
+      "sha256": "795183ebce33fa17abdce158826a499316b34981aeef37acc6d85affcbd8610e"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/CURRENT-LIMITS.fa.md",
+      "bytes": 1249,
+      "sha256": "d1ed6d11d32a92752034961f815a2386a79bf0c78f6100ce89f95b34f270e633"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/ConfigCore.ps1",
+      "bytes": 1172,
+      "sha256": "f84a07d12863791935438fded1437d44237aeb173b07ceb7f97cddedda849e5c"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/Identity.ps1",
+      "bytes": 7292,
+      "sha256": "dd85d5b2c94c10569fb3d213857b66055124e50545bfe5ff11f972c5ef369d52"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/IdentityPolicy.ps1",
+      "bytes": 2582,
+      "sha256": "e65311433807a83f41b36f3e78a183b63fb5e719a1016afb61fe14fac5cd1fdf"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/Inventory.ps1",
+      "bytes": 8088,
+      "sha256": "44a96aa2176c4f5d02572219ad8b021573647bf24fad5b50f01f136b0a9391cb"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/Journal.ps1",
+      "bytes": 6304,
+      "sha256": "4862d8cdfc4376cf152f13c7151e9f0bd60a7b2eb6a6b67f9d872154970f4dd7"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/Local-QA.json",
+      "bytes": 3702,
+      "sha256": "95bc36c5af2ccc9cc586064abdba615f1e1239f00b48f55afd267b122200d02a"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/Overlay.ps1",
+      "bytes": 17176,
+      "sha256": "1495d10df3bbaf30256420f2dea5f86018f12a8b06fe33c6a802d6010c6a298a"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/Policy.ps1",
+      "bytes": 3013,
+      "sha256": "02b80744c9f755bd4a2417a4863fd118001058de90d5c08b5da17166770d7d05"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/README.fa.md",
+      "bytes": 17586,
+      "sha256": "7712a12d444a5d7767eb64d2e329fa4cc8903988dc41ba8a79e1563dd036c538"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/Ranges.ps1",
+      "bytes": 6108,
+      "sha256": "775d998b7d90c2c90d3cf41bfde9c9d25757d34063c05de9f4064dbc9d9ed9aa"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/RasIdentity.cs",
+      "bytes": 7037,
+      "sha256": "7ef16ae763ec52223f30986a375b32d3027a0e8b276c231bb17fbc39cd2de88e"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/Restore.cmd",
+      "bytes": 377,
+      "sha256": "b9efa5434bed9a78d9f32d75c2c56ac554d5356ab25027c72b761567fa237758"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/Restore.ps1",
+      "bytes": 2472,
+      "sha256": "8d073e9c29d02ad153390697f4f142fb94e721f78ff6cc00c5dda059d17cb892"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/Start.cmd",
+      "bytes": 376,
+      "sha256": "d297f330da8bf8857c1600a70621abfa44053734cb8cd91795d205580cf20c58"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/Start.ps1",
+      "bytes": 3688,
+      "sha256": "91a5bee41be5d90d8121d37c2aba5aa07b041c35502a51110ea1f253577ba384"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/Window.ps1",
+      "bytes": 8551,
+      "sha256": "e052ca6baea824995a0a185a8f1f9173dcc7c2bdb8f86a6c4ae16ab3c9c04ffe"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/manifest.json",
+      "bytes": 1962,
+      "sha256": "54b2eadc348b1522aadb462547bbf1402bb56b81e3374f440a2e98b63a4a3270"
+    },
+    {
+      "path": "user-tools/session-20261020/sstp-whitelist-0.1.2/seed.json",
+      "bytes": 171,
+      "sha256": "01c3fe08e616be2a06769f52ebc99c9bb5c8c899383a44dcd690f875dbebc26f"
+    },
+    {
+      "path": "user-tools/session-20261020/tls-recovery-0.1.0/QA.json",
+      "bytes": 200,
+      "sha256": "cf1edbc180a37d94be2cc37500af40b6f2b9320492002153b8fd8284536d3d30"
+    },
+    {
+      "path": "user-tools/session-20261020/tls-recovery-0.1.0/README.fa.txt",
+      "bytes": 1520,
+      "sha256": "ab9e4a80105bd0950916d9fcbc81486c3b539c28be8fd46260b76163d3cb7af1"
+    },
+    {
+      "path": "user-tools/session-20261020/tls-recovery-0.1.0/Restore.cmd",
+      "bytes": 173,
+      "sha256": "5311d229bd4b005bc1d7597ff1f9617963263fe27b8a785e5a3de17250a0e5f4"
+    },
+    {
+      "path": "user-tools/session-20261020/tls-recovery-0.1.0/Restore.ps1",
+      "bytes": 6093,
+      "sha256": "3010a5ea3b0aa77e019514c0444bc8414212d6415232da407b62fe6eccfbe5d2"
+    }
+  ],
+  "file_count_excluding_this_manifest": 113,
+  "manifest_is_not_independent_signature": true,
+  "source_commit": "ac5015e946809df4c908e73cef6ea6323b7816e4"
+}

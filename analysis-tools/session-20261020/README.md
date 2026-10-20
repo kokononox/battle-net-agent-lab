@@ -1,0 +1,1 @@
+Preserved exact analysis scripts from this session. They currently reference /data/raw and /data/analysis and require the private original inputs (not committed). Derived sanitized evidence is in reports/session-20261020. Do not fabricate or replace private inputs with public results.

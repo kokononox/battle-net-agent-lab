@@ -1,0 +1,694 @@
+{
+  "file": "wow_loader.dll",
+  "size": 41250000,
+  "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "machine": "0x8664",
+  "image_base": "0x180000000",
+  "entry_rva": "0x2006630",
+  "managed_clr_directory_present": false,
+  "version": {},
+  "sections": [
+    {
+      "name": ".text",
+      "rva": "0x10000",
+      "virtual_size": 33735190,
+      "raw_size": 33735680,
+      "entropy": 7.168,
+      "executable": true,
+      "writable": false
+    },
+    {
+      "name": ".rdata",
+      "rva": "0x2040000",
+      "virtual_size": 528972,
+      "raw_size": 529408,
+      "entropy": 5.561,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".data",
+      "rva": "0x20d0000",
+      "virtual_size": 1139537,
+      "raw_size": 804864,
+      "entropy": 7.906,
+      "executable": false,
+      "writable": true
+    },
+    {
+      "name": ".pdata",
+      "rva": "0x21f0000",
+      "virtual_size": 72012,
+      "raw_size": 72192,
+      "entropy": 6.642,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".eidsig",
+      "rva": "0x2210000",
+      "virtual_size": 32,
+      "raw_size": 512,
+      "entropy": 0.638,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".gxfg",
+      "rva": "0x2220000",
+      "virtual_size": 10160,
+      "raw_size": 10240,
+      "entropy": 5.192,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".tls",
+      "rva": "0x2230000",
+      "virtual_size": 97,
+      "raw_size": 512,
+      "entropy": 0.02,
+      "executable": false,
+      "writable": true
+    },
+    {
+      "name": "_RDATA",
+      "rva": "0x2240000",
+      "virtual_size": 500,
+      "raw_size": 512,
+      "entropy": 4.448,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".rsrc",
+      "rva": "0x2250000",
+      "virtual_size": 664,
+      "raw_size": 1024,
+      "entropy": 3.936,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".reloc",
+      "rva": "0x2260000",
+      "virtual_size": 6304,
+      "raw_size": 6656,
+      "entropy": 5.391,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".eid",
+      "rva": "0x2270000",
+      "virtual_size": 6094848,
+      "raw_size": 6076928,
+      "entropy": 7.495,
+      "executable": false,
+      "writable": false
+    }
+  ],
+  "certificate_table_bytes": 10448,
+  "certificate_present_is_not_trust_verification": true,
+  "exports": [
+    {
+      "name": null,
+      "ordinal": 1,
+      "rva": "0x22eff0"
+    }
+  ],
+  "imports": [
+    {
+      "dll": "ADVAPI32.dll",
+      "delayed": false,
+      "symbols": [
+        "RegDeleteValueW"
+      ]
+    },
+    {
+      "dll": "WS2_32.dll",
+      "delayed": false,
+      "symbols": [
+        "WSASocketW"
+      ]
+    },
+    {
+      "dll": "COMCTL32.dll",
+      "delayed": false,
+      "symbols": [
+        "InitCommonControlsEx"
+      ]
+    },
+    {
+      "dll": "CRYPT32.dll",
+      "delayed": false,
+      "symbols": [
+        "CertGetNameStringA"
+      ]
+    },
+    {
+      "dll": "GDI32.dll",
+      "delayed": false,
+      "symbols": [
+        "DeleteObject"
+      ]
+    },
+    {
+      "dll": "IMM32.dll",
+      "delayed": false,
+      "symbols": [
+        "ImmReleaseContext"
+      ]
+    },
+    {
+      "dll": "KERNEL32.dll",
+      "delayed": false,
+      "symbols": [
+        "K32GetModuleFileNameExW"
+      ]
+    },
+    {
+      "dll": "ole32.dll",
+      "delayed": false,
+      "symbols": [
+        "CreateStreamOnHGlobal"
+      ]
+    },
+    {
+      "dll": "SHELL32.dll",
+      "delayed": false,
+      "symbols": [
+        "DragAcceptFiles"
+      ]
+    },
+    {
+      "dll": "USER32.dll",
+      "delayed": false,
+      "symbols": [
+        "DisplayConfigGetDeviceInfo"
+      ]
+    },
+    {
+      "dll": "WINMM.dll",
+      "delayed": false,
+      "symbols": [
+        "waveInGetDevCapsA"
+      ]
+    },
+    {
+      "dll": "ntdll.dll",
+      "delayed": false,
+      "symbols": [
+        "RtlIpv6AddressToStringExA"
+      ]
+    },
+    {
+      "dll": "IPHLPAPI.DLL",
+      "delayed": false,
+      "symbols": [
+        "GetAdaptersAddresses"
+      ]
+    },
+    {
+      "dll": "dwmapi.dll",
+      "delayed": false,
+      "symbols": [
+        "DwmSetWindowAttribute"
+      ]
+    },
+    {
+      "dll": "VERSION.dll",
+      "delayed": false,
+      "symbols": [
+        "GetFileVersionInfoSizeW"
+      ]
+    },
+    {
+      "dll": "api-ms-win-core-synch-l1-2-0.dll",
+      "delayed": false,
+      "symbols": [
+        "WakeByAddressSingle"
+      ]
+    },
+    {
+      "dll": "MSACM32.dll",
+      "delayed": false,
+      "symbols": [
+        "acmStreamPrepareHeader"
+      ]
+    },
+    {
+      "dll": "SETUPAPI.dll",
+      "delayed": false,
+      "symbols": [
+        "SetupDiGetDeviceRegistryPropertyA"
+      ]
+    },
+    {
+      "dll": "WINHTTP.dll",
+      "delayed": false,
+      "symbols": [
+        "WinHttpOpen"
+      ]
+    },
+    {
+      "dll": "ncrypt.dll",
+      "delayed": false,
+      "symbols": [
+        "NCryptFreeObject"
+      ]
+    },
+    {
+      "dll": "WINTRUST.dll",
+      "delayed": false,
+      "symbols": [
+        "WinVerifyTrust"
+      ]
+    },
+    {
+      "dll": "ntdll.dll",
+      "delayed": false,
+      "symbols": [
+        "LdrLockLoaderLock"
+      ]
+    },
+    {
+      "dll": "VERSION.dll",
+      "delayed": false,
+      "symbols": [
+        "GetFileVersionInfoA"
+      ]
+    },
+    {
+      "dll": "IPHLPAPI.DLL",
+      "delayed": false,
+      "symbols": [
+        "GetAdaptersInfo"
+      ]
+    },
+    {
+      "dll": "ADVAPI32.dll",
+      "delayed": false,
+      "symbols": [
+        "CryptAcquireContextA"
+      ]
+    },
+    {
+      "dll": "sfc.dll",
+      "delayed": false,
+      "symbols": [
+        "SfcIsFileProtected"
+      ]
+    },
+    {
+      "dll": "bcrypt.dll",
+      "delayed": false,
+      "symbols": [
+        "BCryptCloseAlgorithmProvider"
+      ]
+    },
+    {
+      "dll": "tbs.dll",
+      "delayed": false,
+      "symbols": [
+        "Tbsi_Context_Create"
+      ]
+    },
+    {
+      "dll": "KERNEL32.dll",
+      "delayed": false,
+      "symbols": [
+        "AcquireSRWLockExclusive"
+      ]
+    },
+    {
+      "dll": "USER32.dll",
+      "delayed": false,
+      "symbols": [
+        "EnumThreadWindows"
+      ]
+    },
+    {
+      "dll": "SHELL32.dll",
+      "delayed": false,
+      "symbols": [
+        "CommandLineToArgvW"
+      ]
+    },
+    {
+      "dll": "COMCTL32.dll",
+      "delayed": false,
+      "symbols": [
+        "#345"
+      ]
+    },
+    {
+      "dll": "WS2_32.dll",
+      "delayed": false,
+      "symbols": [
+        "WSACleanup"
+      ]
+    },
+    {
+      "dll": "ole32.dll",
+      "delayed": false,
+      "symbols": [
+        "CoTaskMemFree"
+      ]
+    },
+    {
+      "dll": "CRYPT32.dll",
+      "delayed": false,
+      "symbols": [
+        "CertAddCertificateContextToStore"
+      ]
+    },
+    {
+      "dll": "Secur32.dll",
+      "delayed": false,
+      "symbols": [
+        "InitSecurityInterfaceA"
+      ]
+    }
+  ],
+  "debug": [
+    {
+      "pdb_basename": "loader.pdb"
+    }
+  ],
+  "string_matches": {
+    "destination": [
+      {
+        "offset": "0x2087ad7",
+        "rva": "0x209b2d7",
+        "encoding": "ascii",
+        "text": "https://telemetry-in.battle.net/"
+      }
+    ],
+    "hardware": [],
+    "telemetry": [
+      {
+        "offset": "0x20826f7",
+        "rva": "0x2095ef7",
+        "encoding": "ascii",
+        "text": "Telemetry"
+      },
+      {
+        "offset": "0x2087ad7",
+        "rva": "0x209b2d7",
+        "encoding": "ascii",
+        "text": "https://telemetry-in.battle.net/"
+      },
+      {
+        "offset": "0x2087af8",
+        "rva": "0x209b2f8",
+        "encoding": "ascii",
+        "text": "telemetry-sdk-cpp/"
+      },
+      {
+        "offset": "0x20aff70",
+        "rva": "0x20d2370",
+        "encoding": "ascii",
+        "text": ".?AVSymmetraMessage@Eidolon@Risk@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b05b0",
+        "rva": "0x20d29b0",
+        "encoding": "ascii",
+        "text": ".?AVContext_HostInfo@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b05f0",
+        "rva": "0x20d29f0",
+        "encoding": "ascii",
+        "text": ".?AVContext_ProgramInfo_SdkInfo@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b0640",
+        "rva": "0x20d2a40",
+        "encoding": "ascii",
+        "text": ".?AVContext_ProgramInfo_VersionInfo@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b0690",
+        "rva": "0x20d2a90",
+        "encoding": "ascii",
+        "text": ".?AVContext_ProgramInfo@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b06d0",
+        "rva": "0x20d2ad0",
+        "encoding": "ascii",
+        "text": ".?AVContext_TraceInfo@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b0710",
+        "rva": "0x20d2b10",
+        "encoding": "ascii",
+        "text": ".?AVContext_LocationInfo@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b0750",
+        "rva": "0x20d2b50",
+        "encoding": "ascii",
+        "text": ".?AVContext@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b0790",
+        "rva": "0x20d2b90",
+        "encoding": "ascii",
+        "text": ".?AVIdentityContextExtensions_IdentityInfo@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b07e0",
+        "rva": "0x20d2be0",
+        "encoding": "ascii",
+        "text": ".?AVIdentityContextExtensions@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b0830",
+        "rva": "0x20d2c30",
+        "encoding": "ascii",
+        "text": ".?AVCrmContextExtensions_CrmInfo@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b0880",
+        "rva": "0x20d2c80",
+        "encoding": "ascii",
+        "text": ".?AVCrmContextExtensions@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b0b40",
+        "rva": "0x20d2f40",
+        "encoding": "ascii",
+        "text": ".?AVMetricSet_Metric@Metric@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b0b90",
+        "rva": "0x20d2f90",
+        "encoding": "ascii",
+        "text": ".?AVMetricSet_Tag@Metric@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b0be0",
+        "rva": "0x20d2fe0",
+        "encoding": "ascii",
+        "text": ".?AVMetricSet@Metric@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b1070",
+        "rva": "0x20d3470",
+        "encoding": "ascii",
+        "text": ".?AU?$_shared_ptr_emplace@VContext@Telemetry@Blizzard@@@blz@@"
+      },
+      {
+        "offset": "0x20b15c0",
+        "rva": "0x20d39c0",
+        "encoding": "ascii",
+        "text": ".?AU?$_shared_ptr_emplace@VEnvelope@Telemetry@Blizzard@@@blz@@"
+      },
+      {
+        "offset": "0x20b1610",
+        "rva": "0x20d3a10",
+        "encoding": "ascii",
+        "text": ".?AU?$_shared_ptr_emplace@VEnvelope_FlowInfo@Telemetry@Blizzard@@@blz@@"
+      },
+      {
+        "offset": "0x20b1670",
+        "rva": "0x20d3a70",
+        "encoding": "ascii",
+        "text": ".?AU?$_shared_ptr_emplace@$$CBVContext@Telemetry@Blizzard@@@blz@@"
+      },
+      {
+        "offset": "0x20b1eb0",
+        "rva": "0x20d42b0",
+        "encoding": "ascii",
+        "text": ".?AU?$_shared_ptr_emplace@VStart@Process@Standard@Telemetry@Blizzard@@@blz@@"
+      },
+      {
+        "offset": "0x20b1f10",
+        "rva": "0x20d4310",
+        "encoding": "ascii",
+        "text": ".?AU?$_shared_ptr_emplace@VFinish@Process@Standard@Telemetry@Blizzard@@@blz@@"
+      },
+      {
+        "offset": "0x20b2110",
+        "rva": "0x20d4510",
+        "encoding": "ascii",
+        "text": ".?AVEnvelope_FlowInfo@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b2150",
+        "rva": "0x20d4550",
+        "encoding": "ascii",
+        "text": ".?AVEnvelope@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b2800",
+        "rva": "0x20d4c00",
+        "encoding": "ascii",
+        "text": ".?AVCachedRule@FlowControl@Internal@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b2850",
+        "rva": "0x20d4c50",
+        "encoding": "ascii",
+        "text": ".?AVStart@Process@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b2890",
+        "rva": "0x20d4c90",
+        "encoding": "ascii",
+        "text": ".?AVFinish@Process@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b28e0",
+        "rva": "0x20d4ce0",
+        "encoding": "ascii",
+        "text": ".?AVInstall@Attribution@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b2930",
+        "rva": "0x20d4d30",
+        "encoding": "ascii",
+        "text": ".?AVPurchase_PaymentInfo@Attribution@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b2990",
+        "rva": "0x20d4d90",
+        "encoding": "ascii",
+        "text": ".?AVPurchase@Attribution@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b29e0",
+        "rva": "0x20d4de0",
+        "encoding": "ascii",
+        "text": ".?AVAlert@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b2a20",
+        "rva": "0x20d4e20",
+        "encoding": "ascii",
+        "text": ".?AVConnectSuccess@Network@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b2a70",
+        "rva": "0x20d4e70",
+        "encoding": "ascii",
+        "text": ".?AVConnectFail@Network@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b2ac0",
+        "rva": "0x20d4ec0",
+        "encoding": "ascii",
+        "text": ".?AVDisconnect@Network@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b2b10",
+        "rva": "0x20d4f10",
+        "encoding": "ascii",
+        "text": ".?AVTcpQualitySample_Metric@Network@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b2b70",
+        "rva": "0x20d4f70",
+        "encoding": "ascii",
+        "text": ".?AVTcpQualitySample@Network@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b2bc0",
+        "rva": "0x20d4fc0",
+        "encoding": "ascii",
+        "text": ".?AVUdpQualitySample_Metric@Network@Standard@Telemetry@Blizzard@@"
+      },
+      {
+        "offset": "0x20b2c60",
+        "rva": "0x20d5060",
+        "encoding": "ascii",
+        "text": ".?AVUdpQualitySample@Network@Standard@Telemetry@Blizzard@@"
+      }
+    ]
+  },
+  "string_match_total": {
+    "telemetry": 40,
+    "destination": 1
+  },
+  "string_cap_per_category": 500,
+  "candidate_xref_count": 4,
+  "candidate_xrefs": [
+    {
+      "instruction_rva": "0x12b4c68",
+      "instruction": "lea rbx, [rip + 0xde6689]",
+      "target_rva": "0x209b2f8",
+      "target_string": "telemetry-sdk-cpp/",
+      "target_import": null,
+      "containing_unwind_range": {
+        "begin_rva": "0x12b4bf0",
+        "end_rva": "0x12b8aea"
+      }
+    },
+    {
+      "instruction_rva": "0x1999694",
+      "instruction": "lea r9, [rip + 0x6fc85c]",
+      "target_rva": "0x2095ef7",
+      "target_string": "Telemetry",
+      "target_import": null,
+      "containing_unwind_range": {
+        "begin_rva": "0x19983d0",
+        "end_rva": "0x199f068"
+      }
+    },
+    {
+      "instruction_rva": "0x1b832fa",
+      "instruction": "lea rcx, [rip + 0x512bf6]",
+      "target_rva": "0x2095ef7",
+      "target_string": "Telemetry",
+      "target_import": null,
+      "containing_unwind_range": {
+        "begin_rva": "0x1b7dde0",
+        "end_rva": "0x1b84db7"
+      }
+    },
+    {
+      "instruction_rva": "0x1e90d87",
+      "instruction": "lea rcx, [rip + 0x20a549]",
+      "target_rva": "0x209b2d7",
+      "target_string": "https://telemetry-in.battle.net/",
+      "target_import": null,
+      "containing_unwind_range": {
+        "begin_rva": "0x1e852b0",
+        "end_rva": "0x1e91384"
+      }
+    }
+  ],
+  "candidate_xref_cap": 180,
+  "unwind_function_count": 6001,
+  "executed": false,
+  "limitations": [
+    "String presence is not use or upload proof",
+    "RIP candidates are not validated control-flow or data-flow",
+    "Indirect/dynamic/encoded references can be missed",
+    "No original source reconstruction or complete decompilation",
+    "No online certificate trust validation"
+  ]
+}

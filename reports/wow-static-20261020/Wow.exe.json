@@ -1,0 +1,5172 @@
+{
+  "file": "Wow.exe",
+  "size": 80834256,
+  "sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "machine": "0x8664",
+  "image_base": "0x140000000",
+  "entry_rva": "0x1da9b0",
+  "managed_clr_directory_present": false,
+  "version": {
+    "CompanyName": "Blizzard Entertainment",
+    "FileDescription": "World of Warcraft",
+    "FileVersion": "12.1.5.70448",
+    "InternalName": "World of Warcraft",
+    "LegalCopyright": "Copyright © 2004 - 2026",
+    "OriginalFilename": "WoW.exe",
+    "ProductName": "World of Warcraft",
+    "ProductVersion": "Version 12.1.5.70448"
+  },
+  "sections": [
+    {
+      "name": ".text",
+      "rva": "0x1000",
+      "virtual_size": 62234508,
+      "raw_size": 62234624,
+      "entropy": 8.0,
+      "executable": true,
+      "writable": false
+    },
+    {
+      "name": ".rdata",
+      "rva": "0x3b5b000",
+      "virtual_size": 12712162,
+      "raw_size": 12712448,
+      "entropy": 6.452,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".data",
+      "rva": "0x477b000",
+      "virtual_size": 42394977,
+      "raw_size": 2305536,
+      "entropy": 1.745,
+      "executable": false,
+      "writable": true
+    },
+    {
+      "name": ".pdata",
+      "rva": "0x6fea000",
+      "virtual_size": 2809368,
+      "raw_size": 2809856,
+      "entropy": 7.155,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": "_RDATA",
+      "rva": "0x7298000",
+      "virtual_size": 140512,
+      "raw_size": 140800,
+      "entropy": 6.028,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".rsrc",
+      "rva": "0x72bb000",
+      "virtual_size": 191792,
+      "raw_size": 192000,
+      "entropy": 6.993,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".reloc",
+      "rva": "0x72ea000",
+      "virtual_size": 427064,
+      "raw_size": 427520,
+      "entropy": 5.488,
+      "executable": false,
+      "writable": false
+    }
+  ],
+  "certificate_table_bytes": 10448,
+  "certificate_present_is_not_trust_verification": true,
+  "exports": [
+    {
+      "name": "D3D12SDKPath",
+      "ordinal": 1,
+      "rva": "0x480c3e0"
+    },
+    {
+      "name": "D3D12SDKVersion",
+      "ordinal": 2,
+      "rva": "0x3f3fa88"
+    },
+    {
+      "name": "GetIpNetEntry2",
+      "ordinal": 3,
+      "rva": "0x1e0160"
+    },
+    {
+      "name": "ResolveIpNetEntry2",
+      "ordinal": 4,
+      "rva": "0x1e0330"
+    }
+  ],
+  "imports": [
+    {
+      "dll": "Wow_loader.dll",
+      "delayed": false,
+      "symbols": [
+        "#1"
+      ]
+    },
+    {
+      "dll": "OLEAUT32.dll",
+      "delayed": true,
+      "symbols": [
+        "SysFreeString",
+        "VariantClear"
+      ]
+    },
+    {
+      "dll": "battlenet.libHttpClient.Win32.v1.dll",
+      "delayed": true,
+      "symbols": [
+        "XAsyncGetStatus",
+        "XTaskQueueUnregisterMonitor",
+        "XTaskQueueDispatch",
+        "XTaskQueueCreate",
+        "XTaskQueueRegisterMonitor",
+        "XTaskQueueCloseHandle",
+        "XTaskQueueSetCurrentProcessTaskQueue",
+        "XAsyncCancel",
+        "XTaskQueueTerminate"
+      ]
+    },
+    {
+      "dll": "battlenet.overlay.client.v1.dll",
+      "delayed": true,
+      "symbols": [
+        "BnOverlayClientInitializeAsyncEx",
+        "BnOverlayClientWebViewShowAsync",
+        "BnOverlayClientWebViewCreateAsyncEx",
+        "BnOverlayClientWebViewNavigateToAsyncEx",
+        "BnOverlayClientWebViewAddStateChangeHandlerEx",
+        "BnOverlayClientFinalize",
+        "BnOverlayClientWebViewCreateResultSize",
+        "BnOverlayClientWebViewCreateResult",
+        "BnOverlayClientWebViewDestroyAsync"
+      ]
+    }
+  ],
+  "debug": [
+    {
+      "pdb_basename": "Wow.pdb"
+    }
+  ],
+  "string_matches": {
+    "destination": [
+      {
+        "offset": "0x3b6cb78",
+        "rva": "0x3b6d778",
+        "encoding": "ascii",
+        "text": "Software\\Battle.net\\"
+      },
+      {
+        "offset": "0x3bb30a8",
+        "rva": "0x3bb3ca8",
+        "encoding": "ascii",
+        "text": "Battle.net Web Client"
+      },
+      {
+        "offset": "0x3bea370",
+        "rva": "0x3beaf70",
+        "encoding": "ascii",
+        "text": "https://wow.ingest.gdp.blizzard.com"
+      },
+      {
+        "offset": "0x3d5c648",
+        "rva": "0x3d5d248",
+        "encoding": "ascii",
+        "text": "Specifies the constraint used. See https://confluence.blizzard.com/display/dev/How+To+-+Particulates for more information."
+      },
+      {
+        "offset": "0x3d5efea",
+        "rva": "0x3d5fbea",
+        "encoding": "ascii",
+        "text": " See https://confluence.blizzard.com/display/dev/How+To+-+Particulates for more information."
+      },
+      {
+        "offset": "0x3d668a8",
+        "rva": "0x3d674a8",
+        "encoding": "ascii",
+        "text": ".actual.staging.battle.net"
+      },
+      {
+        "offset": "0x3d668c8",
+        "rva": "0x3d674c8",
+        "encoding": "ascii",
+        "text": "https://account.integration.battle.net/login/sso"
+      },
+      {
+        "offset": "0x3d66900",
+        "rva": "0x3d67500",
+        "encoding": "ascii",
+        "text": "https://account.battle.net/login/sso"
+      },
+      {
+        "offset": "0x3d66988",
+        "rva": "0x3d67588",
+        "encoding": "ascii",
+        "text": ".actual.battle.net"
+      },
+      {
+        "offset": "0x3d669a0",
+        "rva": "0x3d675a0",
+        "encoding": "ascii",
+        "text": ".bgs.battle.net"
+      },
+      {
+        "offset": "0x3d669d0",
+        "rva": "0x3d675d0",
+        "encoding": "ascii",
+        "text": ".actual.integration.battle.net"
+      },
+      {
+        "offset": "0x3d669f0",
+        "rva": "0x3d675f0",
+        "encoding": "ascii",
+        "text": ".dev.bgs.cn.battle.net"
+      },
+      {
+        "offset": "0x3f92bb8",
+        "rva": "0x3f937b8",
+        "encoding": "ascii",
+        "text": "Name of Battle.net portal to use"
+      },
+      {
+        "offset": "0x3f930e0",
+        "rva": "0x3f93ce0",
+        "encoding": "ascii",
+        "text": "Your device driver is not compatible. Please see <a href=\"https://support.blizzard.com/article/updating-your-drivers-and-operating-system\">https://support.blizzard.com/article/updating-your-drivers-and-operating-system</a> for more information."
+      },
+      {
+        "offset": "0x3f93990",
+        "rva": "0x3f94590",
+        "encoding": "ascii",
+        "text": "The UID provided by Battle.net to be passed to Agent"
+      },
+      {
+        "offset": "0x3f93b60",
+        "rva": "0x3f94760",
+        "encoding": "ascii",
+        "text": "https://%s.version.battle.net/v2/products/%s/%s"
+      },
+      {
+        "offset": "0x3f949e8",
+        "rva": "0x3f955e8",
+        "encoding": "ascii",
+        "text": "Battle.net"
+      },
+      {
+        "offset": "0x3fabf10",
+        "rva": "0x3facb10",
+        "encoding": "ascii",
+        "text": "<a href=\"https://support.blizzard.com/article/31024\">https://support.blizzard.com/article/31024</a>"
+      },
+      {
+        "offset": "0x3fac0e0",
+        "rva": "0x3facce0",
+        "encoding": "ascii",
+        "text": "<a href=\"https://support.blizzard.com/article/000377301\">https://support.blizzard.com/article/000377301</a>"
+      },
+      {
+        "offset": "0x3fac560",
+        "rva": "0x3fad160",
+        "encoding": "ascii",
+        "text": "<a href=\"https://support.blizzard.com/article/358715\">https://support.blizzard.com/article/358715</a>"
+      },
+      {
+        "offset": "0x3fac970",
+        "rva": "0x3fad570",
+        "encoding": "ascii",
+        "text": "World of Warcraft was unable to find a suitable graphics card, please check that your graphics driver is up to date and that you are not running in safe mode. For more information please see http://us.battle.net/support/en/article/driver-update-information"
+      },
+      {
+        "offset": "0x3facae0",
+        "rva": "0x3fad6e0",
+        "encoding": "ascii",
+        "text": "Your 3D accelerator card is not supported by World of Warcraft. For more information please see https://us.battle.net/support/en/article/world-of-warcraft-system-requirements"
+      },
+      {
+        "offset": "0x4009a75",
+        "rva": "0x400a675",
+        "encoding": "ascii",
+        "text": "tzt. Weitere Informationen finden Sie auf https://eu.battle.net/support/de/article/mindestanforderungen-wow"
+      },
+      {
+        "offset": "0x4009b71",
+        "rva": "0x400a771",
+        "encoding": "ascii",
+        "text": "adresse : https://eu.battle.net/support/fr/article/configuration-minimale-requise-pour-world-of-warcraft."
+      },
+      {
+        "offset": "0x4009c98",
+        "rva": "0x400a898",
+        "encoding": "ascii",
+        "text": ". https://kr.battle.net/support/ko/article/minimum-system-requirements-for-world-of-warcraft"
+      },
+      {
+        "offset": "0x400a448",
+        "rva": "0x400b048",
+        "encoding": "ascii",
+        "text": " supportata da World of Warcraft. Per ulteriori informazioni, consulta il sito: http://eu.battle.net/support/it/article/world-of-warcraft-system-requirements"
+      },
+      {
+        "offset": "0x400a549",
+        "rva": "0x400b149",
+        "encoding": "ascii",
+        "text": "es, consulte https://us.battle.net/support/en/article/world-of-warcraft-system-requirements"
+      },
+      {
+        "offset": "0x400a664",
+        "rva": "0x400b264",
+        "encoding": "ascii",
+        "text": ": https://eu.battle.net/support/ru/article/video-card-does-not-meet-system-requirements"
+      },
+      {
+        "offset": "0x400a717",
+        "rva": "0x400b317",
+        "encoding": "ascii",
+        "text": "n, visita https://us.battle.net/support/es/article/requisitos-del-sistema-para-world-of-warcraft"
+      },
+      {
+        "offset": "0x400a7d2",
+        "rva": "0x400b3d2",
+        "encoding": "ascii",
+        "text": "n, entra en https://eu.battle.net/support/es/article/requisitos-minimos-del-sistema-para-world-of-warcraft"
+      },
+      {
+        "offset": "0x400a88d",
+        "rva": "0x400b48d",
+        "encoding": "ascii",
+        "text": "https://tw.battle.net/support/zh/article/world-of-warcraft-system-requirements"
+      },
+      {
+        "offset": "0x400c6cc",
+        "rva": "0x400d2cc",
+        "encoding": "ascii",
+        "text": "es, acesse http://us.battle.net/support/en/article/driver-update-information"
+      },
+      {
+        "offset": "0x400c7f3",
+        "rva": "0x400d3f3",
+        "encoding": "ascii",
+        "text": " http://eu.battle.net/support/ru/article/driverupdates"
+      },
+      {
+        "offset": "0x400c8b0",
+        "rva": "0x400d4b0",
+        "encoding": "ascii",
+        "text": "n, visita http://us.battle.net/support/es/article/driver-update-information"
+      },
+      {
+        "offset": "0x400c980",
+        "rva": "0x400d580",
+        "encoding": "ascii",
+        "text": "n, visita https://eu.battle.net/support/es/article/driverupdates"
+      },
+      {
+        "offset": "0x400ca2d",
+        "rva": "0x400d62d",
+        "encoding": "ascii",
+        "text": "http://tw.battle.net/support/en/article/driver-update-information"
+      },
+      {
+        "offset": "0x400cb27",
+        "rva": "0x400d727",
+        "encoding": "ascii",
+        "text": "tigt die neueste Version von DirectX Runtime. Weitere Informationen erhalten Sie unter: http://eu.battle.net/support/de/article/driver-update-information"
+      },
+      {
+        "offset": "0x400cc7e",
+        "rva": "0x400d87e",
+        "encoding": "ascii",
+        "text": ": http://eu.battle.net/support/fr/article/driverupdates"
+      },
+      {
+        "offset": "0x400cd42",
+        "rva": "0x400d942",
+        "encoding": "ascii",
+        "text": " http://kr.battle.net/support/ko/article/driverupdates"
+      },
+      {
+        "offset": "0x400cda0",
+        "rva": "0x400d9a0",
+        "encoding": "ascii",
+        "text": "World of Warcraft requires the latest version of the DirectX Runtime to be installed. For more information please see http://us.battle.net/support/en/article/driver-update-information"
+      },
+      {
+        "offset": "0x400d1e4",
+        "rva": "0x400dde4",
+        "encoding": "ascii",
+        "text": "tsmodus finden Sie hier: https://eu.battle.net/support/de/article/kompatibilittsmodus-deaktivieren"
+      },
+      {
+        "offset": "0x400d33a",
+        "rva": "0x400df3a",
+        "encoding": "ascii",
+        "text": " l'adresse http://www.battle.net/support/article/8500085"
+      },
+      {
+        "offset": "0x400d489",
+        "rva": "0x400e089",
+        "encoding": "ascii",
+        "text": " https://kr.battle.net/support/ko/article/world-of-warcraft-sound-troubleshooting-pc"
+      },
+      {
+        "offset": "0x400d500",
+        "rva": "0x400e100",
+        "encoding": "ascii",
+        "text": "World of Warcraft could not start up due to compatibility mode settings. Please disable compatibility mode for WoW.exe and Launcher.exe and attempt to launch the game again. For steps to disable compatibility mode, see: http://www.battle.net/support/article/8500085"
+      },
+      {
+        "offset": "0x400d698",
+        "rva": "0x400e298",
+        "encoding": "ascii",
+        "text": " provvisoria. Per ulteriori informazioni, consulta: http://eu.battle.net/support/it/article/driver-update-information"
+      },
+      {
+        "offset": "0x400d7d2",
+        "rva": "0x400e3d2",
+        "encoding": "ascii",
+        "text": "es, visite http://us.battle.net/support/en/article/driver-update-information"
+      },
+      {
+        "offset": "0x400d980",
+        "rva": "0x400e580",
+        "encoding": "ascii",
+        "text": ": http://eu.battle.net/support/ru/article/driverupdates."
+      },
+      {
+        "offset": "0x400da73",
+        "rva": "0x400e673",
+        "encoding": "ascii",
+        "text": "n en: http://us.battle.net/support/es/article/driver-update-information"
+      },
+      {
+        "offset": "0x400db73",
+        "rva": "0x400e773",
+        "encoding": "ascii",
+        "text": "n en: https://eu.battle.net/support/es/article/driverupdates"
+      },
+      {
+        "offset": "0x400dc70",
+        "rva": "0x400e870",
+        "encoding": "ascii",
+        "text": "http://tw.battle.net/support/en/article/driver-update-information"
+      },
+      {
+        "offset": "0x400ddb0",
+        "rva": "0x400e9b0",
+        "encoding": "ascii",
+        "text": "World of Warcraft konnte keine geeignete Grafikkarte finden. Bitte installieren Sie den neuesten Grafiktreiber und starten Sie den Computer im normalen Modus. Mehr Informationen unter: http://eu.battle.net/support/de/article/driver-update-information"
+      },
+      {
+        "offset": "0x400df46",
+        "rva": "0x400eb46",
+        "encoding": "ascii",
+        "text": "chec. Pour plus d'informations, consultez http://us.battle.net/support/en/article/driver-update-information "
+      },
+      {
+        "offset": "0x400e0d2",
+        "rva": "0x400ecd2",
+        "encoding": "ascii",
+        "text": " http://kr.battle.net/support/ko/article/driverupdates"
+      },
+      {
+        "offset": "0x400e15b",
+        "rva": "0x400ed5b",
+        "encoding": "ascii",
+        "text": " recente di DirectX Runtime. Per ulteriori informazioni, consulta il sito: http://eu.battle.net/support/it/article/driver-update-information"
+      },
+      {
+        "offset": "0x400ed3b",
+        "rva": "0x400f93b",
+        "encoding": "ascii",
+        "text": ", consulta il sito: http://www.battle.net/support/article/8500085"
+      },
+      {
+        "offset": "0x400edc0",
+        "rva": "0x400f9c0",
+        "encoding": "ascii",
+        "text": "es do modo de compatibilidade. Desabilite o modo de compatibilidade nos arquivos WoW.exe e Launcher.exe e tente iniciar o jogo novamente. Para um passo a passo de como desabilitar o modo de compatibilidade, acesse: http://www.battle.net/support/article/8500085"
+      },
+      {
+        "offset": "0x400f080",
+        "rva": "0x400fc80",
+        "encoding": "ascii",
+        "text": ": http://www.battle.net/support/article/8500085"
+      },
+      {
+        "offset": "0x400f0ee",
+        "rva": "0x400fcee",
+        "encoding": "ascii",
+        "text": "n del modo de compatibilidad. Desactiva el modo de compatibilidad para WoW.exe y Launcher.exe e intenta iniciar el juego de nuevo. Los pasos a seguir para desactivar el modo de compatibilidad se encuentran en: http://www.battle.net/support/article/8500085"
+      },
+      {
+        "offset": "0x400f2ab",
+        "rva": "0x400feab",
+        "encoding": "ascii",
+        "text": ": https://tw.battle.net/support/zh/article/disabling-compatibility-mode-pc"
+      },
+      {
+        "offset": "0x416a510",
+        "rva": "0x416b110",
+        "encoding": "ascii",
+        "text": "Software\\Blizzard Entertainment\\Battle.net\\Launch Options\\"
+      },
+      {
+        "offset": "0x41764f8",
+        "rva": "0x41770f8",
+        "encoding": "ascii",
+        "text": "Session with Battle.net established."
+      },
+      {
+        "offset": "0x4176588",
+        "rva": "0x4177188",
+        "encoding": "ascii",
+        "text": "Session with Battle.net destroyed."
+      },
+      {
+        "offset": "0x41765c8",
+        "rva": "0x41771c8",
+        "encoding": "ascii",
+        "text": "Failed to update Battle.net session key."
+      },
+      {
+        "offset": "0x4176608",
+        "rva": "0x4177208",
+        "encoding": "ascii",
+        "text": "Failed to dispatch Battle.net response."
+      },
+      {
+        "offset": "0x4176630",
+        "rva": "0x4177230",
+        "encoding": "ascii",
+        "text": "Failed to dispatch Battle.net notification."
+      },
+      {
+        "offset": "0x4184428",
+        "rva": "0x4185028",
+        "encoding": "ascii",
+        "text": "/Battle.net/Agent/"
+      },
+      {
+        "offset": "0x41844c8",
+        "rva": "0x41850c8",
+        "encoding": "ascii",
+        "text": "Apps/Battle.net/Agent/"
+      },
+      {
+        "offset": "0x41859d0",
+        "rva": "0x41865d0",
+        "encoding": "ascii",
+        "text": "https://breaking-news.support.blizzard.com/service/%s/%s/%s/%s"
+      },
+      {
+        "offset": "0x4192348",
+        "rva": "0x4192f48",
+        "encoding": "ascii",
+        "text": "https://nydus.battle.net/WoW/"
+      },
+      {
+        "offset": "0x4192970",
+        "rva": "0x4193570",
+        "encoding": "ascii",
+        "text": "https://us.account.integration.battle.net/login/en/?app=bam&cr=true&accountName=%s"
+      },
+      {
+        "offset": "0x41e6a50",
+        "rva": "0x41e7650",
+        "encoding": "ascii",
+        "text": "How long to display Battle.net toast windows, in seconds"
+      },
+      {
+        "offset": "0x41e6bf8",
+        "rva": "0x41e77f8",
+        "encoding": "ascii",
+        "text": "Whether to show Battle.net message for broadcasts"
+      },
+      {
+        "offset": "0x41e6c48",
+        "rva": "0x41e7848",
+        "encoding": "ascii",
+        "text": "Whether to show Battle.net message for friend going offline"
+      },
+      {
+        "offset": "0x41e6c98",
+        "rva": "0x41e7898",
+        "encoding": "ascii",
+        "text": "Whether to show Battle.net message for friend coming online"
+      },
+      {
+        "offset": "0x41e6cd8",
+        "rva": "0x41e78d8",
+        "encoding": "ascii",
+        "text": "Whether to show Battle.net system messages in a toast window"
+      },
+      {
+        "offset": "0x41e6d30",
+        "rva": "0x41e7930",
+        "encoding": "ascii",
+        "text": "Whether to show Battle.net message for club invitations"
+      },
+      {
+        "offset": "0x41e6d80",
+        "rva": "0x41e7980",
+        "encoding": "ascii",
+        "text": "Whether to show Battle.net message for conversations"
+      },
+      {
+        "offset": "0x41e6dd0",
+        "rva": "0x41e79d0",
+        "encoding": "ascii",
+        "text": "Whether to show Battle.net message for friend requests"
+      },
+      {
+        "offset": "0x421c650",
+        "rva": "0x421d250",
+        "encoding": "ascii",
+        "text": "Battle.net.exe"
+      },
+      {
+        "offset": "0x421ddf0",
+        "rva": "0x421e9f0",
+        "encoding": "ascii",
+        "text": "http://enGB.nydus.battle.net/WOW/enGB/client/trial_restriction_error_1?region=US&accountName=%s"
+      },
+      {
+        "offset": "0x4227690",
+        "rva": "0x4228290",
+        "encoding": "ascii",
+        "text": "v1.rpc.battle.net"
+      },
+      {
+        "offset": "0x42a3178",
+        "rva": "0x42a3d78",
+        "encoding": "ascii",
+        "text": "https://telemetry-in.battle.net"
+      },
+      {
+        "offset": "0x42ead80",
+        "rva": "0x42eb980",
+        "encoding": "ascii",
+        "text": "https://account.battle.net/login/sso?ref=https://eu.checkout.battle.net/shop/blizzard-checkout/loading"
+      },
+      {
+        "offset": "0x42eade8",
+        "rva": "0x42eb9e8",
+        "encoding": "ascii",
+        "text": "https://eu.checkout.battle.net/shop/blizzard-checkout/NavBar"
+      },
+      {
+        "offset": "0x42eae30",
+        "rva": "0x42eba30",
+        "encoding": "ascii",
+        "text": "https://account.battle.net/login/sso?ref=https://us.checkout.battle.net/shop/blizzard-checkout/loading"
+      },
+      {
+        "offset": "0x42eae98",
+        "rva": "0x42eba98",
+        "encoding": "ascii",
+        "text": "https://us.checkout.battle.net/shop/blizzard-checkout/NavBar"
+      },
+      {
+        "offset": "0x42eaf90",
+        "rva": "0x42ebb90",
+        "encoding": "ascii",
+        "text": "https://account.battle.net/login/sso?ref=https://kr.checkout.battle.net/shop/blizzard-checkout/loading"
+      },
+      {
+        "offset": "0x42eaff8",
+        "rva": "0x42ebbf8",
+        "encoding": "ascii",
+        "text": "https://kr.checkout.battle.net/shop/blizzard-checkout/NavBar"
+      },
+      {
+        "offset": "0x42eb040",
+        "rva": "0x42ebc40",
+        "encoding": "ascii",
+        "text": "https://eu.account.integration.battle.net/login/sso?ref=https://eu.checkout.integration.battle.net/shop/blizzard-checkout/loading"
+      },
+      {
+        "offset": "0x42eb0d0",
+        "rva": "0x42ebcd0",
+        "encoding": "ascii",
+        "text": "https://eu.checkout.integration.battle.net/shop/blizzard-checkout/NavBar"
+      },
+      {
+        "offset": "0x42eb120",
+        "rva": "0x42ebd20",
+        "encoding": "ascii",
+        "text": "https://us.account.integration.battle.net/login/sso?ref=https://us.checkout.integration.battle.net/shop/blizzard-checkout/loading"
+      },
+      {
+        "offset": "0x42eb1b0",
+        "rva": "0x42ebdb0",
+        "encoding": "ascii",
+        "text": "https://us.checkout.integration.battle.net/shop/blizzard-checkout/NavBar"
+      },
+      {
+        "offset": "0x42eb2d0",
+        "rva": "0x42ebed0",
+        "encoding": "ascii",
+        "text": "https://kr.account.integration.battle.net/login/sso?ref=https://kr.checkout.integration.battle.net/shop/blizzard-checkout/loading"
+      },
+      {
+        "offset": "0x42eb360",
+        "rva": "0x42ebf60",
+        "encoding": "ascii",
+        "text": "https://kr.checkout.integration.battle.net/shop/blizzard-checkout/NavBar"
+      },
+      {
+        "offset": "0x4366378",
+        "rva": "0x4366f78",
+        "encoding": "ascii",
+        "text": "https://account.battle.net/login/sso?token=%s&ref=%s"
+      },
+      {
+        "offset": "0x4378daf",
+        "rva": "0x43799af",
+        "encoding": "ascii",
+        "text": "UUUUUUUUUUUUUUUUUSCROLL_LIST_VIEWZZZZZZZZZZZZZZZZ\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\aaaaaaaaaaaaaaaaBattle.net/ArmadDownloader | Que"
+      },
+      {
+        "offset": "0x477ce35",
+        "rva": "0x477e035",
+        "encoding": "ascii",
+        "text": "The connection to the network data source did not respond within the expected amount of time.  For help fixing this issue, please see: <a href=\"https://battle.net/support/article/7410\">https://battle.net/support/article/7410</a>"
+      },
+      {
+        "offset": "0x477d0cd",
+        "rva": "0x477e2cd",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/7410\">https://battle.net/support/article/7410</a>"
+      },
+      {
+        "offset": "0x477d2ad",
+        "rva": "0x477e4ad",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/7410\">https://battle.net/support/article/7410</a>"
+      },
+      {
+        "offset": "0x477d435",
+        "rva": "0x477e635",
+        "encoding": "ascii",
+        "text": "Die Verbindung zur Netzwerkdatenquelle hat nicht innerhalb des erwarteten Zeitraums geantwortet. Hilfestellungen zu diesem Problem finden Sie hier: <a href=\"https://battle.net/support/article/7410\">https://battle.net/support/article/7410</a>"
+      },
+      {
+        "offset": "0x477d677",
+        "rva": "0x477e877",
+        "encoding": "ascii",
+        "text": " <a href=\"https://battle.net/support/article/7410\">https://battle.net/support/article/7410</a>"
+      },
+      {
+        "offset": "0x477d889",
+        "rva": "0x477ea89",
+        "encoding": "ascii",
+        "text": "<a href=\"https://battle.net/support/article/7410\">https://battle.net/support/article/7410</a>"
+      },
+      {
+        "offset": "0x477da4a",
+        "rva": "0x477ec4a",
+        "encoding": "ascii",
+        "text": "n a la fuente de datos de la red no responde. Para resolver este error, por favor, visita <a href=\"https://battle.net/support/article/7410.\">https://battle.net/support/article/7410.</a>"
+      },
+      {
+        "offset": "0x477dc6c",
+        "rva": "0x477ee6c",
+        "encoding": "ascii",
+        "text": " en el tiempo de espera estimado. Para obtener ayuda con este problema, consulta: <a href=\"https://battle.net/support/article/7410\">https://battle.net/support/article/7410</a>"
+      },
+      {
+        "offset": "0x477df27",
+        "rva": "0x477f127",
+        "encoding": "ascii",
+        "text": " <a href=\"https://battle.net/support/article/7410\">https://battle.net/support/article/7410</a>"
+      },
+      {
+        "offset": "0x477e25f",
+        "rva": "0x477f45f",
+        "encoding": "ascii",
+        "text": "o respondeu dentro do tempo previsto. Para ajuda com este erro leia: <a href=\"https://battle.net/support/article/7410\">https://battle.net/support/article/7410</a>"
+      },
+      {
+        "offset": "0x477e435",
+        "rva": "0x477f635",
+        "encoding": "ascii",
+        "text": "La connessione alla rete dei dati non ha risposto entro il tempo previsto. Per assistenza, fare riferimento a: <a href=\"https://battle.net/support/article/7410\">https://battle.net/support/article/7410</a>"
+      },
+      {
+        "offset": "0x477e63d",
+        "rva": "0x477f83d",
+        "encoding": "ascii",
+        "text": "World of Warcraft was not able to connect to the network data source.  For help fixing this issue, please see: <a href=\"https://battle.net/support/article/7411\">https://battle.net/support/article/7411</a>"
+      },
+      {
+        "offset": "0x477e8e2",
+        "rva": "0x477fae2",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/7411\">https://battle.net/support/article/7411</a>"
+      },
+      {
+        "offset": "0x477eab9",
+        "rva": "0x477fcb9",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/7411\">https://battle.net/support/article/7411</a>"
+      },
+      {
+        "offset": "0x477ec3d",
+        "rva": "0x477fe3d",
+        "encoding": "ascii",
+        "text": "World of Warcraft konnte keine Verbindung zur Netzwerkdatenquelle herstellen. Hilfestellungen zu diesem Problem finden Sie hier: <a href=\"https://battle.net/support/article/7411\">https://battle.net/support/article/7411</a>"
+      },
+      {
+        "offset": "0x477ee94",
+        "rva": "0x4780094",
+        "encoding": "ascii",
+        "text": "<a href=\"https://battle.net/support/article/7411\">https://battle.net/support/article/7411</a>"
+      },
+      {
+        "offset": "0x477f097",
+        "rva": "0x4780297",
+        "encoding": "ascii",
+        "text": "<a href=\"https://battle.net/support/article/7411\">https://battle.net/support/article/7411</a>"
+      },
+      {
+        "offset": "0x477f23d",
+        "rva": "0x478043d",
+        "encoding": "ascii",
+        "text": "World of Warcraft no ha podido conectar con la fuente de datos de la red. Para solucionar este error, por favor, visita <a href=\"https://battle.net/support/article/7411.\">https://battle.net/support/article/7411.</a>"
+      },
+      {
+        "offset": "0x477f43d",
+        "rva": "0x478063d",
+        "encoding": "ascii",
+        "text": "World of Warcraft no pudo conectarse al servidor de fuente de datos. Para obtener ayuda con este problema, consulta: <a href=\"https://battle.net/support/article/7411\">https://battle.net/support/article/7411</a>"
+      },
+      {
+        "offset": "0x477f726",
+        "rva": "0x4780926",
+        "encoding": "ascii",
+        "text": " <a href=\"https://battle.net/support/article/7411\">https://battle.net/support/article/7411</a>"
+      },
+      {
+        "offset": "0x477fa51",
+        "rva": "0x4780c51",
+        "encoding": "ascii",
+        "text": "o consegui conectar com a rede provedora de dados. Para ajuda com este erro leia: <a href=\"https://battle.net/support/article/7411\">https://battle.net/support/article/7411</a>"
+      },
+      {
+        "offset": "0x477fc54",
+        "rva": "0x4780e54",
+        "encoding": "ascii",
+        "text": " riuscito a connettersi alla rete dei dati. Per assistenza, fare riferimento a: <a href=\"https://battle.net/support/article/7411\">https://battle.net/support/article/7411</a>"
+      },
+      {
+        "offset": "0x477fe45",
+        "rva": "0x4781045",
+        "encoding": "ascii",
+        "text": "World of Warcraft could not resolve the address of your network proxy.  For help fixing this issue, please see: <a href=\"https://battle.net/support/article/7412\">https://battle.net/support/article/7412</a>"
+      },
+      {
+        "offset": "0x47800e9",
+        "rva": "0x47812e9",
+        "encoding": "ascii",
+        "text": " : <a href=\"https://battle.net/support/article/7412\">https://battle.net/support/article/7412</a>"
+      },
+      {
+        "offset": "0x47802c3",
+        "rva": "0x47814c3",
+        "encoding": "ascii",
+        "text": " : <a href=\"https://battle.net/support/article/7412\">https://battle.net/support/article/7412</a>"
+      },
+      {
+        "offset": "0x478048a",
+        "rva": "0x478168a",
+        "encoding": "ascii",
+        "text": "sen.Hilfestellungen zu diesem Problem finden Sie hier : <a href=\"https://battle.net/support/article/7412\">https://battle.net/support/article/7412</a>"
+      },
+      {
+        "offset": "0x478069c",
+        "rva": "0x478189c",
+        "encoding": "ascii",
+        "text": "<a href=\"https://battle.net/support/article/7412\">https://battle.net/support/article/7412</a>"
+      },
+      {
+        "offset": "0x47808ae",
+        "rva": "0x4781aae",
+        "encoding": "ascii",
+        "text": "<a href=\"https://battle.net/support/article/7412\">https://battle.net/support/article/7412</a>"
+      },
+      {
+        "offset": "0x4780a76",
+        "rva": "0x4781c76",
+        "encoding": "ascii",
+        "text": "n del proxy de tu red.Para solucionar este error, por favor, visita <a href=\"https://battle.net/support/article/7412.\">https://battle.net/support/article/7412.</a>"
+      },
+      {
+        "offset": "0x4780c75",
+        "rva": "0x4781e75",
+        "encoding": "ascii",
+        "text": "n de tu servidor proxy.Para obtener ayuda con este problema, consulta : <a href=\"https://battle.net/support/article/7412\">https://battle.net/support/article/7412</a>"
+      },
+      {
+        "offset": "0x4780f18",
+        "rva": "0x4782118",
+        "encoding": "ascii",
+        "text": " <a href=\"https://battle.net/support/article/7412\">https://battle.net/support/article/7412</a>"
+      },
+      {
+        "offset": "0x478127b",
+        "rva": "0x478247b",
+        "encoding": "ascii",
+        "text": "o da sua proxy de rede.Para ajuda com este erro leia : <a href=\"https://battle.net/support/article/7412\">https://battle.net/support/article/7412</a>"
+      },
+      {
+        "offset": "0x478145e",
+        "rva": "0x478265e",
+        "encoding": "ascii",
+        "text": " risolvere l'indirizzo del tuo proxy di rete.  Per assistenza, fare riferimento a: <a href=\"https://battle.net/support/article/7412\">https://battle.net/support/article/7412</a>"
+      },
+      {
+        "offset": "0x478164d",
+        "rva": "0x478284d",
+        "encoding": "ascii",
+        "text": "World of Warcraft could not resolve the address of the network data source. For help fixing this issue, please see: <a href=\"https://battle.net/support/article/7413\">https://battle.net/support/article/7413</a>"
+      },
+      {
+        "offset": "0x47818fc",
+        "rva": "0x4782afc",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/7413\">https://battle.net/support/article/7413</a>"
+      },
+      {
+        "offset": "0x4781ad6",
+        "rva": "0x4782cd6",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/7413\">https://battle.net/support/article/7413</a>"
+      },
+      {
+        "offset": "0x4781c95",
+        "rva": "0x4782e95",
+        "encoding": "ascii",
+        "text": "sen. Hilfestellungen zu diesem Problem finden Sie hier: <a href=\"https://battle.net/support/article/7413\">https://battle.net/support/article/7413</a>"
+      },
+      {
+        "offset": "0x4781ea1",
+        "rva": "0x47830a1",
+        "encoding": "ascii",
+        "text": "<a href=\"https://battle.net/support/article/7413\">https://battle.net/support/article/7413</a>"
+      },
+      {
+        "offset": "0x47820ad",
+        "rva": "0x47832ad",
+        "encoding": "ascii",
+        "text": "<a href=\"https://battle.net/support/article/7413\">https://battle.net/support/article/7413</a>"
+      },
+      {
+        "offset": "0x478227e",
+        "rva": "0x478347e",
+        "encoding": "ascii",
+        "text": "n de la fuente de datos de la red. Para solucionar este problema, por favor, visita <a href=\"https://battle.net/support/article/7413.\">https://battle.net/support/article/7413.</a>"
+      },
+      {
+        "offset": "0x478247c",
+        "rva": "0x478367c",
+        "encoding": "ascii",
+        "text": "n del servidor de fuente de datos. Para obtener ayuda con este problema, consulta: <a href=\"https://battle.net/support/article/7413\">https://battle.net/support/article/7413</a>"
+      },
+      {
+        "offset": "0x4782727",
+        "rva": "0x4783927",
+        "encoding": "ascii",
+        "text": " <a href=\"https://battle.net/support/article/7413\">https://battle.net/support/article/7413</a>"
+      },
+      {
+        "offset": "0x4782a83",
+        "rva": "0x4783c83",
+        "encoding": "ascii",
+        "text": "o da rede provedora de dados. Para ajuda com este erro leia: <a href=\"https://battle.net/support/article/7413\">https://battle.net/support/article/7413</a>"
+      },
+      {
+        "offset": "0x4782c66",
+        "rva": "0x4783e66",
+        "encoding": "ascii",
+        "text": " risolvere l'indirizzo della rete dei dati. Per assistenza, fare riferimento a: <a href=\"https://battle.net/support/article/7413\">https://battle.net/support/article/7413</a>"
+      },
+      {
+        "offset": "0x4782e55",
+        "rva": "0x4784055",
+        "encoding": "ascii",
+        "text": "There is not enough space on the disk. Please refer to <a href=\"https://battle.net/support/article/200466\">https://battle.net/support/article/200466</a> to find out how to make additional space available."
+      },
+      {
+        "offset": "0x47830be",
+        "rva": "0x47842be",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/200466\">https://battle.net/support/article/200466</a>"
+      },
+      {
+        "offset": "0x4783261",
+        "rva": "0x4784461",
+        "encoding": "ascii",
+        "text": "espace disponible sur le disque. Veuillez consulter notre article <a href=\"https://battle.net/support/article/200466\">https://battle.net/support/article/200466</a> pour d"
+      },
+      {
+        "offset": "0x4783466",
+        "rva": "0x4784666",
+        "encoding": "ascii",
+        "text": "gend Festplattenspeicher vorhanden. Informationen zum Freimachen von Speicherplatz finden Sie hier: <a href=\"https://battle.net/support/article/200466\">https://battle.net/support/article/200466</a>"
+      },
+      {
+        "offset": "0x47836a9",
+        "rva": "0x47848a9",
+        "encoding": "ascii",
+        "text": "<a href=\"https://battle.net/support/article/200466\">https://battle.net/support/article/200466</a>"
+      },
+      {
+        "offset": "0x47838a3",
+        "rva": "0x4784aa3",
+        "encoding": "ascii",
+        "text": "<a href=\"https://battle.net/support/article/200466\">https://battle.net/support/article/200466</a>"
+      },
+      {
+        "offset": "0x4783a96",
+        "rva": "0x4784c96",
+        "encoding": "ascii",
+        "text": "gete a <a href=\"https://battle.net/support/article/200466\">https://battle.net/support/article/200466</a> para informarte "
+      },
+      {
+        "offset": "0x4783c96",
+        "rva": "0x4784e96",
+        "encoding": "ascii",
+        "text": "gete a <a href=\"https://battle.net/support/article/200466\">https://battle.net/support/article/200466</a> para informarte "
+      },
+      {
+        "offset": "0x4783f19",
+        "rva": "0x4785119",
+        "encoding": "ascii",
+        "text": " <a href=\"https://battle.net/support/article/200466\">https://battle.net/support/article/200466</a>"
+      },
+      {
+        "offset": "0x4784261",
+        "rva": "0x4785461",
+        "encoding": "ascii",
+        "text": "o suficiente no disco. Verifique <a href=\"https://battle.net/support/article/200466\">https://battle.net/support/article/200466</a> para saber como disponibilizar mais espa"
+      },
+      {
+        "offset": "0x4784455",
+        "rva": "0x4785655",
+        "encoding": "ascii",
+        "text": "Spazio su disco insufficiente. Fare riferimento a <a href=\"https://battle.net/support/article/200466\">https://battle.net/support/article/200466</a> per scoprire come liberare pi"
+      },
+      {
+        "offset": "0x478465d",
+        "rva": "0x478585d",
+        "encoding": "ascii",
+        "text": "Your operating system does not meet the minimum system requirements to run World of Warcraft.  For more information, see: <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x478491d",
+        "rva": "0x4785b1d",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x4784b0f",
+        "rva": "0x4785d0f",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x4784c74",
+        "rva": "0x4785e74",
+        "encoding": "ascii",
+        "text": "llt nicht die Mindestanforderungen, um World of Warcraft zu starten. Weitere Informationen finden Sie auf: <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x4784eba",
+        "rva": "0x47860ba",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x47850ab",
+        "rva": "0x47862ab",
+        "encoding": "ascii",
+        "text": " <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x47852d7",
+        "rva": "0x47864d7",
+        "encoding": "ascii",
+        "text": "n, visita: <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x47854dc",
+        "rva": "0x47866dc",
+        "encoding": "ascii",
+        "text": "gina: <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x4785771",
+        "rva": "0x4786971",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x4785aca",
+        "rva": "0x4786cca",
+        "encoding": "ascii",
+        "text": "es leia: <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x4785c5d",
+        "rva": "0x4786e5d",
+        "encoding": "ascii",
+        "text": "Il tuo sistema operativo non soddisfa i requisiti minimi per World of Warcraft. Per ulteriori informazioni, visita il sito <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x4785e65",
+        "rva": "0x4787065",
+        "encoding": "ascii",
+        "text": "Your World of Warcraft installation is damaged. To learn how to repair it, see: <a href=\"https://battle.net/support/article/6572\">https://battle.net/support/article/6572</a>"
+      },
+      {
+        "offset": "0x47860ef",
+        "rva": "0x47872ef",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/6572\">https://battle.net/support/article/6572</a>"
+      },
+      {
+        "offset": "0x47862b9",
+        "rva": "0x47874b9",
+        "encoding": "ascii",
+        "text": "parer, consultez la page: <a href=\"https://battle.net/support/article/6572\">https://battle.net/support/article/6572</a>"
+      },
+      {
+        "offset": "0x47864af",
+        "rva": "0x47876af",
+        "encoding": "ascii",
+        "text": "sung finden Sie hier: <a href=\"https://battle.net/support/article/6572\">https://battle.net/support/article/6572</a>"
+      },
+      {
+        "offset": "0x47866a1",
+        "rva": "0x47878a1",
+        "encoding": "ascii",
+        "text": " <a href=\"https://battle.net/support/article/6572\">https://battle.net/support/article/6572</a>"
+      },
+      {
+        "offset": "0x47868b9",
+        "rva": "0x4787ab9",
+        "encoding": "ascii",
+        "text": " <a href=\"https://battle.net/support/article/6572\">https://battle.net/support/article/6572</a>"
+      },
+      {
+        "offset": "0x4786aa1",
+        "rva": "0x4787ca1",
+        "encoding": "ascii",
+        "text": "mo repararla, entra en <a href=\"https://battle.net/support/article/6572\">https://battle.net/support/article/6572</a>"
+      },
+      {
+        "offset": "0x4786ca1",
+        "rva": "0x4787ea1",
+        "encoding": "ascii",
+        "text": "mo repararla, entra en <a href=\"https://battle.net/support/article/6572\">https://battle.net/support/article/6572</a>"
+      },
+      {
+        "offset": "0x4786f2d",
+        "rva": "0x478812d",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/6572\">https://battle.net/support/article/6572</a>"
+      },
+      {
+        "offset": "0x47872b0",
+        "rva": "0x47884b0",
+        "encoding": "ascii",
+        "text": "-la, leia: <a href=\"https://battle.net/support/article/6572\">https://battle.net/support/article/6572</a>"
+      },
+      {
+        "offset": "0x478748b",
+        "rva": "0x478868b",
+        "encoding": "ascii",
+        "text": " danneggiata. Per ripararla, consultare il sito <a href=\"https://battle.net/support/article/6572\">https://battle.net/support/article/6572</a>"
+      },
+      {
+        "offset": "0x47a871d",
+        "rva": "0x47a991d",
+        "encoding": "ascii",
+        "text": "World of Warcraft requires SSE2 (Streaming SIMD Extensions 2) to run.  Please run on a computer that supports SSE2. For more information, see: <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x47a8a11",
+        "rva": "0x47a9c11",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x47a8be3",
+        "rva": "0x47a9de3",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x47a8dac",
+        "rva": "0x47a9fac",
+        "encoding": "ascii",
+        "text": "tzt. Weitere Informationen finden Sie unter: <a href=\"https://eu.battle.net/support/de/article/mindestanforderungen-wow\">https://eu.battle.net/support/de/article/mindestanforderungen-wow</a>"
+      },
+      {
+        "offset": "0x47a8fb2",
+        "rva": "0x47aa1b2",
+        "encoding": "ascii",
+        "text": "<a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x47a9189",
+        "rva": "0x47aa389",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x47a93b6",
+        "rva": "0x47aa5b6",
+        "encoding": "ascii",
+        "text": "n, consulta: <a href=\"https://eu.battle.net/support/es/article/requisitos-minimos-del-sistema-para-world-of-warcraft\">https://eu.battle.net/support/es/article/requisitos-minimos-del-sistema-para-world-of-warcraft</a>"
+      },
+      {
+        "offset": "0x47a95b7",
+        "rva": "0x47aa7b7",
+        "encoding": "ascii",
+        "text": "n visita <a href=\"https://battle.net/support/article/300493.\">https://battle.net/support/article/300493.</a>"
+      },
+      {
+        "offset": "0x47a98a9",
+        "rva": "0x47aaaa9",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x47a9b1d",
+        "rva": "0x47aad1d",
+        "encoding": "ascii",
+        "text": "World of Warcraft requer SSE2 (Streaming SIMD Extensions 2) para ser executado. Tente executar o jogo em um computador que tem suporte para SSE2. Para mais detalhes, leia: <a href=\"https://battle.net/support/article/300493\">https://battle.net/support/article/300493</a>"
+      },
+      {
+        "offset": "0x47a9d6b",
+        "rva": "0x47aaf6b",
+        "encoding": "ascii",
+        "text": " necessario avviare il gioco da un computer che supporti la tecnologia SSE2. Per ulteriori informazioni, consulta il sito: <a href=\"https://eu.battle.net/support/it/article/requisiti-di-sistema-per-world-of-warcraft\">https://eu.battle.net/support/it/article/requisiti-di-sistema-per-world-of-warcraft</a>"
+      },
+      {
+        "offset": "0x47ab72d",
+        "rva": "0x47ac92d",
+        "encoding": "ascii",
+        "text": "Not enough memory. Please refer to <a href=\"https://battle.net/support/article/6926\">https://battle.net/support/article/6926</a> to find out how to reduce your memory usage."
+      },
+      {
+        "offset": "0x47ab96e",
+        "rva": "0x47acb6e",
+        "encoding": "ascii",
+        "text": " <a href=\"https://battle.net/support/article/6926\">https://battle.net/support/article/6926</a> "
+      },
+      {
+        "offset": "0x47abb2f",
+        "rva": "0x47acd2f",
+        "encoding": "ascii",
+        "text": "moire insuffisante. Veuillez consulter la page <a href=\"https://battle.net/support/article/6926\">https://battle.net/support/article/6926</a> pour savoir comment r"
+      },
+      {
+        "offset": "0x47abd37",
+        "rva": "0x47acf37",
+        "encoding": "ascii",
+        "text": "gend Arbeitsspeicher. Bitte lesen Sie unter <a href=\"https://battle.net/support/article/6926\">https://battle.net/support/article/6926</a> nach, wie Sie Ihre Arbeitsspeicherauslastung verringern k"
+      },
+      {
+        "offset": "0x47abf4e",
+        "rva": "0x47ad14e",
+        "encoding": "ascii",
+        "text": " <a href=\"https://battle.net/support/article/6926\">https://battle.net/support/article/6926</a> "
+      },
+      {
+        "offset": "0x47ac148",
+        "rva": "0x47ad348",
+        "encoding": "ascii",
+        "text": " <a href=\"https://battle.net/support/article/6926\">https://battle.net/support/article/6926</a> "
+      },
+      {
+        "offset": "0x47ac353",
+        "rva": "0x47ad553",
+        "encoding": "ascii",
+        "text": "mo reducir el uso de memoria en <a href=\"https://battle.net/support/article/6926.\">https://battle.net/support/article/6926.</a>"
+      },
+      {
+        "offset": "0x47ac52d",
+        "rva": "0x47ad72d",
+        "encoding": "ascii",
+        "text": "Memoria insuficiente. Visita <a href=\"https://battle.net/support/article/6926\">https://battle.net/support/article/6926</a> para encontrar la manera de reducir el uso de memoria."
+      },
+      {
+        "offset": "0x47ac7f0",
+        "rva": "0x47ad9f0",
+        "encoding": "ascii",
+        "text": ": <a href=\"https://battle.net/support/article/6926.\">https://battle.net/support/article/6926.</a>"
+      },
+      {
+        "offset": "0x47acb38",
+        "rva": "0x47add38",
+        "encoding": "ascii",
+        "text": "ria suficiente. Consulte <a href=\"https://battle.net/support/article/6926\">https://battle.net/support/article/6926</a> para saber como reduzir seu uso de mem"
+      },
+      {
+        "offset": "0x47acd2d",
+        "rva": "0x47adf2d",
+        "encoding": "ascii",
+        "text": "Memoria insufficiente. Consulta la pagina <a href=\"https://battle.net/support/article/6926\">https://battle.net/support/article/6926</a> per scoprire come ridurre l'utilizzo della memoria."
+      },
+      {
+        "offset": "0x47acf35",
+        "rva": "0x47ae135",
+        "encoding": "ascii",
+        "text": "An updated version of World of Warcraft is available. Please launch the Battle.net app to download the update."
+      },
+      {
+        "offset": "0x47ad171",
+        "rva": "0x47ae371",
+        "encoding": "ascii",
+        "text": ". Battle.net "
+      },
+      {
+        "offset": "0x47ad381",
+        "rva": "0x47ae581",
+        "encoding": "ascii",
+        "text": "application Battle.net pour t"
+      },
+      {
+        "offset": "0x47ad535",
+        "rva": "0x47ae735",
+        "encoding": "ascii",
+        "text": "Es existiert eine aktuellere Version von World of Warcraft. Zum Download bitte die Battle.net-Software starten."
+      },
+      {
+        "offset": "0x47ad962",
+        "rva": "0x47aeb62",
+        "encoding": "ascii",
+        "text": "Battle.net"
+      },
+      {
+        "offset": "0x47adb7a",
+        "rva": "0x47aed7a",
+        "encoding": "ascii",
+        "text": "n Battle.net Desktop para descarg"
+      },
+      {
+        "offset": "0x47add7a",
+        "rva": "0x47aef7a",
+        "encoding": "ascii",
+        "text": "n de escritorio de Battle.net descargarla."
+      },
+      {
+        "offset": "0x47adfae",
+        "rva": "0x47af1ae",
+        "encoding": "ascii",
+        "text": " Battle.net, "
+      },
+      {
+        "offset": "0x47ae36c",
+        "rva": "0x47af56c",
+        "encoding": "ascii",
+        "text": "vel. Abra o seu aplicativo Battle.net para baixar a atualiza"
+      },
+      {
+        "offset": "0x47ae536",
+        "rva": "0x47af736",
+        "encoding": "ascii",
+        "text": " disponibile una versione aggiornata di World of Warcraft. Avvia l'applicazione Battle.net Desktop per scaricare l'aggiornamento."
+      },
+      {
+        "offset": "0x3db96ae",
+        "rva": "0x3dba2ae",
+        "encoding": "utf16le",
+        "text": "WSoftware\\Blizzard Entertainment\\Battle.net\\Identity"
+      },
+      {
+        "offset": "0x4183dc0",
+        "rva": "0x41849c0",
+        "encoding": "utf16le",
+        "text": "https://worldofwarcraft.blizzard.com"
+      },
+      {
+        "offset": "0x4228140",
+        "rva": "0x4228d40",
+        "encoding": "utf16le",
+        "text": "battle.net.portable_client.url_downloader.curl"
+      },
+      {
+        "offset": "0x4c7e336",
+        "rva": "0x72bc136",
+        "encoding": "utf16le",
+        "text": "            <Developer URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Developer>"
+      },
+      {
+        "offset": "0x4c7e44e",
+        "rva": "0x72bc24e",
+        "encoding": "utf16le",
+        "text": "            <Publisher URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Publisher>"
+      },
+      {
+        "offset": "0x4c9aece",
+        "rva": "0x72d8cce",
+        "encoding": "utf16le",
+        "text": "            <Developer URI=\"http://www.blizzard.com\">"
+      },
+      {
+        "offset": "0x4c9afb6",
+        "rva": "0x72d8db6",
+        "encoding": "utf16le",
+        "text": "            <Publisher URI=\"http://www.blizzard.com\">"
+      },
+      {
+        "offset": "0x4c9bb06",
+        "rva": "0x72d9906",
+        "encoding": "utf16le",
+        "text": "            <Developer URI=\"http://www.blizzard.com\">"
+      },
+      {
+        "offset": "0x4c9bbee",
+        "rva": "0x72d99ee",
+        "encoding": "utf16le",
+        "text": "            <Publisher URI=\"http://www.blizzard.com\">"
+      },
+      {
+        "offset": "0x4c9c73e",
+        "rva": "0x72da53e",
+        "encoding": "utf16le",
+        "text": "            <Developer URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Developer>"
+      },
+      {
+        "offset": "0x4c9c856",
+        "rva": "0x72da656",
+        "encoding": "utf16le",
+        "text": "            <Publisher URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Publisher>"
+      },
+      {
+        "offset": "0x4c9d3d6",
+        "rva": "0x72db1d6",
+        "encoding": "utf16le",
+        "text": "            <Developer URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Developer>"
+      },
+      {
+        "offset": "0x4c9d4ee",
+        "rva": "0x72db2ee",
+        "encoding": "utf16le",
+        "text": "            <Publisher URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Publisher>"
+      },
+      {
+        "offset": "0x4c9e06e",
+        "rva": "0x72dbe6e",
+        "encoding": "utf16le",
+        "text": "            <Developer URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Developer>"
+      },
+      {
+        "offset": "0x4c9e186",
+        "rva": "0x72dbf86",
+        "encoding": "utf16le",
+        "text": "            <Publisher URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Publisher>"
+      },
+      {
+        "offset": "0x4c9ed06",
+        "rva": "0x72dcb06",
+        "encoding": "utf16le",
+        "text": "            <Developer URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Developer>"
+      },
+      {
+        "offset": "0x4c9ee1e",
+        "rva": "0x72dcc1e",
+        "encoding": "utf16le",
+        "text": "            <Publisher URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Publisher>"
+      },
+      {
+        "offset": "0x4c9f99e",
+        "rva": "0x72dd79e",
+        "encoding": "utf16le",
+        "text": "            <Developer URI=\"http://www.blizzard.com\">"
+      },
+      {
+        "offset": "0x4c9fa94",
+        "rva": "0x72dd894",
+        "encoding": "utf16le",
+        "text": "            <Publisher URI=\"http://www.blizzard.com\">"
+      },
+      {
+        "offset": "0x4ca05f6",
+        "rva": "0x72de3f6",
+        "encoding": "utf16le",
+        "text": "            <Developer URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Developer>"
+      },
+      {
+        "offset": "0x4ca070e",
+        "rva": "0x72de50e",
+        "encoding": "utf16le",
+        "text": "            <Publisher URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Publisher>"
+      },
+      {
+        "offset": "0x4ca128e",
+        "rva": "0x72df08e",
+        "encoding": "utf16le",
+        "text": "            <Developer URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Developer>"
+      },
+      {
+        "offset": "0x4ca13a6",
+        "rva": "0x72df1a6",
+        "encoding": "utf16le",
+        "text": "            <Publisher URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Publisher>"
+      },
+      {
+        "offset": "0x4ca1f26",
+        "rva": "0x72dfd26",
+        "encoding": "utf16le",
+        "text": "            <Developer URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Developer>"
+      },
+      {
+        "offset": "0x4ca203e",
+        "rva": "0x72dfe3e",
+        "encoding": "utf16le",
+        "text": "            <Publisher URI=\"http://www.blizzard.com\">Blizzard Entertainment, Inc.</Publisher>"
+      }
+    ],
+    "hardware": [
+      {
+        "offset": "0x13bdc8e",
+        "rva": "0x13be88e",
+        "encoding": "ascii",
+        "text": "cPU#rFN`Z"
+      },
+      {
+        "offset": "0x1c4d67e",
+        "rva": "0x1c4e27e",
+        "encoding": "ascii",
+        "text": "biOs^lo"
+      },
+      {
+        "offset": "0x1ddec00",
+        "rva": "0x1ddf800",
+        "encoding": "ascii",
+        "text": "}cpu "
+      },
+      {
+        "offset": "0x22740be",
+        "rva": "0x2274cbe",
+        "encoding": "ascii",
+        "text": "^40].cPU"
+      },
+      {
+        "offset": "0x3b6d498",
+        "rva": "0x3b6e098",
+        "encoding": "ascii",
+        "text": " (unknown cpu arch)"
+      },
+      {
+        "offset": "0x3d40b6e",
+        "rva": "0x3d4176e",
+        "encoding": "ascii",
+        "text": "processor"
+      },
+      {
+        "offset": "0x3d41867",
+        "rva": "0x3d42467",
+        "encoding": "ascii",
+        "text": "cpu_brand"
+      },
+      {
+        "offset": "0x3d41bc3",
+        "rva": "0x3d427c3",
+        "encoding": "ascii",
+        "text": "motherboardBiosVendorName"
+      },
+      {
+        "offset": "0x3d41c0c",
+        "rva": "0x3d4280c",
+        "encoding": "ascii",
+        "text": "motherboardBiosVersion"
+      },
+      {
+        "offset": "0x3f90020",
+        "rva": "0x3f90c20",
+        "encoding": "ascii",
+        "text": "Logs\\cpu.log"
+      },
+      {
+        "offset": "0x3f92f38",
+        "rva": "0x3f93b38",
+        "encoding": "ascii",
+        "text": "use hardware instancing"
+      },
+      {
+        "offset": "0x3f96f20",
+        "rva": "0x3f97b20",
+        "encoding": "ascii",
+        "text": "Current Time (yyyy-mm-dd hh:mm:ss.000),FPS,Ave Frame Time (ms),Ave Cpu Frame Time (ms),Ave Cpu Update Time (ms),Ave Cpu Render Time (ms),Ave Gpu Wait Time (ms),Ave Gpu Render Time (ms),Ave Frame Latency (ms),Ave Low Latency Wait Time (ms),Ave Gpu Frame Queue,Is Gpu Bound,Cpu Memory Available (MB),Cpu Memory Total (MB),Cpu Memory Load (%),Gpu Memory Used (MB),Gpu Memory Total (MB),Gpu Memory Load (%),Gpu Memory Budget (MB),Gpu Memory Budget (%),Gpu Writable Textures (MB),Gpu Read Only Textures (MB),Gpu Buffe"
+      },
+      {
+        "offset": "0x3f99358",
+        "rva": "0x3f99f58",
+        "encoding": "ascii",
+        "text": "<CPU Update Revision> 0x%llx%s"
+      },
+      {
+        "offset": "0x3f99e28",
+        "rva": "0x3f9aa28",
+        "encoding": "ascii",
+        "text": "<CPU Vendor> %s"
+      },
+      {
+        "offset": "0x3fab160",
+        "rva": "0x3fabd60",
+        "encoding": "ascii",
+        "text": "CPU memory saving mode, if supported by backend. When enabled, shaders are fetched from disk as needed instead of being kept resident. This mode may slightly increase the time objects take to appear the first time they are encountered. Computers without solid state drives may want to disable this feature"
+      },
+      {
+        "offset": "0x3fab310",
+        "rva": "0x3fabf10",
+        "encoding": "ascii",
+        "text": "maximum number of frames ahead of GPU the CPU can be"
+      },
+      {
+        "offset": "0x3fab500",
+        "rva": "0x3fac100",
+        "encoding": "ascii",
+        "text": "do hardware detection"
+      },
+      {
+        "offset": "0x3fab5e0",
+        "rva": "0x3fac1e0",
+        "encoding": "ascii",
+        "text": "Allows GPU work submission on a secondary thread while the rest of the CPU threads continue on to the next frame"
+      },
+      {
+        "offset": "0x3fab998",
+        "rva": "0x3fac598",
+        "encoding": "ascii",
+        "text": "Disables CPU Microcode checks"
+      },
+      {
+        "offset": "0x3fabaf0",
+        "rva": "0x3fac6f0",
+        "encoding": "ascii",
+        "text": "CPU Name: %s\\nMotherboard Name: %s\\nBIOS Release Date: %s\\nMicrocode Version: 0x%llX"
+      },
+      {
+        "offset": "0x3fabb50",
+        "rva": "0x3fac750",
+        "encoding": "ascii",
+        "text": "See %s for more information about updating your motherboard BIOS."
+      },
+      {
+        "offset": "0x3fabba0",
+        "rva": "0x3fac7a0",
+        "encoding": "ascii",
+        "text": "World of Warcraft has detected your computer is using an Intel 13th or 14th generation processor that does not have the proper updates installed to address potential processor instability issues. It is highly recommended to update the BIOS on your motherboard to the latest version with Intel's microcode %s or later."
+      },
+      {
+        "offset": "0x3fad150",
+        "rva": "0x3fadd50",
+        "encoding": "ascii",
+        "text": "Detected Graphics Defaults: %d (CPU = %d, GPU = %d, MEM = %d) WindowSize: %ux%u"
+      },
+      {
+        "offset": "0x400a110",
+        "rva": "0x400ad10",
+        "encoding": "ascii",
+        "text": "L'hardware "
+      },
+      {
+        "offset": "0x400a160",
+        "rva": "0x400ad60",
+        "encoding": "ascii",
+        "text": "Hardware alterado. Deseja recarregar as configura"
+      },
+      {
+        "offset": "0x400a240",
+        "rva": "0x400ae40",
+        "encoding": "ascii",
+        "text": "El hardware ha cambiado. "
+      },
+      {
+        "offset": "0x400a300",
+        "rva": "0x400af00",
+        "encoding": "ascii",
+        "text": "Hardware wurde ver"
+      },
+      {
+        "offset": "0x400a3f0",
+        "rva": "0x400aff0",
+        "encoding": "ascii",
+        "text": "Hardware changed.  Reload default settings?"
+      },
+      {
+        "offset": "0x400e305",
+        "rva": "0x400ef05",
+        "encoding": "ascii",
+        "text": " BIOS"
+      },
+      {
+        "offset": "0x400f341",
+        "rva": "0x400ff41",
+        "encoding": "ascii",
+        "text": "n de la BIOS de la placa madre."
+      },
+      {
+        "offset": "0x400f3b1",
+        "rva": "0x400ffb1",
+        "encoding": "ascii",
+        "text": "n de la BIOS de tu placa base."
+      },
+      {
+        "offset": "0x400f450",
+        "rva": "0x4010050",
+        "encoding": "ascii",
+        "text": "Weitere Information zur Aktualisierung des Motherboard-BIOS gibt es unter %s."
+      },
+      {
+        "offset": "0x400f4cf",
+        "rva": "0x40100cf",
+        "encoding": "ascii",
+        "text": " jour du BIOS de votre carte-m"
+      },
+      {
+        "offset": "0x400f50c",
+        "rva": "0x401010c",
+        "encoding": "ascii",
+        "text": " BIOS "
+      },
+      {
+        "offset": "0x400f620",
+        "rva": "0x4010220",
+        "encoding": "ascii",
+        "text": " del processore. Ti consigliamo di aggiornare il BIOS della scheda madre all'ultima versione con un microcodice Intel %s o successivo."
+      },
+      {
+        "offset": "0x400f7a5",
+        "rva": "0x40103a5",
+        "encoding": "ascii",
+        "text": "vel atualizar a BIOS da placa-m"
+      },
+      {
+        "offset": "0x400f938",
+        "rva": "0x4010538",
+        "encoding": "ascii",
+        "text": " BIOS "
+      },
+      {
+        "offset": "0x400fa46",
+        "rva": "0x4010646",
+        "encoding": "ascii",
+        "text": "n que no tiene las actualizaciones correspondientes instaladas para solucionar posibles problemas de inestabilidad del procesador. Se recomienda actualizar la BIOS de tu placa madre a su "
+      },
+      {
+        "offset": "0x400fba7",
+        "rva": "0x40107a7",
+        "encoding": "ascii",
+        "text": "n que no tiene instaladas las actualizaciones adecuadas para solucionar posibles problemas de inestabilidad del procesador. Es muy recomendable que actualices la BIOS de tu placa base a la "
+      },
+      {
+        "offset": "0x400ff82",
+        "rva": "0x4010b82",
+        "encoding": "ascii",
+        "text": "tsprobleme mit dem Prozessor zu beheben. Es wird stark empfohlen, das BIOS des Motherboards auf die aktuellste Version mit Intels Microcode %s oder neuer upzudaten."
+      },
+      {
+        "offset": "0x401012a",
+        "rva": "0x4010d2a",
+        "encoding": "ascii",
+        "text": " de mettre le BIOS de votre carte-m"
+      },
+      {
+        "offset": "0x40103c0",
+        "rva": "0x4010fc0",
+        "encoding": "ascii",
+        "text": "CPU: %s"
+      },
+      {
+        "offset": "0x40103db",
+        "rva": "0x4010fdb",
+        "encoding": "ascii",
+        "text": "Data di rilascio BIOS: %s"
+      },
+      {
+        "offset": "0x4010420",
+        "rva": "0x4011020",
+        "encoding": "ascii",
+        "text": "Nome da CPU: %s"
+      },
+      {
+        "offset": "0x4010457",
+        "rva": "0x4011057",
+        "encoding": "ascii",
+        "text": "o da BIOS: %s"
+      },
+      {
+        "offset": "0x40104d8",
+        "rva": "0x40110d8",
+        "encoding": "ascii",
+        "text": " BIOS: %s"
+      },
+      {
+        "offset": "0x4010510",
+        "rva": "0x4011110",
+        "encoding": "ascii",
+        "text": "Nombre de la CPU: %s"
+      },
+      {
+        "offset": "0x4010544",
+        "rva": "0x4011144",
+        "encoding": "ascii",
+        "text": "Fecha de lanzamiento de la BIOS: %s"
+      },
+      {
+        "offset": "0x4010590",
+        "rva": "0x4011190",
+        "encoding": "ascii",
+        "text": "Nombre de la CPU: %s"
+      },
+      {
+        "offset": "0x40105c3",
+        "rva": "0x40111c3",
+        "encoding": "ascii",
+        "text": "Fecha de salida de la BIOS: %s"
+      },
+      {
+        "offset": "0x40106d0",
+        "rva": "0x40112d0",
+        "encoding": "ascii",
+        "text": "CPU-Name: %s"
+      },
+      {
+        "offset": "0x40106f9",
+        "rva": "0x40112f9",
+        "encoding": "ascii",
+        "text": "ffentlichungsdatum des BIOS: %s"
+      },
+      {
+        "offset": "0x4010776",
+        "rva": "0x4011376",
+        "encoding": "ascii",
+        "text": "Date de parution du BIOS"
+      },
+      {
+        "offset": "0x40107e9",
+        "rva": "0x40113e9",
+        "encoding": "ascii",
+        "text": "BIOS "
+      },
+      {
+        "offset": "0x4010820",
+        "rva": "0x4011420",
+        "encoding": "ascii",
+        "text": "Vedi %s per ulteriori informazioni sull'aggiornamento del BIOS della scheda madre."
+      },
+      {
+        "offset": "0x40108b9",
+        "rva": "0x40114b9",
+        "encoding": "ascii",
+        "text": "o da BIOS da placa-m"
+      },
+      {
+        "offset": "0x4010910",
+        "rva": "0x4011510",
+        "encoding": "ascii",
+        "text": " BIOS "
+      },
+      {
+        "offset": "0x4153ac0",
+        "rva": "0x41546c0",
+        "encoding": "ascii",
+        "text": " - #           it means your audio hardware/driver doesn't support hardware channels."
+      },
+      {
+        "offset": "0x4153b18",
+        "rva": "0x4154718",
+        "encoding": "ascii",
+        "text": " - # NOTICE:   No Hardware Channels Available."
+      },
+      {
+        "offset": "0x4153b50",
+        "rva": "0x4154750",
+        "encoding": "ascii",
+        "text": " - #           Microsoft dropped support for hardware channels in Windows Vista and Windows 7."
+      },
+      {
+        "offset": "0x4153bb0",
+        "rva": "0x41547b0",
+        "encoding": "ascii",
+        "text": " - # Sound driver failed to report hardware information"
+      },
+      {
+        "offset": "0x4153be8",
+        "rva": "0x41547e8",
+        "encoding": "ascii",
+        "text": " - Sound Driver Reports: %d Hardware Channels Available."
+      },
+      {
+        "offset": "0x4153c48",
+        "rva": "0x4154848",
+        "encoding": "ascii",
+        "text": " - Initializing Hardware Channels"
+      },
+      {
+        "offset": "0x41546f8",
+        "rva": "0x41552f8",
+        "encoding": "ascii",
+        "text": " - # Using the maximum available hardware channels (%d)."
+      },
+      {
+        "offset": "0x4154738",
+        "rva": "0x4155338",
+        "encoding": "ascii",
+        "text": " - # Failed to set hardware channels"
+      },
+      {
+        "offset": "0x4154770",
+        "rva": "0x4155370",
+        "encoding": "ascii",
+        "text": " - # Requested %d hardware channels, but only %d are available."
+      },
+      {
+        "offset": "0x41547b0",
+        "rva": "0x41553b0",
+        "encoding": "ascii",
+        "text": " - # NOTICE:   Insufficient Hardware Channels Available."
+      },
+      {
+        "offset": "0x41547f0",
+        "rva": "0x41553f0",
+        "encoding": "ascii",
+        "text": " - #           World of Warcraft Requires At Least %d Hardware Channels to Function in Hardware Mode."
+      },
+      {
+        "offset": "0x4156498",
+        "rva": "0x4157098",
+        "encoding": "ascii",
+        "text": "Error creating hardware sound buffer. "
+      },
+      {
+        "offset": "0x4156600",
+        "rva": "0x4157200",
+        "encoding": "ascii",
+        "text": "Tried to use a feature that requires the software engine.  Software engine has either been turned off, or command was executed on a hardware channel which does not support this feature. "
+      },
+      {
+        "offset": "0x4156740",
+        "rva": "0x4157340",
+        "encoding": "ascii",
+        "text": "Tried to use a feature that requires hardware support.  (ie trying to play a GCADPCM compressed sound in software on Wii). "
+      },
+      {
+        "offset": "0x415db08",
+        "rva": "0x415e708",
+        "encoding": "ascii",
+        "text": "Variable Rate Shading not supported on this hardware"
+      },
+      {
+        "offset": "0x4183808",
+        "rva": "0x4184408",
+        "encoding": "ascii",
+        "text": "TouchPad hardware button"
+      },
+      {
+        "offset": "0x4183830",
+        "rva": "0x4184430",
+        "encoding": "ascii",
+        "text": "TouchPad left side (Also if hardware button clicked, but no touch detected)"
+      },
+      {
+        "offset": "0x4183880",
+        "rva": "0x4184480",
+        "encoding": "ascii",
+        "text": " (3rd party controller; VendorID and ProductID not actual values as reported by hardware)"
+      },
+      {
+        "offset": "0x4185f18",
+        "rva": "0x4186b18",
+        "encoding": "ascii",
+        "text": "Processor speed:"
+      },
+      {
+        "offset": "0x4185f38",
+        "rva": "0x4186b38",
+        "encoding": "ascii",
+        "text": "Processor vendor:"
+      },
+      {
+        "offset": "0x4189590",
+        "rva": "0x418a190",
+        "encoding": "ascii",
+        "text": "Window overlap.  1 to 32.  Default = 4.  Increase this to reduce 'tremolo' effect.  Increasing it by a factor of 2 doubles the CPU usage."
+      },
+      {
+        "offset": "0x421d0b0",
+        "rva": "0x421dcb0",
+        "encoding": "ascii",
+        "text": "Cannot get CPU usage for secure AddOns"
+      },
+      {
+        "offset": "0x425d5d8",
+        "rva": "0x425e1d8",
+        "encoding": "ascii",
+        "text": "Hardware Module Name"
+      },
+      {
+        "offset": "0x425d958",
+        "rva": "0x425e558",
+        "encoding": "ascii",
+        "text": "Platform Firmware Signature Verification Trait"
+      },
+      {
+        "offset": "0x425d9b8",
+        "rva": "0x425e5b8",
+        "encoding": "ascii",
+        "text": "Platform Firmware Update Compliance Trait"
+      },
+      {
+        "offset": "0x425da58",
+        "rva": "0x425e658",
+        "encoding": "ascii",
+        "text": "Platform Firmware Capabilities Trait"
+      },
+      {
+        "offset": "0x425db18",
+        "rva": "0x425e718",
+        "encoding": "ascii",
+        "text": "Platform Hardware Capabilities Trait"
+      },
+      {
+        "offset": "0x425f430",
+        "rva": "0x4260030",
+        "encoding": "ascii",
+        "text": "Platform Firmware Capabilities Trait Category"
+      },
+      {
+        "offset": "0x425f500",
+        "rva": "0x4260100",
+        "encoding": "ascii",
+        "text": "Platform Firmware Update Compliance Trait Category"
+      },
+      {
+        "offset": "0x425f590",
+        "rva": "0x4260190",
+        "encoding": "ascii",
+        "text": "Platform Hardware Capabilities Trait Category"
+      },
+      {
+        "offset": "0x425f5f8",
+        "rva": "0x42601f8",
+        "encoding": "ascii",
+        "text": "Platform Firmware Signature Verification Trait Category"
+      },
+      {
+        "offset": "0x4265c90",
+        "rva": "0x4266890",
+        "encoding": "ascii",
+        "text": "both BIOs must be BIO_dgram_pair"
+      },
+      {
+        "offset": "0x42b1668",
+        "rva": "0x42b2268",
+        "encoding": "ascii",
+        "text": "Motherboard: \"%s\" by \"%s\" (BIOS:%s version:%s date:%s)"
+      },
+      {
+        "offset": "0x42c2f20",
+        "rva": "0x42c3b20",
+        "encoding": "ascii",
+        "text": "CPU validation requested but the DXGI Debug Interface is unavailable. Error Code: 0x%08lx"
+      },
+      {
+        "offset": "0x42c7238",
+        "rva": "0x42c7e38",
+        "encoding": "ascii",
+        "text": "CPU Sampler"
+      },
+      {
+        "offset": "0x42c73c8",
+        "rva": "0x42c7fc8",
+        "encoding": "ascii",
+        "text": "CPU General"
+      },
+      {
+        "offset": "0x42cb1f0",
+        "rva": "0x42cbdf0",
+        "encoding": "ascii",
+        "text": "CPU/GPU validation requested but D3D12 Debug Interface is unavailable. Error Code: 0x%08lx"
+      },
+      {
+        "offset": "0x42cb9a8",
+        "rva": "0x42cc5a8",
+        "encoding": "ascii",
+        "text": "AMD Radeon Graphics Processor"
+      },
+      {
+        "offset": "0x42cb9c8",
+        "rva": "0x42cc5c8",
+        "encoding": "ascii",
+        "text": "AMD Radeon (TM) Graphics Processor"
+      },
+      {
+        "offset": "0x47ce188",
+        "rva": "0x47cf388",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client.ClientEngineLogV2cpu_vendorcpu_brandgpu_namebcOsVersion_extrabcOsVersion_hostExtramotherboardManufacturerNamemotherboardBoardNamemotherboardBiosVendorNamemotherboardBiosReleaseDatemotherboardBiosVersion"
+      },
+      {
+        "offset": "0x3f9930e",
+        "rva": "0x3f99f0e",
+        "encoding": "utf16le",
+        "text": "NHARDWARE\\DESCRIPTION\\System\\BIOS"
+      },
+      {
+        "offset": "0x3f99410",
+        "rva": "0x3f9a010",
+        "encoding": "utf16le",
+        "text": "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0"
+      },
+      {
+        "offset": "0x3f99470",
+        "rva": "0x3f9a070",
+        "encoding": "utf16le",
+        "text": "BIOSVersion"
+      },
+      {
+        "offset": "0x3f99488",
+        "rva": "0x3f9a088",
+        "encoding": "utf16le",
+        "text": "BIOSVendor"
+      }
+    ],
+    "telemetry": [
+      {
+        "offset": "0x3bea370",
+        "rva": "0x3beaf70",
+        "encoding": "ascii",
+        "text": "https://wow.ingest.gdp.blizzard.com"
+      },
+      {
+        "offset": "0x3bea398",
+        "rva": "0x3beaf98",
+        "encoding": "ascii",
+        "text": "telemetry-in.battlenet.com.cn"
+      },
+      {
+        "offset": "0x3bea3c0",
+        "rva": "0x3beafc0",
+        "encoding": "ascii",
+        "text": "const char *__cdecl WowGetRawTypeName<struct blz::chained_hash_node<struct blz::pair<enum REGION_GROUP_FLAGS const ,class blz::tuple<struct SharedTelemetry::Config,struct SharedTelemetry::Config,struct SharedTelemetry::Config> > >>(void)"
+      },
+      {
+        "offset": "0x3bea4b0",
+        "rva": "0x3beb0b0",
+        "encoding": "ascii",
+        "text": "const char *__cdecl WowGetRawTypeName<struct blz::chained_hash_node<struct blz::pair<enum REGION_GROUP_FLAGS const ,class blz::tuple<struct SharedTelemetry::Config,struct SharedTelemetry::Config,struct SharedTelemetry::Config> > >*>(void)"
+      },
+      {
+        "offset": "0x3bea5a0",
+        "rva": "0x3beb1a0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow_Labs_DEV"
+      },
+      {
+        "offset": "0x3bea5d0",
+        "rva": "0x3beb1d0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow_Classic_DEV"
+      },
+      {
+        "offset": "0x3bea608",
+        "rva": "0x3beb208",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow_Mainline_DEV"
+      },
+      {
+        "offset": "0x3bea648",
+        "rva": "0x3beb248",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow_Labs_PTR"
+      },
+      {
+        "offset": "0x3bea678",
+        "rva": "0x3beb278",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow_Classic_PTR"
+      },
+      {
+        "offset": "0x3bea6b0",
+        "rva": "0x3beb2b0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow_Mainline_PTR"
+      },
+      {
+        "offset": "0x3bea6f8",
+        "rva": "0x3beb2f8",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow_Labs"
+      },
+      {
+        "offset": "0x3bea728",
+        "rva": "0x3beb328",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow_Classic"
+      },
+      {
+        "offset": "0x3bea758",
+        "rva": "0x3beb358",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow_Mainline"
+      },
+      {
+        "offset": "0x3bea788",
+        "rva": "0x3beb388",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow"
+      },
+      {
+        "offset": "0x3d390c1",
+        "rva": "0x3d39cc1",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto"
+      },
+      {
+        "offset": "0x3d390e6",
+        "rva": "0x3d39ce6",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d39105",
+        "rva": "0x3d39d05",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\"z"
+      },
+      {
+        "offset": "0x3d394c4",
+        "rva": "0x3d3a0c4",
+        "encoding": "ascii",
+        "text": "22.Blizzard.Telemetry.Wow.Client.GxDriverVersionInfo"
+      },
+      {
+        "offset": "0x3d3954d",
+        "rva": "0x3d3a14d",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d39594",
+        "rva": "0x3d3a194",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d395d1",
+        "rva": "0x3d3a1d1",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3d398c9",
+        "rva": "0x3d3a4c9",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d398e8",
+        "rva": "0x3d3a4e8",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d39903",
+        "rva": "0x3d3a503",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto"
+      },
+      {
+        "offset": "0x3d39928",
+        "rva": "0x3d3a528",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\""
+      },
+      {
+        "offset": "0x3d39968",
+        "rva": "0x3d3a568",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d399a2",
+        "rva": "0x3d3a5a2",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3d39a12",
+        "rva": "0x3d3a612",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.FileLocation"
+      },
+      {
+        "offset": "0x3d39a87",
+        "rva": "0x3d3a687",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d39ac4",
+        "rva": "0x3d3a6c4",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3d39ba0",
+        "rva": "0x3d3a7a0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d39bbf",
+        "rva": "0x3d3a7bf",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d39bdb",
+        "rva": "0x3d3a7db",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3d39bf8",
+        "rva": "0x3d3a7f8",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3d39c6c",
+        "rva": "0x3d3a86c",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d39ca6",
+        "rva": "0x3d3a8a6",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3d39cf0",
+        "rva": "0x3d3a8f0",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d39d2d",
+        "rva": "0x3d3a92d",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3d39df9",
+        "rva": "0x3d3a9f9",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d39e18",
+        "rva": "0x3d3aa18",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d39e34",
+        "rva": "0x3d3aa34",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3d39e51",
+        "rva": "0x3d3aa51",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3d39eae",
+        "rva": "0x3d3aaae",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d39ee8",
+        "rva": "0x3d3aae8",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3d39f32",
+        "rva": "0x3d3ab32",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d39f6f",
+        "rva": "0x3d3ab6f",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3d3a03e",
+        "rva": "0x3d3ac3e",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d3a05d",
+        "rva": "0x3d3ac5d",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d3a079",
+        "rva": "0x3d3ac79",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3d3a096",
+        "rva": "0x3d3ac96",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3d3a0f8",
+        "rva": "0x3d3acf8",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d3a132",
+        "rva": "0x3d3ad32",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3d3a17c",
+        "rva": "0x3d3ad7c",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3a1b9",
+        "rva": "0x3d3adb9",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3d3a24c",
+        "rva": "0x3d3ae4c",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d3a26b",
+        "rva": "0x3d3ae6b",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d3a286",
+        "rva": "0x3d3ae86",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto"
+      },
+      {
+        "offset": "0x3d3a2ab",
+        "rva": "0x3d3aeab",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\""
+      },
+      {
+        "offset": "0x3d3a2e8",
+        "rva": "0x3d3aee8",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d3a32f",
+        "rva": "0x3d3af2f",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3a36c",
+        "rva": "0x3d3af6c",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3d3a3a3",
+        "rva": "0x3d3afa3",
+        "encoding": "ascii",
+        "text": "2%.Blizzard.Telemetry.Wow.Client.GxInfo"
+      },
+      {
+        "offset": "0x3d3a526",
+        "rva": "0x3d3b126",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d3a545",
+        "rva": "0x3d3b145",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d3a560",
+        "rva": "0x3d3b160",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\"|"
+      },
+      {
+        "offset": "0x3d3a5cd",
+        "rva": "0x3d3b1cd",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo:"
+      },
+      {
+        "offset": "0x3d3a6aa",
+        "rva": "0x3d3b2aa",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d3a6c9",
+        "rva": "0x3d3b2c9",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d3a6e5",
+        "rva": "0x3d3b2e5",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3d3a702",
+        "rva": "0x3d3b302",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3d3a773",
+        "rva": "0x3d3b373",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d3a7ad",
+        "rva": "0x3d3b3ad",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3d3a7f7",
+        "rva": "0x3d3b3f7",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3a834",
+        "rva": "0x3d3b434",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3d3a9b0",
+        "rva": "0x3d3b5b0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d3a9cf",
+        "rva": "0x3d3b5cf",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d3a9eb",
+        "rva": "0x3d3b5eb",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3d3aa08",
+        "rva": "0x3d3b608",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\"?"
+      },
+      {
+        "offset": "0x3d3aad2",
+        "rva": "0x3d3b6d2",
+        "encoding": "ascii",
+        "text": "28.Blizzard.Telemetry.Wow.Client.ClientRPEInfo.NoRPEReason\""
+      },
+      {
+        "offset": "0x3d3ac10",
+        "rva": "0x3d3b810",
+        "encoding": "ascii",
+        "text": "2#.Blizzard.Telemetry.Wow.AccountInfo"
+      },
+      {
+        "offset": "0x3d3ac45",
+        "rva": "0x3d3b845",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d3ac8c",
+        "rva": "0x3d3b88c",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3acd4",
+        "rva": "0x3d3b8d4",
+        "encoding": "ascii",
+        "text": "20.Blizzard.Telemetry.Wow.Client.WarbandScenesUsed"
+      },
+      {
+        "offset": "0x3d3ad1f",
+        "rva": "0x3d3b91f",
+        "encoding": "ascii",
+        "text": "2,.Blizzard.Telemetry.Wow.Client.ClientRPEInfo:"
+      },
+      {
+        "offset": "0x3d3aee1",
+        "rva": "0x3d3bae1",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d3b0b4",
+        "rva": "0x3d3bcb4",
+        "encoding": "ascii",
+        "text": "20.Blizzard.Telemetry.Wow.Client.ClientEngineLogV2"
+      },
+      {
+        "offset": "0x3d3b100",
+        "rva": "0x3d3bd00",
+        "encoding": "ascii",
+        "text": "25.Blizzard.Telemetry.Wow.Client.ClientGraphicsSettings"
+      },
+      {
+        "offset": "0x3d3b151",
+        "rva": "0x3d3bd51",
+        "encoding": "ascii",
+        "text": "25.Blizzard.Telemetry.Wow.Client.ClientGraphicsSettings"
+      },
+      {
+        "offset": "0x3d3b32b",
+        "rva": "0x3d3bf2b",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d3b34a",
+        "rva": "0x3d3bf4a",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d3b366",
+        "rva": "0x3d3bf66",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3d3b383",
+        "rva": "0x3d3bf83",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto"
+      },
+      {
+        "offset": "0x3d3b3eb",
+        "rva": "0x3d3bfeb",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d3b425",
+        "rva": "0x3d3c025",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3d3b461",
+        "rva": "0x3d3c061",
+        "encoding": "ascii",
+        "text": "2/.Blizzard.Telemetry.Wow.Client.ClientSystemSpec"
+      },
+      {
+        "offset": "0x3d3b516",
+        "rva": "0x3d3c116",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3b553",
+        "rva": "0x3d3c153",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3d3baab",
+        "rva": "0x3d3c6ab",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d3baca",
+        "rva": "0x3d3c6ca",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d3bae6",
+        "rva": "0x3d3c6e6",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3d3bb03",
+        "rva": "0x3d3c703",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto"
+      },
+      {
+        "offset": "0x3d3c00d",
+        "rva": "0x3d3cc0d",
+        "encoding": "ascii",
+        "text": "23.Blizzard.Telemetry.Wow.Client.ClientMemoryCategory"
+      },
+      {
+        "offset": "0x3d3c0ff",
+        "rva": "0x3d3ccff",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d3c139",
+        "rva": "0x3d3cd39",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3d3c176",
+        "rva": "0x3d3cd76",
+        "encoding": "ascii",
+        "text": "25.Blizzard.Telemetry.Wow.Client.ClientPerformanceStats"
+      },
+      {
+        "offset": "0x3d3c1bb",
+        "rva": "0x3d3cdbb",
+        "encoding": "ascii",
+        "text": "2/.Blizzard.Telemetry.Wow.Client.ClientSystemSpec"
+      },
+      {
+        "offset": "0x3d3c208",
+        "rva": "0x3d3ce08",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3c245",
+        "rva": "0x3d3ce45",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3d3c281",
+        "rva": "0x3d3ce81",
+        "encoding": "ascii",
+        "text": "20.Blizzard.Telemetry.Wow.Client.ClientMemoryStats:"
+      },
+      {
+        "offset": "0x3d3c2e9",
+        "rva": "0x3d3cee9",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d3c323",
+        "rva": "0x3d3cf23",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3d3c35f",
+        "rva": "0x3d3cf5f",
+        "encoding": "ascii",
+        "text": "2/.Blizzard.Telemetry.Wow.Client.ClientSystemSpec"
+      },
+      {
+        "offset": "0x3d3c44a",
+        "rva": "0x3d3d04a",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3c487",
+        "rva": "0x3d3d087",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3d3c4c3",
+        "rva": "0x3d3d0c3",
+        "encoding": "ascii",
+        "text": "20.Blizzard.Telemetry.Wow.Client.ClientMemoryStats:"
+      },
+      {
+        "offset": "0x3d3c534",
+        "rva": "0x3d3d134",
+        "encoding": "ascii",
+        "text": "2,.Blizzard.Telemetry.Wow.Client.EncounterInfo"
+      },
+      {
+        "offset": "0x3d3c581",
+        "rva": "0x3d3d181",
+        "encoding": "ascii",
+        "text": "24.Blizzard.Telemetry.Wow.Client.CharacterClassAndSpec"
+      },
+      {
+        "offset": "0x3d3c5c7",
+        "rva": "0x3d3d1c7",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d3c601",
+        "rva": "0x3d3d201",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3d3c63e",
+        "rva": "0x3d3d23e",
+        "encoding": "ascii",
+        "text": "25.Blizzard.Telemetry.Wow.Client.ClientPerformanceStats"
+      },
+      {
+        "offset": "0x3d3c683",
+        "rva": "0x3d3d283",
+        "encoding": "ascii",
+        "text": "2/.Blizzard.Telemetry.Wow.Client.ClientSystemSpec"
+      },
+      {
+        "offset": "0x3d3c6c6",
+        "rva": "0x3d3d2c6",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3d3c708",
+        "rva": "0x3d3d308",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3c748",
+        "rva": "0x3d3d348",
+        "encoding": "ascii",
+        "text": "26.Blizzard.Telemetry.Wow.Client.ClientAddOnProfilerData"
+      },
+      {
+        "offset": "0x3d3c797",
+        "rva": "0x3d3d397",
+        "encoding": "ascii",
+        "text": "26.Blizzard.Telemetry.Wow.Client.ClientAddOnProfilerData"
+      },
+      {
+        "offset": "0x3d3c7ec",
+        "rva": "0x3d3d3ec",
+        "encoding": "ascii",
+        "text": "26.Blizzard.Telemetry.Wow.Client.ClientAddOnProfilerData"
+      },
+      {
+        "offset": "0x3d3c885",
+        "rva": "0x3d3d485",
+        "encoding": "ascii",
+        "text": "2`.Blizzard.Telemetry.Wow.Client.ClientAddOnPerformanceMessage.ClientAddOnPerformanceMessageMetric"
+      },
+      {
+        "offset": "0x3d3c909",
+        "rva": "0x3d3d509",
+        "encoding": "ascii",
+        "text": "2^.Blizzard.Telemetry.Wow.Client.ClientAddOnPerformanceMessage.ClientAddOnPerformanceMessageType"
+      },
+      {
+        "offset": "0x3d3cab1",
+        "rva": "0x3d3d6b1",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d3caf8",
+        "rva": "0x3d3d6f8",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3cb31",
+        "rva": "0x3d3d731",
+        "encoding": "ascii",
+        "text": "2/.Blizzard.Telemetry.Wow.Client.ClientSystemSpec"
+      },
+      {
+        "offset": "0x3d3cb74",
+        "rva": "0x3d3d774",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3d3cbaa",
+        "rva": "0x3d3d7aa",
+        "encoding": "ascii",
+        "text": "26.Blizzard.Telemetry.Wow.Client.ClientAddOnProfilerData"
+      },
+      {
+        "offset": "0x3d3cbf9",
+        "rva": "0x3d3d7f9",
+        "encoding": "ascii",
+        "text": "26.Blizzard.Telemetry.Wow.Client.ClientAddOnProfilerData"
+      },
+      {
+        "offset": "0x3d3cc4e",
+        "rva": "0x3d3d84e",
+        "encoding": "ascii",
+        "text": "26.Blizzard.Telemetry.Wow.Client.ClientAddOnProfilerData"
+      },
+      {
+        "offset": "0x3d3ccde",
+        "rva": "0x3d3d8de",
+        "encoding": "ascii",
+        "text": "2<.Blizzard.Telemetry.Wow.Client.ClientAddOnPerformanceMessage:"
+      },
+      {
+        "offset": "0x3d3cd76",
+        "rva": "0x3d3d976",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d3cd95",
+        "rva": "0x3d3d995",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d3cdb1",
+        "rva": "0x3d3d9b1",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3d3cdce",
+        "rva": "0x3d3d9ce",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3d3ce22",
+        "rva": "0x3d3da22",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d3ce69",
+        "rva": "0x3d3da69",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3cea6",
+        "rva": "0x3d3daa6",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3d3cf97",
+        "rva": "0x3d3db97",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d3cfb6",
+        "rva": "0x3d3dbb6",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d3cfd2",
+        "rva": "0x3d3dbd2",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\""
+      },
+      {
+        "offset": "0x3d3d01d",
+        "rva": "0x3d3dc1d",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3d05d",
+        "rva": "0x3d3dc5d",
+        "encoding": "ascii",
+        "text": "2=.Blizzard.Telemetry.Wow.Client.ClientQueueForMatch.QueuedFrom"
+      },
+      {
+        "offset": "0x3d3d0b0",
+        "rva": "0x3d3dcb0",
+        "encoding": "ascii",
+        "text": "2<.Blizzard.Telemetry.Wow.Client.ClientQueueForMatch.QueueType"
+      },
+      {
+        "offset": "0x3d3d102",
+        "rva": "0x3d3dd02",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3d3d13c",
+        "rva": "0x3d3dd3c",
+        "encoding": "ascii",
+        "text": "2!.Blizzard.Telemetry.Wow.PartyInfo\"H"
+      },
+      {
+        "offset": "0x3d3d2af",
+        "rva": "0x3d3deaf",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d3d2ce",
+        "rva": "0x3d3dece",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d3d2ea",
+        "rva": "0x3d3deea",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\""
+      },
+      {
+        "offset": "0x3d3d337",
+        "rva": "0x3d3df37",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3d374",
+        "rva": "0x3d3df74",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3d3d449",
+        "rva": "0x3d3e049",
+        "encoding": "ascii",
+        "text": "28.Blizzard.Telemetry.Wow.Client.LimitedLuaResources.Scope"
+      },
+      {
+        "offset": "0x3d3d49a",
+        "rva": "0x3d3e09a",
+        "encoding": "ascii",
+        "text": "2B.Blizzard.Telemetry.Wow.Client.LimitedLuaResources.LuaResourceType"
+      },
+      {
+        "offset": "0x3d3d522",
+        "rva": "0x3d3e122",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3d55f",
+        "rva": "0x3d3e15f",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc\"\""
+      },
+      {
+        "offset": "0x3d3d733",
+        "rva": "0x3d3e333",
+        "encoding": "ascii",
+        "text": "\"Blizzard.Telemetry.Wow.Client.Risk"
+      },
+      {
+        "offset": "0x3d3d758",
+        "rva": "0x3d3e358",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d3d774",
+        "rva": "0x3d3e374",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3d3d791",
+        "rva": "0x3d3e391",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3d3d7e5",
+        "rva": "0x3d3e3e5",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d3d82c",
+        "rva": "0x3d3e42c",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d3d869",
+        "rva": "0x3d3e469",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3d3d933",
+        "rva": "0x3d3e533",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d3d952",
+        "rva": "0x3d3e552",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto\""
+      },
+      {
+        "offset": "0x3d3d995",
+        "rva": "0x3d3e595",
+        "encoding": "ascii",
+        "text": "2:.Blizzard.Telemetry.Wow.Client.ClientNetCantConnect.Reason"
+      },
+      {
+        "offset": "0x3d3d9fd",
+        "rva": "0x3d3e5fd",
+        "encoding": "ascii",
+        "text": "2B.Blizzard.Telemetry.Wow.Client.ClientNetCantConnect.QuicStatusCode"
+      },
+      {
+        "offset": "0x3d3de49",
+        "rva": "0x3d3ea49",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d3de68",
+        "rva": "0x3d3ea68",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d3de83",
+        "rva": "0x3d3ea83",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto"
+      },
+      {
+        "offset": "0x3d3dea8",
+        "rva": "0x3d3eaa8",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\""
+      },
+      {
+        "offset": "0x3d3df21",
+        "rva": "0x3d3eb21",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3d3df60",
+        "rva": "0x3d3eb60",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3d3e1b2",
+        "rva": "0x3d3edb2",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3d3e1d0",
+        "rva": "0x3d3edd0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow\""
+      },
+      {
+        "offset": "0x3d3e2aa",
+        "rva": "0x3d3eeaa",
+        "encoding": "ascii",
+        "text": "2!.Blizzard.Telemetry.Wow.RealmInfo"
+      },
+      {
+        "offset": "0x3d3e2e4",
+        "rva": "0x3d3eee4",
+        "encoding": "ascii",
+        "text": "2!.Blizzard.Telemetry.Wow.RealmInfo\"q"
+      },
+      {
+        "offset": "0x3d3e39f",
+        "rva": "0x3d3ef9f",
+        "encoding": "ascii",
+        "text": "2!.Blizzard.Telemetry.Wow.RealmInfo"
+      },
+      {
+        "offset": "0x3d3e670",
+        "rva": "0x3d3f270",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Cost.ResourceType"
+      },
+      {
+        "offset": "0x3d3eca4",
+        "rva": "0x3d3f8a4",
+        "encoding": "ascii",
+        "text": "2\".Blizzard.Telemetry.Wow.TraitEntry"
+      },
+      {
+        "offset": "0x3d3eef5",
+        "rva": "0x3d3faf5",
+        "encoding": "ascii",
+        "text": "27.Blizzard.Telemetry.Wow.TrialBankedExperience.TrialType\"G"
+      },
+      {
+        "offset": "0x3d3efb7",
+        "rva": "0x3d3fbb7",
+        "encoding": "ascii",
+        "text": "2&.Blizzard.Telemetry.Wow.ClubFinderType"
+      },
+      {
+        "offset": "0x3d3f019",
+        "rva": "0x3d3fc19",
+        "encoding": "ascii",
+        "text": "21.Blizzard.Telemetry.Wow.PingTargetInfo.TargetType"
+      },
+      {
+        "offset": "0x3d3f0d0",
+        "rva": "0x3d3fcd0",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.InstanceGUID"
+      },
+      {
+        "offset": "0x3d3f10d",
+        "rva": "0x3d3fd0d",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.ScenarioGUID"
+      },
+      {
+        "offset": "0x3d3f2d5",
+        "rva": "0x3d3fed5",
+        "encoding": "ascii",
+        "text": "2!.Blizzard.Telemetry.Wow.DecorGUID"
+      },
+      {
+        "offset": "0x3d3f31a",
+        "rva": "0x3d3ff1a",
+        "encoding": "ascii",
+        "text": ".Blizzard.Telemetry.Wow.Vector"
+      },
+      {
+        "offset": "0x3d3f34c",
+        "rva": "0x3d3ff4c",
+        "encoding": "ascii",
+        "text": ".Blizzard.Telemetry.Wow.Vector"
+      },
+      {
+        "offset": "0x3d3f3ee",
+        "rva": "0x3d3ffee",
+        "encoding": "ascii",
+        "text": ".Blizzard.Telemetry.Wow.Room"
+      },
+      {
+        "offset": "0x3d3f41b",
+        "rva": "0x3d4001b",
+        "encoding": "ascii",
+        "text": ".Blizzard.Telemetry.Wow.Decor"
+      },
+      {
+        "offset": "0x3d3f451",
+        "rva": "0x3d40051",
+        "encoding": "ascii",
+        "text": "2'.Blizzard.Telemetry.Wow.Room_Connection"
+      },
+      {
+        "offset": "0x3d3f495",
+        "rva": "0x3d40095",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Room_Modification\""
+      },
+      {
+        "offset": "0x3d3f4e2",
+        "rva": "0x3d400e2",
+        "encoding": "ascii",
+        "text": "2%.Blizzard.Telemetry.Wow.HouseRoomGUID"
+      },
+      {
+        "offset": "0x3d3f51d",
+        "rva": "0x3d4011d",
+        "encoding": "ascii",
+        "text": ".Blizzard.Telemetry.Wow.Vector"
+      },
+      {
+        "offset": "0x3d3f585",
+        "rva": "0x3d40185",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Room_Modification\""
+      },
+      {
+        "offset": "0x3d3f5d8",
+        "rva": "0x3d401d8",
+        "encoding": "ascii",
+        "text": "2%.Blizzard.Telemetry.Wow.HouseRoomGUID"
+      },
+      {
+        "offset": "0x3d3f614",
+        "rva": "0x3d40214",
+        "encoding": "ascii",
+        "text": "2%.Blizzard.Telemetry.Wow.HouseRoomGUID"
+      },
+      {
+        "offset": "0x3d3f702",
+        "rva": "0x3d40302",
+        "encoding": "ascii",
+        "text": "21.Blizzard.Telemetry.Wow.House_Fixture.FixtureSize"
+      },
+      {
+        "offset": "0x3d3f74c",
+        "rva": "0x3d4034c",
+        "encoding": "ascii",
+        "text": "22.Blizzard.Telemetry.Wow.House_Fixture.FixtureTheme"
+      },
+      {
+        "offset": "0x3d3f796",
+        "rva": "0x3d40396",
+        "encoding": "ascii",
+        "text": "21.Blizzard.Telemetry.Wow.House_Fixture.FixtureType"
+      },
+      {
+        "offset": "0x3d40b0d",
+        "rva": "0x3d4170d",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow\"X"
+      },
+      {
+        "offset": "0x3d411a6",
+        "rva": "0x3d41da6",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3d411c5",
+        "rva": "0x3d41dc5",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d411e1",
+        "rva": "0x3d41de1",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3d41242",
+        "rva": "0x3d41e42",
+        "encoding": "ascii",
+        "text": "2!.Blizzard.Telemetry.Wow.RealmInfo"
+      },
+      {
+        "offset": "0x3d41281",
+        "rva": "0x3d41e81",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d412c3",
+        "rva": "0x3d41ec3",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.FileLocation"
+      },
+      {
+        "offset": "0x3d41300",
+        "rva": "0x3d41f00",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.WowClientVersion"
+      },
+      {
+        "offset": "0x3d41caa",
+        "rva": "0x3d428aa",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d41cf8",
+        "rva": "0x3d428f8",
+        "encoding": "ascii",
+        "text": "23.Blizzard.Telemetry.Wow.ClientKeybindExecutionCount:"
+      },
+      {
+        "offset": "0x3d41d66",
+        "rva": "0x3d42966",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d41da0",
+        "rva": "0x3d429a0",
+        "encoding": "ascii",
+        "text": "2\".Blizzard.Telemetry.Wow.ClientCVar"
+      },
+      {
+        "offset": "0x3d41e1e",
+        "rva": "0x3d42a1e",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3d41e59",
+        "rva": "0x3d42a59",
+        "encoding": "ascii",
+        "text": "2#.Blizzard.Telemetry.Wow.ClientAddOn"
+      },
+      {
+        "offset": "0x3d41f3d",
+        "rva": "0x3d42b3d",
+        "encoding": "ascii",
+        "text": "'Blizzard.Telemetry.Bleep.Client.Network"
+      },
+      {
+        "offset": "0x3d41f67",
+        "rva": "0x3d42b67",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d41fda",
+        "rva": "0x3d42bda",
+        "encoding": "ascii",
+        "text": "2G.Blizzard.Telemetry.Bleep.Client.Network.ServerConnectionInfo.EventTypeB"
+      },
+      {
+        "offset": "0x3d42056",
+        "rva": "0x3d42c56",
+        "encoding": "ascii",
+        "text": "2N.Blizzard.Telemetry.Bleep.Client.Network.ServerConnectionInfo.ConnectionReason"
+      },
+      {
+        "offset": "0x3d4212d",
+        "rva": "0x3d42d2d",
+        "encoding": "ascii",
+        "text": "28.Blizzard.Telemetry.Bleep.Client.Network.ServerEventType\""
+      },
+      {
+        "offset": "0x3d42541",
+        "rva": "0x3d43141",
+        "encoding": "ascii",
+        "text": "'Blizzard.Telemetry.Bleep.Client.Network"
+      },
+      {
+        "offset": "0x3d4256b",
+        "rva": "0x3d4316b",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3d42655",
+        "rva": "0x3d43255",
+        "encoding": "ascii",
+        "text": "28.Blizzard.Telemetry.Bleep.Client.Network.ServerEventType:"
+      },
+      {
+        "offset": "0x3d42726",
+        "rva": "0x3d43326",
+        "encoding": "ascii",
+        "text": "'Blizzard.Telemetry.Bleep.Client.Network"
+      },
+      {
+        "offset": "0x3d42750",
+        "rva": "0x3d43350",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto\"^"
+      },
+      {
+        "offset": "0x3d427f5",
+        "rva": "0x3d433f5",
+        "encoding": "ascii",
+        "text": "26.Blizzard.Telemetry.Bleep.Client.Network.ProxyPingData"
+      },
+      {
+        "offset": "0x3d4294d",
+        "rva": "0x3d4354d",
+        "encoding": "ascii",
+        "text": "'Blizzard.Telemetry.Bleep.Client.Network*"
+      },
+      {
+        "offset": "0x3f37190",
+        "rva": "0x3f37d90",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Internal.FlowControl.CachedRule"
+      },
+      {
+        "offset": "0x3f37322",
+        "rva": "0x3f37f22",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f3733e",
+        "rva": "0x3f37f3e",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry"
+      },
+      {
+        "offset": "0x3f37385",
+        "rva": "0x3f37f85",
+        "encoding": "ascii",
+        "text": "telemetry_message"
+      },
+      {
+        "offset": "0x3f37536",
+        "rva": "0x3f38136",
+        "encoding": "ascii",
+        "text": "TelemetryFileOptions"
+      },
+      {
+        "offset": "0x3f37572",
+        "rva": "0x3f38172",
+        "encoding": "ascii",
+        "text": ".Blizzard.Telemetry.FileOptions:f"
+      },
+      {
+        "offset": "0x3f37595",
+        "rva": "0x3f38195",
+        "encoding": "ascii",
+        "text": "TelemetryMessageOptions"
+      },
+      {
+        "offset": "0x3f375d5",
+        "rva": "0x3f381d5",
+        "encoding": "ascii",
+        "text": "2\".Blizzard.Telemetry.MessageOptions:l"
+      },
+      {
+        "offset": "0x3f375fd",
+        "rva": "0x3f381fd",
+        "encoding": "ascii",
+        "text": "TelemetryLogMessageOptions"
+      },
+      {
+        "offset": "0x3f37640",
+        "rva": "0x3f38240",
+        "encoding": "ascii",
+        "text": "2%.Blizzard.Telemetry.LogMessageOptions:`"
+      },
+      {
+        "offset": "0x3f3766b",
+        "rva": "0x3f3826b",
+        "encoding": "ascii",
+        "text": "TelemetryFieldOptions"
+      },
+      {
+        "offset": "0x3f376a7",
+        "rva": "0x3f382a7",
+        "encoding": "ascii",
+        "text": "2 .Blizzard.Telemetry.FieldOptions:f"
+      },
+      {
+        "offset": "0x3f376cd",
+        "rva": "0x3f382cd",
+        "encoding": "ascii",
+        "text": "TelemetryLogFieldOptions"
+      },
+      {
+        "offset": "0x3f3770c",
+        "rva": "0x3f3830c",
+        "encoding": "ascii",
+        "text": "2#.Blizzard.Telemetry.LogFieldOptionsB "
+      },
+      {
+        "offset": "0x3f37735",
+        "rva": "0x3f38335",
+        "encoding": "ascii",
+        "text": "com.blizzard.telemetry.protoP"
+      },
+      {
+        "offset": "0x3f377f0",
+        "rva": "0x3f383f0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Context.ProgramInfo.SdkInfo"
+      },
+      {
+        "offset": "0x3f37860",
+        "rva": "0x3f38460",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Context.HostInfo"
+      },
+      {
+        "offset": "0x3f378d0",
+        "rva": "0x3f384d0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Context.LocationInfo"
+      },
+      {
+        "offset": "0x3f37940",
+        "rva": "0x3f38540",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Context.ProgramInfo"
+      },
+      {
+        "offset": "0x3f379b0",
+        "rva": "0x3f385b0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.CrmContextExtensions"
+      },
+      {
+        "offset": "0x3f37a20",
+        "rva": "0x3f38620",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.IdentityContextExtensions.IdentityInfo"
+      },
+      {
+        "offset": "0x3f37aa0",
+        "rva": "0x3f386a0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.CrmContextExtensions.CrmInfo"
+      },
+      {
+        "offset": "0x3f37b10",
+        "rva": "0x3f38710",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Context.TraceInfo"
+      },
+      {
+        "offset": "0x3f37b80",
+        "rva": "0x3f38780",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.IdentityContextExtensions"
+      },
+      {
+        "offset": "0x3f37bf0",
+        "rva": "0x3f387f0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Context.ProgramInfo.VersionInfo"
+      },
+      {
+        "offset": "0x3f37c70",
+        "rva": "0x3f38870",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Context"
+      },
+      {
+        "offset": "0x3f37d40",
+        "rva": "0x3f38940",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Metric.MetricSet.Metric"
+      },
+      {
+        "offset": "0x3f37df0",
+        "rva": "0x3f389f0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Metric.MetricSet.Tag"
+      },
+      {
+        "offset": "0x3f37e70",
+        "rva": "0x3f38a70",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Metric.MetricSet"
+      },
+      {
+        "offset": "0x3f37ef0",
+        "rva": "0x3f38af0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Envelope"
+      },
+      {
+        "offset": "0x3f37fa0",
+        "rva": "0x3f38ba0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Envelope.FlowInfo"
+      },
+      {
+        "offset": "0x3f38010",
+        "rva": "0x3f38c10",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Attribution.Purchase.PaymentInfo"
+      },
+      {
+        "offset": "0x3f38090",
+        "rva": "0x3f38c90",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Attribution.Purchase"
+      },
+      {
+        "offset": "0x3f38110",
+        "rva": "0x3f38d10",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Network.Disconnect"
+      },
+      {
+        "offset": "0x3f38200",
+        "rva": "0x3f38e00",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Network.UdpQualitySample"
+      },
+      {
+        "offset": "0x3f38280",
+        "rva": "0x3f38e80",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Network.UdpQualitySample.Metric"
+      },
+      {
+        "offset": "0x3f38300",
+        "rva": "0x3f38f00",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Network.ConnectFail"
+      },
+      {
+        "offset": "0x3f38370",
+        "rva": "0x3f38f70",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Alert"
+      },
+      {
+        "offset": "0x3f383e0",
+        "rva": "0x3f38fe0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Attribution.Install"
+      },
+      {
+        "offset": "0x3f38450",
+        "rva": "0x3f39050",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Process.Finish"
+      },
+      {
+        "offset": "0x3f384c0",
+        "rva": "0x3f390c0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Network.ConnectSuccess"
+      },
+      {
+        "offset": "0x3f38540",
+        "rva": "0x3f39140",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Network.TcpQualitySample"
+      },
+      {
+        "offset": "0x3f385c0",
+        "rva": "0x3f391c0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Network.TcpQualitySample.Metric"
+      },
+      {
+        "offset": "0x3f38640",
+        "rva": "0x3f39240",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Standard.Process.Start"
+      },
+      {
+        "offset": "0x3f4a1ac",
+        "rva": "0x3f4adac",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.VoiceClient\"6"
+      },
+      {
+        "offset": "0x3f4a2cd",
+        "rva": "0x3f4aecd",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.VoiceClient\""
+      },
+      {
+        "offset": "0x3f4a3be",
+        "rva": "0x3f4afbe",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.VoiceClient\"5"
+      },
+      {
+        "offset": "0x3f889c0",
+        "rva": "0x3f895c0",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f889df",
+        "rva": "0x3f895df",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f889fb",
+        "rva": "0x3f895fb",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3f88a18",
+        "rva": "0x3f89618",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto"
+      },
+      {
+        "offset": "0x3f88a80",
+        "rva": "0x3f89680",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f88aba",
+        "rva": "0x3f896ba",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f88afe",
+        "rva": "0x3f896fe",
+        "encoding": "ascii",
+        "text": "2+.Blizzard.Telemetry.VoiceClient.ChannelJoin"
+      },
+      {
+        "offset": "0x3f88b47",
+        "rva": "0x3f89747",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f88b84",
+        "rva": "0x3f89784",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3f88c61",
+        "rva": "0x3f89861",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f88c80",
+        "rva": "0x3f89880",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f88c9c",
+        "rva": "0x3f8989c",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3f88cb9",
+        "rva": "0x3f898b9",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto"
+      },
+      {
+        "offset": "0x3f88d23",
+        "rva": "0x3f89923",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f88d5d",
+        "rva": "0x3f8995d",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f88da2",
+        "rva": "0x3f899a2",
+        "encoding": "ascii",
+        "text": "2,.Blizzard.Telemetry.VoiceClient.ChannelLeave"
+      },
+      {
+        "offset": "0x3f88dec",
+        "rva": "0x3f899ec",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f88e29",
+        "rva": "0x3f89a29",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3f88eff",
+        "rva": "0x3f89aff",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f88f1e",
+        "rva": "0x3f89b1e",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f88f3a",
+        "rva": "0x3f89b3a",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3f88f57",
+        "rva": "0x3f89b57",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3f88fa4",
+        "rva": "0x3f89ba4",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f88fde",
+        "rva": "0x3f89bde",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f89059",
+        "rva": "0x3f89c59",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f89096",
+        "rva": "0x3f89c96",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3f89182",
+        "rva": "0x3f89d82",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f891a1",
+        "rva": "0x3f89da1",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f891bd",
+        "rva": "0x3f89dbd",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3f891da",
+        "rva": "0x3f89dda",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto"
+      },
+      {
+        "offset": "0x3f89246",
+        "rva": "0x3f89e46",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f89280",
+        "rva": "0x3f89e80",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f892c6",
+        "rva": "0x3f89ec6",
+        "encoding": "ascii",
+        "text": "2-.Blizzard.Telemetry.VoiceClient.ProviderError"
+      },
+      {
+        "offset": "0x3f89311",
+        "rva": "0x3f89f11",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8934e",
+        "rva": "0x3f89f4e",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3f893fa",
+        "rva": "0x3f89ffa",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f89419",
+        "rva": "0x3f8a019",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f89435",
+        "rva": "0x3f8a035",
+        "encoding": "ascii",
+        "text": "TelemetryExtensions.proto"
+      },
+      {
+        "offset": "0x3f89450",
+        "rva": "0x3f8a050",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3f8946d",
+        "rva": "0x3f8a06d",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\"I"
+      },
+      {
+        "offset": "0x3f89506",
+        "rva": "0x3f8a106",
+        "encoding": "ascii",
+        "text": "2-.Blizzard.Telemetry.Wow.Client.NameLookupInfo"
+      },
+      {
+        "offset": "0x3f89550",
+        "rva": "0x3f8a150",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f8959a",
+        "rva": "0x3f8a19a",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f895d7",
+        "rva": "0x3f8a1d7",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3f896f8",
+        "rva": "0x3f8a2f8",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f89717",
+        "rva": "0x3f8a317",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f89732",
+        "rva": "0x3f8a332",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3f8978b",
+        "rva": "0x3f8a38b",
+        "encoding": "ascii",
+        "text": "24.Blizzard.Telemetry.Wow.Client.CharacterClassAndSpec"
+      },
+      {
+        "offset": "0x3f897d3",
+        "rva": "0x3f8a3d3",
+        "encoding": "ascii",
+        "text": "2D.Blizzard.Telemetry.Wow.Client.AssistedCombatCastFailure.FailureSpot\"2"
+      },
+      {
+        "offset": "0x3f898c5",
+        "rva": "0x3f8a4c5",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f898e4",
+        "rva": "0x3f8a4e4",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f898ff",
+        "rva": "0x3f8a4ff",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\"e"
+      },
+      {
+        "offset": "0x3f89955",
+        "rva": "0x3f8a555",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo:"
+      },
+      {
+        "offset": "0x3f89a1d",
+        "rva": "0x3f8a61d",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f89a3c",
+        "rva": "0x3f8a63c",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f89a57",
+        "rva": "0x3f8a657",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\"Y"
+      },
+      {
+        "offset": "0x3f89aa1",
+        "rva": "0x3f8a6a1",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo:"
+      },
+      {
+        "offset": "0x3f89baa",
+        "rva": "0x3f8a7aa",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f89bc9",
+        "rva": "0x3f8a7c9",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f89be5",
+        "rva": "0x3f8a7e5",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3f89c02",
+        "rva": "0x3f8a802",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3f89c65",
+        "rva": "0x3f8a865",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f89c9f",
+        "rva": "0x3f8a89f",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f89ce9",
+        "rva": "0x3f8a8e9",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f89d26",
+        "rva": "0x3f8a926",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3f89d9b",
+        "rva": "0x3f8a99b",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f89dba",
+        "rva": "0x3f8a9ba",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f89dd6",
+        "rva": "0x3f8a9d6",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\"Y"
+      },
+      {
+        "offset": "0x3f89e1f",
+        "rva": "0x3f8aa1f",
+        "encoding": "ascii",
+        "text": "2#.Blizzard.Telemetry.Wow.AccountInfo:"
+      },
+      {
+        "offset": "0x3f89eb4",
+        "rva": "0x3f8aab4",
+        "encoding": "ascii",
+        "text": "\"Blizzard.Telemetry.Wow.ClientDebug"
+      },
+      {
+        "offset": "0x3f89ed9",
+        "rva": "0x3f8aad9",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f89ef5",
+        "rva": "0x3f8aaf5",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\""
+      },
+      {
+        "offset": "0x3f89f5d",
+        "rva": "0x3f8ab5d",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8a02e",
+        "rva": "0x3f8ac2e",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8a31c",
+        "rva": "0x3f8af1c",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f8a33b",
+        "rva": "0x3f8af3b",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8a356",
+        "rva": "0x3f8af56",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto"
+      },
+      {
+        "offset": "0x3f8a37b",
+        "rva": "0x3f8af7b",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\""
+      },
+      {
+        "offset": "0x3f8a3c0",
+        "rva": "0x3f8afc0",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8a3fd",
+        "rva": "0x3f8affd",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3f8a433",
+        "rva": "0x3f8b033",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8a489",
+        "rva": "0x3f8b089",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8a503",
+        "rva": "0x3f8b103",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8a540",
+        "rva": "0x3f8b140",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3f8a576",
+        "rva": "0x3f8b176",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8a5cc",
+        "rva": "0x3f8b1cc",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8a648",
+        "rva": "0x3f8b248",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8a685",
+        "rva": "0x3f8b285",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3f8a6bb",
+        "rva": "0x3f8b2bb",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8a711",
+        "rva": "0x3f8b311",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8a937",
+        "rva": "0x3f8b537",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f8a956",
+        "rva": "0x3f8b556",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8a972",
+        "rva": "0x3f8b572",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\""
+      },
+      {
+        "offset": "0x3f8a9c3",
+        "rva": "0x3f8b5c3",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8aa00",
+        "rva": "0x3f8b600",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3f8aa3b",
+        "rva": "0x3f8b63b",
+        "encoding": "ascii",
+        "text": "2>.Blizzard.Telemetry.Wow.Client.HouseFinderUITracker.ActionType"
+      },
+      {
+        "offset": "0x3f8aac2",
+        "rva": "0x3f8b6c2",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.NeighborhoodGUID\"@"
+      },
+      {
+        "offset": "0x3f8ab72",
+        "rva": "0x3f8b772",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8abaf",
+        "rva": "0x3f8b7af",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3f8abea",
+        "rva": "0x3f8b7ea",
+        "encoding": "ascii",
+        "text": "2D.Blizzard.Telemetry.Wow.Client.HousingMarketActionTracker.ActionType"
+      },
+      {
+        "offset": "0x3f8ac44",
+        "rva": "0x3f8b844",
+        "encoding": "ascii",
+        "text": "2!.Blizzard.Telemetry.Wow.HouseGUID"
+      },
+      {
+        "offset": "0x3f8ac82",
+        "rva": "0x3f8b882",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.NeighborhoodGUID"
+      },
+      {
+        "offset": "0x3f8ae60",
+        "rva": "0x3f8ba60",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f8ae7f",
+        "rva": "0x3f8ba7f",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8ae9b",
+        "rva": "0x3f8ba9b",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3f8aeb8",
+        "rva": "0x3f8bab8",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3f8af06",
+        "rva": "0x3f8bb06",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8af40",
+        "rva": "0x3f8bb40",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f8af9f",
+        "rva": "0x3f8bb9f",
+        "encoding": "ascii",
+        "text": "2U.Blizzard.Telemetry.Wow.Client.ClientRestrictedAction.RestrictedUIActionBlockedReason"
+      },
+      {
+        "offset": "0x3f8b012",
+        "rva": "0x3f8bc12",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8b04f",
+        "rva": "0x3f8bc4f",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc\"["
+      },
+      {
+        "offset": "0x3f8b17b",
+        "rva": "0x3f8bd7b",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f8b19a",
+        "rva": "0x3f8bd9a",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8b1b6",
+        "rva": "0x3f8bdb6",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\""
+      },
+      {
+        "offset": "0x3f8b20a",
+        "rva": "0x3f8be0a",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8b343",
+        "rva": "0x3f8bf43",
+        "encoding": "ascii",
+        "text": "\"Blizzard.Telemetry.Wow.Client.Shop"
+      },
+      {
+        "offset": "0x3f8b368",
+        "rva": "0x3f8bf68",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8b384",
+        "rva": "0x3f8bf84",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3f8b3a1",
+        "rva": "0x3f8bfa1",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3f8b3ef",
+        "rva": "0x3f8bfef",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8b436",
+        "rva": "0x3f8c036",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8b473",
+        "rva": "0x3f8c073",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3f8b4e8",
+        "rva": "0x3f8c0e8",
+        "encoding": "ascii",
+        "text": "2..Blizzard.Telemetry.Wow.Client.ShopSessionInfo"
+      },
+      {
+        "offset": "0x3f8b532",
+        "rva": "0x3f8c132",
+        "encoding": "ascii",
+        "text": "22.Blizzard.Telemetry.Wow.Client.ShopProductLocation"
+      },
+      {
+        "offset": "0x3f8b5d5",
+        "rva": "0x3f8c1d5",
+        "encoding": "ascii",
+        "text": "2..Blizzard.Telemetry.Wow.Client.ShopSessionInfo"
+      },
+      {
+        "offset": "0x3f8b61f",
+        "rva": "0x3f8c21f",
+        "encoding": "ascii",
+        "text": "22.Blizzard.Telemetry.Wow.Client.ShopProductLocation"
+      },
+      {
+        "offset": "0x3f8b6a3",
+        "rva": "0x3f8c2a3",
+        "encoding": "ascii",
+        "text": "2..Blizzard.Telemetry.Wow.Client.ShopSessionInfo"
+      },
+      {
+        "offset": "0x3f8b6e1",
+        "rva": "0x3f8c2e1",
+        "encoding": "ascii",
+        "text": "2;.Blizzard.Telemetry.Wow.Client.CatalogShopClientFailureType"
+      },
+      {
+        "offset": "0x3f8b8d1",
+        "rva": "0x3f8c4d1",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f8b8f0",
+        "rva": "0x3f8c4f0",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8b90c",
+        "rva": "0x3f8c50c",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3f8b929",
+        "rva": "0x3f8c529",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3f8b978",
+        "rva": "0x3f8c578",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8b9bf",
+        "rva": "0x3f8c5bf",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8b9fc",
+        "rva": "0x3f8c5fc",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3f8ba3a",
+        "rva": "0x3f8c63a",
+        "encoding": "ascii",
+        "text": "2D.Blizzard.Telemetry.Wow.Client.ClientCinematicFinished.CinematicType"
+      },
+      {
+        "offset": "0x3f8bc46",
+        "rva": "0x3f8c846",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f8bc65",
+        "rva": "0x3f8c865",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8bc80",
+        "rva": "0x3f8c880",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto"
+      },
+      {
+        "offset": "0x3f8bca5",
+        "rva": "0x3f8c8a5",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\""
+      },
+      {
+        "offset": "0x3f8bceb",
+        "rva": "0x3f8c8eb",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8bd26",
+        "rva": "0x3f8c926",
+        "encoding": "ascii",
+        "text": "2D.Blizzard.Telemetry.Wow.Client.ClientTraitsImport.TraitsImportSource"
+      },
+      {
+        "offset": "0x3f8bdb1",
+        "rva": "0x3f8c9b1",
+        "encoding": "ascii",
+        "text": "24.Blizzard.Telemetry.Wow.Client.CharacterClassAndSpec"
+      },
+      {
+        "offset": "0x3f8bdf6",
+        "rva": "0x3f8c9f6",
+        "encoding": "ascii",
+        "text": "2-.Blizzard.Telemetry.Wow.Client.CharacterLevel\"/"
+      },
+      {
+        "offset": "0x3f8bec5",
+        "rva": "0x3f8cac5",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f8bee4",
+        "rva": "0x3f8cae4",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8bf00",
+        "rva": "0x3f8cb00",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3f8bf1d",
+        "rva": "0x3f8cb1d",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3f8bf71",
+        "rva": "0x3f8cb71",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8bfab",
+        "rva": "0x3f8cbab",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f8bff7",
+        "rva": "0x3f8cbf7",
+        "encoding": "ascii",
+        "text": "2-.Blizzard.Telemetry.Wow.TrialBankedExperience"
+      },
+      {
+        "offset": "0x3f8c038",
+        "rva": "0x3f8cc38",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3f8c07a",
+        "rva": "0x3f8cc7a",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity:"
+      },
+      {
+        "offset": "0x3f8c0e1",
+        "rva": "0x3f8cce1",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8c11b",
+        "rva": "0x3f8cd1b",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f8c167",
+        "rva": "0x3f8cd67",
+        "encoding": "ascii",
+        "text": "2-.Blizzard.Telemetry.Wow.TrialBankedExperience"
+      },
+      {
+        "offset": "0x3f8c1a8",
+        "rva": "0x3f8cda8",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3f8c1ea",
+        "rva": "0x3f8cdea",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity:"
+      },
+      {
+        "offset": "0x3f8c335",
+        "rva": "0x3f8cf35",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f8c354",
+        "rva": "0x3f8cf54",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8c370",
+        "rva": "0x3f8cf70",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3f8c38d",
+        "rva": "0x3f8cf8d",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3f8c3d7",
+        "rva": "0x3f8cfd7",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8c411",
+        "rva": "0x3f8d011",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f8c4a1",
+        "rva": "0x3f8d0a1",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8c4de",
+        "rva": "0x3f8d0de",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3f8c58e",
+        "rva": "0x3f8d18e",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8c5c8",
+        "rva": "0x3f8d1c8",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f8c60b",
+        "rva": "0x3f8d20b",
+        "encoding": "ascii",
+        "text": "2..Blizzard.Telemetry.Wow.Client.ClientMacroUsed"
+      },
+      {
+        "offset": "0x3f8c657",
+        "rva": "0x3f8d257",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8c694",
+        "rva": "0x3f8d294",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3f8c829",
+        "rva": "0x3f8d429",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f8c848",
+        "rva": "0x3f8d448",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8c863",
+        "rva": "0x3f8d463",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3f8c8b1",
+        "rva": "0x3f8d4b1",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8c8ef",
+        "rva": "0x3f8d4ef",
+        "encoding": "ascii",
+        "text": "2,.Blizzard.Telemetry.Wow.Client.LiveEventType:"
+      },
+      {
+        "offset": "0x3f8c950",
+        "rva": "0x3f8d550",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8c98e",
+        "rva": "0x3f8d58e",
+        "encoding": "ascii",
+        "text": "2,.Blizzard.Telemetry.Wow.Client.LiveEventType:"
+      },
+      {
+        "offset": "0x3f8ca8a",
+        "rva": "0x3f8d68a",
+        "encoding": "ascii",
+        "text": ")Blizzard.Telemetry.Wow.Client.TradingPost"
+      },
+      {
+        "offset": "0x3f8cab6",
+        "rva": "0x3f8d6b6",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8cad2",
+        "rva": "0x3f8d6d2",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto"
+      },
+      {
+        "offset": "0x3f8caef",
+        "rva": "0x3f8d6ef",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto\""
+      },
+      {
+        "offset": "0x3f8cb38",
+        "rva": "0x3f8d738",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8cb72",
+        "rva": "0x3f8d772",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f8cbec",
+        "rva": "0x3f8d7ec",
+        "encoding": "ascii",
+        "text": "27.Blizzard.Telemetry.Wow.Client.TradingPostItemSelection"
+      },
+      {
+        "offset": "0x3f8cc41",
+        "rva": "0x3f8d841",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8cc7e",
+        "rva": "0x3f8d87e",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3f8cd54",
+        "rva": "0x3f8d954",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f8cd73",
+        "rva": "0x3f8d973",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8cd8f",
+        "rva": "0x3f8d98f",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\""
+      },
+      {
+        "offset": "0x3f8cde0",
+        "rva": "0x3f8d9e0",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8ce3d",
+        "rva": "0x3f8da3d",
+        "encoding": "ascii",
+        "text": "2&.Blizzard.Telemetry.Wow.PingTargetInfo"
+      },
+      {
+        "offset": "0x3f8cec1",
+        "rva": "0x3f8dac1",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3f8cfae",
+        "rva": "0x3f8dbae",
+        "encoding": "ascii",
+        "text": "Blizzard.Telemetry.Wow.Client"
+      },
+      {
+        "offset": "0x3f8cfcd",
+        "rva": "0x3f8dbcd",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8cfe8",
+        "rva": "0x3f8dbe8",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto"
+      },
+      {
+        "offset": "0x3f8d00d",
+        "rva": "0x3f8dc0d",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\""
+      },
+      {
+        "offset": "0x3f8d051",
+        "rva": "0x3f8dc51",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8d08e",
+        "rva": "0x3f8dc8e",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3f8d0d0",
+        "rva": "0x3f8dcd0",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8d178",
+        "rva": "0x3f8dd78",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8d1b5",
+        "rva": "0x3f8ddb5",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc"
+      },
+      {
+        "offset": "0x3f8d1f7",
+        "rva": "0x3f8ddf7",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8d24a",
+        "rva": "0x3f8de4a",
+        "encoding": "ascii",
+        "text": "2N.Blizzard.Telemetry.Wow.Client.UISplashScreenActionLaunched.ActionLaunchedType"
+      },
+      {
+        "offset": "0x3f8d55d",
+        "rva": "0x3f8e15d",
+        "encoding": "ascii",
+        "text": ",Blizzard.Telemetry.Wow.Client.AdventureGuide"
+      },
+      {
+        "offset": "0x3f8d58c",
+        "rva": "0x3f8e18c",
+        "encoding": "ascii",
+        "text": "telemetry_extensions.proto"
+      },
+      {
+        "offset": "0x3f8d5a7",
+        "rva": "0x3f8e1a7",
+        "encoding": "ascii",
+        "text": "\"TelemetrySharedClientImports.proto"
+      },
+      {
+        "offset": "0x3f8d5cc",
+        "rva": "0x3f8e1cc",
+        "encoding": "ascii",
+        "text": "TelemetrySharedImports.proto\""
+      },
+      {
+        "offset": "0x3f8d611",
+        "rva": "0x3f8e211",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8d64b",
+        "rva": "0x3f8e24b",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f8d6bb",
+        "rva": "0x3f8e2bb",
+        "encoding": "ascii",
+        "text": "2H.Blizzard.Telemetry.Wow.Client.AdventureGuide.AdventureGuideUpdate.State"
+      },
+      {
+        "offset": "0x3f8d721",
+        "rva": "0x3f8e321",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8d75e",
+        "rva": "0x3f8e35e",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc\"E"
+      },
+      {
+        "offset": "0x3f8d807",
+        "rva": "0x3f8e407",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8d841",
+        "rva": "0x3f8e441",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f8d885",
+        "rva": "0x3f8e485",
+        "encoding": "ascii",
+        "text": "2Y.Blizzard.Telemetry.Wow.Client.AdventureGuide.AdventureGuideActivityLaunched.ActivityType"
+      },
+      {
+        "offset": "0x3f8d918",
+        "rva": "0x3f8e518",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8d955",
+        "rva": "0x3f8e555",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc\""
+      },
+      {
+        "offset": "0x3f8da79",
+        "rva": "0x3f8e679",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.Client.ClientInfo"
+      },
+      {
+        "offset": "0x3f8dab3",
+        "rva": "0x3f8e6b3",
+        "encoding": "ascii",
+        "text": "2(.Blizzard.Telemetry.Wow.Client.WorldInfoB"
+      },
+      {
+        "offset": "0x3f8db36",
+        "rva": "0x3f8e736",
+        "encoding": "ascii",
+        "text": "2).Blizzard.Telemetry.Wow.CharacterIdentity"
+      },
+      {
+        "offset": "0x3f8db73",
+        "rva": "0x3f8e773",
+        "encoding": "ascii",
+        "text": "2$.Blizzard.Telemetry.Wow.WorldPortLoc:"
+      },
+      {
+        "offset": "0x3f8dc82",
+        "rva": "0x3f8e882",
+        "encoding": "ascii",
+        "text": "DiscordClientTelemetry.proto"
+      }
+    ]
+  },
+  "string_match_total": {
+    "hardware": 101,
+    "destination": 230,
+    "telemetry": 599
+  },
+  "string_cap_per_category": 500,
+  "candidate_xref_count": 0,
+  "candidate_xrefs": [],
+  "candidate_xref_cap": 180,
+  "unwind_function_count": 234114,
+  "executed": false,
+  "limitations": [
+    "String presence is not use or upload proof",
+    "RIP candidates are not validated control-flow or data-flow",
+    "Indirect/dynamic/encoded references can be missed",
+    "No original source reconstruction or complete decompilation",
+    "No online certificate trust validation"
+  ]
+}

@@ -1,0 +1,2554 @@
+{
+  "file": "libxell.dll",
+  "size": 359792,
+  "sha256": "5ce63652eee5720203e0e41cc97eb45ee541c499c8a51d4bdb1e8fe4eaef4890",
+  "machine": "0x8664",
+  "image_base": "0x180000000",
+  "entry_rva": "0x1090",
+  "managed_clr_directory_present": false,
+  "version": {
+    "CompanyName": "Intel Corporation",
+    "FileDescription": "XeLL SDK",
+    "FileVersion": "1.2.0.9",
+    "InternalName": "libxell.dll",
+    "LegalCopyright": "Copyright (C) 2025 Intel Corporation",
+    "OriginalFilename": "libxell.dll",
+    "ProductName": "XeLL SDK",
+    "ProductVersion": "1.2.0.9"
+  },
+  "sections": [
+    {
+      "name": ".text",
+      "rva": "0x1000",
+      "virtual_size": 234802,
+      "raw_size": 235008,
+      "entropy": 4.765,
+      "executable": true,
+      "writable": false
+    },
+    {
+      "name": ".rdata",
+      "rva": "0x3b000",
+      "virtual_size": 72811,
+      "raw_size": 73216,
+      "entropy": 4.545,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".data",
+      "rva": "0x4d000",
+      "virtual_size": 6505,
+      "raw_size": 3584,
+      "entropy": 3.139,
+      "executable": false,
+      "writable": true
+    },
+    {
+      "name": ".pdata",
+      "rva": "0x4f000",
+      "virtual_size": 9240,
+      "raw_size": 9728,
+      "entropy": 4.997,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".idata",
+      "rva": "0x52000",
+      "virtual_size": 17847,
+      "raw_size": 17920,
+      "entropy": 3.757,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".gfids",
+      "rva": "0x57000",
+      "virtual_size": 1752,
+      "raw_size": 2048,
+      "entropy": 2.262,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".00cfg",
+      "rva": "0x58000",
+      "virtual_size": 337,
+      "raw_size": 512,
+      "entropy": 0.304,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".tls",
+      "rva": "0x59000",
+      "virtual_size": 777,
+      "raw_size": 1024,
+      "entropy": 0.011,
+      "executable": false,
+      "writable": true
+    },
+    {
+      "name": ".rsrc",
+      "rva": "0x5a000",
+      "virtual_size": 2048,
+      "raw_size": 2048,
+      "entropy": 2.947,
+      "executable": false,
+      "writable": false
+    },
+    {
+      "name": ".reloc",
+      "rva": "0x5b000",
+      "virtual_size": 1738,
+      "raw_size": 2048,
+      "entropy": 2.295,
+      "executable": false,
+      "writable": false
+    }
+  ],
+  "certificate_table_bytes": 11632,
+  "certificate_present_is_not_trust_verification": true,
+  "exports": [
+    {
+      "name": "INTC_D3D11_XessCreateContext",
+      "ordinal": 1,
+      "rva": "0x1370"
+    },
+    {
+      "name": "INTC_D3D11_XessDestroyContext",
+      "ordinal": 2,
+      "rva": "0x3100"
+    },
+    {
+      "name": "INTC_D3D11_XessExecute",
+      "ordinal": 3,
+      "rva": "0x16b0"
+    },
+    {
+      "name": "INTC_D3D11_XessForceLegacyScaleFactors",
+      "ordinal": 4,
+      "rva": "0x3fb0"
+    },
+    {
+      "name": "INTC_D3D11_XessGetExposureMultiplier",
+      "ordinal": 5,
+      "rva": "0x2d30"
+    },
+    {
+      "name": "INTC_D3D11_XessGetInitParams",
+      "ordinal": 6,
+      "rva": "0x38b0"
+    },
+    {
+      "name": "INTC_D3D11_XessGetInputResolution",
+      "ordinal": 7,
+      "rva": "0x2240"
+    },
+    {
+      "name": "INTC_D3D11_XessGetIntelXeFXVersion",
+      "ordinal": 8,
+      "rva": "0x3db0"
+    },
+    {
+      "name": "INTC_D3D11_XessGetJitterScale",
+      "ordinal": 9,
+      "rva": "0x1b70"
+    },
+    {
+      "name": "INTC_D3D11_XessGetOptimalInputResolution",
+      "ordinal": 10,
+      "rva": "0x2f20"
+    },
+    {
+      "name": "INTC_D3D11_XessGetProfilingData",
+      "ordinal": 11,
+      "rva": "0x3c40"
+    },
+    {
+      "name": "INTC_D3D11_XessGetVelocityScale",
+      "ordinal": 12,
+      "rva": "0x2c90"
+    },
+    {
+      "name": "INTC_D3D11_XessGetVersion",
+      "ordinal": 13,
+      "rva": "0x1170"
+    },
+    {
+      "name": "INTC_D3D11_XessInit",
+      "ordinal": 14,
+      "rva": "0x3000"
+    },
+    {
+      "name": "INTC_D3D11_XessIsOptimalDriver",
+      "ordinal": 15,
+      "rva": "0x21b0"
+    },
+    {
+      "name": "INTC_D3D11_XessSelectNetworkModel",
+      "ordinal": 16,
+      "rva": "0x15c0"
+    },
+    {
+      "name": "INTC_D3D11_XessSetExposureMultiplier",
+      "ordinal": 17,
+      "rva": "0x3ec0"
+    },
+    {
+      "name": "INTC_D3D11_XessSetJitterScale",
+      "ordinal": 18,
+      "rva": "0x3850"
+    },
+    {
+      "name": "INTC_D3D11_XessSetLoggingCallback",
+      "ordinal": 19,
+      "rva": "0x2c10"
+    },
+    {
+      "name": "INTC_D3D11_XessSetVelocityScale",
+      "ordinal": 20,
+      "rva": "0x1cc0"
+    },
+    {
+      "name": "INTC_D3D12_GetApplicationInfo",
+      "ordinal": 21,
+      "rva": "0x4050"
+    },
+    {
+      "name": "INTC_D3D12_GetGpuCrashDumpBufferInfo",
+      "ordinal": 22,
+      "rva": "0x32f0"
+    },
+    {
+      "name": "INTC_D3D12_GpuCrashDumpOnCommandListCreate",
+      "ordinal": 23,
+      "rva": "0x1b60"
+    },
+    {
+      "name": "INTC_D3D12_GpuCrashDumpOnCommandListDestroy",
+      "ordinal": 24,
+      "rva": "0x2700"
+    },
+    {
+      "name": "INTC_D3D12_GpuCrashDumpOnDeviceDestroy",
+      "ordinal": 25,
+      "rva": "0x1d80"
+    },
+    {
+      "name": "INTC_D3D12_RegisterDriverCallbacks",
+      "ordinal": 26,
+      "rva": "0x2f40"
+    },
+    {
+      "name": "xellAILGetDecision",
+      "ordinal": 27,
+      "rva": "0x3090"
+    },
+    {
+      "name": "xellAILGetVersion",
+      "ordinal": 28,
+      "rva": "0x1020"
+    },
+    {
+      "name": "xellAILIsSupportedDevice",
+      "ordinal": 29,
+      "rva": "0x41a0"
+    },
+    {
+      "name": "xellAddMarkerData",
+      "ordinal": 30,
+      "rva": "0x2020"
+    },
+    {
+      "name": "xellD3D12CreateContext",
+      "ordinal": 31,
+      "rva": "0x2280"
+    },
+    {
+      "name": "xellD3D12SetAppQueue",
+      "ordinal": 32,
+      "rva": "0x1030"
+    },
+    {
+      "name": "xellDestroyContext",
+      "ordinal": 33,
+      "rva": "0x10b0"
+    },
+    {
+      "name": "xellGetContextParameterP",
+      "ordinal": 34,
+      "rva": "0x3c20"
+    },
+    {
+      "name": "xellGetFramesReports",
+      "ordinal": 35,
+      "rva": "0x1fe0"
+    },
+    {
+      "name": "xellGetLastPresentStartFrameId",
+      "ordinal": 36,
+      "rva": "0x12e0"
+    },
+    {
+      "name": "xellGetSleepMode",
+      "ordinal": 37,
+      "rva": "0x2d90"
+    },
+    {
+      "name": "xellGetVersion",
+      "ordinal": 38,
+      "rva": "0x3450"
+    },
+    {
+      "name": "xellSetContextParameterP",
+      "ordinal": 39,
+      "rva": "0x1900"
+    },
+    {
+      "name": "xellSetDisplayInfo",
+      "ordinal": 40,
+      "rva": "0x3300"
+    },
+    {
+      "name": "xellSetFgEnabled",
+      "ordinal": 41,
+      "rva": "0x1670"
+    },
+    {
+      "name": "xellSetGeneratedFramesCount",
+      "ordinal": 42,
+      "rva": "0x1b80"
+    },
+    {
+      "name": "xellSetLoggingCallback",
+      "ordinal": 43,
+      "rva": "0x2e50"
+    },
+    {
+      "name": "xellSetSleepMode",
+      "ordinal": 44,
+      "rva": "0x17e0"
+    },
+    {
+      "name": "xellSleep",
+      "ordinal": 45,
+      "rva": "0x1a40"
+    }
+  ],
+  "imports": [
+    {
+      "dll": "dxgi.dll",
+      "delayed": false,
+      "symbols": [
+        "CreateDXGIFactory1"
+      ]
+    },
+    {
+      "dll": "CFGMGR32.dll",
+      "delayed": false,
+      "symbols": [
+        "CM_MapCrToWin32Err",
+        "CM_Get_DevNode_PropertyW",
+        "CM_Get_Device_ID_List_SizeW",
+        "CM_Get_Device_ID_ListW",
+        "CM_Locate_DevNodeW"
+      ]
+    },
+    {
+      "dll": "SETUPAPI.dll",
+      "delayed": false,
+      "symbols": [
+        "SetupGetInfDriverStoreLocationW"
+      ]
+    },
+    {
+      "dll": "SHLWAPI.dll",
+      "delayed": false,
+      "symbols": [
+        "PathRemoveFileSpecW"
+      ]
+    },
+    {
+      "dll": "KERNEL32.dll",
+      "delayed": false,
+      "symbols": [
+        "OutputDebugStringA",
+        "QueryPerformanceFrequency",
+        "WaitForSingleObject",
+        "CreateEventA",
+        "GetLastError",
+        "FreeLibrary",
+        "GetModuleFileNameA",
+        "GetProcAddress",
+        "LoadLibraryExA",
+        "LocalFree",
+        "FormatMessageA",
+        "GetModuleHandleW",
+        "GetModuleHandleExA",
+        "GetCurrentProcess",
+        "K32EnumProcessModules",
+        "K32GetModuleFileNameExW",
+        "CloseHandle",
+        "GetModuleFileNameW",
+        "LoadLibraryExW",
+        "LoadLibraryW"
+      ]
+    },
+    {
+      "dll": "ole32.dll",
+      "delayed": false,
+      "symbols": [
+        "StringFromGUID2"
+      ]
+    },
+    {
+      "dll": "ADVAPI32.dll",
+      "delayed": false,
+      "symbols": [
+        "RegGetValueA",
+        "RegEnumKeyExA",
+        "RegOpenKeyExA",
+        "RegQueryInfoKeyA",
+        "RegCloseKey"
+      ]
+    },
+    {
+      "dll": "MSVCP140.dll",
+      "delayed": false,
+      "symbols": [
+        "?_Locimp_Addfac@_Locimp@locale@std@@CAXPEAV123@PEAVfacet@23@_K@Z",
+        "?_New_Locimp@_Locimp@locale@std@@CAPEAV123@AEBV123@@Z",
+        "?in@?$codecvt@_WDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEBD1AEAPEBDPEA_W3AEAPEA_W@Z",
+        "?out@?$codecvt@_WDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEB_W1AEAPEB_WPEAD3AEAPEAD@Z",
+        "??0?$codecvt@_WDU_Mbstatet@@@std@@QEAA@_K@Z",
+        "??1?$codecvt@_WDU_Mbstatet@@@std@@MEAA@XZ",
+        "?id@?$codecvt@_WDU_Mbstatet@@@std@@2V0locale@2@A",
+        "??4?$_Yarn@D@std@@QEAAAEAV01@PEBD@Z",
+        "?_Xlength_error@std@@YAXPEBD@Z",
+        "?_Xout_of_range@std@@YAXPEBD@Z",
+        "_Query_perf_counter",
+        "_Query_perf_frequency",
+        "_Thrd_yield",
+        "_Mtx_init_in_situ",
+        "_Mtx_destroy_in_situ",
+        "_Mtx_lock",
+        "_Mtx_trylock",
+        "_Mtx_unlock",
+        "?_Throw_C_error@std@@YAXH@Z",
+        "?uncaught_exception@std@@YA_NXZ",
+        "??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAA@XZ",
+        "??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAA@XZ",
+        "?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHD@Z",
+        "?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAA_JPEBD_J@Z",
+        "?_Pninc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAPEADXZ",
+        "??1?$basic_ios@DU?$char_traits@D@std@@@std@@UEAA@XZ",
+        "?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z",
+        "??0?$basic_ios@DU?$char_traits@D@std@@@std@@IEAA@XZ",
+        "??0?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z",
+        "??1?$basic_ostream@DU?$char_traits@D@std@@@std@@UEAA@XZ",
+        "?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ",
+        "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@K@Z",
+        "?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@XZ",
+        "?_Lock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ",
+        "?_Unlock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ",
+        "?imbue@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAXAEBVlocale@2@@Z",
+        "?setbuf@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAPEAV12@PEAD_J@Z",
+        "?showmanyc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JXZ",
+        "?sync@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ",
+        "?uflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ",
+        "?xsgetn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEAD_J@Z",
+        "?xsputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEBD_J@Z",
+        "_Xtime_get_ticks",
+        "_Thrd_sleep",
+        "??0_Lockit@std@@QEAA@H@Z",
+        "??1_Lockit@std@@QEAA@XZ",
+        "?_Xbad_alloc@std@@YAXXZ",
+        "?_Xinvalid_argument@std@@YAXPEBD@Z",
+        "_Mbrtowc",
+        "_Strcoll",
+        "_Strxfrm",
+        "??0_Locinfo@std@@QEAA@PEBD@Z",
+        "??1_Locinfo@std@@QEAA@XZ",
+        "?_Getcoll@_Locinfo@std@@QEBA?AU_Collvec@@XZ",
+        "?_Getcvt@_Locinfo@std@@QEBA?AU_Cvtvec@@XZ",
+        "?_W_Getdays@_Locinfo@std@@QEBAPEBGXZ",
+        "?_W_Getmonths@_Locinfo@std@@QEBAPEBGXZ",
+        "?c_str@?$_Yarn@D@std@@QEBAPEBDXZ",
+        "??Bid@locale@std@@QEAA_KXZ",
+        "??0facet@locale@std@@IEAA@_K@Z",
+        "??1facet@locale@std@@MEAA@XZ",
+        "?_Init@locale@std@@CAPEAV_Locimp@12@_N@Z",
+        "?_Getgloballocale@locale@std@@CAPEAV_Locimp@12@XZ",
+        "?always_noconv@codecvt_base@std@@QEBA_NXZ",
+        "?tolower@?$ctype@D@std@@QEBADD@Z",
+        "?tolower@?$ctype@D@std@@QEBAPEBDPEADPEBD@Z",
+        "?_Getcat@?$ctype@D@std@@SA_KPEAPEBVfacet@locale@2@PEBV42@@Z",
+        "?in@?$codecvt@DDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEBD1AEAPEBDPEAD3AEAPEAD@Z",
+        "?out@?$codecvt@DDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEBD1AEAPEBDPEAD3AEAPEAD@Z",
+        "?unshift@?$codecvt@DDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEAD1AEAPEAD@Z",
+        "?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SA_KPEAPEBVfacet@locale@2@PEBV42@@Z",
+        "?getloc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEBA?AVlocale@2@XZ",
+        "?_Init@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAXXZ",
+        "?clear@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z",
+        "?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBADD@Z",
+        "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@P6AAEAV01@AEAV01@@Z@Z",
+        "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@H@Z",
+        "?put@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@D@Z",
+        "?write@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@PEBD_J@Z",
+        "?_Fiopen@std@@YAPEAU_iobuf@@PEBDHH@Z",
+        "?_Xregex_error@std@@YAXW4error_type@regex_constants@1@@Z",
+        "?_Decref@facet@locale@std@@UEAAPEAV_Facet_base@3@XZ",
+        "?_Incref@facet@locale@std@@UEAAXXZ",
+        "?id@?$ctype@D@std@@2V0locale@2@A",
+        "?id@?$codecvt@DDU_Mbstatet@@@std@@2V0locale@2@A",
+        "?id@?$collate@D@std@@2V0locale@2@A",
+        "?cerr@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A"
+      ]
+    },
+    {
+      "dll": "api-ms-win-core-synch-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "DeleteCriticalSection",
+        "EnterCriticalSection",
+        "LeaveCriticalSection",
+        "CreateEventW",
+        "WaitForSingleObjectEx",
+        "ResetEvent",
+        "SetEvent",
+        "InitializeCriticalSectionAndSpinCount"
+      ]
+    },
+    {
+      "dll": "api-ms-win-core-rtlsupport-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "RtlCaptureContext",
+        "RtlVirtualUnwind",
+        "RtlLookupFunctionEntry"
+      ]
+    },
+    {
+      "dll": "api-ms-win-core-errorhandling-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "UnhandledExceptionFilter",
+        "SetUnhandledExceptionFilter"
+      ]
+    },
+    {
+      "dll": "api-ms-win-core-processthreads-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "GetStartupInfoW",
+        "GetCurrentProcessId",
+        "GetCurrentThreadId",
+        "TerminateProcess"
+      ]
+    },
+    {
+      "dll": "api-ms-win-core-processthreads-l1-1-1.dll",
+      "delayed": false,
+      "symbols": [
+        "IsProcessorFeaturePresent"
+      ]
+    },
+    {
+      "dll": "api-ms-win-core-debug-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "IsDebuggerPresent"
+      ]
+    },
+    {
+      "dll": "api-ms-win-core-profile-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "QueryPerformanceCounter"
+      ]
+    },
+    {
+      "dll": "api-ms-win-core-sysinfo-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "GetSystemTimeAsFileTime"
+      ]
+    },
+    {
+      "dll": "api-ms-win-core-libraryloader-l1-2-0.dll",
+      "delayed": false,
+      "symbols": [
+        "DisableThreadLibraryCalls"
+      ]
+    },
+    {
+      "dll": "api-ms-win-core-interlocked-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "InitializeSListHead"
+      ]
+    },
+    {
+      "dll": "VCRUNTIME140.dll",
+      "delayed": false,
+      "symbols": [
+        "__std_type_info_destroy_list",
+        "__std_terminate",
+        "memchr",
+        "__C_specific_handler",
+        "__current_exception_context",
+        "__current_exception",
+        "wcsstr",
+        "wcsrchr",
+        "wcschr",
+        "memcmp",
+        "memcpy",
+        "strchr",
+        "memset",
+        "_purecall",
+        "memmove",
+        "__std_exception_copy",
+        "__std_exception_destroy",
+        "_CxxThrowException"
+      ]
+    },
+    {
+      "dll": "VCRUNTIME140_1.dll",
+      "delayed": false,
+      "symbols": [
+        "__CxxFrameHandler4"
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-runtime-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "_execute_onexit_table",
+        "_crt_atexit",
+        "_errno",
+        "_seh_filter_dll",
+        "_crt_at_quick_exit",
+        "_initialize_narrow_environment",
+        "_initterm",
+        "_initterm_e",
+        "terminate",
+        "_configure_narrow_argv",
+        "_invalid_parameter_noinfo_noreturn",
+        "_invalid_parameter_noinfo",
+        "_initialize_onexit_table",
+        "_cexit",
+        "_register_onexit_function"
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-stdio-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "fsetpos",
+        "_get_stream_buffer_pointers",
+        "fflush",
+        "__stdio_common_vsprintf",
+        "__stdio_common_vsprintf_s",
+        "fgetc",
+        "ungetc",
+        "setvbuf",
+        "fwrite",
+        "_fseeki64",
+        "fgetpos",
+        "fread",
+        "fputc",
+        "fclose"
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-math-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "sqrt",
+        "roundf"
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-filesystem-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "_lock_file",
+        "_waccess",
+        "_unlock_file",
+        "_splitpath_s"
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-string-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "strcat_s",
+        "wcscpy_s",
+        "_stricmp",
+        "strcpy_s"
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-heap-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "free",
+        "calloc",
+        "_callnewh",
+        "realloc",
+        "malloc"
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-convert-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "wcstol",
+        "strtol",
+        "atoi"
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-environment-l1-1-0.dll",
+      "delayed": false,
+      "symbols": [
+        "_wgetenv_s",
+        "_dupenv_s"
+      ]
+    }
+  ],
+  "debug": [
+    {
+      "pdb_basename": "libxell.pdb"
+    }
+  ],
+  "string_matches": {
+    "destination": [],
+    "hardware": [
+      {
+        "offset": "0x3bf28",
+        "rva": "0x3d528",
+        "encoding": "ascii",
+        "text": " Sleep to CPU end: "
+      },
+      {
+        "offset": "0x3c038",
+        "rva": "0x3d638",
+        "encoding": "ascii",
+        "text": "[FrameStats] CPU submission time: "
+      },
+      {
+        "offset": "0x3c260",
+        "rva": "0x3d860",
+        "encoding": "ascii",
+        "text": "CPU bound - GPU available quicker than CPU needs to prepare frame."
+      }
+    ],
+    "telemetry": [
+      {
+        "offset": "0x3bcc8",
+        "rva": "0x3d2c8",
+        "encoding": "ascii",
+        "text": "Failed to get display telemetry."
+      },
+      {
+        "offset": "0x3bcf0",
+        "rva": "0x3d2f0",
+        "encoding": "ascii",
+        "text": "Display telemetry corrupted."
+      },
+      {
+        "offset": "0x3bd50",
+        "rva": "0x3d350",
+        "encoding": "ascii",
+        "text": "VSync interval from Display Telemetry corrupted."
+      },
+      {
+        "offset": "0x40e98",
+        "rva": "0x42498",
+        "encoding": "ascii",
+        "text": "_INTC_D3D12_GetDisplayTelemetry"
+      }
+    ]
+  },
+  "string_match_total": {
+    "telemetry": 4,
+    "hardware": 3
+  },
+  "string_cap_per_category": 500,
+  "candidate_xref_count": 160,
+  "candidate_xrefs": [
+    {
+      "instruction_rva": "0xf6dc",
+      "instruction": "lea rdx, [rip + 0x2df55]",
+      "target_rva": "0x3d638",
+      "target_string": "[FrameStats] CPU submission time: ",
+      "target_import": null,
+      "containing_unwind_range": {
+        "begin_rva": "0xe8c0",
+        "end_rva": "0x1024b"
+      }
+    },
+    {
+      "instruction_rva": "0x101dc",
+      "instruction": "lea rdx, [rip + 0x2d67d]",
+      "target_rva": "0x3d860",
+      "target_string": "CPU bound - GPU available quicker than CPU needs to prepare frame.",
+      "target_import": null,
+      "containing_unwind_range": {
+        "begin_rva": "0xe8c0",
+        "end_rva": "0x1024b"
+      }
+    },
+    {
+      "instruction_rva": "0x1153d",
+      "instruction": "lea r8, [rip + 0x2bfe4]",
+      "target_rva": "0x3d528",
+      "target_string": " Sleep to CPU end: ",
+      "target_import": null,
+      "containing_unwind_range": {
+        "begin_rva": "0x108b0",
+        "end_rva": "0x12ede"
+      }
+    },
+    {
+      "instruction_rva": "0x11d87",
+      "instruction": "lea rdx, [rip + 0x2b8aa]",
+      "target_rva": "0x3d638",
+      "target_string": "[FrameStats] CPU submission time: ",
+      "target_import": null,
+      "containing_unwind_range": {
+        "begin_rva": "0x108b0",
+        "end_rva": "0x12ede"
+      }
+    },
+    {
+      "instruction_rva": "0x129cd",
+      "instruction": "lea rdx, [rip + 0x2ae8c]",
+      "target_rva": "0x3d860",
+      "target_string": "CPU bound - GPU available quicker than CPU needs to prepare frame.",
+      "target_import": null,
+      "containing_unwind_range": {
+        "begin_rva": "0x108b0",
+        "end_rva": "0x12ede"
+      }
+    },
+    {
+      "instruction_rva": "0x12e83",
+      "instruction": "lea rdx, [rip + 0x2a4c6]",
+      "target_rva": "0x3d350",
+      "target_string": "VSync interval from Display Telemetry corrupted.",
+      "target_import": null,
+      "containing_unwind_range": {
+        "begin_rva": "0x108b0",
+        "end_rva": "0x12ede"
+      }
+    },
+    {
+      "instruction_rva": "0x16214",
+      "instruction": "lea rdx, [rip + 0x270ad]",
+      "target_rva": "0x3d2c8",
+      "target_string": "Failed to get display telemetry.",
+      "target_import": null,
+      "containing_unwind_range": {
+        "begin_rva": "0x15960",
+        "end_rva": "0x166f7"
+      }
+    },
+    {
+      "instruction_rva": "0x162c3",
+      "instruction": "lea rdx, [rip + 0x27026]",
+      "target_rva": "0x3d2f0",
+      "target_string": "Display telemetry corrupted.",
+      "target_import": null,
+      "containing_unwind_range": {
+        "begin_rva": "0x15960",
+        "end_rva": "0x166f7"
+      }
+    },
+    {
+      "instruction_rva": "0x187ef",
+      "instruction": "call qword ptr [rip + 0x3995b]",
+      "target_rva": "0x52150",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!LoadLibraryExA",
+      "containing_unwind_range": {
+        "begin_rva": "0x187a0",
+        "end_rva": "0x18af1"
+      }
+    },
+    {
+      "instruction_rva": "0x18ec2",
+      "instruction": "call qword ptr [rip + 0x39280]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x18ea0",
+        "end_rva": "0x19069"
+      }
+    },
+    {
+      "instruction_rva": "0x1a482",
+      "instruction": "call qword ptr [rip + 0x37cc0]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x1a47a",
+        "end_rva": "0x1a50c"
+      }
+    },
+    {
+      "instruction_rva": "0x1a496",
+      "instruction": "call qword ptr [rip + 0x37cac]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x1a47a",
+        "end_rva": "0x1a50c"
+      }
+    },
+    {
+      "instruction_rva": "0x1a4a9",
+      "instruction": "call qword ptr [rip + 0x37c99]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x1a47a",
+        "end_rva": "0x1a50c"
+      }
+    },
+    {
+      "instruction_rva": "0x28ddd",
+      "instruction": "call qword ptr [rip + 0x29235]",
+      "target_rva": "0x52018",
+      "target_string": null,
+      "target_import": "ADVAPI32.dll!RegQueryInfoKeyA",
+      "containing_unwind_range": {
+        "begin_rva": "0x28d40",
+        "end_rva": "0x28dfd"
+      }
+    },
+    {
+      "instruction_rva": "0x28ed8",
+      "instruction": "call qword ptr [rip + 0x29122]",
+      "target_rva": "0x52000",
+      "target_string": null,
+      "target_import": "ADVAPI32.dll!RegGetValueA",
+      "containing_unwind_range": {
+        "begin_rva": "0x28e5d",
+        "end_rva": "0x28f3e"
+      }
+    },
+    {
+      "instruction_rva": "0x28f1d",
+      "instruction": "call qword ptr [rip + 0x290dd]",
+      "target_rva": "0x52000",
+      "target_string": null,
+      "target_import": "ADVAPI32.dll!RegGetValueA",
+      "containing_unwind_range": {
+        "begin_rva": "0x28e5d",
+        "end_rva": "0x28f3e"
+      }
+    },
+    {
+      "instruction_rva": "0x2c34b",
+      "instruction": "call qword ptr [rip + 0x25dff]",
+      "target_rva": "0x52150",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!LoadLibraryExA",
+      "containing_unwind_range": {
+        "begin_rva": "0x2c320",
+        "end_rva": "0x2c3fe"
+      }
+    },
+    {
+      "instruction_rva": "0x2c367",
+      "instruction": "call qword ptr [rip + 0x25ddb]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2c320",
+        "end_rva": "0x2c3fe"
+      }
+    },
+    {
+      "instruction_rva": "0x2c37b",
+      "instruction": "call qword ptr [rip + 0x25dc7]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2c320",
+        "end_rva": "0x2c3fe"
+      }
+    },
+    {
+      "instruction_rva": "0x2c38f",
+      "instruction": "call qword ptr [rip + 0x25db3]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2c320",
+        "end_rva": "0x2c3fe"
+      }
+    },
+    {
+      "instruction_rva": "0x2d09c",
+      "instruction": "call qword ptr [rip + 0x250a6]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d0c3",
+      "instruction": "call qword ptr [rip + 0x2507f]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d0e5",
+      "instruction": "call qword ptr [rip + 0x2505d]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d107",
+      "instruction": "call qword ptr [rip + 0x2503b]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d129",
+      "instruction": "call qword ptr [rip + 0x25019]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d14b",
+      "instruction": "call qword ptr [rip + 0x24ff7]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d172",
+      "instruction": "call qword ptr [rip + 0x24fd0]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d194",
+      "instruction": "call qword ptr [rip + 0x24fae]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d1b6",
+      "instruction": "call qword ptr [rip + 0x24f8c]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d1d8",
+      "instruction": "call qword ptr [rip + 0x24f6a]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d1fa",
+      "instruction": "call qword ptr [rip + 0x24f48]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d21c",
+      "instruction": "call qword ptr [rip + 0x24f26]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d23e",
+      "instruction": "call qword ptr [rip + 0x24f04]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d265",
+      "instruction": "call qword ptr [rip + 0x24edd]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d287",
+      "instruction": "call qword ptr [rip + 0x24ebb]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d2a9",
+      "instruction": "call qword ptr [rip + 0x24e99]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d2cb",
+      "instruction": "call qword ptr [rip + 0x24e77]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d2ed",
+      "instruction": "call qword ptr [rip + 0x24e55]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d30f",
+      "instruction": "call qword ptr [rip + 0x24e33]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d334",
+      "instruction": "call qword ptr [rip + 0x24e0e]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d359",
+      "instruction": "call qword ptr [rip + 0x24de9]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d37e",
+      "instruction": "call qword ptr [rip + 0x24dc4]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d3a3",
+      "instruction": "call qword ptr [rip + 0x24d9f]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d3c8",
+      "instruction": "call qword ptr [rip + 0x24d7a]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d3ed",
+      "instruction": "call qword ptr [rip + 0x24d55]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d412",
+      "instruction": "call qword ptr [rip + 0x24d30]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d437",
+      "instruction": "call qword ptr [rip + 0x24d0b]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d45c",
+      "instruction": "call qword ptr [rip + 0x24ce6]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d481",
+      "instruction": "call qword ptr [rip + 0x24cc1]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d4a6",
+      "instruction": "call qword ptr [rip + 0x24c9c]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d4cb",
+      "instruction": "call qword ptr [rip + 0x24c77]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d4f0",
+      "instruction": "call qword ptr [rip + 0x24c52]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d515",
+      "instruction": "call qword ptr [rip + 0x24c2d]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d53a",
+      "instruction": "call qword ptr [rip + 0x24c08]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d55f",
+      "instruction": "call qword ptr [rip + 0x24be3]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d584",
+      "instruction": "call qword ptr [rip + 0x24bbe]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d5a9",
+      "instruction": "call qword ptr [rip + 0x24b99]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d5ce",
+      "instruction": "call qword ptr [rip + 0x24b74]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d5f3",
+      "instruction": "call qword ptr [rip + 0x24b4f]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d618",
+      "instruction": "call qword ptr [rip + 0x24b2a]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d63d",
+      "instruction": "call qword ptr [rip + 0x24b05]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d662",
+      "instruction": "call qword ptr [rip + 0x24ae0]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d687",
+      "instruction": "call qword ptr [rip + 0x24abb]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d6ac",
+      "instruction": "call qword ptr [rip + 0x24a96]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d6d1",
+      "instruction": "call qword ptr [rip + 0x24a71]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d6f6",
+      "instruction": "call qword ptr [rip + 0x24a4c]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d71b",
+      "instruction": "call qword ptr [rip + 0x24a27]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d740",
+      "instruction": "call qword ptr [rip + 0x24a02]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d765",
+      "instruction": "call qword ptr [rip + 0x249dd]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d78a",
+      "instruction": "call qword ptr [rip + 0x249b8]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d7af",
+      "instruction": "call qword ptr [rip + 0x24993]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d7d4",
+      "instruction": "call qword ptr [rip + 0x2496e]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d7f9",
+      "instruction": "call qword ptr [rip + 0x24949]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d81e",
+      "instruction": "call qword ptr [rip + 0x24924]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d843",
+      "instruction": "call qword ptr [rip + 0x248ff]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d868",
+      "instruction": "call qword ptr [rip + 0x248da]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d88d",
+      "instruction": "call qword ptr [rip + 0x248b5]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d8b2",
+      "instruction": "call qword ptr [rip + 0x24890]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d8d7",
+      "instruction": "call qword ptr [rip + 0x2486b]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d8fc",
+      "instruction": "call qword ptr [rip + 0x24846]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d921",
+      "instruction": "call qword ptr [rip + 0x24821]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d946",
+      "instruction": "call qword ptr [rip + 0x247fc]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d96b",
+      "instruction": "call qword ptr [rip + 0x247d7]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d990",
+      "instruction": "call qword ptr [rip + 0x247b2]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d9b5",
+      "instruction": "call qword ptr [rip + 0x2478d]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d9da",
+      "instruction": "call qword ptr [rip + 0x24768]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2d9ff",
+      "instruction": "call qword ptr [rip + 0x24743]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2da24",
+      "instruction": "call qword ptr [rip + 0x2471e]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2da3f",
+      "instruction": "lea rdx, [rip + 0x14a52]",
+      "target_rva": "0x42498",
+      "target_string": "_INTC_D3D12_GetDisplayTelemetry",
+      "target_import": null,
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2da49",
+      "instruction": "call qword ptr [rip + 0x246f9]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2da6e",
+      "instruction": "call qword ptr [rip + 0x246d4]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2da93",
+      "instruction": "call qword ptr [rip + 0x246af]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dab8",
+      "instruction": "call qword ptr [rip + 0x2468a]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dadd",
+      "instruction": "call qword ptr [rip + 0x24665]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2db02",
+      "instruction": "call qword ptr [rip + 0x24640]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2db27",
+      "instruction": "call qword ptr [rip + 0x2461b]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2db4c",
+      "instruction": "call qword ptr [rip + 0x245f6]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2db71",
+      "instruction": "call qword ptr [rip + 0x245d1]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2db96",
+      "instruction": "call qword ptr [rip + 0x245ac]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dbbb",
+      "instruction": "call qword ptr [rip + 0x24587]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dbe0",
+      "instruction": "call qword ptr [rip + 0x24562]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dc05",
+      "instruction": "call qword ptr [rip + 0x2453d]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dc2a",
+      "instruction": "call qword ptr [rip + 0x24518]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dc4f",
+      "instruction": "call qword ptr [rip + 0x244f3]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dc74",
+      "instruction": "call qword ptr [rip + 0x244ce]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dc99",
+      "instruction": "call qword ptr [rip + 0x244a9]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dcbe",
+      "instruction": "call qword ptr [rip + 0x24484]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dce3",
+      "instruction": "call qword ptr [rip + 0x2445f]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dd08",
+      "instruction": "call qword ptr [rip + 0x2443a]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dd2d",
+      "instruction": "call qword ptr [rip + 0x24415]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dd52",
+      "instruction": "call qword ptr [rip + 0x243f0]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dd77",
+      "instruction": "call qword ptr [rip + 0x243cb]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dd9c",
+      "instruction": "call qword ptr [rip + 0x243a6]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2ddc1",
+      "instruction": "call qword ptr [rip + 0x24381]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dde6",
+      "instruction": "call qword ptr [rip + 0x2435c]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2de0b",
+      "instruction": "call qword ptr [rip + 0x24337]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2de30",
+      "instruction": "call qword ptr [rip + 0x24312]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2de55",
+      "instruction": "call qword ptr [rip + 0x242ed]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2de7a",
+      "instruction": "call qword ptr [rip + 0x242c8]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2de9f",
+      "instruction": "call qword ptr [rip + 0x242a3]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dec4",
+      "instruction": "call qword ptr [rip + 0x2427e]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dee9",
+      "instruction": "call qword ptr [rip + 0x24259]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2df0e",
+      "instruction": "call qword ptr [rip + 0x24234]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2df33",
+      "instruction": "call qword ptr [rip + 0x2420f]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2df58",
+      "instruction": "call qword ptr [rip + 0x241ea]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2df7d",
+      "instruction": "call qword ptr [rip + 0x241c5]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dfa2",
+      "instruction": "call qword ptr [rip + 0x241a0]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dfc7",
+      "instruction": "call qword ptr [rip + 0x2417b]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2dfec",
+      "instruction": "call qword ptr [rip + 0x24156]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e011",
+      "instruction": "call qword ptr [rip + 0x24131]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e036",
+      "instruction": "call qword ptr [rip + 0x2410c]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e05b",
+      "instruction": "call qword ptr [rip + 0x240e7]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e080",
+      "instruction": "call qword ptr [rip + 0x240c2]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e0a5",
+      "instruction": "call qword ptr [rip + 0x2409d]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e0ca",
+      "instruction": "call qword ptr [rip + 0x24078]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e0ef",
+      "instruction": "call qword ptr [rip + 0x24053]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e114",
+      "instruction": "call qword ptr [rip + 0x2402e]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e139",
+      "instruction": "call qword ptr [rip + 0x24009]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e15e",
+      "instruction": "call qword ptr [rip + 0x23fe4]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e183",
+      "instruction": "call qword ptr [rip + 0x23fbf]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e1a8",
+      "instruction": "call qword ptr [rip + 0x23f9a]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e1cd",
+      "instruction": "call qword ptr [rip + 0x23f75]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e1f2",
+      "instruction": "call qword ptr [rip + 0x23f50]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e217",
+      "instruction": "call qword ptr [rip + 0x23f2b]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2e23c",
+      "instruction": "call qword ptr [rip + 0x23f06]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2cff0",
+        "end_rva": "0x2e277"
+      }
+    },
+    {
+      "instruction_rva": "0x2f61c",
+      "instruction": "call qword ptr [rip + 0x22b7e]",
+      "target_rva": "0x521a0",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!LoadLibraryExW",
+      "containing_unwind_range": {
+        "begin_rva": "0x2f1c0",
+        "end_rva": "0x2fc33"
+      }
+    },
+    {
+      "instruction_rva": "0x2f66d",
+      "instruction": "call qword ptr [rip + 0x22b35]",
+      "target_rva": "0x521a8",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!LoadLibraryW",
+      "containing_unwind_range": {
+        "begin_rva": "0x2f1c0",
+        "end_rva": "0x2fc33"
+      }
+    },
+    {
+      "instruction_rva": "0x2f68d",
+      "instruction": "call qword ptr [rip + 0x22ab5]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2f1c0",
+        "end_rva": "0x2fc33"
+      }
+    },
+    {
+      "instruction_rva": "0x2f6aa",
+      "instruction": "call qword ptr [rip + 0x22af8]",
+      "target_rva": "0x521a8",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!LoadLibraryW",
+      "containing_unwind_range": {
+        "begin_rva": "0x2f1c0",
+        "end_rva": "0x2fc33"
+      }
+    },
+    {
+      "instruction_rva": "0x2f6ca",
+      "instruction": "call qword ptr [rip + 0x22a78]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2f1c0",
+        "end_rva": "0x2fc33"
+      }
+    },
+    {
+      "instruction_rva": "0x2f6e7",
+      "instruction": "call qword ptr [rip + 0x22abb]",
+      "target_rva": "0x521a8",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!LoadLibraryW",
+      "containing_unwind_range": {
+        "begin_rva": "0x2f1c0",
+        "end_rva": "0x2fc33"
+      }
+    },
+    {
+      "instruction_rva": "0x2f707",
+      "instruction": "call qword ptr [rip + 0x22a3b]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2f1c0",
+        "end_rva": "0x2fc33"
+      }
+    },
+    {
+      "instruction_rva": "0x2f72b",
+      "instruction": "call qword ptr [rip + 0x22a17]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2f1c0",
+        "end_rva": "0x2fc33"
+      }
+    },
+    {
+      "instruction_rva": "0x2f74f",
+      "instruction": "call qword ptr [rip + 0x229f3]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2f1c0",
+        "end_rva": "0x2fc33"
+      }
+    },
+    {
+      "instruction_rva": "0x2f773",
+      "instruction": "call qword ptr [rip + 0x229cf]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2f1c0",
+        "end_rva": "0x2fc33"
+      }
+    },
+    {
+      "instruction_rva": "0x2f797",
+      "instruction": "call qword ptr [rip + 0x229ab]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x2f1c0",
+        "end_rva": "0x2fc33"
+      }
+    },
+    {
+      "instruction_rva": "0x31480",
+      "instruction": "call qword ptr [rip + 0x20cc2]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x31430",
+        "end_rva": "0x31500"
+      }
+    },
+    {
+      "instruction_rva": "0x31493",
+      "instruction": "call qword ptr [rip + 0x20caf]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x31430",
+        "end_rva": "0x31500"
+      }
+    },
+    {
+      "instruction_rva": "0x31584",
+      "instruction": "call qword ptr [rip + 0x20bbe]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x31534",
+        "end_rva": "0x315e9"
+      }
+    },
+    {
+      "instruction_rva": "0x31597",
+      "instruction": "call qword ptr [rip + 0x20bab]",
+      "target_rva": "0x52148",
+      "target_string": null,
+      "target_import": "KERNEL32.dll!GetProcAddress",
+      "containing_unwind_range": {
+        "begin_rva": "0x31534",
+        "end_rva": "0x315e9"
+      }
+    }
+  ],
+  "candidate_xref_cap": 180,
+  "unwind_function_count": 678,
+  "executed": false,
+  "limitations": [
+    "String presence is not use or upload proof",
+    "RIP candidates are not validated control-flow or data-flow",
+    "Indirect/dynamic/encoded references can be missed",
+    "No original source reconstruction or complete decompilation",
+    "No online certificate trust validation"
+  ]
+}

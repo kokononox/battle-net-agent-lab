@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-18T06:04:17.025599+00:00",
+  "as_of_utc": "2026-10-20T17:59:36.990055+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -46,11 +46,15 @@
   },
   "telemetry": {
     "actual_in_world_capture_complete": false,
-    "hardware_field_transmission_proven": false,
-    "historical_binary_findings_reverified_in_this_sync": false
+    "hardware_field_transmission_proven": true,
+    "historical_binary_findings_reverified_in_this_sync": false,
+    "hardware_field_transmission_proven_scope": "Historical Agent CPU literal at outgoing pre-encryption POST /data to telemetry-in.battle.net in temporary machine; NOT current Wow.exe, BIOS or server receipt",
+    "current_wow_cpu_or_bios_transmission_proven": false,
+    "current_wow_embedded_hardware_schema_proven": true,
+    "current_wow_full_decompilation_complete": false
   },
-  "user_action_now": "none: separate disposable Classic baseline download/install approved; stop rather than fabricate country/login/legal consent",
-  "sync_scope": "Actual bounded official Classic metadata acquisition, full manifest identities, unfiltered sizing crosscheck and separate next-stage authorization boundary.",
+  "user_action_now": "none; do not retry broad TLS proxy or repeat passive captures without a new question",
+  "sync_scope": "Sanitized session handoff, source-only tools, derived evidence, offline binary metadata; no game/runtime binaries, private keys, raw captures or raw transcript",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
     "zip_sha256": "c26e5f9416e7aadef0f9f7dc36c06c2e8975ae65f8f1ac3bfca0abd67fa81001",
@@ -81,7 +85,7 @@
     "installation_ready": false,
     "historical_only_not_current_target": true
   },
-  "current_focus": "Execute one approved disposable Windows Classic baseline attempt; inspect real receipt, not test count.",
+  "current_focus": "Offline WoW Retail PE/protobuf schema analysis; session network evidence and source continuity",
   "current_updater": {
     "release": "0.27",
     "source": "updater-core/",
@@ -220,7 +224,7 @@
     "game_copy_requested": false,
     "main_install_modification_authorized": false
   },
-  "next_offline_step": "After new download/install permission, implement isolated Windows baseline experiment and preflight target/staging volumes; do not claim hard child-network cap or version-to-version update from a fresh install.",
+  "next_offline_step": "Trace schema population/serialization/destination only with valid dataflow; current protected/native code inventory is not a full decompilation",
   "public_policy_review": "Alternate community enum clarified only; Talebound and official selection remain unqualified",
   "agent_status_experiment": {
     "status": "game_summary_observed",
@@ -257,5 +261,24 @@
     "child_network_hard_byte_cap": false,
     "baseline_persisted": false,
     "version_to_version_update_proven": false
+  },
+  "network_session_20261020": {
+    "handoff": "docs/SESSION-NETWORK-2026-10-20.fa.md",
+    "static_report": "docs/WOW-STATIC-2026-10-20.fa.md",
+    "wow_version_resource": "12.1.5.70448",
+    "wow_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+    "last_passive_report": "reports/session-20261020/passive-021-evidence.json",
+    "last_passive_tcp_flows": 8,
+    "plaintext_level3_gets": 2,
+    "hardware_schema_message": "Blizzard.Telemetry.Wow.Client.ClientEngineLogV2",
+    "embedded_telemetry_descriptors": 56,
+    "runtime_game_payload_read": false,
+    "tls_proxy_login_failed_user_report": true,
+    "independent_recovery_root_absence_verified": true,
+    "user_reports_login_restored": true,
+    "kill_switch_wifi_after_reboot_issue": "unresolved; user deferred",
+    "raw_transcript_synced": false,
+    "proprietary_game_binaries_synced": false,
+    "prior_classic_and_updater_sections": "historical snapshots, not active next-step authorization"
   }
 }
