@@ -1,0 +1,31 @@
+{
+  "schema": "sanitized-cdb-control-verification-and-next-step-1",
+  "control_version": "0.1.3",
+  "user_report_status": "control_fixture_verified",
+  "other_manual_snapshot_consistent": true,
+  "baseline_exit_code": 0,
+  "debugger_exit_code": 0,
+  "fixture_handler_matched_exception_count": 1,
+  "fixture_rip_category": "at_int3",
+  "fixture_own_rip_advanced_one_byte": true,
+  "fixture_returned_after_breakpoint": true,
+  "debugger_present_after_fixture_return": true,
+  "all_three_fixed_markers": true,
+  "syntax_error_observed": false,
+  "game_launched_in_control": false,
+  "game_handler_or_telemetry_proven": false,
+  "next_package": "WoW-CDB-StopSurvey-0.1.0",
+  "next_scope": "No API/loader breakpoints; inspect a manual stop with .lastevent, r rip, lm a @rip. No game RIP edit and no automatic continuation of subsequent unknown exceptions.",
+  "raw_logs_user_paths_or_identifiers_included": false,
+  "qa": {
+    "version": "0.1.0",
+    "pure_core_tests_passed": 22,
+    "cross_compile": "passed; C#5, .NET Framework 4.8 reference assemblies, x64",
+    "native_windows_cdb_game_and_ui_integration_tested": false,
+    "bundled_game_or_debugger_binaries": false,
+    "api_breakpoints_added": false,
+    "explicit_game_rip_edits_or_forced_exception_continuation": false,
+    "initial_debugger_loader_stop_continued_with_g": true,
+    "notes": "Source-only build. Last completed manual read-only stop block is sanitized; 2 MiB tail only. Prior control success is not game compatibility proof."
+  }
+}
