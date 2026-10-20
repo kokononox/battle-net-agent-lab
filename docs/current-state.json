@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-20T18:14:30.021925+00:00",
+  "as_of_utc": "2026-10-20T18:28:27.643970+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -53,7 +53,7 @@
     "current_wow_embedded_hardware_schema_proven": true,
     "current_wow_full_decompilation_complete": false
   },
-  "user_action_now": "none; do not retry broad TLS proxy or repeat passive captures without a new question",
+  "user_action_now": "Optional: run WoW-Settings-ReadOnly-0.1.0, choose Retail WTF/Config.wtf and share only its settings-result JSON. No admin/game launch/network/proxy/config writes needed. Do not upload full Config.wtf.",
   "sync_scope": "Sanitized session handoff, source-only tools, derived evidence, offline binary metadata; no game/runtime binaries, private keys, raw captures or raw transcript",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
@@ -85,7 +85,7 @@
     "installation_ready": false,
     "historical_only_not_current_target": true
   },
-  "current_focus": "Offline trace bounded stop: ClientSystemSpec embeds ClientEngineLogV2; runtime population/trigger/destination unresolved",
+  "current_focus": "Engine Survey config candidates found; no validated hardware telemetry opt-out. Read-only seven-key Config.wtf helper prepared.",
   "current_updater": {
     "release": "0.27",
     "source": "updater-core/",
@@ -224,7 +224,7 @@
     "game_copy_requested": false,
     "main_install_modification_authorized": false
   },
-  "next_offline_step": "No blind static/passive repetitions; any follow-up must establish actual population-to-serialization-to-send with a valid dataflow method. No new user test currently requested.",
+  "next_offline_step": "Interpret explicit file settings only if user submits them; absence is not disabled/default and runtime effect remains unknown. No blind capture/proxy repetitions.",
   "public_policy_review": "Alternate community enum clarified only; Talebound and official selection remain unqualified",
   "agent_status_experiment": {
     "status": "game_summary_observed",
@@ -294,6 +294,21 @@
       "new_block_rule_recommended": false,
       "offline_consistency_checks_passed": 7,
       "runtime_test_performed": false
+    },
+    "config_review": {
+      "report": "docs/WOW-CONFIG-2026-10-20.fa.md",
+      "engine_survey_names_found": true,
+      "engine_message_survey_tags": [
+        159,
+        160
+      ],
+      "setting_to_message_dataflow_proven": false,
+      "default_or_mutability_recovered": false,
+      "global_hardware_telemetry_off_switch_proven": false,
+      "source": "user-tools/wow-settings-readonly-0.1.0/",
+      "reader_checks_passed": 16,
+      "native_windows_gui_tested": false,
+      "actual_user_config_read": false
     }
   }
 }

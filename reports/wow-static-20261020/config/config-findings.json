@@ -1,0 +1,126 @@
+{
+  "schema": "wow-survey-config-candidates-1",
+  "wow_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "engine_message_fields": [
+    {
+      "name": "surveyVersion",
+      "number": 159,
+      "type": "TYPE_UINT32",
+      "type_name": null,
+      "label": "LABEL_OPTIONAL"
+    },
+    {
+      "name": "surveyPatch",
+      "number": 160,
+      "type": "TYPE_UINT32",
+      "type_name": null,
+      "label": "LABEL_OPTIONAL"
+    }
+  ],
+  "settings_exact_strings_and_pointer_search": [
+    {
+      "name": "engineSurvey",
+      "hits": [
+        {
+          "offset": "0x3f94960",
+          "rva": "0x3f95560",
+          "absolute_pointer_refs": [],
+          "absolute_pointer_ref_count": 0
+        }
+      ]
+    },
+    {
+      "name": "engineSurveyPatch",
+      "hits": [
+        {
+          "offset": "0x3f949d0",
+          "rva": "0x3f955d0",
+          "absolute_pointer_refs": [],
+          "absolute_pointer_ref_count": 0
+        }
+      ]
+    },
+    {
+      "name": "telemetryWowPackage",
+      "hits": [
+        {
+          "offset": "0x41848d8",
+          "rva": "0x41854d8",
+          "absolute_pointer_refs": [],
+          "absolute_pointer_ref_count": 0
+        }
+      ]
+    },
+    {
+      "name": "telemetryWowlabsPackage",
+      "hits": [
+        {
+          "offset": "0x4184870",
+          "rva": "0x4185470",
+          "absolute_pointer_refs": [],
+          "absolute_pointer_ref_count": 0
+        }
+      ]
+    },
+    {
+      "name": "shop2ClientErrorTelemetryAllowed",
+      "hits": [
+        {
+          "offset": "0x4194400",
+          "rva": "0x4195000",
+          "absolute_pointer_refs": [],
+          "absolute_pointer_ref_count": 0
+        }
+      ]
+    },
+    {
+      "name": "shop2TelemetryAllowed",
+      "hits": [
+        {
+          "offset": "0x4194428",
+          "rva": "0x4195028",
+          "absolute_pointer_refs": [],
+          "absolute_pointer_ref_count": 0
+        }
+      ]
+    },
+    {
+      "name": "optOutIngameSurveys",
+      "hits": [
+        {
+          "offset": "0x420b2b0",
+          "rva": "0x420beb0",
+          "absolute_pointer_refs": [],
+          "absolute_pointer_ref_count": 0
+        }
+      ]
+    }
+  ],
+  "embedded_descriptions": [
+    {
+      "setting": "engineSurvey",
+      "nearby_labels": [
+        "Engine Survey Patch",
+        "Engine Survey Index"
+      ],
+      "label_to_setting_registration_binding_proven": false
+    },
+    {
+      "setting": "telemetryWowPackage",
+      "description": "The primary package we want to send telemetry to e.g. Wow_Mainline or Wow_Classic"
+    },
+    {
+      "setting": "telemetryWowlabsPackage",
+      "description": "The secondary package we want to send telemetry to e.g. Wow_Wowlabs"
+    },
+    {
+      "setting": "optOutIngameSurveys",
+      "description": "Whether we are opted out of receiving surveys."
+    }
+  ],
+  "runtime_setting_registration_proven": false,
+  "default_values_recovered": false,
+  "link_between_survey_setting_and_message_field_proven": false,
+  "verified_global_hardware_telemetry_off_switch_found": false,
+  "no_config_changes_recommended": true
+}
