@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "core_tests_passed": 20,
+  "ui_and_control_cross_compile_passed": true,
+  "language": "C#5",
+  "reference_framework": ".NET Framework 4.8",
+  "platform": "x64",
+  "native_windows_runtime_tested": false,
+  "cdb_scripts_executed_in_development": false,
+  "real_game_api_hits_observed": false,
+  "actual_payload_captured": false,
+  "control_gate_implemented": true,
+  "control_gate_validated_on_windows": false,
+  "raw_logs_or_game_binary_shipped": false,
+  "notes": [
+    "Source-only package; Start.cmd builds local tool and control EXEs.",
+    "Core tests cover fixed-line parser negatives, command-string generation, path guard and argv quoting; not native debugger integration.",
+    "The control fixture is run on the user machine before the game; it verifies only basic breakpoint/script transport, not full TLS symbol coverage."
+  ]
+}
