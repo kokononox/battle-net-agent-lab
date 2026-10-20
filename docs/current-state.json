@@ -53,7 +53,7 @@
     "current_wow_embedded_hardware_schema_proven": true,
     "current_wow_full_decompilation_complete": false
   },
-  "user_action_now": "No new Windows action requested. Keep engineSurvey/engineSurveyPatch unchanged; no new capture/proxy/CA/injection test prepared.",
+  "user_action_now": "Use replacement 0.2.2 only for the requested one-minute capture; report whether login/character selection/in-world was reached. Share minimized JSON only, never credentials or raw PML. No automatic repeat or isolation/settings changes.",
   "sync_scope": "Sanitized session handoff, source-only tools, derived evidence, offline binary metadata; no game/runtime binaries, private keys, raw captures or raw transcript",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
@@ -85,7 +85,7 @@
     "installation_ready": false,
     "historical_only_not_current_target": true
   },
-  "current_focus": "User-reported Engine Survey values recorded. Broader offline reference trace reached evidence boundary; no setting-to-hardware-send dataflow or validated opt-out.",
+  "current_focus": "Dependency Observer login-screen sample clarified; version 0.2.2 prepared for requested 60-second capture, watchdog 75 seconds. Native Windows run pending; Engine Survey dataflow unproven.",
   "current_updater": {
     "release": "0.27",
     "source": "updater-core/",
@@ -331,5 +331,29 @@
       "validated_opt_out_available": false,
       "stage_status": "evidence_boundary_no_new_user_test"
     }
+  },
+  "dependency_observer_continuation": {
+    "report": "docs/WOW-DEPENDENCY-CONTINUATION.fa.md",
+    "schema": "wow-dependency-observer-1",
+    "observed_version": "0.2.1",
+    "sample_filename": "dependency-result-cdffab71199a46dbba6c71096503fc5f.json",
+    "user_reported_stage": "login_screen; recording expired while attempting login",
+    "successful_login_confirmed": false,
+    "in_world_confirmed": false,
+    "previous_requested_capture_seconds": 20,
+    "previous_elapsed_seconds": 23.9,
+    "requested_capture_seconds": 60,
+    "duration_change_implemented": true,
+    "source_location_status": "recovered from user-supplied WoW-Dependency-Observer-0.2.1-Full.zip; original manifest verified",
+    "new_package_built": true,
+    "new_windows_test_performed": false,
+    "cpu_bios_transmission_proven": false,
+    "raw_capture_synced": false,
+    "new_version": "0.2.2",
+    "watchdog_seconds": 75,
+    "local_tests_passed": 58,
+    "isolated_analysis_smoke_tests_passed": 2,
+    "source_path": "user-tools/wow-dependency-observer-0.2.2/",
+    "runtime_binaries_synced": false
   }
 }
