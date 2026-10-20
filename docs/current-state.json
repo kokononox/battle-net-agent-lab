@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-20T17:59:36.990055+00:00",
+  "as_of_utc": "2026-10-20T18:14:30.021925+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -85,7 +85,7 @@
     "installation_ready": false,
     "historical_only_not_current_target": true
   },
-  "current_focus": "Offline WoW Retail PE/protobuf schema analysis; session network evidence and source continuity",
+  "current_focus": "Offline trace bounded stop: ClientSystemSpec embeds ClientEngineLogV2; runtime population/trigger/destination unresolved",
   "current_updater": {
     "release": "0.27",
     "source": "updater-core/",
@@ -224,7 +224,7 @@
     "game_copy_requested": false,
     "main_install_modification_authorized": false
   },
-  "next_offline_step": "Trace schema population/serialization/destination only with valid dataflow; current protected/native code inventory is not a full decompilation",
+  "next_offline_step": "No blind static/passive repetitions; any follow-up must establish actual population-to-serialization-to-send with a valid dataflow method. No new user test currently requested.",
   "public_policy_review": "Alternate community enum clarified only; Talebound and official selection remain unqualified",
   "agent_status_experiment": {
     "status": "game_summary_observed",
@@ -279,6 +279,21 @@
     "kill_switch_wifi_after_reboot_issue": "unresolved; user deferred",
     "raw_transcript_synced": false,
     "proprietary_game_binaries_synced": false,
-    "prior_classic_and_updater_sections": "historical snapshots, not active next-step authorization"
+    "prior_classic_and_updater_sections": "historical snapshots, not active next-step authorization",
+    "trace_report": "docs/WOW-TRACE-2026-10-20.fa.md",
+    "trace_result": {
+      "schema_wrapper_edge_proven": true,
+      "wrapper": "Blizzard.Telemetry.Wow.Client.ClientSystemSpec.engine_log",
+      "wrapper_field_number": 1,
+      "wrapper_field_optional": true,
+      "engine_message_realtime_option": false,
+      "realtime_option_is_telemetry_disabled_flag": false,
+      "actual_hardware_population_proven": false,
+      "actual_send_trigger_proven": false,
+      "message_destination_binding_proven": false,
+      "new_block_rule_recommended": false,
+      "offline_consistency_checks_passed": 7,
+      "runtime_test_performed": false
+    }
   }
 }

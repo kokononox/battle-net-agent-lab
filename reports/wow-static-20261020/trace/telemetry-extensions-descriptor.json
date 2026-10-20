@@ -1,0 +1,182 @@
+{
+  "name": "telemetry_extensions.proto",
+  "package": "Blizzard.Telemetry",
+  "dependency": [
+    "google/protobuf/descriptor.proto"
+  ],
+  "message_type": [
+    {
+      "name": "FileOptions",
+      "field": [
+        {
+          "name": "telemetry_message",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING"
+        }
+      ]
+    },
+    {
+      "name": "MessageOptions",
+      "field": [
+        {
+          "name": "realtime",
+          "number": 100,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL"
+        },
+        {
+          "name": "longterm",
+          "number": 150,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL"
+        },
+        {
+          "name": "metric_set",
+          "number": 200,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL"
+        },
+        {
+          "name": "metric",
+          "number": 201,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL"
+        },
+        {
+          "name": "entity_time_series",
+          "number": 301,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL"
+        },
+        {
+          "name": "logging",
+          "number": 401,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL"
+        },
+        {
+          "name": "attribution",
+          "number": 501,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING"
+        },
+        {
+          "name": "crm",
+          "number": 601,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING"
+        }
+      ]
+    },
+    {
+      "name": "LogMessageOptions",
+      "field": [
+        {
+          "name": "grok",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING"
+        },
+        {
+          "name": "is_json",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL"
+        }
+      ]
+    },
+    {
+      "name": "FieldOptions",
+      "field": [
+        {
+          "name": "mapped_type",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING"
+        },
+        {
+          "name": "elastic_analyzer",
+          "number": 100,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING"
+        },
+        {
+          "name": "realtime",
+          "number": 200,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL"
+        },
+        {
+          "name": "elastic_path_move",
+          "number": 300,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING"
+        },
+        {
+          "name": "crm_field_name",
+          "number": 400,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING"
+        }
+      ]
+    },
+    {
+      "name": "LogFieldOptions",
+      "field": [
+        {
+          "name": "syslog_field",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "name": "TelemetryFileOptions",
+      "extendee": ".google.protobuf.FileOptions",
+      "number": 77000,
+      "label": "LABEL_OPTIONAL",
+      "type": "TYPE_MESSAGE",
+      "type_name": ".Blizzard.Telemetry.FileOptions"
+    },
+    {
+      "name": "TelemetryMessageOptions",
+      "extendee": ".google.protobuf.MessageOptions",
+      "number": 77000,
+      "label": "LABEL_OPTIONAL",
+      "type": "TYPE_MESSAGE",
+      "type_name": ".Blizzard.Telemetry.MessageOptions"
+    },
+    {
+      "name": "TelemetryLogMessageOptions",
+      "extendee": ".google.protobuf.MessageOptions",
+      "number": 77001,
+      "label": "LABEL_OPTIONAL",
+      "type": "TYPE_MESSAGE",
+      "type_name": ".Blizzard.Telemetry.LogMessageOptions"
+    },
+    {
+      "name": "TelemetryFieldOptions",
+      "extendee": ".google.protobuf.FieldOptions",
+      "number": 77000,
+      "label": "LABEL_OPTIONAL",
+      "type": "TYPE_MESSAGE",
+      "type_name": ".Blizzard.Telemetry.FieldOptions"
+    },
+    {
+      "name": "TelemetryLogFieldOptions",
+      "extendee": ".google.protobuf.FieldOptions",
+      "number": 77001,
+      "label": "LABEL_OPTIONAL",
+      "type": "TYPE_MESSAGE",
+      "type_name": ".Blizzard.Telemetry.LogFieldOptions"
+    }
+  ],
+  "options": {
+    "java_package": "com.blizzard.telemetry.proto",
+    "java_multiple_files": true
+  }
+}

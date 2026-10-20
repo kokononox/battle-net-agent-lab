@@ -3,7 +3,7 @@
 <!-- project-current-status-link:start -->
 ## وضعیت روز — ابتدا این بخش را بخوانید
 
-**مرحلهٔ فعلی:** بررسی حریم خصوصی خود WoW Retail؛ [تحویل جلسهٔ شبکه و بازیابی](docs/SESSION-NETWORK-2026-10-20.fa.md) و [یافتهٔ جدید CPU/BIOS در schema بازی](docs/WOW-STATIC-2026-10-20.fa.md).
+**مرحلهٔ فعلی:** [ردیابی آفلاین پیام مشخصات سیستم و مرز نتیجه](docs/WOW-TRACE-2026-10-20.fa.md)؛ بررسی حریم خصوصی خود WoW Retail؛ [تحویل جلسهٔ شبکه و بازیابی](docs/SESSION-NETWORK-2026-10-20.fa.md) و [یافتهٔ جدید CPU/BIOS در schema بازی](docs/WOW-STATIC-2026-10-20.fa.md).
 
 ClientEngineLogV2 شامل فیلدهای CPU/مادربرد/BIOS است؛ تعریف پیام اثبات ارسال در اجرای کاربر نیست. مشاهدهٔ passive فقط metadata مقصد و HTTPهای ساده را روشن کرده؛ TLS بازی هنوز خوانده نشده. proxy آزمایشی login را مختل کرد و با recovery مشکل برطرف شد؛ تکرار آن توصیه نمی‌شود. فایل‌های بازی، capture خام، CA/key و runtime باینری وارد مخزن نشده‌اند.
 

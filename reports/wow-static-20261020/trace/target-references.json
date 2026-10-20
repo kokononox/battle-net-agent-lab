@@ -1,0 +1,462 @@
+{
+  "method": "Exact byte locations + absolute VA pointer refs + x64 RIP address candidates; NOT dataflow",
+  "files": [
+    {
+      "file": "Wow.exe",
+      "image_base": "0x140000000",
+      "entry_rva": "0x1da9b0",
+      "entry_decode_unvalidated": [
+        {
+          "rva": "0x1da9b0",
+          "instruction": "sub rsp, 0x28"
+        },
+        {
+          "rva": "0x1da9b4",
+          "instruction": "mov rax, qword ptr [rip + 0x48fb57d]"
+        },
+        {
+          "rva": "0x1da9bb",
+          "instruction": "test rax, rax"
+        },
+        {
+          "rva": "0x1da9be",
+          "instruction": "je 0x1401da9c2"
+        },
+        {
+          "rva": "0x1da9c0",
+          "instruction": "call rax"
+        },
+        {
+          "rva": "0x1da9c2",
+          "instruction": "xor eax, eax"
+        },
+        {
+          "rva": "0x1da9c4",
+          "instruction": "add rsp, 0x28"
+        },
+        {
+          "rva": "0x1da9c8",
+          "instruction": "ret "
+        },
+        {
+          "rva": "0x1da9c9",
+          "instruction": "int3 "
+        },
+        {
+          "rva": "0x1da9ca",
+          "instruction": "int3 "
+        },
+        {
+          "rva": "0x1da9cb",
+          "instruction": "int3 "
+        },
+        {
+          "rva": "0x1da9cc",
+          "instruction": "int3 "
+        }
+      ],
+      "target_records": [
+        {
+          "needle": "ClientEngineLogV2",
+          "hits": [
+            {
+              "offset": "0x3d3b0d5",
+              "rva": "0x3d3bcd5",
+              "section": ".rdata",
+              "context": "pth_effects.. .(.....compute_effects.. .(.....outline_mode.. .(.....msaa_quality.. .(.\"....ClientSystemSpec.D..engine_log.. .(.20.Blizzard.Telemetry.Wow.Client.ClientEngineLogV2.O..current_settings.. .(.25.Blizzard.Telemetry.Wow.Client.ClientGraphicsSettings.O..default_settings.. .(.25.Blizzard.Telemetry.Wow.Client.ClientGraphicsSettings....exe_name.. .(....",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x3d4121d",
+              "rva": "0x3d41e1d",
+              "section": ".rdata",
+              "context": "..ClientShared.proto..Blizzard.Telemetry.Wow.Client..telemetry_extensions.proto..TelemetrySharedImports.proto..ClientSharedImports.proto\"....ClientEngineLogV2.5..realm_info.. .(.2!.Blizzard.Telemetry.Wow.RealmInfo.E..character_identity.. .(.2).Blizzard.Telemetry.Wow.CharacterIdentity.;..file_location.. .(.2$.Blizzard.Telemetry.Wow.FileLoca",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x47ce1a6",
+              "rva": "0x47cf3a6",
+              "section": ".data",
+              "context": "Blizzard.Telemetry.Wow.Client.ClientEngineLogV2cpu_vendorcpu_brandgpu_namebcOsVersion_extrabcOsVersion_hostExtramotherboardManufacturerNamemotherboardBoardNamemotherboardBiosVendorNamemotherboardBiosReleaseDatemotherboardBiosVersion",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            }
+          ]
+        },
+        {
+          "needle": "https://wow.ingest.gdp.blizzard.com",
+          "hits": [
+            {
+              "offset": "0x3bea370",
+              "rva": "0x3beaf70",
+              "section": ".rdata",
+              "context": "https://wow.ingest.gdp.blizzard.com",
+              "absolute_pointer_refs": [
+                {
+                  "offset": "0x3bea360",
+                  "rva": "0x3beaf60",
+                  "section": ".rdata",
+                  "unwind_function": null
+                }
+              ],
+              "absolute_pointer_ref_count": 1
+            }
+          ]
+        },
+        {
+          "needle": "cpu_brand",
+          "hits": [
+            {
+              "offset": "0x3d41867",
+              "rva": "0x3d42467",
+              "section": ".rdata",
+              "context": "edGPU... .(.....gxAPI... .(.....isRetail... .(.....isPTR_Beta... .(.....isInternal... .(.....surveyVersion... .(.....surveyPatch... .(.....cpu_vendor... .(.....cpu_brand... .(.....gpu_name... .(..!..bcOsVersion_hostPlatform... .(..%..bcOsVersion_hostRuntimeMajor... .(..%..bcOsVersion_hostRuntimeMinor... .(..%..bcOsVersion_hostRuntimePatch... .(..%..bcOsVersi",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x47ce1c1",
+              "rva": "0x47cf3c1",
+              "section": ".data",
+              "context": "Blizzard.Telemetry.Wow.Client.ClientEngineLogV2cpu_vendorcpu_brandgpu_namebcOsVersion_extrabcOsVersion_hostExtramotherboardManufacturerNamemotherboardBoardNamemotherboardBiosVendorNamemotherboardBiosReleaseDatemotherboardBiosVersion",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            }
+          ]
+        },
+        {
+          "needle": "motherboardBiosVersion",
+          "hits": [
+            {
+              "offset": "0x3d41c0c",
+              "rva": "0x3d4280c",
+              "section": ".rdata",
+              "context": "battery... .(..$..motherboardManufacturerName... .(.....motherboardBoardName... .(..\"..motherboardBiosVendorName... .(..#..motherboardBiosReleaseDate... .(.....motherboardBiosVersion... .(.....hasController... .(.....hasGamePadEnabled... .(.:...%...",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x47ce25a",
+              "rva": "0x47cf45a",
+              "section": ".data",
+              "context": "_vendorcpu_brandgpu_namebcOsVersion_extrabcOsVersion_hostExtramotherboardManufacturerNamemotherboardBoardNamemotherboardBiosVendorNamemotherboardBiosReleaseDatemotherboardBiosVersion",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            }
+          ]
+        },
+        {
+          "needle": "SharedTelemetry",
+          "hits": [
+            {
+              "offset": "0x3bea44c",
+              "rva": "0x3beb04c",
+              "section": ".rdata",
+              "context": "const char *__cdecl WowGetRawTypeName<struct blz::chained_hash_node<struct blz::pair<enum REGION_GROUP_FLAGS const ,class blz::tuple<struct SharedTelemetry::Config,struct SharedTelemetry::Config,struct SharedTelemetry::Config> > >>(void)",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x3bea46b",
+              "rva": "0x3beb06b",
+              "section": ".rdata",
+              "context": "*__cdecl WowGetRawTypeName<struct blz::chained_hash_node<struct blz::pair<enum REGION_GROUP_FLAGS const ,class blz::tuple<struct SharedTelemetry::Config,struct SharedTelemetry::Config,struct SharedTelemetry::Config> > >>(void)",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x3bea48a",
+              "rva": "0x3beb08a",
+              "section": ".rdata",
+              "context": "ct blz::chained_hash_node<struct blz::pair<enum REGION_GROUP_FLAGS const ,class blz::tuple<struct SharedTelemetry::Config,struct SharedTelemetry::Config,struct SharedTelemetry::Config> > >>(void)",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x3bea53c",
+              "rva": "0x3beb13c",
+              "section": ".rdata",
+              "context": "const char *__cdecl WowGetRawTypeName<struct blz::chained_hash_node<struct blz::pair<enum REGION_GROUP_FLAGS const ,class blz::tuple<struct SharedTelemetry::Config,struct SharedTelemetry::Config,struct SharedTelemetry::Config> > >*>(void)",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x3bea55b",
+              "rva": "0x3beb15b",
+              "section": ".rdata",
+              "context": "*__cdecl WowGetRawTypeName<struct blz::chained_hash_node<struct blz::pair<enum REGION_GROUP_FLAGS const ,class blz::tuple<struct SharedTelemetry::Config,struct SharedTelemetry::Config,struct SharedTelemetry::Config> > >*>(void)",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x3bea57a",
+              "rva": "0x3beb17a",
+              "section": ".rdata",
+              "context": "ct blz::chained_hash_node<struct blz::pair<enum REGION_GROUP_FLAGS const ,class blz::tuple<struct SharedTelemetry::Config,struct SharedTelemetry::Config,struct SharedTelemetry::Config> > >*>(void)",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            }
+          ]
+        },
+        {
+          "needle": "TelemetryConfig",
+          "hits": []
+        },
+        {
+          "needle": "LogClientEngine",
+          "hits": []
+        },
+        {
+          "needle": "ClientEngineLog",
+          "hits": [
+            {
+              "offset": "0x3d3b0d5",
+              "rva": "0x3d3bcd5",
+              "section": ".rdata",
+              "context": "pth_effects.. .(.....compute_effects.. .(.....outline_mode.. .(.....msaa_quality.. .(.\"....ClientSystemSpec.D..engine_log.. .(.20.Blizzard.Telemetry.Wow.Client.ClientEngineLogV2.O..current_settings.. .(.25.Blizzard.Telemetry.Wow.Client.ClientGraphicsSettings.O..default_settings.. .(.25.Blizzard.Telemetry.Wow.Client.ClientGraphicsSettings....exe_name.. .(....",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x3d4121d",
+              "rva": "0x3d41e1d",
+              "section": ".rdata",
+              "context": "..ClientShared.proto..Blizzard.Telemetry.Wow.Client..telemetry_extensions.proto..TelemetrySharedImports.proto..ClientSharedImports.proto\"....ClientEngineLogV2.5..realm_info.. .(.2!.Blizzard.Telemetry.Wow.RealmInfo.E..character_identity.. .(.2).Blizzard.Telemetry.Wow.CharacterIdentity.;..file_location.. .(.2$.Blizzard.Telemetry.Wow.FileLoca",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x47ce1a6",
+              "rva": "0x47cf3a6",
+              "section": ".data",
+              "context": "Blizzard.Telemetry.Wow.Client.ClientEngineLogV2cpu_vendorcpu_brandgpu_namebcOsVersion_extrabcOsVersion_hostExtramotherboardManufacturerNamemotherboardBoardNamemotherboardBiosVendorNamemotherboardBiosReleaseDatemotherboardBiosVersion",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            }
+          ]
+        },
+        {
+          "needle": "https://telemetry-in.battle.net",
+          "hits": [
+            {
+              "offset": "0x42a3178",
+              "rva": "0x42a3d78",
+              "section": ".rdata",
+              "context": "https://telemetry-in.battle.net",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            }
+          ]
+        },
+        {
+          "needle": "ClientSystemSpec",
+          "hits": [
+            {
+              "offset": "0x3d3b090",
+              "rva": "0x3d3bc90",
+              "section": ".rdata",
+              "context": "....liquid_detail.. .(.....particle_density.. .(.....ssao.. .(.....depth_effects.. .(.....compute_effects.. .(.....outline_mode.. .(.....msaa_quality.. .(.\"....ClientSystemSpec.D..engine_log.. .(.20.Blizzard.Telemetry.Wow.Client.ClientEngineLogV2.O..current_settings.. .(.25.Blizzard.Telemetry.Wow.Client.ClientGraphicsSettings.O..default_settings.. .(.25.Bliz",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x3d3b482",
+              "rva": "0x3d3c082",
+              "section": ".rdata",
+              "context": "ent.. .(.2).Blizzard.Telemetry.Wow.Client.ClientInfo.;..world.. .(.2(.Blizzard.Telemetry.Wow.Client.WorldInfoB....=..spec.. .(.2/.Blizzard.Telemetry.Wow.Client.ClientSystemSpec....map_id.. .(.....duration_ms.. .(.....ui_duration_ms.. .(.....ui_did_load.. .(.....is_reload_ui.. .(..E..character_identity.. .(.2).Blizzard.Telemetry.Wow.CharacterIdentity.6..locat",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x3d3c1dc",
+              "rva": "0x3d3cddc",
+              "section": ".rdata",
+              "context": "Blizzard.Telemetry.Wow.Client.WorldInfoB....D..stats.. .(.25.Blizzard.Telemetry.Wow.Client.ClientPerformanceStats.=..spec.. .(.2/.Blizzard.Telemetry.Wow.Client.ClientSystemSpec.E..character_identity.. .(.2).Blizzard.Telemetry.Wow.CharacterIdentity.6..location.. .(.2$.Blizzard.Telemetry.Wow.WorldPortLoc.F..memory_stats.. .(.20.Blizzard.Telemetry.Wow.Client.Cl",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x3d3c380",
+              "rva": "0x3d3cf80",
+              "section": ".rdata",
+              "context": "ent.. .(.2).Blizzard.Telemetry.Wow.Client.ClientInfo.;..world.. .(.2(.Blizzard.Telemetry.Wow.Client.WorldInfoB....=..spec.. .(.2/.Blizzard.Telemetry.Wow.Client.ClientSystemSpec....total_client_memory_mb.. .(.....total_lua_memory_mb.. .(..$..unload_reclaim_memory_est_mb.. .(.....on_demand_addons_loaded.. .(.....ui_ever_reloaded.. .(..E..character_identity.. .",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x3d3c6a4",
+              "rva": "0x3d3d2a4",
+              "section": ".rdata",
+              "context": "Blizzard.Telemetry.Wow.Client.WorldInfoB....D..stats.. .(.25.Blizzard.Telemetry.Wow.Client.ClientPerformanceStats.=..spec.. .(.2/.Blizzard.Telemetry.Wow.Client.ClientSystemSpec.6..location.. .(.2$.Blizzard.Telemetry.Wow.WorldPortLoc.E..character_identity.. .(.2).Blizzard.Telemetry.Wow.CharacterIdentity.K..slow_addons.. .(.26.Blizzard.Telemetry.Wow.Client.Cli",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x3d3cb52",
+              "rva": "0x3d3d752",
+              "section": ".rdata",
+              "context": ").Blizzard.Telemetry.Wow.Client.ClientInfo.E..character_identity.. .(.2).Blizzard.Telemetry.Wow.CharacterIdentity.=..spec.. .(.2/.Blizzard.Telemetry.Wow.Client.ClientSystemSpec.6..location.. .(.2$.Blizzard.Telemetry.Wow.WorldPortLoc.F..addons.. .(.26.Blizzard.Telemetry.Wow.Client.ClientAddOnProfilerData.M..addon_overall.. .(.26.Blizzard.Telemetry.Wow.Client.",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            },
+            {
+              "offset": "0x47c708e",
+              "rva": "0x47c828e",
+              "section": ".data",
+              "context": "Blizzard.Telemetry.Wow.Client.ClientSystemSpecexe_nametext_localeaudio_locale",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            }
+          ]
+        }
+      ],
+      "rip_candidates": []
+    },
+    {
+      "file": "wow_loader.dll",
+      "image_base": "0x180000000",
+      "entry_rva": "0x2006630",
+      "entry_decode_unvalidated": [
+        {
+          "rva": "0x2006630",
+          "instruction": "mov qword ptr [rsp + 8], rbx"
+        },
+        {
+          "rva": "0x2006635",
+          "instruction": "mov qword ptr [rsp + 0x10], rsi"
+        },
+        {
+          "rva": "0x200663a",
+          "instruction": "push rdi"
+        },
+        {
+          "rva": "0x200663b",
+          "instruction": "sub rsp, 0x20"
+        },
+        {
+          "rva": "0x200663f",
+          "instruction": "mov rdi, r8"
+        },
+        {
+          "rva": "0x2006642",
+          "instruction": "mov ebx, edx"
+        },
+        {
+          "rva": "0x2006644",
+          "instruction": "mov rsi, rcx"
+        },
+        {
+          "rva": "0x2006647",
+          "instruction": "cmp edx, 1"
+        },
+        {
+          "rva": "0x200664a",
+          "instruction": "jne 0x182006651"
+        },
+        {
+          "rva": "0x200664c",
+          "instruction": "call 0x182006670"
+        },
+        {
+          "rva": "0x2006651",
+          "instruction": "mov r8, rdi"
+        },
+        {
+          "rva": "0x2006654",
+          "instruction": "mov edx, ebx"
+        }
+      ],
+      "target_records": [
+        {
+          "needle": "https://telemetry-in.battle.net/",
+          "hits": [
+            {
+              "offset": "0x2087ad7",
+              "rva": "0x209b2d7",
+              "section": ".rdata",
+              "context": "https://telemetry-in.battle.net/",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            }
+          ]
+        },
+        {
+          "needle": "GetSystemFirmwareTable",
+          "hits": []
+        },
+        {
+          "needle": "ProcessorNameString",
+          "hits": []
+        },
+        {
+          "needle": "telemetry-sdk-cpp/",
+          "hits": [
+            {
+              "offset": "0x2087af8",
+              "rva": "0x209b2f8",
+              "section": ".rdata",
+              "context": "telemetry-sdk-cpp/",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            }
+          ]
+        },
+        {
+          "needle": "Context_HostInfo",
+          "hits": [
+            {
+              "offset": "0x20b05b4",
+              "rva": "0x20d29b4",
+              "section": ".data",
+              "context": ".?AVContext_HostInfo@Telemetry@Blizzard@@",
+              "absolute_pointer_refs": [],
+              "absolute_pointer_ref_count": 0
+            }
+          ]
+        },
+        {
+          "needle": "host_name",
+          "hits": []
+        },
+        {
+          "needle": "cpu_brand",
+          "hits": []
+        },
+        {
+          "needle": "bios",
+          "hits": []
+        }
+      ],
+      "rip_candidates": [
+        {
+          "instruction_rva": "0x12b4c68",
+          "instruction": "lea rbx, [rip + 0xde6689]",
+          "target": {
+            "needle": "telemetry-sdk-cpp/",
+            "hit_rva": "0x209b2f8",
+            "interior_string": "telemetry-sdk-cpp/"
+          },
+          "unwind_function": {
+            "begin_rva": "0x12b4bf0",
+            "end_rva": "0x12b8aea"
+          }
+        },
+        {
+          "instruction_rva": "0x1e90d87",
+          "instruction": "lea rcx, [rip + 0x20a549]",
+          "target": {
+            "needle": "https://telemetry-in.battle.net/",
+            "hit_rva": "0x209b2d7",
+            "interior_string": "https://telemetry-in.battle.net/"
+          },
+          "unwind_function": {
+            "begin_rva": "0x1e852b0",
+            "end_rva": "0x1e91384"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,939 @@
+[
+  {
+    "file": "TelemetrySharedClientImports.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "WorldInfo",
+        "options": {
+          "deprecated": true
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientException.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientException",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "CriticalStreamingError.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "CriticalStreamingError",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "WorldLoadFailed.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "WorldLoadFailed",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "WorldSceneLoadFailed.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "WorldSceneLoadFailed",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientGxDeviceLost.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "GxDeviceLost",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "CASInitError.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "CASInitError",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientEncryption.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientEncryptionKeyFromServer",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientPlayerEnterWorld.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientPlayerEnterWorld",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientPerformanceShared.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": []
+  },
+  {
+    "file": "ClientLoadingTime.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientLoadingTime",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientPerformance.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientPerformance",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "ClientSessionPerformance",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "ClientEncounterPerformance",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "ClientAddOnPerformance",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientReport.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "FailedToSendReportScreenshot",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientWoWLabs.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientQueueForMatch",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientAddonThrottling.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ScriptExecutionThrottling",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "LimitedLuaResources",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientRisk.proto",
+    "package": "Blizzard.Telemetry.Wow.Client.Risk",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "RiskFlaggedLuaSignatureFound",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientNet.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientNetCantConnect",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientSoundCVar.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientSoundCVar",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "TelemetrySharedImports.proto",
+    "package": "Blizzard.Telemetry.Wow",
+    "file_options": {},
+    "message_options": []
+  },
+  {
+    "file": "ClientSharedImports.proto",
+    "package": "Blizzard.Telemetry.Wow",
+    "file_options": {},
+    "message_options": []
+  },
+  {
+    "file": "ClientShared.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientEngineLogV2",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "KeybindingExecutionCountsFromClient",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "CVarsFromClient",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "AddOnsFromClient",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ServerConnectionInfo.proto",
+    "package": "Blizzard.Telemetry.Bleep.Client.Network",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ServerConnectionInfo",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ServerSwitchLimitReached.proto",
+    "package": "Blizzard.Telemetry.Bleep.Client.Network",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ServerSwitchLimitReached",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "BleepPingInfo.proto",
+    "package": "Blizzard.Telemetry.Bleep.Client.Network",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "BleepPingInfo",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "telemetry_extensions.proto",
+    "package": "Blizzard.Telemetry",
+    "file_options": {
+      "java_package": "com.blizzard.telemetry.proto",
+      "java_multiple_files": true
+    },
+    "message_options": []
+  },
+  {
+    "file": "voice_channel_join.proto",
+    "package": "Blizzard.Telemetry.VoiceClient",
+    "file_options": {},
+    "message_options": []
+  },
+  {
+    "file": "voice_channel_leave.proto",
+    "package": "Blizzard.Telemetry.VoiceClient",
+    "file_options": {},
+    "message_options": []
+  },
+  {
+    "file": "voice_provider_error.proto",
+    "package": "Blizzard.Telemetry.VoiceClient",
+    "file_options": {},
+    "message_options": []
+  },
+  {
+    "file": "ClientVoiceChannelJoin.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientVoiceChannelJoin",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientVoiceChannelLeave.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientVoiceChannelLeave",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientVoiceLoginState.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientVoiceLoginState",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientVoiceProviderError.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientVoiceProviderError",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientNameLookup.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientNameLookup",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "AssistedCombat.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": []
+  },
+  {
+    "file": "AuroraError.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "AuroraError",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientCancelConnect.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientCancelConnect",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientDisconnect.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientDisconnect",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientMaintenance.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientFailedLoginAttempt",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientDebug.proto",
+    "package": "Blizzard.Telemetry.Wow.ClientDebug",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientDebugCharacterSelectInvalidItemInSlot",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "ClientDebugTransportIncorrectPosition",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientToxicMessage.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ToxicMessageReceived",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "ToxicMessageUncensored",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "ToxicMessageInlineReport",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientHousing.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "HouseFinderUITracker",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "HousingMarketActionTracker",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientRestrictedAction.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientRestrictedAction",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientAchievement.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientAchievementWindow",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientShop.proto",
+    "package": "Blizzard.Telemetry.Wow.Client.Shop",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "Commerce_WoWShopOpened",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "CatalogShopProductSelected",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "CatalogShopProductDisplayed",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "CatalogShopClientFailure",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientCinematicFinished.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientCinematicFinished",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientTraits.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientTraitsImport",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientTrial.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "TrialPurchaseOfferPopupShown",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "TrialPurchaseOfferPopupClicked",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientMacro.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientMacroChanged",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "ClientMacroUsage",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientLiveEvent.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "LiveEventBannerClicked",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "LiveEventPopupClicked",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientTradingPost.proto",
+    "package": "Blizzard.Telemetry.Wow.Client.TradingPost",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "TradingPostClosed",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientPing.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "ClientTriggeredPingCooldown",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientUISplashScreen.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "UISplashScreenActionLaunched",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientAdventureGuide.proto",
+    "package": "Blizzard.Telemetry.Wow.Client.AdventureGuide",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "AdventureGuideUpdate",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "AdventureGuideActivityLaunched",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "EncounterJournalSelectEntry",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "DiscordClientTelemetry.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "DiscordClientAuthAttemptStart",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "DiscordClientAuthAttemptCompleted",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      },
+      {
+        "name": "DiscordClientAuthAttemptTimeOut",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "ClientPhotoSharing.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "CreatePostResult",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file": "NetEaseCompliance.proto",
+    "package": "Blizzard.Telemetry.Wow.NetEaseCompliance",
+    "file_options": {},
+    "message_options": [
+      {
+        "name": "TextReview",
+        "options": {
+          "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+            "realtime": false
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,796 @@
+{
+  "message": "Blizzard.Telemetry.Wow.Client.ClientEngineLogV2",
+  "descriptor": "ClientShared.proto",
+  "message_options_hex": "c2cc2503a00600",
+  "message_options_decoded": {
+    "[Blizzard.Telemetry.TelemetryMessageOptions]": {
+      "realtime": false
+    }
+  },
+  "fields": [
+    {
+      "name": "realm_info",
+      "number": 1,
+      "type": 11,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "character_identity",
+      "number": 2,
+      "type": 11,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "file_location",
+      "number": 3,
+      "type": 11,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "clientVersion",
+      "number": 104,
+      "type": 11,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "cpuVendor",
+      "number": 105,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "cpuSocketCount",
+      "number": 106,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "cpuProcessorCount",
+      "number": 107,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "cpuHardwareThreads",
+      "number": 108,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "currentArchitecture",
+      "number": 109,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "systemArchitecture",
+      "number": 110,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "is_x86_64",
+      "number": 111,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "is_arm64",
+      "number": 112,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_x86_SSE2",
+      "number": 113,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_x86_SSE3",
+      "number": 114,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_x86_SSE4_1",
+      "number": 115,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_x86_AVX",
+      "number": 116,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_x86_SSE4_2",
+      "number": 117,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_x86_AES",
+      "number": 118,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_x86_CMPXCHG16B",
+      "number": 119,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_x86_RDRAND",
+      "number": 120,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_x86_POPCNT",
+      "number": 121,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_x86_F16C",
+      "number": 122,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_x86_FMA",
+      "number": 123,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_x86_AVX2",
+      "number": 124,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_x86_AVX512",
+      "number": 125,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_CRYPTO",
+      "number": 126,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "OS_Version",
+      "number": 127,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "is_windows",
+      "number": 128,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "is_windowsServer",
+      "number": 129,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "is_wine",
+      "number": 130,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "is_mac",
+      "number": 131,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "bcOsVersion_platform",
+      "number": 132,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "bcOsVersion_major",
+      "number": 133,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "bcOsVersion_minor",
+      "number": 134,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "bcOsVersion_patch",
+      "number": 135,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "bcOsVersion_build",
+      "number": 136,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "memoryCPU",
+      "number": 137,
+      "type": 4,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "region",
+      "number": 138,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "bnetLauncer",
+      "number": 139,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "monitorCount",
+      "number": 140,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "resolutionX",
+      "number": 141,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "resolutionY",
+      "number": 142,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "monitorX",
+      "number": 143,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "monitorY",
+      "number": 144,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "gpuVendorID",
+      "number": 145,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "gpuDeviceID",
+      "number": 146,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "shaderFamily",
+      "number": 147,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "highestShaderModelSupported",
+      "number": 148,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "raytracingSupport",
+      "number": 149,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "vrsSupport",
+      "number": 150,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "constantBufferOffsetSupport",
+      "number": 151,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "drawIndirectSupport",
+      "number": 152,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "memoryGPU",
+      "number": 153,
+      "type": 4,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "memorySharedGPU",
+      "number": 154,
+      "type": 4,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "gxAPI",
+      "number": 155,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "isRetail",
+      "number": 156,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "isPTR_Beta",
+      "number": 157,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "isInternal",
+      "number": 158,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "surveyVersion",
+      "number": 159,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "surveyPatch",
+      "number": 160,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "cpu_vendor",
+      "number": 161,
+      "type": 9,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "cpu_brand",
+      "number": 162,
+      "type": 9,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "gpu_name",
+      "number": 163,
+      "type": 9,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "bcOsVersion_hostPlatform",
+      "number": 164,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "bcOsVersion_hostRuntimeMajor",
+      "number": 165,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "bcOsVersion_hostRuntimeMinor",
+      "number": 166,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "bcOsVersion_hostRuntimePatch",
+      "number": 167,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "bcOsVersion_hostRuntimeBuild",
+      "number": 168,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "bcOsVersion_extra",
+      "number": 169,
+      "type": 9,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "bcOsVersion_hostExtra",
+      "number": 170,
+      "type": 9,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "cpuMicrocodeVersion",
+      "number": 171,
+      "type": 4,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "cpuDefectFlags",
+      "number": 172,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "x86_family",
+      "number": 173,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "x86_model",
+      "number": 174,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "x86_stepping",
+      "number": 175,
+      "type": 13,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "x86_isIntel",
+      "number": 176,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_FMA",
+      "number": 177,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_atomicsv81",
+      "number": 178,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_fphp",
+      "number": 179,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_asimdfphp",
+      "number": 180,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_dotprod8",
+      "number": 181,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_sha3",
+      "number": 182,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_sha512",
+      "number": 183,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_sm3",
+      "number": 184,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_sm4",
+      "number": 185,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_ptrAuth",
+      "number": 186,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_jscvt",
+      "number": 187,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_fcma",
+      "number": 188,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_fhm",
+      "number": 189,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_arm_rng",
+      "number": 190,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "has_battery",
+      "number": 191,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "motherboardManufacturerName",
+      "number": 192,
+      "type": 9,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "motherboardBoardName",
+      "number": 193,
+      "type": 9,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "motherboardBiosVendorName",
+      "number": 194,
+      "type": 9,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "motherboardBiosReleaseDate",
+      "number": 195,
+      "type": 9,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "motherboardBiosVersion",
+      "number": 196,
+      "type": 9,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "hasController",
+      "number": 197,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    },
+    {
+      "name": "hasGamePadEnabled",
+      "number": 198,
+      "type": 8,
+      "default": "",
+      "label": 1,
+      "options_hex": ""
+    }
+  ]
+}

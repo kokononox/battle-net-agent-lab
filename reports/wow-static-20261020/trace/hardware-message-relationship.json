@@ -1,0 +1,196 @@
+{
+  "schema": "wow-hardware-message-relationship-1",
+  "wow_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "wrapper": {
+    "name": "Blizzard.Telemetry.Wow.Client.ClientSystemSpec",
+    "descriptor_file": "ClientPerformanceShared.proto",
+    "fields": [
+      {
+        "name": "engine_log",
+        "number": 1,
+        "type": "TYPE_MESSAGE",
+        "type_name": ".Blizzard.Telemetry.Wow.Client.ClientEngineLogV2",
+        "label": "LABEL_OPTIONAL"
+      },
+      {
+        "name": "current_settings",
+        "number": 2,
+        "type": "TYPE_MESSAGE",
+        "type_name": ".Blizzard.Telemetry.Wow.Client.ClientGraphicsSettings",
+        "label": "LABEL_OPTIONAL"
+      },
+      {
+        "name": "default_settings",
+        "number": 3,
+        "type": "TYPE_MESSAGE",
+        "type_name": ".Blizzard.Telemetry.Wow.Client.ClientGraphicsSettings",
+        "label": "LABEL_OPTIONAL"
+      },
+      {
+        "name": "exe_name",
+        "number": 4,
+        "type": "TYPE_STRING",
+        "type_name": null,
+        "label": "LABEL_OPTIONAL"
+      },
+      {
+        "name": "assertions_enabled",
+        "number": 5,
+        "type": "TYPE_BOOL",
+        "type_name": null,
+        "label": "LABEL_OPTIONAL"
+      },
+      {
+        "name": "has_addons_loaded",
+        "number": 6,
+        "type": "TYPE_BOOL",
+        "type_name": null,
+        "label": "LABEL_OPTIONAL"
+      },
+      {
+        "name": "max_fps_setting",
+        "number": 7,
+        "type": "TYPE_INT32",
+        "type_name": null,
+        "label": "LABEL_OPTIONAL"
+      },
+      {
+        "name": "use_max_fps",
+        "number": 8,
+        "type": "TYPE_BOOL",
+        "type_name": null,
+        "label": "LABEL_OPTIONAL"
+      },
+      {
+        "name": "max_fps_background_setting",
+        "number": 9,
+        "type": "TYPE_INT32",
+        "type_name": null,
+        "label": "LABEL_OPTIONAL"
+      },
+      {
+        "name": "use_max_fps_background",
+        "number": 10,
+        "type": "TYPE_BOOL",
+        "type_name": null,
+        "label": "LABEL_OPTIONAL"
+      },
+      {
+        "name": "text_locale",
+        "number": 11,
+        "type": "TYPE_STRING",
+        "type_name": null,
+        "label": "LABEL_OPTIONAL"
+      },
+      {
+        "name": "audio_locale",
+        "number": 12,
+        "type": "TYPE_STRING",
+        "type_name": null,
+        "label": "LABEL_OPTIONAL"
+      }
+    ]
+  },
+  "wrapper_descriptor": {
+    "name": "ClientPerformanceShared.proto",
+    "package": "Blizzard.Telemetry.Wow.Client",
+    "offset": "0x3d3aec0",
+    "end_offset_exclusive": "0x3d3b26e",
+    "descriptor_sha256": "9747de0625ba289a5c83b4985b6702603572717cca94226179af7d66e886d03a",
+    "dependencies": [
+      "ClientShared.proto"
+    ],
+    "top_level_messages": 2
+  },
+  "contained_engine_message": "Blizzard.Telemetry.Wow.Client.ClientEngineLogV2",
+  "selected_hardware_fields": [
+    {
+      "name": "cpu_vendor",
+      "number": 161,
+      "type": "TYPE_STRING",
+      "type_name": null,
+      "label": "LABEL_OPTIONAL"
+    },
+    {
+      "name": "cpu_brand",
+      "number": 162,
+      "type": "TYPE_STRING",
+      "type_name": null,
+      "label": "LABEL_OPTIONAL"
+    },
+    {
+      "name": "gpu_name",
+      "number": 163,
+      "type": "TYPE_STRING",
+      "type_name": null,
+      "label": "LABEL_OPTIONAL"
+    },
+    {
+      "name": "cpuMicrocodeVersion",
+      "number": 171,
+      "type": "TYPE_UINT64",
+      "type_name": null,
+      "label": "LABEL_OPTIONAL"
+    },
+    {
+      "name": "cpuDefectFlags",
+      "number": 172,
+      "type": "TYPE_UINT32",
+      "type_name": null,
+      "label": "LABEL_OPTIONAL"
+    },
+    {
+      "name": "motherboardManufacturerName",
+      "number": 192,
+      "type": "TYPE_STRING",
+      "type_name": null,
+      "label": "LABEL_OPTIONAL"
+    },
+    {
+      "name": "motherboardBoardName",
+      "number": 193,
+      "type": "TYPE_STRING",
+      "type_name": null,
+      "label": "LABEL_OPTIONAL"
+    },
+    {
+      "name": "motherboardBiosVendorName",
+      "number": 194,
+      "type": "TYPE_STRING",
+      "type_name": null,
+      "label": "LABEL_OPTIONAL"
+    },
+    {
+      "name": "motherboardBiosReleaseDate",
+      "number": 195,
+      "type": "TYPE_STRING",
+      "type_name": null,
+      "label": "LABEL_OPTIONAL"
+    },
+    {
+      "name": "motherboardBiosVersion",
+      "number": 196,
+      "type": "TYPE_STRING",
+      "type_name": null,
+      "label": "LABEL_OPTIONAL"
+    }
+  ],
+  "all_selected_hardware_fields_are_optional": true,
+  "observed_references_to_engine_type": [
+    {
+      "message": "Blizzard.Telemetry.Wow.Client.ClientSystemSpec",
+      "field": {
+        "name": "engine_log",
+        "number": 1,
+        "type": "TYPE_MESSAGE",
+        "type_name": ".Blizzard.Telemetry.Wow.Client.ClientEngineLogV2",
+        "label": "LABEL_OPTIONAL"
+      }
+    }
+  ],
+  "schema_edge_proven": true,
+  "runtime_population_proven": false,
+  "runtime_send_proven": false,
+  "destination_binding_proven": false,
+  "schedule_or_trigger_proven": false
+}

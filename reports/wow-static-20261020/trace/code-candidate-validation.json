@@ -1,0 +1,119 @@
+[
+  {
+    "file": "wow_loader.dll",
+    "target_rva": "0x12b4c68",
+    "reference_target": {
+      "needle": "telemetry-sdk-cpp/",
+      "hit_rva": "0x209b2f8",
+      "interior_string": "telemetry-sdk-cpp/"
+    },
+    "unwind_range": {
+      "begin_rva": "0x12b4bf0",
+      "end_rva": "0x12b8aea"
+    },
+    "linear_decoded_bytes": 2935,
+    "unwind_range_bytes": 16122,
+    "target_on_linear_instruction_boundary": true,
+    "neighborhood": [
+      {
+        "rva": "0x12b4c4a",
+        "instruction": "sub ecx, r9d"
+      },
+      {
+        "rva": "0x12b4c4d",
+        "instruction": "add ecx, 0x3e927fb3"
+      },
+      {
+        "rva": "0x12b4c53",
+        "instruction": "xor ecx, r8d"
+      },
+      {
+        "rva": "0x12b4c56",
+        "instruction": "sub ecx, r9d"
+      },
+      {
+        "rva": "0x12b4c59",
+        "instruction": "add ecx, edx"
+      },
+      {
+        "rva": "0x12b4c5b",
+        "instruction": "mov dword ptr [rbp + 0x35c], ecx"
+      },
+      {
+        "rva": "0x12b4c61",
+        "instruction": "lea rsi, [rip + 0xe1dcc8]"
+      },
+      {
+        "rva": "0x12b4c68",
+        "instruction": "lea rbx, [rip + 0xde6689]"
+      },
+      {
+        "rva": "0x12b4c6f",
+        "instruction": "movabs r12, 0x7fffffffffffffff"
+      },
+      {
+        "rva": "0x12b4c79",
+        "instruction": "movabs r13, 0x86bc8bd53922354b"
+      },
+      {
+        "rva": "0x12b4c83",
+        "instruction": "mov qword ptr [rbp + 0x340], r15"
+      },
+      {
+        "rva": "0x12b4c8a",
+        "instruction": "jmp 0x1812b4d00"
+      },
+      {
+        "rva": "0x12b4c8c",
+        "instruction": "mov rax, qword ptr [rbp + 0x298]"
+      },
+      {
+        "rva": "0x12b4c93",
+        "instruction": "mov rcx, qword ptr [rbp + 0x290]"
+      },
+      {
+        "rva": "0x12b4c9a",
+        "instruction": "mov rdx, qword ptr [rbp + 0x288]"
+      },
+      {
+        "rva": "0x12b4ca1",
+        "instruction": "movups xmm0, xmmword ptr [rcx + rax]"
+      }
+    ],
+    "bounded_cfg_instruction_starts": 4294,
+    "direct_branches": 570,
+    "indirect_jump_sites_unresolved": 0,
+    "target_reachable_from_unwind_begin_in_overapproximation": true,
+    "cfg_limit_hit": false,
+    "calls_assumed_returning": true,
+    "conditional_branch_conditions_not_evaluated": true,
+    "runtime_reachability_proven": false,
+    "dataflow_to_send_proven": false
+  },
+  {
+    "file": "wow_loader.dll",
+    "target_rva": "0x1e90d87",
+    "reference_target": {
+      "needle": "https://telemetry-in.battle.net/",
+      "hit_rva": "0x209b2d7",
+      "interior_string": "https://telemetry-in.battle.net/"
+    },
+    "unwind_range": {
+      "begin_rva": "0x1e852b0",
+      "end_rva": "0x1e91384"
+    },
+    "linear_decoded_bytes": 1528,
+    "unwind_range_bytes": 49364,
+    "target_on_linear_instruction_boundary": false,
+    "neighborhood": [],
+    "bounded_cfg_instruction_starts": 12000,
+    "direct_branches": 1658,
+    "indirect_jump_sites_unresolved": 0,
+    "target_reachable_from_unwind_begin_in_overapproximation": true,
+    "cfg_limit_hit": true,
+    "calls_assumed_returning": true,
+    "conditional_branch_conditions_not_evaluated": true,
+    "runtime_reachability_proven": false,
+    "dataflow_to_send_proven": false
+  }
+]
