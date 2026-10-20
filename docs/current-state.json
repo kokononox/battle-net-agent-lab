@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-20T18:28:27.643970+00:00",
+  "as_of_utc": "2026-10-20T18:48:12.660898+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -53,7 +53,7 @@
     "current_wow_embedded_hardware_schema_proven": true,
     "current_wow_full_decompilation_complete": false
   },
-  "user_action_now": "Optional: run WoW-Settings-ReadOnly-0.1.0, choose Retail WTF/Config.wtf and share only its settings-result JSON. No admin/game launch/network/proxy/config writes needed. Do not upload full Config.wtf.",
+  "user_action_now": "No new Windows action requested. Keep engineSurvey/engineSurveyPatch unchanged; no new capture/proxy/CA/injection test prepared.",
   "sync_scope": "Sanitized session handoff, source-only tools, derived evidence, offline binary metadata; no game/runtime binaries, private keys, raw captures or raw transcript",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
@@ -85,7 +85,7 @@
     "installation_ready": false,
     "historical_only_not_current_target": true
   },
-  "current_focus": "Engine Survey config candidates found; no validated hardware telemetry opt-out. Read-only seven-key Config.wtf helper prepared.",
+  "current_focus": "User-reported Engine Survey values recorded. Broader offline reference trace reached evidence boundary; no setting-to-hardware-send dataflow or validated opt-out.",
   "current_updater": {
     "release": "0.27",
     "source": "updater-core/",
@@ -224,7 +224,7 @@
     "game_copy_requested": false,
     "main_install_modification_authorized": false
   },
-  "next_offline_step": "Interpret explicit file settings only if user submits them; absence is not disabled/default and runtime effect remains unknown. No blind capture/proxy repetitions.",
+  "next_offline_step": "Do not repeat byte scans as progress. Continuing setting -> hardware-message -> send requires a new semantic artifact or a reviewed runtime method; neither available in this phase.",
   "public_policy_review": "Alternate community enum clarified only; Talebound and official selection remain unqualified",
   "agent_status_experiment": {
     "status": "game_summary_observed",
@@ -308,7 +308,28 @@
       "source": "user-tools/wow-settings-readonly-0.1.0/",
       "reader_checks_passed": 16,
       "native_windows_gui_tested": false,
-      "actual_user_config_read": false
+      "actual_user_config_read": false,
+      "bounded_user_output_received": true,
+      "user_reported_values": {
+        "engineSurvey": "8",
+        "engineSurveyPatch": "120105"
+      },
+      "runtime_effective_values_proven": false
+    },
+    "survey_trace": {
+      "report": "docs/WOW-SURVEY-TRACE-2026-10-20.fa.md",
+      "source": "analysis-tools/wow-static-20261020/survey-trace/trace_survey_refs.py",
+      "arithmetic_relative_candidates": 9,
+      "executable_section_relative_candidates": 0,
+      "rip_instruction_candidates": 0,
+      "absolute_va_real_file_control_passed": true,
+      "synthetic_displacement_negative_fixtures": 5,
+      "synthetic_displacement_positive_fixtures": 1,
+      "synthetic_capstone_fixtures": 3,
+      "setting_to_message_dataflow_proven": false,
+      "setting_to_send_binding_proven": false,
+      "validated_opt_out_available": false,
+      "stage_status": "evidence_boundary_no_new_user_test"
     }
   }
 }

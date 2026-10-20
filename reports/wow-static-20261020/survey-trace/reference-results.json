@@ -1,0 +1,317 @@
+{
+  "schema": "wow-survey-byte-reference-trace-1",
+  "sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "input_executed": false,
+  "config_modified": false,
+  "relative_tail_lengths_tested": [
+    0,
+    1,
+    2,
+    4,
+    8
+  ],
+  "selftest": {
+    "passed": true,
+    "negative_displacement_alignments_and_tails": 5,
+    "positive_displacement_at_offset_zero": true,
+    "capstone_positive_fixtures": 3
+  },
+  "targets": [
+    {
+      "name": "engineSurvey",
+      "hits": [
+        {
+          "offset": "0x3f94960",
+          "rva": "0x3f95560",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        }
+      ]
+    },
+    {
+      "name": "engineSurveyPatch",
+      "hits": [
+        {
+          "offset": "0x3f949d0",
+          "rva": "0x3f955d0",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        }
+      ]
+    },
+    {
+      "name": "Engine Survey Index",
+      "hits": [
+        {
+          "offset": "0x3f94998",
+          "rva": "0x3f95598",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        }
+      ]
+    },
+    {
+      "name": "Engine Survey Patch",
+      "hits": [
+        {
+          "offset": "0x3f94970",
+          "rva": "0x3f95570",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        }
+      ]
+    },
+    {
+      "name": "surveyVersion",
+      "hits": [
+        {
+          "offset": "0x3d41824",
+          "rva": "0x3d42424",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        }
+      ]
+    },
+    {
+      "name": "surveyPatch",
+      "hits": [
+        {
+          "offset": "0x3d4183c",
+          "rva": "0x3d4243c",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        }
+      ]
+    },
+    {
+      "name": "ClientEngineLogV2",
+      "hits": [
+        {
+          "offset": "0x3d3b0d5",
+          "rva": "0x3d3bcd5",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        },
+        {
+          "offset": "0x3d4121d",
+          "rva": "0x3d41e1d",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        }
+      ]
+    },
+    {
+      "name": "ClientSystemSpec",
+      "hits": [
+        {
+          "offset": "0x3d3b090",
+          "rva": "0x3d3bc90",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        },
+        {
+          "offset": "0x3d3b482",
+          "rva": "0x3d3c082",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        },
+        {
+          "offset": "0x3d3c1dc",
+          "rva": "0x3d3cddc",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        },
+        {
+          "offset": "0x3d3c380",
+          "rva": "0x3d3cf80",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        },
+        {
+          "offset": "0x3d3c6a4",
+          "rva": "0x3d3d2a4",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        },
+        {
+          "offset": "0x3d3cb52",
+          "rva": "0x3d3d752",
+          "absolute_va64_refs": [],
+          "rva32_refs": []
+        }
+      ]
+    },
+    {
+      "name": "https://wow.ingest.gdp.blizzard.com",
+      "hits": [
+        {
+          "offset": "0x3bea370",
+          "rva": "0x3beaf70",
+          "absolute_va64_refs": [
+            "0x3bea360"
+          ],
+          "rva32_refs": []
+        }
+      ]
+    }
+  ],
+  "relative_candidates": [
+    {
+      "source_section": ".rdata",
+      "field_file_offset": "0x3f9495c",
+      "field_rva": "0x3f9555c",
+      "target_rva": "0x3f95560",
+      "target_names": [
+        "engineSurvey"
+      ],
+      "bytes_after_displacement": 0,
+      "rip_instruction_candidates": []
+    },
+    {
+      "source_section": ".rdata",
+      "field_file_offset": "0x3f949cc",
+      "field_rva": "0x3f955cc",
+      "target_rva": "0x3f955d0",
+      "target_names": [
+        "engineSurveyPatch"
+      ],
+      "bytes_after_displacement": 0,
+      "rip_instruction_candidates": []
+    },
+    {
+      "source_section": ".rdata",
+      "field_file_offset": "0x3f94994",
+      "field_rva": "0x3f95594",
+      "target_rva": "0x3f95598",
+      "target_names": [
+        "Engine Survey Index"
+      ],
+      "bytes_after_displacement": 0,
+      "rip_instruction_candidates": []
+    },
+    {
+      "source_section": ".rdata",
+      "field_file_offset": "0x3f9496c",
+      "field_rva": "0x3f9556c",
+      "target_rva": "0x3f95570",
+      "target_names": [
+        "Engine Survey Patch"
+      ],
+      "bytes_after_displacement": 0,
+      "rip_instruction_candidates": []
+    },
+    {
+      "source_section": ".rdata",
+      "field_file_offset": "0x3f805d2",
+      "field_rva": "0x3f811d2",
+      "target_rva": "0x3f955d0",
+      "target_names": [
+        "engineSurveyPatch"
+      ],
+      "bytes_after_displacement": 2,
+      "rip_instruction_candidates": []
+    },
+    {
+      "source_section": ".rdata",
+      "field_file_offset": "0x3d40217",
+      "field_rva": "0x3d40e17",
+      "target_rva": "0x3d41e1d",
+      "target_names": [
+        "ClientEngineLogV2"
+      ],
+      "bytes_after_displacement": 2,
+      "rip_instruction_candidates": []
+    },
+    {
+      "source_section": ".rdata",
+      "field_file_offset": "0x3d3908b",
+      "field_rva": "0x3d39c8b",
+      "target_rva": "0x3d3bc90",
+      "target_names": [
+        "ClientSystemSpec"
+      ],
+      "bytes_after_displacement": 1,
+      "rip_instruction_candidates": []
+    },
+    {
+      "source_section": ".rdata",
+      "field_file_offset": "0x3f949cb",
+      "field_rva": "0x3f955cb",
+      "target_rva": "0x3f955d0",
+      "target_names": [
+        "engineSurveyPatch"
+      ],
+      "bytes_after_displacement": 1,
+      "rip_instruction_candidates": []
+    },
+    {
+      "source_section": ".rdata",
+      "field_file_offset": "0x3f94853",
+      "field_rva": "0x3f95453",
+      "target_rva": "0x3f95598",
+      "target_names": [
+        "Engine Survey Index"
+      ],
+      "bytes_after_displacement": 1,
+      "rip_instruction_candidates": []
+    }
+  ],
+  "registration_binding_proven": false,
+  "setting_to_message_dataflow_proven": false,
+  "hardware_send_proven": false,
+  "limits": [
+    "Only exact strings and tested byte-reference representations are covered.",
+    "Relative matches in encrypted/high-entropy data can be accidental.",
+    "An independently decoded instruction is not a proven instruction boundary or reachable path.",
+    "Encoded, hashed, indirect, runtime-relocated or decrypted references are not recovered.",
+    "Missing references do not prove an unused setting or disabled telemetry."
+  ],
+  "real_file_absolute_pointer_positive_control_passed": true,
+  "entry_stub": [
+    {
+      "rva": "0x1da9b0",
+      "bytes": "4883ec28",
+      "instruction": "sub rsp, 0x28"
+    },
+    {
+      "rva": "0x1da9b4",
+      "bytes": "488b057db58f04",
+      "instruction": "mov rax, qword ptr [rip + 0x48fb57d]"
+    },
+    {
+      "rva": "0x1da9bb",
+      "bytes": "4885c0",
+      "instruction": "test rax, rax"
+    },
+    {
+      "rva": "0x1da9be",
+      "bytes": "7402",
+      "instruction": "je 0x1401da9c2"
+    },
+    {
+      "rva": "0x1da9c0",
+      "bytes": "ffd0",
+      "instruction": "call rax"
+    },
+    {
+      "rva": "0x1da9c2",
+      "bytes": "33c0",
+      "instruction": "xor eax, eax"
+    },
+    {
+      "rva": "0x1da9c4",
+      "bytes": "4883c428",
+      "instruction": "add rsp, 0x28"
+    },
+    {
+      "rva": "0x1da9c8",
+      "bytes": "c3",
+      "instruction": "ret "
+    }
+  ],
+  "entry_callback_destination_recovered": false,
+  "counts": {
+    "relative_candidates": 9,
+    "rip_instruction_candidates": 0
+  }
+}
