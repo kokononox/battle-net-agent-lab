@@ -1,0 +1,142 @@
+{
+  "method": "bounded exact ASCII substring search only; NOT proof of active TLS backend, runtime API call or key-export support",
+  "input_executed": false,
+  "files": [
+    {
+      "file": "Wow.exe",
+      "sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+      "ascii_byte_markers": [
+        {
+          "marker": "SSL_write",
+          "offsets": [
+            "0x4248960"
+          ],
+          "limit": 8
+        },
+        {
+          "marker": "SSL_write_ex",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "EncryptMessage",
+          "offsets": [
+            "0x42f93b8"
+          ],
+          "limit": 8
+        },
+        {
+          "marker": "SSL_CTX_set_keylog_callback",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "SSLKEYLOGFILE",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "BoringSSL",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "OpenSSL",
+          "offsets": [
+            "0x3eaec50",
+            "0x422eed8",
+            "0x4230f90",
+            "0x42517b8",
+            "0x426b857",
+            "0x4270498",
+            "0x42704b0",
+            "0x4270800"
+          ],
+          "limit": 8
+        },
+        {
+          "marker": "GetSystemFirmwareTable",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "ProcessorNameString",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "mbedtls_ssl_write",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "wolfSSL_write",
+          "offsets": [],
+          "limit": 8
+        }
+      ]
+    },
+    {
+      "file": "wow_loader.dll",
+      "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+      "ascii_byte_markers": [
+        {
+          "marker": "SSL_write",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "SSL_write_ex",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "EncryptMessage",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "SSL_CTX_set_keylog_callback",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "SSLKEYLOGFILE",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "BoringSSL",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "OpenSSL",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "GetSystemFirmwareTable",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "ProcessorNameString",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "mbedtls_ssl_write",
+          "offsets": [],
+          "limit": 8
+        },
+        {
+          "marker": "wolfSSL_write",
+          "offsets": [],
+          "limit": 8
+        }
+      ]
+    }
+  ],
+  "negative_marker_search_proves_no_capability": false
+}
