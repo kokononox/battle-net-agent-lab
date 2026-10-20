@@ -1,0 +1,29 @@
+{
+  "version": "0.1.2",
+  "core_tests_passed": 30,
+  "ui_binding_control_cross_compile_passed": true,
+  "language": "C#5",
+  "references": ".NET Framework 4.8",
+  "platform": "x64",
+  "native_windows_execution_tested": false,
+  "real_cdb_exception_dispatch_tested": false,
+  "native_sspi_binding_tested": false,
+  "control_gate_requires": [
+    "native API marker",
+    "one-shot int3-dispatch marker",
+    "fixture exit code zero after its VEH handles exactly one breakpoint"
+  ],
+  "game_exception_dispatch_scope": {
+    "module": "wow_loader",
+    "rva": "0x1e4f20c",
+    "disk_sha256_guard": true,
+    "one_shot": true,
+    "command": "gN",
+    "global_exception_filter_relaxation": false,
+    "loaded_game_bytes_independently_attested": false
+  },
+  "sspi_binding": "Windows GetProcAddress + owner module/RVA, instead of nested forwarder symbol command",
+  "plaintext_or_cpu_bios_upload_proven": false,
+  "raw_logs_binaries_game_files_shipped": false,
+  "important_limit": "Cross-compile and pure core regressions are not proof that the Windows fixture or game will run successfully."
+}
