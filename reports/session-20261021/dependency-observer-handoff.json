@@ -1,0 +1,31 @@
+{
+  "schema": "sanitized-dependency-observer-handoff-1",
+  "cdb_paths": "Launch-under-debugger and late attach interfered with this game test; no further CDB tests requested.",
+  "crash": {
+    "error": "ERROR #132 / ACCESS_VIOLATION",
+    "faulting_module": "Wow.exe",
+    "faulting_module_relative_rva": "0x2c2a49",
+    "root_cause_or_anti_cheat_proven": false
+  },
+  "privacy_evidence": {
+    "local_crash_report_contains_hardware_fields": [
+      "CPU vendor",
+      "baseboard manufacturer/product/version",
+      "BIOS vendor/version/release date",
+      "memory and drive metadata"
+    ],
+    "internet_upload_of_those_fields_proven": false,
+    "level3_upload_of_those_fields_proven": false,
+    "raw_crash_log_or_hardware_values_included": false
+  },
+  "next_package": "WoW-Dependency-Observer-0.1.0",
+  "scope": "Normal launch + local Procmon metadata; process-index descendants, same-folder candidates, DLL loads and stack-module clues around TCP/UDP operations. Does not decode TLS or prove DLL authorship.",
+  "isolation": "Existing firewall/allowlist/hosts/VPN/game settings untouched. First run labelled current isolation; no destinations removed automatically.",
+  "qa": {
+    "synthetic_tests_passed": 34,
+    "native_windows_procmon_integration_tested": false,
+    "actual_4_12_xml_export_schema_verified_on_windows": false
+  },
+  "procmon_not_redistributed": true,
+  "procmon64_required_sha256": "28495e642b2a465474a4edc58380eaf8b7ee580f3fbcb4141061deadafe9b885"
+}
