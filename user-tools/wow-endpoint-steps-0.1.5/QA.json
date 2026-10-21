@@ -1,0 +1,66 @@
+{
+  "version": "0.1.5",
+  "tests_passed": 90,
+  "test_failures": 0,
+  "test_skips": 0,
+  "linux_powershell_real_parser_and_handshake_passed": true,
+  "real_group_secondary_target_matching_passed_with_mock_windows_apis": true,
+  "windows_firewall_api_mocked": true,
+  "native_windows_group_tested": false,
+  "native_windows_monitor_013_user_report_confirmed": true,
+  "group_scope": "five fixed IPv4 TCP endpoints, selected Wow.exe outbound only",
+  "group_creation_atomic": false,
+  "rollback_all_members_attempted_on_setup_failure": true,
+  "all_members_cleanup_attempted_even_if_one_fails": true,
+  "cleanup_precedes_monitor_result_wait": true,
+  "shared_lease_seconds": 300,
+  "watchdog_per_member": true,
+  "rule_expiration_intrinsic": false,
+  "ui_visual_review": [
+    "new review selector desktop",
+    "new review selector dark 390px",
+    "other workflow layouts unchanged from 0.1.4"
+  ],
+  "powershell_qa_runtime": {
+    "tag": "v7.6.7",
+    "url": "https://github.com/PowerShell/PowerShell/releases/download/v7.6.7/powershell-7.6.7-linux-x64.tar.gz",
+    "sha256_digest": "sha256:6896f9e3a6b0a354bf470835a96da76d2f801cd50dcf047ad7c4563bf93bf431",
+    "bytes": 75913191
+  },
+  "new_review_targets": [
+    {
+      "ip": "37.244.61.125",
+      "port": 3724,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "37.244.61.237",
+      "port": 3724,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "34.91.55.216",
+      "port": 1119,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "3.125.189.135",
+      "port": 443,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "63.182.92.134",
+      "port": 443,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "2.21.23.18",
+      "port": 80,
+      "protocol": "TCP"
+    }
+  ],
+  "legacy_catalogue_prefix_preserved": true,
+  "all_six_new_targets_mock_start_restore_report_tested": true,
+  "review_options_verified_in_chromium": true,
+  "native_windows_new_review_targets_tested": false
+}
