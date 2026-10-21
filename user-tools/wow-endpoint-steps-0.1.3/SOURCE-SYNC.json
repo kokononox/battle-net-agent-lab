@@ -1,0 +1,12 @@
+{
+  "version": "0.1.3",
+  "patch_sha256": "0a7476e78abb8731c355ba50e7770ea504179ebf0bd8cc0b6d60887be5b59923",
+  "bytes": 35877,
+  "files": 20,
+  "requires_original_runtime_and_preserved_journals": true,
+  "tests_passed": 60,
+  "reproduced_bug": "PowerShell ChangeExtension(path,$null) adds trailing dot; monitor marker names diverged from Python",
+  "real_linux_powershell_handoff_verified": true,
+  "windows_network_queries_mocked_in_handoff_test": true,
+  "native_windows_monitor_tested": false
+}
