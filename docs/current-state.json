@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-20T18:48:12.660898+00:00",
+  "as_of_utc": "2026-10-21T23:46:53.105708+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -51,9 +51,11 @@
     "hardware_field_transmission_proven_scope": "Historical Agent CPU literal at outgoing pre-encryption POST /data to telemetry-in.battle.net in temporary machine; NOT current Wow.exe, BIOS or server receipt",
     "current_wow_cpu_or_bios_transmission_proven": false,
     "current_wow_embedded_hardware_schema_proven": true,
-    "current_wow_full_decompilation_complete": false
+    "current_wow_full_decompilation_complete": false,
+    "in_world_network_metadata_user_confirmed_20261022": true,
+    "in_world_network_metadata_evidence": "reports/session-20261022/wow-network-evidence.json"
   },
-  "user_action_now": "Use replacement 0.2.2 only for the requested one-minute capture; report whether login/character selection/in-world was reached. Share minimized JSON only, never credentials or raw PML. No automatic repeat or isolation/settings changes.",
+  "user_action_now": "No immediate new test required. Preserve current working configuration and captures. No automatic blacklist expansion, hosts changes, Sysmon/audit changes, payload interception or SSTP integration authorized by this sync.",
   "sync_scope": "Sanitized session handoff, source-only tools, derived evidence, offline binary metadata; no game/runtime binaries, private keys, raw captures or raw transcript",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
@@ -85,7 +87,7 @@
     "installation_ready": false,
     "historical_only_not_current_target": true
   },
-  "current_focus": "Dependency Observer login-screen sample clarified; version 0.2.2 prepared for requested 60-second capture, watchdog 75 seconds. Native Windows run pending; Engine Survey dataflow unproven.",
+  "current_focus": "WoW Blacklist 0.1.8; stage-aware DNS/TCP capture analyzed; user confirms successful in-game entry in third trial under configured 137.0.0.0/8 TCP443 block. Packet-drop and hardware telemetry proofs remain unestablished.",
   "current_updater": {
     "release": "0.27",
     "source": "updater-core/",
@@ -355,5 +357,32 @@
     "isolated_analysis_smoke_tests_passed": 2,
     "source_path": "user-tools/wow-dependency-observer-0.2.2/",
     "runtime_binaries_synced": false
+  },
+  "wow_blacklist_session_20261022": {
+    "report": "docs/SESSION-WOW-BLACKLIST-2026-10-22.fa.md",
+    "evidence": "reports/session-20261022/wow-network-evidence.json",
+    "source": "user-tools/wow-blacklist-0.1.8/",
+    "latest_version": "0.1.8",
+    "tests_passed": 291,
+    "test_scope": "Linux Python and PowerShell7 with mocked Windows cmdlets; native WinForms/Windows5.1/NetSecurity/hosts locking not qualified",
+    "user_confirmation": {
+      "capture_id": "8171a9e5275745f09c480cca48478c2c",
+      "source": "explicit_user_message_after_analysis",
+      "user_statement_fa": "در ضبط سوم، بعد از اضافه‌کردن بلاک رنج ۱۳۷ روی ۴۴۳، مشکلی پیش نیامد و وارد بازی شدم.",
+      "successful_in_game_entry_reported": true,
+      "no_problem_reported_in_this_trial": true,
+      "configured_block": {
+        "ip": "137.0.0.0/8",
+        "port": 443,
+        "protocol": "TCP"
+      },
+      "scope": "one_trial_under_combined_existing_rules_and_hosts_not_isolated_single_rule_AB",
+      "all_game_features_or_long_term_stability_tested": false,
+      "actual_drop_enforcement_verified": false,
+      "all_telemetry_prevented_proven": false
+    },
+    "telemetry_payload_or_CPU_BIOS_transmission_proven": false,
+    "SSTP_integration_implemented": false,
+    "raw_data_synced": false
   }
 }

@@ -1,0 +1,8 @@
+# Canonical TXT syntax only. Import replaces the draft; no automatic firewall apply.
+3.124.215.108:443 TCP
+# Optional CIDR examples (commented out; NOT enabled):
+# 2.0.0.0/8:80 TCP
+# 2.19.198.0/24:80 TCP
+# [2606:4700::/32]:443 TCP
+# For 2.*.*.* or first/last IP, use the Easy range form; it creates canonical rows.
+# PTR names are stored separately in private-state/ptr-cache.json, not this list.

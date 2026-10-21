@@ -1,0 +1,409 @@
+{
+  "schema": "wow-session-evidence-summary-1",
+  "synced_utc": "2026-10-21T23:46:53.105708+00:00",
+  "source_archive_name": "WoW-Analysis-20261022-023335.zip",
+  "source_archive_sha256": "eba465eb185c999f63dc82821760941d1e4037795ac7aef7b466e0a60f9952f8",
+  "application_version": "0.1.8",
+  "captures": [
+    {
+      "capture": 1,
+      "id": "0131ffbc56c444bbbd0c545212f15a23",
+      "seconds": 65.8,
+      "tcp_rows": 2,
+      "tcp_unique": 2,
+      "dns_events": 7,
+      "wfp_events": 0,
+      "query_errors": 0,
+      "truncated": false,
+      "deleted": 0,
+      "phase_errors": 0,
+      "stages": [
+        "unknown",
+        "launch"
+      ],
+      "rule_count": 20,
+      "start_end_rules_same": true
+    },
+    {
+      "capture": 2,
+      "id": "d70293bb73124baf88820764a21bd146",
+      "seconds": 33.7,
+      "tcp_rows": 1,
+      "tcp_unique": 1,
+      "dns_events": 7,
+      "wfp_events": 0,
+      "query_errors": 0,
+      "truncated": false,
+      "deleted": 0,
+      "phase_errors": 0,
+      "stages": [
+        "unknown"
+      ],
+      "rule_count": 20,
+      "start_end_rules_same": true
+    },
+    {
+      "capture": 3,
+      "id": "8171a9e5275745f09c480cca48478c2c",
+      "seconds": 224.2,
+      "tcp_rows": 7,
+      "tcp_unique": 7,
+      "dns_events": 13,
+      "wfp_events": 0,
+      "query_errors": 0,
+      "truncated": false,
+      "deleted": 0,
+      "phase_errors": 0,
+      "stages": [
+        "unknown",
+        "launch",
+        "login",
+        "dashboard",
+        "in_game"
+      ],
+      "rule_count": 21,
+      "start_end_rules_same": true
+    }
+  ],
+  "totals": {
+    "tcp_records": 10,
+    "unique_tcp": 10,
+    "dns_events": 27,
+    "wfp_events": 0,
+    "active_rule_count": 21,
+    "same_program_hash": true
+  },
+  "endpoint_DNS_correlations": [
+    {
+      "capture": 1,
+      "ip": "2.21.23.82",
+      "port": 443,
+      "stages": [
+        "launch"
+      ],
+      "dns_domains": [],
+      "relation": "same_capture_same_PID_DNS_answer_matches_IP_not_HTTP_hostname_proof"
+    },
+    {
+      "capture": 1,
+      "ip": "2.21.23.18",
+      "port": 443,
+      "stages": [
+        "launch"
+      ],
+      "dns_domains": [
+        "level3.blizzard.com",
+        "level3.ssl.blizzard.com"
+      ],
+      "relation": "same_capture_same_PID_DNS_answer_matches_IP_not_HTTP_hostname_proof"
+    },
+    {
+      "capture": 2,
+      "ip": "137.221.64.3",
+      "port": 443,
+      "stages": [],
+      "dns_domains": [
+        "us.cdn.blizzard.com"
+      ],
+      "relation": "same_capture_same_PID_DNS_answer_matches_IP_not_HTTP_hostname_proof"
+    },
+    {
+      "capture": 3,
+      "ip": "34.91.100.224",
+      "port": 1119,
+      "stages": [
+        "launch",
+        "login"
+      ],
+      "dns_domains": [
+        "eu.actual.battle.net"
+      ],
+      "relation": "same_capture_same_PID_DNS_answer_matches_IP_not_HTTP_hostname_proof"
+    },
+    {
+      "capture": 3,
+      "ip": "63.182.92.134",
+      "port": 443,
+      "stages": [
+        "launch",
+        "login",
+        "dashboard"
+      ],
+      "dns_domains": [
+        "eu.account.battle.net"
+      ],
+      "relation": "same_capture_same_PID_DNS_answer_matches_IP_not_HTTP_hostname_proof"
+    },
+    {
+      "capture": 3,
+      "ip": "37.244.29.11",
+      "port": 3724,
+      "stages": [
+        "login"
+      ],
+      "dns_domains": [],
+      "relation": "same_capture_same_PID_DNS_answer_matches_IP_not_HTTP_hostname_proof"
+    },
+    {
+      "capture": 3,
+      "ip": "37.244.29.93",
+      "port": 3724,
+      "stages": [
+        "login",
+        "dashboard",
+        "in_game"
+      ],
+      "dns_domains": [],
+      "relation": "same_capture_same_PID_DNS_answer_matches_IP_not_HTTP_hostname_proof"
+    },
+    {
+      "capture": 3,
+      "ip": "3.72.239.37",
+      "port": 443,
+      "stages": [
+        "login",
+        "dashboard"
+      ],
+      "dns_domains": [
+        "oauth.battle.net"
+      ],
+      "relation": "same_capture_same_PID_DNS_answer_matches_IP_not_HTTP_hostname_proof"
+    },
+    {
+      "capture": 3,
+      "ip": "37.244.63.169",
+      "port": 3724,
+      "stages": [
+        "in_game"
+      ],
+      "dns_domains": [],
+      "relation": "same_capture_same_PID_DNS_answer_matches_IP_not_HTTP_hostname_proof"
+    },
+    {
+      "capture": 3,
+      "ip": "66.40.182.211",
+      "port": 3724,
+      "stages": [
+        "in_game"
+      ],
+      "dns_domains": [],
+      "relation": "same_capture_same_PID_DNS_answer_matches_IP_not_HTTP_hostname_proof"
+    }
+  ],
+  "hosts_sink_DNS_observations": [
+    {
+      "domain": "breaking-news.support.blizzard.com",
+      "captures": [
+        1,
+        2,
+        3
+      ],
+      "answers": [
+        "0.0.0.0"
+      ]
+    },
+    {
+      "domain": "prod.depot.battle.net",
+      "captures": [
+        3
+      ],
+      "answers": [
+        "0.0.0.0"
+      ]
+    },
+    {
+      "domain": "telemetry-in.battle.net",
+      "captures": [
+        1,
+        2,
+        3
+      ],
+      "answers": [
+        "0.0.0.0"
+      ]
+    },
+    {
+      "domain": "wow.ingest.gdp.blizzard.com",
+      "captures": [
+        3
+      ],
+      "answers": [
+        "0.0.0.0"
+      ]
+    }
+  ],
+  "rule_changes": [
+    {
+      "from_capture": 1,
+      "to_capture": 2,
+      "added": [
+        [
+          "2.0.0.0/8",
+          443,
+          "TCP"
+        ]
+      ],
+      "removed": [
+        [
+          "63.182.92.134",
+          443,
+          "TCP"
+        ]
+      ]
+    },
+    {
+      "from_capture": 2,
+      "to_capture": 3,
+      "added": [
+        [
+          "137.0.0.0/8",
+          443,
+          "TCP"
+        ]
+      ],
+      "removed": []
+    }
+  ],
+  "active_rules_at_export": [
+    {
+      "ip": "2.0.0.0/8",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "2.18.121.33",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "2.21.23.11",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "2.21.23.22",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "2.21.23.24",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "2.21.23.71",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "2.21.23.79",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "2.21.23.82",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "2.21.23.87",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "3.0.0.0/8",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "3.67.5.119",
+      "port": 443,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "3.75.62.211",
+      "port": 443,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "3.124.215.108",
+      "port": 443,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "3.125.189.135",
+      "port": 443,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "75.2.26.79",
+      "port": 443,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "99.83.167.0",
+      "port": 443,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "137.0.0.0/8",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "137.221.64.1",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "137.221.64.7",
+      "port": 80,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "2.0.0.0/8",
+      "port": 443,
+      "protocol": "TCP"
+    },
+    {
+      "ip": "137.0.0.0/8",
+      "port": 443,
+      "protocol": "TCP"
+    }
+  ],
+  "checks": {
+    "phase_sample_counts_reconcile": true,
+    "all_tcp_sampled_states_established": true,
+    "no_errors_or_truncation": true
+  },
+  "user_confirmation": {
+    "capture_id": "8171a9e5275745f09c480cca48478c2c",
+    "source": "explicit_user_message_after_analysis",
+    "user_statement_fa": "در ضبط سوم، بعد از اضافه‌کردن بلاک رنج ۱۳۷ روی ۴۴۳، مشکلی پیش نیامد و وارد بازی شدم.",
+    "successful_in_game_entry_reported": true,
+    "no_problem_reported_in_this_trial": true,
+    "configured_block": {
+      "ip": "137.0.0.0/8",
+      "port": 443,
+      "protocol": "TCP"
+    },
+    "scope": "one_trial_under_combined_existing_rules_and_hosts_not_isolated_single_rule_AB",
+    "all_game_features_or_long_term_stability_tested": false,
+    "actual_drop_enforcement_verified": false,
+    "all_telemetry_prevented_proven": false
+  },
+  "limitations": [
+    "DNS answer / same capture and process correlation does not prove HTTP hostname, payload, or telemetry role.",
+    "No WFP block event exported; logging coverage unverified, not proof no blocks occurred.",
+    "All exported TCP states were Established, not a packet or live-connection guarantee.",
+    "Different durations; capture2 stage unknown; rule changes not a controlled isolated A/B test.",
+    "IPv4-mapped IPv6 DNS literals canonicalized for address comparison; this is not a validated IPv6 firewall-enforcement test."
+  ],
+  "privacy": {
+    "raw_capture_synced": false,
+    "raw_transcript_synced": false,
+    "raw_hosts_or_private_state_synced": false,
+    "credentials_or_game_binaries_synced": false,
+    "process_IDs_in_derived_summary": false
+  }
+}
