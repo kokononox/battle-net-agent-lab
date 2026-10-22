@@ -1,0 +1,25 @@
+{
+  "runtime": {
+    "version": "CPython 3.13.9 embeddable Windows x64",
+    "url": "https://www.python.org/ftp/python/3.13.9/python-3.13.9-embed-amd64.zip",
+    "archive_sha256": "91d828c2da3a029b41699e918674a0cb379c02cf20dab9c501306885f837402a"
+  },
+  "compiler": {
+    "name": "Zig",
+    "version": "0.14.1",
+    "url": "https://ziglang.org/download/0.14.1/zig-x86_64-linux-0.14.1.tar.xz",
+    "archive_sha256": "24aeeec8af16c381934a6cd7d95c807a8cb2cf7df9fa40d359aa884195c4716c"
+  },
+  "wheels": [
+    {
+      "filename": "capstone-5.0.9-py3-none-win_amd64.whl",
+      "sha256": "732cedbbb56d42e723f14d7af6387f1454194a820b4b96b56d1e53f865ef85d0"
+    },
+    {
+      "filename": "pefile-2024.8.26-py3-none-any.whl",
+      "sha256": "76f8b485dcd3b1bb8166f1128d395fa3d87af26360c2358fb75b80019b957c6f"
+    }
+  ],
+  "profile_source_commit": "c7efc17bd4adf3d6cf48278233075b74a879e486",
+  "network_behavior": "No external network requests in application code; token-protected loopback HTTP UI only."
+}

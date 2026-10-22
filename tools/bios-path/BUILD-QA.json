@@ -1,0 +1,51 @@
+{
+  "status": "PASS_WITH_UNTESTED_WINDOWS_RUNTIME",
+  "unit_tests": {
+    "passed": 23,
+    "environment": "Linux Python 3.13; synthetic PE fixtures; no game binary"
+  },
+  "ui_http_tests": {
+    "status": "PASS",
+    "checks": [
+      "initial selected input visible",
+      "analysis completes through UI",
+      "unknown-build guard visible",
+      "ZIP download works",
+      "cross-origin POST rejected",
+      "wrong token rejected",
+      "tokenless GET rejected",
+      "390px result has no horizontal overflow",
+      "picker error state visibly explained (Linux QA only)",
+      "no uncaught JS errors"
+    ]
+  },
+  "visual_qa": {
+    "reviewed": [
+      "desktop input",
+      "desktop result",
+      "desktop error",
+      "390px light result",
+      "390px dark result"
+    ],
+    "horizontal_overflow_at_390px": false
+  },
+  "launcher_static_audit": {
+    "format": "PE32+ x64",
+    "subsystem": 2,
+    "imports": [
+      "KERNEL32.dll",
+      "USER32.dll"
+    ],
+    "digital_signature": false
+  },
+  "not_tested": [
+    "Running launcher or embedded CPython on Windows",
+    "Windows native file picker",
+    "Ghidra bookmark script execution",
+    "Real game file analysis with this tool",
+    "Runtime hardware reads, message population, serialization or network sends"
+  ],
+  "game_executed": false,
+  "game_binary_in_package": false,
+  "main_branch_modified": false
+}
