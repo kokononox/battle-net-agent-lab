@@ -1,0 +1,272 @@
+openjdk version "25.0.4.1" 2026-08-18 LTS
+OpenJDK Runtime Environment Corretto-25.0.4.10.1 (build 25.0.4.1+10-LTS)
+OpenJDK 64-Bit Server VM Corretto-25.0.4.10.1 (build 25.0.4.1+10-LTS, mixed mode)
+INFO  Using log config file: jar:file:/WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /home/vercel-sandbox/.config/ghidra/ghidra_12.2_PUBLIC/application.log (LoggingInitialization)  
+INFO  Loading user preferences: /home/vercel-sandbox/.config/ghidra/ghidra_12.2_PUBLIC/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (908 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Loaded 143 trusted CA certificate(s) from /etc/ssl/certs/ca-certificates.crt (UnixSystemTrustKeyStoreUtil)  
+INFO  Loaded 143 trusted CA certificates from the OS trust store. (DefaultTrustManagerFactory)  
+INFO  Loaded 146 trusted CA certificates from the Java default trust store. (DefaultTrustManagerFactory)  
+INFO  Starting cache cleanup: /var/tmp/vercel-sandbox-ghidra/fscache2 (FileCacheMaintenanceDaemon)  
+INFO  Finished cache cleanup, estimated storage used: 0 (FileCacheMaintenanceDaemon)  
+INFO  Headless startup complete (2145 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 60 extension points (19 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/FileFormats/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/PIC/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Debug/Debugger/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/BSim/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/BytePatterns/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/PyGhidra/ghidra_scripts
+    /WORK/ghidra-test
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/Decompiler/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/VersionTracking/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/FunctionID/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/PDB/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/DATA/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/Base/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/Swift/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/8051/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/Atmel/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/JVM/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: /WORK/ghidra-test/projects/RetailProbe (HeadlessAnalyzer)  
+INFO  Creating project: /WORK/ghidra-test/projects/RetailProbe (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: /WORK/ghidra-test/projects/RetailProbe (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///WORK/retail-70448/rebuilt/libxell.dll (HeadlessAnalyzer)  
+WARN  390 NOP constructors found (SleighCompile)  
+WARN  Use -n switch to list each individually (SleighCompile)  
+WARN  ia.sinc:1029: Table 'pcRelSimm32_32' exports size 0 (SleighCompile)  
+WARN  ia.sinc:1028: Table 'pcRelSimm32' exports size 0 (SleighCompile)  
+WARN  745 unnecessary extensions/truncations were converted to copies (SleighCompile)  
+WARN  Use -u switch to list each individually (SleighCompile)  
+WARN  18 operations wrote to temporaries that were not read (SleighCompile)  
+WARN  Use -t switch to list each individually (SleighCompile)  
+WARN  ia.sinc:933: Unreferenced table: 'imm32_64' (SleighCompile)  
+INFO  Using Loader: Portable Executable (PE) (ProgramLoader)  
+INFO  Using Language/Compiler: x86:LE:64:default:windows (ProgramLoader)  
+INFO  Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64] (ProgramLoader)  
+INFO  TLS callbacks at 18003b778 (TLSDirectory)  
+INFO  Additional info:
+Loading file:///WORK/retail-70448/rebuilt/libxell.dll?MD5=7371177f39efbbb60a3f1274244c3eca...
+------------------------------------------------
+
+Searching 7 paths for library ADVAPI32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CORE-DEBUG-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CORE-INTERLOCKED-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CORE-LIBRARYLOADER-L1-2-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CORE-PROCESSTHREADS-L1-1-1.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CORE-PROFILE-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CORE-RTLSUPPORT-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CORE-SYNCH-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CORE-SYSINFO-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CRT-CONVERT-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CRT-ENVIRONMENT-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CRT-FILESYSTEM-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CRT-HEAP-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CRT-MATH-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CRT-RUNTIME-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CRT-STDIO-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CRT-STRING-L1-1-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library CFGMGR32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library DXGI.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library KERNEL32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library MSVCP140.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library OLE32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library SETUPAPI.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library SHLWAPI.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library VCRUNTIME140.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library VCRUNTIME140_1.DLL...
+Library not found.
+------------------------------------------------
+
+Linking the External Programs of 'libxell.dll' to imported libraries...
+  [DXGI.DLL] -> not found in project
+  [CFGMGR32.DLL] -> not found in project
+  [SETUPAPI.DLL] -> not found in project
+  [SHLWAPI.DLL] -> not found in project
+  [KERNEL32.DLL] -> not found in project
+  [OLE32.DLL] -> not found in project
+  [ADVAPI32.DLL] -> not found in project
+  [MSVCP140.DLL] -> not found in project
+  [API-MS-WIN-CORE-SYNCH-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CORE-RTLSUPPORT-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CORE-ERRORHANDLING-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CORE-PROCESSTHREADS-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CORE-PROCESSTHREADS-L1-1-1.DLL] -> not found in project
+  [API-MS-WIN-CORE-DEBUG-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CORE-PROFILE-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CORE-SYSINFO-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CORE-LIBRARYLOADER-L1-2-0.DLL] -> not found in project
+  [API-MS-WIN-CORE-INTERLOCKED-L1-1-0.DLL] -> not found in project
+  [VCRUNTIME140.DLL] -> not found in project
+  [VCRUNTIME140_1.DLL] -> not found in project
+  [API-MS-WIN-CRT-RUNTIME-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CRT-STDIO-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CRT-MATH-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CRT-FILESYSTEM-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CRT-STRING-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CRT-HEAP-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CRT-CONVERT-L1-1-0.DLL] -> not found in project
+  [API-MS-WIN-CRT-ENVIRONMENT-L1-1-0.DLL] -> not found in project
+------------------------------------------------
+
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  ANALYZING all memory and code: file:///WORK/retail-70448/rebuilt/libxell.dll (HeadlessAnalyzer)  
+WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  
+WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  
+INFO  Unable to find DWARF information, skipping DWARF analysis (DWARFAnalyzer)  
+INFO  Skipping PDB processing: failed to locate PDB file in configured locations (PdbUniversalAnalyzer)  
+INFO  Use a script to set the PDB file location. I.e.,
+    PdbAnalyzer.setPdbFileOption(currentProgram, new File("/path/to/pdb/file.pdb")); or
+    PdbUniversalAnalyzer.setPdbFileOption(currentProgram, new File("/path/to/pdb/file.pdb"));
+Or set the symbol server search configuration using:    PdbPlugin.saveSymbolServerServiceConfig(...);
+ This must be done using a pre-script (prior to analysis). (PdbUniversalAnalyzer)  
+INFO  hit non-returning function, restarting decompiler switch analyzer later (DecompilerSwitchAnalyzer)  
+INFO  Packed database cache: /var/tmp/vercel-sandbox-ghidra/packed-db-cache (PackedDatabaseCache)  
+INFO  Applied data type archive: windows_vs12_64 (ApplyDataArchiveAnalyzer)  
+INFO  Applied data type archive: windows_vs12_64 (ApplyDataArchiveAnalyzer)  
+INFO  -----------------------------------------------------
+    ASCII Strings                              0.343 secs
+    Apply Data Archives                        0.153 secs
+    Call Convention ID                         0.051 secs
+    Call-Fixup Installer                       0.070 secs
+    Create Address Tables                      0.071 secs
+    Create Address Tables - One Time           0.023 secs
+    Create Function                            0.161 secs
+    DWARF                                      0.002 secs
+    Data Reference                             0.110 secs
+    Decompiler Parameter ID                    4.637 secs
+    Decompiler Switch Analysis                 0.623 secs
+    Decompiler Switch Analysis - One Time      1.036 secs
+    Demangler Microsoft                        0.085 secs
+    Disassemble Entry Points                   1.622 secs
+    Embedded Media                             0.011 secs
+    External Entry References                  0.000 secs
+    Function ID                                0.369 secs
+    Function Start Search                      0.023 secs
+    Non-Returning Functions - Discovered       0.291 secs
+    Non-Returning Functions - Known            0.008 secs
+    PDB Universal                              0.010 secs
+    Reference                                  0.159 secs
+    Scalar Operand References                  0.359 secs
+    Shared Return Calls                        0.124 secs
+    Source Language Support                    0.002 secs
+    Stack                                      1.338 secs
+    Subroutine References                      0.045 secs
+    Subroutine References - One Time           0.008 secs
+    Variadic Function Signature Override       1.958 secs
+    Windows x86 PE Exception Handling          0.010 secs
+    Windows x86 PE RTTI Analyzer               1.901 secs
+    Windows x86 Thread Environment Block (TEB) Analyzer     0.016 secs
+    WindowsResourceReference                   3.137 secs
+    x86 Constant Reference Analyzer            1.715 secs
+-----------------------------------------------------
+     Total Time   20 secs
+-----------------------------------------------------
+ (AutoAnalysisManager)  
+INFO  REPORT: Analysis succeeded for file: file:///WORK/retail-70448/rebuilt/libxell.dll (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: Probe.java '/WORK/ghidra-test/output'  (HeadlessAnalyzer)  
+INFO  SCRIPT: /WORK/ghidra-test/Probe.java (HeadlessAnalyzer)  
+INFO  ANALYZING changes made by post scripts: file:///WORK/retail-70448/rebuilt/libxell.dll (HeadlessAnalyzer)  
+INFO  REPORT: Post-analysis succeeded for file: file:///WORK/retail-70448/rebuilt/libxell.dll (HeadlessAnalyzer)  
+INFO  /libxell.dll: file created (vercel-sandbox) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /libxell.dll (RetailProbe:/libxell.dll) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  
+ELAPSED 31.457 seconds

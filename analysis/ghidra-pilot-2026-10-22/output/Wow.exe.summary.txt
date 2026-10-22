@@ -1,0 +1,32 @@
+Program: Wow.exe
+Language: x86:LE:64:default
+Functions: 106757
+Instructions: 828993
+Memory blocks: 9
+Sample 1400ff3dd FUN_1400ff3dd bytes=124 success=false ms=459
+Low-level Error: Bad instruction count exceeded:
+    ...
+    No pcode could be generated at address: r0x0001400ff34f
+Sample 1400ffe80 FUN_1400ffe80 bytes=101 success=false ms=503
+Low-level Error: Bad instruction count exceeded:
+    ...
+    Instruction at (ram,0x0001400ffe9c) overlaps instruction at (ram,0x0001400ffe9a)
+
+Sample 14013e800 FUN_14013e800 bytes=81 success=true ms=824
+Sample 14013eaa0 FUN_14013eaa0 bytes=62 success=true ms=718
+Sample 14013f330 FUN_14013f330 bytes=62 success=true ms=583
+Sample 14013f6a0 FUN_14013f6a0 bytes=66 success=true ms=647
+Sample 14013f790 FUN_14013f790 bytes=100 success=true ms=789
+Sample 14013fb90 FUN_14013fb90 bytes=60 success=true ms=637
+Sample 14013fc50 FUN_14013fc50 bytes=56 success=false ms=218
+Low-level Error: Bad instruction count exceeded:
+    ...
+    No pcode could be generated at address: r0x00014013fc8d
+Sample 14013fd50 FUN_14013fd50 bytes=48 success=false ms=172
+Low-level Error: Bad instruction count exceeded:
+    ...
+    Instruction at (ram,0x00014013fce9) overlaps instruction at (ram,0x00014013fce8)
+
+Sample 14013fe10 FUN_14013fe10 bytes=43 success=true ms=347
+Sample 14015eb10 FUN_14015eb10 bytes=59 success=true ms=499
+Decompiled: 8/12

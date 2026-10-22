@@ -1,0 +1,179 @@
+openjdk version "25.0.4.1" 2026-08-18 LTS
+OpenJDK Runtime Environment Corretto-25.0.4.10.1 (build 25.0.4.1+10-LTS)
+OpenJDK 64-Bit Server VM Corretto-25.0.4.10.1 (build 25.0.4.1+10-LTS, mixed mode)
+INFO  Using log config file: jar:file:/WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /home/vercel-sandbox/.config/ghidra/ghidra_12.2_PUBLIC/application.log (LoggingInitialization)  
+INFO  Loading user preferences: /home/vercel-sandbox/.config/ghidra/ghidra_12.2_PUBLIC/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (978 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Loaded 143 trusted CA certificate(s) from /etc/ssl/certs/ca-certificates.crt (UnixSystemTrustKeyStoreUtil)  
+INFO  Loaded 143 trusted CA certificates from the OS trust store. (DefaultTrustManagerFactory)  
+INFO  Loaded 146 trusted CA certificates from the Java default trust store. (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (2300 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 60 extension points (19 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/FileFormats/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/PIC/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Debug/Debugger/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/BSim/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/BytePatterns/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/PyGhidra/ghidra_scripts
+    /WORK/ghidra-test
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/Decompiler/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/VersionTracking/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/FunctionID/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/PDB/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/DATA/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/Base/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/Swift/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/8051/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/Atmel/ghidra_scripts
+    /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Processors/JVM/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: /WORK/ghidra-test/projects/WowProbe (HeadlessAnalyzer)  
+INFO  Creating project: /WORK/ghidra-test/projects/WowProbe (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: /WORK/ghidra-test/projects/WowProbe (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///WORK/retail-70448/rebuilt/Wow.exe (HeadlessAnalyzer)  
+INFO  Using Loader: Portable Executable (PE) (ProgramLoader)  
+INFO  Using Language/Compiler: x86:LE:64:default:windows (ProgramLoader)  
+INFO  Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64] (ProgramLoader)  
+INFO  TLS callbacks at 143b6a768 (TLSDirectory)  
+WARN  Invalid or missing function at 144775778 (ExportDataDirectory)  
+INFO  TLS callbacks at 18209f398 (TLSDirectory)  
+INFO  Additional info:
+Loading file:///WORK/retail-70448/rebuilt/Wow.exe?MD5=b36ac789caf3c72f1227021d2591009b...
+------------------------------------------------
+
+Searching 7 paths for library BATTLENET.LIBHTTPCLIENT.WIN32.V1.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library BATTLENET.OVERLAY.CLIENT.V1.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library OLEAUT32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library WOW_LOADER.DLL...
+Loading file:///WORK/retail-70448/rebuilt/wow_loader.dll?MD5=c3812b4d1612a1c2c93737d96e216740...
+Created exports file: /home/vercel-sandbox/.config/ghidra/ghidra_12.2_PUBLIC/symbols/win64/wow_loader.exports
+Library not saved to project.
+------------------------------------------------
+
+Applying cached symbols from WOW_LOADER.DLL
+Unable to locate symbol [Ordinal_1] in [/home/vercel-sandbox/.config/ghidra/ghidra_12.2_PUBLIC/symbols/win64/wow_loader.exports]. Please verify the version is correct.
+Linking the External Programs of 'Wow.exe' to imported libraries...
+  [WOW_LOADER.DLL] -> not found in project
+  [OLEAUT32.DLL] -> not found in project
+  [BATTLENET.LIBHTTPCLIENT.WIN32.V1.DLL] -> not found in project
+  [BATTLENET.OVERLAY.CLIENT.V1.DLL] -> not found in project
+------------------------------------------------
+
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  ANALYZING all memory and code: file:///WORK/retail-70448/rebuilt/Wow.exe (HeadlessAnalyzer)  
+WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  
+WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: /WORK/tools/ghidra_12.2_PUBLIC/Ghidra/Features/Base/data/PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  
+INFO  Unable to find DWARF information, skipping DWARF analysis (DWARFAnalyzer)  
+INFO  Skipping PDB processing: failed to locate PDB file in configured locations (PdbUniversalAnalyzer)  
+INFO  Use a script to set the PDB file location. I.e.,
+    PdbAnalyzer.setPdbFileOption(currentProgram, new File("/path/to/pdb/file.pdb")); or
+    PdbUniversalAnalyzer.setPdbFileOption(currentProgram, new File("/path/to/pdb/file.pdb"));
+Or set the symbol server search configuration using:    PdbPlugin.saveSymbolServerServiceConfig(...);
+ This must be done using a pre-script (prior to analysis). (PdbUniversalAnalyzer)  
+INFO  Packed database cache: /var/tmp/vercel-sandbox-ghidra/packed-db-cache (PackedDatabaseCache)  
+WARN  More than 100 address segments have been created! (AddressMapDB)  
+ERROR Analysis Task: Disassemble Entry Points - body must contain the entry point (AnalysisTaskWrapper) java.lang.IllegalArgumentException: body must contain the entry point
+	at ghidra.program.database.function.FunctionManagerDB.setFunctionBody(FunctionManagerDB.java:942)
+	at ghidra.program.database.function.FunctionDB.setBody(FunctionDB.java:304)
+	at ghidra.app.cmd.function.CreateThunkFunctionCmd.applyTo(CreateThunkFunctionCmd.java:189)
+	at ghidra.app.cmd.function.CreateFunctionCmd.resolveThunk(CreateFunctionCmd.java:728)
+	at ghidra.app.cmd.function.CreateFunctionCmd.fixupFunctionBody(CreateFunctionCmd.java:668)
+	at ghidra.app.plugin.core.disassembler.EntryPointAnalyzer.fixDummyFunctionBodies(EntryPointAnalyzer.java:258)
+	at ghidra.app.plugin.core.disassembler.EntryPointAnalyzer.added(EntryPointAnalyzer.java:133)
+	at ghidra.app.plugin.core.analysis.AnalysisScheduler.runAnalyzer(AnalysisScheduler.java:186)
+	at ghidra.app.plugin.core.analysis.AnalysisTask.applyTo(AnalysisTask.java:37)
+	at ghidra.app.plugin.core.analysis.AnalysisTask.applyTo(AnalysisTask.java:24)
+	at ghidra.app.plugin.core.analysis.AutoAnalysisManager$AnalysisTaskWrapper.run(AutoAnalysisManager.java:661)
+	at ghidra.app.plugin.core.analysis.AutoAnalysisManager.startAnalysis(AutoAnalysisManager.java:761)
+	at ghidra.app.plugin.core.analysis.AutoAnalysisManager.startAnalysis(AutoAnalysisManager.java:640)
+	at ghidra.app.plugin.core.analysis.AutoAnalysisManager.startAnalysis(AutoAnalysisManager.java:605)
+	at ghidra.app.util.headless.HeadlessAnalyzer.analyzeProgram(HeadlessAnalyzer.java:1073)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processFileWithImport(HeadlessAnalyzer.java:1606)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processWithLoader(HeadlessAnalyzer.java:1770)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processWithImport(HeadlessAnalyzer.java:1705)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processWithImport(HeadlessAnalyzer.java:1795)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processLocal(HeadlessAnalyzer.java:464)
+	at ghidra.app.util.headless.AnalyzeHeadless.launch(AnalyzeHeadless.java:211)
+	at ghidra.GhidraLauncher.launch(GhidraLauncher.java:78)
+	at ghidra.Ghidra.main(Ghidra.java:41)
+ 
+INFO  -----------------------------------------------------
+    DWARF                                      0.003 secs
+    Disassemble Entry Points                 177.837 secs
+    Non-Returning Functions - Known            0.440 secs
+    PDB Universal                              0.012 secs
+    Source Language Support                    0.230 secs
+    Windows x86 PE Exception Handling          1.463 secs
+    Windows x86 Thread Environment Block (TEB) Analyzer     0.027 secs
+-----------------------------------------------------
+     Total Time   180 secs
+-----------------------------------------------------
+ (AutoAnalysisManager)  
+ERROR REPORT: Analysis timed out at 180 seconds. Processing not completed for file: file:///WORK/retail-70448/rebuilt/Wow.exe (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: Probe.java '/WORK/ghidra-test/output'  (HeadlessAnalyzer)  
+INFO  SCRIPT: /WORK/ghidra-test/Probe.java (HeadlessAnalyzer)  
+WARN  Decompiling 1400ff3dd, pcode error at 1400ff42d: Unable to resolve constructor at 1400ff42d (DecompileCallback)  
+WARN  Decompiling 1400ff3dd, pcode error at 1400ff39c: Unable to resolve constructor at 1400ff39c (DecompileCallback)  
+WARN  Decompiling 1400ff3dd, pcode error at 1400ff34f: Unable to resolve constructor at 1400ff34f (DecompileCallback)  
+WARN  Decompiling 1400ffe80, pcode error at 160d06479: Could not follow disassembly flow into non-existing memory at 160d06479 (DecompileCallback)  
+WARN  Decompiling 1400ffe80, pcode error at e40106da: Could not follow disassembly flow into non-existing memory at e40106da (DecompileCallback)  
+WARN  Decompiling 1400ffe80, pcode error at 1400ffde0: Unable to resolve constructor at 1400ffde0 (DecompileCallback)  
+WARN  Decompiling 1400ffe80, pcode error at 1400ffe55: Unable to resolve constructor at 1400ffe55 (DecompileCallback)  
+WARN  Decompiling 14013e800, pcode error at 153858964: Could not follow disassembly flow into non-existing memory at 153858964 (DecompileCallback)  
+WARN  Decompiling 14013e800, pcode error at 14013e81d: Unable to resolve constructor at 14013e81d (DecompileCallback)  
+WARN  Decompiling 14013e800, pcode error at 14013e816: Unable to resolve constructor at 14013e816 (DecompileCallback)  
+WARN  Decompiling 14013eaa0, pcode error at 14013eacf: Unable to resolve constructor at 14013eacf (DecompileCallback)  
+WARN  Decompiling 14013eaa0, pcode error at 14013ea4c: Unable to resolve constructor at 14013ea4c (DecompileCallback)  
+WARN  Decompiling 14013f330, pcode error at 14013f34c: Unable to resolve constructor at 14013f34c (DecompileCallback)  
+WARN  Decompiling 14013f330, pcode error at 14013f2a7: Unable to resolve constructor at 14013f2a7 (DecompileCallback)  
+WARN  Decompiling 14013f6a0, pcode error at 14013f6a9: Unable to resolve constructor at 14013f6a9 (DecompileCallback)  
+WARN  Decompiling 14013f6a0, pcode error at 14013f71f: Unable to resolve constructor at 14013f71f (DecompileCallback)  
+WARN  Decompiling 14013f790, pcode error at 14013f7bc: Unable to resolve constructor at 14013f7bc (DecompileCallback)  
+WARN  Decompiling 14013f790, pcode error at 14013f85e: Unable to resolve constructor at 14013f85e (DecompileCallback)  
+WARN  Decompiling 14013f790, pcode error at 14013f884: Unable to resolve constructor at 14013f884 (DecompileCallback)  
+WARN  Decompiling 14013fb90, pcode error at 14013fbc6: Unable to resolve constructor at 14013fbc6 (DecompileCallback)  
+WARN  Decompiling 14013fb90, pcode error at 14013fc2b: Unable to resolve constructor at 14013fc2b (DecompileCallback)  
+WARN  Decompiling 14013fb90, pcode error at 31eab013: Could not follow disassembly flow into non-existing memory at 31eab013 (DecompileCallback)  
+WARN  Decompiling 14013fb90, pcode error at 14013fc8d: Unable to resolve constructor at 14013fc8d (DecompileCallback)  
+WARN  Decompiling 14013fc50, pcode error at 14013fc52: Unable to resolve constructor at 14013fc52 (DecompileCallback)  
+WARN  Decompiling 14013fc50, pcode error at 14013fbe2: Unable to resolve constructor at 14013fbe2 (DecompileCallback)  
+WARN  Decompiling 14013fc50, pcode error at 14013fc2b: Unable to resolve constructor at 14013fc2b (DecompileCallback)  
+WARN  Decompiling 14013fc50, pcode error at 31eab013: Could not follow disassembly flow into non-existing memory at 31eab013 (DecompileCallback)  
+WARN  Decompiling 14013fc50, pcode error at 14013fc8d: Unable to resolve constructor at 14013fc8d (DecompileCallback)  
+WARN  Decompiling 14013fd50, pcode error at 14013fd5a: Unable to resolve constructor at 14013fd5a (DecompileCallback)  
+WARN  Decompiling 14013fd50, pcode error at 14013fd1a: Unable to resolve constructor at 14013fd1a (DecompileCallback)  
+WARN  Decompiling 14013fd50, pcode error at 14013fcaf: Unable to resolve constructor at 14013fcaf (DecompileCallback)  
+WARN  Decompiling 14013fd50, pcode error at 14013fcf5: Unable to resolve constructor at 14013fcf5 (DecompileCallback)  
+WARN  Decompiling 14013fe10, pcode error at 14013fe38: Unable to resolve constructor at 14013fe38 (DecompileCallback)  
+WARN  Decompiling 14013fe10, pcode error at 14013fe50: Unable to resolve constructor at 14013fe50 (DecompileCallback)  
+WARN  Decompiling 14015eb10, pcode error at 14015eb4b: Unable to resolve constructor at 14015eb4b (DecompileCallback)  
+WARN  Decompiling 14015eb10, pcode error at 14015eb9b: Unable to resolve constructor at 14015eb9b (DecompileCallback)  
+INFO  ANALYZING changes made by post scripts: file:///WORK/retail-70448/rebuilt/Wow.exe (HeadlessAnalyzer)  
+INFO  REPORT: Post-analysis succeeded for file: file:///WORK/retail-70448/rebuilt/Wow.exe (HeadlessAnalyzer)  
+INFO  /Wow.exe: file created (vercel-sandbox) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /Wow.exe (WowProbe:/Wow.exe) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  
+ELAPSED 220.883 seconds
