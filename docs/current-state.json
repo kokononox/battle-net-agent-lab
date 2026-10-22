@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-22T05:16:23.381476+00:00",
+  "as_of_utc": "2026-10-22T05:35:42.939468+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -55,8 +55,8 @@
     "in_world_network_metadata_user_confirmed_20261022": true,
     "in_world_network_metadata_evidence": "reports/session-20261022/wow-network-evidence.json"
   },
-  "user_action_now": "Do not repeat WLab 0.2.0 game attach. No game execution, protection bypass, live memory dump, TLS key collection or security policy changes authorized by this offline analysis. Binary browser upload awaits explicit browser approval.",
-  "sync_scope": "Sanitized source and derived evidence plus user-authorized private three-file archive exception. Part manifest present; binary parts not yet uploaded. No raw crash report, raw pcap, keys or private paths.",
+  "user_action_now": "Archive upload completed and verified; no additional archive upload needed. Do not repeat WLab 0.2.0 game attach. No game execution, protection bypass, live memory dump, TLS key collection or security policy changes authorized by this archival upload.",
+  "sync_scope": "Sanitized source and derived evidence plus the user-authorized private three-file archive exception. All five archive parts uploaded and verified by Git blob identity and size against local verified bytes. No raw crash report, raw pcap, keys or private paths uploaded.",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
     "zip_sha256": "c26e5f9416e7aadef0f9f7dc36c06c2e8975ae65f8f1ac3bfca0abd67fa81001",
@@ -399,9 +399,12 @@
     "archive_parts_prepared": 5,
     "archive_part_max_bytes": 20000000,
     "archive_manifest": "binaries/retail-70448/manifest.json",
-    "archive_parts_in_repo": false,
-    "archive_upload_status": "pending_binary_capable_path_or_browser_approval",
+    "archive_parts_in_repo": true,
+    "archive_upload_status": "complete_verified",
     "input_binaries_executed": false,
-    "publisher_signature_validated": false
+    "publisher_signature_validated": false,
+    "archive_parts_verified_at_commit": "0271634f4892fadfe8326b1ca270479352eb8144",
+    "archive_upload_receipt": "binaries/retail-70448/upload-receipt.json",
+    "archive_total_bytes": 98456378
   }
 }
