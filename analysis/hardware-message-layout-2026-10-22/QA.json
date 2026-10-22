@@ -1,0 +1,24 @@
+{
+  "status": "pass_for_byte_and_report_checks_only",
+  "source_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "messages_checked": 2,
+  "field_layout_rows_checked": 110,
+  "object_size_candidates": [
+    88,
+    376
+  ],
+  "contiguous_executable_pointer_runs": [
+    5,
+    10
+  ],
+  "default_templates_have_no_selected_presence_bits_set": true,
+  "runtime_empty_payload_inferred": false,
+  "ABI_proven_identical_to_upstream_protobuf": false,
+  "exact_target_RIP_relative_candidate_count": 0,
+  "target_addresses_scanned": 9,
+  "collector_identified": false,
+  "serializer_for_selected_message_identified": false,
+  "network_destination_or_port_for_selected_message_proven": false,
+  "native_input_execution_emulation_patch": false,
+  "limits": "Validates file-derived structural consistency, not executed code, live object contents, serializer method identity or transport."
+}
