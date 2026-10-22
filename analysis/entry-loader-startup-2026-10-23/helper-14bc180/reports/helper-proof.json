@@ -1,0 +1,7365 @@
+{
+  "schema": "wlab-helper-review-1",
+  "module_sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "function": {
+    "start": 21741952,
+    "end": 21772733,
+    "raw_sha256": "98c8d21b94b76fca3c51c49422dd9207c551408233b2ac7d1f79ea13bf9906e0",
+    "entry_bytes": "4157415641554154565755534881ec080900000f29b424f0080000488b051e40c1004831e048898424e80800008b053d87ca00b9c91cbf6129c131c105a289b68c29c129c181c1a3ccf768894c244c0f57f64c8dbc24e0060000e9d1000000"
+  },
+  "initial_global": {
+    "rva": 35014896,
+    "disk_u32": 2782648869,
+    "disk_state": 571186582,
+    "disk_only_frontier": 21766693,
+    "runtime_invariant": false
+  },
+  "dispatcher": {
+    "start": 21742256,
+    "nodes": [
+      {
+        "rva": 21742047,
+        "bytes": "448b8424b4050000",
+        "mnemonic": "mov",
+        "operands": "r8d, dword ptr [rsp + 0x5b4]"
+      },
+      {
+        "rva": 21742256,
+        "bytes": "8b44244c",
+        "mnemonic": "mov",
+        "operands": "eax, dword ptr [rsp + 0x4c]"
+      },
+      {
+        "rva": 21742260,
+        "bytes": "3d6e99803d",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x3d80996e"
+      },
+      {
+        "rva": 21742265,
+        "bytes": "0f8ff1000000",
+        "mnemonic": "jg",
+        "operands": "0x14bc3b0"
+      },
+      {
+        "rva": 21742271,
+        "bytes": "3d15786824",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x24687815"
+      },
+      {
+        "rva": 21742276,
+        "bytes": "0f8e36010000",
+        "mnemonic": "jle",
+        "operands": "0x14bc400"
+      },
+      {
+        "rva": 21742282,
+        "bytes": "3d41e8b133",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x33b1e841"
+      },
+      {
+        "rva": 21742287,
+        "bytes": "0f8eba020000",
+        "mnemonic": "jle",
+        "operands": "0x14bc58f"
+      },
+      {
+        "rva": 21742512,
+        "bytes": "3d285c485d",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x5d485c28"
+      },
+      {
+        "rva": 21742517,
+        "bytes": "0f8e85000000",
+        "mnemonic": "jle",
+        "operands": "0x14bc440"
+      },
+      {
+        "rva": 21742523,
+        "bytes": "3ddfc9f86e",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x6ef8c9df"
+      },
+      {
+        "rva": 21742528,
+        "bytes": "0f8e5f050000",
+        "mnemonic": "jle",
+        "operands": "0x14bc925"
+      },
+      {
+        "rva": 21742534,
+        "bytes": "3da3f91677",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x7716f9a3"
+      },
+      {
+        "rva": 21742539,
+        "bytes": "0f8fc4070000",
+        "mnemonic": "jg",
+        "operands": "0x14bcb95"
+      },
+      {
+        "rva": 21742545,
+        "bytes": "3d78aa7772",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x7277aa78"
+      },
+      {
+        "rva": 21742550,
+        "bytes": "0f8f891a0000",
+        "mnemonic": "jg",
+        "operands": "0x14bde65"
+      },
+      {
+        "rva": 21742556,
+        "bytes": "3de0c9f86e",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x6ef8c9e0"
+      },
+      {
+        "rva": 21742561,
+        "bytes": "0f84ee040000",
+        "mnemonic": "je",
+        "operands": "0x14bc8d5"
+      },
+      {
+        "rva": 21742567,
+        "bytes": "3d4eae456f",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x6f45ae4e"
+      },
+      {
+        "rva": 21742572,
+        "bytes": "0f85edfdffff",
+        "mnemonic": "jne",
+        "operands": "0x14bc1df"
+      },
+      {
+        "rva": 21742592,
+        "bytes": "3d456f090f",
+        "mnemonic": "cmp",
+        "operands": "eax, 0xf096f45"
+      },
+      {
+        "rva": 21742597,
+        "bytes": "0f8e51030000",
+        "mnemonic": "jle",
+        "operands": "0x14bc75c"
+      },
+      {
+        "rva": 21742603,
+        "bytes": "3d44af8120",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x2081af44"
+      },
+      {
+        "rva": 21742608,
+        "bytes": "0f8f1a080000",
+        "mnemonic": "jg",
+        "operands": "0x14bcc30"
+      },
+      {
+        "rva": 21742614,
+        "bytes": "3d2a851216",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x1612852a"
+      },
+      {
+        "rva": 21742619,
+        "bytes": "0f8f92180000",
+        "mnemonic": "jg",
+        "operands": "0x14bdcb3"
+      },
+      {
+        "rva": 21742625,
+        "bytes": "3d466f090f",
+        "mnemonic": "cmp",
+        "operands": "eax, 0xf096f46"
+      },
+      {
+        "rva": 21742630,
+        "bytes": "0f84d5380000",
+        "mnemonic": "je",
+        "operands": "0x14bfd01"
+      },
+      {
+        "rva": 21742636,
+        "bytes": "3d48a2a011",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x11a0a248"
+      },
+      {
+        "rva": 21742641,
+        "bytes": "0f84392b0000",
+        "mnemonic": "je",
+        "operands": "0x14bef70"
+      },
+      {
+        "rva": 21742647,
+        "bytes": "e98c380000",
+        "mnemonic": "jmp",
+        "operands": "0x14bfcc8"
+      },
+      {
+        "rva": 21742991,
+        "bytes": "3df0772e30",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x302e77f0"
+      },
+      {
+        "rva": 21742996,
+        "bytes": "0f8e20070000",
+        "mnemonic": "jle",
+        "operands": "0x14bccba"
+      },
+      {
+        "rva": 21743002,
+        "bytes": "3d833ddd31",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x31dd3d83"
+      },
+      {
+        "rva": 21743007,
+        "bytes": "0f8fb1130000",
+        "mnemonic": "jg",
+        "operands": "0x14bd956"
+      },
+      {
+        "rva": 21743013,
+        "bytes": "3df1772e30",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x302e77f1"
+      },
+      {
+        "rva": 21743018,
+        "bytes": "0f8441290000",
+        "mnemonic": "je",
+        "operands": "0x14beef1"
+      },
+      {
+        "rva": 21743024,
+        "bytes": "3de7875a30",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x305a87e7"
+      },
+      {
+        "rva": 21743029,
+        "bytes": "0f84871e0000",
+        "mnemonic": "je",
+        "operands": "0x14be442"
+      },
+      {
+        "rva": 21743035,
+        "bytes": "8b054fd6c300",
+        "mnemonic": "mov",
+        "operands": "eax, dword ptr [rip + 0xc3d64f]"
+      },
+      {
+        "rva": 21743452,
+        "bytes": "3df07cd909",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x9d97cf0"
+      },
+      {
+        "rva": 21743457,
+        "bytes": "0f8e460d0000",
+        "mnemonic": "jle",
+        "operands": "0x14bd4ad"
+      },
+      {
+        "rva": 21743463,
+        "bytes": "3d3443980b",
+        "mnemonic": "cmp",
+        "operands": "eax, 0xb984334"
+      },
+      {
+        "rva": 21743468,
+        "bytes": "0f8fa8150000",
+        "mnemonic": "jg",
+        "operands": "0x14bdd1a"
+      },
+      {
+        "rva": 21743474,
+        "bytes": "3df17cd909",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x9d97cf1"
+      },
+      {
+        "rva": 21743479,
+        "bytes": "0f8425220000",
+        "mnemonic": "je",
+        "operands": "0x14be9a2"
+      },
+      {
+        "rva": 21743485,
+        "bytes": "3da4ac0d0b",
+        "mnemonic": "cmp",
+        "operands": "eax, 0xb0daca4"
+      },
+      {
+        "rva": 21743490,
+        "bytes": "0f8433450000",
+        "mnemonic": "je",
+        "operands": "0x14c0cbb"
+      },
+      {
+        "rva": 21743496,
+        "bytes": "81fc00410000",
+        "mnemonic": "cmp",
+        "operands": "esp, 0x4100"
+      },
+      {
+        "rva": 21743909,
+        "bytes": "3dc1ff0164",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x6401ffc1"
+      },
+      {
+        "rva": 21743914,
+        "bytes": "0f8ea70f0000",
+        "mnemonic": "jle",
+        "operands": "0x14bd8d7"
+      },
+      {
+        "rva": 21743920,
+        "bytes": "3df381406a",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x6a4081f3"
+      },
+      {
+        "rva": 21743925,
+        "bytes": "0f8f22140000",
+        "mnemonic": "jg",
+        "operands": "0x14bdd5d"
+      },
+      {
+        "rva": 21744533,
+        "bytes": "3dc944977c",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x7c9744c9"
+      },
+      {
+        "rva": 21744538,
+        "bytes": "0f8f5a160000",
+        "mnemonic": "jg",
+        "operands": "0x14be1fa"
+      },
+      {
+        "rva": 21744544,
+        "bytes": "3da4f91677",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x7716f9a4"
+      },
+      {
+        "rva": 21744549,
+        "bytes": "0f8494460000",
+        "mnemonic": "je",
+        "operands": "0x14c123f"
+      },
+      {
+        "rva": 21744555,
+        "bytes": "3dfaa75b79",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x795ba7fa"
+      },
+      {
+        "rva": 21744560,
+        "bytes": "0f851f5a0000",
+        "mnemonic": "jne",
+        "operands": "0x14c25d5"
+      },
+      {
+        "rva": 21744688,
+        "bytes": "3d959d0b22",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x220b9d95"
+      },
+      {
+        "rva": 21744693,
+        "bytes": "0f8e06160000",
+        "mnemonic": "jle",
+        "operands": "0x14be241"
+      },
+      {
+        "rva": 21744699,
+        "bytes": "3d969d0b22",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x220b9d96"
+      },
+      {
+        "rva": 21744704,
+        "bytes": "0f84df550000",
+        "mnemonic": "je",
+        "operands": "0x14c2225"
+      },
+      {
+        "rva": 21744710,
+        "bytes": "3d1fd8d422",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x22d4d81f"
+      },
+      {
+        "rva": 21744715,
+        "bytes": "0f85a05a0000",
+        "mnemonic": "jne",
+        "operands": "0x14c26f1"
+      },
+      {
+        "rva": 21744826,
+        "bytes": "3da6ae8428",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x2884aea6"
+      },
+      {
+        "rva": 21744831,
+        "bytes": "0f8eae190000",
+        "mnemonic": "jle",
+        "operands": "0x14be673"
+      },
+      {
+        "rva": 21744837,
+        "bytes": "3da7ae8428",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x2884aea7"
+      },
+      {
+        "rva": 21744842,
+        "bytes": "0f8461200000",
+        "mnemonic": "je",
+        "operands": "0x14bed31"
+      },
+      {
+        "rva": 21744848,
+        "bytes": "3dcc969b29",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x299b96cc"
+      },
+      {
+        "rva": 21744853,
+        "bytes": "0f855a370000",
+        "mnemonic": "jne",
+        "operands": "0x14c0435"
+      },
+      {
+        "rva": 21746861,
+        "bytes": "3d54534907",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x7495354"
+      },
+      {
+        "rva": 21746866,
+        "bytes": "0f8e36160000",
+        "mnemonic": "jle",
+        "operands": "0x14beaee"
+      },
+      {
+        "rva": 21746872,
+        "bytes": "3d55534907",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x7495355"
+      },
+      {
+        "rva": 21746877,
+        "bytes": "0f84ce160000",
+        "mnemonic": "je",
+        "operands": "0x14beb91"
+      },
+      {
+        "rva": 21746883,
+        "bytes": "3d4364d807",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x7d86443"
+      },
+      {
+        "rva": 21746888,
+        "bytes": "0f85d83e0000",
+        "mnemonic": "jne",
+        "operands": "0x14c13a6"
+      },
+      {
+        "rva": 21748915,
+        "bytes": "3d2b851216",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x1612852b"
+      },
+      {
+        "rva": 21748920,
+        "bytes": "0f8464200000",
+        "mnemonic": "je",
+        "operands": "0x14bfd22"
+      },
+      {
+        "rva": 21748926,
+        "bytes": "3d40a25b1b",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x1b5ba240"
+      },
+      {
+        "rva": 21748931,
+        "bytes": "0f85aa3a0000",
+        "mnemonic": "jne",
+        "operands": "0x14c1773"
+      },
+      {
+        "rva": 21749018,
+        "bytes": "3d3543980b",
+        "mnemonic": "cmp",
+        "operands": "eax, 0xb984335"
+      },
+      {
+        "rva": 21749023,
+        "bytes": "0f84411d0000",
+        "mnemonic": "je",
+        "operands": "0x14bfa66"
+      },
+      {
+        "rva": 21749029,
+        "bytes": "3ddf30ff0c",
+        "mnemonic": "cmp",
+        "operands": "eax, 0xcff30df"
+      },
+      {
+        "rva": 21749034,
+        "bytes": "0f85233b0000",
+        "mnemonic": "jne",
+        "operands": "0x14c1853"
+      },
+      {
+        "rva": 21749085,
+        "bytes": "3df481406a",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x6a4081f4"
+      },
+      {
+        "rva": 21749090,
+        "bytes": "0f84ae1d0000",
+        "mnemonic": "je",
+        "operands": "0x14bfb16"
+      },
+      {
+        "rva": 21749096,
+        "bytes": "3d0d11d66c",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x6cd6110d"
+      },
+      {
+        "rva": 21749101,
+        "bytes": "0f851a440000",
+        "mnemonic": "jne",
+        "operands": "0x14c218d"
+      },
+      {
+        "rva": 21749349,
+        "bytes": "3d79aa7772",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x7277aa79"
+      },
+      {
+        "rva": 21749354,
+        "bytes": "0f846c340000",
+        "mnemonic": "je",
+        "operands": "0x14c12dc"
+      },
+      {
+        "rva": 21749360,
+        "bytes": "3d5e29e472",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x72e4295e"
+      },
+      {
+        "rva": 21749365,
+        "bytes": "0f8503040000",
+        "mnemonic": "jne",
+        "operands": "0x14be27e"
+      },
+      {
+        "rva": 21750266,
+        "bytes": "3dca44977c",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x7c9744ca"
+      },
+      {
+        "rva": 21750271,
+        "bytes": "0f846c310000",
+        "mnemonic": "je",
+        "operands": "0x14c1371"
+      },
+      {
+        "rva": 21750277,
+        "bytes": "3d0246657d",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x7d654602"
+      },
+      {
+        "rva": 21750282,
+        "bytes": "0f85cfdfffff",
+        "mnemonic": "jne",
+        "operands": "0x14bc1df"
+      },
+      {
+        "rva": 21750337,
+        "bytes": "3d45af8120",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x2081af45"
+      },
+      {
+        "rva": 21750342,
+        "bytes": "0f847a310000",
+        "mnemonic": "je",
+        "operands": "0x14c13c6"
+      },
+      {
+        "rva": 21750348,
+        "bytes": "3de31d6521",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x21651de3"
+      },
+      {
+        "rva": 21750353,
+        "bytes": "0f8530570000",
+        "mnemonic": "jne",
+        "operands": "0x14c3987"
+      },
+      {
+        "rva": 21750398,
+        "bytes": "488b9424e0020000",
+        "mnemonic": "mov",
+        "operands": "rdx, qword ptr [rsp + 0x2e0]"
+      },
+      {
+        "rva": 21751411,
+        "bytes": "3d16786824",
+        "mnemonic": "cmp",
+        "operands": "eax, 0x24687816"
+      },
+      {
+        "rva": 21751416,
+        "bytes": "0f8558170000",
+        "mnemonic": "jne",
+        "operands": "0x14bfdd6"
+      },
+      {
+        "rva": 21752558,
+        "bytes": "3d5698a200",
+        "mnemonic": "cmp",
+        "operands": "eax, 0xa29856"
+      },
+      {
+        "rva": 21752563,
+        "bytes": "0f859f2b0000",
+        "mnemonic": "jne",
+        "operands": "0x14c1698"
+      },
+      {
+        "rva": 21757128,
+        "bytes": "488b8424f0020000",
+        "mnemonic": "mov",
+        "operands": "rax, qword ptr [rsp + 0x2f0]"
+      },
+      {
+        "rva": 21757398,
+        "bytes": "8b8424d4000000",
+        "mnemonic": "mov",
+        "operands": "eax, dword ptr [rsp + 0xd4]"
+      },
+      {
+        "rva": 21759029,
+        "bytes": "488b8424c8020000",
+        "mnemonic": "mov",
+        "operands": "rax, qword ptr [rsp + 0x2c8]"
+      },
+      {
+        "rva": 21762982,
+        "bytes": "8b8424d8000000",
+        "mnemonic": "mov",
+        "operands": "eax, dword ptr [rsp + 0xd8]"
+      },
+      {
+        "rva": 21763736,
+        "bytes": "488b842470040000",
+        "mnemonic": "mov",
+        "operands": "rax, qword ptr [rsp + 0x470]"
+      },
+      {
+        "rva": 21763955,
+        "bytes": "8b8424dc000000",
+        "mnemonic": "mov",
+        "operands": "eax, dword ptr [rsp + 0xdc]"
+      },
+      {
+        "rva": 21764179,
+        "bytes": "488b842480000000",
+        "mnemonic": "mov",
+        "operands": "rax, qword ptr [rsp + 0x80]"
+      },
+      {
+        "rva": 21766541,
+        "bytes": "488b842490050000",
+        "mnemonic": "mov",
+        "operands": "rax, qword ptr [rsp + 0x590]"
+      },
+      {
+        "rva": 21766693,
+        "bytes": "65488b042560000000",
+        "mnemonic": "mov",
+        "operands": "rax, qword ptr gs:[0x60]"
+      },
+      {
+        "rva": 21767637,
+        "bytes": "8b057523ca00",
+        "mnemonic": "mov",
+        "operands": "eax, dword ptr [rip + 0xca2375]"
+      },
+      {
+        "rva": 21767921,
+        "bytes": "488b842458040000",
+        "mnemonic": "mov",
+        "operands": "rax, qword ptr [rsp + 0x458]"
+      },
+      {
+        "rva": 21772679,
+        "bytes": "488b8c24e8080000",
+        "mnemonic": "mov",
+        "operands": "rcx, qword ptr [rsp + 0x8e8]"
+      }
+    ],
+    "leaves": [
+      {
+        "rva": 21743035,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742271,
+          21742276,
+          21742282,
+          21742287,
+          21742991,
+          21742996,
+          21743002,
+          21743007,
+          21743013,
+          21743018,
+          21743024,
+          21743029,
+          21743035
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": false
+          },
+          {
+            "site": 21743007,
+            "cmp_site": 21743002,
+            "mnemonic": "jg",
+            "constant": 836582787,
+            "taken": false
+          },
+          {
+            "site": 21743018,
+            "cmp_site": 21743013,
+            "mnemonic": "je",
+            "constant": 808351729,
+            "taken": false
+          },
+          {
+            "site": 21743029,
+            "cmp_site": 21743024,
+            "mnemonic": "je",
+            "constant": 811239399,
+            "taken": false
+          }
+        ],
+        "witness_x": 1078637378,
+        "witness_state": 808725920,
+        "first_instruction": "mov eax, dword ptr [rip + 0xc3d64f]"
+      },
+      {
+        "rva": 21759029,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742271,
+          21742276,
+          21742282,
+          21742287,
+          21742991,
+          21742996,
+          21744826,
+          21744831,
+          21744837,
+          21744842,
+          21744848,
+          21744853,
+          21759029
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": true
+          },
+          {
+            "site": 21744831,
+            "cmp_site": 21744826,
+            "mnemonic": "jle",
+            "constant": 679784102,
+            "taken": false
+          },
+          {
+            "site": 21744842,
+            "cmp_site": 21744837,
+            "mnemonic": "je",
+            "constant": 679784103,
+            "taken": false
+          },
+          {
+            "site": 21744853,
+            "cmp_site": 21744848,
+            "mnemonic": "jne",
+            "constant": 698062540,
+            "taken": true
+          }
+        ],
+        "witness_x": 3246230392,
+        "witness_state": 768326808,
+        "first_instruction": "mov rax, qword ptr [rsp + 0x2c8]"
+      },
+      {
+        "rva": 21757398,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742271,
+          21742276,
+          21742282,
+          21742287,
+          21742991,
+          21742996,
+          21744826,
+          21744831,
+          21751411,
+          21751416,
+          21757398
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": true
+          },
+          {
+            "site": 21744831,
+            "cmp_site": 21744826,
+            "mnemonic": "jle",
+            "constant": 679784102,
+            "taken": true
+          },
+          {
+            "site": 21751416,
+            "cmp_site": 21751411,
+            "mnemonic": "jne",
+            "constant": 610826262,
+            "taken": true
+          }
+        ],
+        "witness_x": 596291584,
+        "witness_state": 640955944,
+        "first_instruction": "mov eax, dword ptr [rsp + 0xd4]"
+      },
+      {
+        "rva": 21757128,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742271,
+          21742276,
+          21742592,
+          21742597,
+          21742603,
+          21742608,
+          21742614,
+          21742619,
+          21742625,
+          21742630,
+          21742636,
+          21742641,
+          21742647,
+          21757128
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": false
+          },
+          {
+            "site": 21742619,
+            "cmp_site": 21742614,
+            "mnemonic": "jg",
+            "constant": 370312490,
+            "taken": false
+          },
+          {
+            "site": 21742630,
+            "cmp_site": 21742625,
+            "mnemonic": "je",
+            "constant": 252276550,
+            "taken": false
+          },
+          {
+            "site": 21742641,
+            "cmp_site": 21742636,
+            "mnemonic": "je",
+            "constant": 295739976,
+            "taken": false
+          }
+        ],
+        "witness_x": 1842507465,
+        "witness_state": 304389270,
+        "first_instruction": "mov rax, qword ptr [rsp + 0x2f0]"
+      },
+      {
+        "rva": 21763955,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742271,
+          21742276,
+          21742592,
+          21742597,
+          21742603,
+          21742608,
+          21742614,
+          21742619,
+          21748915,
+          21748920,
+          21748926,
+          21748931,
+          21763955
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": false
+          },
+          {
+            "site": 21742619,
+            "cmp_site": 21742614,
+            "mnemonic": "jg",
+            "constant": 370312490,
+            "taken": true
+          },
+          {
+            "site": 21748920,
+            "cmp_site": 21748915,
+            "mnemonic": "je",
+            "constant": 370312491,
+            "taken": false
+          },
+          {
+            "site": 21748931,
+            "cmp_site": 21748926,
+            "mnemonic": "jne",
+            "constant": 458990144,
+            "taken": true
+          }
+        ],
+        "witness_x": 1186172427,
+        "witness_state": 534486526,
+        "first_instruction": "mov eax, dword ptr [rsp + 0xdc]"
+      },
+      {
+        "rva": 21767921,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742271,
+          21742276,
+          21742592,
+          21742597,
+          21742603,
+          21742608,
+          21744688,
+          21744693,
+          21744699,
+          21744704,
+          21744710,
+          21744715,
+          21767921
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          },
+          {
+            "site": 21744693,
+            "cmp_site": 21744688,
+            "mnemonic": "jle",
+            "constant": 571186581,
+            "taken": false
+          },
+          {
+            "site": 21744704,
+            "cmp_site": 21744699,
+            "mnemonic": "je",
+            "constant": 571186582,
+            "taken": false
+          },
+          {
+            "site": 21744715,
+            "cmp_site": 21744710,
+            "mnemonic": "jne",
+            "constant": 584374303,
+            "taken": true
+          }
+        ],
+        "witness_x": 1707451904,
+        "witness_state": 574373416,
+        "first_instruction": "mov rax, qword ptr [rsp + 0x458]"
+      },
+      {
+        "rva": 21766693,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742271,
+          21742276,
+          21742592,
+          21742597,
+          21742603,
+          21742608,
+          21744688,
+          21744693,
+          21744699,
+          21744704,
+          21766693
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          },
+          {
+            "site": 21744693,
+            "cmp_site": 21744688,
+            "mnemonic": "jle",
+            "constant": 571186581,
+            "taken": false
+          },
+          {
+            "site": 21744704,
+            "cmp_site": 21744699,
+            "mnemonic": "je",
+            "constant": 571186582,
+            "taken": true
+          }
+        ],
+        "witness_x": 635377207,
+        "witness_state": 571186582,
+        "first_instruction": "mov rax, qword ptr gs:[0x60]"
+      },
+      {
+        "rva": 21772679,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742271,
+          21742276,
+          21742592,
+          21742597,
+          21742603,
+          21742608,
+          21744688,
+          21744693,
+          21750337,
+          21750342,
+          21750348,
+          21750353,
+          21772679
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          },
+          {
+            "site": 21744693,
+            "cmp_site": 21744688,
+            "mnemonic": "jle",
+            "constant": 571186581,
+            "taken": true
+          },
+          {
+            "site": 21750342,
+            "cmp_site": 21750337,
+            "mnemonic": "je",
+            "constant": 545369925,
+            "taken": false
+          },
+          {
+            "site": 21750353,
+            "cmp_site": 21750348,
+            "mnemonic": "jne",
+            "constant": 560274915,
+            "taken": true
+          }
+        ],
+        "witness_x": 1713373184,
+        "witness_state": 554292776,
+        "first_instruction": "mov rcx, qword ptr [rsp + 0x8e8]"
+      },
+      {
+        "rva": 21743496,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742271,
+          21742276,
+          21742592,
+          21742597,
+          21743452,
+          21743457,
+          21743463,
+          21743468,
+          21743474,
+          21743479,
+          21743485,
+          21743490,
+          21743496
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": false
+          },
+          {
+            "site": 21743468,
+            "cmp_site": 21743463,
+            "mnemonic": "jg",
+            "constant": 194528052,
+            "taken": false
+          },
+          {
+            "site": 21743479,
+            "cmp_site": 21743474,
+            "mnemonic": "je",
+            "constant": 165248241,
+            "taken": false
+          },
+          {
+            "site": 21743490,
+            "cmp_site": 21743485,
+            "mnemonic": "je",
+            "constant": 185445540,
+            "taken": false
+          }
+        ],
+        "witness_x": 1371537408,
+        "witness_state": 172611112,
+        "first_instruction": "cmp esp, 0x4100"
+      },
+      {
+        "rva": 21764179,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742271,
+          21742276,
+          21742592,
+          21742597,
+          21743452,
+          21743457,
+          21743463,
+          21743468,
+          21749018,
+          21749023,
+          21749029,
+          21749034,
+          21764179
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": false
+          },
+          {
+            "site": 21743468,
+            "cmp_site": 21743463,
+            "mnemonic": "jg",
+            "constant": 194528052,
+            "taken": true
+          },
+          {
+            "site": 21749023,
+            "cmp_site": 21749018,
+            "mnemonic": "je",
+            "constant": 194528053,
+            "taken": false
+          },
+          {
+            "site": 21749034,
+            "cmp_site": 21749029,
+            "mnemonic": "jne",
+            "constant": 218050783,
+            "taken": true
+          }
+        ],
+        "witness_x": 1323607434,
+        "witness_state": 234897664,
+        "first_instruction": "mov rax, qword ptr [rsp + 0x80]"
+      },
+      {
+        "rva": 21762982,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742271,
+          21742276,
+          21742592,
+          21742597,
+          21743452,
+          21743457,
+          21746861,
+          21746866,
+          21746872,
+          21746877,
+          21746883,
+          21746888,
+          21762982
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": true
+          },
+          {
+            "site": 21746866,
+            "cmp_site": 21746861,
+            "mnemonic": "jle",
+            "constant": 122245972,
+            "taken": false
+          },
+          {
+            "site": 21746877,
+            "cmp_site": 21746872,
+            "mnemonic": "je",
+            "constant": 122245973,
+            "taken": false
+          },
+          {
+            "site": 21746888,
+            "cmp_site": 21746883,
+            "mnemonic": "jne",
+            "constant": 131621955,
+            "taken": true
+          }
+        ],
+        "witness_x": 845479168,
+        "witness_state": 134193704,
+        "first_instruction": "mov eax, dword ptr [rsp + 0xd8]"
+      },
+      {
+        "rva": 21763736,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742271,
+          21742276,
+          21742592,
+          21742597,
+          21743452,
+          21743457,
+          21746861,
+          21746866,
+          21752558,
+          21752563,
+          21763736
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": true
+          },
+          {
+            "site": 21746866,
+            "cmp_site": 21746861,
+            "mnemonic": "jle",
+            "constant": 122245972,
+            "taken": true
+          },
+          {
+            "site": 21752563,
+            "cmp_site": 21752558,
+            "mnemonic": "jne",
+            "constant": 10655830,
+            "taken": true
+          }
+        ],
+        "witness_x": 805306368,
+        "witness_state": 4048148008,
+        "first_instruction": "mov rax, qword ptr [rsp + 0x470]"
+      },
+      {
+        "rva": 21742047,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742512,
+          21742517,
+          21742523,
+          21742528,
+          21742534,
+          21742539,
+          21742545,
+          21742550,
+          21742556,
+          21742561,
+          21742567,
+          21742572,
+          21742047
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": false
+          },
+          {
+            "site": 21742550,
+            "cmp_site": 21742545,
+            "mnemonic": "jg",
+            "constant": 1920445048,
+            "taken": false
+          },
+          {
+            "site": 21742561,
+            "cmp_site": 21742556,
+            "mnemonic": "je",
+            "constant": 1861798368,
+            "taken": false
+          },
+          {
+            "site": 21742572,
+            "cmp_site": 21742567,
+            "mnemonic": "jne",
+            "constant": 1866837582,
+            "taken": true
+          }
+        ],
+        "witness_x": 2667577344,
+        "witness_state": 1867109928,
+        "first_instruction": "mov r8d, dword ptr [rsp + 0x5b4]"
+      },
+      {
+        "rva": 21750398,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742512,
+          21742517,
+          21742523,
+          21742528,
+          21742534,
+          21742539,
+          21742545,
+          21742550,
+          21749349,
+          21749354,
+          21749360,
+          21749365,
+          21750398
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": false
+          },
+          {
+            "site": 21742550,
+            "cmp_site": 21742545,
+            "mnemonic": "jg",
+            "constant": 1920445048,
+            "taken": true
+          },
+          {
+            "site": 21749354,
+            "cmp_site": 21749349,
+            "mnemonic": "je",
+            "constant": 1920445049,
+            "taken": false
+          },
+          {
+            "site": 21749365,
+            "cmp_site": 21749360,
+            "mnemonic": "jne",
+            "constant": 1927555422,
+            "taken": true
+          }
+        ],
+        "witness_x": 2613399985,
+        "witness_state": 1983688870,
+        "first_instruction": "mov rdx, qword ptr [rsp + 0x2e0]"
+      },
+      {
+        "rva": 21767637,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742512,
+          21742517,
+          21742523,
+          21742528,
+          21742534,
+          21742539,
+          21744533,
+          21744538,
+          21744544,
+          21744549,
+          21744555,
+          21744560,
+          21767637
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": true
+          },
+          {
+            "site": 21744538,
+            "cmp_site": 21744533,
+            "mnemonic": "jg",
+            "constant": 2090288329,
+            "taken": false
+          },
+          {
+            "site": 21744549,
+            "cmp_site": 21744544,
+            "mnemonic": "je",
+            "constant": 1997994404,
+            "taken": false
+          },
+          {
+            "site": 21744560,
+            "cmp_site": 21744555,
+            "mnemonic": "jne",
+            "constant": 2036049914,
+            "taken": true
+          }
+        ],
+        "witness_x": 453377759,
+        "witness_state": 2000395990,
+        "first_instruction": "mov eax, dword ptr [rip + 0xca2375]"
+      },
+      {
+        "rva": 21742047,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742512,
+          21742517,
+          21742523,
+          21742528,
+          21742534,
+          21742539,
+          21744533,
+          21744538,
+          21750266,
+          21750271,
+          21750277,
+          21750282,
+          21742047
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": true
+          },
+          {
+            "site": 21744538,
+            "cmp_site": 21744533,
+            "mnemonic": "jg",
+            "constant": 2090288329,
+            "taken": true
+          },
+          {
+            "site": 21750271,
+            "cmp_site": 21750266,
+            "mnemonic": "je",
+            "constant": 2090288330,
+            "taken": false
+          },
+          {
+            "site": 21750282,
+            "cmp_site": 21750277,
+            "mnemonic": "jne",
+            "constant": 2103789058,
+            "taken": true
+          }
+        ],
+        "witness_x": 386897536,
+        "witness_state": 2131467560,
+        "first_instruction": "mov r8d, dword ptr [rsp + 0x5b4]"
+      },
+      {
+        "rva": 21766541,
+        "path": [
+          21742256,
+          21742260,
+          21742265,
+          21742512,
+          21742517,
+          21742523,
+          21742528,
+          21743909,
+          21743914,
+          21743920,
+          21743925,
+          21749085,
+          21749090,
+          21749096,
+          21749101,
+          21766541
+        ],
+        "decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": true
+          },
+          {
+            "site": 21743914,
+            "cmp_site": 21743909,
+            "mnemonic": "jle",
+            "constant": 1677852609,
+            "taken": false
+          },
+          {
+            "site": 21743925,
+            "cmp_site": 21743920,
+            "mnemonic": "jg",
+            "constant": 1782612467,
+            "taken": true
+          },
+          {
+            "site": 21749090,
+            "cmp_site": 21749085,
+            "mnemonic": "je",
+            "constant": 1782612468,
+            "taken": false
+          },
+          {
+            "site": 21749101,
+            "cmp_site": 21749096,
+            "mnemonic": "jne",
+            "constant": 1825968397,
+            "taken": true
+          }
+        ],
+        "witness_x": 2428817520,
+        "witness_state": 1849668776,
+        "first_instruction": "mov rax, qword ptr [rsp + 0x590]"
+      }
+    ],
+    "branch_checks": [
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": false
+          },
+          {
+            "site": 21743007,
+            "cmp_site": 21743002,
+            "mnemonic": "jg",
+            "constant": 836582787,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": false
+          },
+          {
+            "site": 21743007,
+            "cmp_site": 21743002,
+            "mnemonic": "jg",
+            "constant": 836582787,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": false
+          },
+          {
+            "site": 21743007,
+            "cmp_site": 21743002,
+            "mnemonic": "jg",
+            "constant": 836582787,
+            "taken": false
+          },
+          {
+            "site": 21743018,
+            "cmp_site": 21743013,
+            "mnemonic": "je",
+            "constant": 808351729,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": false
+          },
+          {
+            "site": 21743007,
+            "cmp_site": 21743002,
+            "mnemonic": "jg",
+            "constant": 836582787,
+            "taken": false
+          },
+          {
+            "site": 21743018,
+            "cmp_site": 21743013,
+            "mnemonic": "je",
+            "constant": 808351729,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": false
+          },
+          {
+            "site": 21743007,
+            "cmp_site": 21743002,
+            "mnemonic": "jg",
+            "constant": 836582787,
+            "taken": false
+          },
+          {
+            "site": 21743018,
+            "cmp_site": 21743013,
+            "mnemonic": "je",
+            "constant": 808351729,
+            "taken": false
+          },
+          {
+            "site": 21743029,
+            "cmp_site": 21743024,
+            "mnemonic": "je",
+            "constant": 811239399,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": false
+          },
+          {
+            "site": 21743007,
+            "cmp_site": 21743002,
+            "mnemonic": "jg",
+            "constant": 836582787,
+            "taken": false
+          },
+          {
+            "site": 21743018,
+            "cmp_site": 21743013,
+            "mnemonic": "je",
+            "constant": 808351729,
+            "taken": false
+          },
+          {
+            "site": 21743029,
+            "cmp_site": 21743024,
+            "mnemonic": "je",
+            "constant": 811239399,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": true
+          },
+          {
+            "site": 21744831,
+            "cmp_site": 21744826,
+            "mnemonic": "jle",
+            "constant": 679784102,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": true
+          },
+          {
+            "site": 21744831,
+            "cmp_site": 21744826,
+            "mnemonic": "jle",
+            "constant": 679784102,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": true
+          },
+          {
+            "site": 21744831,
+            "cmp_site": 21744826,
+            "mnemonic": "jle",
+            "constant": 679784102,
+            "taken": false
+          },
+          {
+            "site": 21744842,
+            "cmp_site": 21744837,
+            "mnemonic": "je",
+            "constant": 679784103,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": true
+          },
+          {
+            "site": 21744831,
+            "cmp_site": 21744826,
+            "mnemonic": "jle",
+            "constant": 679784102,
+            "taken": false
+          },
+          {
+            "site": 21744842,
+            "cmp_site": 21744837,
+            "mnemonic": "je",
+            "constant": 679784103,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": true
+          },
+          {
+            "site": 21744831,
+            "cmp_site": 21744826,
+            "mnemonic": "jle",
+            "constant": 679784102,
+            "taken": false
+          },
+          {
+            "site": 21744842,
+            "cmp_site": 21744837,
+            "mnemonic": "je",
+            "constant": 679784103,
+            "taken": false
+          },
+          {
+            "site": 21744853,
+            "cmp_site": 21744848,
+            "mnemonic": "jne",
+            "constant": 698062540,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": true
+          },
+          {
+            "site": 21744831,
+            "cmp_site": 21744826,
+            "mnemonic": "jle",
+            "constant": 679784102,
+            "taken": false
+          },
+          {
+            "site": 21744842,
+            "cmp_site": 21744837,
+            "mnemonic": "je",
+            "constant": 679784103,
+            "taken": false
+          },
+          {
+            "site": 21744853,
+            "cmp_site": 21744848,
+            "mnemonic": "jne",
+            "constant": 698062540,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": true
+          },
+          {
+            "site": 21744831,
+            "cmp_site": 21744826,
+            "mnemonic": "jle",
+            "constant": 679784102,
+            "taken": true
+          },
+          {
+            "site": 21751416,
+            "cmp_site": 21751411,
+            "mnemonic": "jne",
+            "constant": 610826262,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": false
+          },
+          {
+            "site": 21742287,
+            "cmp_site": 21742282,
+            "mnemonic": "jle",
+            "constant": 867297345,
+            "taken": true
+          },
+          {
+            "site": 21742996,
+            "cmp_site": 21742991,
+            "mnemonic": "jle",
+            "constant": 808351728,
+            "taken": true
+          },
+          {
+            "site": 21744831,
+            "cmp_site": 21744826,
+            "mnemonic": "jle",
+            "constant": 679784102,
+            "taken": true
+          },
+          {
+            "site": 21751416,
+            "cmp_site": 21751411,
+            "mnemonic": "jne",
+            "constant": 610826262,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": false
+          },
+          {
+            "site": 21742619,
+            "cmp_site": 21742614,
+            "mnemonic": "jg",
+            "constant": 370312490,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": false
+          },
+          {
+            "site": 21742619,
+            "cmp_site": 21742614,
+            "mnemonic": "jg",
+            "constant": 370312490,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": false
+          },
+          {
+            "site": 21742619,
+            "cmp_site": 21742614,
+            "mnemonic": "jg",
+            "constant": 370312490,
+            "taken": false
+          },
+          {
+            "site": 21742630,
+            "cmp_site": 21742625,
+            "mnemonic": "je",
+            "constant": 252276550,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": false
+          },
+          {
+            "site": 21742619,
+            "cmp_site": 21742614,
+            "mnemonic": "jg",
+            "constant": 370312490,
+            "taken": false
+          },
+          {
+            "site": 21742630,
+            "cmp_site": 21742625,
+            "mnemonic": "je",
+            "constant": 252276550,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": false
+          },
+          {
+            "site": 21742619,
+            "cmp_site": 21742614,
+            "mnemonic": "jg",
+            "constant": 370312490,
+            "taken": false
+          },
+          {
+            "site": 21742630,
+            "cmp_site": 21742625,
+            "mnemonic": "je",
+            "constant": 252276550,
+            "taken": false
+          },
+          {
+            "site": 21742641,
+            "cmp_site": 21742636,
+            "mnemonic": "je",
+            "constant": 295739976,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": false
+          },
+          {
+            "site": 21742619,
+            "cmp_site": 21742614,
+            "mnemonic": "jg",
+            "constant": 370312490,
+            "taken": false
+          },
+          {
+            "site": 21742630,
+            "cmp_site": 21742625,
+            "mnemonic": "je",
+            "constant": 252276550,
+            "taken": false
+          },
+          {
+            "site": 21742641,
+            "cmp_site": 21742636,
+            "mnemonic": "je",
+            "constant": 295739976,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": false
+          },
+          {
+            "site": 21742619,
+            "cmp_site": 21742614,
+            "mnemonic": "jg",
+            "constant": 370312490,
+            "taken": true
+          },
+          {
+            "site": 21748920,
+            "cmp_site": 21748915,
+            "mnemonic": "je",
+            "constant": 370312491,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": false
+          },
+          {
+            "site": 21742619,
+            "cmp_site": 21742614,
+            "mnemonic": "jg",
+            "constant": 370312490,
+            "taken": true
+          },
+          {
+            "site": 21748920,
+            "cmp_site": 21748915,
+            "mnemonic": "je",
+            "constant": 370312491,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": false
+          },
+          {
+            "site": 21742619,
+            "cmp_site": 21742614,
+            "mnemonic": "jg",
+            "constant": 370312490,
+            "taken": true
+          },
+          {
+            "site": 21748920,
+            "cmp_site": 21748915,
+            "mnemonic": "je",
+            "constant": 370312491,
+            "taken": false
+          },
+          {
+            "site": 21748931,
+            "cmp_site": 21748926,
+            "mnemonic": "jne",
+            "constant": 458990144,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": false
+          },
+          {
+            "site": 21742619,
+            "cmp_site": 21742614,
+            "mnemonic": "jg",
+            "constant": 370312490,
+            "taken": true
+          },
+          {
+            "site": 21748920,
+            "cmp_site": 21748915,
+            "mnemonic": "je",
+            "constant": 370312491,
+            "taken": false
+          },
+          {
+            "site": 21748931,
+            "cmp_site": 21748926,
+            "mnemonic": "jne",
+            "constant": 458990144,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          },
+          {
+            "site": 21744693,
+            "cmp_site": 21744688,
+            "mnemonic": "jle",
+            "constant": 571186581,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          },
+          {
+            "site": 21744693,
+            "cmp_site": 21744688,
+            "mnemonic": "jle",
+            "constant": 571186581,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          },
+          {
+            "site": 21744693,
+            "cmp_site": 21744688,
+            "mnemonic": "jle",
+            "constant": 571186581,
+            "taken": false
+          },
+          {
+            "site": 21744704,
+            "cmp_site": 21744699,
+            "mnemonic": "je",
+            "constant": 571186582,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          },
+          {
+            "site": 21744693,
+            "cmp_site": 21744688,
+            "mnemonic": "jle",
+            "constant": 571186581,
+            "taken": false
+          },
+          {
+            "site": 21744704,
+            "cmp_site": 21744699,
+            "mnemonic": "je",
+            "constant": 571186582,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          },
+          {
+            "site": 21744693,
+            "cmp_site": 21744688,
+            "mnemonic": "jle",
+            "constant": 571186581,
+            "taken": false
+          },
+          {
+            "site": 21744704,
+            "cmp_site": 21744699,
+            "mnemonic": "je",
+            "constant": 571186582,
+            "taken": false
+          },
+          {
+            "site": 21744715,
+            "cmp_site": 21744710,
+            "mnemonic": "jne",
+            "constant": 584374303,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          },
+          {
+            "site": 21744693,
+            "cmp_site": 21744688,
+            "mnemonic": "jle",
+            "constant": 571186581,
+            "taken": false
+          },
+          {
+            "site": 21744704,
+            "cmp_site": 21744699,
+            "mnemonic": "je",
+            "constant": 571186582,
+            "taken": false
+          },
+          {
+            "site": 21744715,
+            "cmp_site": 21744710,
+            "mnemonic": "jne",
+            "constant": 584374303,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          },
+          {
+            "site": 21744693,
+            "cmp_site": 21744688,
+            "mnemonic": "jle",
+            "constant": 571186581,
+            "taken": true
+          },
+          {
+            "site": 21750342,
+            "cmp_site": 21750337,
+            "mnemonic": "je",
+            "constant": 545369925,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          },
+          {
+            "site": 21744693,
+            "cmp_site": 21744688,
+            "mnemonic": "jle",
+            "constant": 571186581,
+            "taken": true
+          },
+          {
+            "site": 21750342,
+            "cmp_site": 21750337,
+            "mnemonic": "je",
+            "constant": 545369925,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          },
+          {
+            "site": 21744693,
+            "cmp_site": 21744688,
+            "mnemonic": "jle",
+            "constant": 571186581,
+            "taken": true
+          },
+          {
+            "site": 21750342,
+            "cmp_site": 21750337,
+            "mnemonic": "je",
+            "constant": 545369925,
+            "taken": false
+          },
+          {
+            "site": 21750353,
+            "cmp_site": 21750348,
+            "mnemonic": "jne",
+            "constant": 560274915,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": false
+          },
+          {
+            "site": 21742608,
+            "cmp_site": 21742603,
+            "mnemonic": "jg",
+            "constant": 545369924,
+            "taken": true
+          },
+          {
+            "site": 21744693,
+            "cmp_site": 21744688,
+            "mnemonic": "jle",
+            "constant": 571186581,
+            "taken": true
+          },
+          {
+            "site": 21750342,
+            "cmp_site": 21750337,
+            "mnemonic": "je",
+            "constant": 545369925,
+            "taken": false
+          },
+          {
+            "site": 21750353,
+            "cmp_site": 21750348,
+            "mnemonic": "jne",
+            "constant": 560274915,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": false
+          },
+          {
+            "site": 21743468,
+            "cmp_site": 21743463,
+            "mnemonic": "jg",
+            "constant": 194528052,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": false
+          },
+          {
+            "site": 21743468,
+            "cmp_site": 21743463,
+            "mnemonic": "jg",
+            "constant": 194528052,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": false
+          },
+          {
+            "site": 21743468,
+            "cmp_site": 21743463,
+            "mnemonic": "jg",
+            "constant": 194528052,
+            "taken": false
+          },
+          {
+            "site": 21743479,
+            "cmp_site": 21743474,
+            "mnemonic": "je",
+            "constant": 165248241,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": false
+          },
+          {
+            "site": 21743468,
+            "cmp_site": 21743463,
+            "mnemonic": "jg",
+            "constant": 194528052,
+            "taken": false
+          },
+          {
+            "site": 21743479,
+            "cmp_site": 21743474,
+            "mnemonic": "je",
+            "constant": 165248241,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": false
+          },
+          {
+            "site": 21743468,
+            "cmp_site": 21743463,
+            "mnemonic": "jg",
+            "constant": 194528052,
+            "taken": false
+          },
+          {
+            "site": 21743479,
+            "cmp_site": 21743474,
+            "mnemonic": "je",
+            "constant": 165248241,
+            "taken": false
+          },
+          {
+            "site": 21743490,
+            "cmp_site": 21743485,
+            "mnemonic": "je",
+            "constant": 185445540,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": false
+          },
+          {
+            "site": 21743468,
+            "cmp_site": 21743463,
+            "mnemonic": "jg",
+            "constant": 194528052,
+            "taken": false
+          },
+          {
+            "site": 21743479,
+            "cmp_site": 21743474,
+            "mnemonic": "je",
+            "constant": 165248241,
+            "taken": false
+          },
+          {
+            "site": 21743490,
+            "cmp_site": 21743485,
+            "mnemonic": "je",
+            "constant": 185445540,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": false
+          },
+          {
+            "site": 21743468,
+            "cmp_site": 21743463,
+            "mnemonic": "jg",
+            "constant": 194528052,
+            "taken": true
+          },
+          {
+            "site": 21749023,
+            "cmp_site": 21749018,
+            "mnemonic": "je",
+            "constant": 194528053,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": false
+          },
+          {
+            "site": 21743468,
+            "cmp_site": 21743463,
+            "mnemonic": "jg",
+            "constant": 194528052,
+            "taken": true
+          },
+          {
+            "site": 21749023,
+            "cmp_site": 21749018,
+            "mnemonic": "je",
+            "constant": 194528053,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": false
+          },
+          {
+            "site": 21743468,
+            "cmp_site": 21743463,
+            "mnemonic": "jg",
+            "constant": 194528052,
+            "taken": true
+          },
+          {
+            "site": 21749023,
+            "cmp_site": 21749018,
+            "mnemonic": "je",
+            "constant": 194528053,
+            "taken": false
+          },
+          {
+            "site": 21749034,
+            "cmp_site": 21749029,
+            "mnemonic": "jne",
+            "constant": 218050783,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": false
+          },
+          {
+            "site": 21743468,
+            "cmp_site": 21743463,
+            "mnemonic": "jg",
+            "constant": 194528052,
+            "taken": true
+          },
+          {
+            "site": 21749023,
+            "cmp_site": 21749018,
+            "mnemonic": "je",
+            "constant": 194528053,
+            "taken": false
+          },
+          {
+            "site": 21749034,
+            "cmp_site": 21749029,
+            "mnemonic": "jne",
+            "constant": 218050783,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": true
+          },
+          {
+            "site": 21746866,
+            "cmp_site": 21746861,
+            "mnemonic": "jle",
+            "constant": 122245972,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": true
+          },
+          {
+            "site": 21746866,
+            "cmp_site": 21746861,
+            "mnemonic": "jle",
+            "constant": 122245972,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": true
+          },
+          {
+            "site": 21746866,
+            "cmp_site": 21746861,
+            "mnemonic": "jle",
+            "constant": 122245972,
+            "taken": false
+          },
+          {
+            "site": 21746877,
+            "cmp_site": 21746872,
+            "mnemonic": "je",
+            "constant": 122245973,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": true
+          },
+          {
+            "site": 21746866,
+            "cmp_site": 21746861,
+            "mnemonic": "jle",
+            "constant": 122245972,
+            "taken": false
+          },
+          {
+            "site": 21746877,
+            "cmp_site": 21746872,
+            "mnemonic": "je",
+            "constant": 122245973,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": true
+          },
+          {
+            "site": 21746866,
+            "cmp_site": 21746861,
+            "mnemonic": "jle",
+            "constant": 122245972,
+            "taken": false
+          },
+          {
+            "site": 21746877,
+            "cmp_site": 21746872,
+            "mnemonic": "je",
+            "constant": 122245973,
+            "taken": false
+          },
+          {
+            "site": 21746888,
+            "cmp_site": 21746883,
+            "mnemonic": "jne",
+            "constant": 131621955,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": true
+          },
+          {
+            "site": 21746866,
+            "cmp_site": 21746861,
+            "mnemonic": "jle",
+            "constant": 122245972,
+            "taken": false
+          },
+          {
+            "site": 21746877,
+            "cmp_site": 21746872,
+            "mnemonic": "je",
+            "constant": 122245973,
+            "taken": false
+          },
+          {
+            "site": 21746888,
+            "cmp_site": 21746883,
+            "mnemonic": "jne",
+            "constant": 131621955,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": true
+          },
+          {
+            "site": 21746866,
+            "cmp_site": 21746861,
+            "mnemonic": "jle",
+            "constant": 122245972,
+            "taken": true
+          },
+          {
+            "site": 21752563,
+            "cmp_site": 21752558,
+            "mnemonic": "jne",
+            "constant": 10655830,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": false
+          },
+          {
+            "site": 21742276,
+            "cmp_site": 21742271,
+            "mnemonic": "jle",
+            "constant": 610826261,
+            "taken": true
+          },
+          {
+            "site": 21742597,
+            "cmp_site": 21742592,
+            "mnemonic": "jle",
+            "constant": 252276549,
+            "taken": true
+          },
+          {
+            "site": 21743457,
+            "cmp_site": 21743452,
+            "mnemonic": "jle",
+            "constant": 165248240,
+            "taken": true
+          },
+          {
+            "site": 21746866,
+            "cmp_site": 21746861,
+            "mnemonic": "jle",
+            "constant": 122245972,
+            "taken": true
+          },
+          {
+            "site": 21752563,
+            "cmp_site": 21752558,
+            "mnemonic": "jne",
+            "constant": 10655830,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": false
+          },
+          {
+            "site": 21742550,
+            "cmp_site": 21742545,
+            "mnemonic": "jg",
+            "constant": 1920445048,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": false
+          },
+          {
+            "site": 21742550,
+            "cmp_site": 21742545,
+            "mnemonic": "jg",
+            "constant": 1920445048,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": false
+          },
+          {
+            "site": 21742550,
+            "cmp_site": 21742545,
+            "mnemonic": "jg",
+            "constant": 1920445048,
+            "taken": false
+          },
+          {
+            "site": 21742561,
+            "cmp_site": 21742556,
+            "mnemonic": "je",
+            "constant": 1861798368,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": false
+          },
+          {
+            "site": 21742550,
+            "cmp_site": 21742545,
+            "mnemonic": "jg",
+            "constant": 1920445048,
+            "taken": false
+          },
+          {
+            "site": 21742561,
+            "cmp_site": 21742556,
+            "mnemonic": "je",
+            "constant": 1861798368,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": false
+          },
+          {
+            "site": 21742550,
+            "cmp_site": 21742545,
+            "mnemonic": "jg",
+            "constant": 1920445048,
+            "taken": false
+          },
+          {
+            "site": 21742561,
+            "cmp_site": 21742556,
+            "mnemonic": "je",
+            "constant": 1861798368,
+            "taken": false
+          },
+          {
+            "site": 21742572,
+            "cmp_site": 21742567,
+            "mnemonic": "jne",
+            "constant": 1866837582,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": false
+          },
+          {
+            "site": 21742550,
+            "cmp_site": 21742545,
+            "mnemonic": "jg",
+            "constant": 1920445048,
+            "taken": false
+          },
+          {
+            "site": 21742561,
+            "cmp_site": 21742556,
+            "mnemonic": "je",
+            "constant": 1861798368,
+            "taken": false
+          },
+          {
+            "site": 21742572,
+            "cmp_site": 21742567,
+            "mnemonic": "jne",
+            "constant": 1866837582,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": false
+          },
+          {
+            "site": 21742550,
+            "cmp_site": 21742545,
+            "mnemonic": "jg",
+            "constant": 1920445048,
+            "taken": true
+          },
+          {
+            "site": 21749354,
+            "cmp_site": 21749349,
+            "mnemonic": "je",
+            "constant": 1920445049,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": false
+          },
+          {
+            "site": 21742550,
+            "cmp_site": 21742545,
+            "mnemonic": "jg",
+            "constant": 1920445048,
+            "taken": true
+          },
+          {
+            "site": 21749354,
+            "cmp_site": 21749349,
+            "mnemonic": "je",
+            "constant": 1920445049,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": false
+          },
+          {
+            "site": 21742550,
+            "cmp_site": 21742545,
+            "mnemonic": "jg",
+            "constant": 1920445048,
+            "taken": true
+          },
+          {
+            "site": 21749354,
+            "cmp_site": 21749349,
+            "mnemonic": "je",
+            "constant": 1920445049,
+            "taken": false
+          },
+          {
+            "site": 21749365,
+            "cmp_site": 21749360,
+            "mnemonic": "jne",
+            "constant": 1927555422,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": false
+          },
+          {
+            "site": 21742550,
+            "cmp_site": 21742545,
+            "mnemonic": "jg",
+            "constant": 1920445048,
+            "taken": true
+          },
+          {
+            "site": 21749354,
+            "cmp_site": 21749349,
+            "mnemonic": "je",
+            "constant": 1920445049,
+            "taken": false
+          },
+          {
+            "site": 21749365,
+            "cmp_site": 21749360,
+            "mnemonic": "jne",
+            "constant": 1927555422,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": true
+          },
+          {
+            "site": 21744538,
+            "cmp_site": 21744533,
+            "mnemonic": "jg",
+            "constant": 2090288329,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": true
+          },
+          {
+            "site": 21744538,
+            "cmp_site": 21744533,
+            "mnemonic": "jg",
+            "constant": 2090288329,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": true
+          },
+          {
+            "site": 21744538,
+            "cmp_site": 21744533,
+            "mnemonic": "jg",
+            "constant": 2090288329,
+            "taken": false
+          },
+          {
+            "site": 21744549,
+            "cmp_site": 21744544,
+            "mnemonic": "je",
+            "constant": 1997994404,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": true
+          },
+          {
+            "site": 21744538,
+            "cmp_site": 21744533,
+            "mnemonic": "jg",
+            "constant": 2090288329,
+            "taken": false
+          },
+          {
+            "site": 21744549,
+            "cmp_site": 21744544,
+            "mnemonic": "je",
+            "constant": 1997994404,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": true
+          },
+          {
+            "site": 21744538,
+            "cmp_site": 21744533,
+            "mnemonic": "jg",
+            "constant": 2090288329,
+            "taken": false
+          },
+          {
+            "site": 21744549,
+            "cmp_site": 21744544,
+            "mnemonic": "je",
+            "constant": 1997994404,
+            "taken": false
+          },
+          {
+            "site": 21744560,
+            "cmp_site": 21744555,
+            "mnemonic": "jne",
+            "constant": 2036049914,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": true
+          },
+          {
+            "site": 21744538,
+            "cmp_site": 21744533,
+            "mnemonic": "jg",
+            "constant": 2090288329,
+            "taken": false
+          },
+          {
+            "site": 21744549,
+            "cmp_site": 21744544,
+            "mnemonic": "je",
+            "constant": 1997994404,
+            "taken": false
+          },
+          {
+            "site": 21744560,
+            "cmp_site": 21744555,
+            "mnemonic": "jne",
+            "constant": 2036049914,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": true
+          },
+          {
+            "site": 21744538,
+            "cmp_site": 21744533,
+            "mnemonic": "jg",
+            "constant": 2090288329,
+            "taken": true
+          },
+          {
+            "site": 21750271,
+            "cmp_site": 21750266,
+            "mnemonic": "je",
+            "constant": 2090288330,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": true
+          },
+          {
+            "site": 21744538,
+            "cmp_site": 21744533,
+            "mnemonic": "jg",
+            "constant": 2090288329,
+            "taken": true
+          },
+          {
+            "site": 21750271,
+            "cmp_site": 21750266,
+            "mnemonic": "je",
+            "constant": 2090288330,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": true
+          },
+          {
+            "site": 21744538,
+            "cmp_site": 21744533,
+            "mnemonic": "jg",
+            "constant": 2090288329,
+            "taken": true
+          },
+          {
+            "site": 21750271,
+            "cmp_site": 21750266,
+            "mnemonic": "je",
+            "constant": 2090288330,
+            "taken": false
+          },
+          {
+            "site": 21750282,
+            "cmp_site": 21750277,
+            "mnemonic": "jne",
+            "constant": 2103789058,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": false
+          },
+          {
+            "site": 21742539,
+            "cmp_site": 21742534,
+            "mnemonic": "jg",
+            "constant": 1997994403,
+            "taken": true
+          },
+          {
+            "site": 21744538,
+            "cmp_site": 21744533,
+            "mnemonic": "jg",
+            "constant": 2090288329,
+            "taken": true
+          },
+          {
+            "site": 21750271,
+            "cmp_site": 21750266,
+            "mnemonic": "je",
+            "constant": 2090288330,
+            "taken": false
+          },
+          {
+            "site": 21750282,
+            "cmp_site": 21750277,
+            "mnemonic": "jne",
+            "constant": 2103789058,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": true
+          },
+          {
+            "site": 21743914,
+            "cmp_site": 21743909,
+            "mnemonic": "jle",
+            "constant": 1677852609,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": true
+          },
+          {
+            "site": 21743914,
+            "cmp_site": 21743909,
+            "mnemonic": "jle",
+            "constant": 1677852609,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": true
+          },
+          {
+            "site": 21743914,
+            "cmp_site": 21743909,
+            "mnemonic": "jle",
+            "constant": 1677852609,
+            "taken": false
+          },
+          {
+            "site": 21743925,
+            "cmp_site": 21743920,
+            "mnemonic": "jg",
+            "constant": 1782612467,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": true
+          },
+          {
+            "site": 21743914,
+            "cmp_site": 21743909,
+            "mnemonic": "jle",
+            "constant": 1677852609,
+            "taken": false
+          },
+          {
+            "site": 21743925,
+            "cmp_site": 21743920,
+            "mnemonic": "jg",
+            "constant": 1782612467,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": true
+          },
+          {
+            "site": 21743914,
+            "cmp_site": 21743909,
+            "mnemonic": "jle",
+            "constant": 1677852609,
+            "taken": false
+          },
+          {
+            "site": 21743925,
+            "cmp_site": 21743920,
+            "mnemonic": "jg",
+            "constant": 1782612467,
+            "taken": true
+          },
+          {
+            "site": 21749090,
+            "cmp_site": 21749085,
+            "mnemonic": "je",
+            "constant": 1782612468,
+            "taken": true
+          }
+        ],
+        "result": "unsat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": true
+          },
+          {
+            "site": 21743914,
+            "cmp_site": 21743909,
+            "mnemonic": "jle",
+            "constant": 1677852609,
+            "taken": false
+          },
+          {
+            "site": 21743925,
+            "cmp_site": 21743920,
+            "mnemonic": "jg",
+            "constant": 1782612467,
+            "taken": true
+          },
+          {
+            "site": 21749090,
+            "cmp_site": 21749085,
+            "mnemonic": "je",
+            "constant": 1782612468,
+            "taken": false
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": true
+          },
+          {
+            "site": 21743914,
+            "cmp_site": 21743909,
+            "mnemonic": "jle",
+            "constant": 1677852609,
+            "taken": false
+          },
+          {
+            "site": 21743925,
+            "cmp_site": 21743920,
+            "mnemonic": "jg",
+            "constant": 1782612467,
+            "taken": true
+          },
+          {
+            "site": 21749090,
+            "cmp_site": 21749085,
+            "mnemonic": "je",
+            "constant": 1782612468,
+            "taken": false
+          },
+          {
+            "site": 21749101,
+            "cmp_site": 21749096,
+            "mnemonic": "jne",
+            "constant": 1825968397,
+            "taken": true
+          }
+        ],
+        "result": "sat"
+      },
+      {
+        "path_decisions": [
+          {
+            "site": 21742265,
+            "cmp_site": 21742260,
+            "mnemonic": "jg",
+            "constant": 1031838062,
+            "taken": true
+          },
+          {
+            "site": 21742517,
+            "cmp_site": 21742512,
+            "mnemonic": "jle",
+            "constant": 1565023272,
+            "taken": false
+          },
+          {
+            "site": 21742528,
+            "cmp_site": 21742523,
+            "mnemonic": "jle",
+            "constant": 1861798367,
+            "taken": true
+          },
+          {
+            "site": 21743914,
+            "cmp_site": 21743909,
+            "mnemonic": "jle",
+            "constant": 1677852609,
+            "taken": false
+          },
+          {
+            "site": 21743925,
+            "cmp_site": 21743920,
+            "mnemonic": "jg",
+            "constant": 1782612467,
+            "taken": true
+          },
+          {
+            "site": 21749090,
+            "cmp_site": 21749085,
+            "mnemonic": "je",
+            "constant": 1782612468,
+            "taken": false
+          },
+          {
+            "site": 21749101,
+            "cmp_site": 21749096,
+            "mnemonic": "jne",
+            "constant": 1825968397,
+            "taken": false
+          }
+        ],
+        "result": "unsat"
+      }
+    ],
+    "unknown": [],
+    "state_always_even": "unsat for counterexample (state & 1) != 0",
+    "path_count": 17,
+    "distinct_frontiers": 16
+  },
+  "conditional_block": {
+    "start": 21766731,
+    "stop_call": 21767248,
+    "nodes": [
+      {
+        "rva": 21766731,
+        "bytes": "4889842490020000",
+        "mnemonic": "mov",
+        "operands": "qword ptr [rsp + 0x290], rax"
+      },
+      {
+        "rva": 21766739,
+        "bytes": "488b842490020000",
+        "mnemonic": "mov",
+        "operands": "rax, qword ptr [rsp + 0x290]"
+      },
+      {
+        "rva": 21766747,
+        "bytes": "4889842418010000",
+        "mnemonic": "mov",
+        "operands": "qword ptr [rsp + 0x118], rax"
+      },
+      {
+        "rva": 21766755,
+        "bytes": "0f29b424d0080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x8d0], xmm6"
+      },
+      {
+        "rva": 21766763,
+        "bytes": "0f29b424c0080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x8c0], xmm6"
+      },
+      {
+        "rva": 21766771,
+        "bytes": "0f29b424b0080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x8b0], xmm6"
+      },
+      {
+        "rva": 21766779,
+        "bytes": "0f29b424a0080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x8a0], xmm6"
+      },
+      {
+        "rva": 21766787,
+        "bytes": "0f29b42490080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x890], xmm6"
+      },
+      {
+        "rva": 21766795,
+        "bytes": "0f29b42480080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x880], xmm6"
+      },
+      {
+        "rva": 21766803,
+        "bytes": "0f29b42470080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x870], xmm6"
+      },
+      {
+        "rva": 21766811,
+        "bytes": "0f29b42460080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x860], xmm6"
+      },
+      {
+        "rva": 21766819,
+        "bytes": "0f29b42450080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x850], xmm6"
+      },
+      {
+        "rva": 21766827,
+        "bytes": "0f29b42440080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x840], xmm6"
+      },
+      {
+        "rva": 21766835,
+        "bytes": "0f29b42430080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x830], xmm6"
+      },
+      {
+        "rva": 21766843,
+        "bytes": "0f29b42420080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x820], xmm6"
+      },
+      {
+        "rva": 21766851,
+        "bytes": "0f29b42410080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x810], xmm6"
+      },
+      {
+        "rva": 21766859,
+        "bytes": "0f29b42400080000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x800], xmm6"
+      },
+      {
+        "rva": 21766867,
+        "bytes": "0f29b424f0070000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x7f0], xmm6"
+      },
+      {
+        "rva": 21766875,
+        "bytes": "0f29b424e0070000",
+        "mnemonic": "movaps",
+        "operands": "xmmword ptr [rsp + 0x7e0], xmm6"
+      },
+      {
+        "rva": 21766883,
+        "bytes": "0fb74058",
+        "mnemonic": "movzx",
+        "operands": "eax, word ptr [rax + 0x58]"
+      },
+      {
+        "rva": 21766887,
+        "bytes": "0fb70daa78c300",
+        "mnemonic": "movzx",
+        "operands": "ecx, word ptr [rip + 0xc378aa]"
+      },
+      {
+        "rva": 21766894,
+        "bytes": "8d912af8ffff",
+        "mnemonic": "lea",
+        "operands": "edx, [rcx - 0x7d6]"
+      },
+      {
+        "rva": 21766900,
+        "bytes": "448d81bc110000",
+        "mnemonic": "lea",
+        "operands": "r8d, [rcx + 0x11bc]"
+      },
+      {
+        "rva": 21766907,
+        "bytes": "4131d0",
+        "mnemonic": "xor",
+        "operands": "r8d, edx"
+      },
+      {
+        "rva": 21766910,
+        "bytes": "89ca",
+        "mnemonic": "mov",
+        "operands": "edx, ecx"
+      },
+      {
+        "rva": 21766912,
+        "bytes": "f7d2",
+        "mnemonic": "not",
+        "operands": "edx"
+      },
+      {
+        "rva": 21766914,
+        "bytes": "4189d1",
+        "mnemonic": "mov",
+        "operands": "r9d, edx"
+      },
+      {
+        "rva": 21766917,
+        "bytes": "4181c9962d0000",
+        "mnemonic": "or",
+        "operands": "r9d, 0x2d96"
+      },
+      {
+        "rva": 21766924,
+        "bytes": "4189d2",
+        "mnemonic": "mov",
+        "operands": "r10d, edx"
+      },
+      {
+        "rva": 21766927,
+        "bytes": "4181e269d2ffff",
+        "mnemonic": "and",
+        "operands": "r10d, 0xffffd269"
+      },
+      {
+        "rva": 21766934,
+        "bytes": "4501ca",
+        "mnemonic": "add",
+        "operands": "r10d, r9d"
+      },
+      {
+        "rva": 21766937,
+        "bytes": "81e1962d0000",
+        "mnemonic": "and",
+        "operands": "ecx, 0x2d96"
+      },
+      {
+        "rva": 21766943,
+        "bytes": "01c9",
+        "mnemonic": "add",
+        "operands": "ecx, ecx"
+      },
+      {
+        "rva": 21766945,
+        "bytes": "81f12c5b0000",
+        "mnemonic": "xor",
+        "operands": "ecx, 0x5b2c"
+      },
+      {
+        "rva": 21766951,
+        "bytes": "4401d1",
+        "mnemonic": "add",
+        "operands": "ecx, r10d"
+      },
+      {
+        "rva": 21766954,
+        "bytes": "29d1",
+        "mnemonic": "sub",
+        "operands": "ecx, edx"
+      },
+      {
+        "rva": 21766956,
+        "bytes": "ffc1",
+        "mnemonic": "inc",
+        "operands": "ecx"
+      },
+      {
+        "rva": 21766958,
+        "bytes": "4431c1",
+        "mnemonic": "xor",
+        "operands": "ecx, r8d"
+      },
+      {
+        "rva": 21766961,
+        "bytes": "0c00",
+        "mnemonic": "or",
+        "operands": "al, 0"
+      },
+      {
+        "rva": 21766963,
+        "bytes": "8aed",
+        "mnemonic": "mov",
+        "operands": "ch, ch"
+      },
+      {
+        "rva": 21766965,
+        "bytes": "713d",
+        "mnemonic": "jno",
+        "operands": "0x14c2374"
+      },
+      {
+        "rva": 21767028,
+        "bytes": "80f1d6",
+        "mnemonic": "xor",
+        "operands": "cl, 0xd6"
+      },
+      {
+        "rva": 21767031,
+        "bytes": "48d3e8",
+        "mnemonic": "shr",
+        "operands": "rax, cl"
+      },
+      {
+        "rva": 21767034,
+        "bytes": "7b36",
+        "mnemonic": "jnp",
+        "operands": "0x14c23b2"
+      },
+      {
+        "rva": 21767036,
+        "bytes": "7a4a",
+        "mnemonic": "jp",
+        "operands": "0x14c23c8"
+      },
+      {
+        "rva": 21767090,
+        "bytes": "7b08",
+        "mnemonic": "jnp",
+        "operands": "0x14c23bc"
+      },
+      {
+        "rva": 21767100,
+        "bytes": "7b16",
+        "mnemonic": "jnp",
+        "operands": "0x14c23d4"
+      },
+      {
+        "rva": 21767112,
+        "bytes": "7a0a",
+        "mnemonic": "jp",
+        "operands": "0x14c23d4"
+      },
+      {
+        "rva": 21767124,
+        "bytes": "a8e1",
+        "mnemonic": "test",
+        "operands": "al, 0xe1"
+      },
+      {
+        "rva": 21767126,
+        "bytes": "c0ff00",
+        "mnemonic": "sar",
+        "operands": "bh, 0"
+      },
+      {
+        "rva": 21767129,
+        "bytes": "7128",
+        "mnemonic": "jno",
+        "operands": "0x14c2403"
+      },
+      {
+        "rva": 21767171,
+        "bytes": "90",
+        "mnemonic": "nop",
+        "operands": ""
+      },
+      {
+        "rva": 21767172,
+        "bytes": "710e",
+        "mnemonic": "jno",
+        "operands": "0x14c2414"
+      },
+      {
+        "rva": 21767188,
+        "bytes": "488b8c2418010000",
+        "mnemonic": "mov",
+        "operands": "rcx, qword ptr [rsp + 0x118]"
+      },
+      {
+        "rva": 21767196,
+        "bytes": "4c8b4160",
+        "mnemonic": "mov",
+        "operands": "r8, qword ptr [rcx + 0x60]"
+      },
+      {
+        "rva": 21767200,
+        "bytes": "488d8c24d8050000",
+        "mnemonic": "lea",
+        "operands": "rcx, [rsp + 0x5d8]"
+      },
+      {
+        "rva": 21767208,
+        "bytes": "48894c2428",
+        "mnemonic": "mov",
+        "operands": "qword ptr [rsp + 0x28], rcx"
+      },
+      {
+        "rva": 21767213,
+        "bytes": "48c74424305b000000",
+        "mnemonic": "mov",
+        "operands": "qword ptr [rsp + 0x30], 0x5b"
+      },
+      {
+        "rva": 21767222,
+        "bytes": "48c74424204d000000",
+        "mnemonic": "mov",
+        "operands": "qword ptr [rsp + 0x20], 0x4d"
+      },
+      {
+        "rva": 21767231,
+        "bytes": "41b944000000",
+        "mnemonic": "mov",
+        "operands": "r9d, 0x44"
+      },
+      {
+        "rva": 21767237,
+        "bytes": "4889c1",
+        "mnemonic": "mov",
+        "operands": "rcx, rax"
+      },
+      {
+        "rva": 21767240,
+        "bytes": "488d9424e0070000",
+        "mnemonic": "lea",
+        "operands": "rdx, [rsp + 0x7e0]"
+      },
+      {
+        "rva": 21767248,
+        "bytes": "e84b1c0f00",
+        "mnemonic": "call",
+        "operands": "0x15b40a0"
+      }
+    ],
+    "edges": [
+      {
+        "from": 21766731,
+        "to": [
+          21766739
+        ]
+      },
+      {
+        "from": 21766739,
+        "to": [
+          21766747
+        ]
+      },
+      {
+        "from": 21766747,
+        "to": [
+          21766755
+        ]
+      },
+      {
+        "from": 21766755,
+        "to": [
+          21766763
+        ]
+      },
+      {
+        "from": 21766763,
+        "to": [
+          21766771
+        ]
+      },
+      {
+        "from": 21766771,
+        "to": [
+          21766779
+        ]
+      },
+      {
+        "from": 21766779,
+        "to": [
+          21766787
+        ]
+      },
+      {
+        "from": 21766787,
+        "to": [
+          21766795
+        ]
+      },
+      {
+        "from": 21766795,
+        "to": [
+          21766803
+        ]
+      },
+      {
+        "from": 21766803,
+        "to": [
+          21766811
+        ]
+      },
+      {
+        "from": 21766811,
+        "to": [
+          21766819
+        ]
+      },
+      {
+        "from": 21766819,
+        "to": [
+          21766827
+        ]
+      },
+      {
+        "from": 21766827,
+        "to": [
+          21766835
+        ]
+      },
+      {
+        "from": 21766835,
+        "to": [
+          21766843
+        ]
+      },
+      {
+        "from": 21766843,
+        "to": [
+          21766851
+        ]
+      },
+      {
+        "from": 21766851,
+        "to": [
+          21766859
+        ]
+      },
+      {
+        "from": 21766859,
+        "to": [
+          21766867
+        ]
+      },
+      {
+        "from": 21766867,
+        "to": [
+          21766875
+        ]
+      },
+      {
+        "from": 21766875,
+        "to": [
+          21766883
+        ]
+      },
+      {
+        "from": 21766883,
+        "to": [
+          21766887
+        ]
+      },
+      {
+        "from": 21766887,
+        "to": [
+          21766894
+        ]
+      },
+      {
+        "from": 21766894,
+        "to": [
+          21766900
+        ]
+      },
+      {
+        "from": 21766900,
+        "to": [
+          21766907
+        ]
+      },
+      {
+        "from": 21766907,
+        "to": [
+          21766910
+        ]
+      },
+      {
+        "from": 21766910,
+        "to": [
+          21766912
+        ]
+      },
+      {
+        "from": 21766912,
+        "to": [
+          21766914
+        ]
+      },
+      {
+        "from": 21766914,
+        "to": [
+          21766917
+        ]
+      },
+      {
+        "from": 21766917,
+        "to": [
+          21766924
+        ]
+      },
+      {
+        "from": 21766924,
+        "to": [
+          21766927
+        ]
+      },
+      {
+        "from": 21766927,
+        "to": [
+          21766934
+        ]
+      },
+      {
+        "from": 21766934,
+        "to": [
+          21766937
+        ]
+      },
+      {
+        "from": 21766937,
+        "to": [
+          21766943
+        ]
+      },
+      {
+        "from": 21766943,
+        "to": [
+          21766945
+        ]
+      },
+      {
+        "from": 21766945,
+        "to": [
+          21766951
+        ]
+      },
+      {
+        "from": 21766951,
+        "to": [
+          21766954
+        ]
+      },
+      {
+        "from": 21766954,
+        "to": [
+          21766956
+        ]
+      },
+      {
+        "from": 21766956,
+        "to": [
+          21766958
+        ]
+      },
+      {
+        "from": 21766958,
+        "to": [
+          21766961
+        ]
+      },
+      {
+        "from": 21766961,
+        "to": [
+          21766963
+        ]
+      },
+      {
+        "from": 21766963,
+        "to": [
+          21766965
+        ]
+      },
+      {
+        "from": 21766965,
+        "to": [
+          21767028
+        ]
+      },
+      {
+        "from": 21767028,
+        "to": [
+          21767031
+        ]
+      },
+      {
+        "from": 21767031,
+        "to": [
+          21767034
+        ]
+      },
+      {
+        "from": 21767034,
+        "to": [
+          21767090,
+          21767036
+        ]
+      },
+      {
+        "from": 21767036,
+        "to": [
+          21767112
+        ]
+      },
+      {
+        "from": 21767090,
+        "to": [
+          21767100
+        ]
+      },
+      {
+        "from": 21767100,
+        "to": [
+          21767124
+        ]
+      },
+      {
+        "from": 21767112,
+        "to": [
+          21767124
+        ]
+      },
+      {
+        "from": 21767124,
+        "to": [
+          21767126
+        ]
+      },
+      {
+        "from": 21767126,
+        "to": [
+          21767129
+        ]
+      },
+      {
+        "from": 21767129,
+        "to": [
+          21767171
+        ]
+      },
+      {
+        "from": 21767171,
+        "to": [
+          21767172
+        ]
+      },
+      {
+        "from": 21767172,
+        "to": [
+          21767188
+        ]
+      },
+      {
+        "from": 21767188,
+        "to": [
+          21767196
+        ]
+      },
+      {
+        "from": 21767196,
+        "to": [
+          21767200
+        ]
+      },
+      {
+        "from": 21767200,
+        "to": [
+          21767208
+        ]
+      },
+      {
+        "from": 21767208,
+        "to": [
+          21767213
+        ]
+      },
+      {
+        "from": 21767213,
+        "to": [
+          21767222
+        ]
+      },
+      {
+        "from": 21767222,
+        "to": [
+          21767231
+        ]
+      },
+      {
+        "from": 21767231,
+        "to": [
+          21767237
+        ]
+      },
+      {
+        "from": 21767237,
+        "to": [
+          21767240
+        ]
+      },
+      {
+        "from": 21767240,
+        "to": [
+          21767248
+        ]
+      },
+      {
+        "from": 21767248,
+        "to": []
+      }
+    ],
+    "rules": [
+      {
+        "rva": 21766965,
+        "decision": "taken",
+        "reason": "OR AL,0 clears OF; MOV CH,CH preserves flags"
+      },
+      {
+        "rva": 21767036,
+        "decision": "taken",
+        "reason": "fallthrough of adjacent JNP: PF=1; JP is complementary"
+      },
+      {
+        "rva": 21767090,
+        "decision": "taken",
+        "reason": "arrived through JNP; flags unchanged"
+      },
+      {
+        "rva": 21767100,
+        "decision": "taken",
+        "reason": "preceding JNP taken; flags unchanged"
+      },
+      {
+        "rva": 21767112,
+        "decision": "taken",
+        "reason": "arrived through JP; flags unchanged"
+      },
+      {
+        "rva": 21767129,
+        "decision": "taken",
+        "reason": "TEST clears OF; SAR BH,0 preserves flags"
+      },
+      {
+        "rva": 21767172,
+        "decision": "taken",
+        "reason": "JNO taken; NOP preserves OF"
+      }
+    ],
+    "condition": "Initial global equals its disk value; pointer comparison at 0x14C2242 is not equal; valid ordinary reads and unchanged code",
+    "unresolved_pointer_branch": {
+      "rva": 21766725,
+      "equal_target": 21772344,
+      "not_equal_target": 21766731
+    }
+  },
+  "wrapper": {
+    "start": 22757536,
+    "stop_call": 22757646,
+    "nodes": [
+      {
+        "rva": 22757536,
+        "bytes": "4883ec38",
+        "mnemonic": "sub",
+        "operands": "rsp, 0x38"
+      },
+      {
+        "rva": 22757540,
+        "bytes": "4c89c0",
+        "mnemonic": "mov",
+        "operands": "rax, r8"
+      },
+      {
+        "rva": 22757543,
+        "bytes": "4c8b4c2468",
+        "mnemonic": "mov",
+        "operands": "r9, qword ptr [rsp + 0x68]"
+      },
+      {
+        "rva": 22757548,
+        "bytes": "733b",
+        "mnemonic": "jae",
+        "operands": "0x15b40e9"
+      },
+      {
+        "rva": 22757550,
+        "bytes": "86ff",
+        "mnemonic": "xchg",
+        "operands": "bh, bh"
+      },
+      {
+        "rva": 22757552,
+        "bytes": "722b",
+        "mnemonic": "jb",
+        "operands": "0x15b40dd"
+      },
+      {
+        "rva": 22757597,
+        "bytes": "720c",
+        "mnemonic": "jb",
+        "operands": "0x15b40eb"
+      },
+      {
+        "rva": 22757609,
+        "bytes": "7300",
+        "mnemonic": "jae",
+        "operands": "0x15b40eb"
+      },
+      {
+        "rva": 22757611,
+        "bytes": "48894c2430",
+        "mnemonic": "mov",
+        "operands": "qword ptr [rsp + 0x30], rcx"
+      },
+      {
+        "rva": 22757616,
+        "bytes": "48c74424281c000000",
+        "mnemonic": "mov",
+        "operands": "qword ptr [rsp + 0x28], 0x1c"
+      },
+      {
+        "rva": 22757625,
+        "bytes": "48c744242021000000",
+        "mnemonic": "mov",
+        "operands": "qword ptr [rsp + 0x20], 0x21"
+      },
+      {
+        "rva": 22757634,
+        "bytes": "41b846000000",
+        "mnemonic": "mov",
+        "operands": "r8d, 0x46"
+      },
+      {
+        "rva": 22757640,
+        "bytes": "4889d1",
+        "mnemonic": "mov",
+        "operands": "rcx, rdx"
+      },
+      {
+        "rva": 22757643,
+        "bytes": "4889c2",
+        "mnemonic": "mov",
+        "operands": "rdx, rax"
+      },
+      {
+        "rva": 22757646,
+        "bytes": "e82d2301ff",
+        "mnemonic": "call",
+        "operands": "0x5c6440"
+      }
+    ],
+    "edges": [
+      {
+        "from": 22757536,
+        "to": [
+          22757540
+        ]
+      },
+      {
+        "from": 22757540,
+        "to": [
+          22757543
+        ]
+      },
+      {
+        "from": 22757543,
+        "to": [
+          22757548
+        ]
+      },
+      {
+        "from": 22757548,
+        "to": [
+          22757609,
+          22757550
+        ]
+      },
+      {
+        "from": 22757550,
+        "to": [
+          22757552
+        ]
+      },
+      {
+        "from": 22757552,
+        "to": [
+          22757597
+        ]
+      },
+      {
+        "from": 22757597,
+        "to": [
+          22757611
+        ]
+      },
+      {
+        "from": 22757609,
+        "to": [
+          22757611
+        ]
+      },
+      {
+        "from": 22757611,
+        "to": [
+          22757616
+        ]
+      },
+      {
+        "from": 22757616,
+        "to": [
+          22757625
+        ]
+      },
+      {
+        "from": 22757625,
+        "to": [
+          22757634
+        ]
+      },
+      {
+        "from": 22757634,
+        "to": [
+          22757640
+        ]
+      },
+      {
+        "from": 22757640,
+        "to": [
+          22757643
+        ]
+      },
+      {
+        "from": 22757643,
+        "to": [
+          22757646
+        ]
+      },
+      {
+        "from": 22757646,
+        "to": []
+      }
+    ],
+    "rules": [
+      {
+        "rva": 22757552,
+        "decision": "taken",
+        "reason": "fallthrough of JAE implies CF=1; XCHG BH,BH preserves flags"
+      },
+      {
+        "rva": 22757597,
+        "decision": "taken",
+        "reason": "JB taken, CF=1 unchanged"
+      },
+      {
+        "rva": 22757609,
+        "decision": "taken",
+        "reason": "JAE taken, CF=0 unchanged"
+      }
+    ],
+    "condition": "Conditional on reaching this wrapper; either CF after stack subtraction is allowed"
+  },
+  "semantic_bytes": [
+    {
+      "rva": 21766693,
+      "bytes": "65488b042560000000488b4018488d481048898c2460030000488b40104839c80f84ed150000"
+    },
+    {
+      "rva": 21766883,
+      "bytes": "0fb740580fb70daa78c3008d91"
+    },
+    {
+      "rva": 21767188,
+      "bytes": "488b8c24180100004c8b4160488d8c24d805000048894c242848c74424305b00000048c74424204d00000041b9440000004889c1488d9424e0070000e84b1c0f00"
+    },
+    {
+      "rva": 22757611,
+      "bytes": "48894c243048c74424281c00000048c74424202100000041b8460000004889d14889c2e82d2301ff904883c438c3"
+    }
+  ],
+  "direct_calls": [
+    {
+      "site": 21767248,
+      "target": 22757536
+    },
+    {
+      "site": 22757646,
+      "target": 6054976
+    }
+  ],
+  "conclusions": {
+    "all_17_paths_observed_runtime": false,
+    "module_walk_interpretation": "consistent with x64 PEB/Ldr/list-style accesses; not a verified runtime module enumeration",
+    "exe_slot_writer_found": false,
+    "code_preparation_proven": false,
+    "bios_read_proven": false,
+    "hardware_send_3724_proven": false,
+    "next_callee_semantics": "unresolved"
+  },
+  "limitations": [
+    "Dispatcher coverage is only the first dispatch, not the full function or loop recovery",
+    "Symbolic entry global is arbitrary DWORD; satisfiable paths are not observed runtime paths",
+    "PEB-like block follows only the explicit disk-value scenario and non-equal list branch",
+    "No runtime structure contents, module identities, API names, or code-write targets established",
+    "Normal valid memory and stack accesses; exceptions, code mutation and nonlocal transfer not modeled",
+    "No input PE execution, patching, attachment, injection, or network test"
+  ]
+}

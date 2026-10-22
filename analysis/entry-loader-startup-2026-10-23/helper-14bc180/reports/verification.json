@@ -1,0 +1,48 @@
+{
+  "independent_pe_and_relative_targets": "passed",
+  "independent_bv_coverage": "unsat for uncovered input",
+  "disjoint_leaf_paths": "passed",
+  "state_parity": "always even",
+  "first_dispatch_paths": 17,
+  "distinct_frontiers": 16,
+  "producer_branch_checks_rechecked": 100,
+  "solver_unknown": 0,
+  "conditional_block_instructions": 63,
+  "wrapper_instructions": 15,
+  "both_precall_graphs_must_hit": "passed",
+  "input_PE_executed": false,
+  "mutation_tests": [
+    {
+      "mutation": "removed_scenario_condition",
+      "rejected": true
+    },
+    {
+      "mutation": "changed_callee",
+      "rejected": true
+    },
+    {
+      "mutation": "assumed_runtime_global",
+      "rejected": true
+    },
+    {
+      "mutation": "deleted_dispatch_path",
+      "rejected": true
+    },
+    {
+      "mutation": "flipped_branch",
+      "rejected": true
+    },
+    {
+      "mutation": "changed_instruction",
+      "rejected": true
+    },
+    {
+      "mutation": "claimed_send",
+      "rejected": true
+    },
+    {
+      "mutation": "removed_precall_edge",
+      "rejected": true
+    }
+  ]
+}
