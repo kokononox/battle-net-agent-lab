@@ -1,0 +1,217 @@
+{
+  "tool": "WLab Evidence",
+  "version": "0.1.1",
+  "target": "Windows x64 GUI",
+  "compiler": "Zig 0.14.1 / clang, -O2 -Wall -Wextra -Werror",
+  "build_passed": true,
+  "exe_sha256": "01aa7c388306b759defa829b3aad30a946ceb16175444529d5ae80c6d60827d1",
+  "exe_bytes": 214528,
+  "source_sha256": {
+    "source/core.h": "07f4dad5da95d471ecf5cb932a26ca038641e94bb0c916304f7ccc079dce2f8e",
+    "source/main.c": "f3f0a06139e34f1196bbac90738736954341f8096fbab777d9c8506432c3cec5"
+  },
+  "portable_tests": "Core C + independent Python ZIP/JSON checks and UTF-16 regression/boundary/malformed/surrogate tests passed",
+  "static_import_audit": "Passed; no listed debugger, game-memory, injection or service-install APIs imported; OpenProcess source rights limited to query/synchronize",
+  "aslr": true,
+  "dep": true,
+  "imports": {
+    "USER32.dll": [
+      "CreateWindowExW",
+      "DefWindowProcW",
+      "DestroyWindow",
+      "DispatchMessageW",
+      "EnableWindow",
+      "GetDC",
+      "GetMessageW",
+      "GetWindowTextW",
+      "IsDialogMessageW",
+      "LoadCursorW",
+      "MessageBoxW",
+      "PostMessageW",
+      "PostQuitMessage",
+      "RegisterClassW",
+      "ReleaseDC",
+      "SendMessageW",
+      "SetProcessDPIAware",
+      "SetWindowPos",
+      "SetWindowTextW",
+      "ShowWindow",
+      "TranslateMessage",
+      "UpdateWindow"
+    ],
+    "GDI32.dll": [
+      "CreateFontW",
+      "CreateSolidBrush",
+      "DeleteObject",
+      "GetDeviceCaps",
+      "SetBkColor",
+      "SetTextColor"
+    ],
+    "SHELL32.dll": [
+      "CommandLineToArgvW",
+      "SHGetFolderPathW",
+      "ShellExecuteW"
+    ],
+    "ADVAPI32.dll": [
+      "AdjustTokenPrivileges",
+      "AllocateAndInitializeSid",
+      "CheckTokenMembership",
+      "CloseTrace",
+      "ControlTraceW",
+      "EnableTraceEx2",
+      "FreeSid",
+      "LookupPrivilegeValueW",
+      "OpenProcessToken",
+      "OpenTraceW",
+      "ProcessTrace",
+      "StartTraceW"
+    ],
+    "bcrypt.dll": [
+      "BCryptGenRandom"
+    ],
+    "IPHLPAPI.DLL": [
+      "GetExtendedTcpTable",
+      "GetExtendedUdpTable"
+    ],
+    "WS2_32.dll": [
+      "InetNtopW",
+      "WSACleanup",
+      "WSAStartup",
+      "ntohs"
+    ],
+    "tdh.dll": [
+      "TdhEnumerateProviders",
+      "TdhGetEventInformation",
+      "TdhGetProperty",
+      "TdhGetPropertySize"
+    ],
+    "WINHTTP.dll": [
+      "WinHttpCloseHandle",
+      "WinHttpConnect",
+      "WinHttpOpen",
+      "WinHttpOpenRequest",
+      "WinHttpQueryHeaders",
+      "WinHttpReceiveResponse",
+      "WinHttpSendRequest",
+      "WinHttpSetTimeouts"
+    ],
+    "api-ms-win-crt-convert-l1-1-0.dll": [
+      "wcstoul"
+    ],
+    "api-ms-win-crt-heap-l1-1-0.dll": [
+      "_set_new_mode",
+      "calloc",
+      "free",
+      "malloc"
+    ],
+    "api-ms-win-crt-private-l1-1-0.dll": [
+      "__C_specific_handler",
+      "strstr"
+    ],
+    "api-ms-win-crt-runtime-l1-1-0.dll": [
+      "__p___argc",
+      "__p___wargv",
+      "__p__wcmdln",
+      "_cexit",
+      "_configure_wide_argv",
+      "_crt_atexit",
+      "_errno",
+      "_exit",
+      "_initialize_wide_environment",
+      "_initterm",
+      "_initterm_e",
+      "_set_app_type",
+      "_set_invalid_parameter_handler",
+      "abort",
+      "exit",
+      "signal"
+    ],
+    "api-ms-win-crt-stdio-l1-1-0.dll": [
+      "__acrt_iob_func",
+      "__p__commode",
+      "__p__fmode",
+      "__stdio_common_vfprintf",
+      "__stdio_common_vswprintf",
+      "__stdio_common_vswscanf",
+      "_wfopen",
+      "fclose",
+      "ferror",
+      "fflush",
+      "fputc",
+      "fread",
+      "fseek",
+      "ftell",
+      "fwrite",
+      "rewind"
+    ],
+    "api-ms-win-crt-string-l1-1-0.dll": [
+      "_wcsicmp",
+      "iswctype",
+      "strlen",
+      "strncmp",
+      "wcscmp",
+      "wcscpy",
+      "wcslen",
+      "wcsncmp",
+      "wcsncpy"
+    ],
+    "KERNEL32.dll": [
+      "CloseHandle",
+      "CreateDirectoryW",
+      "CreateEventW",
+      "CreateProcessW",
+      "CreateThread",
+      "CreateToolhelp32Snapshot",
+      "DeleteCriticalSection",
+      "EnterCriticalSection",
+      "GetCommandLineW",
+      "GetCurrentProcess",
+      "GetCurrentProcessId",
+      "GetLastError",
+      "GetModuleFileNameW",
+      "GetModuleHandleW",
+      "GetProcAddress",
+      "GetProcessTimes",
+      "GetStartupInfoW",
+      "GetSystemTimePreciseAsFileTime",
+      "GetTickCount64",
+      "InitializeCriticalSection",
+      "LeaveCriticalSection",
+      "LocalFree",
+      "MoveFileW",
+      "MulDiv",
+      "OpenProcess",
+      "Process32FirstW",
+      "Process32NextW",
+      "QueryPerformanceCounter",
+      "QueryPerformanceFrequency",
+      "ResetEvent",
+      "SetEvent",
+      "SetLastError",
+      "SetUnhandledExceptionFilter",
+      "Sleep",
+      "TlsGetValue",
+      "VirtualProtect",
+      "VirtualQuery",
+      "WaitForSingleObject",
+      "WideCharToMultiByte"
+    ],
+    "api-ms-win-crt-math-l1-1-0.dll": [
+      "__setusermatherr"
+    ],
+    "api-ms-win-crt-environment-l1-1-0.dll": [
+      "__p__wenviron"
+    ]
+  },
+  "limitations": {
+    "windows_native_execution": "NOT TESTED",
+    "gui_visual_and_dpi": "NOT TESTED on Windows; no Wine present",
+    "game_compatibility": "NOT TESTED",
+    "native_etw_dns_and_watchdog": "0.1.1 NOT TESTED; 0.1.0 user evidence verified collection/start/stop, not crash watchdog",
+    "selftest_on_user_windows": "0.1.0 control verified from user evidence; 0.1.1 runtime test still required",
+    "code_signing": "UNSIGNED",
+    "sanitizers": "NOT RUN: sanitizer runtime unavailable in Linux environment; portable tests rerun without sanitizer",
+    "absence_of_hardware_transmission": "NOT PROVEN",
+    "hardware_payload_detection": "NOT IMPLEMENTED"
+  }
+}
