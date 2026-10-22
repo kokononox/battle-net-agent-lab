@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-21T23:46:53.105708+00:00",
+  "as_of_utc": "2026-10-22T05:16:23.381476+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -55,8 +55,8 @@
     "in_world_network_metadata_user_confirmed_20261022": true,
     "in_world_network_metadata_evidence": "reports/session-20261022/wow-network-evidence.json"
   },
-  "user_action_now": "No immediate new test required. Preserve current working configuration and captures. No automatic blacklist expansion, hosts changes, Sysmon/audit changes, payload interception or SSTP integration authorized by this sync.",
-  "sync_scope": "Sanitized session handoff, source-only tools, derived evidence, offline binary metadata; no game/runtime binaries, private keys, raw captures or raw transcript",
+  "user_action_now": "Do not repeat WLab 0.2.0 game attach. No game execution, protection bypass, live memory dump, TLS key collection or security policy changes authorized by this offline analysis. Binary browser upload awaits explicit browser approval.",
+  "sync_scope": "Sanitized source and derived evidence plus user-authorized private three-file archive exception. Part manifest present; binary parts not yet uploaded. No raw crash report, raw pcap, keys or private paths.",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
     "zip_sha256": "c26e5f9416e7aadef0f9f7dc36c06c2e8975ae65f8f1ac3bfca0abd67fa81001",
@@ -87,7 +87,7 @@
     "installation_ready": false,
     "historical_only_not_current_target": true
   },
-  "current_focus": "WoW Blacklist 0.1.8; stage-aware DNS/TCP capture analyzed; user confirms successful in-game entry in third trial under configured 137.0.0.0/8 TCP443 block. Packet-drop and hardware telemetry proofs remain unestablished.",
+  "current_focus": "Offline reverse engineering of newly uploaded exact Retail 70448 EXE and DLLs; game CDB probe withdrawn after Security Crash in both dashboard and in-world.",
   "current_updater": {
     "release": "0.27",
     "source": "updater-core/",
@@ -226,7 +226,7 @@
     "game_copy_requested": false,
     "main_install_modification_authorized": false
   },
-  "next_offline_step": "Do not repeat byte scans as progress. Continuing setting -> hardware-message -> send requires a new semantic artifact or a reviewed runtime method; neither available in this phase.",
+  "next_offline_step": "Code/data binding remains unresolved behind protected/computed dispatch. Do not equate schema/literal/API presence or zero bounded xrefs with actual sending or absence. Further progress needs a genuinely new semantic artifact; do not re-run crashing attach.",
   "public_policy_review": "Alternate community enum clarified only; Talebound and official selection remain unqualified",
   "agent_status_experiment": {
     "status": "game_summary_observed",
@@ -384,5 +384,24 @@
     "telemetry_payload_or_CPU_BIOS_transmission_proven": false,
     "SSTP_integration_implemented": false,
     "raw_data_synced": false
+  },
+  "retail_reverse_engineering_20261022": {
+    "report": "docs/RETAIL-RE-2026-10-22.fa.md",
+    "evidence": "reports/retail-re-20261022/",
+    "same_wow_sha_as_prior": true,
+    "schema_wrapper_edge_reverified": true,
+    "loader_crash_metadata_match": true,
+    "wow_text_high_entropy_consistent_with_protection": true,
+    "hardware_to_3724_binding_proven": false,
+    "game_probe_0_2_0_withdrawn": true,
+    "user_reports_crash_in_dashboard_and_in_world": true,
+    "binary_archive_authorized_by_user": true,
+    "archive_parts_prepared": 5,
+    "archive_part_max_bytes": 20000000,
+    "archive_manifest": "binaries/retail-70448/manifest.json",
+    "archive_parts_in_repo": false,
+    "archive_upload_status": "pending_binary_capable_path_or_browser_approval",
+    "input_binaries_executed": false,
+    "publisher_signature_validated": false
   }
 }

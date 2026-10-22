@@ -1,0 +1,134 @@
+[
+  {
+    "name": "wow_loader.dll",
+    "literal_matches": [
+      {
+        "term": "https://telemetry-in.battle.net/",
+        "encoding": "ascii",
+        "file_offset": "0x2087ad7",
+        "rva": "0x209b2d7"
+      }
+    ],
+    "bounded_scan_statistics": {
+      "functions_considered": 5996,
+      "functions_exactly_decoded": 3658,
+      "functions_partial_or_capped": 2343,
+      "decoded_instruction_count": 1857694
+    },
+    "rip_relative_literal_references": [],
+    "absence_scope": "bounded literal spelling and unwind-listed linear decode only; obfuscated/computed/indirect references can be missed",
+    "network_destination_binding_proven": false
+  },
+  {
+    "name": "Wow.exe",
+    "literal_matches": [
+      {
+        "term": "https://telemetry-in.battle.net",
+        "encoding": "ascii",
+        "file_offset": "0x42a3178",
+        "rva": "0x42a3d78"
+      },
+      {
+        "term": "telemetry-in.battle.net",
+        "encoding": "ascii",
+        "file_offset": "0x42a3180",
+        "rva": "0x42a3d80"
+      },
+      {
+        "term": "NtQuerySystemInformation",
+        "encoding": "ascii",
+        "file_offset": "0x3fa56e8",
+        "rva": "0x3fa62e8"
+      },
+      {
+        "term": "send",
+        "encoding": "ascii",
+        "file_offset": "0x3b84ff4",
+        "rva": "0x3b85bf4"
+      },
+      {
+        "term": "send",
+        "encoding": "ascii",
+        "file_offset": "0x4230511",
+        "rva": "0x4231111"
+      },
+      {
+        "term": "send",
+        "encoding": "ascii",
+        "file_offset": "0x42a5c13",
+        "rva": "0x42a6813"
+      },
+      {
+        "term": "send",
+        "encoding": "ascii",
+        "file_offset": "0x42f3583",
+        "rva": "0x42f4183"
+      },
+      {
+        "term": "send",
+        "encoding": "ascii",
+        "file_offset": "0x42f3dd1",
+        "rva": "0x42f49d1"
+      },
+      {
+        "term": "send",
+        "encoding": "ascii",
+        "file_offset": "0x42f3e6a",
+        "rva": "0x42f4a6a"
+      },
+      {
+        "term": "send",
+        "encoding": "ascii",
+        "file_offset": "0x42f7970",
+        "rva": "0x42f8570"
+      },
+      {
+        "term": "EncryptMessage",
+        "encoding": "ascii",
+        "file_offset": "0x42f93b8",
+        "rva": "0x42f9fb8"
+      },
+      {
+        "term": "SSL_write",
+        "encoding": "ascii",
+        "file_offset": "0x4248960",
+        "rva": "0x4249560"
+      },
+      {
+        "term": "Security Crash",
+        "encoding": "ascii",
+        "file_offset": "0x3b6a4b0",
+        "rva": "0x3b6b0b0"
+      }
+    ],
+    "bounded_scan_statistics": {
+      "functions_considered": 0,
+      "functions_exactly_decoded": 0,
+      "functions_partial_or_capped": 0,
+      "decoded_instruction_count": 0
+    },
+    "rip_relative_literal_references": [],
+    "absence_scope": "bounded literal spelling and unwind-listed linear decode only; obfuscated/computed/indirect references can be missed",
+    "network_destination_binding_proven": false
+  },
+  {
+    "name": "libxell.dll",
+    "literal_matches": [
+      {
+        "term": "IsDebuggerPresent",
+        "encoding": "ascii",
+        "file_offset": "0x52640",
+        "rva": "0x55a40"
+      }
+    ],
+    "bounded_scan_statistics": {
+      "functions_considered": 0,
+      "functions_exactly_decoded": 0,
+      "functions_partial_or_capped": 0,
+      "decoded_instruction_count": 0
+    },
+    "rip_relative_literal_references": [],
+    "absence_scope": "bounded literal spelling and unwind-listed linear decode only; obfuscated/computed/indirect references can be missed",
+    "network_destination_binding_proven": false
+  }
+]

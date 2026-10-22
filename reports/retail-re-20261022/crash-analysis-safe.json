@@ -1,0 +1,50 @@
+{
+  "source_sha256": "9d33fdf564cf09365a323de3b90f61eab2ae9c521566bb7a6f0b85dab85c2a54",
+  "source_format": "unstructured crash text with tagged sections, not CSV; generic profiler could not parse; custom parser used",
+  "process_id": 10768,
+  "matches_latest_test_pid": true,
+  "build": "12.1.5.70448",
+  "exception_code": "0xC00000E5",
+  "exception_name_as_reported": "EXCEPTION_INTERNAL_ERROR",
+  "exception_type_as_reported": "Security Crash",
+  "internal_error_tag": "0x0700",
+  "assertion_frames_module_mapping": [
+    {
+      "reported_module": "KERNELBASE.dll",
+      "module_by_reported_address_range": "KERNELBASE.dll"
+    },
+    {
+      "reported_module": "<unknown>",
+      "module_by_reported_address_range": "Wow_loader.dll"
+    },
+    {
+      "reported_module": "<unknown>",
+      "module_by_reported_address_range": "Wow_loader.dll"
+    },
+    {
+      "reported_module": "KERNEL32.DLL",
+      "module_by_reported_address_range": "KERNEL32.DLL"
+    },
+    {
+      "reported_module": "<unknown>",
+      "module_by_reported_address_range": "Wow_loader.dll"
+    },
+    {
+      "reported_module": "ntdll.dll",
+      "module_by_reported_address_range": "ntdll.dll"
+    }
+  ],
+  "raw_debugger_output_available": false,
+  "local_report_content_flags": {
+    "cpu_related_text": true,
+    "bios_related_text": false
+  },
+  "interpretation": {
+    "security_crash_label_explicit": true,
+    "debugger_triggered_security_reaction": "consistent with observations, not proven root cause or exact check",
+    "kernelbase_is_root_cause": "not established by stack location",
+    "hardware_network_transmission_proven": false,
+    "do_not_repeat_live_attach": true
+  },
+  "visual_disposition": "prose: categorical labels and address ownership, no quantitative chart justified"
+}
