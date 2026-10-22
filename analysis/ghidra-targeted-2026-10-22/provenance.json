@@ -1,0 +1,36 @@
+{
+  "reviewed_pilot_branch": "analysis/ghidra-pilot-2026-10-22",
+  "reviewed_pilot_commit": "f6682611827e77d22f7c723166dcaf456b5700f1",
+  "reviewed_pilot_report": "https://github.com/kokononox/battle-net-agent-lab/blob/f6682611827e77d22f7c723166dcaf456b5700f1/analysis/ghidra-pilot-2026-10-22/README.fa.md",
+  "result_branch": "analysis/ghidra-targeted-2026-10-22-r1",
+  "base_commit": "f6682611827e77d22f7c723166dcaf456b5700f1",
+  "tool": "Ghidra 12.2 PUBLIC",
+  "jdk": "Amazon Corretto 25.0.4.10.1",
+  "global_auto_analysis": false,
+  "function_boundaries": "Analyst supplied from previously checked PE unwind ranges and tiny stubs; not all independently inferred by Ghidra.",
+  "files": [
+    {
+      "name": "Wow.exe",
+      "bytes": 80834256,
+      "sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+      "newly_analyzed_with_Ghidra": true
+    },
+    {
+      "name": "wow_loader.dll",
+      "bytes": 41250000,
+      "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+      "newly_analyzed_with_Ghidra": true
+    },
+    {
+      "name": "libxell.dll",
+      "bytes": 359792,
+      "sha256": "5ce63652eee5720203e0e41cc97eb45ee541c499c8a51d4bdb1e8fe4eaef4890",
+      "newly_analyzed_with_Ghidra": false
+    }
+  ],
+  "original_inputs_executed_emulated_or_patched": false,
+  "Ghidra_project_memory_bytes_patched": false,
+  "project_metadata_modified": true,
+  "project_metadata_modifications": "Explicit functions/disassembly and two proof-backed fallthrough annotations in separate project.",
+  "whole_program_semantics_proven": false
+}

@@ -1,0 +1,92 @@
+openjdk version "25.0.4.1" 2026-08-18 LTS
+OpenJDK Runtime Environment Corretto-25.0.4.10.1 (build 25.0.4.1+10-LTS)
+OpenJDK 64-Bit Server VM Corretto-25.0.4.10.1 (build 25.0.4.1+10-LTS, mixed mode)
+INFO  Using log config file: jar:file:<GHIDRA_HOME>/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: <HOME>/.config/ghidra/ghidra_12.2_PUBLIC/application.log (LoggingInitialization)  
+INFO  Loading user preferences: <HOME>/.config/ghidra/ghidra_12.2_PUBLIC/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (640 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Loaded 143 trusted CA certificate(s) from /etc/ssl/certs/ca-certificates.crt (UnixSystemTrustKeyStoreUtil)  
+INFO  Loaded 143 trusted CA certificates from the OS trust store. (DefaultTrustManagerFactory)  
+INFO  Loaded 146 trusted CA certificates from the Java default trust store. (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (1920 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 60 extension points (19 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    <GHIDRA_HOME>/Ghidra/Features/FileFormats/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Features/FunctionID/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Features/Decompiler/ghidra_scripts
+    <WORK>/scripts
+    <GHIDRA_HOME>/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Features/PDB/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Processors/Atmel/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Features/Base/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Features/PyGhidra/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Processors/DATA/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Features/SystemEmulation/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Features/GnuDemangler/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Features/Swift/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Features/BytePatterns/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Debug/Debugger/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Processors/8051/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Processors/PIC/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Processors/JVM/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Features/VersionTracking/ghidra_scripts
+    <GHIDRA_HOME>/Ghidra/Features/BSim/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: <WORK>/projects/ExeTargeted (HeadlessAnalyzer)  
+INFO  Creating project: <WORK>/projects/ExeTargeted (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: <WORK>/projects/ExeTargeted (HeadlessAnalyzer)  
+INFO  IMPORTING: file://<INPUT_DIR>/Wow.exe (HeadlessAnalyzer)  
+INFO  Using Loader: Portable Executable (PE) (ProgramLoader)  
+INFO  Using Language/Compiler: x86:LE:64:default:windows (ProgramLoader)  
+INFO  Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64] (ProgramLoader)  
+INFO  TLS callbacks at 143b6a768 (TLSDirectory)  
+WARN  Invalid or missing function at 144775778 (ExportDataDirectory)  
+INFO  TLS callbacks at 18209f398 (TLSDirectory)  
+INFO  Additional info:
+Loading file://<INPUT_DIR>/Wow.exe?MD5=b36ac789caf3c72f1227021d2591009b...
+------------------------------------------------
+
+Searching 7 paths for library BATTLENET.LIBHTTPCLIENT.WIN32.V1.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library BATTLENET.OVERLAY.CLIENT.V1.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library OLEAUT32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library WOW_LOADER.DLL...
+Loading file://<INPUT_DIR>/wow_loader.dll?MD5=c3812b4d1612a1c2c93737d96e216740...
+Created exports file: <HOME>/.config/ghidra/ghidra_12.2_PUBLIC/symbols/win64/wow_loader.exports
+Library not saved to project.
+------------------------------------------------
+
+Applying cached symbols from WOW_LOADER.DLL
+Unable to locate symbol [Ordinal_1] in [<HOME>/.config/ghidra/ghidra_12.2_PUBLIC/symbols/win64/wow_loader.exports]. Please verify the version is correct.
+Linking the External Programs of 'Wow.exe' to imported libraries...
+  [WOW_LOADER.DLL] -> not found in project
+  [OLEAUT32.DLL] -> not found in project
+  [BATTLENET.LIBHTTPCLIENT.WIN32.V1.DLL] -> not found in project
+  [BATTLENET.OVERLAY.CLIENT.V1.DLL] -> not found in project
+------------------------------------------------
+
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: TargetedReview.java '<WORK>/output'  (HeadlessAnalyzer)  
+INFO  SCRIPT: <WORK>/scripts/TargetedReview.java (HeadlessAnalyzer)  
+INFO  TargetedReview.java> TARGET_REVIEW Wow.exe.1da9b0.raw.c completed=true instructions=8 (GhidraScript)  
+INFO  TargetedReview.java> TARGET_REVIEW Wow.exe.1da9e0.raw.c completed=true instructions=1 (GhidraScript)  
+INFO  /Wow.exe: file created (vercel-sandbox) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /Wow.exe (ExeTargeted:/Wow.exe) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  

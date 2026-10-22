@@ -1,0 +1,142 @@
+{
+  "scope": "Phase5 text-only targeted Ghidra review. No original binaries, Ghidra project databases, private account logs or credentials.",
+  "base_branch": "analysis/ghidra-pilot-2026-10-22",
+  "base_commit": "f6682611827e77d22f7c723166dcaf456b5700f1",
+  "files": [
+    {
+      "path": "README.fa.md",
+      "bytes": 11089,
+      "sha256": "76b8a73b80f8b7a6bee952092efe2278c9ea9e2647b89e81bd29fa04d4d85d91"
+    },
+    {
+      "path": "run-targeted.sh",
+      "bytes": 1194,
+      "sha256": "6bb2f539a0c14715fad595067975734ed85cbeb53cb116770c3b20f3a62280c7"
+    },
+    {
+      "path": "validate_outputs.py",
+      "bytes": 3791,
+      "sha256": "24b93f61507317a22e1af6a10b86be8bcf6889779bab1f674a3c97e8c19587f5"
+    },
+    {
+      "path": "provenance.json",
+      "bytes": 1592,
+      "sha256": "e5c4920864ed0cf86798c161a00e7e545e7c9cd38fd85e2cfc57dc00b0f14faf"
+    },
+    {
+      "path": "tool-release.json",
+      "bytes": 460,
+      "sha256": "d6e8afc09bd3968243f0fdafa51191a403cae33c2fbdf1fd0eccd2f05d0c9c48"
+    },
+    {
+      "path": "jdk-provenance.json",
+      "bytes": 428,
+      "sha256": "160269297a266e921e6491967e67499309f284f88e202fdda08b111c72e49cf1"
+    },
+    {
+      "path": "QA.json",
+      "bytes": 690,
+      "sha256": "84ec98e00ee96027e80411bf7c62ad4260ddcf4e03b65acd98860898a8c1e495"
+    },
+    {
+      "path": "scripts/TargetedReview.java",
+      "bytes": 3730,
+      "sha256": "f8e087321808bd5b243a0a9ed0e42ab4d369a2d8c3ed7dfdd72298a0d356d5d8"
+    },
+    {
+      "path": "scripts/VerifiedExportReview.java",
+      "bytes": 4238,
+      "sha256": "a4ab2f1b5d9aa261fca307b50bd3e0801a4fe5aa056f3116ac31b0644e1d60fd"
+    },
+    {
+      "path": "scripts/export-normalization-proofs.json",
+      "bytes": 1411,
+      "sha256": "b3eff5bc0ce730be5c8f051c6665a7ed5dd488285eda00b520ea25b1027c9c4a"
+    },
+    {
+      "path": "scripts/export-proven-fallthroughs.tsv",
+      "bytes": 36,
+      "sha256": "71b8425d42da1cf2a0c2bd1b1077a6f5243ff850601f45640b17b6d13358b04f"
+    },
+    {
+      "path": "scripts/export-verified-instructions.tsv",
+      "bytes": 5698,
+      "sha256": "adcb6683352639c64562446c623cca8d39d595f515568426eef7bd0112fc9317"
+    },
+    {
+      "path": "output/Wow.exe.1da9b0.raw.c",
+      "bytes": 418,
+      "sha256": "ddd19b95767a5b2a80595f51795a7b35bea98b6cf892b941d43c0b644d6c3564"
+    },
+    {
+      "path": "output/Wow.exe.1da9e0.raw.c",
+      "bytes": 259,
+      "sha256": "c83945bbb64c6df459ac631d64ea82cc9d04fdb023ccde7c01976ee600e81e4f"
+    },
+    {
+      "path": "output/Wow.exe.targeted.tsv",
+      "bytes": 246,
+      "sha256": "c923397c0fcf1e0f21a0ee7244cb733a481d9b60aa679a59b3e85c55536b5838"
+    },
+    {
+      "path": "output/export-fallthrough-annotations.tsv",
+      "bytes": 156,
+      "sha256": "897dfea8bf09abf126c3ca520a971a2e103eb73eb1d7be90001bb640c888f227"
+    },
+    {
+      "path": "output/export-verified-cfg-summary.tsv",
+      "bytes": 73,
+      "sha256": "3f679b9ca9c3866804e4d08b444581c3bad20b7afc757f9ef6280598132a4125"
+    },
+    {
+      "path": "output/wow_loader.dll.1beb830.raw.c",
+      "bytes": 352,
+      "sha256": "04878df6899524117f295d8d14a154d996b5833c3998feaf94d738bcdb0b85e2"
+    },
+    {
+      "path": "output/wow_loader.dll.2006508.raw.c",
+      "bytes": 1422,
+      "sha256": "04ac45adab5fabc94fc4a481fbb11633da4324accf4574f16df944d85b1c2e7e"
+    },
+    {
+      "path": "output/wow_loader.dll.2006630.raw.c",
+      "bytes": 1484,
+      "sha256": "0e6882ebd2f045835c4218aad7acc427fbd4d034a9933ec43b41be866856cc9a"
+    },
+    {
+      "path": "output/wow_loader.dll.2006670.raw.c",
+      "bytes": 1077,
+      "sha256": "d6c941aed5354d4429bfcecc93d2ef579a1a5c170b583946f385a10e5579f70d"
+    },
+    {
+      "path": "output/wow_loader.dll.22eff0.raw.c",
+      "bytes": 376,
+      "sha256": "1149680522d6aaa9b2ef0c1c17b516e4679cbfe743bd50b735783496afa93c57"
+    },
+    {
+      "path": "output/wow_loader.dll.22eff0.verified-cfg.c",
+      "bytes": 5141,
+      "sha256": "164af4c382baccde864c2c5cf86bab6964dc85680726e35c8ecf6974374d0dcd"
+    },
+    {
+      "path": "output/wow_loader.dll.targeted.tsv",
+      "bytes": 763,
+      "sha256": "a7902bf606f543e16035b724d4a5ec0fa7cd96e1f86aa0a3b26ab6b6eec362c0"
+    },
+    {
+      "path": "logs/exe-console.log",
+      "bytes": 5674,
+      "sha256": "63419b91be7bd3d15285add3963a6eb9756b7d0b3766ffa4ab3fc01c40598192"
+    },
+    {
+      "path": "logs/export-verified-console.log",
+      "bytes": 8294,
+      "sha256": "5e06e0048936746e963fbf4e4b000d10d790397cb26ae7010872cf575669d63a"
+    },
+    {
+      "path": "logs/loader-console.log",
+      "bytes": 10159,
+      "sha256": "0eb921d35e0986227bf7076e80de1e5afbcecc4e78d1921bff20a7f9fc5b047a"
+    }
+  ]
+}

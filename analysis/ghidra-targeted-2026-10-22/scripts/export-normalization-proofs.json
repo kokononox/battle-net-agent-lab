@@ -1,0 +1,36 @@
+{
+  "source_sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "source": "phase4/export-normalized.json",
+  "rewrites": [
+    {
+      "first_rva": "0x22f125",
+      "first_bytes": "7e5d",
+      "first_mnemonic": "jle",
+      "second_rva": "0x22f127",
+      "second_bytes": "7f5b",
+      "second_mnemonic": "jg",
+      "target_rva": "0x22f184",
+      "intervening_proven_noops": [],
+      "proof": "Complementary Jcc share one target and read unchanged flags. Any intervening instruction is NOP or a register shift with zero count, which changes neither destination nor flags. Union always jumps to target."
+    },
+    {
+      "first_rva": "0x22f2e1",
+      "first_bytes": "7d50",
+      "first_mnemonic": "jge",
+      "second_rva": "0x22f2e6",
+      "second_bytes": "7c4b",
+      "second_mnemonic": "jl",
+      "target_rva": "0x22f333",
+      "intervening_proven_noops": [
+        {
+          "rva": "0x22f2e3",
+          "bytes": "c0f200",
+          "mnemonic": "sal",
+          "operands": "dl, 0"
+        }
+      ],
+      "proof": "Complementary Jcc share one target and read unchanged flags. Any intervening instruction is NOP or a register shift with zero count, which changes neither destination nor flags. Union always jumps to target."
+    }
+  ],
+  "note": "Annotations are analyst-supplied from previously checked local branch identities, not an independent Ghidra proof."
+}
