@@ -1,0 +1,764 @@
+{
+  "analysis": "phase2-generated-message-registration-and-transport-leads",
+  "source_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "dir64_relocations_read": 207508,
+  "messages": [
+    {
+      "message": "Blizzard.Telemetry.Wow.Client.ClientSystemSpec",
+      "descriptor_filename": "ClientPerformanceShared.proto",
+      "serialized_descriptor": {
+        "location": {
+          "rva": "0x3d3bac0",
+          "section": ".rdata",
+          "executable_section": false,
+          "backed_by_file": true
+        },
+        "size": 942,
+        "sha256": "9747de0625ba289a5c83b4985b6702603572717cca94226179af7d66e886d03a"
+      },
+      "relocation_backed_descriptor_pointer": {
+        "rva": "0x47c7dc8",
+        "section": ".data",
+        "executable_section": false,
+        "backed_by_file": true
+      },
+      "registration_table_candidate": {
+        "rva": "0x47c7dc0",
+        "section": ".data",
+        "executable_section": false,
+        "backed_by_file": true
+      },
+      "layout_checks": {
+        "descriptor_size_matches": true,
+        "filename_matches": true,
+        "top_level_message_count_matches": true,
+        "message_count": 2,
+        "dependency_count": 1
+      },
+      "dependency_tables": [
+        {
+          "table": {
+            "rva": "0x47cebb0",
+            "section": ".data",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "filename": "ClientShared.proto"
+        }
+      ],
+      "default_instance_array_candidate": {
+        "rva": "0x3d3baa8",
+        "section": ".rdata",
+        "executable_section": false,
+        "backed_by_file": true
+      },
+      "selected_message_index": 1,
+      "default_instance_candidate": {
+        "rva": "0x4855470",
+        "section": ".data",
+        "executable_section": false,
+        "backed_by_file": true
+      },
+      "vtable_candidate": {
+        "rva": "0x415a938",
+        "section": ".rdata",
+        "executable_section": false,
+        "backed_by_file": true
+      },
+      "vtable_scan_scope": "First 16 pointer-sized slots only; exact vtable extent and method identities not established",
+      "executable_vtable_entry_candidates": [
+        {
+          "slot_index": 0,
+          "slot": {
+            "rva": "0x415a938",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1afc240",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.959377082008268,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 1,
+          "slot": {
+            "rva": "0x415a940",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1afcc00",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.952503453218213,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 2,
+          "slot": {
+            "rva": "0x415a948",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1afcf10",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.951367643039866,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 3,
+          "slot": {
+            "rva": "0x415a950",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1afcbf0",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.951674734746676,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 4,
+          "slot": {
+            "rva": "0x415a958",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1afccd0",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.949820211823181,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 8,
+          "slot": {
+            "rva": "0x415a978",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1afdc60",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.9519774786313695,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 9,
+          "slot": {
+            "rva": "0x415a980",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1afddf0",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.953078253724533,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 10,
+          "slot": {
+            "rva": "0x415a988",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1afe0a0",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.951915301970059,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 11,
+          "slot": {
+            "rva": "0x415a990",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1afdde0",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.953431907292569,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 12,
+          "slot": {
+            "rva": "0x415a998",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1afde90",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.953133634032253,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        }
+      ],
+      "table_exact_incoming_relocation_slots": [
+        {
+          "rva": "0x3d3c188",
+          "section": ".rdata",
+          "executable_section": false,
+          "backed_by_file": true
+        },
+        {
+          "rva": "0x3d3d928",
+          "section": ".rdata",
+          "executable_section": false,
+          "backed_by_file": true
+        },
+        {
+          "rva": "0x47c8058",
+          "section": ".data",
+          "executable_section": false,
+          "backed_by_file": true
+        },
+        {
+          "rva": "0x47c8308",
+          "section": ".data",
+          "executable_section": false,
+          "backed_by_file": true
+        }
+      ],
+      "instance_exact_incoming_relocation_slots": [
+        {
+          "rva": "0x3d3bab0",
+          "section": ".rdata",
+          "executable_section": false,
+          "backed_by_file": true
+        },
+        {
+          "rva": "0x47c82c0",
+          "section": ".data",
+          "executable_section": false,
+          "backed_by_file": true
+        }
+      ],
+      "interpretation": "Absolute pointer and byte checks establish generated-message metadata scaffolding. DescriptorTable/default-instance/vtable roles are layout-based candidates; no runtime population, serialization call or network edge is established."
+    },
+    {
+      "message": "Blizzard.Telemetry.Wow.Client.ClientEngineLogV2",
+      "descriptor_filename": "ClientShared.proto",
+      "serialized_descriptor": {
+        "location": {
+          "rva": "0x3d41d90",
+          "section": ".rdata",
+          "executable_section": false,
+          "backed_by_file": true
+        },
+        "size": 3351,
+        "sha256": "e7963b9cdc7f4d81f618f1ca6d2a537210ca373a348699de749b2e0878532d22"
+      },
+      "relocation_backed_descriptor_pointer": {
+        "rva": "0x47cebb8",
+        "section": ".data",
+        "executable_section": false,
+        "backed_by_file": true
+      },
+      "registration_table_candidate": {
+        "rva": "0x47cebb0",
+        "section": ".data",
+        "executable_section": false,
+        "backed_by_file": true
+      },
+      "layout_checks": {
+        "descriptor_size_matches": true,
+        "filename_matches": true,
+        "top_level_message_count_matches": true,
+        "message_count": 4,
+        "dependency_count": 3
+      },
+      "dependency_tables": [
+        {
+          "table": {
+            "rva": "0x47ceb50",
+            "section": ".data",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "filename": "ClientSharedImports.proto"
+        },
+        {
+          "table": {
+            "rva": "0x47cac60",
+            "section": ".data",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "filename": "TelemetrySharedImports.proto"
+        },
+        {
+          "table": {
+            "rva": "0x4803ca0",
+            "section": ".data",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "filename": "telemetry_extensions.proto"
+        }
+      ],
+      "default_instance_array_candidate": {
+        "rva": "0x3d42b00",
+        "section": ".rdata",
+        "executable_section": false,
+        "backed_by_file": true
+      },
+      "selected_message_index": 0,
+      "default_instance_candidate": {
+        "rva": "0x4856510",
+        "section": ".data",
+        "executable_section": false,
+        "backed_by_file": true
+      },
+      "vtable_candidate": {
+        "rva": "0x415b658",
+        "section": ".rdata",
+        "executable_section": false,
+        "backed_by_file": true
+      },
+      "vtable_scan_scope": "First 16 pointer-sized slots only; exact vtable extent and method identities not established",
+      "executable_vtable_entry_candidates": [
+        {
+          "slot_index": 0,
+          "slot": {
+            "rva": "0x415b658",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1afcb70",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.950537559409378,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 1,
+          "slot": {
+            "rva": "0x415b660",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1b11210",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.95807240517212,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 2,
+          "slot": {
+            "rva": "0x415b668",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1b13730",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.953879298787109,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 3,
+          "slot": {
+            "rva": "0x415b670",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1b11200",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.958358230533482,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 4,
+          "slot": {
+            "rva": "0x415b678",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1b114b0",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.951644590924268,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 5,
+          "slot": {
+            "rva": "0x415b680",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1b15850",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.954875242039553,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 6,
+          "slot": {
+            "rva": "0x415b688",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1b15a60",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.95281581315086,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 7,
+          "slot": {
+            "rva": "0x415b690",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1b15e50",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.945540751434473,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 8,
+          "slot": {
+            "rva": "0x415b698",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1b15a50",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.952598105452506,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 9,
+          "slot": {
+            "rva": "0x415b6a0",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1b15b20",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.951503502994941,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 14,
+          "slot": {
+            "rva": "0x415b6c8",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1b16220",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.955782043075028,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        },
+        {
+          "slot_index": 15,
+          "slot": {
+            "rva": "0x415b6d0",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "target": {
+            "rva": "0x1b163a0",
+            "section": ".text",
+            "executable_section": true,
+            "backed_by_file": true
+          },
+          "target_4096_bytes_entropy": 7.958675529620459,
+          "runtime_role": "unresolved; vtable candidate does not identify a hardware collector or sender"
+        }
+      ],
+      "table_exact_incoming_relocation_slots": [
+        {
+          "rva": "0x3d3be70",
+          "section": ".rdata",
+          "executable_section": false,
+          "backed_by_file": true
+        },
+        {
+          "rva": "0x47cf588",
+          "section": ".data",
+          "executable_section": false,
+          "backed_by_file": true
+        },
+        {
+          "rva": "0x47cf5f8",
+          "section": ".data",
+          "executable_section": false,
+          "backed_by_file": true
+        },
+        {
+          "rva": "0x47cf7b8",
+          "section": ".data",
+          "executable_section": false,
+          "backed_by_file": true
+        },
+        {
+          "rva": "0x47cf828",
+          "section": ".data",
+          "executable_section": false,
+          "backed_by_file": true
+        }
+      ],
+      "instance_exact_incoming_relocation_slots": [
+        {
+          "rva": "0x3d42b00",
+          "section": ".rdata",
+          "executable_section": false,
+          "backed_by_file": true
+        },
+        {
+          "rva": "0x47cf7e0",
+          "section": ".data",
+          "executable_section": false,
+          "backed_by_file": true
+        }
+      ],
+      "interpretation": "Absolute pointer and byte checks establish generated-message metadata scaffolding. DescriptorTable/default-instance/vtable roles are layout-based candidates; no runtime population, serialization call or network edge is established."
+    }
+  ],
+  "transport_literal_evidence": [
+    {
+      "label": "default_ingest_url",
+      "literal": "https://telemetry-in.battle.net",
+      "occurrences": [
+        {
+          "file_offset": "0x42a3178",
+          "location": {
+            "rva": "0x42a3d78",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "exact_incoming_relocation_slots": []
+        }
+      ],
+      "evidence_level": "static literal only; co-location and naming do not establish a call graph or actual send"
+    },
+    {
+      "label": "ingest_option_diagnostic",
+      "literal": "ValidateOptions: ServiceOptions.ingestBaseUrl %s is invalid",
+      "occurrences": [
+        {
+          "file_offset": "0x42a3138",
+          "location": {
+            "rva": "0x42a3d38",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "exact_incoming_relocation_slots": []
+        }
+      ],
+      "evidence_level": "static literal only; co-location and naming do not establish a call graph or actual send"
+    },
+    {
+      "label": "serializer_diagnostic",
+      "literal": "MessageEnqueuer EnqueueMessageLite: Could not serialize message %s /%s",
+      "occurrences": [
+        {
+          "file_offset": "0x42a4350",
+          "location": {
+            "rva": "0x42a4f50",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "exact_incoming_relocation_slots": []
+        }
+      ],
+      "evidence_level": "static literal only; co-location and naming do not establish a call graph or actual send"
+    },
+    {
+      "label": "http_transport_diagnostic",
+      "literal": "Service config: Using default HTTP request handler",
+      "occurrences": [
+        {
+          "file_offset": "0x42a3df8",
+          "location": {
+            "rva": "0x42a49f8",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "exact_incoming_relocation_slots": []
+        }
+      ],
+      "evidence_level": "static literal only; co-location and naming do not establish a call graph or actual send"
+    },
+    {
+      "label": "curl_initialization_diagnostic",
+      "literal": "CurlHttpRequestHandler Initialize: curl_multi_init failure",
+      "occurrences": [
+        {
+          "file_offset": "0x42a3290",
+          "location": {
+            "rva": "0x42a3e90",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "exact_incoming_relocation_slots": []
+        }
+      ],
+      "evidence_level": "static literal only; co-location and naming do not establish a call graph or actual send"
+    },
+    {
+      "label": "http_post_diagnostic",
+      "literal": "CurlRequest: curl_easy_setopt CURLOPT_POST error: %d (%s)",
+      "occurrences": [
+        {
+          "file_offset": "0x42a5348",
+          "location": {
+            "rva": "0x42a5f48",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "exact_incoming_relocation_slots": []
+        }
+      ],
+      "evidence_level": "static literal only; co-location and naming do not establish a call graph or actual send"
+    },
+    {
+      "label": "sdk_identifier",
+      "literal": "telemetry-sdk-cpp/",
+      "occurrences": [
+        {
+          "file_offset": "0x42a48a8",
+          "location": {
+            "rva": "0x42a54a8",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "exact_incoming_relocation_slots": []
+        }
+      ],
+      "evidence_level": "static literal only; co-location and naming do not establish a call graph or actual send"
+    },
+    {
+      "label": "sdk_version_literal",
+      "literal": "2.0.0+protobuf_blz-6.30.1",
+      "occurrences": [
+        {
+          "file_offset": "0x42a47e8",
+          "location": {
+            "rva": "0x42a53e8",
+            "section": ".rdata",
+            "executable_section": false,
+            "backed_by_file": true
+          },
+          "exact_incoming_relocation_slots": []
+        }
+      ],
+      "evidence_level": "static literal only; co-location and naming do not establish a call graph or actual send"
+    }
+  ],
+  "input_code_executed": false,
+  "hardware_population_proven": false,
+  "selected_message_to_serializer_proven": false,
+  "selected_message_to_http_proven": false,
+  "selected_message_to_realm_3724_proven": false,
+  "absence_of_hardware_on_3724_proven": false,
+  "limitation": "Main executable code bytes have prior independently measured near-maximal entropy. Data/vtable edges end in code whose semantics are not recovered. This is not complete decompilation; dynamic or computed references and additional transports remain unresolved."
+}

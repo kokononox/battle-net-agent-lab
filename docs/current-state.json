@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-22T05:35:42.939468+00:00",
+  "as_of_utc": "2026-10-22T16:09:43.525962+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -55,7 +55,7 @@
     "in_world_network_metadata_user_confirmed_20261022": true,
     "in_world_network_metadata_evidence": "reports/session-20261022/wow-network-evidence.json"
   },
-  "user_action_now": "Archive upload completed and verified; no additional archive upload needed. Do not repeat WLab 0.2.0 game attach. No game execution, protection bypass, live memory dump, TLS key collection or security policy changes authorized by this archival upload.",
+  "user_action_now": "No new user test required. WLab 0.2.0 remains withdrawn; do not repeat game attach. Offline phase2 verified registration metadata but did not establish hardware population or transport. Continue only with new authorized evidence; do not infer a send from static literals.",
   "sync_scope": "Sanitized source and derived evidence plus the user-authorized private three-file archive exception. All five archive parts uploaded and verified by Git blob identity and size against local verified bytes. No raw crash report, raw pcap, keys or private paths uploaded.",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
@@ -405,6 +405,21 @@
     "publisher_signature_validated": false,
     "archive_parts_verified_at_commit": "0271634f4892fadfe8326b1ca270479352eb8144",
     "archive_upload_receipt": "binaries/retail-70448/upload-receipt.json",
-    "archive_total_bytes": 98456378
+    "archive_total_bytes": 98456378,
+    "phase2": {
+      "report": "docs/RETAIL-RE-PHASE2-2026-10-22.fa.md",
+      "evidence": "reports/retail-re-20261022-phase2/registration-path.json",
+      "qa": "reports/retail-re-20261022-phase2/QA.json",
+      "registration_pointer_chains_byte_verified": true,
+      "spec_to_engine_registration_dependency_verified": true,
+      "cpp_structure_roles_layout_inferred": true,
+      "transport_diagnostics_are_static_literals_only": true,
+      "hardware_population_proven": false,
+      "hardware_message_to_http_proven": false,
+      "hardware_message_to_3724_proven": false,
+      "input_code_executed": false,
+      "tests_passed": 4,
+      "blocked_at": "Unrecovered protected main-code semantics; metadata is not a verified collection/serialization/send call graph."
+    }
   }
 }
