@@ -1,0 +1,39 @@
+{
+  "manual_pe_checks": "passed",
+  "byte_and_edge_checks": "passed",
+  "independent_modular_parity_proof": "passed",
+  "deterministic_arithmetic_samples": 10004,
+  "precall_path_check": "passed",
+  "normalized_instructions": 46,
+  "mutation_tests": [
+    {
+      "mutation": "wrong_callee",
+      "rejected": true
+    },
+    {
+      "mutation": "wrong_branch",
+      "rejected": true
+    },
+    {
+      "mutation": "file_backed_slot",
+      "rejected": true
+    },
+    {
+      "mutation": "runtime_global_assumed",
+      "rejected": true
+    },
+    {
+      "mutation": "send_overclaim",
+      "rejected": true
+    },
+    {
+      "mutation": "changed_instruction_byte",
+      "rejected": true
+    },
+    {
+      "mutation": "removed_precall_edge",
+      "rejected": true
+    }
+  ],
+  "external_game_execution": false
+}

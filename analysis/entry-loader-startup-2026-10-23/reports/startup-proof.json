@@ -1,0 +1,2740 @@
+{
+  "schema": "wlab-startup-review-1",
+  "input_modules": [
+    {
+      "name": "Wow.exe",
+      "sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+      "size": 80834256,
+      "image_base": 5368709120,
+      "entry_rva": 1943984,
+      "imports": [
+        {
+          "dll": "Wow_loader.dll",
+          "descriptor_file_offset": 74927504,
+          "first_thunk": 62238720,
+          "original_first_thunk": 74931016,
+          "entries": [
+            {
+              "ordinal": 1,
+              "literal_name": null,
+              "slot_rva": 62238720
+            }
+          ]
+        }
+      ],
+      "tls_callbacks": [
+        {
+          "slot_rva": 62302056,
+          "callback_rva": 1944032
+        },
+        {
+          "slot_rva": 62302064,
+          "callback_rva": 1944032
+        },
+        {
+          "slot_rva": 62302072,
+          "callback_rva": 1944032
+        }
+      ],
+      "exports": [
+        {
+          "ordinal": 1,
+          "rva": 75547616,
+          "forwarder": null
+        },
+        {
+          "ordinal": 2,
+          "rva": 66321032,
+          "forwarder": null
+        },
+        {
+          "ordinal": 3,
+          "rva": 1966432,
+          "forwarder": null
+        },
+        {
+          "ordinal": 4,
+          "rva": 1966896,
+          "forwarder": null
+        }
+      ]
+    },
+    {
+      "name": "wow_loader.dll",
+      "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+      "size": 41250000,
+      "image_base": 6442450944,
+      "entry_rva": 33580592,
+      "imports": [
+        {
+          "dll": "ADVAPI32.dll",
+          "descriptor_file_offset": 40857606,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804742,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "RegDeleteValueW",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "WS2_32.dll",
+          "descriptor_file_offset": 40857626,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804758,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "WSASocketW",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "COMCTL32.dll",
+          "descriptor_file_offset": 40857646,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804774,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "InitCommonControlsEx",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "CRYPT32.dll",
+          "descriptor_file_offset": 40857666,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804790,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "CertGetNameStringA",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "GDI32.dll",
+          "descriptor_file_offset": 40857686,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804806,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "DeleteObject",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "IMM32.dll",
+          "descriptor_file_offset": 40857706,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804822,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "ImmReleaseContext",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "KERNEL32.dll",
+          "descriptor_file_offset": 40857726,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804838,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "K32GetModuleFileNameExW",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "ole32.dll",
+          "descriptor_file_offset": 40857746,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804854,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "CreateStreamOnHGlobal",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "SHELL32.dll",
+          "descriptor_file_offset": 40857766,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804870,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "DragAcceptFiles",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "USER32.dll",
+          "descriptor_file_offset": 40857786,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804886,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "DisplayConfigGetDeviceInfo",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "WINMM.dll",
+          "descriptor_file_offset": 40857806,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804902,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "waveInGetDevCapsA",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "ntdll.dll",
+          "descriptor_file_offset": 40857826,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804918,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "RtlIpv6AddressToStringExA",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "IPHLPAPI.DLL",
+          "descriptor_file_offset": 40857846,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804934,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "GetAdaptersAddresses",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "dwmapi.dll",
+          "descriptor_file_offset": 40857866,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804950,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "DwmSetWindowAttribute",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "VERSION.dll",
+          "descriptor_file_offset": 40857886,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804966,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "GetFileVersionInfoSizeW",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-core-synch-l1-2-0.dll",
+          "descriptor_file_offset": 40857906,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804982,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "WakeByAddressSingle",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "MSACM32.dll",
+          "descriptor_file_offset": 40857926,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41804998,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "acmStreamPrepareHeader",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "SETUPAPI.dll",
+          "descriptor_file_offset": 40857946,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805014,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "SetupDiGetDeviceRegistryPropertyA",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "WINHTTP.dll",
+          "descriptor_file_offset": 40857966,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805030,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "WinHttpOpen",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "ncrypt.dll",
+          "descriptor_file_offset": 40857986,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805046,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "NCryptFreeObject",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "WINTRUST.dll",
+          "descriptor_file_offset": 40858006,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805062,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "WinVerifyTrust",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "ntdll.dll",
+          "descriptor_file_offset": 40858026,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805078,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "LdrLockLoaderLock",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "VERSION.dll",
+          "descriptor_file_offset": 40858046,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805094,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "GetFileVersionInfoA",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "IPHLPAPI.DLL",
+          "descriptor_file_offset": 40858066,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805110,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "GetAdaptersInfo",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "ADVAPI32.dll",
+          "descriptor_file_offset": 40858086,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805126,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "CryptAcquireContextA",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "sfc.dll",
+          "descriptor_file_offset": 40858106,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805142,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "SfcIsFileProtected",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "bcrypt.dll",
+          "descriptor_file_offset": 40858126,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805158,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "BCryptCloseAlgorithmProvider",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "tbs.dll",
+          "descriptor_file_offset": 40858146,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805174,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "Tbsi_Context_Create",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "KERNEL32.dll",
+          "descriptor_file_offset": 40858166,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805190,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "AcquireSRWLockExclusive",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "USER32.dll",
+          "descriptor_file_offset": 40858186,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805206,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "EnumThreadWindows",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "SHELL32.dll",
+          "descriptor_file_offset": 40858206,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805222,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "CommandLineToArgvW",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "COMCTL32.dll",
+          "descriptor_file_offset": 40858226,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805238,
+          "entries": [
+            {
+              "ordinal": 345,
+              "literal_name": null,
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "WS2_32.dll",
+          "descriptor_file_offset": 40858246,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805254,
+          "entries": [
+            {
+              "ordinal": 116,
+              "literal_name": null,
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "ole32.dll",
+          "descriptor_file_offset": 40858266,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805270,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "CoTaskMemFree",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "CRYPT32.dll",
+          "descriptor_file_offset": 40858286,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805286,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "CertAddCertificateContextToStore",
+              "slot_rva": 34209928
+            }
+          ]
+        },
+        {
+          "dll": "Secur32.dll",
+          "descriptor_file_offset": 40858306,
+          "first_thunk": 34209928,
+          "original_first_thunk": 41805302,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "InitSecurityInterfaceA",
+              "slot_rva": 34209928
+            }
+          ]
+        }
+      ],
+      "tls_callbacks": [
+        {
+          "slot_rva": 34206616,
+          "callback_rva": 14649280
+        },
+        {
+          "slot_rva": 34206624,
+          "callback_rva": 33567132
+        }
+      ],
+      "exports": [
+        {
+          "ordinal": 1,
+          "rva": 2289648,
+          "forwarder": null
+        }
+      ]
+    },
+    {
+      "name": "libxell.dll",
+      "sha256": "5ce63652eee5720203e0e41cc97eb45ee541c499c8a51d4bdb1e8fe4eaef4890",
+      "size": 359792,
+      "image_base": 6442450944,
+      "entry_rva": 4240,
+      "imports": [
+        {
+          "dll": "dxgi.dll",
+          "descriptor_file_offset": 326984,
+          "first_thunk": 340104,
+          "original_first_thunk": 345112,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "CreateDXGIFactory1",
+              "slot_rva": 340104
+            }
+          ]
+        },
+        {
+          "dll": "CFGMGR32.dll",
+          "descriptor_file_offset": 327004,
+          "first_thunk": 336008,
+          "original_first_thunk": 341016,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "CM_MapCrToWin32Err",
+              "slot_rva": 336008
+            },
+            {
+              "ordinal": null,
+              "literal_name": "CM_Get_DevNode_PropertyW",
+              "slot_rva": 336016
+            },
+            {
+              "ordinal": null,
+              "literal_name": "CM_Get_Device_ID_List_SizeW",
+              "slot_rva": 336024
+            },
+            {
+              "ordinal": null,
+              "literal_name": "CM_Get_Device_ID_ListW",
+              "slot_rva": 336032
+            },
+            {
+              "ordinal": null,
+              "literal_name": "CM_Locate_DevNodeW",
+              "slot_rva": 336040
+            }
+          ]
+        },
+        {
+          "dll": "SETUPAPI.dll",
+          "descriptor_file_offset": 327024,
+          "first_thunk": 337344,
+          "original_first_thunk": 342352,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "SetupGetInfDriverStoreLocationW",
+              "slot_rva": 337344
+            }
+          ]
+        },
+        {
+          "dll": "SHLWAPI.dll",
+          "descriptor_file_offset": 327044,
+          "first_thunk": 337440,
+          "original_first_thunk": 342448,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "PathRemoveFileSpecW",
+              "slot_rva": 337440
+            }
+          ]
+        },
+        {
+          "dll": "KERNEL32.dll",
+          "descriptor_file_offset": 327064,
+          "first_thunk": 336144,
+          "original_first_thunk": 341152,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "OutputDebugStringA",
+              "slot_rva": 336144
+            },
+            {
+              "ordinal": null,
+              "literal_name": "QueryPerformanceFrequency",
+              "slot_rva": 336152
+            },
+            {
+              "ordinal": null,
+              "literal_name": "WaitForSingleObject",
+              "slot_rva": 336160
+            },
+            {
+              "ordinal": null,
+              "literal_name": "CreateEventA",
+              "slot_rva": 336168
+            },
+            {
+              "ordinal": null,
+              "literal_name": "GetLastError",
+              "slot_rva": 336176
+            },
+            {
+              "ordinal": null,
+              "literal_name": "FreeLibrary",
+              "slot_rva": 336184
+            },
+            {
+              "ordinal": null,
+              "literal_name": "GetModuleFileNameA",
+              "slot_rva": 336192
+            },
+            {
+              "ordinal": null,
+              "literal_name": "GetProcAddress",
+              "slot_rva": 336200
+            },
+            {
+              "ordinal": null,
+              "literal_name": "LoadLibraryExA",
+              "slot_rva": 336208
+            },
+            {
+              "ordinal": null,
+              "literal_name": "LocalFree",
+              "slot_rva": 336216
+            },
+            {
+              "ordinal": null,
+              "literal_name": "FormatMessageA",
+              "slot_rva": 336224
+            },
+            {
+              "ordinal": null,
+              "literal_name": "GetModuleHandleW",
+              "slot_rva": 336232
+            },
+            {
+              "ordinal": null,
+              "literal_name": "GetModuleHandleExA",
+              "slot_rva": 336240
+            },
+            {
+              "ordinal": null,
+              "literal_name": "GetCurrentProcess",
+              "slot_rva": 336248
+            },
+            {
+              "ordinal": null,
+              "literal_name": "K32EnumProcessModules",
+              "slot_rva": 336256
+            },
+            {
+              "ordinal": null,
+              "literal_name": "K32GetModuleFileNameExW",
+              "slot_rva": 336264
+            },
+            {
+              "ordinal": null,
+              "literal_name": "CloseHandle",
+              "slot_rva": 336272
+            },
+            {
+              "ordinal": null,
+              "literal_name": "GetModuleFileNameW",
+              "slot_rva": 336280
+            },
+            {
+              "ordinal": null,
+              "literal_name": "LoadLibraryExW",
+              "slot_rva": 336288
+            },
+            {
+              "ordinal": null,
+              "literal_name": "LoadLibraryW",
+              "slot_rva": 336296
+            }
+          ]
+        },
+        {
+          "dll": "ole32.dll",
+          "descriptor_file_offset": 327084,
+          "first_thunk": 340200,
+          "original_first_thunk": 345208,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "StringFromGUID2",
+              "slot_rva": 340200
+            }
+          ]
+        },
+        {
+          "dll": "ADVAPI32.dll",
+          "descriptor_file_offset": 327104,
+          "first_thunk": 335872,
+          "original_first_thunk": 340880,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "RegGetValueA",
+              "slot_rva": 335872
+            },
+            {
+              "ordinal": null,
+              "literal_name": "RegEnumKeyExA",
+              "slot_rva": 335880
+            },
+            {
+              "ordinal": null,
+              "literal_name": "RegOpenKeyExA",
+              "slot_rva": 335888
+            },
+            {
+              "ordinal": null,
+              "literal_name": "RegQueryInfoKeyA",
+              "slot_rva": 335896
+            },
+            {
+              "ordinal": null,
+              "literal_name": "RegCloseKey",
+              "slot_rva": 335904
+            }
+          ]
+        },
+        {
+          "dll": "MSVCP140.dll",
+          "descriptor_file_offset": 327124,
+          "first_thunk": 336424,
+          "original_first_thunk": 341432,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "?_Locimp_Addfac@_Locimp@locale@std@@CAXPEAV123@PEAVfacet@23@_K@Z",
+              "slot_rva": 336424
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_New_Locimp@_Locimp@locale@std@@CAPEAV123@AEBV123@@Z",
+              "slot_rva": 336432
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?in@?$codecvt@_WDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEBD1AEAPEBDPEA_W3AEAPEA_W@Z",
+              "slot_rva": 336440
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?out@?$codecvt@_WDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEB_W1AEAPEB_WPEAD3AEAPEAD@Z",
+              "slot_rva": 336448
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??0?$codecvt@_WDU_Mbstatet@@@std@@QEAA@_K@Z",
+              "slot_rva": 336456
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??1?$codecvt@_WDU_Mbstatet@@@std@@MEAA@XZ",
+              "slot_rva": 336464
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?id@?$codecvt@_WDU_Mbstatet@@@std@@2V0locale@2@A",
+              "slot_rva": 336472
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??4?$_Yarn@D@std@@QEAAAEAV01@PEBD@Z",
+              "slot_rva": 336480
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Xlength_error@std@@YAXPEBD@Z",
+              "slot_rva": 336488
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Xout_of_range@std@@YAXPEBD@Z",
+              "slot_rva": 336496
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_Query_perf_counter",
+              "slot_rva": 336504
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_Query_perf_frequency",
+              "slot_rva": 336512
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_Thrd_yield",
+              "slot_rva": 336520
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_Mtx_init_in_situ",
+              "slot_rva": 336528
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_Mtx_destroy_in_situ",
+              "slot_rva": 336536
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_Mtx_lock",
+              "slot_rva": 336544
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_Mtx_trylock",
+              "slot_rva": 336552
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_Mtx_unlock",
+              "slot_rva": 336560
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Throw_C_error@std@@YAXH@Z",
+              "slot_rva": 336568
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?uncaught_exception@std@@YA_NXZ",
+              "slot_rva": 336576
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAA@XZ",
+              "slot_rva": 336584
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAA@XZ",
+              "slot_rva": 336592
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHD@Z",
+              "slot_rva": 336600
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAA_JPEBD_J@Z",
+              "slot_rva": 336608
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Pninc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAPEADXZ",
+              "slot_rva": 336616
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??1?$basic_ios@DU?$char_traits@D@std@@@std@@UEAA@XZ",
+              "slot_rva": 336624
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z",
+              "slot_rva": 336632
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??0?$basic_ios@DU?$char_traits@D@std@@@std@@IEAA@XZ",
+              "slot_rva": 336640
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??0?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z",
+              "slot_rva": 336648
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??1?$basic_ostream@DU?$char_traits@D@std@@@std@@UEAA@XZ",
+              "slot_rva": 336656
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ",
+              "slot_rva": 336664
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@K@Z",
+              "slot_rva": 336672
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@XZ",
+              "slot_rva": 336680
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Lock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ",
+              "slot_rva": 336688
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Unlock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ",
+              "slot_rva": 336696
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?imbue@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAXAEBVlocale@2@@Z",
+              "slot_rva": 336704
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?setbuf@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAPEAV12@PEAD_J@Z",
+              "slot_rva": 336712
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?showmanyc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JXZ",
+              "slot_rva": 336720
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?sync@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ",
+              "slot_rva": 336728
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?uflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ",
+              "slot_rva": 336736
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?xsgetn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEAD_J@Z",
+              "slot_rva": 336744
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?xsputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEBD_J@Z",
+              "slot_rva": 336752
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_Xtime_get_ticks",
+              "slot_rva": 336760
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_Thrd_sleep",
+              "slot_rva": 336768
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??0_Lockit@std@@QEAA@H@Z",
+              "slot_rva": 336776
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??1_Lockit@std@@QEAA@XZ",
+              "slot_rva": 336784
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Xbad_alloc@std@@YAXXZ",
+              "slot_rva": 336792
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Xinvalid_argument@std@@YAXPEBD@Z",
+              "slot_rva": 336800
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_Mbrtowc",
+              "slot_rva": 336808
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_Strcoll",
+              "slot_rva": 336816
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_Strxfrm",
+              "slot_rva": 336824
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??0_Locinfo@std@@QEAA@PEBD@Z",
+              "slot_rva": 336832
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??1_Locinfo@std@@QEAA@XZ",
+              "slot_rva": 336840
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Getcoll@_Locinfo@std@@QEBA?AU_Collvec@@XZ",
+              "slot_rva": 336848
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Getcvt@_Locinfo@std@@QEBA?AU_Cvtvec@@XZ",
+              "slot_rva": 336856
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_W_Getdays@_Locinfo@std@@QEBAPEBGXZ",
+              "slot_rva": 336864
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_W_Getmonths@_Locinfo@std@@QEBAPEBGXZ",
+              "slot_rva": 336872
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?c_str@?$_Yarn@D@std@@QEBAPEBDXZ",
+              "slot_rva": 336880
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??Bid@locale@std@@QEAA_KXZ",
+              "slot_rva": 336888
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??0facet@locale@std@@IEAA@_K@Z",
+              "slot_rva": 336896
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??1facet@locale@std@@MEAA@XZ",
+              "slot_rva": 336904
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Init@locale@std@@CAPEAV_Locimp@12@_N@Z",
+              "slot_rva": 336912
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Getgloballocale@locale@std@@CAPEAV_Locimp@12@XZ",
+              "slot_rva": 336920
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?always_noconv@codecvt_base@std@@QEBA_NXZ",
+              "slot_rva": 336928
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?tolower@?$ctype@D@std@@QEBADD@Z",
+              "slot_rva": 336936
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?tolower@?$ctype@D@std@@QEBAPEBDPEADPEBD@Z",
+              "slot_rva": 336944
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Getcat@?$ctype@D@std@@SA_KPEAPEBVfacet@locale@2@PEBV42@@Z",
+              "slot_rva": 336952
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?in@?$codecvt@DDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEBD1AEAPEBDPEAD3AEAPEAD@Z",
+              "slot_rva": 336960
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?out@?$codecvt@DDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEBD1AEAPEBDPEAD3AEAPEAD@Z",
+              "slot_rva": 336968
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?unshift@?$codecvt@DDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEAD1AEAPEAD@Z",
+              "slot_rva": 336976
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SA_KPEAPEBVfacet@locale@2@PEBV42@@Z",
+              "slot_rva": 336984
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?getloc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEBA?AVlocale@2@XZ",
+              "slot_rva": 336992
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Init@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAXXZ",
+              "slot_rva": 337000
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?clear@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z",
+              "slot_rva": 337008
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBADD@Z",
+              "slot_rva": 337016
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@P6AAEAV01@AEAV01@@Z@Z",
+              "slot_rva": 337024
+            },
+            {
+              "ordinal": null,
+              "literal_name": "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@H@Z",
+              "slot_rva": 337032
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?put@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@D@Z",
+              "slot_rva": 337040
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?write@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@PEBD_J@Z",
+              "slot_rva": 337048
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Fiopen@std@@YAPEAU_iobuf@@PEBDHH@Z",
+              "slot_rva": 337056
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Xregex_error@std@@YAXW4error_type@regex_constants@1@@Z",
+              "slot_rva": 337064
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Decref@facet@locale@std@@UEAAPEAV_Facet_base@3@XZ",
+              "slot_rva": 337072
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?_Incref@facet@locale@std@@UEAAXXZ",
+              "slot_rva": 337080
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?id@?$ctype@D@std@@2V0locale@2@A",
+              "slot_rva": 337088
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?id@?$codecvt@DDU_Mbstatet@@@std@@2V0locale@2@A",
+              "slot_rva": 337096
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?id@?$collate@D@std@@2V0locale@2@A",
+              "slot_rva": 337104
+            },
+            {
+              "ordinal": null,
+              "literal_name": "?cerr@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A",
+              "slot_rva": 337112
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-core-synch-l1-1-0.dll",
+          "descriptor_file_offset": 327144,
+          "first_thunk": 338704,
+          "original_first_thunk": 343712,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "DeleteCriticalSection",
+              "slot_rva": 338704
+            },
+            {
+              "ordinal": null,
+              "literal_name": "EnterCriticalSection",
+              "slot_rva": 338712
+            },
+            {
+              "ordinal": null,
+              "literal_name": "LeaveCriticalSection",
+              "slot_rva": 338720
+            },
+            {
+              "ordinal": null,
+              "literal_name": "CreateEventW",
+              "slot_rva": 338728
+            },
+            {
+              "ordinal": null,
+              "literal_name": "WaitForSingleObjectEx",
+              "slot_rva": 338736
+            },
+            {
+              "ordinal": null,
+              "literal_name": "ResetEvent",
+              "slot_rva": 338744
+            },
+            {
+              "ordinal": null,
+              "literal_name": "SetEvent",
+              "slot_rva": 338752
+            },
+            {
+              "ordinal": null,
+              "literal_name": "InitializeCriticalSectionAndSpinCount",
+              "slot_rva": 338760
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-core-rtlsupport-l1-1-0.dll",
+          "descriptor_file_offset": 327164,
+          "first_thunk": 338592,
+          "original_first_thunk": 343600,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "RtlCaptureContext",
+              "slot_rva": 338592
+            },
+            {
+              "ordinal": null,
+              "literal_name": "RtlVirtualUnwind",
+              "slot_rva": 338600
+            },
+            {
+              "ordinal": null,
+              "literal_name": "RtlLookupFunctionEntry",
+              "slot_rva": 338608
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-core-errorhandling-l1-1-0.dll",
+          "descriptor_file_offset": 327184,
+          "first_thunk": 337984,
+          "original_first_thunk": 342992,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "UnhandledExceptionFilter",
+              "slot_rva": 337984
+            },
+            {
+              "ordinal": null,
+              "literal_name": "SetUnhandledExceptionFilter",
+              "slot_rva": 337992
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-core-processthreads-l1-1-0.dll",
+          "descriptor_file_offset": 327204,
+          "first_thunk": 338280,
+          "original_first_thunk": 343288,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "GetStartupInfoW",
+              "slot_rva": 338280
+            },
+            {
+              "ordinal": null,
+              "literal_name": "GetCurrentProcessId",
+              "slot_rva": 338288
+            },
+            {
+              "ordinal": null,
+              "literal_name": "GetCurrentThreadId",
+              "slot_rva": 338296
+            },
+            {
+              "ordinal": null,
+              "literal_name": "TerminateProcess",
+              "slot_rva": 338304
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-core-processthreads-l1-1-1.dll",
+          "descriptor_file_offset": 327224,
+          "first_thunk": 338400,
+          "original_first_thunk": 343408,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "IsProcessorFeaturePresent",
+              "slot_rva": 338400
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-core-debug-l1-1-0.dll",
+          "descriptor_file_offset": 327244,
+          "first_thunk": 337888,
+          "original_first_thunk": 342896,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "IsDebuggerPresent",
+              "slot_rva": 337888
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-core-profile-l1-1-0.dll",
+          "descriptor_file_offset": 327264,
+          "first_thunk": 338496,
+          "original_first_thunk": 343504,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "QueryPerformanceCounter",
+              "slot_rva": 338496
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-core-sysinfo-l1-1-0.dll",
+          "descriptor_file_offset": 327284,
+          "first_thunk": 338864,
+          "original_first_thunk": 343872,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "GetSystemTimeAsFileTime",
+              "slot_rva": 338864
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-core-libraryloader-l1-2-0.dll",
+          "descriptor_file_offset": 327304,
+          "first_thunk": 338184,
+          "original_first_thunk": 343192,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "DisableThreadLibraryCalls",
+              "slot_rva": 338184
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-core-interlocked-l1-1-0.dll",
+          "descriptor_file_offset": 327324,
+          "first_thunk": 338088,
+          "original_first_thunk": 343096,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "InitializeSListHead",
+              "slot_rva": 338088
+            }
+          ]
+        },
+        {
+          "dll": "VCRUNTIME140.dll",
+          "descriptor_file_offset": 327344,
+          "first_thunk": 337536,
+          "original_first_thunk": 342544,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "__std_type_info_destroy_list",
+              "slot_rva": 337536
+            },
+            {
+              "ordinal": null,
+              "literal_name": "__std_terminate",
+              "slot_rva": 337544
+            },
+            {
+              "ordinal": null,
+              "literal_name": "memchr",
+              "slot_rva": 337552
+            },
+            {
+              "ordinal": null,
+              "literal_name": "__C_specific_handler",
+              "slot_rva": 337560
+            },
+            {
+              "ordinal": null,
+              "literal_name": "__current_exception_context",
+              "slot_rva": 337568
+            },
+            {
+              "ordinal": null,
+              "literal_name": "__current_exception",
+              "slot_rva": 337576
+            },
+            {
+              "ordinal": null,
+              "literal_name": "wcsstr",
+              "slot_rva": 337584
+            },
+            {
+              "ordinal": null,
+              "literal_name": "wcsrchr",
+              "slot_rva": 337592
+            },
+            {
+              "ordinal": null,
+              "literal_name": "wcschr",
+              "slot_rva": 337600
+            },
+            {
+              "ordinal": null,
+              "literal_name": "memcmp",
+              "slot_rva": 337608
+            },
+            {
+              "ordinal": null,
+              "literal_name": "memcpy",
+              "slot_rva": 337616
+            },
+            {
+              "ordinal": null,
+              "literal_name": "strchr",
+              "slot_rva": 337624
+            },
+            {
+              "ordinal": null,
+              "literal_name": "memset",
+              "slot_rva": 337632
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_purecall",
+              "slot_rva": 337640
+            },
+            {
+              "ordinal": null,
+              "literal_name": "memmove",
+              "slot_rva": 337648
+            },
+            {
+              "ordinal": null,
+              "literal_name": "__std_exception_copy",
+              "slot_rva": 337656
+            },
+            {
+              "ordinal": null,
+              "literal_name": "__std_exception_destroy",
+              "slot_rva": 337664
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_CxxThrowException",
+              "slot_rva": 337672
+            }
+          ]
+        },
+        {
+          "dll": "VCRUNTIME140_1.dll",
+          "descriptor_file_offset": 327364,
+          "first_thunk": 337792,
+          "original_first_thunk": 342800,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "__CxxFrameHandler4",
+              "slot_rva": 337792
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "descriptor_file_offset": 327384,
+          "first_thunk": 339536,
+          "original_first_thunk": 344544,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "_execute_onexit_table",
+              "slot_rva": 339536
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_crt_atexit",
+              "slot_rva": 339544
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_errno",
+              "slot_rva": 339552
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_seh_filter_dll",
+              "slot_rva": 339560
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_crt_at_quick_exit",
+              "slot_rva": 339568
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_initialize_narrow_environment",
+              "slot_rva": 339576
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_initterm",
+              "slot_rva": 339584
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_initterm_e",
+              "slot_rva": 339592
+            },
+            {
+              "ordinal": null,
+              "literal_name": "terminate",
+              "slot_rva": 339600
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_configure_narrow_argv",
+              "slot_rva": 339608
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_invalid_parameter_noinfo_noreturn",
+              "slot_rva": 339616
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_invalid_parameter_noinfo",
+              "slot_rva": 339624
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_initialize_onexit_table",
+              "slot_rva": 339632
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_cexit",
+              "slot_rva": 339640
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_register_onexit_function",
+              "slot_rva": 339648
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "descriptor_file_offset": 327404,
+          "first_thunk": 339768,
+          "original_first_thunk": 344776,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "fsetpos",
+              "slot_rva": 339768
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_get_stream_buffer_pointers",
+              "slot_rva": 339776
+            },
+            {
+              "ordinal": null,
+              "literal_name": "fflush",
+              "slot_rva": 339784
+            },
+            {
+              "ordinal": null,
+              "literal_name": "__stdio_common_vsprintf",
+              "slot_rva": 339792
+            },
+            {
+              "ordinal": null,
+              "literal_name": "__stdio_common_vsprintf_s",
+              "slot_rva": 339800
+            },
+            {
+              "ordinal": null,
+              "literal_name": "fgetc",
+              "slot_rva": 339808
+            },
+            {
+              "ordinal": null,
+              "literal_name": "ungetc",
+              "slot_rva": 339816
+            },
+            {
+              "ordinal": null,
+              "literal_name": "setvbuf",
+              "slot_rva": 339824
+            },
+            {
+              "ordinal": null,
+              "literal_name": "fwrite",
+              "slot_rva": 339832
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_fseeki64",
+              "slot_rva": 339840
+            },
+            {
+              "ordinal": null,
+              "literal_name": "fgetpos",
+              "slot_rva": 339848
+            },
+            {
+              "ordinal": null,
+              "literal_name": "fread",
+              "slot_rva": 339856
+            },
+            {
+              "ordinal": null,
+              "literal_name": "fputc",
+              "slot_rva": 339864
+            },
+            {
+              "ordinal": null,
+              "literal_name": "fclose",
+              "slot_rva": 339872
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-crt-math-l1-1-0.dll",
+          "descriptor_file_offset": 327424,
+          "first_thunk": 339432,
+          "original_first_thunk": 344440,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "sqrt",
+              "slot_rva": 339432
+            },
+            {
+              "ordinal": null,
+              "literal_name": "roundf",
+              "slot_rva": 339440
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "descriptor_file_offset": 327444,
+          "first_thunk": 339176,
+          "original_first_thunk": 344184,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "_lock_file",
+              "slot_rva": 339176
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_waccess",
+              "slot_rva": 339184
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_unlock_file",
+              "slot_rva": 339192
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_splitpath_s",
+              "slot_rva": 339200
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-crt-string-l1-1-0.dll",
+          "descriptor_file_offset": 327464,
+          "first_thunk": 339984,
+          "original_first_thunk": 344992,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "strcat_s",
+              "slot_rva": 339984
+            },
+            {
+              "ordinal": null,
+              "literal_name": "wcscpy_s",
+              "slot_rva": 339992
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_stricmp",
+              "slot_rva": 340000
+            },
+            {
+              "ordinal": null,
+              "literal_name": "strcpy_s",
+              "slot_rva": 340008
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-crt-heap-l1-1-0.dll",
+          "descriptor_file_offset": 327484,
+          "first_thunk": 339296,
+          "original_first_thunk": 344304,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "free",
+              "slot_rva": 339296
+            },
+            {
+              "ordinal": null,
+              "literal_name": "calloc",
+              "slot_rva": 339304
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_callnewh",
+              "slot_rva": 339312
+            },
+            {
+              "ordinal": null,
+              "literal_name": "realloc",
+              "slot_rva": 339320
+            },
+            {
+              "ordinal": null,
+              "literal_name": "malloc",
+              "slot_rva": 339328
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-crt-convert-l1-1-0.dll",
+          "descriptor_file_offset": 327504,
+          "first_thunk": 338960,
+          "original_first_thunk": 343968,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "wcstol",
+              "slot_rva": 338960
+            },
+            {
+              "ordinal": null,
+              "literal_name": "strtol",
+              "slot_rva": 338968
+            },
+            {
+              "ordinal": null,
+              "literal_name": "atoi",
+              "slot_rva": 338976
+            }
+          ]
+        },
+        {
+          "dll": "api-ms-win-crt-environment-l1-1-0.dll",
+          "descriptor_file_offset": 327524,
+          "first_thunk": 339072,
+          "original_first_thunk": 344080,
+          "entries": [
+            {
+              "ordinal": null,
+              "literal_name": "_wgetenv_s",
+              "slot_rva": 339072
+            },
+            {
+              "ordinal": null,
+              "literal_name": "_dupenv_s",
+              "slot_rva": 339080
+            }
+          ]
+        }
+      ],
+      "tls_callbacks": [],
+      "exports": [
+        {
+          "ordinal": 1,
+          "rva": 4976,
+          "forwarder": null
+        },
+        {
+          "ordinal": 2,
+          "rva": 12544,
+          "forwarder": null
+        },
+        {
+          "ordinal": 3,
+          "rva": 5808,
+          "forwarder": null
+        },
+        {
+          "ordinal": 4,
+          "rva": 16304,
+          "forwarder": null
+        },
+        {
+          "ordinal": 5,
+          "rva": 11568,
+          "forwarder": null
+        },
+        {
+          "ordinal": 6,
+          "rva": 14512,
+          "forwarder": null
+        },
+        {
+          "ordinal": 7,
+          "rva": 8768,
+          "forwarder": null
+        },
+        {
+          "ordinal": 8,
+          "rva": 15792,
+          "forwarder": null
+        },
+        {
+          "ordinal": 9,
+          "rva": 7024,
+          "forwarder": null
+        },
+        {
+          "ordinal": 10,
+          "rva": 12064,
+          "forwarder": null
+        },
+        {
+          "ordinal": 11,
+          "rva": 15424,
+          "forwarder": null
+        },
+        {
+          "ordinal": 12,
+          "rva": 11408,
+          "forwarder": null
+        },
+        {
+          "ordinal": 13,
+          "rva": 4464,
+          "forwarder": null
+        },
+        {
+          "ordinal": 14,
+          "rva": 12288,
+          "forwarder": null
+        },
+        {
+          "ordinal": 15,
+          "rva": 8624,
+          "forwarder": null
+        },
+        {
+          "ordinal": 16,
+          "rva": 5568,
+          "forwarder": null
+        },
+        {
+          "ordinal": 17,
+          "rva": 16064,
+          "forwarder": null
+        },
+        {
+          "ordinal": 18,
+          "rva": 14416,
+          "forwarder": null
+        },
+        {
+          "ordinal": 19,
+          "rva": 11280,
+          "forwarder": null
+        },
+        {
+          "ordinal": 20,
+          "rva": 7360,
+          "forwarder": null
+        },
+        {
+          "ordinal": 21,
+          "rva": 16464,
+          "forwarder": null
+        },
+        {
+          "ordinal": 22,
+          "rva": 13040,
+          "forwarder": null
+        },
+        {
+          "ordinal": 23,
+          "rva": 7008,
+          "forwarder": null
+        },
+        {
+          "ordinal": 24,
+          "rva": 9984,
+          "forwarder": null
+        },
+        {
+          "ordinal": 25,
+          "rva": 7552,
+          "forwarder": null
+        },
+        {
+          "ordinal": 26,
+          "rva": 12096,
+          "forwarder": null
+        },
+        {
+          "ordinal": 27,
+          "rva": 12432,
+          "forwarder": null
+        },
+        {
+          "ordinal": 28,
+          "rva": 4128,
+          "forwarder": null
+        },
+        {
+          "ordinal": 29,
+          "rva": 16800,
+          "forwarder": null
+        },
+        {
+          "ordinal": 30,
+          "rva": 8224,
+          "forwarder": null
+        },
+        {
+          "ordinal": 31,
+          "rva": 8832,
+          "forwarder": null
+        },
+        {
+          "ordinal": 32,
+          "rva": 4144,
+          "forwarder": null
+        },
+        {
+          "ordinal": 33,
+          "rva": 4272,
+          "forwarder": null
+        },
+        {
+          "ordinal": 34,
+          "rva": 15392,
+          "forwarder": null
+        },
+        {
+          "ordinal": 35,
+          "rva": 8160,
+          "forwarder": null
+        },
+        {
+          "ordinal": 36,
+          "rva": 4832,
+          "forwarder": null
+        },
+        {
+          "ordinal": 37,
+          "rva": 11664,
+          "forwarder": null
+        },
+        {
+          "ordinal": 38,
+          "rva": 13392,
+          "forwarder": null
+        },
+        {
+          "ordinal": 39,
+          "rva": 6400,
+          "forwarder": null
+        },
+        {
+          "ordinal": 40,
+          "rva": 13056,
+          "forwarder": null
+        },
+        {
+          "ordinal": 41,
+          "rva": 5744,
+          "forwarder": null
+        },
+        {
+          "ordinal": 42,
+          "rva": 7040,
+          "forwarder": null
+        },
+        {
+          "ordinal": 43,
+          "rva": 11856,
+          "forwarder": null
+        },
+        {
+          "ordinal": 44,
+          "rva": 6112,
+          "forwarder": null
+        },
+        {
+          "ordinal": 45,
+          "rva": 6720,
+          "forwarder": null
+        }
+      ]
+    }
+  ],
+  "exe_indirect_slot": {
+    "rva": 78470968,
+    "section": ".data",
+    "file_backed": false,
+    "file_offset": null,
+    "zero_filled_virtual_tail": true,
+    "writer_identified": false,
+    "runtime_target_identified": false
+  },
+  "callback": {
+    "start_rva": 14649280,
+    "end_rva": 14649561,
+    "sha256": "63e6cb40089dcf063485ef3c4d0b0e2d831a20fec57893eb55cd1cbc087dc53d",
+    "reason": 1,
+    "raw_bytes": "4883ec288b05decd340189c181f19d747a9a448d81517c946d4431c14181f0a24c72f3458d88960865214181f1cfd1817881f1ab35759a01c14401c94401c1418d040805b56759d889442424817c2424befeb8400f85a4000000660f1f44000024ff7345f6db83c6dae8f73000007087771e80c6d456c7c706273ad8c6c7b581eec14830b181e9354871b483c171e87f630100f6df81e89e0178bfe8001c00005980eacbc1bd6b4c2483fa0175658b0530cd34018d88dbb8874f81f198913e4d448d81119d57724101c04181c0dbb8874f41f7d84101c84181c0119d57724101c04401c181c18d59748431c1894c2424817c2424befeb8400f8462ffffffb962000000ba1f00000041b819000000e8ad386c00904883c428c3",
+    "global_reads": [
+      {
+        "rva": 34887080,
+        "disk_u32": 528521662
+      },
+      {
+        "rva": 34887076,
+        "disk_u32": 4029324156
+      }
+    ],
+    "first_guard_examples": [
+      {
+        "x": 528521662,
+        "result": 1085865662,
+        "equals_magic": true
+      },
+      {
+        "x": 0,
+        "result": 1001695058,
+        "equals_magic": false
+      },
+      {
+        "x": 1,
+        "result": 1001695064,
+        "equals_magic": false
+      },
+      {
+        "x": 4294967295,
+        "result": 2137078200,
+        "equals_magic": false
+      }
+    ],
+    "first_guard_policy": "retain both branches; disk value is not a runtime invariant",
+    "proofs": [
+      {
+        "counterexample": "r8d_not_negative_K1",
+        "result": "unsat",
+        "bit_width": 32
+      },
+      {
+        "counterexample": "second_guard_equal_magic",
+        "result": "unsat",
+        "bit_width": 32
+      },
+      {
+        "counterexample": "second_guard_not_odd",
+        "result": "unsat",
+        "bit_width": 32
+      }
+    ],
+    "rules": [
+      {
+        "rva": 14649378,
+        "decision": "taken",
+        "reason": "AND AL clears CF; JAE is taken"
+      },
+      {
+        "rva": 14649452,
+        "decision": "fallthrough",
+        "reason": "Reason=DLL_PROCESS_ATTACH (EDX=1), preserved to CMP"
+      },
+      {
+        "rva": 14649528,
+        "decision": "fallthrough",
+        "reason": "Second guard is odd for every DWORD; even magic cannot equal it"
+      }
+    ],
+    "nodes": [
+      {
+        "rva": 14649280,
+        "bytes": "4883ec28",
+        "mnemonic": "sub",
+        "operands": "rsp, 0x28"
+      },
+      {
+        "rva": 14649284,
+        "bytes": "8b05decd3401",
+        "mnemonic": "mov",
+        "operands": "eax, dword ptr [rip + 0x134cdde]"
+      },
+      {
+        "rva": 14649290,
+        "bytes": "89c1",
+        "mnemonic": "mov",
+        "operands": "ecx, eax"
+      },
+      {
+        "rva": 14649292,
+        "bytes": "81f19d747a9a",
+        "mnemonic": "xor",
+        "operands": "ecx, 0x9a7a749d"
+      },
+      {
+        "rva": 14649298,
+        "bytes": "448d81517c946d",
+        "mnemonic": "lea",
+        "operands": "r8d, [rcx + 0x6d947c51]"
+      },
+      {
+        "rva": 14649305,
+        "bytes": "4431c1",
+        "mnemonic": "xor",
+        "operands": "ecx, r8d"
+      },
+      {
+        "rva": 14649308,
+        "bytes": "4181f0a24c72f3",
+        "mnemonic": "xor",
+        "operands": "r8d, 0xf3724ca2"
+      },
+      {
+        "rva": 14649315,
+        "bytes": "458d8896086521",
+        "mnemonic": "lea",
+        "operands": "r9d, [r8 + 0x21650896]"
+      },
+      {
+        "rva": 14649322,
+        "bytes": "4181f1cfd18178",
+        "mnemonic": "xor",
+        "operands": "r9d, 0x7881d1cf"
+      },
+      {
+        "rva": 14649329,
+        "bytes": "81f1ab35759a",
+        "mnemonic": "xor",
+        "operands": "ecx, 0x9a7535ab"
+      },
+      {
+        "rva": 14649335,
+        "bytes": "01c1",
+        "mnemonic": "add",
+        "operands": "ecx, eax"
+      },
+      {
+        "rva": 14649337,
+        "bytes": "4401c9",
+        "mnemonic": "add",
+        "operands": "ecx, r9d"
+      },
+      {
+        "rva": 14649340,
+        "bytes": "4401c1",
+        "mnemonic": "add",
+        "operands": "ecx, r8d"
+      },
+      {
+        "rva": 14649343,
+        "bytes": "418d0408",
+        "mnemonic": "lea",
+        "operands": "eax, [r8 + rcx]"
+      },
+      {
+        "rva": 14649347,
+        "bytes": "05b56759d8",
+        "mnemonic": "add",
+        "operands": "eax, 0xd85967b5"
+      },
+      {
+        "rva": 14649352,
+        "bytes": "89442424",
+        "mnemonic": "mov",
+        "operands": "dword ptr [rsp + 0x24], eax"
+      },
+      {
+        "rva": 14649356,
+        "bytes": "817c2424befeb840",
+        "mnemonic": "cmp",
+        "operands": "dword ptr [rsp + 0x24], 0x40b8febe"
+      },
+      {
+        "rva": 14649364,
+        "bytes": "0f85a4000000",
+        "mnemonic": "jne",
+        "operands": "0xdf88be"
+      },
+      {
+        "rva": 14649370,
+        "bytes": "660f1f440000",
+        "mnemonic": "nop",
+        "operands": "word ptr [rax + rax]"
+      },
+      {
+        "rva": 14649376,
+        "bytes": "24ff",
+        "mnemonic": "and",
+        "operands": "al, 0xff"
+      },
+      {
+        "rva": 14649378,
+        "bytes": "7345",
+        "mnemonic": "jae",
+        "operands": "0xdf8869"
+      },
+      {
+        "rva": 14649449,
+        "bytes": "83fa01",
+        "mnemonic": "cmp",
+        "operands": "edx, 1"
+      },
+      {
+        "rva": 14649452,
+        "bytes": "7565",
+        "mnemonic": "jne",
+        "operands": "0xdf88d3"
+      },
+      {
+        "rva": 14649454,
+        "bytes": "8b0530cd3401",
+        "mnemonic": "mov",
+        "operands": "eax, dword ptr [rip + 0x134cd30]"
+      },
+      {
+        "rva": 14649460,
+        "bytes": "8d88dbb8874f",
+        "mnemonic": "lea",
+        "operands": "ecx, [rax + 0x4f87b8db]"
+      },
+      {
+        "rva": 14649466,
+        "bytes": "81f198913e4d",
+        "mnemonic": "xor",
+        "operands": "ecx, 0x4d3e9198"
+      },
+      {
+        "rva": 14649472,
+        "bytes": "448d81119d5772",
+        "mnemonic": "lea",
+        "operands": "r8d, [rcx + 0x72579d11]"
+      },
+      {
+        "rva": 14649479,
+        "bytes": "4101c0",
+        "mnemonic": "add",
+        "operands": "r8d, eax"
+      },
+      {
+        "rva": 14649482,
+        "bytes": "4181c0dbb8874f",
+        "mnemonic": "add",
+        "operands": "r8d, 0x4f87b8db"
+      },
+      {
+        "rva": 14649489,
+        "bytes": "41f7d8",
+        "mnemonic": "neg",
+        "operands": "r8d"
+      },
+      {
+        "rva": 14649492,
+        "bytes": "4101c8",
+        "mnemonic": "add",
+        "operands": "r8d, ecx"
+      },
+      {
+        "rva": 14649495,
+        "bytes": "4181c0119d5772",
+        "mnemonic": "add",
+        "operands": "r8d, 0x72579d11"
+      },
+      {
+        "rva": 14649502,
+        "bytes": "4101c0",
+        "mnemonic": "add",
+        "operands": "r8d, eax"
+      },
+      {
+        "rva": 14649505,
+        "bytes": "4401c1",
+        "mnemonic": "add",
+        "operands": "ecx, r8d"
+      },
+      {
+        "rva": 14649508,
+        "bytes": "81c18d597484",
+        "mnemonic": "add",
+        "operands": "ecx, 0x8474598d"
+      },
+      {
+        "rva": 14649514,
+        "bytes": "31c1",
+        "mnemonic": "xor",
+        "operands": "ecx, eax"
+      },
+      {
+        "rva": 14649516,
+        "bytes": "894c2424",
+        "mnemonic": "mov",
+        "operands": "dword ptr [rsp + 0x24], ecx"
+      },
+      {
+        "rva": 14649520,
+        "bytes": "817c2424befeb840",
+        "mnemonic": "cmp",
+        "operands": "dword ptr [rsp + 0x24], 0x40b8febe"
+      },
+      {
+        "rva": 14649528,
+        "bytes": "0f8462ffffff",
+        "mnemonic": "je",
+        "operands": "0xdf8820"
+      },
+      {
+        "rva": 14649534,
+        "bytes": "b962000000",
+        "mnemonic": "mov",
+        "operands": "ecx, 0x62"
+      },
+      {
+        "rva": 14649539,
+        "bytes": "ba1f000000",
+        "mnemonic": "mov",
+        "operands": "edx, 0x1f"
+      },
+      {
+        "rva": 14649544,
+        "bytes": "41b819000000",
+        "mnemonic": "mov",
+        "operands": "r8d, 0x19"
+      },
+      {
+        "rva": 14649550,
+        "bytes": "e8ad386c00",
+        "mnemonic": "call",
+        "operands": "0x14bc180"
+      },
+      {
+        "rva": 14649555,
+        "bytes": "90",
+        "mnemonic": "nop",
+        "operands": ""
+      },
+      {
+        "rva": 14649556,
+        "bytes": "4883c428",
+        "mnemonic": "add",
+        "operands": "rsp, 0x28"
+      },
+      {
+        "rva": 14649560,
+        "bytes": "c3",
+        "mnemonic": "ret",
+        "operands": ""
+      }
+    ],
+    "edges": [
+      {
+        "from": 14649280,
+        "to": [
+          14649284
+        ]
+      },
+      {
+        "from": 14649284,
+        "to": [
+          14649290
+        ]
+      },
+      {
+        "from": 14649290,
+        "to": [
+          14649292
+        ]
+      },
+      {
+        "from": 14649292,
+        "to": [
+          14649298
+        ]
+      },
+      {
+        "from": 14649298,
+        "to": [
+          14649305
+        ]
+      },
+      {
+        "from": 14649305,
+        "to": [
+          14649308
+        ]
+      },
+      {
+        "from": 14649308,
+        "to": [
+          14649315
+        ]
+      },
+      {
+        "from": 14649315,
+        "to": [
+          14649322
+        ]
+      },
+      {
+        "from": 14649322,
+        "to": [
+          14649329
+        ]
+      },
+      {
+        "from": 14649329,
+        "to": [
+          14649335
+        ]
+      },
+      {
+        "from": 14649335,
+        "to": [
+          14649337
+        ]
+      },
+      {
+        "from": 14649337,
+        "to": [
+          14649340
+        ]
+      },
+      {
+        "from": 14649340,
+        "to": [
+          14649343
+        ]
+      },
+      {
+        "from": 14649343,
+        "to": [
+          14649347
+        ]
+      },
+      {
+        "from": 14649347,
+        "to": [
+          14649352
+        ]
+      },
+      {
+        "from": 14649352,
+        "to": [
+          14649356
+        ]
+      },
+      {
+        "from": 14649356,
+        "to": [
+          14649364
+        ]
+      },
+      {
+        "from": 14649364,
+        "to": [
+          14649534,
+          14649370
+        ]
+      },
+      {
+        "from": 14649370,
+        "to": [
+          14649376
+        ]
+      },
+      {
+        "from": 14649376,
+        "to": [
+          14649378
+        ]
+      },
+      {
+        "from": 14649378,
+        "to": [
+          14649449
+        ]
+      },
+      {
+        "from": 14649449,
+        "to": [
+          14649452
+        ]
+      },
+      {
+        "from": 14649452,
+        "to": [
+          14649454
+        ]
+      },
+      {
+        "from": 14649454,
+        "to": [
+          14649460
+        ]
+      },
+      {
+        "from": 14649460,
+        "to": [
+          14649466
+        ]
+      },
+      {
+        "from": 14649466,
+        "to": [
+          14649472
+        ]
+      },
+      {
+        "from": 14649472,
+        "to": [
+          14649479
+        ]
+      },
+      {
+        "from": 14649479,
+        "to": [
+          14649482
+        ]
+      },
+      {
+        "from": 14649482,
+        "to": [
+          14649489
+        ]
+      },
+      {
+        "from": 14649489,
+        "to": [
+          14649492
+        ]
+      },
+      {
+        "from": 14649492,
+        "to": [
+          14649495
+        ]
+      },
+      {
+        "from": 14649495,
+        "to": [
+          14649502
+        ]
+      },
+      {
+        "from": 14649502,
+        "to": [
+          14649505
+        ]
+      },
+      {
+        "from": 14649505,
+        "to": [
+          14649508
+        ]
+      },
+      {
+        "from": 14649508,
+        "to": [
+          14649514
+        ]
+      },
+      {
+        "from": 14649514,
+        "to": [
+          14649516
+        ]
+      },
+      {
+        "from": 14649516,
+        "to": [
+          14649520
+        ]
+      },
+      {
+        "from": 14649520,
+        "to": [
+          14649528
+        ]
+      },
+      {
+        "from": 14649528,
+        "to": [
+          14649534
+        ]
+      },
+      {
+        "from": 14649534,
+        "to": [
+          14649539
+        ]
+      },
+      {
+        "from": 14649539,
+        "to": [
+          14649544
+        ]
+      },
+      {
+        "from": 14649544,
+        "to": [
+          14649550
+        ]
+      },
+      {
+        "from": 14649550,
+        "to": [
+          14649555
+        ]
+      },
+      {
+        "from": 14649555,
+        "to": [
+          14649556
+        ]
+      },
+      {
+        "from": 14649556,
+        "to": [
+          14649560
+        ]
+      },
+      {
+        "from": 14649560,
+        "to": []
+      }
+    ],
+    "all_modeled_precall_paths_reach_call": true,
+    "call_site_rva": 14649550,
+    "callee_rva": 21741952,
+    "callsite_register_values": {
+      "ecx": 98,
+      "edx": 31,
+      "r8d": 25
+    },
+    "callee_semantics": "unresolved; register preparation does not establish a function prototype"
+  },
+  "assumptions": [
+    "Normal documented PE/TLS invocation with reason=1",
+    "On-disk callback instruction bytes remain unchanged",
+    "Ordinary instruction semantics; no exception, asynchronous code change, or nonlocal transfer before call",
+    "Stack and DWORD global reads succeed; no assumption about their values",
+    "Callee behavior and return are outside the pre-call proof"
+  ],
+  "claims": {
+    "observed_runtime_execution": false,
+    "exe_slot_writer_found": false,
+    "unpacker_identified": false,
+    "bios_read_proven": false,
+    "hardware_serialization_proven": false,
+    "hardware_send_3724_proven": false
+  }
+}
