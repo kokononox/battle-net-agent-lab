@@ -6,7 +6,7 @@ from pathlib import Path
 import pefile
 from capstone import Cs, CS_ARCH_X86, CS_MODE_64, CS_GRP_JUMP, CS_GRP_RET, CS_AC_WRITE
 from capstone.x86 import X86_OP_MEM, X86_OP_IMM, X86_REG_RIP
-VERSION='0.1.0'
+VERSION='0.2.0'
 KNOWN_SHA='1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a'
 LITERALS=['HARDWARE\\DESCRIPTION\\System\\BIOS','BIOSVersion','BIOSVendor','BIOSReleaseDate',
  'BaseBoardProduct','BaseBoardManufacturer','BaseBoardVersion','BiosMinorRelease',
@@ -169,6 +169,16 @@ def analyze(path,progress=lambda *_:None):
      if len(ptrs)>=LIMITS['pointer_refs']:break
    if len(ptrs)>=LIMITS['pointer_refs']:bounded.append('Pointer reference budget reached.');break
  except Exception as e:im.warnings.append('Relocations incomplete: '+str(e))
+ from diagnostics import expand,structural_samples,finish
+ for h in hits:h['discovery']='legacy'
+ additions,diagnosis=expand(im,anchors,ptrs,hits,cs,progress)
+ hits.extend(additions)
+ for h in additions:
+  fun=im.function(h['site_rva'])
+  if fun:selected[fun[0]]=fun
+ bounded.extend(diagnosis['budget_limits_hit'])
+ progress(47,'Sampling section bytes and pdata entry decoding (triage only)')
+ diagnosis['structural_triage']=structural_samples(im,cs,cfg)
  # Favor literal-anchored functions over broad registry-only functions.
  ordered=sorted(selected.values(),key=lambda f:(not any(h['function_start_rva']==f[0] and h['kind']=='rip_relative_candidate' for h in hits),f[0]))
  if len(ordered)>LIMITS['functions']:bounded.append('Function budget reached; extra functions not decoded.')
@@ -198,12 +208,13 @@ def analyze(path,progress=lambda *_:None):
    'decoded_instruction_count':len(instructions),'issues':issues,'branches':edges,
    'direct_calls_or_tail_jumps':direct,'indirect_import_sites':imports,
    'offset_only_write_candidates':writes,'disassembly':'\n'.join(lines)})
+ finish(diagnosis,hits)
  progress(94,'Building evidence and explicit coverage report')
  result={'tool':'WLab BIOS Path','version':VERSION,'input':{'name':Path(path).name,'sha256':im.sha,'size':len(im.blob),'image_base':im.base,'architecture':'x86-64'},
   'profile':{'matched':profile,'known_build':'12.1.5.70448' if profile else None,
    'message_layout_hints_enabled':profile,'source_commit':'c7efc17bd4adf3d6cf48278233075b74a879e486' if profile else None},
-  'literals':literals,'code_candidates':hits,'data_pointer_candidates':ptrs,'functions':funcs,
-  'coverage':{'scope':'Offline, exact anchor starts, RIP-relative opcode patterns and relocation-backed pointers; bounded intraprocedural direct-flow decoding.',
+  'diagnosis':diagnosis,'literals':literals,'code_candidates':hits,'data_pointer_candidates':ptrs,'functions':funcs,
+  'coverage':{'scope':'Legacy scan plus expanded RIP-relative ModRM and imm64 candidates to exact anchors and one-hop relocation pointer slots; bounded local CFG. See diagnosis for per-pass coverage.',
    'exception_function_entries':len(im.functions),'executable_bytes_pattern_scanned':site_count,
    'functions_selected':len(ordered),'functions_decoded':len(funcs),'limits':LIMITS,'budget_limits_hit':bounded,'warnings':im.warnings,
    'not_covered':['Runtime reachability and actual values','Packed/encrypted code recovery','Indirect call graph and dynamic imports','Interior string pointers and encoded pointers','Whole-program data flow or message object identity','Network payload or destination/port binding','Delayed imports are not resolved']},
@@ -217,6 +228,7 @@ def analyze(path,progress=lambda *_:None):
 def write_outputs(result,out):
  out=Path(out);out.parent.mkdir(parents=True,exist_ok=True);out.mkdir(exist_ok=False)
  (out/'QA.json').write_text(json.dumps(result['verification'],ensure_ascii=False,indent=2),encoding='utf-8')
+ (out/'diagnosis.json').write_text(json.dumps(result['diagnosis'],ensure_ascii=False,indent=2),encoding='utf-8')
  (out/'evidence.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
  rows=['# WLab BIOS Path — گزارش بررسی آفلاین','',
  '**نتیجه دربارهٔ ارسال CPU/BIOS روی 3724: نامشخص.**',
@@ -229,6 +241,15 @@ def write_outputs(result,out):
  '- «locally_decoded» فقط یعنی محل ارجاع در گراف محلیِ ساخته‌شده از ورودی pdata دیکد شده است؛ صحت کل تابع یا اجرای واقعی ثابت نشده.',
  '- نوشتن در آفست مشابه، هویت شیء ClientEngineLogV2 را ثابت نمی‌کند.', '', '## مرز پوشش']
  rows+=['- '+x for x in result['coverage']['warnings']+result['coverage']['budget_limits_hit']+result['coverage']['not_covered']]
+ diag=result['diagnosis']
+ rows+=['','## تشخیص محدودیت اسکن',
+  '- نامزدهای روش قبلی: '+str(diag['baseline_code_candidates']),
+  '- نامزدهای افزوده در دامنهٔ جدید: '+str(diag['expanded_new_code_candidates']),
+  '- نامزدهای افزودهٔ دیکدشده در گراف محلی: '+str(diag['expanded_locally_decoded_candidates']),
+  '- نتیجهٔ محدود به دامنهٔ بررسی: '+diag['outcome'],
+  '- علت قطعی صفر بودن ارجاع‌ها: هنوز تعیین نشده. آنتروپی بالا یا دشواری دیکد، به‌تنهایی محافظت فایل را ثابت نمی‌کند.',
+  '- نمونه‌برداری از ورودی‌های pdata از بررسی تابع جمع‌آور BIOS جداست و نباید تعداد آن به‌عنوان توابع هدف گزارش شود.']
+ rows+=['- خارج از پوشش: '+x for x in diag['uncovered']]
  rows+=['','## محدودیت‌های بدنه‌های منتخب']
  for f in result['functions']:
   if f['issues']:rows.append('- '+hex(f['start_rva'])+': '+'; '.join(f['issues']))
@@ -239,7 +260,7 @@ def write_outputs(result,out):
  for f in result['functions']:(d/(f"{f['start_rva']:08x}.asm")).write_text(f['disassembly']+'\n',encoding='utf-8')
  # Only generated snippets/reports are included; never original PE bytes or full file path.
  with zipfile.ZipFile(out/'evidence.zip','w',zipfile.ZIP_DEFLATED) as z:
-  for p in [out/'evidence.json',out/'QA.json',out/'report.fa.md',*sorted(d.glob('*.asm'))]:z.write(p,p.relative_to(out))
+  for p in [out/'evidence.json',out/'diagnosis.json',out/'QA.json',out/'report.fa.md',*sorted(d.glob('*.asm'))]:z.write(p,p.relative_to(out))
  return out/'evidence.zip'
 
 def main():

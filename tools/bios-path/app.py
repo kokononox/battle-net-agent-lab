@@ -33,7 +33,7 @@ def work(path):
   with LOCK:STATE.update(state='done',progress=100,message='گزارش آماده است؛ نتیجهٔ ارسال روی 3724 همچنان نامشخص است.',
    summary={'sha256':r['input']['sha256'],'profile':r['profile']['matched'],'references':len(r['code_candidates']),
     'functions':len(r['functions']),'warnings':len(r['coverage']['warnings'])+len(r['coverage']['budget_limits_hit'])+sum(len(f['issues']) for f in r['functions']),
-    'output_dir':str(out)},error=None)
+    'diagnosis':{k:r['diagnosis'][k] for k in ['outcome','baseline_code_candidates','expanded_new_code_candidates','expanded_locally_decoded_candidates']},'general_function_samples':len(r['diagnosis']['structural_triage']['function_samples']),'output_dir':str(out)},error=None)
  except Exception as e:
   with LOCK:STATE.update(state='error',error=str(e),message='تحلیل متوقف شد؛ فایل ورودی اجرا نشد.')
 

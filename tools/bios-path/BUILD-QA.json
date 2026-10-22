@@ -1,51 +1,66 @@
 {
-  "status": "PASS_WITH_UNTESTED_WINDOWS_RUNTIME",
+  "version": "0.2.0",
+  "status": "PASS_WITH_UNTESTED_WINDOWS_0_2_RUNTIME",
   "unit_tests": {
-    "passed": 23,
-    "environment": "Linux Python 3.13; synthetic PE fixtures; no game binary"
+    "passed": 42,
+    "environment": "Linux Python 3.13, synthetic PE fixtures; not a real game binary"
   },
   "ui_http_tests": {
     "status": "PASS",
     "checks": [
-      "initial selected input visible",
+      "0.2.0 version shown",
       "analysis completes through UI",
+      "no-reference result explicitly inconclusive",
+      "general samples NOT reported as target functions",
       "unknown-build guard visible",
-      "ZIP download works",
-      "cross-origin POST rejected",
+      "diagnostic ZIP downloads",
+      "wrong origin rejected",
       "wrong token rejected",
-      "tokenless GET rejected",
-      "390px result has no horizontal overflow",
-      "picker error state visibly explained (Linux QA only)",
-      "no uncaught JS errors"
+      "tokenless status rejected",
+      "390px dark mode has no horizontal overflow",
+      "error hides stale result",
+      "new candidate labelled NOT hardware-send proof",
+      "390px positive result has no horizontal overflow",
+      "no uncaught JavaScript errors"
     ]
   },
   "visual_qa": {
     "reviewed": [
-      "desktop input",
-      "desktop result",
+      "desktop initial",
+      "desktop no-reference result",
+      "desktop positive candidate result",
       "desktop error",
-      "390px light result",
-      "390px dark result"
+      "390px dark no-reference result",
+      "390px light positive result"
     ],
-    "horizontal_overflow_at_390px": false
+    "overflow_found": false
   },
-  "launcher_static_audit": {
+  "synthetic_benchmark": {
+    "environment": "Linux, synthetic random section; not a real game performance guarantee",
+    "bytes": 65011712,
+    "elapsed_seconds": 3.904,
+    "new_candidates": 0,
+    "budget_limits_hit": []
+  },
+  "launcher": {
+    "reused_unchanged_from": "0.1.0",
     "format": "PE32+ x64",
     "subsystem": 2,
     "imports": [
       "KERNEL32.dll",
       "USER32.dll"
     ],
-    "digital_signature": false
+    "signed": false
   },
   "not_tested": [
-    "Running launcher or embedded CPython on Windows",
-    "Windows native file picker",
+    "0.2 runtime on Windows",
+    "Native file picker on Windows in this session",
     "Ghidra bookmark script execution",
-    "Real game file analysis with this tool",
-    "Runtime hardware reads, message population, serialization or network sends"
+    "0.2 analysis of real Wow.exe",
+    "Runtime hardware reads, population, serialization or network sends"
   ],
+  "protection_or_packing_proven": false,
   "game_executed": false,
-  "game_binary_in_package": false,
+  "raw_game_binary_or_private_user_report_in_package": false,
   "main_branch_modified": false
 }
