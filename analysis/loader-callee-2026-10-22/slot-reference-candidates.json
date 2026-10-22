@@ -1,0 +1,519 @@
+{
+  "scope": "Candidates from executable raw sections, decoded with Capstone. Includes alternate instruction starts inside prefixes/operands. No reachability proof. Only direct RIP-relative addressing with a four-byte displacement and trailing immediate length 0/1/2/4 searched. Register-indirect, computed, bulk writes and runtime code are not covered.",
+  "references": [
+    {
+      "candidate_rva": "0xb5b06",
+      "bytes": "ff15f4a8fe01",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x1fea8f4]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0xb4b10",
+          "end": "0xb837e"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0xb763d",
+      "bytes": "ff15bd8dfe01",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x1fe8dbd]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0xb4b10",
+          "end": "0xb837e"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x435b0c",
+      "bytes": "ff15eea8c601",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x1c6a8ee]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x435510",
+          "end": "0x435c2e"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0xa7c92b",
+      "bytes": "4c8b35ce3a6201",
+      "mnemonic": "mov",
+      "operands": "r14, qword ptr [rip + 0x1623ace]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0xa7c8d0",
+          "end": "0xa7cf4e"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0xa7c92c",
+      "bytes": "8b35ce3a6201",
+      "mnemonic": "mov",
+      "operands": "esi, dword ptr [rip + 0x1623ace]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 4,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0xa7c8d0",
+          "end": "0xa7cf4e"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0xb6570d",
+      "bytes": "ff15edac5301",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x153aced]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0xb63230",
+          "end": "0xb658df"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0xc9d189",
+      "bytes": "ff1571324001",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x1403271]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0xc9cf80",
+          "end": "0xc9dda7"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0xe18598",
+      "bytes": "ff15627e2801",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x1287e62]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0xe18020",
+          "end": "0xe1ad35"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0xe26ac9",
+      "bytes": "ff1531992701",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x1279931]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0xe266c0",
+          "end": "0xe26c29"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x116ed68",
+      "bytes": "ff159216f300",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0xf31692]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x116ed60",
+          "end": "0x116edec"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x116ede4",
+      "bytes": "f2ff15ad19f300",
+      "mnemonic": "bnd call",
+      "operands": "qword ptr [rip + 0xf319ad]",
+      "slot_rva": "0x20a0798",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x116ed60",
+          "end": "0x116edec"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x116ede5",
+      "bytes": "ff15ad19f300",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0xf319ad]",
+      "slot_rva": "0x20a0798",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x116ed60",
+          "end": "0x116edec"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x118d9aa",
+      "bytes": "488b1d4f2af100",
+      "mnemonic": "mov",
+      "operands": "rbx, qword ptr [rip + 0xf12a4f]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x118d940",
+          "end": "0x118f46e"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x118d9ab",
+      "bytes": "8b1d4f2af100",
+      "mnemonic": "mov",
+      "operands": "ebx, dword ptr [rip + 0xf12a4f]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 4,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x118d940",
+          "end": "0x118f46e"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x141d1e7",
+      "bytes": "ff15ab35c800",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0xc835ab]",
+      "slot_rva": "0x20a0798",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x141d160",
+          "end": "0x141dd43"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x141dcab",
+      "bytes": "ff154f27c800",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0xc8274f]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x141d160",
+          "end": "0x141dd43"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x14b922a",
+      "bytes": "ff15d071be00",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0xbe71d0]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x14b6d60",
+          "end": "0x14bb4da"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x1714c57",
+      "bytes": "ff15a3b79800",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x98b7a3]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x1712070",
+          "end": "0x1715a69"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x1b49658",
+      "bytes": "4c8b35a16d5500",
+      "mnemonic": "mov",
+      "operands": "r14, qword ptr [rip + 0x556da1]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x1b49630",
+          "end": "0x1b49a98"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x1b49659",
+      "bytes": "8b35a16d5500",
+      "mnemonic": "mov",
+      "operands": "esi, dword ptr [rip + 0x556da1]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 4,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x1b49630",
+          "end": "0x1b49a98"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x1b49a91",
+      "bytes": "ff15016d5500",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x556d01]",
+      "slot_rva": "0x20a0798",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x1b49630",
+          "end": "0x1b49a98"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x1beb990",
+      "bytes": "ff156a4a4b00",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x4b4a6a]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x1beb830",
+          "end": "0x1beba45"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x1beb99a",
+      "bytes": "f2ff15f74d4b00",
+      "mnemonic": "bnd call",
+      "operands": "qword ptr [rip + 0x4b4df7]",
+      "slot_rva": "0x20a0798",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x1beb830",
+          "end": "0x1beba45"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x1beb99b",
+      "bytes": "ff15f74d4b00",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x4b4df7]",
+      "slot_rva": "0x20a0798",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x1beb830",
+          "end": "0x1beba45"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x2006306",
+      "bytes": "ff15f4a00900",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x9a0f4]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x20062ec",
+          "end": "0x2006320"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x2006319",
+      "bytes": "48ff2578a40900",
+      "mnemonic": "jmp",
+      "operands": "qword ptr [rip + 0x9a478]",
+      "slot_rva": "0x20a0798",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x20062ec",
+          "end": "0x2006320"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x200631a",
+      "bytes": "ff2578a40900",
+      "mnemonic": "jmp",
+      "operands": "qword ptr [rip + 0x9a478]",
+      "slot_rva": "0x20a0798",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x20062ec",
+          "end": "0x2006320"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x20103a1",
+      "bytes": "ff1559000900",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x90059]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x2010390",
+          "end": "0x20103c2"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x20103ac",
+      "bytes": "ff15e6030900",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x903e6]",
+      "slot_rva": "0x20a0798",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x2010390",
+          "end": "0x20103c2"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x2013dca",
+      "bytes": "ff1530c60800",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x8c630]",
+      "slot_rva": "0x20a0400",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x2013d9c",
+          "end": "0x2013de3"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x2013ddc",
+      "bytes": "48ff25b5c90800",
+      "mnemonic": "jmp",
+      "operands": "qword ptr [rip + 0x8c9b5]",
+      "slot_rva": "0x20a0798",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x2013d9c",
+          "end": "0x2013de3"
+        }
+      ]
+    },
+    {
+      "candidate_rva": "0x2013ddd",
+      "bytes": "ff25b5c90800",
+      "mnemonic": "jmp",
+      "operands": "qword ptr [rip + 0x8c9b5]",
+      "slot_rva": "0x20a0798",
+      "operand_access_flags": 1,
+      "operand_size_bytes": 8,
+      "proven_reachable": false,
+      "unwind_containing_ranges": [
+        {
+          "begin": "0x2013d9c",
+          "end": "0x2013de3"
+        }
+      ]
+    }
+  ],
+  "candidates": 32,
+  "source_sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c"
+}

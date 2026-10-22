@@ -1,0 +1,18 @@
+{
+  "prior_commit": "1e1fd1e12c68ad547b25bd3d418901b682c7dee7",
+  "branch": "analysis/ghidra-targeted-2026-10-22-r1",
+  "source_name": "wow_loader.dll",
+  "source_sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "static_tools": [
+    "pefile 2024.8.26",
+    "Capstone 5.0.9",
+    "NumPy",
+    "independent raw PE verification"
+  ],
+  "Ghidra_run_this_stage": false,
+  "native_input_execution": false,
+  "API_names_hypotheses_only": true,
+  "public_reference": "https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/invalid-parameter-functions?view=msvc-170",
+  "public_reference_scope": "Generic documented CRT error handling, not proof of this binary API identities",
+  "private_source_uploaded_to_public_service": false
+}

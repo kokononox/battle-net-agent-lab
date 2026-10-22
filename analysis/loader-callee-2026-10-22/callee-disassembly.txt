@@ -1,0 +1,917 @@
+0x17df7f0  4157                           push r15
+0x17df7f2  4156                           push r14
+0x17df7f4  4154                           push r12
+0x17df7f6  56                             push rsi
+0x17df7f7  57                             push rdi
+0x17df7f8  55                             push rbp
+0x17df7f9  53                             push rbx
+0x17df7fa  4881ecc0000000                 sub rsp, 0xc0
+0x17df801  8b05c52f9900                   mov eax, dword ptr [rip + 0x992fc5]
+0x17df807  8d88e97b834d                   lea ecx, [rax + 0x4d837be9]
+0x17df80d  8d90c9dbcaa1                   lea edx, [rax - 0x5e352437]
+0x17df813  0500b599ab                     add eax, 0xab99b500
+0x17df818  31c8                           xor eax, ecx
+0x17df81a  31d0                           xor eax, edx
+0x17df81c  8944240c                       mov dword ptr [rsp + 0xc], eax
+0x17df820  b87ea8de5d                     mov eax, 0x5ddea87e
+0x17df825  b9cefa4032                     mov ecx, 0x3240face
+0x17df82a  ba815721a2                     mov edx, 0xa2215781
+0x17df82f  41b834c1ef65                   mov r8d, 0x65efc134
+0x17df835  41b9cb3e109a                   mov r9d, 0x9a103ecb
+0x17df83b  41ba9642c964                   mov r10d, 0x64c94296
+0x17df841  41bbb80c63e7                   mov r11d, 0xe7630cb8
+0x17df847  be8afa4b0d                     mov esi, 0xd4bfa8a
+0x17df84c  eb72                           jmp 0x1817df8c0
+0x17df84e  8b7c2448                       mov edi, dword ptr [rsp + 0x48]
+0x17df852  8d9f14f5971a                   lea ebx, [rdi + 0x1a97f514]
+0x17df858  895c244c                       mov dword ptr [rsp + 0x4c], ebx
+0x17df85c  8d9f5495d5b3                   lea ebx, [rdi - 0x4c2a6aac]
+0x17df862  895c2450                       mov dword ptr [rsp + 0x50], ebx
+0x17df866  81c7accc1598                   add edi, 0x9815ccac
+0x17df86c  897c2454                       mov dword ptr [rsp + 0x54], edi
+0x17df870  89fb                           mov ebx, edi
+0x17df872  81f32d55cd42                   xor ebx, 0x42cd552d
+0x17df878  895c2458                       mov dword ptr [rsp + 0x58], ebx
+0x17df87c  89fb                           mov ebx, edi
+0x17df87e  81f38a7f56d4                   xor ebx, 0xd4567f8a
+0x17df884  895c2410                       mov dword ptr [rsp + 0x10], ebx
+0x17df888  81f77580a92b                   xor edi, 0x2ba98075
+0x17df88e  897c245c                       mov dword ptr [rsp + 0x5c], edi
+0x17df892  8b3d382f9900                   mov edi, dword ptr [rip + 0x992f38]
+0x17df898  8d9f00903c2c                   lea ebx, [rdi + 0x2c3c9000]
+0x17df89e  81f342eec51a                   xor ebx, 0x1ac5ee42
+0x17df8a4  01fb                           add ebx, edi
+0x17df8a6  81c300903c2c                   add ebx, 0x2c3c9000
+0x17df8ac  4189fe                         mov r14d, edi
+0x17df8af  4129de                         sub r14d, ebx
+0x17df8b2  4401f7                         add edi, r14d
+0x17df8b5  81c7ddd28496                   add edi, 0x9684d2dd
+0x17df8bb  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17df8bf  90                             nop 
+0x17df8c0  8b7c240c                       mov edi, dword ptr [rsp + 0xc]
+0x17df8c4  81ff46e0073e                   cmp edi, 0x3e07e046
+0x17df8ca  7f64                           jg 0x1817df930
+0x17df8cc  81ffcea01026                   cmp edi, 0x2610a0ce
+0x17df8d2  0f8ef8000000                   jle 0x1817df9d0
+0x17df8d8  81ff8767ab38                   cmp edi, 0x38ab6787
+0x17df8de  0f8fdd010000                   jg 0x1817dfac1
+0x17df8e4  81ffe723ce28                   cmp edi, 0x28ce23e7
+0x17df8ea  0f8fb2030000                   jg 0x1817dfca2
+0x17df8f0  81ffcfa01026                   cmp edi, 0x2610a0cf
+0x17df8f6  0f851a090000                   jne 0x1817e0216
+0x17df8fc  8b7c2414                       mov edi, dword ptr [rsp + 0x14]
+0x17df900  21d7                           and edi, edx
+0x17df902  89bc2490000000                 mov dword ptr [rsp + 0x90], edi
+0x17df909  8b3d1d2f9900                   mov edi, dword ptr [rip + 0x992f1d]
+0x17df90f  8d9ffdc94b1b                   lea ebx, [rdi + 0x1b4bc9fd]
+0x17df915  81f342636169                   xor ebx, 0x69616342
+0x17df91b  f7db                           neg ebx
+0x17df91d  01df                           add edi, ebx
+0x17df91f  81c7c0e30cd2                   add edi, 0xd20ce3c0
+0x17df925  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17df929  eb95                           jmp 0x1817df8c0
+0x17df930  81ffd6bd5d55                   cmp edi, 0x555dbdd6
+0x17df936  0f8e14010000                   jle 0x1817dfa50
+0x17df93c  81ff807c1c67                   cmp edi, 0x671c7c80
+0x17df942  0f8fe4010000                   jg 0x1817dfb2c
+0x17df948  81ff1e59c657                   cmp edi, 0x57c6591e
+0x17df94e  0f8f96060000                   jg 0x1817dffea
+0x17df954  81ffd7bd5d55                   cmp edi, 0x555dbdd7
+0x17df95a  0f85330b0000                   jne 0x1817e0493
+0x17df960  8b7c2418                       mov edi, dword ptr [rsp + 0x18]
+0x17df964  f7d7                           not edi
+0x17df966  01ff                           add edi, edi
+0x17df968  81cfea0a68e5                   or edi, 0xe5680aea
+0x17df96e  897c2438                       mov dword ptr [rsp + 0x38], edi
+0x17df972  8b3d702e9900                   mov edi, dword ptr [rip + 0x992e70]
+0x17df978  8d9fc1da8b00                   lea ebx, [rdi + 0x8bdac1]
+0x17df97e  81f341a0b34b                   xor ebx, 0x4bb3a041
+0x17df984  8dabfb8d3b18                   lea ebp, [rbx + 0x183b8dfb]
+0x17df98a  448db3e5a27154                 lea r14d, [rbx + 0x5471a2e5]
+0x17df991  448dbb971fe8e1                 lea r15d, [rbx - 0x1e17e069]
+0x17df998  4531f7                         xor r15d, r14d
+0x17df99b  4529f7                         sub r15d, r14d
+0x17df99e  4181c7f45e2312                 add r15d, 0x12235ef4
+0x17df9a5  4131ef                         xor r15d, ebp
+0x17df9a8  4129df                         sub r15d, ebx
+0x17df9ab  4129ff                         sub r15d, edi
+0x17df9ae  418d3c1f                       lea edi, [r15 + rbx]
+0x17df9b2  81c703e81219                   add edi, 0x1912e803
+0x17df9b8  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17df9bc  e9fffeffff                     jmp 0x1817df8c0
+0x17df9d0  81ff2fda6e18                   cmp edi, 0x186eda2f
+0x17df9d6  0f8ead010000                   jle 0x1817dfb89
+0x17df9dc  81ff5c53501e                   cmp edi, 0x1e50535c
+0x17df9e2  0f8fa1050000                   jg 0x1817dff89
+0x17df9e8  81ff30da6e18                   cmp edi, 0x186eda30
+0x17df9ee  0f85be090000                   jne 0x1817e03b2
+0x17df9f4  8b7c2470                       mov edi, dword ptr [rsp + 0x70]
+0x17df9f8  037c2460                       add edi, dword ptr [rsp + 0x60]
+0x17df9fc  897c2414                       mov dword ptr [rsp + 0x14], edi
+0x17dfa00  f7d7                           not edi
+0x17dfa02  81e77ea8de1d                   and edi, 0x1ddea87e
+0x17dfa08  c1e702                         shl edi, 2
+0x17dfa0b  897c2474                       mov dword ptr [rsp + 0x74], edi
+0x17dfa0f  8b3df32d9900                   mov edi, dword ptr [rip + 0x992df3]
+0x17dfa15  89fb                           mov ebx, edi
+0x17dfa17  81f3866760bb                   xor ebx, 0xbb606786
+0x17dfa1d  8dab4deefbf5                   lea ebp, [rbx - 0xa0411b3]
+0x17dfa23  4189ee                         mov r14d, ebp
+0x17dfa26  4181f6cfb48d1b                 xor r14d, 0x1b8db4cf
+0x17dfa2d  81f55b54aa3d                   xor ebp, 0x3daa545b
+0x17dfa33  01ed                           add ebp, ebp
+0x17dfa35  01dd                           add ebp, ebx
+0x17dfa37  29ef                           sub edi, ebp
+0x17dfa39  4401f7                         add edi, r14d
+0x17dfa3c  81c75befc98f                   add edi, 0x8fc9ef5b
+0x17dfa42  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17dfa46  e975feffff                     jmp 0x1817df8c0
+0x17dfa50  81ffe91ade47                   cmp edi, 0x47de1ae9
+0x17dfa56  0f8e96010000                   jle 0x1817dfbf2
+0x17dfa5c  81ff934db34e                   cmp edi, 0x4eb34d93
+0x17dfa62  0f8ff2010000                   jg 0x1817dfc5a
+0x17dfa68  81ffea1ade47                   cmp edi, 0x47de1aea
+0x17dfa6e  0f8503070000                   jne 0x1817e0177
+0x17dfa74  8bbc24b4000000                 mov edi, dword ptr [rsp + 0xb4]
+0x17dfa7b  01ff                           add edi, edi
+0x17dfa7d  89bc24b8000000                 mov dword ptr [rsp + 0xb8], edi
+0x17dfa84  8b7c241c                       mov edi, dword ptr [rsp + 0x1c]
+0x17dfa88  337c2420                       xor edi, dword ptr [rsp + 0x20]
+0x17dfa8c  89bc24bc000000                 mov dword ptr [rsp + 0xbc], edi
+0x17dfa93  8b3da32d9900                   mov edi, dword ptr [rip + 0x992da3]
+0x17dfa99  8d1c7db0b09de7                 lea ebx, [rdi*2 - 0x18624f50]
+0x17dfaa0  8dafb0b09de7                   lea ebp, [rdi - 0x18624f50]
+0x17dfaa6  4189fe                         mov r14d, edi
+0x17dfaa9  4129ee                         sub r14d, ebp
+0x17dfaac  4129de                         sub r14d, ebx
+0x17dfaaf  4401f7                         add edi, r14d
+0x17dfab2  81c7f89f6553                   add edi, 0x53659ff8
+0x17dfab8  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17dfabc  e9fffdffff                     jmp 0x1817df8c0
+0x17dfac1  81ff9bbe143b                   cmp edi, 0x3b14be9b
+0x17dfac7  0f8fee030000                   jg 0x1817dfebb
+0x17dfacd  81ff8867ab38                   cmp edi, 0x38ab6788
+0x17dfad3  0f858f070000                   jne 0x1817e0268
+0x17dfad9  8bbc24a0000000                 mov edi, dword ptr [rsp + 0xa0]
+0x17dfae0  03bc2480000000                 add edi, dword ptr [rsp + 0x80]
+0x17dfae7  2b7c2474                       sub edi, dword ptr [rsp + 0x74]
+0x17dfaeb  89bc24a4000000                 mov dword ptr [rsp + 0xa4], edi
+0x17dfaf2  8b7c2454                       mov edi, dword ptr [rsp + 0x54]
+0x17dfaf6  2b7c2418                       sub edi, dword ptr [rsp + 0x18]
+0x17dfafa  81c7e9670f9f                   add edi, 0x9f0f67e9
+0x17dfb00  89bc24a8000000                 mov dword ptr [rsp + 0xa8], edi
+0x17dfb07  8b3def2c9900                   mov edi, dword ptr [rip + 0x992cef]
+0x17dfb0d  8d9f75d0c057                   lea ebx, [rdi + 0x57c0d075]
+0x17dfb13  81f3295a33d2                   xor ebx, 0xd2335a29
+0x17dfb19  29fb                           sub ebx, edi
+0x17dfb1b  29fb                           sub ebx, edi
+0x17dfb1d  81c3f957f0de                   add ebx, 0xdef057f9
+0x17dfb23  895c240c                       mov dword ptr [rsp + 0xc], ebx
+0x17dfb27  e994fdffff                     jmp 0x1817df8c0
+0x17dfb2c  81ffdea61178                   cmp edi, 0x7811a6de
+0x17dfb32  0f8fe3040000                   jg 0x1817e001b
+0x17dfb38  81ff817c1c67                   cmp edi, 0x671c7c81
+0x17dfb3e  0f859d090000                   jne 0x1817e04e1
+0x17dfb44  8b3dca2c9900                   mov edi, dword ptr [rip + 0x992cca]
+0x17dfb4a  8d9fd58bf943                   lea ebx, [rdi + 0x43f98bd5]
+0x17dfb50  81f3eb91f3c5                   xor ebx, 0xc5f391eb
+0x17dfb56  01df                           add edi, ebx
+0x17dfb58  81c7d58bf943                   add edi, 0x43f98bd5
+0x17dfb5e  01df                           add edi, ebx
+0x17dfb60  81c71fcb2ac5                   add edi, 0xc52acb1f
+0x17dfb66  81c31d8e28b8                   add ebx, 0xb8288e1d
+0x17dfb6c  89dd                           mov ebp, ebx
+0x17dfb6e  81f5b2029bfa                   xor ebp, 0xfa9b02b2
+0x17dfb74  31ef                           xor edi, ebp
+0x17dfb76  81f7bdaaf043                   xor edi, 0x43f0aabd
+0x17dfb7c  29df                           sub edi, ebx
+0x17dfb7e  01ef                           add edi, ebp
+0x17dfb80  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17dfb84  e937fdffff                     jmp 0x1817df8c0
+0x17dfb89  81ff04b95f0f                   cmp edi, 0xf5fb904
+0x17dfb8f  0f8e23050000                   jle 0x1817e00b8
+0x17dfb95  81ff05b95f0f                   cmp edi, 0xf5fb905
+0x17dfb9b  0f85b1070000                   jne 0x1817e0352
+0x17dfba1  8bbc2490000000                 mov edi, dword ptr [rsp + 0x90]
+0x17dfba8  89bc2494000000                 mov dword ptr [rsp + 0x94], edi
+0x17dfbaf  8b7c2414                       mov edi, dword ptr [rsp + 0x14]
+0x17dfbb3  21c7                           and edi, eax
+0x17dfbb5  89bc2498000000                 mov dword ptr [rsp + 0x98], edi
+0x17dfbbc  8b3d6e2c9900                   mov edi, dword ptr [rip + 0x992c6e]
+0x17dfbc2  8d9fcc96b580                   lea ebx, [rdi - 0x7f4a6934]
+0x17dfbc8  89dd                           mov ebp, ebx
+0x17dfbca  81f596e97dbd                   xor ebp, 0xbd7de996
+0x17dfbd0  41beeae516df                   mov r14d, 0xdf16e5ea
+0x17dfbd6  4129ee                         sub r14d, ebp
+0x17dfbd9  81c5c5564313                   add ebp, 0x134356c5
+0x17dfbdf  4131fe                         xor r14d, edi
+0x17dfbe2  4129de                         sub r14d, ebx
+0x17dfbe5  4131ee                         xor r14d, ebp
+0x17dfbe8  448974240c                     mov dword ptr [rsp + 0xc], r14d
+0x17dfbed  e9cefcffff                     jmp 0x1817df8c0
+0x17dfbf2  81ff47e0073e                   cmp edi, 0x3e07e047
+0x17dfbf8  0f8450fcffff                   je 0x1817df84e
+0x17dfbfe  81ff46443f3f                   cmp edi, 0x3f3f4446
+0x17dfc04  0f8509050000                   jne 0x1817e0113
+0x17dfc0a  8b7c2430                       mov edi, dword ptr [rsp + 0x30]
+0x17dfc0e  c1e702                         shl edi, 2
+0x17dfc11  897c2434                       mov dword ptr [rsp + 0x34], edi
+0x17dfc15  8b3da92b9900                   mov edi, dword ptr [rip + 0x992ba9]
+0x17dfc1b  8d9f2d633636                   lea ebx, [rdi + 0x3636632d]
+0x17dfc21  89dd                           mov ebp, ebx
+0x17dfc23  81f55eac56cb                   xor ebp, 0xcb56ac5e
+0x17dfc29  81f3d0ea0b1d                   xor ebx, 0x1d0bead0
+0x17dfc2f  448db342ef22e2                 lea r14d, [rbx - 0x1ddd10be]
+0x17dfc36  448dbb842bbf27                 lea r15d, [rbx + 0x27bf2b84]
+0x17dfc3d  4131fe                         xor r14d, edi
+0x17dfc40  4181f626614383                 xor r14d, 0x83436126
+0x17dfc47  4129ee                         sub r14d, ebp
+0x17dfc4a  4131df                         xor r15d, ebx
+0x17dfc4d  4531f7                         xor r15d, r14d
+0x17dfc50  44897c240c                     mov dword ptr [rsp + 0xc], r15d
+0x17dfc55  e966fcffff                     jmp 0x1817df8c0
+0x17dfc5a  81ff944db34e                   cmp edi, 0x4eb34d94
+0x17dfc60  0f8569050000                   jne 0x1817e01cf
+0x17dfc66  8b3db82b9900                   mov edi, dword ptr [rip + 0x992bb8]
+0x17dfc6c  8d9fb0020d1e                   lea ebx, [rdi + 0x1e0d02b0]
+0x17dfc72  448db7dc92f405                 lea r14d, [rdi + 0x5f492dc]
+0x17dfc79  4431f3                         xor ebx, r14d
+0x17dfc7c  4181f650999dca                 xor r14d, 0xca9d9950
+0x17dfc83  4101fe                         add r14d, edi
+0x17dfc86  4181c662db0f01                 add r14d, 0x10fdb62
+0x17dfc8d  4131de                         xor r14d, ebx
+0x17dfc90  4401f7                         add edi, r14d
+0x17dfc93  81c757803dce                   add edi, 0xce3d8057
+0x17dfc99  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17dfc9d  e91efcffff                     jmp 0x1817df8c0
+0x17dfca2  81ffe823ce28                   cmp edi, 0x28ce23e8
+0x17dfca8  0f8525060000                   jne 0x1817e02d3
+0x17dfcae  8b7c2464                       mov edi, dword ptr [rsp + 0x64]
+0x17dfcb2  f7d7                           not edi
+0x17dfcb3  d7                             xlatb 
+0x17dfcb4  755d                           jne 0x1817dfd13
+0x17dfcb6  86d2                           xchg dl, dl
+0x17dfcb8  8ac0                           mov al, al
+0x17dfcba  7453                           je 0x1817dfd0f
+0x17dfcbc  6690                           nop 
+0x17dfcbe  6690                           nop 
+0x17dfcc0  e8bcdb0100                     call 0x1817fd881
+0x17dfcc5  75ec                           jne 0x1817dfcb3
+0x17dfcc7  80c14b                         add cl, 0x4b
+0x17dfcca  5f                             pop rdi
+0x17dfccb  e8eacd0100                     call 0x1817fcaba
+0x17dfcd0  81efd7e8f1d8                   sub edi, 0xd8f1e8d7
+0x17dfcd6  83c593                         add ebp, -0x6d
+0x17dfcd9  0f31                           rdtsc 
+0x17dfcdb  80ed62                         sub ch, 0x62
+0x17dfcde  52                             push rdx
+0x17dfcdf  e8fd150100                     call 0x1817f12e1
+0x17dfce4  83c513                         add ebp, 0x13
+0x17dfce7  68a893dffb                     push -0x4206c58
+0x17dfcec  0f31                           rdtsc 
+0x17dfcee  80edce                         sub ch, 0xce
+0x17dfcf1  c7c1b2c00579                   mov ecx, 0x7905c0b2
+0x17dfcf7  e87ace0100                     call 0x1817fcb76
+0x17dfcfc  0f8565960100                   jne 0x1817f9367
+0x17dfd02  5a                             pop rdx
+0x17dfd03  0f8563780000                   jne 0x1817e756c
+0x17dfd09  70e5                           jo 0x1817dfcf0
+0x17dfd0b  81995c0a9074012f8d1c           sbb dword ptr [rcx + 0x74900a5c], 0x1c8d2f01
+0x17dfd0f  90                             nop 
+0x17dfd10  7401                           je 0x1817dfd13
+0x17dfd13  8d1cbf                         lea ebx, [rdi + rdi*4]
+0x17dfd15  bf8d3c5f89                     mov edi, 0x895f3c8d
+0x17dfd16  8d3c5f                         lea edi, [rdi + rbx*2]
+0x17dfd19  897c2468                       mov dword ptr [rsp + 0x68], edi
+0x17dfd1a  7c24                           jl 0x1817dfd40
+0x17dfd1c  688b7c2410                     push 0x10247c8b
+0x17dfd1d  8b7c2410                       mov edi, dword ptr [rsp + 0x10]
+0x17dfd21  4409c7                         or edi, r8d
+0x17dfd24  81fc00180000                   cmp esp, 0x1800
+0x17dfd2a  7703                           ja 0x1817dfd2f
+0x17dfd2c  83ec4a                         sub esp, 0x4a
+0x17dfd2f  7508                           jne 0x1817dfd39
+0x17dfd39  50                             push rax
+0x17dfd3a  ebff                           jmp 0x1817dfd3b
+0x17dfd3b  ffc0                           inc eax
+0x17dfd3d  58                             pop rax
+0x17dfd3e  763a                           jbe 0x1817dfd7a
+0x17dfd40  8ac0                           mov al, al
+0x17dfd42  770e                           ja 0x1817dfd52
+0x17dfd44  90                             nop 
+0x17dfd45  90                             nop 
+0x17dfd46  0f8922960000                   jns 0x1817e936e
+0x17dfd4c  c6c042                         mov al, 0x42
+0x17dfd4f  f6dd                           neg ch
+0x17dfd51  e8770f0100                     call 0x1817f0ccd
+0x17dfd52  770f                           ja 0x1817dfd63
+0x17dfd54  0100                           add dword ptr [rax], eax
+0x17dfd56  83c2af                         add edx, -0x51
+0x17dfd59  e877380000                     call 0x1817e35d5
+0x17dfd5a  7738                           ja 0x1817dfd94
+0x17dfd5c  0000                           add byte ptr [rax], al
+0x17dfd5e  7210                           jb 0x1817dfd70
+0x17dfd60  c7c5219077f4                   mov ebp, 0xf4779021
+0x17dfd63  90                             nop 
+0x17dfd64  77f4                           ja 0x1817dfd5a
+0x17dfd66  0f31                           rdtsc 
+0x17dfd68  83c1cc                         add ecx, -0x34
+0x17dfd6b  80ee3c                         sub dh, 0x3c
+0x17dfd6e  e8e7150100                     call 0x1817f135a
+0x17dfd70  15010080c7                     adc eax, 0xc7800001
+0x17dfd73  80c7f5                         add bh, 0xf5
+0x17dfd75  f5                             cmc 
+0x17dfd76  80e9eb                         sub cl, 0xeb
+0x17dfd79  e876040000                     call 0x1817e01f4
+0x17dfd7a  7604                           jbe 0x1817dfd80
+0x17dfd7c  0000                           add byte ptr [rax], al
+0x17dfd7e  0f8e76080000                   jle 0x1817e05fa
+0x17dfd80  7608                           jbe 0x1817dfd8a
+0x17dfd82  0000                           add byte ptr [rax], al
+0x17dfd84  0f31                           rdtsc 
+0x17dfd86  c7c171897608                   mov ecx, 0x8768971
+0x17dfd8a  7608                           jbe 0x1817dfd94
+0x17dfd8c  0f88b5690100                   js 0x1817f6747
+0x17dfd92  85a18b5c2410                   test dword ptr [rcx + 0x10245c8b], esp
+0x17dfd94  8b5c2410                       mov ebx, dword ptr [rsp + 0x10]
+0x17dfd98  4421cb                         and ebx, r9d
+0x17dfd9b  f9                             stc 
+0x17dfd9c  8adb                           mov bl, bl
+0x17dfd9e  766f                           jbe 0x1817dfe0f
+0x17dfda0  80ee66                         sub dh, 0x66
+0x17dfda3  c6c7f5                         mov bh, 0xf5
+0x17dfda6  c7c396748192                   mov ebx, 0x92817496
+0x17dfdac  0f80cfc60100                   jo 0x1817fc481
+0x17dfdb2  56                             push rsi
+0x17dfdb3  83c561                         add ebp, 0x61
+0x17dfdb6  80c058                         add al, 0x58
+0x17dfdb9  c6c73b                         mov bh, 0x3b
+0x17dfdbc  0f87a4890100                   ja 0x1817f8766
+0x17dfdc2  c6c308                         mov bl, 8
+0x17dfdc5  51                             push rcx
+0x17dfdc6  80e82e                         sub al, 0x2e
+0x17dfdc9  80ef7e                         sub bh, 0x7e
+0x17dfdcc  80c51f                         add ch, 0x1f
+0x17dfdcf  0f86abb00000                   jbe 0x1817eae80
+0x17dfdd5  80c71d                         add bh, 0x1d
+0x17dfdd8  e8891a0100                     call 0x1817f1866
+0x17dfddd  75f9                           jne 0x1817dfdd8
+0x17dfddf  c6c625                         mov dh, 0x25
+0x17dfde2  7b46                           jnp 0x1817dfe2a
+0x17dfde4  f6df                           neg bh
+0x17dfde6  81c3525e06be                   add ebx, 0xbe065e52
+0x17dfdec  e884c80100                     call 0x1817fc675
+0x17dfdf1  80c208                         add dl, 8
+0x17dfdf4  83c143                         add ecx, 0x43
+0x17dfdf7  50                             push rax
+0x17dfdf8  81c12883418b                   add ecx, 0x8b418328
+0x17dfdfe  c6c3ea                         mov bl, 0xea
+0x17dfe01  c6c14a                         mov cl, 0x4a
+0x17dfe04  f6db                           neg bl
+0x17dfe06  80c616                         add dh, 0x16
+0x17dfe09  f69e71b30eae                   neg byte ptr [rsi - 0x51f14c8f]
+0x17dfe0f  8b6c2410                       mov ebp, dword ptr [rsp + 0x10]
+0x17dfe13  4421c5                         and ebp, r8d
+0x17dfe16  446bf5f5                       imul r14d, ebp, -0xb
+0x17dfe1a  84f8                           test al, bh
+0x17dfe1c  733a                           jae 0x1817dfe58
+0x17dfe2a  53                             push rbx
+0x17dfe2b  f6de                           neg dh
+0x17dfe2d  81ea0f53feb4                   sub edx, 0xb4fe530f
+0x17dfe33  f6de                           neg dh
+0x17dfe35  e8af790000                     call 0x1817e77e9
+0x17dfe37  7900                           jns 0x1817dfe39
+0x17dfe39  0080ee867af8                   add byte ptr [rax - 0x7857912], al
+0x17dfe3a  80ee86                         sub dh, 0x86
+0x17dfe3d  7af8                           jp 0x1817dfe37
+0x17dfe3f  80c3b5                         add bl, 0xb5
+0x17dfe42  c6c540                         mov ch, 0x40
+0x17dfe45  c6c285                         mov dl, 0x85
+0x17dfe48  5b                             pop rbx
+0x17dfe49  81c25bbb756a                   add edx, 0x6a75bb5b
+0x17dfe4f  e8c74d0000                     call 0x1817e4c1b
+0x17dfe54  83a48fb44101de44               and dword ptr [rdi + rcx*4 - 0x21febe4c], 0x44
+0x17dfe58  4101de                         add r14d, ebx
+0x17dfe5b  4401f7                         add edi, r14d
+0x17dfe5c  01f7                           add edi, esi
+0x17dfe5e  81c73d4d4d61                   add edi, 0x614d4d3d
+0x17dfe64  897c246c                       mov dword ptr [rsp + 0x6c], edi
+0x17dfe68  8b3d8a299900                   mov edi, dword ptr [rip + 0x99298a]
+0x17dfe6e  89fb                           mov ebx, edi
+0x17dfe70  81f38491ead5                   xor ebx, 0xd5ea9184
+0x17dfe76  448db3cbd70441                 lea r14d, [rbx + 0x4104d7cb]
+0x17dfe7d  4181f6650f3d7f                 xor r14d, 0x7f3d0f65
+0x17dfe84  448dbb20f6e047                 lea r15d, [rbx + 0x47e0f620]
+0x17dfe8b  418dae3783ffa3                 lea ebp, [r14 - 0x5c007cc9]
+0x17dfe92  4131ff                         xor r15d, edi
+0x17dfe95  4531f7                         xor r15d, r14d
+0x17dfe98  4131ef                         xor r15d, ebp
+0x17dfe9b  4131ff                         xor r15d, edi
+0x17dfe9e  4181f73a340dc2                 xor r15d, 0xc20d343a
+0x17dfea5  4529f7                         sub r15d, r14d
+0x17dfea8  418d3c1f                       lea edi, [r15 + rbx]
+0x17dfeac  81c70bed60c4                   add edi, 0xc460ed0b
+0x17dfeb2  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17dfeb6  e905faffff                     jmp 0x1817df8c0
+0x17dfebb  81ff9cbe143b                   cmp edi, 0x3b14be9c
+0x17dfec1  0f8552040000                   jne 0x1817e0319
+0x17dfec7  8b7c2428                       mov edi, dword ptr [rsp + 0x28]
+0x17dfecb  897c242c                       mov dword ptr [rsp + 0x2c], edi
+0x17dfecf  8b7c2418                       mov edi, dword ptr [rsp + 0x18]
+0x17dfed3  f7d7                           not edi
+0x17dfed5  81e78afa4b0d                   and edi, 0xd4bfa8a
+0x17dfedb  897c2430                       mov dword ptr [rsp + 0x30], edi
+0x17dfedf  81fc00440000                   cmp esp, 0x4400
+0x17dfee5  7703                           ja 0x1817dfeea
+0x17dfee7  83ecfb                         sub esp, -5
+0x17dfeea  7508                           jne 0x1817dfef4
+0x17dfef4  50                             push rax
+0x17dfef5  ebff                           jmp 0x1817dfef6
+0x17dfef6  ffc0                           inc eax
+0x17dfef8  58                             pop rax
+0x17dfef9  80e6ff                         and dh, 0xff
+0x17dfefc  86db                           xchg bl, bl
+0x17dfefe  730b                           jae 0x1817dff0b
+0x17dff00  90                             nop 
+0x17dff01  90                             nop 
+0x17dff02  81c7213014b2                   add edi, 0xb2143021
+0x17dff08  f6da                           neg dl
+0x17dff0a  e8eb0a0100                     call 0x1817f09fa
+0x17dff0b  eb0a                           jmp 0x1817dff17
+0x17dff0f  80e83f                         sub al, 0x3f
+0x17dff12  52                             push rdx
+0x17dff13  83c668                         add esi, 0x68
+0x17dff16  e8732d0000                     call 0x1817e2c8e
+0x17dff17  732d                           jae 0x1817dff46
+0x17dff19  0000                           add byte ptr [rax], al
+0x17dff1b  80c1c1                         add cl, 0xc1
+0x17dff1e  f6dd                           neg ch
+0x17dff20  c6c18a                         mov cl, 0x8a
+0x17dff23  c7c2ef46ee2f                   mov edx, 0x2fee46ef
+0x17dff29  0f8bcd2e0000                   jnp 0x1817e2dfc
+0x17dff2f  c6c09f                         mov al, 0x9f
+0x17dff32  51                             push rcx
+0x17dff33  c7c6c6865066                   mov esi, 0x665086c6
+0x17dff39  83c1a3                         add ecx, -0x5d
+0x17dff3c  e83d2e0100                     call 0x1817f2d7e
+0x17dff41  c08de6b7a48b3d                 ror byte ptr [rbp - 0x745b481a], 0x3d
+0x17dff46  8b3d98289900                   mov edi, dword ptr [rip + 0x992898]
+0x17dff48  98                             cwde 
+0x17dff49  2899008d9f3a                   sub byte ptr [rcx + 0x3a9f8d00], bl
+0x17dff4c  8d9f3a610027                   lea ebx, [rdi + 0x2700613a]
+0x17dff52  8daf36d3bdd4                   lea ebp, [rdi - 0x2b422cca]
+0x17dff58  4189ee                         mov r14d, ebp
+0x17dff5b  4181f6add3dcf7                 xor r14d, 0xf7dcd3ad
+0x17dff62  4181c6949c1c4e                 add r14d, 0x4e1c9c94
+0x17dff69  31fb                           xor ebx, edi
+0x17dff6b  31eb                           xor ebx, ebp
+0x17dff6d  81f53b0acd26                   xor ebp, 0x26cd0a3b
+0x17dff73  4431f3                         xor ebx, r14d
+0x17dff76  01eb                           add ebx, ebp
+0x17dff78  29fb                           sub ebx, edi
+0x17dff7a  81c32064aec0                   add ebx, 0xc0ae6420
+0x17dff80  895c240c                       mov dword ptr [rsp + 0xc], ebx
+0x17dff84  e937f9ffff                     jmp 0x1817df8c0
+0x17dff89  81ff5d53501e                   cmp edi, 0x1e50535d
+0x17dff8f  0f8546040000                   jne 0x1817e03db
+0x17dff95  8bbc2498000000                 mov edi, dword ptr [rsp + 0x98]
+0x17dff9c  89bc249c000000                 mov dword ptr [rsp + 0x9c], edi
+0x17dffa3  8b3d67289900                   mov edi, dword ptr [rip + 0x992867]
+0x17dffa9  89fb                           mov ebx, edi
+0x17dffab  81f34f3b09a4                   xor ebx, 0xa4093b4f
+0x17dffb1  448db38b57d9b1                 lea r14d, [rbx - 0x4e26a875]
+0x17dffb8  8dab7ff9c2c3                   lea ebp, [rbx - 0x3c3d0681]
+0x17dffbe  41f7de                         neg r14d
+0x17dffc1  4101de                         add r14d, ebx
+0x17dffc4  4181c67ff9c2c3                 add r14d, 0xc3c2f97f
+0x17dffcb  4101de                         add r14d, ebx
+0x17dffce  4401f3                         add ebx, r14d
+0x17dffd1  81c38b57d9b1                   add ebx, 0xb1d9578b
+0x17dffd7  29fb                           sub ebx, edi
+0x17dffd9  29eb                           sub ebx, ebp
+0x17dffdb  81c33ecdd2cb                   add ebx, 0xcbd2cd3e
+0x17dffe1  895c240c                       mov dword ptr [rsp + 0xc], ebx
+0x17dffe5  e9d6f8ffff                     jmp 0x1817df8c0
+0x17dffea  81ff1f59c657                   cmp edi, 0x57c6591f
+0x17dfff0  0f857b050000                   jne 0x1817e0571
+0x17dfff4  0000                           add byte ptr [rax], al
+0x17dfff6  8b7c245c                       mov edi, dword ptr [rsp + 0x5c]
+0x17dfffa  897c2460                       mov dword ptr [rsp + 0x60], edi
+0x17dfffe  8b7c2410                       mov edi, dword ptr [rsp + 0x10]
+0x17e0002  4409cf                         or edi, r9d
+0x17e0005  897c2464                       mov dword ptr [rsp + 0x64], edi
+0x17e0009  8b3de5279900                   mov edi, dword ptr [rip + 0x9927e5]
+0x17e000f  4401df                         add edi, r11d
+0x17e0012  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17e0016  e9a5f8ffff                     jmp 0x1817df8c0
+0x17e001b  81ffdfa61178                   cmp edi, 0x7811a6df
+0x17e0021  0f85a3050000                   jne 0x1817e05ca
+0x17e0027  743d                           je 0x1817e0066
+0x17e0029  c0f900                         sar cl, 0
+0x17e002c  7538                           jne 0x1817e0066
+0x17e002e  81edd30ae7f5                   sub ebp, 0xf5e70ad3
+0x17e0034  c6c739                         mov bh, 0x39
+0x17e0037  81c5d2879ebe                   add ebp, 0xbe9e87d2
+0x17e003d  0f8fef3a0000                   jg 0x1817e3b32
+0x17e0043  81c3034819ea                   add ebx, 0xea194803
+0x17e0049  80c302                         add bl, 2
+0x17e004c  81eaa3dedf3a                   sub edx, 0x3adfdea3
+0x17e004e  a3dedf3ae810e70100             movabs dword ptr [0x1e710e83adfde], eax
+0x17e0052  e810e70100                     call 0x1817fe767
+0x17e0057  7ef5                           jle 0x1817e004e
+0x17e0059  83c313                         add ebx, 0x13
+0x17e005c  81c7c616588d                   add edi, 0x8d5816c6
+0x17e0062  4d0aa9e88b7c24                 or r13b, byte ptr [r9 + 0x247c8be8]
+0x17e0066  8b7c247c                       mov edi, dword ptr [rsp + 0x7c]
+0x17e0069  7c89                           jl 0x1817dfff4
+0x17e006a  89bc2480000000                 mov dword ptr [rsp + 0x80], edi
+0x17e006b  bc24800000                     mov esp, 0x8024
+0x17e0070  008b7c241409                   add byte ptr [rbx + 0x914247c], cl
+0x17e0071  8b7c2414                       mov edi, dword ptr [rsp + 0x14]
+0x17e0075  09d7                           or edi, edx
+0x17e0076  d7                             xlatb 
+0x17e0077  89bc2484000000                 mov dword ptr [rsp + 0x84], edi
+0x17e007e  8b3d98279900                   mov edi, dword ptr [rip + 0x992798]
+0x17e0084  8d9ff42cde14                   lea ebx, [rdi + 0x14de2cf4]
+0x17e008a  4189de                         mov r14d, ebx
+0x17e008d  4181f6ab70dfb7                 xor r14d, 0xb7df70ab
+0x17e0094  4181c63a2016b9                 add r14d, 0xb916203a
+0x17e009b  4131de                         xor r14d, ebx
+0x17e009e  4401f7                         add edi, r14d
+0x17e00a1  81c7cd1d820e                   add edi, 0xe821dcd
+0x17e00a7  31df                           xor edi, ebx
+0x17e00a9  81f79159d41b                   xor edi, 0x1bd45991
+0x17e00af  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17e00b3  e908f8ffff                     jmp 0x1817df8c0
+0x17e00b8  81ffd766920b                   cmp edi, 0xb9266d7
+0x17e00be  0f856e050000                   jne 0x1817e0632
+0x17e00c4  8b3d3a279900                   mov edi, dword ptr [rip + 0x99273a]
+0x17e00ca  8d9fc160506a                   lea ebx, [rdi + 0x6a5060c1]
+0x17e00d0  4189de                         mov r14d, ebx
+0x17e00d3  4181f6487bbf07                 xor r14d, 0x7bf7b48
+0x17e00da  458dbe819c68be                 lea r15d, [r14 - 0x4197637f]
+0x17e00e1  4181f7f24dca95                 xor r15d, 0x95ca4df2
+0x17e00e8  bdfb7b91e4                     mov ebp, 0xe4917bfb
+0x17e00ed  4429fd                         sub ebp, r15d
+0x17e00f0  31dd                           xor ebp, ebx
+0x17e00f2  4501f7                         add r15d, r14d
+0x17e00f5  4101ef                         add r15d, ebp
+0x17e00f8  438d1c3e                       lea ebx, [r14 + r15]
+0x17e00fc  81c3819c68be                   add ebx, 0xbe689c81
+0x17e0102  29fb                           sub ebx, edi
+0x17e0104  81c31db3af31                   add ebx, 0x31afb31d
+0x17e010a  895c240c                       mov dword ptr [rsp + 0xc], ebx
+0x17e010e  e9adf7ffff                     jmp 0x1817df8c0
+0x17e0113  8bbc2484000000                 mov edi, dword ptr [rsp + 0x84]
+0x17e011a  89bc2488000000                 mov dword ptr [rsp + 0x88], edi
+0x17e0121  8b7c2414                       mov edi, dword ptr [rsp + 0x14]
+0x17e0125  31c7                           xor edi, eax
+0x17e0127  8d3c7f                         lea edi, [rdi + rdi*2]
+0x17e012a  89bc248c000000                 mov dword ptr [rsp + 0x8c], edi
+0x17e0131  8b3df1269900                   mov edi, dword ptr [rip + 0x9926f1]
+0x17e0137  8d9ff88c5aba                   lea ebx, [rdi - 0x45a57308]
+0x17e013d  4189de                         mov r14d, ebx
+0x17e0140  4181f6297dd884                 xor r14d, 0x84d87d29
+0x17e0147  418dae7197faee                 lea ebp, [r14 - 0x1105688f]
+0x17e014e  41bf0630b800                   mov r15d, 0xb83006
+0x17e0154  4529f7                         sub r15d, r14d
+0x17e0157  4131ef                         xor r15d, ebp
+0x17e015a  4131fe                         xor r14d, edi
+0x17e015d  4531fe                         xor r14d, r15d
+0x17e0160  4129ee                         sub r14d, ebp
+0x17e0163  4129de                         sub r14d, ebx
+0x17e0166  4181c667f3fd5d                 add r14d, 0x5dfdf367
+0x17e016d  448974240c                     mov dword ptr [rsp + 0xc], r14d
+0x17e0172  e949f7ffff                     jmp 0x1817df8c0
+0x17e0177  8b7c2424                       mov edi, dword ptr [rsp + 0x24]
+0x17e017b  f7d7                           not edi
+0x17e017d  897c2428                       mov dword ptr [rsp + 0x28], edi
+0x17e0181  8b3d59269900                   mov edi, dword ptr [rip + 0x992659]
+0x17e0187  4401d7                         add edi, r10d
+0x17e018a  89fb                           mov ebx, edi
+0x17e018c  81f3b1a2312e                   xor ebx, 0x2e31a2b1
+0x17e0192  8dab20b9e7b9                   lea ebp, [rbx - 0x461846e0]
+0x17e0198  4189ee                         mov r14d, ebp
+0x17e019b  4181f60cc7558b                 xor r14d, 0x8b55c70c
+0x17e01a2  4101de                         add r14d, ebx
+0x17e01a5  4181c620b9e7b9                 add r14d, 0xb9e7b920
+0x17e01ac  41bf62278e7a                   mov r15d, 0x7a8e2762
+0x17e01b2  4529f7                         sub r15d, r14d
+0x17e01b5  4131ef                         xor r15d, ebp
+0x17e01b8  4181f736a19811                 xor r15d, 0x1198a136
+0x17e01bf  4129ff                         sub r15d, edi
+0x17e01c2  4101df                         add r15d, ebx
+0x17e01c5  44897c240c                     mov dword ptr [rsp + 0xc], r15d
+0x17e01ca  e9f1f6ffff                     jmp 0x1817df8c0
+0x17e01cf  8b7c246c                       mov edi, dword ptr [rsp + 0x6c]
+0x17e01d3  2b7c2468                       sub edi, dword ptr [rsp + 0x68]
+0x17e01d7  897c2470                       mov dword ptr [rsp + 0x70], edi
+0x17e01db  8b3d1f269900                   mov edi, dword ptr [rip + 0x99261f]
+0x17e01e1  8d9f591c844e                   lea ebx, [rdi + 0x4e841c59]
+0x17e01e7  4189de                         mov r14d, ebx
+0x17e01ea  4181f62cb448d4                 xor r14d, 0xd448b42c
+0x17e01f1  81f72ccd4eb8                   xor edi, 0xb84ecd2c
+0x17e01f7  4401f7                         add edi, r14d
+0x17e01fa  81c77188c4ed                   add edi, 0xedc48871
+0x17e0200  4489f5                         mov ebp, r14d
+0x17e0203  81c50010340f                   add ebp, 0xf341000
+0x17e0209  31ef                           xor edi, ebp
+0x17e020b  29df                           sub edi, ebx
+0x17e020d  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17e0211  e9aaf6ffff                     jmp 0x1817df8c0
+0x17e0216  8bbc249c000000                 mov edi, dword ptr [rsp + 0x9c]
+0x17e021d  2bbc2494000000                 sub edi, dword ptr [rsp + 0x94]
+0x17e0224  03bc248c000000                 add edi, dword ptr [rsp + 0x8c]
+0x17e022b  2bbc2488000000                 sub edi, dword ptr [rsp + 0x88]
+0x17e0232  89bc24a0000000                 mov dword ptr [rsp + 0xa0], edi
+0x17e0239  8b3df5259900                   mov edi, dword ptr [rip + 0x9925f5]
+0x17e023f  8d9f04d13d51                   lea ebx, [rdi + 0x513dd104]
+0x17e0245  89dd                           mov ebp, ebx
+0x17e0247  81f5b056c384                   xor ebp, 0x84c356b0
+0x17e024d  31ef                           xor edi, ebp
+0x17e024f  81f7638d7ed1                   xor edi, 0xd17e8d63
+0x17e0255  29ef                           sub edi, ebp
+0x17e0257  29df                           sub edi, ebx
+0x17e0259  81c7efc9476a                   add edi, 0x6a47c9ef
+0x17e025f  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17e0263  e958f6ffff                     jmp 0x1817df8c0
+0x17e0268  8b7c2414                       mov edi, dword ptr [rsp + 0x14]
+0x17e026c  09c7                           or edi, eax
+0x17e026e  897c2478                       mov dword ptr [rsp + 0x78], edi
+0x17e0272  8b3d94259900                   mov edi, dword ptr [rip + 0x992594]
+0x17e0278  89fb                           mov ebx, edi
+0x17e027a  81f33bd87679                   xor ebx, 0x7976d83b
+0x17e0280  4189fe                         mov r14d, edi
+0x17e0283  4181f684136501                 xor r14d, 0x1651384
+0x17e028a  458dbe561775bc                 lea r15d, [r14 - 0x438ae8aa]
+0x17e0291  4181f74981cf91                 xor r15d, 0x91cf8149
+0x17e0298  418daf241a3710                 lea ebp, [r15 + 0x10371a24]
+0x17e029f  458da7915dd35a                 lea r12d, [r15 + 0x5ad35d91]
+0x17e02a6  4181f4f91a76df                 xor r12d, 0xdf761af9
+0x17e02ad  4401f7                         add edi, r14d
+0x17e02b0  4129ff                         sub r15d, edi
+0x17e02b3  438d3c3e                       lea edi, [r14 + r15]
+0x17e02b7  81c7561775bc                   add edi, 0xbc751756
+0x17e02bd  01df                           add edi, ebx
+0x17e02bf  4429e7                         sub edi, r12d
+0x17e02c2  81c704e8b7f5                   add edi, 0xf5b7e804
+0x17e02c8  31ef                           xor edi, ebp
+0x17e02ca  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17e02ce  e9edf5ffff                     jmp 0x1817df8c0
+0x17e02d3  8b7c2444                       mov edi, dword ptr [rsp + 0x44]
+0x17e02d7  2b7c2434                       sub edi, dword ptr [rsp + 0x34]
+0x17e02db  2b7c242c                       sub edi, dword ptr [rsp + 0x2c]
+0x17e02df  897c2448                       mov dword ptr [rsp + 0x48], edi
+0x17e02e3  8b3d07259900                   mov edi, dword ptr [rip + 0x992507]
+0x17e02e9  8d9f7d9ad1c1                   lea ebx, [rdi - 0x3e2e6583]
+0x17e02ef  81f393913a4e                   xor ebx, 0x4e3a9193
+0x17e02f5  448d341f                       lea r14d, [rdi + rbx]
+0x17e02f9  4181c67d9ad1c1                 add r14d, 0xc1d19a7d
+0x17e0300  4101fe                         add r14d, edi
+0x17e0303  41f7de                         neg r14d
+0x17e0306  428d3c33                       lea edi, [rbx + r14]
+0x17e030a  81c71cc15461                   add edi, 0x6154c11c
+0x17e0310  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17e0314  e9a7f5ffff                     jmp 0x1817df8c0
+0x17e0319  8b7c2440                       mov edi, dword ptr [rsp + 0x40]
+0x17e031d  037c2438                       add edi, dword ptr [rsp + 0x38]
+0x17e0321  897c2444                       mov dword ptr [rsp + 0x44], edi
+0x17e0325  8b3dc1249900                   mov edi, dword ptr [rip + 0x9924c1]
+0x17e032b  89fb                           mov ebx, edi
+0x17e032d  81f360e12a89                   xor ebx, 0x892ae160
+0x17e0333  81c3a507598d                   add ebx, 0x8d5907a5
+0x17e0339  31df                           xor edi, ebx
+0x17e033b  81f358a7497b                   xor ebx, 0x7b49a758
+0x17e0341  81c305ad6830                   add ebx, 0x3068ad05
+0x17e0347  31fb                           xor ebx, edi
+0x17e0349  895c240c                       mov dword ptr [rsp + 0xc], ebx
+0x17e034d  e96ef5ffff                     jmp 0x1817df8c0
+0x17e0352  8b7c2478                       mov edi, dword ptr [rsp + 0x78]
+0x17e0356  f7d7                           not edi
+0x17e0358  897c247c                       mov dword ptr [rsp + 0x7c], edi
+0x17e035c  8b3db6249900                   mov edi, dword ptr [rip + 0x9924b6]
+0x17e0362  8d9fee42fa8f                   lea ebx, [rdi - 0x7005bd12]
+0x17e0368  8daff5d289a3                   lea ebp, [rdi - 0x5c762d0b]
+0x17e036e  4189ee                         mov r14d, ebp
+0x17e0371  4181f6ad24fbb9                 xor r14d, 0xb9fb24ad
+0x17e0378  458dbeec4e2492                 lea r15d, [r14 - 0x6ddbb114]
+0x17e037f  41bcf3dcfe25                   mov r12d, 0x25fedcf3
+0x17e0385  4129fc                         sub r12d, edi
+0x17e0388  4531fc                         xor r12d, r15d
+0x17e038b  4181f7de92ed2f                 xor r15d, 0x2fed92de
+0x17e0392  4181f474dd3195                 xor r12d, 0x9531dd74
+0x17e0399  4529fc                         sub r12d, r15d
+0x17e039c  4129ec                         sub r12d, ebp
+0x17e039f  4131dc                         xor r12d, ebx
+0x17e03a2  4501f4                         add r12d, r14d
+0x17e03a5  4129fc                         sub r12d, edi
+0x17e03a8  448964240c                     mov dword ptr [rsp + 0xc], r12d
+0x17e03ad  e90ef5ffff                     jmp 0x1817df8c0
+0x17e03b2  31ff                           xor edi, edi
+0x17e03b4  2b7c243c                       sub edi, dword ptr [rsp + 0x3c]
+0x17e03b8  897c2440                       mov dword ptr [rsp + 0x40], edi
+0x17e03bc  8b3d12249900                   mov edi, dword ptr [rip + 0x992412]
+0x17e03c2  8d9faba09765                   lea ebx, [rdi + 0x6597a0ab]
+0x17e03c8  29df                           sub edi, ebx
+0x17e03ca  29df                           sub edi, ebx
+0x17e03cc  81c7286d87ba                   add edi, 0xba876d28
+0x17e03d2  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17e03d6  e9e5f4ffff                     jmp 0x1817df8c0
+0x17e03db  8bbc24a8000000                 mov edi, dword ptr [rsp + 0xa8]
+0x17e03e2  2b7c244c                       sub edi, dword ptr [rsp + 0x4c]
+0x17e03e6  03bc24a4000000                 add edi, dword ptr [rsp + 0xa4]
+0x17e03ed  2b7c2410                       sub edi, dword ptr [rsp + 0x10]
+0x17e03f1  f9                             stc 
+0x17e03f2  766b                           jbe 0x1817e045f
+0x17e03f4  6690                           nop 
+0x17e03f6  6690                           nop 
+0x17e03f8  6829ece263                     push 0x63e2ec29
+0x17e03fd  6829fe116e                     push 0x6e11fe29
+0x17e0402  0f31                           rdtsc 
+0x17e0404  81c14d7ec651                   add ecx, 0x51c67e4d
+0x17e040a  7b2d                           jnp 0x1817e0439
+0x17e040c  80c77b                         add bh, 0x7b
+0x17e040f  0f8077290000                   jo 0x1817e2d8c
+0x17e0415  83c2d2                         add edx, -0x2e
+0x17e0418  e8a5160000                     call 0x1817e1ac2
+0x17e041d  c7c1b22217c0                   mov ecx, 0xc01722b2
+0x17e0423  6826a6f901                     push 0x1f9a626
+0x17e0428  0f8a49730100                   jp 0x1817f7777
+0x17e0429  8a4973                         mov cl, byte ptr [rcx + 0x73]
+0x17e042c  0100                           add dword ptr [rax], eax
+0x17e042e  74f9                           je 0x1817e0429
+0x17e0430  e8aaa80100                     call 0x1817facdf
+0x17e0435  81eb4e0c779b                   sub ebx, 0x9b770c4e
+0x17e0439  779b                           ja 0x1817e03d6
+0x17e043b  80c72c                         add bh, 0x2c
+0x17e043e  0f8894920100                   js 0x1817f96d8
+0x17e0444  5b                             pop rbx
+0x17e0445  81c17c47159f                   add ecx, 0x9f15477c
+0x17e044b  c6c5a2                         mov ch, 0xa2
+0x17e044e  f6d8                           neg al
+0x17e0450  5e                             pop rsi
+0x17e0451  80ef9f                         sub bh, 0x9f
+0x17e0454  6ae6                           push -0x1a
+0x17e0456  59                             pop rcx
+0x17e0457  c18cfed6b991fbfa               ror dword ptr [rsi + rdi*8 - 0x46e462a], 0xfa
+0x17e045f  2b7c2450                       sub edi, dword ptr [rsp + 0x50]
+0x17e0463  037c2458                       add edi, dword ptr [rsp + 0x58]
+0x17e0467  897c2420                       mov dword ptr [rsp + 0x20], edi
+0x17e046b  0b7c241c                       or edi, dword ptr [rsp + 0x1c]
+0x17e046f  89bc24ac000000                 mov dword ptr [rsp + 0xac], edi
+0x17e0476  8b3d4c239900                   mov edi, dword ptr [rip + 0x99234c]
+0x17e047c  01cf                           add edi, ecx
+0x17e047e  81f7d00aaa4b                   xor edi, 0x4baa0ad0
+0x17e0484  81c78288913f                   add edi, 0x3f918882
+0x17e048a  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17e048e  e92df4ffff                     jmp 0x1817df8c0
+0x17e0493  8bbc24ac000000                 mov edi, dword ptr [rsp + 0xac]
+0x17e049a  f7d7                           not edi
+0x17e049c  01ff                           add edi, edi
+0x17e049e  89bc24b0000000                 mov dword ptr [rsp + 0xb0], edi
+0x17e04a5  8b7c241c                       mov edi, dword ptr [rsp + 0x1c]
+0x17e04a9  237c2420                       and edi, dword ptr [rsp + 0x20]
+0x17e04ad  f7d7                           not edi
+0x17e04af  89bc24b4000000                 mov dword ptr [rsp + 0xb4], edi
+0x17e04b6  8b3d7c239900                   mov edi, dword ptr [rip + 0x99237c]
+0x17e04bc  8d9f02829378                   lea ebx, [rdi + 0x78938202]
+0x17e04c2  448db73ae10699                 lea r14d, [rdi - 0x66f91ec6]
+0x17e04c9  4131de                         xor r14d, ebx
+0x17e04cc  4101fe                         add r14d, edi
+0x17e04cf  4401f7                         add edi, r14d
+0x17e04d2  81c781e62ccb                   add edi, 0xcb2ce681
+0x17e04d8  897c240c                       mov dword ptr [rsp + 0xc], edi
+0x17e04dc  e9dff3ffff                     jmp 0x1817df8c0
+0x17e04e1  746a                           je 0x1817e054d
+0x17e04e3  c0f500                         sal ch, 0
+0x17e04e6  7565                           jne 0x1817e054d
+0x17e04e8  90                             nop 
+0x17e04e9  90                             nop 
+0x17e04ea  c7c615e5652f                   mov esi, 0x2f65e515
+0x17e04f0  80c585                         add ch, 0x85
+0x17e04f3  80ed43                         sub ch, 0x43
+0x17e04f6  51                             push rcx
+0x17e04f7  83c2cc                         add edx, -0x34
+0x17e04fa  55                             push rbp
+0x17e04fb  686eaa514b                     push 0x4b51aa6e
+0x17e0500  59                             pop rcx
+0x17e0501  e8df510100                     call 0x1817f56e5
+0x17e0506  81e9ae28b7ed                   sub ecx, 0xedb728ae
+0x17e050c  0f31                           rdtsc 
+0x17e050e  81c2a955fc5c                   add edx, 0x5cfc55a9
+0x17e0514  54                             push rsp
+0x17e0515  80ea18                         sub dl, 0x18
+0x17e0518  80eaf8                         sub dl, 0xf8
+0x17e051b  e81dea0100                     call 0x1817fef3d
+0x17e0520  68536f1c07                     push 0x71c6f53
+0x17e0525  55                             push rbp
+0x17e0526  0f8a25b60100                   jp 0x1817fbb51
+0x17e052c  c7c36961d9b4                   mov ebx, 0xb4d96169
+0x17e0532  81c2fcb4c2d8                   add edx, 0xd8c2b4fc
+0x17e0538  e83c190000                     call 0x1817e1e79
+0x17e053d  0f8b844f0000                   jnp 0x1817e54c7
+0x17e0543  e814200100                     call 0x1817f255c
+0x17e0548  808be1a95f8b3d                 or byte ptr [rbx - 0x74a0561f], 0x3d
+0x17e054d  8b3dcd229900                   mov edi, dword ptr [rip + 0x9922cd]
+0x17e054f  cd22                           int 0x22
+0x17e0551  99                             cdq 
+0x17e0552  008d9fcce544                   add byte ptr [rbp + 0x44e5cc9f], cl
+0x17e0553  8d9fcce5447c                   lea ebx, [rdi + 0x7c44e5cc]
+0x17e0558  7c89                           jl 0x1817e04e3
+0x17e0559  89dd                           mov ebp, ebx
+0x17e055a  dd81f52cd494                   fld qword ptr [rcx - 0x6b2bd30b]
+0x17e055b  81f52cd49415                   xor ebp, 0x1594d42c
+0x17e0560  1581c54e16                     adc eax, 0x164ec581
+0x17e0561  81c54e1605e4                   add ebp, 0xe405164e
+0x17e0565  05e481f541                     add eax, 0x41f581e4
+0x17e0567  81f541e6b502                   xor ebp, 0x2b5e641
+0x17e056a  e6b5                           out 0xb5, al
+0x17e056c  0229                           add ch, byte ptr [rcx]
+0x17e056d  29dd                           sub ebp, ebx
+0x17e056e  ddeb                           fucomp st(3)
+0x17e056f  eb4e                           jmp 0x1817e05bf
+0x17e0570  4e8b7c2418                     mov r15, qword ptr [rsp + r12 + 0x18]
+0x17e0571  8b7c2418                       mov edi, dword ptr [rsp + 0x18]
+0x17e0575  21f7                           and edi, esi
+0x17e0577  897c243c                       mov dword ptr [rsp + 0x3c], edi
+0x17e057b  8b3d5b229900                   mov edi, dword ptr [rip + 0x99225b]
+0x17e0581  8d9f64381928                   lea ebx, [rdi + 0x28193864]
+0x17e0587  89dd                           mov ebp, ebx
+0x17e0589  81f5cc8bd417                   xor ebp, 0x17d48bcc
+0x17e058f  4189de                         mov r14d, ebx
+0x17e0592  4181f645e90e70                 xor r14d, 0x700ee945
+0x17e0599  458dbe05938538                 lea r15d, [r14 + 0x38859305]
+0x17e05a0  81c53432a006                   add ebp, 0x6a03234
+0x17e05a6  4431fd                         xor ebp, r15d
+0x17e05a9  4429fd                         sub ebp, r15d
+0x17e05ac  4429f5                         sub ebp, r14d
+0x17e05af  81c5819e7759                   add ebp, 0x59779e81
+0x17e05b5  31dd                           xor ebp, ebx
+0x17e05b7  29fd                           sub ebp, edi
+0x17e05b9  81c54490d2ab                   add ebp, 0xabd29044
+0x17e05bf  31fd                           xor ebp, edi
+0x17e05c1  896c240c                       mov dword ptr [rsp + 0xc], ebp
+0x17e05c5  e9f6f2ffff                     jmp 0x1817df8c0
+0x17e05ca  8b3d28569b00                   mov edi, dword ptr [rip + 0x9b5628]
+0x17e05d0  897c241c                       mov dword ptr [rsp + 0x1c], edi
+0x17e05d4  8b3d1eeb9100                   mov edi, dword ptr [rip + 0x91eb1e]
+0x17e05da  897c2418                       mov dword ptr [rsp + 0x18], edi
+0x17e05de  81cf8afa4b0d                   or edi, 0xd4bfa8a
+0x17e05e4  897c2424                       mov dword ptr [rsp + 0x24], edi
+0x17e05e8  8b3dea219900                   mov edi, dword ptr [rip + 0x9921ea]
+0x17e05ee  8d9f36aa29d9                   lea ebx, [rdi - 0x26d655ca]
+0x17e05f4  4189de                         mov r14d, ebx
+0x17e05f7  4181f69c82293e                 xor r14d, 0x3e29829c
+0x17e05fa  9c                             pushfq 
+0x17e05fe  418dae260a67a4                 lea ebp, [r14 - 0x5b98f5da]
+0x17e0605  458dbe1a6fb140                 lea r15d, [r14 + 0x40b16f1a]
+0x17e060c  4181c6d45e44a6                 add r14d, 0xa6445ed4
+0x17e0613  4531fe                         xor r14d, r15d
+0x17e0616  4131ee                         xor r14d, ebp
+0x17e0619  4129de                         sub r14d, ebx
+0x17e061c  81f325c5cb08                   xor ebx, 0x8cbc525
+0x17e0622  4131fe                         xor r14d, edi
+0x17e0625  4129de                         sub r14d, ebx
+0x17e0628  448974240c                     mov dword ptr [rsp + 0xc], r14d
+0x17e062d  e98ef2ffff                     jmp 0x1817df8c0
+0x17e0632  706e                           jo 0x1817e06a2
+0x17e0634  c0f300                         sal bl, 0
+0x17e0637  7169                           jno 0x1817e06a2
+0x17e0639  f6da                           neg dl
+0x17e063b  81e9008d5821                   sub ecx, 0x21588d00
+0x17e0641  80c330                         add bl, 0x30
+0x17e0644  80ed5b                         sub ch, 0x5b
+0x17e0647  81c03f660cf3                   add eax, 0xf30c663f
+0x17e064d  81c7bb763b19                   add edi, 0x193b76bb
+0x17e0653  c7c21c9d849e                   mov edx, 0x9e849d1c
+0x17e0659  83c33c                         add ebx, 0x3c
+0x17e065c  80ea87                         sub dl, 0x87
+0x17e065f  e8fa4c0100                     call 0x1817f535e
+0x17e0664  f6db                           neg bl
+0x17e0666  80c6e5                         add dh, 0xe5
+0x17e0669  80eff0                         sub bh, 0xf0
+0x17e066c  c7c3769add58                   mov ebx, 0x58dd9a76
+0x17e0672  5e                             pop rsi
+0x17e0673  81ef576e1cb2                   sub edi, 0xb21c6e57
+0x17e0679  80ea43                         sub dl, 0x43
+0x17e067c  0f827d3b0100                   jb 0x1817f41ff
+0x17e0682  6a52                           push 0x52
+0x17e0684  81ebe2a74f28                   sub ebx, 0x284fa7e2
+0x17e068a  0f8c13c40100                   jl 0x1817fcaa3
+0x17e0690  80c740                         add bh, 0x40
+0x17e0693  83c0ca                         add eax, -0x36
+0x17e0696  83c060                         add eax, 0x60
+0x17e0699  c6c391                         mov bl, 0x91
+0x17e069c  f6a890fe71b1                   imul byte ptr [rax - 0x4e8e0170]
+0x17e06a2  8b8424b8000000                 mov eax, dword ptr [rsp + 0xb8]
+0x17e06a9  2b8424bc000000                 sub eax, dword ptr [rsp + 0xbc]
+0x17e06b0  2b8424b0000000                 sub eax, dword ptr [rsp + 0xb0]
+0x17e06b7  4881c4c0000000                 add rsp, 0xc0
+0x17e06be  5b                             pop rbx
+0x17e06bf  5d                             pop rbp
+0x17e06c0  5f                             pop rdi
+0x17e06c1  5e                             pop rsi
+0x17e06c2  415c                           pop r12
+0x17e06c4  415e                           pop r14
+0x17e06c6  415f                           pop r15
+0x17e06c8  c3                             ret 

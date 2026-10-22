@@ -1,0 +1,380 @@
+{
+  "source_sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "contexts": [
+    {
+      "begin_rva": "0x20062ec",
+      "end_rva": "0x2006320",
+      "extent_source": "PE unwind",
+      "linear_disassembly_complete": true,
+      "runtime_reachability_proven": false,
+      "instructions": [
+        {
+          "rva": "0x20062ec",
+          "bytes": "4053",
+          "mnemonic": "push",
+          "operands": "rbx",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x20062ee",
+          "bytes": "4883ec20",
+          "mnemonic": "sub",
+          "operands": "rsp, 0x20",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x20062f2",
+          "bytes": "488bd9",
+          "mnemonic": "mov",
+          "operands": "rbx, rcx",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x20062f5",
+          "bytes": "33c9",
+          "mnemonic": "xor",
+          "operands": "ecx, ecx",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x20062f7",
+          "bytes": "ff1553a40900",
+          "mnemonic": "call",
+          "operands": "qword ptr [rip + 0x9a453]",
+          "rip_relative_targets": [
+            "0x20a0750"
+          ]
+        },
+        {
+          "rva": "0x20062fd",
+          "bytes": "488bcb",
+          "mnemonic": "mov",
+          "operands": "rcx, rbx",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2006300",
+          "bytes": "ff15e2a40900",
+          "mnemonic": "call",
+          "operands": "qword ptr [rip + 0x9a4e2]",
+          "rip_relative_targets": [
+            "0x20a07e8"
+          ]
+        },
+        {
+          "rva": "0x2006306",
+          "bytes": "ff15f4a00900",
+          "mnemonic": "call",
+          "operands": "qword ptr [rip + 0x9a0f4]",
+          "rip_relative_targets": [
+            "0x20a0400"
+          ]
+        },
+        {
+          "rva": "0x200630c",
+          "bytes": "488bc8",
+          "mnemonic": "mov",
+          "operands": "rcx, rax",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x200630f",
+          "bytes": "ba090400c0",
+          "mnemonic": "mov",
+          "operands": "edx, 0xc0000409",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2006314",
+          "bytes": "4883c420",
+          "mnemonic": "add",
+          "operands": "rsp, 0x20",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2006318",
+          "bytes": "5b",
+          "mnemonic": "pop",
+          "operands": "rbx",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2006319",
+          "bytes": "48ff2578a40900",
+          "mnemonic": "jmp",
+          "operands": "qword ptr [rip + 0x9a478]",
+          "rip_relative_targets": [
+            "0x20a0798"
+          ]
+        }
+      ]
+    },
+    {
+      "begin_rva": "0x2010390",
+      "end_rva": "0x20103c2",
+      "extent_source": "PE unwind",
+      "linear_disassembly_complete": true,
+      "runtime_reachability_proven": false,
+      "instructions": [
+        {
+          "rva": "0x2010390",
+          "bytes": "4053",
+          "mnemonic": "push",
+          "operands": "rbx",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2010392",
+          "bytes": "4883ec20",
+          "mnemonic": "sub",
+          "operands": "rsp, 0x20",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2010396",
+          "bytes": "8bd9",
+          "mnemonic": "mov",
+          "operands": "ebx, ecx",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2010398",
+          "bytes": "e8cfffffff",
+          "mnemonic": "call",
+          "operands": "0x18201036c",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x201039d",
+          "bytes": "84c0",
+          "mnemonic": "test",
+          "operands": "al, al",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x201039f",
+          "bytes": "7411",
+          "mnemonic": "je",
+          "operands": "0x1820103b2",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x20103a1",
+          "bytes": "ff1559000900",
+          "mnemonic": "call",
+          "operands": "qword ptr [rip + 0x90059]",
+          "rip_relative_targets": [
+            "0x20a0400"
+          ]
+        },
+        {
+          "rva": "0x20103a7",
+          "bytes": "488bc8",
+          "mnemonic": "mov",
+          "operands": "rcx, rax",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x20103aa",
+          "bytes": "8bd3",
+          "mnemonic": "mov",
+          "operands": "edx, ebx",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x20103ac",
+          "bytes": "ff15e6030900",
+          "mnemonic": "call",
+          "operands": "qword ptr [rip + 0x903e6]",
+          "rip_relative_targets": [
+            "0x20a0798"
+          ]
+        },
+        {
+          "rva": "0x20103b2",
+          "bytes": "8bcb",
+          "mnemonic": "mov",
+          "operands": "ecx, ebx",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x20103b4",
+          "bytes": "e843ffffff",
+          "mnemonic": "call",
+          "operands": "0x1820102fc",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x20103b9",
+          "bytes": "8bcb",
+          "mnemonic": "mov",
+          "operands": "ecx, ebx",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x20103bb",
+          "bytes": "ff156fff0800",
+          "mnemonic": "call",
+          "operands": "qword ptr [rip + 0x8ff6f]",
+          "rip_relative_targets": [
+            "0x20a0330"
+          ]
+        },
+        {
+          "rva": "0x20103c1",
+          "bytes": "cc",
+          "mnemonic": "int3",
+          "operands": "",
+          "rip_relative_targets": []
+        }
+      ]
+    },
+    {
+      "begin_rva": "0x2013d9c",
+      "end_rva": "0x2013de3",
+      "extent_source": "PE unwind",
+      "linear_disassembly_complete": true,
+      "runtime_reachability_proven": false,
+      "instructions": [
+        {
+          "rva": "0x2013d9c",
+          "bytes": "4883ec28",
+          "mnemonic": "sub",
+          "operands": "rsp, 0x28",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2013da0",
+          "bytes": "b917000000",
+          "mnemonic": "mov",
+          "operands": "ecx, 0x17",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2013da5",
+          "bytes": "ff154dc80800",
+          "mnemonic": "call",
+          "operands": "qword ptr [rip + 0x8c84d]",
+          "rip_relative_targets": [
+            "0x20a05f8"
+          ]
+        },
+        {
+          "rva": "0x2013dab",
+          "bytes": "85c0",
+          "mnemonic": "test",
+          "operands": "eax, eax",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2013dad",
+          "bytes": "7407",
+          "mnemonic": "je",
+          "operands": "0x182013db6",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2013daf",
+          "bytes": "b905000000",
+          "mnemonic": "mov",
+          "operands": "ecx, 5",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2013db4",
+          "bytes": "cd29",
+          "mnemonic": "int",
+          "operands": "0x29",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2013db6",
+          "bytes": "41b801000000",
+          "mnemonic": "mov",
+          "operands": "r8d, 1",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2013dbc",
+          "bytes": "ba170400c0",
+          "mnemonic": "mov",
+          "operands": "edx, 0xc0000417",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2013dc1",
+          "bytes": "418d4801",
+          "mnemonic": "lea",
+          "operands": "ecx, [r8 + 1]",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2013dc5",
+          "bytes": "e81a000000",
+          "mnemonic": "call",
+          "operands": "0x182013de4",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2013dca",
+          "bytes": "ff1530c60800",
+          "mnemonic": "call",
+          "operands": "qword ptr [rip + 0x8c630]",
+          "rip_relative_targets": [
+            "0x20a0400"
+          ]
+        },
+        {
+          "rva": "0x2013dd0",
+          "bytes": "488bc8",
+          "mnemonic": "mov",
+          "operands": "rcx, rax",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2013dd3",
+          "bytes": "ba170400c0",
+          "mnemonic": "mov",
+          "operands": "edx, 0xc0000417",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2013dd8",
+          "bytes": "4883c428",
+          "mnemonic": "add",
+          "operands": "rsp, 0x28",
+          "rip_relative_targets": []
+        },
+        {
+          "rva": "0x2013ddc",
+          "bytes": "48ff25b5c90800",
+          "mnemonic": "jmp",
+          "operands": "qword ptr [rip + 0x8c9b5]",
+          "rip_relative_targets": [
+            "0x20a0798"
+          ]
+        }
+      ]
+    }
+  ],
+  "observed_status_literals": [
+    "0xc0000409",
+    "0xc0000417"
+  ],
+  "hypotheses": [
+    {
+      "slot_rva": "0x20a0400",
+      "candidate_API": "GetCurrentProcess",
+      "basis": "Used before the other slot in three small unwind-bounded error/termination-like contexts; RAX moved to RCX. This pattern fits but does not uniquely prove this API."
+    },
+    {
+      "slot_rva": "0x20a0798",
+      "candidate_API": "TerminateProcess",
+      "basis": "Receives result of first slot in RCX and a 32-bit status in EDX. Tailcalled in contexts with 0xc0000409 and 0xc0000417. Public CRT docs describe the analogous termination sequence."
+    }
+  ],
+  "runtime_import_target_confirmation": false,
+  "hypothesis_not_promoted_to_Ghidra_function_name": true,
+  "source_reference": "https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/invalid-parameter-functions?view=msvc-170",
+  "not_proven": "Actual pointer targets, execution in the user crash, telemetry or network identity."
+}
