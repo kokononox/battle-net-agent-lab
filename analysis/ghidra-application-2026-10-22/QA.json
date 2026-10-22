@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "source_sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "all_102_instruction_byte_ranges_match_raw_PE": true,
+  "normalized_instruction_ranges_overlap": false,
+  "proof_bytes": "a8 e0 71 66",
+  "proof": "TEST AL,0xe0 clears OF; following JNO taken",
+  "sole_modeled_predecessor_of_JNO_is_TEST": true,
+  "all_256_AL_values_checked_using_architectural_TEST_rule": true,
+  "branch_target_rva": "0x1beba0b",
+  "outside_range_edges_after_normalization": 0,
+  "call_sites_remaining": 8,
+  "direct_call_sites_remaining": 6,
+  "indirect_call_sites_remaining": 2,
+  "Ghidra_API_completed": true,
+  "Ghidra_result_depends_on_analyst_CFG": true,
+  "whole_function_equivalence_proven": false,
+  "callee_identity_and_runtime_pointer_values_resolved": false,
+  "hardware_to_network_binding_proven": false,
+  "native_execution_emulation_or_byte_patch_performed": false,
+  "limitations": "Intraprocedural normal instruction flow only. Unknown callees may not return. Exceptions, asynchronous code entry and self-modification are not modeled. Flag enumeration checks the encoded architectural rule, not a hardware experiment."
+}

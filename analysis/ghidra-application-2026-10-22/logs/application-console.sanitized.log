@@ -1,0 +1,190 @@
+openjdk version "25.0.4.1" 2026-08-18 LTS
+OpenJDK Runtime Environment Corretto-25.0.4.10.1 (build 25.0.4.1+10-LTS)
+OpenJDK 64-Bit Server VM Corretto-25.0.4.10.1 (build 25.0.4.1+10-LTS, mixed mode)
+INFO  Using log config file: jar:file:<TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /home/vercel-sandbox/.config/ghidra/ghidra_12.2_PUBLIC/application.log (LoggingInitialization)  
+INFO  Loading user preferences: /home/vercel-sandbox/.config/ghidra/ghidra_12.2_PUBLIC/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (664 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Loaded 143 trusted CA certificate(s) from /etc/ssl/certs/ca-certificates.crt (UnixSystemTrustKeyStoreUtil)  
+INFO  Loaded 143 trusted CA certificates from the OS trust store. (DefaultTrustManagerFactory)  
+INFO  Loaded 146 trusted CA certificates from the Java default trust store. (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (1941 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 60 extension points (19 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/FileFormats/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/FunctionID/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/Decompiler/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/PDB/ghidra_scripts
+    <WORK>/scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/Atmel/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/Base/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/PyGhidra/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/DATA/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/SystemEmulation/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/GnuDemangler/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/Swift/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/BytePatterns/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Debug/Debugger/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/8051/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/PIC/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/JVM/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/VersionTracking/ghidra_scripts
+    <TOOLS>/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/BSim/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: <WORK>/projects/ApplicationVerifiedCFG (HeadlessAnalyzer)  
+INFO  Creating project: <WORK>/projects/ApplicationVerifiedCFG (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: <WORK>/projects/ApplicationVerifiedCFG (HeadlessAnalyzer)  
+INFO  IMPORTING: file://<INPUT>/wow_loader.dll (HeadlessAnalyzer)  
+INFO  Using Loader: Portable Executable (PE) (ProgramLoader)  
+INFO  Using Language/Compiler: x86:LE:64:default:clangwindows (ProgramLoader)  
+INFO  Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64] (ProgramLoader)  
+INFO  TLS callbacks at 18209f398 (TLSDirectory)  
+INFO  Additional info:
+Loading file://<INPUT>/wow_loader.dll?MD5=c3812b4d1612a1c2c93737d96e216740...
+------------------------------------------------
+
+Searching 7 paths for library ADVAPI32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library API-MS-WIN-CORE-SYNCH-L1-2-0.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library BCRYPT.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library COMCTL32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library CRYPT32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library DWMAPI.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library GDI32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library IMM32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library IPHLPAPI.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library KERNEL32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library MSACM32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library NCRYPT.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library NTDLL.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library OLE32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library SECUR32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library SETUPAPI.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library SFC.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library SHELL32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library TBS.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library USER32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library VERSION.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library WINHTTP.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library WINMM.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library WINTRUST.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library WS2_32.DLL...
+Library not found.
+------------------------------------------------
+
+Linking the External Programs of 'wow_loader.dll' to imported libraries...
+  [ADVAPI32.DLL] -> not found in project
+  [WS2_32.DLL] -> not found in project
+  [COMCTL32.DLL] -> not found in project
+  [CRYPT32.DLL] -> not found in project
+  [GDI32.DLL] -> not found in project
+  [IMM32.DLL] -> not found in project
+  [KERNEL32.DLL] -> not found in project
+  [OLE32.DLL] -> not found in project
+  [SHELL32.DLL] -> not found in project
+  [USER32.DLL] -> not found in project
+  [WINMM.DLL] -> not found in project
+  [NTDLL.DLL] -> not found in project
+  [IPHLPAPI.DLL] -> not found in project
+  [DWMAPI.DLL] -> not found in project
+  [VERSION.DLL] -> not found in project
+  [API-MS-WIN-CORE-SYNCH-L1-2-0.DLL] -> not found in project
+  [MSACM32.DLL] -> not found in project
+  [SETUPAPI.DLL] -> not found in project
+  [WINHTTP.DLL] -> not found in project
+  [NCRYPT.DLL] -> not found in project
+  [WINTRUST.DLL] -> not found in project
+  [SFC.DLL] -> not found in project
+  [BCRYPT.DLL] -> not found in project
+  [TBS.DLL] -> not found in project
+  [SECUR32.DLL] -> not found in project
+------------------------------------------------
+
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: VerifiedApplicationReview.java '<WORK>/output' '<WORK>/scripts'  (HeadlessAnalyzer)  
+INFO  SCRIPT: <WORK>/scripts/VerifiedApplicationReview.java (HeadlessAnalyzer)  
+INFO  VerifiedApplicationReview.java> VERIFIED_CFG_REVIEW completed=true byte_checks=102 (GhidraScript)  
+INFO  /wow_loader.dll: file created (vercel-sandbox) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /wow_loader.dll (ApplicationVerifiedCFG:/wow_loader.dll) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  

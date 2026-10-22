@@ -1,0 +1,108 @@
+{
+  "raw_recursive_instruction_count": 129,
+  "normalized_instruction_count": 102,
+  "rewrites": [
+    {
+      "first_rva": "0x1beb9a3",
+      "first_bytes": "7166",
+      "target_rva": "0x1beba0b",
+      "preceding_rva": "0x1beb9a1",
+      "preceding_bytes": "a8e0",
+      "proof": "TEST AL,0xe0 clears OF; immediately following JNO must jump. No intervening instruction. Intraprocedural proof assumes normal instruction semantics and no asynchronous modification."
+    }
+  ],
+  "direct_or_indirect_calls_remaining": [
+    {
+      "rva": "0x1beb8cd",
+      "bytes": "e8be4ee8ff",
+      "mnemonic": "call",
+      "operands": "0x181a70790",
+      "successors": [
+        "0x1beb8d2"
+      ]
+    },
+    {
+      "rva": "0x1beb947",
+      "bytes": "e8143758ff",
+      "mnemonic": "call",
+      "operands": "0x18116f060",
+      "successors": [
+        "0x1beb94c"
+      ]
+    },
+    {
+      "rva": "0x1beba34",
+      "bytes": "e837bfd4fe",
+      "mnemonic": "call",
+      "operands": "0x180937970",
+      "successors": [
+        "0x1beba39"
+      ]
+    },
+    {
+      "rva": "0x1beba1d",
+      "bytes": "e85ee028ff",
+      "mnemonic": "call",
+      "operands": "0x180e79a80",
+      "successors": [
+        "0x1beba22"
+      ]
+    },
+    {
+      "rva": "0x1beb96f",
+      "bytes": "e8ccf32dff",
+      "mnemonic": "call",
+      "operands": "0x180ecad40",
+      "successors": [
+        "0x1beb974"
+      ]
+    },
+    {
+      "rva": "0x1beb989",
+      "bytes": "e8623ebfff",
+      "mnemonic": "call",
+      "operands": "0x1817df7f0",
+      "successors": [
+        "0x1beb98e"
+      ]
+    },
+    {
+      "rva": "0x1beb990",
+      "bytes": "ff156a4a4b00",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x4b4a6a]",
+      "successors": [
+        "0x1beb996"
+      ]
+    },
+    {
+      "rva": "0x1beb99b",
+      "bytes": "ff15f74d4b00",
+      "mnemonic": "call",
+      "operands": "qword ptr [rip + 0x4b4df7]",
+      "successors": [
+        "0x1beb9a1"
+      ]
+    }
+  ],
+  "edges_outside_range": [],
+  "unresolved_control_flow": [],
+  "mnemonic_counts": {
+    "push": 2,
+    "sub": 4,
+    "mov": 36,
+    "xor": 12,
+    "lea": 5,
+    "add": 8,
+    "jmp": 6,
+    "cmp": 5,
+    "jne": 4,
+    "test": 4,
+    "call": 8,
+    "je": 3,
+    "pop": 2,
+    "ret": 1,
+    "setne": 1,
+    "jno": 1
+  }
+}
