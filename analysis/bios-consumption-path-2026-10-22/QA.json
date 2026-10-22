@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "binary_hash_pinned": true,
+  "manual_pe_mapping": true,
+  "field_entries_checked": 98,
+  "bios_fields_checked": 3,
+  "cycle_and_table_geometry_checked": true,
+  "mutation_tests": [
+    {
+      "test": "BIOS field offset corruption",
+      "passed": true
+    },
+    {
+      "test": "ClassData cycle relabeling",
+      "passed": true
+    },
+    {
+      "test": "Unsupported hardware population claim",
+      "passed": true
+    },
+    {
+      "test": "Unsupported hardware serialization claim",
+      "passed": true
+    },
+    {
+      "test": "Unsupported TCP/3724 binding claim",
+      "passed": true
+    }
+  ],
+  "scope": "Checks static structure and conservative claims, NOT runtime behavior or ABI equivalence."
+}
