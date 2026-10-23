@@ -1,6 +1,14 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## قدم فعلی — WLab CodeRead 0.1.1، اصلاح gate نوع mapping بر پایهٔ گزارش واقعی
+## تازه‌ترین نتیجه — header خوانده شد؛ هر سه صفحهٔ نامزد PAGE_NOACCESS هستند
+
+[بررسی](reports/coderead-0.1.1-noaccess/REVIEW.fa.md) · [شواهد](reports/coderead-0.1.1-noaccess/OBSERVATION.json).
+
+CodeRead 0.1.1 header را 4096 بایت خواند، اما census هر سه صفحهٔ ثابت را protect=1 (PAGE_NOACCESS، نه PAGE_GUARD) نشان داد. نوع MEM_MAPPED و allocation base درست بودند؛ بنابراین این بار توقف به خاطر MEM_IMAGE-only نیست. روی هیچ صفحهٔ کد ReadProcessMemory اجرا نشد و .bin صادر نشد. سه نمونهٔ metadata فرایند زنده/Responding را نشان دادند؛ پایداری کامل یا علت protection مشخص نشده است.
+
+فعلاً خواندن زنده/full dump قبلی تکرار نشود؛ هیچ تغییر protection، debugger/injection/driver/bypass یا retry/polling خودکار اضافه نشده است. وضعیت فقط در لحظهٔ query است و به معنی اثبات «هرگز قابل‌خواندن نیست»، anti-cheat attribution یا ارسال شبکه نیست. خط پیشنهادی بعدی تحلیل آفلاین هدفمند population/serialization/send است، نه detour عمومی loader؛ هنوز اجرا/نتیجهٔ تازه‌ای از آن نداریم. main و GUI BIOS Path 0.2 دست‌نخورده‌اند؛ CPU/BIOS روی TCP/3724 همچنان نامعلوم است. دستورهای قدیمی زیر سابقه‌اند، نه درخواست اجرای مجدد.
+
+## آخرین ابزار اجراشده — WLab CodeRead 0.1.1، اصلاح gate نوع mapping بر پایهٔ گزارش واقعی
 
 [راهنما](user-tools/wlab-coderead-0.1.1/README.fa.md) · [گزارش کاربر](user-tools/wlab-coderead-0.1.1/USER-MAPPED-OBSERVATION.json) · [QA](user-tools/wlab-coderead-0.1.1/QA.json) · [هش](user-tools/wlab-coderead-0.1.1/PROVENANCE.json) · [وضعیت](user-tools/wlab-coderead-0.1.1/SYNC-STATUS.json).
 

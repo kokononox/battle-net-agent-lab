@@ -1,0 +1,196 @@
+{
+  "source_filename": "READY-TO-SEND.zip",
+  "source_sha256": "943bcce6618e39034f57f4c9daf37de924f84dc20362d0a68d95c6e6edd783cf",
+  "analysis": {
+    "comparison_limit": "raw byte differences are not proof of decryption, execution, serialization or sending; relocations not normalized",
+    "consistency_limit": "live sequential reads, not an atomic snapshot; same identities and PE headers do not prove code never changed between reads",
+    "disk_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+    "error": "page 0x1b11000: guard or no-access page; no protection change or retry",
+    "expected_creation_filetime": 134371954697332027,
+    "expected_pid": 4900,
+    "finished_utc": "2026-10-23T05:20:29.6406639Z",
+    "header_before": {
+      "bytes_returned": 4096,
+      "purpose": "loaded PE identity before; not exported",
+      "region": {
+        "base": 140701247143936,
+        "allocation_base": 140701247143936,
+        "size": 4096,
+        "state": 4096,
+        "protect": 2,
+        "type": 262144
+      }
+    },
+    "identity_before": {
+      "pid": 4900,
+      "creation_filetime": 134371954697332027,
+      "image_path": "G:\\World of Warcraft\\_retail_\\Wow.exe",
+      "module_base": 140701247143936,
+      "module_image_size": 120926208,
+      "module_path": "G:\\World of Warcraft\\_retail_\\Wow.exe"
+    },
+    "identity_initial": {
+      "pid": 4900,
+      "creation_filetime": 134371954697332027,
+      "image_path": "G:\\World of Warcraft\\_retail_\\Wow.exe",
+      "module_base": 140701247143936,
+      "module_image_size": 120926208,
+      "module_path": "G:\\World of Warcraft\\_retail_\\Wow.exe"
+    },
+    "maximum_target_memory_requested_bytes": 20480,
+    "method": "query metadata + ReadProcessMemory only; no clone/debugger/injection/target writes/protection changes",
+    "page_reads": [
+      {
+        "protection_or_bounds_error": "guard or no-access page; no protection change or retry",
+        "region": {
+          "base": 140701275525120,
+          "allocation_base": 140701247143936,
+          "size": 20480,
+          "state": 4096,
+          "protect": 1,
+          "type": 262144
+        },
+        "requested_bytes": 4096,
+        "rva": "0x1b11000",
+        "status": "stopped"
+      }
+    ],
+    "pinned_wow_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+    "planned_region_census": [
+      {
+        "address": 140701247143936,
+        "query_only": true,
+        "region": {
+          "base": 140701247143936,
+          "allocation_base": 140701247143936,
+          "size": 4096,
+          "state": 4096,
+          "protect": 2,
+          "type": 262144
+        },
+        "region_type_name": "MEM_MAPPED",
+        "requested_bytes": 4096,
+        "rva": "0x0"
+      },
+      {
+        "address": 140701275525120,
+        "policy_gate_note": "guard or no-access page; no protection change or retry",
+        "query_only": true,
+        "region": {
+          "base": 140701275525120,
+          "allocation_base": 140701247143936,
+          "size": 20480,
+          "state": 4096,
+          "protect": 1,
+          "type": 262144
+        },
+        "region_type_name": "MEM_MAPPED",
+        "requested_bytes": 4096,
+        "rva": "0x1b11000"
+      },
+      {
+        "address": 140701275537408,
+        "policy_gate_note": "guard or no-access page; no protection change or retry",
+        "query_only": true,
+        "region": {
+          "base": 140701275537408,
+          "allocation_base": 140701247143936,
+          "size": 8192,
+          "state": 4096,
+          "protect": 1,
+          "type": 262144
+        },
+        "region_type_name": "MEM_MAPPED",
+        "requested_bytes": 4096,
+        "rva": "0x1b14000"
+      },
+      {
+        "address": 140701300645888,
+        "policy_gate_note": "guard or no-access page; no protection change or retry",
+        "query_only": true,
+        "region": {
+          "base": 140701300645888,
+          "allocation_base": 140701247143936,
+          "size": 53248,
+          "state": 4096,
+          "protect": 1,
+          "type": 262144
+        },
+        "region_type_name": "MEM_MAPPED",
+        "requested_bytes": 4096,
+        "rva": "0x3306000"
+      }
+    ],
+    "sending_on_3724": "unresolved",
+    "started_utc": "2026-10-23T05:20:29.3301019Z",
+    "status": "read_failed",
+    "tool": "WLab CodeRead 0.1.1"
+  },
+  "run": {
+    "tool": "WLab CodeRead 0.1.1",
+    "state": "read_stopped",
+    "started_utc": "2026-10-23T05:20:29.0617500Z",
+    "expected_pid": 4900,
+    "expected_creation_filetime": 134371954697332027,
+    "game_screen_user_reported": "In world",
+    "output_directory": "G:\\WLabCodeRead\\20261023-082029-3fa5ea39",
+    "read_requested": true,
+    "game_stability": "not established; ask user",
+    "network_sending": "unresolved",
+    "observations": [
+      {
+        "utc": "2026-10-23T05:20:29.7811878Z",
+        "same_process_alive": true,
+        "responding": true
+      },
+      {
+        "utc": "2026-10-23T05:20:34.8810741Z",
+        "same_process_alive": true,
+        "responding": true
+      },
+      {
+        "utc": "2026-10-23T05:20:39.9145084Z",
+        "same_process_alive": true,
+        "responding": true
+      }
+    ],
+    "child_runner_self_test": [
+      {
+        "expected_exit_code": 0,
+        "actual_exit_code": 0,
+        "status": "succeeded",
+        "passed": true
+      },
+      {
+        "expected_exit_code": 7,
+        "actual_exit_code": 7,
+        "status": "failed",
+        "passed": true
+      }
+    ],
+    "read_helper_result": {
+      "status": "failed",
+      "exit_code": 1,
+      "exit_code_error": null,
+      "child_pid": 2268,
+      "native_handle_acquired": true,
+      "stdio_drained": true,
+      "stdio_error": null,
+      "source": "owned System.Diagnostics.Process.Start handle",
+      "completed_utc": "2026-10-23T05:20:29.6986594Z"
+    },
+    "analysis_status": "read_failed",
+    "finished_utc": "2026-10-23T05:20:39.9186738Z",
+    "cancel_requested": false
+  },
+  "interpretation": {
+    "header": "4096 bytes read successfully; reaching first code-page gate also means loaded PE identity check passed",
+    "three_planned_code_pages": "each metadata query reports protect=1 (PAGE_NOACCESS), not PAGE_GUARD; MEM_COMMIT/MEM_MAPPED at expected allocation base",
+    "code_page_RPM_attempts": 0,
+    "code_binaries_exported": false,
+    "game_metadata_observations": "same process alive/responding in three samples; user playability not newly reported",
+    "limits": "protection at these sampled times, not proof the pages are permanently unreadable or of who set the protections; no anti-cheat attribution or cause of previous PSS failure established",
+    "network_send_3724": "unresolved"
+  },
+  "next_action": "pause same live read/full-dump attempts; do not change protections or add access-denied/guard bypass; targeted offline serialization/population/send analysis is the next proposed line, not a completed finding"
+}
