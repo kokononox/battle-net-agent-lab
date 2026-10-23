@@ -1,0 +1,60 @@
+{
+  "binary_sha256": "619031dd8257cea41d306e512b1c6ef966b1f79fcb55f4a2b557731db8fc58df",
+  "binary_bytes": 2985472,
+  "cross_compile_passed": true,
+  "go_vet_passed": true,
+  "pe_machine": "AMD64",
+  "pe_subsystem": "GUI",
+  "embedded_payload_matches": true,
+  "loopback_implementation_unchanged": true,
+  "cases": [
+    {
+      "name": "AFD_Paged_NoStack",
+      "provider": "E53C6823-7BB8-44BB-90DC-3F86090D48A6",
+      "nonpaged": "false",
+      "stack": "false",
+      "keyword": "0x4"
+    },
+    {
+      "name": "AFD_Paged_Stack",
+      "provider": "E53C6823-7BB8-44BB-90DC-3F86090D48A6",
+      "nonpaged": "false",
+      "stack": "true",
+      "keyword": "0x4"
+    },
+    {
+      "name": "AFD_NonPaged_NoStack",
+      "provider": "E53C6823-7BB8-44BB-90DC-3F86090D48A6",
+      "nonpaged": "true",
+      "stack": "false",
+      "keyword": "0x4"
+    },
+    {
+      "name": "AFD_NonPaged_Stack",
+      "provider": "E53C6823-7BB8-44BB-90DC-3F86090D48A6",
+      "nonpaged": "true",
+      "stack": "true",
+      "keyword": "0x4"
+    },
+    {
+      "name": "Sockets_Paged_NoStack",
+      "provider": "BDE46AEA-2357-51FE-7367-D5296F530BD1",
+      "nonpaged": "false",
+      "stack": "false",
+      "keyword": "0x1"
+    },
+    {
+      "name": "Sockets_Paged_Stack",
+      "provider": "BDE46AEA-2357-51FE-7367-D5296F530BD1",
+      "nonpaged": "false",
+      "stack": "true",
+      "keyword": "0x1"
+    }
+  ],
+  "encoded_command_chars": 29004,
+  "windows_runtime_tested": false,
+  "wpr_profile_runtime_validated": false,
+  "root_cause_fixed_proven": false,
+  "stack_presence_verified": false,
+  "limits": "Static invariants and cross compilation only; not a PowerShell parser, WPR XSD validation or Windows execution."
+}
