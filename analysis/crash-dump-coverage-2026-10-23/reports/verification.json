@@ -1,0 +1,39 @@
+{
+  "independent_checks": [
+    {
+      "dump": "2026-10-22_07.50.48_Crash_4760.dmp",
+      "hash_directory_ranges_and_absence_rechecked": true
+    },
+    {
+      "dump": "2026-10-22_07.56.51_Crash_10768.dmp",
+      "hash_directory_ranges_and_absence_rechecked": true
+    }
+  ],
+  "negative_claim_tests": [
+    {
+      "case": "false_target_presence",
+      "rejected": true
+    },
+    {
+      "case": "false_prefix",
+      "rejected": true
+    },
+    {
+      "case": "invented_target_hash",
+      "rejected": true
+    },
+    {
+      "case": "false_identity",
+      "rejected": true
+    },
+    {
+      "case": "invented_Wow_code",
+      "rejected": true
+    },
+    {
+      "case": "claim_changed_loader_bytes",
+      "rejected": true
+    }
+  ],
+  "limits": "Independent check repeats directories/ranges/basic module fields and executable intersections; CodeView and per-byte comparison remain producer checks. Negative tests check report gates, not exhaustive minidump-parser robustness. No reason for missing target pages is inferred."
+}

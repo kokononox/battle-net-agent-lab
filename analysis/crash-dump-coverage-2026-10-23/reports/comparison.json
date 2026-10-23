@@ -1,0 +1,119 @@
+{
+  "disk_identity": {
+    "wow.exe": {
+      "input_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+      "timestamp": 1792107094,
+      "size_image": 120926208,
+      "checksum": 80867935,
+      "cv_sha256s": [
+        "cbb1964731ebb023cb4f3b23485ea2403293925e3fc736ebeaee404b3f838edc"
+      ],
+      "executable_sections": [
+        {
+          "name": ".text",
+          "rva": 4096,
+          "length": 62234624
+        }
+      ]
+    },
+    "wow_loader.dll": {
+      "input_sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+      "timestamp": 1784233019,
+      "size_image": 42205184,
+      "checksum": 41294996,
+      "cv_sha256s": [
+        "abbcfe0a69db19c6830f9e310adc79de3d8792dd20e70715d411c26ff0de5f24"
+      ],
+      "executable_sections": [
+        {
+          "name": ".text",
+          "rva": 65536,
+          "length": 33735680
+        }
+      ]
+    }
+  },
+  "dumps": [
+    {
+      "name": "2026-10-22_07.50.48_Crash_4760.dmp",
+      "exception": {
+        "code": "0xc0000005",
+        "module": "Wow_loader.dll",
+        "rva": "0x401a05",
+        "32_bytes_present": true,
+        "bytes_sha256": "2a7928fefbcecd39db59a131eb974d51f89fd244e045d9bb7d1fb7dcfe49dfed"
+      },
+      "modules": [
+        {
+          "name": "Wow.exe",
+          "identity_checks": {
+            "timestamp_equal": true,
+            "size_image_equal": true,
+            "checksum_equal": true,
+            "codeview_equal": true
+          },
+          "executable_overlap_fragments": [],
+          "captured_executable_bytes_sum": 0,
+          "different_bytes_sum": 0
+        },
+        {
+          "name": "Wow_loader.dll",
+          "identity_checks": {
+            "timestamp_equal": true,
+            "size_image_equal": true,
+            "checksum_equal": true,
+            "codeview_equal": true
+          },
+          "executable_overlap_fragments": [
+            {
+              "section": ".text",
+              "rva": "0x401985",
+              "length": 256,
+              "runtime_sha256": "f006bde4f1f01808873b8c0c07a5c53ec5b34f40f6fafc245b586b18de2c73e6",
+              "disk_sha256": "f006bde4f1f01808873b8c0c07a5c53ec5b34f40f6fafc245b586b18de2c73e6",
+              "different_bytes": 0
+            }
+          ],
+          "captured_executable_bytes_sum": 256,
+          "different_bytes_sum": 0
+        }
+      ]
+    },
+    {
+      "name": "2026-10-22_07.56.51_Crash_10768.dmp",
+      "exception": {
+        "code": "0xc00000e5",
+        "module": "KERNELBASE.dll",
+        "rva": "0xc804a",
+        "32_bytes_present": true,
+        "bytes_sha256": "5d7930aa778e42491d41046aedac2a3759ef320a18835faef960e3fb386c0358"
+      },
+      "modules": [
+        {
+          "name": "Wow.exe",
+          "identity_checks": {
+            "timestamp_equal": true,
+            "size_image_equal": true,
+            "checksum_equal": true,
+            "codeview_equal": true
+          },
+          "executable_overlap_fragments": [],
+          "captured_executable_bytes_sum": 0,
+          "different_bytes_sum": 0
+        },
+        {
+          "name": "Wow_loader.dll",
+          "identity_checks": {
+            "timestamp_equal": true,
+            "size_image_equal": true,
+            "checksum_equal": true,
+            "codeview_equal": true
+          },
+          "executable_overlap_fragments": [],
+          "captured_executable_bytes_sum": 0,
+          "different_bytes_sum": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "archive_sha256": "cb9b1dd9c2865b8a3382d72d8ac77efe2f0372a74c189adb744f02b51a7eb41e",
+  "dumps": [
+    {
+      "name": "2026-10-22_07.50.48_Crash_4760.dmp",
+      "size_bytes": 31959554,
+      "sha256": "3dad4393b384c716b0b45b703524031ba268af2dde3555b34bfc1144e60aa6f2",
+      "streams": [
+        {
+          "type": 3,
+          "size": 2548
+        },
+        {
+          "type": 4,
+          "size": 13180
+        },
+        {
+          "type": 5,
+          "size": 6804
+        },
+        {
+          "type": 6,
+          "size": 168
+        },
+        {
+          "type": 7,
+          "size": 56
+        },
+        {
+          "type": 13,
+          "size": 20272
+        },
+        {
+          "type": 15,
+          "size": 1364
+        },
+        {
+          "type": 21,
+          "size": 524
+        },
+        {
+          "type": 22,
+          "size": 152
+        },
+        {
+          "type": 24,
+          "size": 376
+        },
+        {
+          "type": 4096,
+          "size": 26
+        }
+      ],
+      "modules_count": 122,
+      "relevant_modules": [
+        {
+          "name": "Wow.exe",
+          "base": 140701247143936,
+          "size": 120926208,
+          "timestamp": 1792107094,
+          "checksum": 80867935,
+          "file_version": "1201.5.7044.8",
+          "cv_sha256": "cbb1964731ebb023cb4f3b23485ea2403293925e3fc736ebeaee404b3f838edc",
+          "cv_signature": "RSDS"
+        },
+        {
+          "name": "Wow_loader.dll",
+          "base": 140725248720896,
+          "size": 42205184,
+          "timestamp": 1784233019,
+          "checksum": 41294996,
+          "file_version": "0.0.0.0",
+          "cv_sha256": "abbcfe0a69db19c6830f9e310adc79de3d8792dd20e70715d411c26ff0de5f24",
+          "cv_signature": "RSDS"
+        },
+        {
+          "name": "libxell.dll",
+          "base": 140726816931840,
+          "size": 376832,
+          "timestamp": 1752787791,
+          "checksum": 366931,
+          "file_version": "1.2.0.9",
+          "cv_sha256": "d9ba04c00b142cfcca61f6c1d2086d8d0baf22f2730ef0c405b6e55e46263087",
+          "cv_signature": "RSDS"
+        }
+      ],
+      "memory_range_count": 425,
+      "stored_memory_bytes": 31831341,
+      "targets": [
+        {
+          "role": "merge_candidate",
+          "rva": "0x1b14120",
+          "address": "0x7ff7918c4120",
+          "length": 24,
+          "fully_present": false,
+          "sha256": null,
+          "available_prefix_bytes": 0,
+          "memory_info": []
+        },
+        {
+          "role": "creator_candidate",
+          "rva": "0x1b11190",
+          "address": "0x7ff7918c1190",
+          "length": 110,
+          "fully_present": false,
+          "sha256": null,
+          "available_prefix_bytes": 0,
+          "memory_info": []
+        },
+        {
+          "role": "parse_fallback_candidate",
+          "rva": "0x33068c0",
+          "address": "0x7ff7930b68c0",
+          "length": 244,
+          "fully_present": false,
+          "sha256": null,
+          "available_prefix_bytes": 0,
+          "memory_info": []
+        }
+      ],
+      "exception": {
+        "code": "0xc0000005",
+        "address": "0x7ffd26b61a05",
+        "wow_rva": null
+      },
+      "wow_header_present": false
+    },
+    {
+      "name": "2026-10-22_07.56.51_Crash_10768.dmp",
+      "size_bytes": 31841177,
+      "sha256": "70216d653ee1d63574ea7771b1291f07994bf9bd63035dffb407fa9c4ceb9815",
+      "streams": [
+        {
+          "type": 3,
+          "size": 2500
+        },
+        {
+          "type": 4,
+          "size": 11128
+        },
+        {
+          "type": 5,
+          "size": 5268
+        },
+        {
+          "type": 6,
+          "size": 168
+        },
+        {
+          "type": 7,
+          "size": 56
+        },
+        {
+          "type": 13,
+          "size": 16888
+        },
+        {
+          "type": 15,
+          "size": 1364
+        },
+        {
+          "type": 21,
+          "size": 524
+        },
+        {
+          "type": 22,
+          "size": 152
+        },
+        {
+          "type": 24,
+          "size": 364
+        },
+        {
+          "type": 4096,
+          "size": 26
+        }
+      ],
+      "modules_count": 103,
+      "relevant_modules": [
+        {
+          "name": "Wow.exe",
+          "base": 140701247143936,
+          "size": 120926208,
+          "timestamp": 1792107094,
+          "checksum": 80867935,
+          "file_version": "1201.5.7044.8",
+          "cv_sha256": "cbb1964731ebb023cb4f3b23485ea2403293925e3fc736ebeaee404b3f838edc",
+          "cv_signature": "RSDS"
+        },
+        {
+          "name": "Wow_loader.dll",
+          "base": 140725437333504,
+          "size": 42205184,
+          "timestamp": 1784233019,
+          "checksum": 41294996,
+          "file_version": "0.0.0.0",
+          "cv_sha256": "abbcfe0a69db19c6830f9e310adc79de3d8792dd20e70715d411c26ff0de5f24",
+          "cv_signature": "RSDS"
+        },
+        {
+          "name": "libxell.dll",
+          "base": 140726816931840,
+          "size": 376832,
+          "timestamp": 1752787791,
+          "checksum": 366931,
+          "file_version": "1.2.0.9",
+          "cv_sha256": "d9ba04c00b142cfcca61f6c1d2086d8d0baf22f2730ef0c405b6e55e46263087",
+          "cv_signature": "RSDS"
+        }
+      ],
+      "memory_range_count": 329,
+      "stored_memory_bytes": 31723316,
+      "targets": [
+        {
+          "role": "merge_candidate",
+          "rva": "0x1b14120",
+          "address": "0x7ff7918c4120",
+          "length": 24,
+          "fully_present": false,
+          "sha256": null,
+          "available_prefix_bytes": 0,
+          "memory_info": []
+        },
+        {
+          "role": "creator_candidate",
+          "rva": "0x1b11190",
+          "address": "0x7ff7918c1190",
+          "length": 110,
+          "fully_present": false,
+          "sha256": null,
+          "available_prefix_bytes": 0,
+          "memory_info": []
+        },
+        {
+          "role": "parse_fallback_candidate",
+          "rva": "0x33068c0",
+          "address": "0x7ff7930b68c0",
+          "length": 244,
+          "fully_present": false,
+          "sha256": null,
+          "available_prefix_bytes": 0,
+          "memory_info": []
+        }
+      ],
+      "exception": {
+        "code": "0xc00000e5",
+        "address": "0x7ffd9e04804a",
+        "wow_rva": null
+      },
+      "wow_header_present": false
+    }
+  ],
+  "text_relevant_lines": [
+    "World of Warcraft: Retail Build (build 70448)",
+    "<Version> 12.1.5.70448",
+    "<Exception.BuildNumber> 70448",
+    "<Exception.Branch> 12.1.5",
+    "<Executable> Wow.exe"
+  ]
+}

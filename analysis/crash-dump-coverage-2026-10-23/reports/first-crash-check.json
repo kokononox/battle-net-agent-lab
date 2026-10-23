@@ -1,0 +1,13 @@
+{
+  "dump": "2026-10-22_07.50.48_Crash_4760.dmp",
+  "exception": "0xc0000005",
+  "access_type": "write",
+  "instruction_module": "Wow_loader.dll",
+  "instruction_rva": "0x401a05",
+  "instruction_hex": "458099f3cccccccc",
+  "decoded_instruction": "sbb byte ptr [r9 - 0x3333330d], 0xcc",
+  "context_rip_matches_exception": true,
+  "effective_address_matches_exception_parameter": true,
+  "instruction_bytes_match_disk": true,
+  "limits": "Only validates the crash-time write address arithmetic. No attribution to anti-cheat, decryption, deliberate crash, dump tooling, CPU/BIOS collection, or network sending. No prior instruction/control flow was recovered."
+}
