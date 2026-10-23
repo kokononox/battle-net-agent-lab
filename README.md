@@ -1,6 +1,14 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## آخرین گام — WLab Snapshot 0.1.3، اصلاح نتیجهٔ نامعلوم helper و ثبت خطا
+## آخرین گام — WLab Snapshot 0.1.4، خروجی روی درایو بازی
+
+[راهنما](user-tools/wlab-snapshot-0.1.4/README.fa.md) · [گزارش توقف کمبود فضا](user-tools/wlab-snapshot-0.1.4/USER-STORAGE-OBSERVATION.json) · [QA](user-tools/wlab-snapshot-0.1.4/QA.json) · [هش باینری](user-tools/wlab-snapshot-0.1.4/PROVENANCE.json) · [وضعیت](user-tools/wlab-snapshot-0.1.4/SYNC-STATUS.json).
+
+گزارش 0.1.3 موفقیت آزمون فرزند، آماده‌سازی، هش بازی و امضای Microsoft را نشان داد؛ capture به‌علت حداقل فضای آزاد قبل از شروع متوقف شد. کاربر بازی را عادی گزارش کرد، اما چون capture_started=false است، این پایداری حین snapshot نیست. طبق درخواست تازه، dump و گزارش در DRIVE:\WLabSnapshot\TIMESTAMP-ID روی درایو همان Wow.exe انتخاب‌شده نوشته می‌شوند؛ cache کوچک، launcher log و قفل مشترک در LocalAppData باقی می‌مانند. بررسی حداقل ۸ GiB و لغو زیر ۱ GiB روی همان خروجی جدید است؛ مقدار آزاد و مسیر ثبت می‌شوند. هیچ fallback پنهان به C و هیچ کاهش حداقل فضا وجود ندارد. ۱۶ گیگ گزارش‌شده تضمین کفایت dump نیست.
+
+۲۵ آزمون Go، پنج fixture مصنوعی، آزمون مستقل قفل و child runner، چهار نگاشت مسیر و چهار رد مسیر نامعتبر، mock فضای آزاد، parse چهار اسکریپت و دو build یکسان گذشتند. اجرای واقعی Windows نسخهٔ جدید و snapshot هنوز نیاز به تأیید دارند. main و GUI BIOS Path 0.2 تغییر نکرده‌اند؛ CPU/BIOS روی TCP/3724 همچنان نامعلوم است. قدم بعد فقط یک تلاش با 0.1.4 و ارسال گزارش جدید است؛ دستورهای قدیمی زیر سابقه‌اند.
+
+## گام پیشین — WLab Snapshot 0.1.3، اصلاح نتیجهٔ نامعلوم helper و ثبت خطا
 
 [راهنما](user-tools/wlab-snapshot-0.1.3/README.fa.md) · [شواهد کاربر](user-tools/wlab-snapshot-0.1.3/USER-PREPARATION-OBSERVATION.json) · [QA](user-tools/wlab-snapshot-0.1.3/QA.json) · [منشأ و هش باینری](user-tools/wlab-snapshot-0.1.3/PROVENANCE.json) · [وضعیت](user-tools/wlab-snapshot-0.1.3/SYNC-STATUS.json).
 

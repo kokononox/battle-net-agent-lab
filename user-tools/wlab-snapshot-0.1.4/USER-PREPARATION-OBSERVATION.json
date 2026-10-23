@@ -1,0 +1,29 @@
+{
+  "source_filename": "READY-TO-SEND.zip",
+  "source_sha256": "de39db42176848cc71914468efe5c1225903c7d54f2abc9220925373a9345c2c",
+  "archive_members": [
+    "run.json"
+  ],
+  "run": {
+    "tool": "WLab Snapshot 0.1.2",
+    "started_utc": "2026-10-23T03:01:01.5175339Z",
+    "target_pid": 4900,
+    "target_start_ticks": 639283186697332027,
+    "game_screen_user_reported": "In world",
+    "expected_wow_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+    "capture_started": false,
+    "capture_arguments_planned": "-accepteula -ma -r 1 -n 1 -at 120 PID snapshot.dmp",
+    "stability": "not established; ask user",
+    "network_sending": "unresolved",
+    "state": "preparation_failed",
+    "cancel_requested": false,
+    "observations": [],
+    "updated_utc": "2026-10-23T03:01:04.6312767Z",
+    "prepare_exit_code": null,
+    "prepare_error": null,
+    "finished_utc": "2026-10-23T03:01:04.6302347Z"
+  },
+  "conclusion": "this attempt stopped before capture; preparation exit status was null and stderr field null; a genuine download failure is not established",
+  "source_defect": "Start-Process result ExitCode null was compared with zero and classified as failure; phase stderr file was not included by the report bundler",
+  "scope": "new release repairs child process handling; does not establish privacy/network behavior"
+}

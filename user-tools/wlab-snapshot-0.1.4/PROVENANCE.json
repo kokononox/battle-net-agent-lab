@@ -1,0 +1,34 @@
+{
+  "version": "0.1.4",
+  "build": "See source/build.sh; Go 1.27.3, Windows amd64 GUI, trimpath, no cgo, no buildid",
+  "go": {
+    "archive": "go1.27.3.linux-amd64.tar.gz",
+    "sha256": "65efbc80fdc1fa2cd2631cad5b481777a68e8725f34e89f50fc6ac714e379b40",
+    "checksum_source": "https://go.dev/dl/?mode=json"
+  },
+  "powershell_for_syntax_tests": {
+    "asset": "powershell-7.6.8-linux-x64.tar.gz",
+    "sha256": "59112e38ad83350e4f6dc0195953c66b5926792f300ca2e7691b8242e7a16e7f",
+    "digest_source": "https://api.github.com/repos/PowerShell/PowerShell/releases/latest"
+  },
+  "procdump": {
+    "official_url": "https://download.sysinternals.com/files/Procdump.zip",
+    "zip_sha256": "5fe68e81632f13188930affff20a9a9910170bae654360850d3108cead708a2d",
+    "procdump64_sha256": "22c2a2b09ade73a342a18dab838354385f73fc98e324b9903fd61fff949c5124",
+    "distribution": "not bundled; downloaded directly by end-user helper after EULA consent; hash pin plus Windows Authenticode gate",
+    "docs": "https://learn.microsoft.com/en-us/sysinternals/downloads/procdump"
+  },
+  "artifact": {
+    "filename": "WLab-Snapshot-0.1.4.exe",
+    "size_bytes": 7338496,
+    "sha256": "f85b2a6b278b49945d7d18ab9466530300b405ecb080b6817164dbe1c6dd68df",
+    "publisher_signed": false
+  },
+  "game_executed_in_build_environment": false,
+  "previous_release_commit": "1233df9f887d650460dc36b2f36f19de72dc5170",
+  "visibility_fix_references": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-showwindow",
+    "https://learn.microsoft.com/en-us/windows/win32/procthread/process-creation-flags"
+  ],
+  "go_HideWindow_source": "pinned Go archive src/syscall/exec_windows.go lines 390-396 sets STARTF_USESHOWWINDOW/SW_HIDE when HideWindow is true"
+}
