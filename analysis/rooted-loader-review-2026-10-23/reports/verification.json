@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scope": "Independent stdlib byte/table arithmetic and objdump instruction boundary checks for 3 support bodies; NOT independent full CFG or runtime validation.",
+  "tables_checked": 3,
+  "nonnull_disk_pointer_entries": 45,
+  "all_reported_bytes_checked": 22731,
+  "objdump_support_boundaries_checked": 88,
+  "support_rel_branches_checked": 20,
+  "mutation_tests_rejected": [
+    "table bound",
+    "pointer target",
+    "instruction bytes",
+    "runtime claim",
+    "call target",
+    "bound load"
+  ]
+}

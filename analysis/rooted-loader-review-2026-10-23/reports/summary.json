@@ -1,0 +1,2431 @@
+{
+  "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "tables": [
+    {
+      "role": "process_first",
+      "begin": 34206544,
+      "end_exclusive": 34206600,
+      "bound_loads": [
+        {
+          "rva": 33579918,
+          "bytes": "488d0dbb8f0900",
+          "asm": "lea rcx, [rip + 0x98fbb]"
+        },
+        {
+          "rva": 33579911,
+          "bytes": "488d15fa8f0900",
+          "asm": "lea rdx, [rip + 0x98ffa]"
+        }
+      ],
+      "call_site": {
+        "rva": 33579925,
+        "bytes": "e86ad90000",
+        "asm": "call 0x2013d04"
+      },
+      "callee": 33635588,
+      "entries": [
+        {
+          "slot_rva": 34206544,
+          "disk_qword": 0,
+          "target_rva": null
+        },
+        {
+          "slot_rva": 34206552,
+          "disk_qword": 6476029840,
+          "target_rva": 33578896
+        },
+        {
+          "slot_rva": 34206560,
+          "disk_qword": 6476038600,
+          "target_rva": 33587656
+        },
+        {
+          "slot_rva": 34206568,
+          "disk_qword": 6476233160,
+          "target_rva": 33782216
+        },
+        {
+          "slot_rva": 34206576,
+          "disk_qword": 6476205700,
+          "target_rva": 33754756
+        },
+        {
+          "slot_rva": 34206584,
+          "disk_qword": 6476214208,
+          "target_rva": 33763264
+        },
+        {
+          "slot_rva": 34206592,
+          "disk_qword": 6476240492,
+          "target_rva": 33789548
+        }
+      ]
+    },
+    {
+      "role": "process_second",
+      "begin": 34206200,
+      "end_exclusive": 34206512,
+      "bound_loads": [
+        {
+          "rva": 33579950,
+          "bytes": "488d0d438e0900",
+          "asm": "lea rcx, [rip + 0x98e43]"
+        },
+        {
+          "rva": 33579943,
+          "bytes": "488d15828f0900",
+          "asm": "lea rdx, [rip + 0x98f82]"
+        }
+      ],
+      "call_site": {
+        "rva": 33579957,
+        "bytes": "e806d90000",
+        "asm": "call 0x2013cc0"
+      },
+      "callee": 33635520,
+      "entries": [
+        {
+          "slot_rva": 34206200,
+          "disk_qword": 0,
+          "target_rva": null
+        },
+        {
+          "slot_rva": 34206208,
+          "disk_qword": 6476017708,
+          "target_rva": 33566764
+        },
+        {
+          "slot_rva": 34206216,
+          "disk_qword": 6476017788,
+          "target_rva": 33566844
+        },
+        {
+          "slot_rva": 34206224,
+          "disk_qword": 6469760656,
+          "target_rva": 27309712
+        },
+        {
+          "slot_rva": 34206232,
+          "disk_qword": 6465154544,
+          "target_rva": 22703600
+        },
+        {
+          "slot_rva": 34206240,
+          "disk_qword": 6474862256,
+          "target_rva": 32411312
+        },
+        {
+          "slot_rva": 34206248,
+          "disk_qword": 6450193824,
+          "target_rva": 7742880
+        },
+        {
+          "slot_rva": 34206256,
+          "disk_qword": 6449958048,
+          "target_rva": 7507104
+        },
+        {
+          "slot_rva": 34206264,
+          "disk_qword": 6468370448,
+          "target_rva": 25919504
+        },
+        {
+          "slot_rva": 34206272,
+          "disk_qword": 6444692864,
+          "target_rva": 2241920
+        },
+        {
+          "slot_rva": 34206280,
+          "disk_qword": 6458474032,
+          "target_rva": 16023088
+        },
+        {
+          "slot_rva": 34206288,
+          "disk_qword": 6474316512,
+          "target_rva": 31865568
+        },
+        {
+          "slot_rva": 34206296,
+          "disk_qword": 6455185056,
+          "target_rva": 12734112
+        },
+        {
+          "slot_rva": 34206304,
+          "disk_qword": 6449342752,
+          "target_rva": 6891808
+        },
+        {
+          "slot_rva": 34206312,
+          "disk_qword": 6448613168,
+          "target_rva": 6162224
+        },
+        {
+          "slot_rva": 34206320,
+          "disk_qword": 6443801056,
+          "target_rva": 1350112
+        },
+        {
+          "slot_rva": 34206328,
+          "disk_qword": 6468845600,
+          "target_rva": 26394656
+        },
+        {
+          "slot_rva": 34206336,
+          "disk_qword": 6469769120,
+          "target_rva": 27318176
+        },
+        {
+          "slot_rva": 34206344,
+          "disk_qword": 6475414256,
+          "target_rva": 32963312
+        },
+        {
+          "slot_rva": 34206352,
+          "disk_qword": 6448468944,
+          "target_rva": 6018000
+        },
+        {
+          "slot_rva": 34206360,
+          "disk_qword": 6474921536,
+          "target_rva": 32470592
+        },
+        {
+          "slot_rva": 34206368,
+          "disk_qword": 6462087856,
+          "target_rva": 19636912
+        },
+        {
+          "slot_rva": 34206376,
+          "disk_qword": 6458500672,
+          "target_rva": 16049728
+        },
+        {
+          "slot_rva": 34206384,
+          "disk_qword": 6461070336,
+          "target_rva": 18619392
+        },
+        {
+          "slot_rva": 34206392,
+          "disk_qword": 6453488016,
+          "target_rva": 11037072
+        },
+        {
+          "slot_rva": 34206400,
+          "disk_qword": 6452266848,
+          "target_rva": 9815904
+        },
+        {
+          "slot_rva": 34206408,
+          "disk_qword": 6465569744,
+          "target_rva": 23118800
+        },
+        {
+          "slot_rva": 34206416,
+          "disk_qword": 6455844400,
+          "target_rva": 13393456
+        },
+        {
+          "slot_rva": 34206424,
+          "disk_qword": 6449307456,
+          "target_rva": 6856512
+        },
+        {
+          "slot_rva": 34206432,
+          "disk_qword": 6458770384,
+          "target_rva": 16319440
+        },
+        {
+          "slot_rva": 34206440,
+          "disk_qword": 6451973568,
+          "target_rva": 9522624
+        },
+        {
+          "slot_rva": 34206448,
+          "disk_qword": 6452154544,
+          "target_rva": 9703600
+        },
+        {
+          "slot_rva": 34206456,
+          "disk_qword": 6456650064,
+          "target_rva": 14199120
+        },
+        {
+          "slot_rva": 34206464,
+          "disk_qword": 6454391280,
+          "target_rva": 11940336
+        },
+        {
+          "slot_rva": 34206472,
+          "disk_qword": 6471087632,
+          "target_rva": 28636688
+        },
+        {
+          "slot_rva": 34206480,
+          "disk_qword": 6471333008,
+          "target_rva": 28882064
+        },
+        {
+          "slot_rva": 34206488,
+          "disk_qword": 6459552272,
+          "target_rva": 17101328
+        },
+        {
+          "slot_rva": 34206496,
+          "disk_qword": 6457899184,
+          "target_rva": 15448240
+        },
+        {
+          "slot_rva": 34206504,
+          "disk_qword": 6446653168,
+          "target_rva": 4202224
+        }
+      ]
+    },
+    {
+      "role": "thread_initializers",
+      "begin": 34206528,
+      "end_exclusive": 34206536,
+      "bound_loads": [
+        {
+          "rva": 33567184,
+          "bytes": "488d1d69c10900",
+          "asm": "lea rbx, [rip + 0x9c169]"
+        },
+        {
+          "rva": 33567191,
+          "bytes": "488d3d6ac10900",
+          "asm": "lea rdi, [rip + 0x9c16a]"
+        }
+      ],
+      "call_site": null,
+      "callee": null,
+      "entries": [
+        {
+          "slot_rva": 34206528,
+          "disk_qword": 6475575488,
+          "target_rva": 33124544
+        }
+      ]
+    }
+  ],
+  "support_bodies": [
+    {
+      "begin": 33635588,
+      "end": 33635659,
+      "states_examined": 24,
+      "instruction_boundaries_examined": 22,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "overlapping_instruction_pairs": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "instructions": [
+        {
+          "rva": 33635588,
+          "bytes": "48895c2408",
+          "asm": "mov qword ptr [rsp + 8], rbx"
+        },
+        {
+          "rva": 33635593,
+          "bytes": "57",
+          "asm": "push rdi"
+        },
+        {
+          "rva": 33635594,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33635598,
+          "bytes": "488bfa",
+          "asm": "mov rdi, rdx"
+        },
+        {
+          "rva": 33635601,
+          "bytes": "488bd9",
+          "asm": "mov rbx, rcx"
+        },
+        {
+          "rva": 33635604,
+          "bytes": "483bca",
+          "asm": "cmp rcx, rdx"
+        },
+        {
+          "rva": 33635607,
+          "bytes": "7425",
+          "asm": "je 0x2013d3e"
+        },
+        {
+          "rva": 33635609,
+          "bytes": "488b03",
+          "asm": "mov rax, qword ptr [rbx]"
+        },
+        {
+          "rva": 33635612,
+          "bytes": "4885c0",
+          "asm": "test rax, rax"
+        },
+        {
+          "rva": 33635615,
+          "bytes": "7414",
+          "asm": "je 0x2013d35"
+        },
+        {
+          "rva": 33635617,
+          "bytes": "49ba7030525e472705d3",
+          "asm": "movabs r10, 0xd30527475e523070"
+        },
+        {
+          "rva": 33635627,
+          "bytes": "ff15a7b40800",
+          "asm": "call qword ptr [rip + 0x8b4a7]"
+        },
+        {
+          "rva": 33635633,
+          "bytes": "85c0",
+          "asm": "test eax, eax"
+        },
+        {
+          "rva": 33635635,
+          "bytes": "750b",
+          "asm": "jne 0x2013d40"
+        },
+        {
+          "rva": 33635637,
+          "bytes": "4883c308",
+          "asm": "add rbx, 8"
+        },
+        {
+          "rva": 33635641,
+          "bytes": "483bdf",
+          "asm": "cmp rbx, rdi"
+        },
+        {
+          "rva": 33635644,
+          "bytes": "ebd9",
+          "asm": "jmp 0x2013d17"
+        },
+        {
+          "rva": 33635646,
+          "bytes": "33c0",
+          "asm": "xor eax, eax"
+        },
+        {
+          "rva": 33635648,
+          "bytes": "488b5c2430",
+          "asm": "mov rbx, qword ptr [rsp + 0x30]"
+        },
+        {
+          "rva": 33635653,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33635657,
+          "bytes": "5f",
+          "asm": "pop rdi"
+        },
+        {
+          "rva": 33635658,
+          "bytes": "c3",
+          "asm": "ret "
+        }
+      ]
+    },
+    {
+      "begin": 33635520,
+      "end": 33635585,
+      "states_examined": 23,
+      "instruction_boundaries_examined": 19,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "overlapping_instruction_pairs": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "instructions": [
+        {
+          "rva": 33635520,
+          "bytes": "483bca",
+          "asm": "cmp rcx, rdx"
+        },
+        {
+          "rva": 33635523,
+          "bytes": "743b",
+          "asm": "je 0x2013d00"
+        },
+        {
+          "rva": 33635525,
+          "bytes": "48895c2408",
+          "asm": "mov qword ptr [rsp + 8], rbx"
+        },
+        {
+          "rva": 33635530,
+          "bytes": "57",
+          "asm": "push rdi"
+        },
+        {
+          "rva": 33635531,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33635535,
+          "bytes": "488bfa",
+          "asm": "mov rdi, rdx"
+        },
+        {
+          "rva": 33635538,
+          "bytes": "488bd9",
+          "asm": "mov rbx, rcx"
+        },
+        {
+          "rva": 33635541,
+          "bytes": "488b03",
+          "asm": "mov rax, qword ptr [rbx]"
+        },
+        {
+          "rva": 33635544,
+          "bytes": "4885c0",
+          "asm": "test rax, rax"
+        },
+        {
+          "rva": 33635547,
+          "bytes": "7410",
+          "asm": "je 0x2013ced"
+        },
+        {
+          "rva": 33635549,
+          "bytes": "49ba7048da56963ef185",
+          "asm": "movabs r10, 0x85f13e9656da4870"
+        },
+        {
+          "rva": 33635559,
+          "bytes": "ff15ebb40800",
+          "asm": "call qword ptr [rip + 0x8b4eb]"
+        },
+        {
+          "rva": 33635565,
+          "bytes": "4883c308",
+          "asm": "add rbx, 8"
+        },
+        {
+          "rva": 33635569,
+          "bytes": "483bdf",
+          "asm": "cmp rbx, rdi"
+        },
+        {
+          "rva": 33635572,
+          "bytes": "75df",
+          "asm": "jne 0x2013cd5"
+        },
+        {
+          "rva": 33635574,
+          "bytes": "488b5c2430",
+          "asm": "mov rbx, qword ptr [rsp + 0x30]"
+        },
+        {
+          "rva": 33635579,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33635583,
+          "bytes": "5f",
+          "asm": "pop rdi"
+        },
+        {
+          "rva": 33635584,
+          "bytes": "c3",
+          "asm": "ret "
+        }
+      ]
+    },
+    {
+      "begin": 33567348,
+      "end": 33567500,
+      "states_examined": 50,
+      "instruction_boundaries_examined": 47,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "overlapping_instruction_pairs": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "instructions": [
+        {
+          "rva": 33567348,
+          "bytes": "4883ec18",
+          "asm": "sub rsp, 0x18"
+        },
+        {
+          "rva": 33567352,
+          "bytes": "4c8bc1",
+          "asm": "mov r8, rcx"
+        },
+        {
+          "rva": 33567355,
+          "bytes": "b84d5a0000",
+          "asm": "mov eax, 0x5a4d"
+        },
+        {
+          "rva": 33567360,
+          "bytes": "66390579cdfffd",
+          "asm": "cmp word ptr [rip - 0x2003287], ax"
+        },
+        {
+          "rva": 33567367,
+          "bytes": "7578",
+          "asm": "jne 0x2003301"
+        },
+        {
+          "rva": 33567369,
+          "bytes": "48630daccdfffd",
+          "asm": "movsxd rcx, dword ptr [rip - 0x2003254]"
+        },
+        {
+          "rva": 33567376,
+          "bytes": "488d1569cdfffd",
+          "asm": "lea rdx, [rip - 0x2003297]"
+        },
+        {
+          "rva": 33567383,
+          "bytes": "4803ca",
+          "asm": "add rcx, rdx"
+        },
+        {
+          "rva": 33567386,
+          "bytes": "813950450000",
+          "asm": "cmp dword ptr [rcx], 0x4550"
+        },
+        {
+          "rva": 33567392,
+          "bytes": "755f",
+          "asm": "jne 0x2003301"
+        },
+        {
+          "rva": 33567394,
+          "bytes": "b80b020000",
+          "asm": "mov eax, 0x20b"
+        },
+        {
+          "rva": 33567399,
+          "bytes": "66394118",
+          "asm": "cmp word ptr [rcx + 0x18], ax"
+        },
+        {
+          "rva": 33567403,
+          "bytes": "7554",
+          "asm": "jne 0x2003301"
+        },
+        {
+          "rva": 33567405,
+          "bytes": "4c2bc2",
+          "asm": "sub r8, rdx"
+        },
+        {
+          "rva": 33567408,
+          "bytes": "0fb75114",
+          "asm": "movzx edx, word ptr [rcx + 0x14]"
+        },
+        {
+          "rva": 33567412,
+          "bytes": "4883c218",
+          "asm": "add rdx, 0x18"
+        },
+        {
+          "rva": 33567416,
+          "bytes": "4803d1",
+          "asm": "add rdx, rcx"
+        },
+        {
+          "rva": 33567419,
+          "bytes": "0fb74106",
+          "asm": "movzx eax, word ptr [rcx + 6]"
+        },
+        {
+          "rva": 33567423,
+          "bytes": "488d0c80",
+          "asm": "lea rcx, [rax + rax*4]"
+        },
+        {
+          "rva": 33567427,
+          "bytes": "4c8d0cca",
+          "asm": "lea r9, [rdx + rcx*8]"
+        },
+        {
+          "rva": 33567431,
+          "bytes": "48891424",
+          "asm": "mov qword ptr [rsp], rdx"
+        },
+        {
+          "rva": 33567435,
+          "bytes": "493bd1",
+          "asm": "cmp rdx, r9"
+        },
+        {
+          "rva": 33567438,
+          "bytes": "7418",
+          "asm": "je 0x20032e8"
+        },
+        {
+          "rva": 33567440,
+          "bytes": "8b4a0c",
+          "asm": "mov ecx, dword ptr [rdx + 0xc]"
+        },
+        {
+          "rva": 33567443,
+          "bytes": "4c3bc1",
+          "asm": "cmp r8, rcx"
+        },
+        {
+          "rva": 33567446,
+          "bytes": "720a",
+          "asm": "jb 0x20032e2"
+        },
+        {
+          "rva": 33567448,
+          "bytes": "8b4208",
+          "asm": "mov eax, dword ptr [rdx + 8]"
+        },
+        {
+          "rva": 33567451,
+          "bytes": "03c1",
+          "asm": "add eax, ecx"
+        },
+        {
+          "rva": 33567453,
+          "bytes": "4c3bc0",
+          "asm": "cmp r8, rax"
+        },
+        {
+          "rva": 33567456,
+          "bytes": "7208",
+          "asm": "jb 0x20032ea"
+        },
+        {
+          "rva": 33567458,
+          "bytes": "4883c228",
+          "asm": "add rdx, 0x28"
+        },
+        {
+          "rva": 33567462,
+          "bytes": "ebdf",
+          "asm": "jmp 0x20032c7"
+        },
+        {
+          "rva": 33567464,
+          "bytes": "33d2",
+          "asm": "xor edx, edx"
+        },
+        {
+          "rva": 33567466,
+          "bytes": "4885d2",
+          "asm": "test rdx, rdx"
+        },
+        {
+          "rva": 33567469,
+          "bytes": "7504",
+          "asm": "jne 0x20032f3"
+        },
+        {
+          "rva": 33567471,
+          "bytes": "32c0",
+          "asm": "xor al, al"
+        },
+        {
+          "rva": 33567473,
+          "bytes": "eb14",
+          "asm": "jmp 0x2003307"
+        },
+        {
+          "rva": 33567475,
+          "bytes": "837a2400",
+          "asm": "cmp dword ptr [rdx + 0x24], 0"
+        },
+        {
+          "rva": 33567479,
+          "bytes": "7d04",
+          "asm": "jge 0x20032fd"
+        },
+        {
+          "rva": 33567481,
+          "bytes": "32c0",
+          "asm": "xor al, al"
+        },
+        {
+          "rva": 33567483,
+          "bytes": "eb0a",
+          "asm": "jmp 0x2003307"
+        },
+        {
+          "rva": 33567485,
+          "bytes": "b001",
+          "asm": "mov al, 1"
+        },
+        {
+          "rva": 33567487,
+          "bytes": "eb06",
+          "asm": "jmp 0x2003307"
+        },
+        {
+          "rva": 33567489,
+          "bytes": "32c0",
+          "asm": "xor al, al"
+        },
+        {
+          "rva": 33567491,
+          "bytes": "eb02",
+          "asm": "jmp 0x2003307"
+        },
+        {
+          "rva": 33567495,
+          "bytes": "4883c418",
+          "asm": "add rsp, 0x18"
+        },
+        {
+          "rva": 33567499,
+          "bytes": "c3",
+          "asm": "ret "
+        }
+      ]
+    }
+  ],
+  "claims": {
+    "consumer_identified": false,
+    "runtime_execution_observed": false,
+    "decryptor_identified": false
+  },
+  "limitations": [
+    "All targets are on-disk pointer values, not runtime bindings.",
+    "Process array loops execute only after preceding checks succeed; first loop can stop on nonzero return.",
+    "No exceptions, self-modification or external midfunction entries modeled.",
+    "Computed addresses, call side effects and complete value flows not resolved.",
+    "Closed means closed only under the restricted reused flag/CFG model."
+  ],
+  "functions": [
+    {
+      "begin": 33578896,
+      "end": 33578995,
+      "states_examined": 21,
+      "instruction_boundaries_examined": 21,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_first",
+      "table_slot": 34206552,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 33578909,
+          "bytes": "ff150da50900",
+          "asm": "call qword ptr [rip + 0x9a50d]"
+        },
+        {
+          "rva": 33578928,
+          "bytes": "ff1512a50900",
+          "asm": "call qword ptr [rip + 0x9a512]"
+        },
+        {
+          "rva": 33578951,
+          "bytes": "ff15fba40900",
+          "asm": "call qword ptr [rip + 0x9a4fb]"
+        },
+        {
+          "rva": 33578974,
+          "bytes": "ff15e4a40900",
+          "asm": "call qword ptr [rip + 0x9a4e4]"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 21,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 3,
+      "rip_operands_count": 7,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 33587656,
+      "end": 33587943,
+      "states_examined": 82,
+      "instruction_boundaries_examined": 71,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_first",
+      "table_slot": 34206560,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 33587724,
+          "bytes": "e8df510200",
+          "asm": "call 0x202d3f0"
+        },
+        {
+          "rva": 33587738,
+          "bytes": "e8014f0200",
+          "asm": "call 0x202d120"
+        },
+        {
+          "rva": 33587766,
+          "bytes": "e8b5510200",
+          "asm": "call 0x202d3f0"
+        },
+        {
+          "rva": 33587780,
+          "bytes": "e8d74e0200",
+          "asm": "call 0x202d120"
+        },
+        {
+          "rva": 33587828,
+          "bytes": "e823340200",
+          "asm": "call 0x202b69c"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 71,
+      "computed_memory_operands_count": 8,
+      "nonstack_explicit_writes_count": 10,
+      "rip_operands_count": 8,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 33782216,
+      "end": 33782239,
+      "states_examined": 8,
+      "instruction_boundaries_examined": 8,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_first",
+      "table_slot": 34206568,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 33782220,
+          "bytes": "e8374cffff",
+          "asm": "call 0x202c608"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 8,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 0,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 33754756,
+      "table_role": "process_first",
+      "table_slot": 34206576,
+      "status": "not_exact_pdata_entry_unresolved",
+      "closed_under_stated_model": false,
+      "call_or_external_jmp_sites": [],
+      "pe_hints": [],
+      "instructions_count": 0,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 0,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 33763264,
+      "end": 33763376,
+      "states_examined": 34,
+      "instruction_boundaries_examined": 32,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_first",
+      "table_slot": 34206584,
+      "call_or_external_jmp_sites": [],
+      "pe_hints": [],
+      "instructions_count": 32,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 3,
+      "rip_operands_count": 4,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 33789548,
+      "table_role": "process_first",
+      "table_slot": 34206592,
+      "status": "not_exact_pdata_entry_unresolved",
+      "closed_under_stated_model": false,
+      "call_or_external_jmp_sites": [],
+      "pe_hints": [],
+      "instructions_count": 0,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 0,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 33566764,
+      "end": 33566842,
+      "states_examined": 15,
+      "instruction_boundaries_examined": 14,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [
+        33567252
+      ],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206208,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 33566820,
+          "bytes": "e893190000",
+          "asm": "call 0x20049fc"
+        },
+        {
+          "rva": 33566837,
+          "bytes": "e99a010000",
+          "asm": "jmp 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 14,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 1,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 33566844,
+      "end": 33566922,
+      "states_examined": 15,
+      "instruction_boundaries_examined": 14,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [
+        33567252
+      ],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206216,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 33566900,
+          "bytes": "e843190000",
+          "asm": "call 0x20049fc"
+        },
+        {
+          "rva": 33566917,
+          "bytes": "e94a010000",
+          "asm": "jmp 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 14,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 1,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 27309712,
+      "end": 27317216,
+      "states_examined": 1271,
+      "instruction_boundaries_examined": 1244,
+      "normalized_complementary_pairs": 6,
+      "definite_flag_branch_decisions": 21,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [
+        33567252
+      ],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206224,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 27312224,
+          "bytes": "e8af715f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27314888,
+          "bytes": "e857665f00",
+          "asm": "call 0x2003124"
+        },
+        {
+          "rva": 27315073,
+          "bytes": "e82a190dff",
+          "asm": "call 0xade4b0"
+        },
+        {
+          "rva": 27316053,
+          "bytes": "e8ca615f00",
+          "asm": "call 0x2003124"
+        },
+        {
+          "rva": 27317173,
+          "bytes": "e84693c5ff",
+          "asm": "call 0x1666700"
+        },
+        {
+          "rva": 27317211,
+          "bytes": "e9345e5f00",
+          "asm": "jmp 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 1244,
+      "computed_memory_operands_count": 4,
+      "nonstack_explicit_writes_count": 16,
+      "rip_operands_count": 77,
+      "overlapping_instruction_pairs_count": 1
+    },
+    {
+      "begin": 22703600,
+      "end": 22709810,
+      "states_examined": 1086,
+      "instruction_boundaries_examined": 1049,
+      "normalized_complementary_pairs": 1,
+      "definite_flag_branch_decisions": 24,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [
+        33567252
+      ],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206232,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 22705601,
+          "bytes": "e84ebca500",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 22705882,
+          "bytes": "e845baa500",
+          "asm": "call 0x2003124"
+        },
+        {
+          "rva": 22709767,
+          "bytes": "e8147ef4ff",
+          "asm": "call 0x14f0420"
+        },
+        {
+          "rva": 22709805,
+          "bytes": "e9e2aba500",
+          "asm": "jmp 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 1049,
+      "computed_memory_operands_count": 2,
+      "nonstack_explicit_writes_count": 8,
+      "rip_operands_count": 62,
+      "overlapping_instruction_pairs_count": 1
+    },
+    {
+      "begin": 32411312,
+      "end": 32415390,
+      "states_examined": 775,
+      "instruction_boundaries_examined": 696,
+      "normalized_complementary_pairs": 5,
+      "definite_flag_branch_decisions": 21,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [
+        33567252
+      ],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206240,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 32414621,
+          "bytes": "e882951100",
+          "asm": "call 0x2003124"
+        },
+        {
+          "rva": 32414862,
+          "bytes": "e881951100",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 32415347,
+          "bytes": "e8183793ff",
+          "asm": "call 0x181d590"
+        },
+        {
+          "rva": 32415385,
+          "bytes": "e976931100",
+          "asm": "jmp 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 696,
+      "computed_memory_operands_count": 2,
+      "nonstack_explicit_writes_count": 10,
+      "rip_operands_count": 44,
+      "overlapping_instruction_pairs_count": 4
+    },
+    {
+      "begin": 7742880,
+      "end": 7752018,
+      "states_examined": 1572,
+      "instruction_boundaries_examined": 1517,
+      "normalized_complementary_pairs": 3,
+      "definite_flag_branch_decisions": 38,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [
+        33567252
+      ],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206248,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 7743049,
+          "bytes": "e8d60a8a01",
+          "asm": "call 0x2003124"
+        },
+        {
+          "rva": 7744741,
+          "bytes": "e83a048a01",
+          "asm": "call 0x2003124"
+        },
+        {
+          "rva": 7745890,
+          "bytes": "e8b9d2d800",
+          "asm": "call 0x14f0420"
+        },
+        {
+          "rva": 7745902,
+          "bytes": "e8a1008a01",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 7751975,
+          "bytes": "e8f4bad800",
+          "asm": "call 0x14f0420"
+        },
+        {
+          "rva": 7752013,
+          "bytes": "e9c2e88901",
+          "asm": "jmp 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 1517,
+      "computed_memory_operands_count": 4,
+      "nonstack_explicit_writes_count": 27,
+      "rip_operands_count": 88,
+      "overlapping_instruction_pairs_count": 1
+    },
+    {
+      "begin": 7507104,
+      "end": 7508511,
+      "states_examined": 242,
+      "instruction_boundaries_examined": 218,
+      "normalized_complementary_pairs": 2,
+      "definite_flag_branch_decisions": 8,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [
+        33567252
+      ],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206256,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 7508382,
+          "bytes": "e871a08d01",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 7508506,
+          "bytes": "e9f59f8d01",
+          "asm": "jmp 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 218,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 2,
+      "rip_operands_count": 12,
+      "overlapping_instruction_pairs_count": 1
+    },
+    {
+      "begin": 25919504,
+      "table_role": "process_second",
+      "table_slot": 34206264,
+      "status": "not_exact_pdata_entry_unresolved",
+      "closed_under_stated_model": false,
+      "call_or_external_jmp_sites": [],
+      "pe_hints": [],
+      "instructions_count": 0,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 0,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 2241920,
+      "end": 2242033,
+      "states_examined": 9,
+      "instruction_boundaries_examined": 9,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 1,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206272,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 2241931,
+          "bytes": "e884fcdd01",
+          "asm": "call 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 9,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 0,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 16023088,
+      "table_role": "process_second",
+      "table_slot": 34206280,
+      "status": "not_exact_pdata_entry_unresolved",
+      "closed_under_stated_model": false,
+      "call_or_external_jmp_sites": [],
+      "pe_hints": [],
+      "instructions_count": 0,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 0,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 31865568,
+      "end": 31874481,
+      "states_examined": 1461,
+      "instruction_boundaries_examined": 1391,
+      "normalized_complementary_pairs": 11,
+      "definite_flag_branch_decisions": 40,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [
+        33567252
+      ],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206288,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 31865761,
+          "bytes": "e87ef51900",
+          "asm": "call 0x2003124"
+        },
+        {
+          "rva": 31870689,
+          "bytes": "e83ee21900",
+          "asm": "call 0x2003124"
+        },
+        {
+          "rva": 31870997,
+          "bytes": "e84646ccfe",
+          "asm": "call 0xb29660"
+        },
+        {
+          "rva": 31872050,
+          "bytes": "e8dddd1900",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 31872058,
+          "bytes": "e8d5dd1900",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 31872469,
+          "bytes": "e846eac5fe",
+          "asm": "call 0xac4020"
+        },
+        {
+          "rva": 31874015,
+          "bytes": "e830d61900",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 31874023,
+          "bytes": "e828d61900",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 31874476,
+          "bytes": "e963d41900",
+          "asm": "jmp 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 1391,
+      "computed_memory_operands_count": 4,
+      "nonstack_explicit_writes_count": 21,
+      "rip_operands_count": 99,
+      "overlapping_instruction_pairs_count": 4
+    },
+    {
+      "begin": 12734112,
+      "end": 12808848,
+      "states_examined": 9930,
+      "instruction_boundaries_examined": 8371,
+      "normalized_complementary_pairs": 159,
+      "definite_flag_branch_decisions": 709,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [
+        12808847
+      ],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206296,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 12758429,
+          "bytes": "e8defa4001",
+          "asm": "call 0x203a880"
+        },
+        {
+          "rva": 12783501,
+          "bytes": "e8ee984001",
+          "asm": "call 0x203a880"
+        },
+        {
+          "rva": 12808842,
+          "bytes": "e8e1ec3c01",
+          "asm": "call 0x2005f70"
+        }
+      ],
+      "pe_hints": [
+        {
+          "rva": 12738117,
+          "bytes": "668944243c",
+          "asm": "mov word ptr [rsp + 0x3c], ax",
+          "reason": "PE_offset_heuristic_only"
+        },
+        {
+          "rva": 12739945,
+          "bytes": "0fb744243c",
+          "asm": "movzx eax, word ptr [rsp + 0x3c]",
+          "reason": "PE_offset_heuristic_only"
+        },
+        {
+          "rva": 12746290,
+          "bytes": "66c744243c6e00",
+          "asm": "mov word ptr [rsp + 0x3c], 0x6e",
+          "reason": "PE_offset_heuristic_only"
+        },
+        {
+          "rva": 12747220,
+          "bytes": "0fb744243c",
+          "asm": "movzx eax, word ptr [rsp + 0x3c]",
+          "reason": "PE_offset_heuristic_only"
+        },
+        {
+          "rva": 12753368,
+          "bytes": "668944243c",
+          "asm": "mov word ptr [rsp + 0x3c], ax",
+          "reason": "PE_offset_heuristic_only"
+        },
+        {
+          "rva": 12754607,
+          "bytes": "0fb744243c",
+          "asm": "movzx eax, word ptr [rsp + 0x3c]",
+          "reason": "PE_offset_heuristic_only"
+        },
+        {
+          "rva": 12774670,
+          "bytes": "668944243c",
+          "asm": "mov word ptr [rsp + 0x3c], ax",
+          "reason": "PE_offset_heuristic_only"
+        },
+        {
+          "rva": 12775477,
+          "bytes": "0fb744243c",
+          "asm": "movzx eax, word ptr [rsp + 0x3c]",
+          "reason": "PE_offset_heuristic_only"
+        },
+        {
+          "rva": 12779089,
+          "bytes": "66c744243c0000",
+          "asm": "mov word ptr [rsp + 0x3c], 0",
+          "reason": "PE_offset_heuristic_only"
+        },
+        {
+          "rva": 12779304,
+          "bytes": "0fb744243c",
+          "asm": "movzx eax, word ptr [rsp + 0x3c]",
+          "reason": "PE_offset_heuristic_only"
+        }
+      ],
+      "instructions_count": 8371,
+      "computed_memory_operands_count": 40,
+      "nonstack_explicit_writes_count": 235,
+      "rip_operands_count": 547,
+      "overlapping_instruction_pairs_count": 60
+    },
+    {
+      "begin": 6891808,
+      "end": 6893997,
+      "states_examined": 403,
+      "instruction_boundaries_examined": 372,
+      "normalized_complementary_pairs": 3,
+      "definite_flag_branch_decisions": 9,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206304,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 6893053,
+          "bytes": "e822039701",
+          "asm": "call 0x2003124"
+        },
+        {
+          "rva": 6893669,
+          "bytes": "e8aa019701",
+          "asm": "call 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 372,
+      "computed_memory_operands_count": 5,
+      "nonstack_explicit_writes_count": 8,
+      "rip_operands_count": 23,
+      "overlapping_instruction_pairs_count": 1
+    },
+    {
+      "begin": 6162224,
+      "end": 6171060,
+      "states_examined": 1543,
+      "instruction_boundaries_examined": 1498,
+      "normalized_complementary_pairs": 11,
+      "definite_flag_branch_decisions": 23,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [
+        33567252
+      ],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206312,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 6164796,
+          "bytes": "e8dfbca5ff",
+          "asm": "call 0x3ce20"
+        },
+        {
+          "rva": 6168415,
+          "bytes": "e8c011a201",
+          "asm": "call 0x2003124"
+        },
+        {
+          "rva": 6169730,
+          "bytes": "e8998aa501",
+          "asm": "call 0x203af20"
+        },
+        {
+          "rva": 6171055,
+          "bytes": "e96008a201",
+          "asm": "jmp 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 1498,
+      "computed_memory_operands_count": 15,
+      "nonstack_explicit_writes_count": 11,
+      "rip_operands_count": 71,
+      "overlapping_instruction_pairs_count": 3
+    },
+    {
+      "begin": 1350112,
+      "end": 1357238,
+      "states_examined": 1163,
+      "instruction_boundaries_examined": 1083,
+      "normalized_complementary_pairs": 5,
+      "definite_flag_branch_decisions": 33,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [
+        33567252
+      ],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206320,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 1351011,
+          "bytes": "e8ac94eb01",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 1351994,
+          "bytes": "e8e58feb01",
+          "asm": "call 0x2003124"
+        },
+        {
+          "rva": 1353472,
+          "bytes": "e81f8aeb01",
+          "asm": "call 0x2003124"
+        },
+        {
+          "rva": 1356353,
+          "bytes": "e8da67d401",
+          "asm": "call 0x1e91a20"
+        },
+        {
+          "rva": 1356832,
+          "bytes": "e89bab4601",
+          "asm": "call 0x15b5fc0"
+        },
+        {
+          "rva": 1357195,
+          "bytes": "e8847ceb01",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 1357233,
+          "bytes": "e95e7ceb01",
+          "asm": "jmp 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 1083,
+      "computed_memory_operands_count": 4,
+      "nonstack_explicit_writes_count": 23,
+      "rip_operands_count": 85,
+      "overlapping_instruction_pairs_count": 2
+    },
+    {
+      "begin": 26394656,
+      "table_role": "process_second",
+      "table_slot": 34206328,
+      "status": "not_exact_pdata_entry_unresolved",
+      "closed_under_stated_model": false,
+      "call_or_external_jmp_sites": [],
+      "pe_hints": [],
+      "instructions_count": 0,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 0,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 27318176,
+      "end": 27330251,
+      "states_examined": 1997,
+      "instruction_boundaries_examined": 1876,
+      "normalized_complementary_pairs": 15,
+      "definite_flag_branch_decisions": 66,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206336,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 27318305,
+          "bytes": "e8ee595f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27318317,
+          "bytes": "e8e2595f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27321496,
+          "bytes": "e8774d5f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27321579,
+          "bytes": "e8244d5f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27322742,
+          "bytes": "e899485f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27322754,
+          "bytes": "e88d485f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27324465,
+          "bytes": "e8de415f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27326204,
+          "bytes": "e8133b5f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27326216,
+          "bytes": "e8073b5f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27326544,
+          "bytes": "e8bf395f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27326556,
+          "bytes": "e8b3395f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27327586,
+          "bytes": "e8ad355f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27327598,
+          "bytes": "e8a1355f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27328020,
+          "bytes": "e8fb335f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27328032,
+          "bytes": "e8ef335f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27329414,
+          "bytes": "e8892e5f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27329426,
+          "bytes": "e87d2e5f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27329549,
+          "bytes": "e8022e5f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27329561,
+          "bytes": "e8f62d5f00",
+          "asm": "call 0x2003214"
+        },
+        {
+          "rva": 27329728,
+          "bytes": "e84f2d5f00",
+          "asm": "call 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 1876,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 20,
+      "rip_operands_count": 103,
+      "overlapping_instruction_pairs_count": 8
+    },
+    {
+      "begin": 32963312,
+      "end": 32969746,
+      "states_examined": 1063,
+      "instruction_boundaries_examined": 1026,
+      "normalized_complementary_pairs": 6,
+      "definite_flag_branch_decisions": 31,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [
+        33567252
+      ],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206344,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 32966028,
+          "bytes": "e8932b0900",
+          "asm": "call 0x2003124"
+        },
+        {
+          "rva": 32969703,
+          "bytes": "e8144e46fe",
+          "asm": "call 0x3d6200"
+        },
+        {
+          "rva": 32969741,
+          "bytes": "e9021e0900",
+          "asm": "jmp 0x2003214"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 1026,
+      "computed_memory_operands_count": 2,
+      "nonstack_explicit_writes_count": 10,
+      "rip_operands_count": 63,
+      "overlapping_instruction_pairs_count": 1
+    },
+    {
+      "begin": 6018000,
+      "end": 6018021,
+      "states_examined": 5,
+      "instruction_boundaries_examined": 5,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206352,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 6018004,
+          "bytes": "ff153e30ae01",
+          "asm": "call qword ptr [rip + 0x1ae303e]"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 5,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 1,
+      "rip_operands_count": 2,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 32470592,
+      "end": 32470722,
+      "states_examined": 14,
+      "instruction_boundaries_examined": 14,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 1,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206360,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 32470641,
+          "bytes": "e88a08a6fe",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 14,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 19636912,
+      "end": 19636972,
+      "states_examined": 12,
+      "instruction_boundaries_examined": 12,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206368,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 19636961,
+          "bytes": "e81adc69ff",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 12,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 16049728,
+      "table_role": "process_second",
+      "table_slot": 34206376,
+      "status": "not_exact_pdata_entry_unresolved",
+      "closed_under_stated_model": false,
+      "call_or_external_jmp_sites": [],
+      "pe_hints": [],
+      "instructions_count": 0,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 0,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 18619392,
+      "end": 18619423,
+      "states_examined": 8,
+      "instruction_boundaries_examined": 8,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206384,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 18619412,
+          "bytes": "e857a1aa00",
+          "asm": "call 0x1c6bd70"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 8,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 0,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 11037072,
+      "end": 11037132,
+      "states_examined": 12,
+      "instruction_boundaries_examined": 12,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206392,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 11037121,
+          "bytes": "e83a15edff",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 12,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 9815904,
+      "end": 9815964,
+      "states_examined": 12,
+      "instruction_boundaries_examined": 12,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206400,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 9815953,
+          "bytes": "e86ab7ffff",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 12,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 23118800,
+      "end": 23118860,
+      "states_examined": 12,
+      "instruction_boundaries_examined": 12,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206408,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 23118849,
+          "bytes": "e8faba34ff",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 12,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 13393456,
+      "end": 13393516,
+      "states_examined": 12,
+      "instruction_boundaries_examined": 12,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206416,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 13393505,
+          "bytes": "e89a20c9ff",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 12,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 6856512,
+      "end": 6856657,
+      "states_examined": 32,
+      "instruction_boundaries_examined": 26,
+      "normalized_complementary_pairs": 1,
+      "definite_flag_branch_decisions": 3,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206424,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 6856646,
+          "bytes": "e835df2c00",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 26,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 1
+    },
+    {
+      "begin": 16319440,
+      "end": 16319500,
+      "states_examined": 12,
+      "instruction_boundaries_examined": 12,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206432,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 16319489,
+          "bytes": "e8fa7a9cff",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 12,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 9522624,
+      "end": 9522789,
+      "states_examined": 17,
+      "instruction_boundaries_examined": 15,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 1,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206440,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 9522673,
+          "bytes": "e80a310400",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 15,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 9703600,
+      "end": 9703754,
+      "states_examined": 17,
+      "instruction_boundaries_examined": 16,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 1,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206448,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 9703743,
+          "bytes": "e8bc6d0100",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 16,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 14199120,
+      "end": 14199282,
+      "states_examined": 15,
+      "instruction_boundaries_examined": 15,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 1,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206456,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 14199271,
+          "bytes": "e814d5bcff",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 15,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 11940336,
+      "end": 11940396,
+      "states_examined": 12,
+      "instruction_boundaries_examined": 12,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 0,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206464,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 11940385,
+          "bytes": "e8da4cdfff",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 12,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 28636688,
+      "end": 28636864,
+      "states_examined": 15,
+      "instruction_boundaries_examined": 15,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 1,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206472,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 28636853,
+          "bytes": "e84688e0fe",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 15,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 28882064,
+      "end": 28882240,
+      "states_examined": 16,
+      "instruction_boundaries_examined": 15,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 1,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206480,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 28882229,
+          "bytes": "e8c6c9dcfe",
+          "asm": "call 0x957f00"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 15,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 1,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 17101328,
+      "end": 17110448,
+      "states_examined": 1533,
+      "instruction_boundaries_examined": 1432,
+      "normalized_complementary_pairs": 5,
+      "definite_flag_branch_decisions": 49,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": false,
+      "table_role": "process_second",
+      "table_slot": 34206488,
+      "call_or_external_jmp_sites": [
+        {
+          "rva": 17104953,
+          "bytes": "e8a2c14800",
+          "asm": "call 0x14dc1e0"
+        }
+      ],
+      "pe_hints": [],
+      "instructions_count": 1432,
+      "computed_memory_operands_count": 2,
+      "nonstack_explicit_writes_count": 4,
+      "rip_operands_count": 69,
+      "overlapping_instruction_pairs_count": 2
+    },
+    {
+      "begin": 15448240,
+      "table_role": "process_second",
+      "table_slot": 34206496,
+      "status": "not_exact_pdata_entry_unresolved",
+      "closed_under_stated_model": false,
+      "call_or_external_jmp_sites": [],
+      "pe_hints": [],
+      "instructions_count": 0,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 0,
+      "rip_operands_count": 0,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 4202224,
+      "end": 4202679,
+      "states_examined": 89,
+      "instruction_boundaries_examined": 84,
+      "normalized_complementary_pairs": 0,
+      "definite_flag_branch_decisions": 5,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "process_second",
+      "table_slot": 34206504,
+      "call_or_external_jmp_sites": [],
+      "pe_hints": [],
+      "instructions_count": 84,
+      "computed_memory_operands_count": 0,
+      "nonstack_explicit_writes_count": 1,
+      "rip_operands_count": 6,
+      "overlapping_instruction_pairs_count": 0
+    },
+    {
+      "begin": 33124544,
+      "end": 33126966,
+      "states_examined": 408,
+      "instruction_boundaries_examined": 404,
+      "normalized_complementary_pairs": 1,
+      "definite_flag_branch_decisions": 6,
+      "bad_decode_rvas": [],
+      "outside_range_successors": [],
+      "trap_or_system_transfer_rvas": [],
+      "indirect_jumps": [],
+      "budget_exhausted": false,
+      "closed_under_stated_model": true,
+      "table_role": "thread_initializers",
+      "table_slot": 34206528,
+      "call_or_external_jmp_sites": [],
+      "pe_hints": [],
+      "instructions_count": 404,
+      "computed_memory_operands_count": 14,
+      "nonstack_explicit_writes_count": 6,
+      "rip_operands_count": 24,
+      "overlapping_instruction_pairs_count": 0
+    }
+  ],
+  "rooted_inventory": {
+    "functions_examined": 36,
+    "pending_count": 27,
+    "deferred_count": 64,
+    "limits": {
+      "functions": 36,
+      "depth": 2,
+      "states_per_function": 10000
+    },
+    "scope_caveat": "Local direct-call sites and one TLS thread-init on-disk table value; NOT a claim every anchor executes. All reasons explored unless separately described. Calls may return and clobber flags; register/memory effects and exceptions not modeled."
+  }
+}
