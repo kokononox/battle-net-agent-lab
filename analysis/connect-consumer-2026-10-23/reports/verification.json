@@ -1,0 +1,196 @@
+{
+  "input_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "anchor_checks": [
+    {
+      "text": "connect",
+      "rva": 69505496,
+      "sha256": "46061fb455962f656779703240f7c5d1d513f6f8f66f003ada2d9ec93e14752e"
+    },
+    {
+      "text": "WSAStartup",
+      "rva": 69505504,
+      "sha256": "12b4775346350e97372d8e7b8ba0cddccaf205115614bad22037341070ce3ae8"
+    },
+    {
+      "text": "RouteResolutionWorkerThread",
+      "rva": 69505520,
+      "sha256": "1cc147b4b4365e11c7d70d18fbbe88bc9330e2beeac81d115bdac309c08df6a8"
+    },
+    {
+      "text": "Send-triggered key update",
+      "rva": 69505464,
+      "sha256": "f46493b35b6b89178a3c1378f8db3ed196d79db850c86c2ee1027cd0ecf1e434"
+    }
+  ],
+  "relocation_agreement": true,
+  "raw_literal_agreement": true,
+  "candidate_displacement_arithmetic_agreement": true,
+  "independent_full_rip_scan": false,
+  "pointer_record_context": [
+    {
+      "record_rva": 65694992,
+      "numeric_code": 268435577,
+      "string_pointer_slot": 65695000,
+      "string_rva": 69631104,
+      "text": "unsupported method"
+    },
+    {
+      "record_rva": 65695008,
+      "numeric_code": 268435587,
+      "string_pointer_slot": 65695016,
+      "string_rva": 69630920,
+      "text": "unsupported protocol family"
+    },
+    {
+      "record_rva": 65695024,
+      "numeric_code": 268435582,
+      "string_pointer_slot": 65695032,
+      "string_rva": 69630952,
+      "text": "write to read only BIO"
+    },
+    {
+      "record_rva": 65695040,
+      "numeric_code": 268435578,
+      "string_pointer_slot": 65695048,
+      "string_rva": 69505504,
+      "text": "WSAStartup"
+    },
+    {
+      "record_rva": 65695056,
+      "numeric_code": 268435567,
+      "string_pointer_slot": 65695064,
+      "string_rva": 69630976,
+      "text": "local address not available"
+    },
+    {
+      "record_rva": 65695072,
+      "numeric_code": 268435607,
+      "string_pointer_slot": 65695080,
+      "string_rva": 69631008,
+      "text": "peer address not available"
+    },
+    {
+      "record_rva": 65695088,
+      "numeric_code": 268435568,
+      "string_pointer_slot": 65695096,
+      "string_rva": 69631128,
+      "text": "non-fatal or transient error"
+    },
+    {
+      "record_rva": 65695104,
+      "numeric_code": 268435606,
+      "string_pointer_slot": 65695112,
+      "string_rva": 69631736,
+      "text": "port mismatch"
+    }
+  ],
+  "nearby_static_context": [
+    {
+      "rva": 69505024,
+      "sha256": "6ce9c9c1eea705d5db7bbe74e54b9475a85c1c0962d890d0621e65f489c0a406",
+      "text": "teless Retry Key"
+    },
+    {
+      "rva": 69505048,
+      "sha256": "5d7e7bcff7f5e1ec95f064fe8c2fcd7c63882592fce1a442b05103ef2cffe5ae",
+      "text": "secp256r1:x25519"
+    },
+    {
+      "rva": 69505088,
+      "sha256": "846187fb04f2b15d3b3557276aa1a0a7a44a8a0dcfaf2f72fe9f88dd77730a67",
+      "text": "[build-root-redacted]\\msquic\\2.6.0.13\\src\\platform\\tls_openssl.c",
+      "embedded_path_redacted": true
+    },
+    {
+      "rva": 69505176,
+      "sha256": "eebb9a15f6b4ec00698086f9a93bbb7359f2f876951403784ebd01d5f4a842a5",
+      "text": "TLS_CHACHA20_POLY1305_SHA256"
+    },
+    {
+      "rva": 69505216,
+      "sha256": "675b6e987d224324336d2ffc84db0774ea36e30756692d6e62d6657925b381c6",
+      "text": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256"
+    },
+    {
+      "rva": 69505296,
+      "sha256": "5636e9228e59ad1e4497ed50e77b10a795f8e65472e794389f75692f5ab9999d",
+      "text": "quic_worker"
+    },
+    {
+      "rva": 69505312,
+      "sha256": "34c70b00ec886be7b6e72ee872a599c48643d0936ecf8489a998be2ff23c2d5b",
+      "text": "New version key OOM"
+    },
+    {
+      "rva": 69505336,
+      "sha256": "fe4049c177b64548b099c72d120a50d1525033d66d89a47f6dacda9d0fc74ed2",
+      "text": "Failed finalizing resumption ticket rejection"
+    },
+    {
+      "rva": 69505392,
+      "sha256": "999f6daa0908d4ac0f88055cdbe17d7d99654798121d3b36f014661d2133a845",
+      "text": "server in"
+    },
+    {
+      "rva": 69505408,
+      "sha256": "f5d06d96e90f4d030dbf46814d08699f2538dd404a6fa0946f37bdb6ce3a7940",
+      "text": "client in"
+    },
+    {
+      "rva": 69505424,
+      "sha256": "1c8fd698abbe5b10546cc6d27a4ce6b687bb62da03fce8ff8e848455e25d126c",
+      "text": "Encryption failure"
+    },
+    {
+      "rva": 69505448,
+      "sha256": "a404ff589f5066cf0d65148840bdffd68b160a2817526d5d86ef24a8d6a04535",
+      "text": "HP failure"
+    },
+    {
+      "rva": 69505464,
+      "sha256": "2c553efc11648ca0168b9b01d984eb5f24eb0404606018c354b17664021866f2",
+      "text": "Send-triggered key update"
+    },
+    {
+      "rva": 69505504,
+      "sha256": "f9bd594eeb8157f05528db8683b3eb8518af2501e6eb7a1e2c993c34266eaa15",
+      "text": "WSAStartup"
+    },
+    {
+      "rva": 69505520,
+      "sha256": "ad9c25daa5c851a614909ca78cd4139fb15d20f1ace41eb087500c58f3170668",
+      "text": "RouteResolutionWorkerThread"
+    },
+    {
+      "rva": 69505616,
+      "sha256": "d2209f9511f770cbe7922de973818990d4bed342fb242a8099451eeb3d21d718",
+      "text": "XdpOpenPacket000"
+    },
+    {
+      "rva": 69505672,
+      "sha256": "de00347c1285a1e35f9a2f3e70abb243869d0013bc41a9127e3e56d60e4e62f6",
+      "text": "1.2.840.113549.1.1.13"
+    },
+    {
+      "rva": 69505696,
+      "sha256": "f060b17e1dc8c1447a9cea00aac1400d4b04cf6728e733cc22b1d59b1fb36510",
+      "text": "1.2.840.113549.1.1.12"
+    },
+    {
+      "rva": 69505720,
+      "sha256": "4cfb2a6fa9c626fb3000ab1edcdff95967d3403ac72028f92948ca860e40eb42",
+      "text": "1.2.840.113549.1.1.11"
+    },
+    {
+      "rva": 69505744,
+      "sha256": "cb72c543557395506d8d6911d9716c3365736e51dd658a00b0a8329915260a4b",
+      "text": "1.2.840.113549.1.1.5"
+    },
+    {
+      "rva": 69505800,
+      "sha256": "5bb52384fca7f377d2148b986c8616fde1e44721241daa34736ade12857bee10",
+      "text": "1.3.6.1.5.5.7.3.2"
+    }
+  ],
+  "limits": "Record pattern and nearby dependency paths are static evidence only. No runtime invocation, live algorithm choice, API resolution or V2 dataflow established."
+}

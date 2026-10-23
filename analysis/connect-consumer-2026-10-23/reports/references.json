@@ -1,0 +1,2209 @@
+{
+  "binary_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "anchors": [
+    {
+      "role": "connect",
+      "rva": 69505496,
+      "text": "connect",
+      "length_including_nul": 8
+    },
+    {
+      "role": "WSAStartup",
+      "rva": 69505504,
+      "text": "WSAStartup",
+      "length_including_nul": 11
+    },
+    {
+      "role": "RouteResolutionWorkerThread",
+      "rva": 69505520,
+      "text": "RouteResolutionWorkerThread",
+      "length_including_nul": 28
+    },
+    {
+      "role": "Send-triggered key update",
+      "rva": 69505464,
+      "text": "Send-triggered key update",
+      "length_including_nul": 26
+    }
+  ],
+  "target_spans": [
+    {
+      "name": "connect",
+      "begin": 69505496,
+      "end": 69505504
+    },
+    {
+      "name": "WSAStartup",
+      "begin": 69505504,
+      "end": 69505515
+    },
+    {
+      "name": "RouteResolutionWorkerThread",
+      "begin": 69505520,
+      "end": 69505548
+    },
+    {
+      "name": "Send-triggered key update",
+      "begin": 69505464,
+      "end": 69505490
+    },
+    {
+      "name": "WSAStartup_numeric_string_record",
+      "begin": 65695040,
+      "end": 65695056
+    },
+    {
+      "name": "connect_adjacent_page",
+      "begin": 69505024,
+      "end": 69509120
+    },
+    {
+      "name": "positive_control_global_page",
+      "begin": 78467072,
+      "end": 78471168
+    }
+  ],
+  "rip_candidates": [
+    {
+      "rva": 1943988,
+      "bytes": "488b057db58f04",
+      "asm": "mov rax, qword ptr [rip + 0x48fb57d]",
+      "target_rva": 78470968,
+      "target_spans": [
+        "positive_control_global_page"
+      ],
+      "disp_offset": 3,
+      "pdata_owner": [
+        1943984,
+        1944009
+      ]
+    },
+    {
+      "rva": 1943989,
+      "bytes": "8b057db58f04",
+      "asm": "mov eax, dword ptr [rip + 0x48fb57d]",
+      "target_rva": 78470968,
+      "target_spans": [
+        "positive_control_global_page"
+      ],
+      "disp_offset": 2,
+      "pdata_owner": [
+        1943984,
+        1944009
+      ]
+    }
+  ],
+  "relocation_pointer_candidates": [
+    {
+      "slot_rva": 65566000,
+      "target_rva": 69505664,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65566576,
+      "target_rva": 69505800,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65566840,
+      "target_rva": 69507408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65566920,
+      "target_rva": 69507384,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65567000,
+      "target_rva": 69507372,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65567080,
+      "target_rva": 69507364,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65567160,
+      "target_rva": 69507444,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65567240,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65567320,
+      "target_rva": 69507432,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65567400,
+      "target_rva": 69507424,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65567480,
+      "target_rva": 69507488,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65567560,
+      "target_rva": 69507480,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65567640,
+      "target_rva": 69507472,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65567720,
+      "target_rva": 69507456,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65567800,
+      "target_rva": 69507960,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65567880,
+      "target_rva": 69507952,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65567960,
+      "target_rva": 69507944,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65568040,
+      "target_rva": 69507936,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65568120,
+      "target_rva": 69507988,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65568200,
+      "target_rva": 69507980,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65568280,
+      "target_rva": 69507976,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65568360,
+      "target_rva": 69507968,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65568440,
+      "target_rva": 69508024,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65568520,
+      "target_rva": 69508016,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65568600,
+      "target_rva": 69508008,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65568680,
+      "target_rva": 69508000,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65568760,
+      "target_rva": 69508056,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65568840,
+      "target_rva": 69508044,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65568920,
+      "target_rva": 69508036,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65569000,
+      "target_rva": 69508032,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65569080,
+      "target_rva": 69508088,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65569160,
+      "target_rva": 69508080,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65569240,
+      "target_rva": 69508072,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65569320,
+      "target_rva": 69508064,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65569400,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65569480,
+      "target_rva": 69508108,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65569560,
+      "target_rva": 69508100,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65569640,
+      "target_rva": 69508096,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65569720,
+      "target_rva": 69508092,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65569800,
+      "target_rva": 69508128,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65569880,
+      "target_rva": 69508124,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65569960,
+      "target_rva": 69508120,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65570040,
+      "target_rva": 69508112,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65570120,
+      "target_rva": 69508160,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65570200,
+      "target_rva": 69508152,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65570280,
+      "target_rva": 69508144,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65570360,
+      "target_rva": 69508136,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65570440,
+      "target_rva": 69508188,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65570520,
+      "target_rva": 69508184,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65570600,
+      "target_rva": 69508176,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65570680,
+      "target_rva": 69508168,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65570760,
+      "target_rva": 69508248,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65570840,
+      "target_rva": 69508232,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65570920,
+      "target_rva": 69508216,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65571000,
+      "target_rva": 69508200,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65571080,
+      "target_rva": 69508304,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65571160,
+      "target_rva": 69508272,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65571240,
+      "target_rva": 69508264,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65571320,
+      "target_rva": 69508256,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65571400,
+      "target_rva": 69508336,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65571480,
+      "target_rva": 69508328,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65571560,
+      "target_rva": 69508320,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65571640,
+      "target_rva": 69508316,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65571720,
+      "target_rva": 69508368,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65571800,
+      "target_rva": 69508364,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65571880,
+      "target_rva": 69508356,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65571960,
+      "target_rva": 69508344,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65572040,
+      "target_rva": 69508400,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65572120,
+      "target_rva": 69508392,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65572200,
+      "target_rva": 69508384,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65572280,
+      "target_rva": 69506608,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65572360,
+      "target_rva": 69506616,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65572440,
+      "target_rva": 69508376,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65572520,
+      "target_rva": 69506632,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65572840,
+      "target_rva": 69508464,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65572920,
+      "target_rva": 69508440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65573000,
+      "target_rva": 69508416,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65581480,
+      "target_rva": 69507856,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65583872,
+      "target_rva": 69507512,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65583944,
+      "target_rva": 69507512,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65584016,
+      "target_rva": 69507512,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65584088,
+      "target_rva": 69507496,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65589760,
+      "target_rva": 69506608,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65589784,
+      "target_rva": 69506616,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65589808,
+      "target_rva": 69506624,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65589832,
+      "target_rva": 69506632,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65589856,
+      "target_rva": 69505072,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65589880,
+      "target_rva": 69506660,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65589904,
+      "target_rva": 69506648,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65592496,
+      "target_rva": 69506608,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65592512,
+      "target_rva": 69506616,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65592528,
+      "target_rva": 69506624,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65592544,
+      "target_rva": 69506632,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65592560,
+      "target_rva": 69505072,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65592576,
+      "target_rva": 69506660,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65592592,
+      "target_rva": 69506648,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65592720,
+      "target_rva": 69508400,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65592776,
+      "target_rva": 69508400,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65592832,
+      "target_rva": 69508392,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65600576,
+      "target_rva": 69508316,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65600616,
+      "target_rva": 69508124,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65601176,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65602056,
+      "target_rva": 69508364,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65602976,
+      "target_rva": 69508368,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65605056,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65616136,
+      "target_rva": 69508064,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65616144,
+      "target_rva": 69508064,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65616576,
+      "target_rva": 69508064,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65616584,
+      "target_rva": 69508064,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65627296,
+      "target_rva": 69508400,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65627336,
+      "target_rva": 69508392,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65632856,
+      "target_rva": 69507528,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65633016,
+      "target_rva": 69508520,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65639456,
+      "target_rva": 69508504,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65639464,
+      "target_rva": 69508504,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65639576,
+      "target_rva": 69507512,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65639616,
+      "target_rva": 69507496,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65641096,
+      "target_rva": 69508472,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65641104,
+      "target_rva": 69508472,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65648096,
+      "target_rva": 69508488,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65648104,
+      "target_rva": 69508488,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65653336,
+      "target_rva": 69508064,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65653344,
+      "target_rva": 69508064,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65680728,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65680856,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65680904,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65687864,
+      "target_rva": 69508064,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65695048,
+      "target_rva": 69505504,
+      "target_spans": [
+        "WSAStartup",
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65714760,
+      "target_rva": 69508064,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65728584,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65728728,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65729096,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65731056,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65732656,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65736240,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65803512,
+      "target_rva": 69508368,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65890944,
+      "target_rva": 69508064,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65897360,
+      "target_rva": 69508064,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65898768,
+      "target_rva": 69507488,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65898992,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65899024,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65899056,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65899088,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65899248,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65899280,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65899312,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65899344,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65899376,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65899408,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65900880,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65900912,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65900944,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65900976,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65901072,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65901104,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65901824,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65901888,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65901952,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65902752,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65902784,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65902816,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65902848,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65902944,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65902976,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903200,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903232,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903264,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903296,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903328,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903360,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903392,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903424,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903456,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903488,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903712,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903744,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903776,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903808,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903840,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65903872,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65904096,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65904128,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65904160,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65904192,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65904224,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65904256,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65908896,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65908928,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65908960,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65908992,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65909088,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65909120,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65909216,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65909248,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65909344,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65909376,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65909568,
+      "target_rva": 69508064,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65915840,
+      "target_rva": 69508016,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65917888,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65917920,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65917952,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65917984,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65918144,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65918176,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65918208,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65918240,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65918272,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65918304,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65919776,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65919808,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65919840,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65919872,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65919968,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65920000,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65920416,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65920480,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65920544,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65921344,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65921376,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65921408,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65921440,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65921536,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65921568,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65921792,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65921824,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65921856,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65921888,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65921920,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65921952,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65921984,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922016,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922048,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922080,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922304,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922336,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922368,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922400,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922432,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922464,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922688,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922720,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922752,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922784,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922816,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65922848,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65927488,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65927520,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65927552,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65927584,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65927680,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65927712,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65927808,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65927840,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65927936,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 65927968,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66025888,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66026464,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66026752,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66026768,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66026944,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66027904,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66028384,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66028576,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66028768,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66029328,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66030464,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66030480,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66030656,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66032000,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66032016,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66064984,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66065112,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66095576,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66095632,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66156520,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66156960,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66162240,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66162680,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66163120,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66206536,
+      "target_rva": 69508316,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66209288,
+      "target_rva": 69508368,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66347744,
+      "target_rva": 69505744,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66347792,
+      "target_rva": 69505720,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66347808,
+      "target_rva": 69505696,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 66347824,
+      "target_rva": 69505672,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76464712,
+      "target_rva": 69509064,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76464720,
+      "target_rva": 69509032,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76464792,
+      "target_rva": 69509008,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76464800,
+      "target_rva": 69508976,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76464960,
+      "target_rva": 69509088,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76475912,
+      "target_rva": 69505176,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76475920,
+      "target_rva": 69505176,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76482144,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76482272,
+      "target_rva": 69507440,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76482336,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76482368,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76482400,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76482560,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76482592,
+      "target_rva": 69506888,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    },
+    {
+      "slot_rva": 76482736,
+      "target_rva": 69508408,
+      "target_spans": [
+        "connect_adjacent_page"
+      ]
+    }
+  ],
+  "literal_anchor_address_matches": [
+    {
+      "encoding": "preferred_va64",
+      "file_offset": 65691976,
+      "rva": 65695048,
+      "section": ".rdata",
+      "anchor": "WSAStartup"
+    }
+  ],
+  "limits": "Syntactic references only; no runtime execution or encoded/computed pointer resolution. disp32 tails 0,1,2,4,8; file-backed executable sections only."
+}
