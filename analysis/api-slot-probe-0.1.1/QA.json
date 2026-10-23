@@ -1,0 +1,43 @@
+{
+  "tool": "WLab APIProbe 0.1.1",
+  "tests": {
+    "go_tests": "PASS; synthetic targets with pinned local PE fixtures",
+    "observed_section_mapping": "PASS with simulated independent backing metadata; not a live Windows observation",
+    "pre_read_bad_missing_backing": "PASS: no memory reads",
+    "post_read_backing_changed_unavailable": "PASS: one attempt, sample discarded",
+    "prior_noaccess_guard_private_hash_identity_range_gates": "PASS",
+    "export_aliases_and_unresolved_cases": "PASS",
+    "own_UI_title_contract": "PASS",
+    "last_interface_and_bundle_tests": "PASS after final launcher log edit",
+    "linux_go_vet": "PASS",
+    "windows_amd64_go_vet": "PASS",
+    "windows_cross_build": "PASS",
+    "windows_test_binary_compile": "PASS; not executed",
+    "repeat_build_byte_identical": true,
+    "powerShell_AST": "PASS on Linux PowerShell 7.6.8; NOT Windows PowerShell runtime",
+    "owned_child_exit_runner": "PASS Linux; own exit0/7 children only",
+    "shared_file_handle_lock": "PASS Linux/.NET",
+    "unsupported_backend": "PASS; zero target reads"
+  },
+  "exe": {
+    "filename": "WLab-APIProbe-0.1.1.exe",
+    "sha256": "af2cc8e079cbc8c31e956283211aab65c69a9f87a500df85176749b39aac9f9c",
+    "bytes": 3600384,
+    "pe_machine": "AMD64 0x8664",
+    "pe_subsystem": "Windows GUI 2",
+    "authenticode_signature": "absent"
+  },
+  "explicit_native_RPM_call_sites": 1,
+  "process_rights": "PROCESS_QUERY_INFORMATION | PROCESS_VM_READ (0x0410)",
+  "arbitrary_address_CLI": false,
+  "windows_runtime_tested": false,
+  "live_game_tested": false,
+  "mapped_file_APIs_executed_on_Windows": false,
+  "api_identity_resolved_by_this_build": false,
+  "limitations": [
+    "Mapped path/hash checks are metadata consistency, not file-object identity or mapped-offset proof",
+    "Non-atomic checks and assumed disk/live layout correspondence",
+    "OS trust checks may use system network services",
+    "No recovered protected code or CPU/BIOS send evidence"
+  ]
+}

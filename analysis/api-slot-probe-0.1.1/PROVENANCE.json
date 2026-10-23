@@ -1,0 +1,27 @@
+{
+  "tool": "WLab APIProbe 0.1.1",
+  "source_origin": "WLab APIProbe 0.1.0 (c66c684c00f63c7e62b732922525236e5c4a3e04); explicit section/backing validation repair plus own-UI title and wrapper label correction",
+  "trigger_review_commit": "ccdaafd04fc0ec37ce923b1badd3be354b33e740",
+  "build": "Go 1.27.3; source/build.sh; Windows AMD64, trimpath, no cgo/buildid, GUI subsystem; byte-identical rebuild observed",
+  "go": {
+    "archive": "go1.27.3.linux-amd64.tar.gz",
+    "sha256": "65efbc80fdc1fa2cd2631cad5b481777a68e8725f34e89f50fc6ac714e379b40",
+    "checksum_source": "https://go.dev/dl/?mode=json"
+  },
+  "powershell_for_syntax_tests": {
+    "asset": "powershell-7.6.8-linux-x64.tar.gz",
+    "sha256": "59112e38ad83350e4f6dc0195953c66b5926792f300ca2e7691b8242e7a16e7f",
+    "digest_source": "https://api.github.com/repos/PowerShell/PowerShell/releases/latest"
+  },
+  "exe": {
+    "filename": "WLab-APIProbe-0.1.1.exe",
+    "sha256": "af2cc8e079cbc8c31e956283211aab65c69a9f87a500df85176749b39aac9f9c",
+    "bytes": 3600384,
+    "pe_machine": "AMD64 0x8664",
+    "pe_subsystem": "Windows GUI 2",
+    "authenticode_signature": "absent"
+  },
+  "windows_runtime_tested": false,
+  "user_game_binaries_in_package": false,
+  "supplied_third_party_scripts_executed": false
+}
