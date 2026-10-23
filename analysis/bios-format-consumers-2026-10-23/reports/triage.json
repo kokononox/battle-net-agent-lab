@@ -1,0 +1,525 @@
+{
+  "traces": [
+    {
+      "candidate_rva": 23525810,
+      "pdata": [
+        23525184,
+        23526527
+      ],
+      "entry_prefix_sha256": "b9d3f623834c52109e7505699aa9140e8ab2e7b302e60b19975a7cb0106b2de9",
+      "candidate_visited": false,
+      "instructions": [
+        {
+          "rva": 23525184,
+          "bytes": "a834",
+          "asm": "test al, 0x34"
+        }
+      ],
+      "edges": [
+        [
+          23525184,
+          23525186
+        ]
+      ],
+      "stops": [
+        {
+          "rva": 23525186,
+          "reason": "decode_failure"
+        }
+      ],
+      "overlaps": [],
+      "state_limit_hit": false,
+      "claim": "This is a syntactic model from pdata entry, not proof of runtime paths or absence of middle-entry/exception paths."
+    },
+    {
+      "candidate_rva": 38724887,
+      "pdata": [
+        38724502,
+        38725597
+      ],
+      "entry_prefix_sha256": "0797b7a4237e69f751cd151e37d83db3629debc3f3d0cbce51e523c1fb5cdb6c",
+      "candidate_visited": false,
+      "instructions": [
+        {
+          "rva": 38724502,
+          "bytes": "4d0ccb",
+          "asm": "or al, 0xcb"
+        },
+        {
+          "rva": 38724505,
+          "bytes": "2d511551f2",
+          "asm": "sub eax, 0xf2511551"
+        },
+        {
+          "rva": 38724510,
+          "bytes": "90",
+          "asm": "nop "
+        },
+        {
+          "rva": 38724511,
+          "bytes": "b9706c6597",
+          "asm": "mov ecx, 0x97656c70"
+        },
+        {
+          "rva": 38724516,
+          "bytes": "0d52503cad",
+          "asm": "or eax, 0xad3c5052"
+        },
+        {
+          "rva": 38724521,
+          "bytes": "9f",
+          "asm": "lahf "
+        },
+        {
+          "rva": 38724522,
+          "bytes": "80b2c3c58b6fee",
+          "asm": "xor byte ptr [rdx + 0x6f8bc5c3], 0xee"
+        },
+        {
+          "rva": 38724529,
+          "bytes": "0359e6",
+          "asm": "add ebx, dword ptr [rcx - 0x1a]"
+        },
+        {
+          "rva": 38724532,
+          "bytes": "3b7a14",
+          "asm": "cmp edi, dword ptr [rdx + 0x14]"
+        },
+        {
+          "rva": 38724535,
+          "bytes": "3c5f",
+          "asm": "cmp al, 0x5f"
+        },
+        {
+          "rva": 38724537,
+          "bytes": "89a45b42c1c392",
+          "asm": "mov dword ptr [rbx + rbx*2 - 0x6d3c3ebe], esp"
+        },
+        {
+          "rva": 38724544,
+          "bytes": "d002",
+          "asm": "rol byte ptr [rdx], 1"
+        },
+        {
+          "rva": 38724546,
+          "bytes": "7320",
+          "asm": "jae 0x24ee3e4"
+        },
+        {
+          "rva": 38724548,
+          "bytes": "f7945a9484c38d",
+          "asm": "not dword ptr [rdx + rbx*2 - 0x723c7b6c]"
+        },
+        {
+          "rva": 38724580,
+          "bytes": "25da5b1a5b",
+          "asm": "and eax, 0x5b1a5bda"
+        },
+        {
+          "rva": 38724585,
+          "bytes": "ac",
+          "asm": "lodsb al, byte ptr [rsi]"
+        },
+        {
+          "rva": 38724586,
+          "bytes": "878ddba5e72a",
+          "asm": "xchg dword ptr [rbp + 0x2ae7a5db], ecx"
+        },
+        {
+          "rva": 38724592,
+          "bytes": "0dd76172a7",
+          "asm": "or eax, 0xa77261d7"
+        },
+        {
+          "rva": 38724597,
+          "bytes": "3a23",
+          "asm": "cmp ah, byte ptr [rbx]"
+        },
+        {
+          "rva": 38724599,
+          "bytes": "d920",
+          "asm": "fldenv [rax]"
+        },
+        {
+          "rva": 38724601,
+          "bytes": "289fef477bf4",
+          "asm": "sub byte ptr [rdi - 0xb84b811], bl"
+        },
+        {
+          "rva": 38724607,
+          "bytes": "a4",
+          "asm": "movsb byte ptr [rdi], byte ptr [rsi]"
+        }
+      ],
+      "edges": [
+        [
+          38724502,
+          38724505
+        ],
+        [
+          38724505,
+          38724510
+        ],
+        [
+          38724510,
+          38724511
+        ],
+        [
+          38724511,
+          38724516
+        ],
+        [
+          38724516,
+          38724521
+        ],
+        [
+          38724521,
+          38724522
+        ],
+        [
+          38724522,
+          38724529
+        ],
+        [
+          38724529,
+          38724532
+        ],
+        [
+          38724532,
+          38724535
+        ],
+        [
+          38724535,
+          38724537
+        ],
+        [
+          38724537,
+          38724544
+        ],
+        [
+          38724544,
+          38724546
+        ],
+        [
+          38724546,
+          38724580
+        ],
+        [
+          38724546,
+          38724548
+        ],
+        [
+          38724580,
+          38724585
+        ],
+        [
+          38724548,
+          38724555
+        ],
+        [
+          38724585,
+          38724586
+        ],
+        [
+          38724586,
+          38724592
+        ],
+        [
+          38724592,
+          38724597
+        ],
+        [
+          38724597,
+          38724599
+        ],
+        [
+          38724599,
+          38724601
+        ],
+        [
+          38724601,
+          38724607
+        ],
+        [
+          38724607,
+          38724608
+        ]
+      ],
+      "stops": [
+        {
+          "rva": 38724555,
+          "reason": "decode_failure"
+        },
+        {
+          "rva": 38724608,
+          "reason": "decode_failure"
+        }
+      ],
+      "overlaps": [],
+      "state_limit_hit": false,
+      "claim": "This is a syntactic model from pdata entry, not proof of runtime paths or absence of middle-entry/exception paths."
+    },
+    {
+      "candidate_rva": 51620312,
+      "pdata": [
+        51615632,
+        51621231
+      ],
+      "entry_prefix_sha256": "8f521dbd2e8b7d6cbe33114126242db8f8aa79102dbbfb566f0804415baaf249",
+      "candidate_visited": false,
+      "instructions": [
+        {
+          "rva": 51615632,
+          "bytes": "266f",
+          "asm": "outsd dx, dword ptr es:[rsi]"
+        }
+      ],
+      "edges": [
+        [
+          51615632,
+          51615634
+        ]
+      ],
+      "stops": [
+        {
+          "rva": 51615634,
+          "reason": "decode_failure"
+        }
+      ],
+      "overlaps": [],
+      "state_limit_hit": false,
+      "claim": "This is a syntactic model from pdata entry, not proof of runtime paths or absence of middle-entry/exception paths."
+    }
+  ],
+  "relocation_target_contexts": [
+    {
+      "slot_rva": 62321760,
+      "target_rva": 69941900,
+      "containing_string_rva": 69941900,
+      "target_offset_in_string": 0,
+      "ascii_context": "~",
+      "inside_bios_format": false
+    },
+    {
+      "slot_rva": 77093696,
+      "target_rva": 69937624,
+      "containing_string_rva": 69937624,
+      "target_offset_in_string": 0,
+      "ascii_context": "AGS_SUCCESS",
+      "inside_bios_format": false
+    },
+    {
+      "slot_rva": 77093704,
+      "target_rva": 69937640,
+      "containing_string_rva": 69937640,
+      "target_offset_in_string": 0,
+      "ascii_context": "AGS_FAILURE",
+      "inside_bios_format": false
+    },
+    {
+      "slot_rva": 77093712,
+      "target_rva": 69937792,
+      "containing_string_rva": 69937792,
+      "target_offset_in_string": 0,
+      "ascii_context": "AGS_INVALID_ARGS",
+      "inside_bios_format": false
+    },
+    {
+      "slot_rva": 77093720,
+      "target_rva": 69937816,
+      "containing_string_rva": 69937816,
+      "target_offset_in_string": 0,
+      "ascii_context": "AGS_OUT_OF_MEMORY",
+      "inside_bios_format": false
+    },
+    {
+      "slot_rva": 77093728,
+      "target_rva": 69937744,
+      "containing_string_rva": 69937744,
+      "target_offset_in_string": 0,
+      "ascii_context": "AGS_MISSING_D3D_DLL",
+      "inside_bios_format": false
+    },
+    {
+      "slot_rva": 77093736,
+      "target_rva": 69937768,
+      "containing_string_rva": 69937768,
+      "target_offset_in_string": 0,
+      "ascii_context": "AGS_LEGACY_DRIVER",
+      "inside_bios_format": false
+    },
+    {
+      "slot_rva": 77093744,
+      "target_rva": 69937424,
+      "containing_string_rva": 69937424,
+      "target_offset_in_string": 0,
+      "ascii_context": "AGS_NO_AMD_DRIVER_INSTALLED",
+      "inside_bios_format": false
+    },
+    {
+      "slot_rva": 77093752,
+      "target_rva": 69937456,
+      "containing_string_rva": 69937456,
+      "target_offset_in_string": 0,
+      "ascii_context": "AGS_EXTENSION_NOT_SUPPORTED",
+      "inside_bios_format": false
+    },
+    {
+      "slot_rva": 77093760,
+      "target_rva": 69937392,
+      "containing_string_rva": 69937392,
+      "target_offset_in_string": 0,
+      "ascii_context": "AGS_ADL_FAILURE",
+      "inside_bios_format": false
+    },
+    {
+      "slot_rva": 77093768,
+      "target_rva": 69937408,
+      "containing_string_rva": 69937408,
+      "target_offset_in_string": 0,
+      "ascii_context": "AGS_DX_FAILURE",
+      "inside_bios_format": false
+    },
+    {
+      "slot_rva": 77093776,
+      "target_rva": 69937568,
+      "containing_string_rva": 69937568,
+      "target_offset_in_string": 0,
+      "ascii_context": "AGS_D3DDEVICE_NOT_CREATED",
+      "inside_bios_format": false
+    }
+  ],
+  "relative_numeric_match_triage": [
+    {
+      "slot_rva": 64975483,
+      "basis": "field_address",
+      "target_rva": 69935739,
+      "raw_hex": "00b04b00",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null,
+      "alignment_mod4": 3,
+      "context_start_rva": 64975475,
+      "context_hex": "00904b0000a14b0000b04b0000c14b0000cc4b00",
+      "semantic_pointer_proven": false
+    },
+    {
+      "slot_rva": 64975483,
+      "basis": "field_end",
+      "target_rva": 69935743,
+      "raw_hex": "00b04b00",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null,
+      "alignment_mod4": 3,
+      "context_start_rva": 64975475,
+      "context_hex": "00904b0000a14b0000b04b0000c14b0000cc4b00",
+      "semantic_pointer_proven": false
+    },
+    {
+      "slot_rva": 69929087,
+      "basis": "field_address",
+      "target_rva": 69935743,
+      "raw_hex": "001a0000",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null,
+      "alignment_mod4": 3,
+      "context_start_rva": 69929079,
+      "context_hex": "00b8b82a44010000001a00000000000000000000",
+      "semantic_pointer_proven": false
+    },
+    {
+      "slot_rva": 69935712,
+      "basis": "field_address",
+      "target_rva": 69935758,
+      "raw_hex": "2e000000",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null,
+      "alignment_mod4": 0,
+      "context_start_rva": 69935704,
+      "context_hex": "6e206c61756e63682e000000000000004d6f7468",
+      "semantic_pointer_proven": false
+    },
+    {
+      "slot_rva": 69929087,
+      "basis": "field_end",
+      "target_rva": 69935747,
+      "raw_hex": "001a0000",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null,
+      "alignment_mod4": 3,
+      "context_start_rva": 69929079,
+      "context_hex": "00b8b82a44010000001a00000000000000000000",
+      "semantic_pointer_proven": false
+    },
+    {
+      "slot_rva": 69935712,
+      "basis": "field_end",
+      "target_rva": 69935762,
+      "raw_hex": "2e000000",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null,
+      "alignment_mod4": 0,
+      "context_start_rva": 69935704,
+      "context_hex": "6e206c61756e63682e000000000000004d6f7468",
+      "semantic_pointer_proven": false
+    },
+    {
+      "slot_rva": 69935716,
+      "basis": "field_end",
+      "target_rva": 69935720,
+      "raw_hex": "00000000",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null,
+      "alignment_mod4": 0,
+      "context_start_rva": 69935708,
+      "context_hex": "756e63682e000000000000004d6f74686572626f",
+      "semantic_pointer_proven": false
+    },
+    {
+      "slot_rva": 117645870,
+      "basis": "field_address",
+      "target_rva": 69935750,
+      "raw_hex": "580028fd",
+      "section": ".pdata",
+      "executable": false,
+      "pdata_owner": null,
+      "alignment_mod4": 2,
+      "context_start_rva": 117645862,
+      "context_hex": "4e04007d5800147d580028fd4904147d5800207d",
+      "semantic_pointer_proven": false
+    },
+    {
+      "slot_rva": 120135250,
+      "basis": "field_address",
+      "target_rva": 69935771,
+      "raw_hex": "490402fd",
+      "section": ".pdata",
+      "executable": false,
+      "pdata_owner": null,
+      "alignment_mod4": 2,
+      "context_start_rva": 120135242,
+      "context_hex": "b20302fdb20368fc490402fdb20372fdb203fc92",
+      "semantic_pointer_proven": false
+    },
+    {
+      "slot_rva": 117645870,
+      "basis": "field_end",
+      "target_rva": 69935754,
+      "raw_hex": "580028fd",
+      "section": ".pdata",
+      "executable": false,
+      "pdata_owner": null,
+      "alignment_mod4": 2,
+      "context_start_rva": 117645862,
+      "context_hex": "4e04007d5800147d580028fd4904147d5800207d",
+      "semantic_pointer_proven": false
+    }
+  ],
+  "limits": "No symbolic flag/value propagation; both conditional successors explored, calls may return, native exceptions/mid-body entries/self-modification not modeled. A visited overlapping candidate still does not prove a genuine use."
+}

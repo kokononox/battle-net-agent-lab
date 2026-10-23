@@ -1,0 +1,73 @@
+{
+  "input_hash_checked": true,
+  "literal_counts_independently_repeated": {
+    "rva32": 0,
+    "file_offset32": 0,
+    "preferred_va64": 0
+  },
+  "rip_bytes_and_address_arithmetic_checked": 5,
+  "relative_dword_arithmetic_checked": 10,
+  "relocation_inventory_independently_repeated": 12,
+  "known_control_mov_found": true,
+  "traced_instruction_bytes_checked": 24,
+  "objdump_rip_checks": [
+    {
+      "rva": 1943988,
+      "objdump": "1da9b4:\t48 8b 05 7d b5 8f 04 \tmov    0x48fb57d(%rip),%rax        # 0x4ad5f38"
+    },
+    {
+      "rva": 1943989,
+      "objdump": "1da9b5:\t8b 05 7d b5 8f 04    \tmov    0x48fb57d(%rip),%eax        # 0x4ad5f38"
+    },
+    {
+      "rva": 23525810,
+      "objdump": "166f9b2:\t1a 35 bb 30 c4 02    \tsbb    0x2c430bb(%rip),%dh        # 0x42b2a73"
+    },
+    {
+      "rva": 38724887,
+      "objdump": "24ee517:\t8c 25 b8 4e dc 01    \tmov    %fs,0x1dc4eb8(%rip)        # 0x42b33d5"
+    },
+    {
+      "rva": 51620312,
+      "objdump": "313a9d8:\t6b 15 43 7c 17 01 ef \timul   $0xffffffef,0x1177c43(%rip),%edx        # 0x42b2622"
+    }
+  ],
+  "objdump_frontiers": [
+    {
+      "candidate_rva": 23525810,
+      "frontiers": [
+        {
+          "rva": 23525186,
+          "reason": "decode_failure",
+          "objdump_first_line": "166f742:\t9a                   \t(bad)"
+        }
+      ]
+    },
+    {
+      "candidate_rva": 38724887,
+      "frontiers": [
+        {
+          "rva": 38724555,
+          "reason": "decode_failure",
+          "objdump_first_line": "24ee3cb:\t27                   \t(bad)"
+        },
+        {
+          "rva": 38724608,
+          "reason": "decode_failure",
+          "objdump_first_line": "24ee400:\t16                   \t(bad)"
+        }
+      ]
+    },
+    {
+      "candidate_rva": 51620312,
+      "frontiers": [
+        {
+          "rva": 51615634,
+          "reason": "decode_failure",
+          "objdump_first_line": "3139792:\t82                   \t(bad)"
+        }
+      ]
+    }
+  ],
+  "limits": "No independent full CFG rebuild, runtime use or exhaustive semantic reference proof. Full literal searches repeated only for file-backed sections; raw numerical matches are not pointer evidence."
+}

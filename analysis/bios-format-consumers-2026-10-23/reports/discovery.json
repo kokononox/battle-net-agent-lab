@@ -1,0 +1,369 @@
+{
+  "sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "image_base": 5368709120,
+  "bios_rva": 69935720,
+  "bios_format": "Motherboard: \"%s\" by \"%s\" (BIOS:%s version:%s date:%s)",
+  "spans": [
+    {
+      "name": "bios_format_bytes",
+      "begin": 69935720,
+      "end": 69935775
+    },
+    {
+      "name": "hardware_log_two_pages",
+      "begin": 69935104,
+      "end": 69943296
+    },
+    {
+      "name": "positive_control_global_page",
+      "begin": 78467072,
+      "end": 78471168
+    }
+  ],
+  "sections": [
+    {
+      "name": ".text",
+      "rva": 4096,
+      "virtual_size": 62234508,
+      "raw_size": 62234624,
+      "file_offset": 1024,
+      "executable": true
+    },
+    {
+      "name": ".rdata",
+      "rva": 62238720,
+      "virtual_size": 12712162,
+      "raw_size": 12712448,
+      "file_offset": 62235648,
+      "executable": false
+    },
+    {
+      "name": ".data",
+      "rva": 74952704,
+      "virtual_size": 42394977,
+      "raw_size": 2305536,
+      "file_offset": 74948096,
+      "executable": false
+    },
+    {
+      "name": ".pdata",
+      "rva": 117350400,
+      "virtual_size": 2809368,
+      "raw_size": 2809856,
+      "file_offset": 77253632,
+      "executable": false
+    },
+    {
+      "name": "_RDATA",
+      "rva": 120160256,
+      "virtual_size": 140512,
+      "raw_size": 140800,
+      "file_offset": 80063488,
+      "executable": false
+    },
+    {
+      "name": ".rsrc",
+      "rva": 120303616,
+      "virtual_size": 191792,
+      "raw_size": 192000,
+      "file_offset": 80204288,
+      "executable": false
+    },
+    {
+      "name": ".reloc",
+      "rva": 120496128,
+      "virtual_size": 427064,
+      "raw_size": 427520,
+      "file_offset": 80396288,
+      "executable": false
+    }
+  ],
+  "rip_candidates": [
+    {
+      "rva": 1943988,
+      "bytes": "488b057db58f04",
+      "asm": "mov rax, qword ptr [rip + 0x48fb57d]",
+      "target_rva": 78470968,
+      "disp_offset": 3,
+      "target_spans": [
+        "positive_control_global_page"
+      ],
+      "pdata_owner": [
+        1943984,
+        1944009
+      ]
+    },
+    {
+      "rva": 1943989,
+      "bytes": "8b057db58f04",
+      "asm": "mov eax, dword ptr [rip + 0x48fb57d]",
+      "target_rva": 78470968,
+      "disp_offset": 2,
+      "target_spans": [
+        "positive_control_global_page"
+      ],
+      "pdata_owner": [
+        1943984,
+        1944009
+      ]
+    },
+    {
+      "rva": 23525810,
+      "bytes": "1a35bb30c402",
+      "asm": "sbb dh, byte ptr [rip + 0x2c430bb]",
+      "target_rva": 69937779,
+      "disp_offset": 2,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "pdata_owner": [
+        23525184,
+        23526527
+      ]
+    },
+    {
+      "rva": 38724887,
+      "bytes": "8c25b84edc01",
+      "asm": "mov word ptr [rip + 0x1dc4eb8], fs",
+      "target_rva": 69940181,
+      "disp_offset": 2,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "pdata_owner": [
+        38724502,
+        38725597
+      ]
+    },
+    {
+      "rva": 51620312,
+      "bytes": "6b15437c1701ef",
+      "asm": "imul edx, dword ptr [rip + 0x1177c43], -0x11",
+      "target_rva": 69936674,
+      "disp_offset": 2,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "pdata_owner": [
+        51615632,
+        51621231
+      ]
+    }
+  ],
+  "bios_literal_candidates": [],
+  "bios_self_relative_dword_candidates": [
+    {
+      "slot_rva": 64975483,
+      "basis": "field_address",
+      "target_rva": 69935739,
+      "raw_hex": "00b04b00",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 64975483,
+      "basis": "field_end",
+      "target_rva": 69935743,
+      "raw_hex": "00b04b00",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 69929087,
+      "basis": "field_address",
+      "target_rva": 69935743,
+      "raw_hex": "001a0000",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 69935712,
+      "basis": "field_address",
+      "target_rva": 69935758,
+      "raw_hex": "2e000000",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 69929087,
+      "basis": "field_end",
+      "target_rva": 69935747,
+      "raw_hex": "001a0000",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 69935712,
+      "basis": "field_end",
+      "target_rva": 69935762,
+      "raw_hex": "2e000000",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 69935716,
+      "basis": "field_end",
+      "target_rva": 69935720,
+      "raw_hex": "00000000",
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 117645870,
+      "basis": "field_address",
+      "target_rva": 69935750,
+      "raw_hex": "580028fd",
+      "section": ".pdata",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 120135250,
+      "basis": "field_address",
+      "target_rva": 69935771,
+      "raw_hex": "490402fd",
+      "section": ".pdata",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 117645870,
+      "basis": "field_end",
+      "target_rva": 69935754,
+      "raw_hex": "580028fd",
+      "section": ".pdata",
+      "executable": false,
+      "pdata_owner": null
+    }
+  ],
+  "relocation_pointer_candidates": [
+    {
+      "slot_rva": 62321760,
+      "target_rva": 69941900,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "section": ".rdata",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 77093696,
+      "target_rva": 69937624,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "section": ".data",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 77093704,
+      "target_rva": 69937640,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "section": ".data",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 77093712,
+      "target_rva": 69937792,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "section": ".data",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 77093720,
+      "target_rva": 69937816,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "section": ".data",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 77093728,
+      "target_rva": 69937744,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "section": ".data",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 77093736,
+      "target_rva": 69937768,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "section": ".data",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 77093744,
+      "target_rva": 69937424,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "section": ".data",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 77093752,
+      "target_rva": 69937456,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "section": ".data",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 77093760,
+      "target_rva": 69937392,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "section": ".data",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 77093768,
+      "target_rva": 69937408,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "section": ".data",
+      "executable": false,
+      "pdata_owner": null
+    },
+    {
+      "slot_rva": 77093776,
+      "target_rva": 69937568,
+      "target_spans": [
+        "hardware_log_two_pages"
+      ],
+      "section": ".data",
+      "executable": false,
+      "pdata_owner": null
+    }
+  ],
+  "limits": "RIP and scalar numerical matches are candidates, not confirmed instructions or semantic data references. Only listed encodings and bounded address ranges were searched; no arbitrary key/encoding or runtime transformation was inferred."
+}
