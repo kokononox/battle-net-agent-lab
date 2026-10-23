@@ -1,6 +1,14 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## تازه‌ترین نتیجه — header خوانده شد؛ هر سه صفحهٔ نامزد PAGE_NOACCESS هستند
+## قدم فعلی — بازبینی آفلاین و هویت نماد؛ هنوز مسیر رفتاری تازه نداریم
+
+[گزارش و مرز ادامه](analysis/offline-evidence-audit-2026-10-23/README.fa.md) · [هویت CodeView](analysis/offline-evidence-audit-2026-10-23/build-symbol-identity.json) · [کنترل مستقل](analysis/offline-evidence-audit-2026-10-23/verification.json) · [وضعیت](analysis/offline-evidence-audit-2026-10-23/SYNC-STATUS.json).
+
+مرور اسناد تأیید کرد همان مسیر ایستای اختصاصی قبلاً به مرز بازیابی کد رسیده بود؛ اسکن‌های تکراری و detour عمومی loader به‌عنوان پیشرفت تازه اجرا نشدند. هویت دقیق Wow.pdb از همان PE استخراج و با parser مستقل کنترل شد: GUID 32A37A97-F0F9-4111-8AE5-A968C22A517C، age 1. این داشتن PDB نیست. آرشیو موجود فقط سه باینری داشت؛ PDB/MAP/DBG یا فایل متنی مستقیمی در آن نبود. جست‌وجوی محدود منبع عمومی منطبق را تأیید نکرد؛ یک URL هویت دقیق روی store عمومی هم‌نام HTTP 404 داشت، نه اثبات نبودن نماد در همه‌جا.
+
+هیچ collector/population/serialization/send تازه بازیابی نشد. گزارش درست و شش mutation با verifier مستقل کنترل شدند؛ این صحت گزارش است، نه تست رفتار بازی. برای ادامهٔ معنادار شاهد مجاز و منطبق جدید لازم است؛ PDB/سورس، یا plaintext/trace خود پیام به‌اضافهٔ binding ارسال در صورت ادعای 3724. ابزار Windows جدید، retry زنده، protection change یا bypass ساخته/درخواست نشده است. main و GUI BIOS Path 0.2 دست‌نخورده‌اند؛ CPU/BIOS روی TCP/3724 همچنان نامعلوم است.
+
+## نتیجهٔ زندهٔ پیشین — header خوانده شد؛ هر سه صفحهٔ نامزد PAGE_NOACCESS هستند
 
 [بررسی](reports/coderead-0.1.1-noaccess/REVIEW.fa.md) · [شواهد](reports/coderead-0.1.1-noaccess/OBSERVATION.json).
 

@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "independent_PE_reader": "struct/sections, no pefile",
+  "codeview_records": 1,
+  "export_names_matched": 4,
+  "scope": "report byte consistency only; not runtime, PDB availability or recovered hardware behavior",
+  "mutations_rejected": [
+    "guid",
+    "age",
+    "offset",
+    "export",
+    "send_claim",
+    "availability_claim"
+  ]
+}
