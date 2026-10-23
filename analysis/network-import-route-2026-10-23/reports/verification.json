@@ -1,0 +1,5206 @@
+[
+  {
+    "binary": "Wow.exe",
+    "import_agreement": true,
+    "independent_ff15_ff25_matches": [],
+    "relocation_backed_pointers_to_iat_slots": [],
+    "whole_nul_delimited_api_names": [
+      {
+        "name": "connect",
+        "encoding": "ascii",
+        "file_offset": 69502424,
+        "rva": 69505496,
+        "section": ".rdata"
+      },
+      {
+        "name": "socket",
+        "encoding": "ascii",
+        "file_offset": 67443152,
+        "rva": 67446224,
+        "section": ".rdata"
+      }
+    ],
+    "resolver_control_triage": []
+  },
+  {
+    "binary": "wow_loader.dll",
+    "import_agreement": true,
+    "independent_ff15_ff25_matches": [
+      {
+        "rva": 33800160,
+        "bytes": "ff25a2400600",
+        "slot_rva": 34209928,
+        "kind": "jmp"
+      }
+    ],
+    "relocation_backed_pointers_to_iat_slots": [],
+    "whole_nul_delimited_api_names": [
+      {
+        "name": "WSASocketW",
+        "encoding": "ascii",
+        "file_offset": 40856009,
+        "rva": 41803721,
+        "section": ".eid"
+      }
+    ],
+    "resolver_control_triage": []
+  },
+  {
+    "binary": "libxell.dll",
+    "import_agreement": true,
+    "independent_ff15_ff25_matches": [
+      {
+        "rva": 40702,
+        "bytes": "ff159c8f0400",
+        "slot_rva": 339616,
+        "kind": "call"
+      },
+      {
+        "rva": 40814,
+        "bytes": "ff152c8f0400",
+        "slot_rva": 339616,
+        "kind": "call"
+      },
+      {
+        "rva": 46812,
+        "bytes": "ff152e6a0400",
+        "slot_rva": 336144,
+        "kind": "call"
+      },
+      {
+        "rva": 46865,
+        "bytes": "ff15f9690400",
+        "slot_rva": 336144,
+        "kind": "call"
+      },
+      {
+        "rva": 47012,
+        "bytes": "ff1566690400",
+        "slot_rva": 336144,
+        "kind": "call"
+      },
+      {
+        "rva": 80864,
+        "bytes": "ff1542e50300",
+        "slot_rva": 336168,
+        "kind": "call"
+      },
+      {
+        "rva": 80961,
+        "bytes": "ff15e1e40300",
+        "slot_rva": 336168,
+        "kind": "call"
+      },
+      {
+        "rva": 81001,
+        "bytes": "ff15a9e40300",
+        "slot_rva": 336152,
+        "kind": "call"
+      },
+      {
+        "rva": 88007,
+        "bytes": "ff1543c90300",
+        "slot_rva": 336144,
+        "kind": "call"
+      },
+      {
+        "rva": 92909,
+        "bytes": "ff252db60300",
+        "slot_rva": 336160,
+        "kind": "jmp"
+      },
+      {
+        "rva": 93140,
+        "bytes": "ff1536b50300",
+        "slot_rva": 336144,
+        "kind": "call"
+      },
+      {
+        "rva": 93219,
+        "bytes": "ff15e7b40300",
+        "slot_rva": 336144,
+        "kind": "call"
+      },
+      {
+        "rva": 93239,
+        "bytes": "ff15d3b40300",
+        "slot_rva": 336144,
+        "kind": "call"
+      },
+      {
+        "rva": 94598,
+        "bytes": "ff1594af0300",
+        "slot_rva": 336160,
+        "kind": "call"
+      },
+      {
+        "rva": 94709,
+        "bytes": "ff1525af0300",
+        "slot_rva": 336160,
+        "kind": "call"
+      },
+      {
+        "rva": 94971,
+        "bytes": "ff150fae0300",
+        "slot_rva": 336144,
+        "kind": "call"
+      },
+      {
+        "rva": 97524,
+        "bytes": "ff1556b20300",
+        "slot_rva": 339792,
+        "kind": "call"
+      },
+      {
+        "rva": 97647,
+        "bytes": "ff15e3b10300",
+        "slot_rva": 339800,
+        "kind": "call"
+      },
+      {
+        "rva": 97890,
+        "bytes": "ff15c0a40300",
+        "slot_rva": 336680,
+        "kind": "call"
+      },
+      {
+        "rva": 97977,
+        "bytes": "ff1519a40300",
+        "slot_rva": 336600,
+        "kind": "call"
+      },
+      {
+        "rva": 98011,
+        "bytes": "ff15ffa30300",
+        "slot_rva": 336608,
+        "kind": "call"
+      },
+      {
+        "rva": 98044,
+        "bytes": "ff15d6a30300",
+        "slot_rva": 336600,
+        "kind": "call"
+      },
+      {
+        "rva": 98116,
+        "bytes": "ff15aea30300",
+        "slot_rva": 336632,
+        "kind": "call"
+      },
+      {
+        "rva": 98135,
+        "bytes": "ff15bba30300",
+        "slot_rva": 336664,
+        "kind": "call"
+      },
+      {
+        "rva": 98462,
+        "bytes": "ff1584a20300",
+        "slot_rva": 336680,
+        "kind": "call"
+      },
+      {
+        "rva": 98550,
+        "bytes": "ff15dca10300",
+        "slot_rva": 336600,
+        "kind": "call"
+      },
+      {
+        "rva": 98598,
+        "bytes": "ff15aca10300",
+        "slot_rva": 336600,
+        "kind": "call"
+      },
+      {
+        "rva": 98657,
+        "bytes": "ff1579a10300",
+        "slot_rva": 336608,
+        "kind": "call"
+      },
+      {
+        "rva": 98709,
+        "bytes": "ff155da10300",
+        "slot_rva": 336632,
+        "kind": "call"
+      },
+      {
+        "rva": 98728,
+        "bytes": "ff156aa10300",
+        "slot_rva": 336664,
+        "kind": "call"
+      },
+      {
+        "rva": 99152,
+        "bytes": "ff25ba9f0300",
+        "slot_rva": 336656,
+        "kind": "jmp"
+      },
+      {
+        "rva": 99321,
+        "bytes": "ff25d19e0300",
+        "slot_rva": 336592,
+        "kind": "jmp"
+      },
+      {
+        "rva": 99541,
+        "bytes": "ff153d9e0300",
+        "slot_rva": 336664,
+        "kind": "call"
+      },
+      {
+        "rva": 99690,
+        "bytes": "ff15a09d0300",
+        "slot_rva": 336656,
+        "kind": "call"
+      },
+      {
+        "rva": 99705,
+        "bytes": "ff25719d0300",
+        "slot_rva": 336624,
+        "kind": "jmp"
+      },
+      {
+        "rva": 99845,
+        "bytes": "ff15059d0300",
+        "slot_rva": 336656,
+        "kind": "call"
+      },
+      {
+        "rva": 99854,
+        "bytes": "ff15dc9c0300",
+        "slot_rva": 336624,
+        "kind": "call"
+      },
+      {
+        "rva": 100335,
+        "bytes": "ff155b990300",
+        "slot_rva": 336208,
+        "kind": "call"
+      },
+      {
+        "rva": 100353,
+        "bytes": "ff1529990300",
+        "slot_rva": 336176,
+        "kind": "call"
+      },
+      {
+        "rva": 100361,
+        "bytes": "ff1521990300",
+        "slot_rva": 336176,
+        "kind": "call"
+      },
+      {
+        "rva": 100402,
+        "bytes": "ff1528990300",
+        "slot_rva": 336224,
+        "kind": "call"
+      },
+      {
+        "rva": 100424,
+        "bytes": "ff15b29a0300",
+        "slot_rva": 336640,
+        "kind": "call"
+      },
+      {
+        "rva": 100455,
+        "bytes": "ff159b9a0300",
+        "slot_rva": 336648,
+        "kind": "call"
+      },
+      {
+        "rva": 100509,
+        "bytes": "ff15259a0300",
+        "slot_rva": 336584,
+        "kind": "call"
+      },
+      {
+        "rva": 100586,
+        "bytes": "ff15309a0300",
+        "slot_rva": 336672,
+        "kind": "call"
+      },
+      {
+        "rva": 100625,
+        "bytes": "ff1541980300",
+        "slot_rva": 336216,
+        "kind": "call"
+      },
+      {
+        "rva": 100846,
+        "bytes": "ff151c990300",
+        "slot_rva": 336656,
+        "kind": "call"
+      },
+      {
+        "rva": 100856,
+        "bytes": "ff15f2980300",
+        "slot_rva": 336624,
+        "kind": "call"
+      },
+      {
+        "rva": 100905,
+        "bytes": "ff1511970300",
+        "slot_rva": 336192,
+        "kind": "call"
+      },
+      {
+        "rva": 101829,
+        "bytes": "ff156d930300",
+        "slot_rva": 336184,
+        "kind": "call"
+      },
+      {
+        "rva": 102082,
+        "bytes": "ff1580920300",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 102867,
+        "bytes": "ff155f8f0300",
+        "slot_rva": 336184,
+        "kind": "call"
+      },
+      {
+        "rva": 103662,
+        "bytes": "ff15f48d0300",
+        "slot_rva": 336616,
+        "kind": "call"
+      },
+      {
+        "rva": 103922,
+        "bytes": "ff15f08c0300",
+        "slot_rva": 336616,
+        "kind": "call"
+      },
+      {
+        "rva": 107617,
+        "bytes": "ff15017d0300",
+        "slot_rva": 336232,
+        "kind": "call"
+      },
+      {
+        "rva": 107650,
+        "bytes": "ff15c07c0300",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 107670,
+        "bytes": "ff15ac7c0300",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 107689,
+        "bytes": "ff15997c0300",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 108983,
+        "bytes": "ff156b7a0300",
+        "slot_rva": 336936,
+        "kind": "call"
+      },
+      {
+        "rva": 109001,
+        "bytes": "ff15597a0300",
+        "slot_rva": 336936,
+        "kind": "call"
+      },
+      {
+        "rva": 109526,
+        "bytes": "ff154c780300",
+        "slot_rva": 336936,
+        "kind": "call"
+      },
+      {
+        "rva": 109544,
+        "bytes": "ff153a780300",
+        "slot_rva": 336936,
+        "kind": "call"
+      },
+      {
+        "rva": 110551,
+        "bytes": "ff15fb730300",
+        "slot_rva": 336856,
+        "kind": "call"
+      },
+      {
+        "rva": 110591,
+        "bytes": "ff15db730300",
+        "slot_rva": 336864,
+        "kind": "call"
+      },
+      {
+        "rva": 110612,
+        "bytes": "ff15ce730300",
+        "slot_rva": 336872,
+        "kind": "call"
+      },
+      {
+        "rva": 110638,
+        "bytes": "ff15347d0300",
+        "slot_rva": 339304,
+        "kind": "call"
+      },
+      {
+        "rva": 110823,
+        "bytes": "ff15eb720300",
+        "slot_rva": 336856,
+        "kind": "call"
+      },
+      {
+        "rva": 110863,
+        "bytes": "ff15cb720300",
+        "slot_rva": 336864,
+        "kind": "call"
+      },
+      {
+        "rva": 110884,
+        "bytes": "ff15be720300",
+        "slot_rva": 336872,
+        "kind": "call"
+      },
+      {
+        "rva": 110910,
+        "bytes": "ff15247c0300",
+        "slot_rva": 339304,
+        "kind": "call"
+      },
+      {
+        "rva": 112077,
+        "bytes": "ff155d6e0300",
+        "slot_rva": 336944,
+        "kind": "call"
+      },
+      {
+        "rva": 112823,
+        "bytes": "ff15ab740300",
+        "slot_rva": 339304,
+        "kind": "call"
+      },
+      {
+        "rva": 116789,
+        "bytes": "ff153d5c0300",
+        "slot_rva": 337016,
+        "kind": "call"
+      },
+      {
+        "rva": 116801,
+        "bytes": "ff15495c0300",
+        "slot_rva": 337040,
+        "kind": "call"
+      },
+      {
+        "rva": 116810,
+        "bytes": "ff15d85a0300",
+        "slot_rva": 336680,
+        "kind": "call"
+      },
+      {
+        "rva": 116987,
+        "bytes": "ff15275b0300",
+        "slot_rva": 336936,
+        "kind": "call"
+      },
+      {
+        "rva": 117004,
+        "bytes": "ff15165b0300",
+        "slot_rva": 336936,
+        "kind": "call"
+      },
+      {
+        "rva": 117820,
+        "bytes": "ff15ee570300",
+        "slot_rva": 336944,
+        "kind": "call"
+      },
+      {
+        "rva": 118146,
+        "bytes": "ff1500560300",
+        "slot_rva": 336776,
+        "kind": "call"
+      },
+      {
+        "rva": 118172,
+        "bytes": "ff1556560300",
+        "slot_rva": 336888,
+        "kind": "call"
+      },
+      {
+        "rva": 118256,
+        "bytes": "ff1562560300",
+        "slot_rva": 336984,
+        "kind": "call"
+      },
+      {
+        "rva": 118319,
+        "bytes": "ff155b550300",
+        "slot_rva": 336784,
+        "kind": "call"
+      },
+      {
+        "rva": 118455,
+        "bytes": "ff15cb540300",
+        "slot_rva": 336776,
+        "kind": "call"
+      },
+      {
+        "rva": 118476,
+        "bytes": "ff1526550300",
+        "slot_rva": 336888,
+        "kind": "call"
+      },
+      {
+        "rva": 118630,
+        "bytes": "ff1554540300",
+        "slot_rva": 336832,
+        "kind": "call"
+      },
+      {
+        "rva": 118653,
+        "bytes": "ff157d540300",
+        "slot_rva": 336896,
+        "kind": "call"
+      },
+      {
+        "rva": 118678,
+        "bytes": "ff1534540300",
+        "slot_rva": 336848,
+        "kind": "call"
+      },
+      {
+        "rva": 118710,
+        "bytes": "ff150c540300",
+        "slot_rva": 336840,
+        "kind": "call"
+      },
+      {
+        "rva": 118794,
+        "bytes": "ff1580530300",
+        "slot_rva": 336784,
+        "kind": "call"
+      },
+      {
+        "rva": 118978,
+        "bytes": "ff15c0520300",
+        "slot_rva": 336776,
+        "kind": "call"
+      },
+      {
+        "rva": 119004,
+        "bytes": "ff1516530300",
+        "slot_rva": 336888,
+        "kind": "call"
+      },
+      {
+        "rva": 119088,
+        "bytes": "ff1502530300",
+        "slot_rva": 336952,
+        "kind": "call"
+      },
+      {
+        "rva": 119151,
+        "bytes": "ff151b520300",
+        "slot_rva": 336784,
+        "kind": "call"
+      },
+      {
+        "rva": 120452,
+        "bytes": "ff15764c0300",
+        "slot_rva": 336640,
+        "kind": "call"
+      },
+      {
+        "rva": 120483,
+        "bytes": "ff155f4c0300",
+        "slot_rva": 336648,
+        "kind": "call"
+      },
+      {
+        "rva": 120533,
+        "bytes": "ff15ed4b0300",
+        "slot_rva": 336584,
+        "kind": "call"
+      },
+      {
+        "rva": 120561,
+        "bytes": "ff15714d0300",
+        "slot_rva": 337000,
+        "kind": "call"
+      },
+      {
+        "rva": 120768,
+        "bytes": "ff15aa490300",
+        "slot_rva": 336240,
+        "kind": "call"
+      },
+      {
+        "rva": 120796,
+        "bytes": "ff155e490300",
+        "slot_rva": 336192,
+        "kind": "call"
+      },
+      {
+        "rva": 120853,
+        "bytes": "ff15e5540300",
+        "slot_rva": 339200,
+        "kind": "call"
+      },
+      {
+        "rva": 120878,
+        "bytes": "ff15ec570300",
+        "slot_rva": 340000,
+        "kind": "call"
+      },
+      {
+        "rva": 120958,
+        "bytes": "ff15bc480300",
+        "slot_rva": 336192,
+        "kind": "call"
+      },
+      {
+        "rva": 121012,
+        "bytes": "ff1546540300",
+        "slot_rva": 339200,
+        "kind": "call"
+      },
+      {
+        "rva": 122339,
+        "bytes": "ff25e7440300",
+        "slot_rva": 336592,
+        "kind": "jmp"
+      },
+      {
+        "rva": 122470,
+        "bytes": "ff25a4440300",
+        "slot_rva": 336656,
+        "kind": "jmp"
+      },
+      {
+        "rva": 124592,
+        "bytes": "ff155a3c0300",
+        "slot_rva": 336656,
+        "kind": "call"
+      },
+      {
+        "rva": 124607,
+        "bytes": "ff252b3c0300",
+        "slot_rva": 336624,
+        "kind": "jmp"
+      },
+      {
+        "rva": 124715,
+        "bytes": "ff152f460300",
+        "slot_rva": 339296,
+        "kind": "call"
+      },
+      {
+        "rva": 124766,
+        "bytes": "ff15fc450300",
+        "slot_rva": 339296,
+        "kind": "call"
+      },
+      {
+        "rva": 124798,
+        "bytes": "ff15dc450300",
+        "slot_rva": 339296,
+        "kind": "call"
+      },
+      {
+        "rva": 124843,
+        "bytes": "ff15af450300",
+        "slot_rva": 339296,
+        "kind": "call"
+      },
+      {
+        "rva": 125011,
+        "bytes": "ff1507450300",
+        "slot_rva": 339296,
+        "kind": "call"
+      },
+      {
+        "rva": 125277,
+        "bytes": "ff15fd430300",
+        "slot_rva": 339296,
+        "kind": "call"
+      },
+      {
+        "rva": 125286,
+        "bytes": "ff159c3a0300",
+        "slot_rva": 336904,
+        "kind": "call"
+      },
+      {
+        "rva": 126454,
+        "bytes": "ff1544330300",
+        "slot_rva": 336192,
+        "kind": "call"
+      },
+      {
+        "rva": 127485,
+        "bytes": "ff1525310300",
+        "slot_rva": 336680,
+        "kind": "call"
+      },
+      {
+        "rva": 127532,
+        "bytes": "ff25c6300300",
+        "slot_rva": 336632,
+        "kind": "jmp"
+      },
+      {
+        "rva": 130468,
+        "bytes": "ff15de2e0300",
+        "slot_rva": 339080,
+        "kind": "call"
+      },
+      {
+        "rva": 130496,
+        "bytes": "ff155a2e0300",
+        "slot_rva": 338976,
+        "kind": "call"
+      },
+      {
+        "rva": 130532,
+        "bytes": "ff1516250300",
+        "slot_rva": 336640,
+        "kind": "call"
+      },
+      {
+        "rva": 130560,
+        "bytes": "ff1502250300",
+        "slot_rva": 336648,
+        "kind": "call"
+      },
+      {
+        "rva": 130602,
+        "bytes": "ff1598240300",
+        "slot_rva": 336584,
+        "kind": "call"
+      },
+      {
+        "rva": 130704,
+        "bytes": "ff15f2250300",
+        "slot_rva": 337032,
+        "kind": "call"
+      },
+      {
+        "rva": 130917,
+        "bytes": "ff15a5230300",
+        "slot_rva": 336656,
+        "kind": "call"
+      },
+      {
+        "rva": 130927,
+        "bytes": "ff157b230300",
+        "slot_rva": 336624,
+        "kind": "call"
+      },
+      {
+        "rva": 131044,
+        "bytes": "ff159e2c0300",
+        "slot_rva": 339080,
+        "kind": "call"
+      },
+      {
+        "rva": 131131,
+        "bytes": "ff15bf220300",
+        "slot_rva": 336640,
+        "kind": "call"
+      },
+      {
+        "rva": 131159,
+        "bytes": "ff15ab220300",
+        "slot_rva": 336648,
+        "kind": "call"
+      },
+      {
+        "rva": 131201,
+        "bytes": "ff1541220300",
+        "slot_rva": 336584,
+        "kind": "call"
+      },
+      {
+        "rva": 131516,
+        "bytes": "ff154e210300",
+        "slot_rva": 336656,
+        "kind": "call"
+      },
+      {
+        "rva": 131526,
+        "bytes": "ff1524210300",
+        "slot_rva": 336624,
+        "kind": "call"
+      },
+      {
+        "rva": 132793,
+        "bytes": "ff15a1270300",
+        "slot_rva": 339552,
+        "kind": "call"
+      },
+      {
+        "rva": 132842,
+        "bytes": "ff1528250300",
+        "slot_rva": 338968,
+        "kind": "call"
+      },
+      {
+        "rva": 133023,
+        "bytes": "ff15bb260300",
+        "slot_rva": 339552,
+        "kind": "call"
+      },
+      {
+        "rva": 133072,
+        "bytes": "ff1542240300",
+        "slot_rva": 338968,
+        "kind": "call"
+      },
+      {
+        "rva": 133259,
+        "bytes": "ff15cf250300",
+        "slot_rva": 339552,
+        "kind": "call"
+      },
+      {
+        "rva": 133308,
+        "bytes": "ff1556230300",
+        "slot_rva": 338968,
+        "kind": "call"
+      },
+      {
+        "rva": 133651,
+        "bytes": "ff15671a0300",
+        "slot_rva": 337024,
+        "kind": "call"
+      },
+      {
+        "rva": 134984,
+        "bytes": "ff154a150300",
+        "slot_rva": 337048,
+        "kind": "call"
+      },
+      {
+        "rva": 135290,
+        "bytes": "ff15a8130300",
+        "slot_rva": 336936,
+        "kind": "call"
+      },
+      {
+        "rva": 135346,
+        "bytes": "ff15c01c0300",
+        "slot_rva": 339320,
+        "kind": "call"
+      },
+      {
+        "rva": 135494,
+        "bytes": "ff15dc120300",
+        "slot_rva": 336936,
+        "kind": "call"
+      },
+      {
+        "rva": 135571,
+        "bytes": "ff15df1b0300",
+        "slot_rva": 339320,
+        "kind": "call"
+      },
+      {
+        "rva": 135713,
+        "bytes": "ff1501120300",
+        "slot_rva": 336936,
+        "kind": "call"
+      },
+      {
+        "rva": 136614,
+        "bytes": "ff15840e0300",
+        "slot_rva": 336944,
+        "kind": "call"
+      },
+      {
+        "rva": 136832,
+        "bytes": "ff15aa0d0300",
+        "slot_rva": 336944,
+        "kind": "call"
+      },
+      {
+        "rva": 137396,
+        "bytes": "ff156e0b0300",
+        "slot_rva": 336936,
+        "kind": "call"
+      },
+      {
+        "rva": 137417,
+        "bytes": "ff15590b0300",
+        "slot_rva": 336936,
+        "kind": "call"
+      },
+      {
+        "rva": 137670,
+        "bytes": "ff15ac130300",
+        "slot_rva": 339320,
+        "kind": "call"
+      },
+      {
+        "rva": 137723,
+        "bytes": "ff1577130300",
+        "slot_rva": 339320,
+        "kind": "call"
+      },
+      {
+        "rva": 141401,
+        "bytes": "ff1519050300",
+        "slot_rva": 339320,
+        "kind": "call"
+      },
+      {
+        "rva": 143962,
+        "bytes": "ff15c8f10200",
+        "slot_rva": 336936,
+        "kind": "call"
+      },
+      {
+        "rva": 149785,
+        "bytes": "ff1531db0200",
+        "slot_rva": 336976,
+        "kind": "call"
+      },
+      {
+        "rva": 149874,
+        "bytes": "ff1500e60200",
+        "slot_rva": 339832,
+        "kind": "call"
+      },
+      {
+        "rva": 151741,
+        "bytes": "ff2525dc0200",
+        "slot_rva": 339176,
+        "kind": "jmp"
+      },
+      {
+        "rva": 151813,
+        "bytes": "ff155ddc0200",
+        "slot_rva": 339304,
+        "kind": "call"
+      },
+      {
+        "rva": 155629,
+        "bytes": "ff2505cd0200",
+        "slot_rva": 339192,
+        "kind": "jmp"
+      },
+      {
+        "rva": 156579,
+        "bytes": "ff15f7cb0200",
+        "slot_rva": 339872,
+        "kind": "call"
+      },
+      {
+        "rva": 156607,
+        "bytes": "ff15a3c00200",
+        "slot_rva": 337000,
+        "kind": "call"
+      },
+      {
+        "rva": 157963,
+        "bytes": "ff150fbb0200",
+        "slot_rva": 336928,
+        "kind": "call"
+      },
+      {
+        "rva": 158010,
+        "bytes": "ff2528bb0200",
+        "slot_rva": 337000,
+        "kind": "jmp"
+      },
+      {
+        "rva": 158099,
+        "bytes": "ff1557ba0200",
+        "slot_rva": 336880,
+        "kind": "call"
+      },
+      {
+        "rva": 158478,
+        "bytes": "ff25e4b70200",
+        "slot_rva": 336632,
+        "kind": "jmp"
+      },
+      {
+        "rva": 158526,
+        "bytes": "ff1524b90200",
+        "slot_rva": 337000,
+        "kind": "call"
+      },
+      {
+        "rva": 158567,
+        "bytes": "ff15d3c30200",
+        "slot_rva": 339776,
+        "kind": "call"
+      },
+      {
+        "rva": 158642,
+        "bytes": "ff15a8b80200",
+        "slot_rva": 336992,
+        "kind": "call"
+      },
+      {
+        "rva": 158663,
+        "bytes": "ff1553b80200",
+        "slot_rva": 336928,
+        "kind": "call"
+      },
+      {
+        "rva": 158686,
+        "bytes": "ff1584b80200",
+        "slot_rva": 337000,
+        "kind": "call"
+      },
+      {
+        "rva": 158784,
+        "bytes": "ff252ab80200",
+        "slot_rva": 337008,
+        "kind": "jmp"
+      },
+      {
+        "rva": 158968,
+        "bytes": "ff15eab50200",
+        "slot_rva": 336616,
+        "kind": "call"
+      },
+      {
+        "rva": 159071,
+        "bytes": "ff1533c20200",
+        "slot_rva": 339864,
+        "kind": "call"
+      },
+      {
+        "rva": 159153,
+        "bytes": "ff1591b60200",
+        "slot_rva": 336968,
+        "kind": "call"
+      },
+      {
+        "rva": 159185,
+        "bytes": "ff15c1c10200",
+        "slot_rva": 339864,
+        "kind": "call"
+      },
+      {
+        "rva": 159240,
+        "bytes": "ff156ac10200",
+        "slot_rva": 339832,
+        "kind": "call"
+      },
+      {
+        "rva": 159535,
+        "bytes": "ff1533c00200",
+        "slot_rva": 339816,
+        "kind": "call"
+      },
+      {
+        "rva": 160631,
+        "bytes": "ff1503bc0200",
+        "slot_rva": 339840,
+        "kind": "call"
+      },
+      {
+        "rva": 160653,
+        "bytes": "ff15f5bb0200",
+        "slot_rva": 339848,
+        "kind": "call"
+      },
+      {
+        "rva": 160851,
+        "bytes": "ff15dfba0200",
+        "slot_rva": 339768,
+        "kind": "call"
+      },
+      {
+        "rva": 161104,
+        "bytes": "ff151aba0200",
+        "slot_rva": 339824,
+        "kind": "call"
+      },
+      {
+        "rva": 161141,
+        "bytes": "ff15edae0200",
+        "slot_rva": 337000,
+        "kind": "call"
+      },
+      {
+        "rva": 161185,
+        "bytes": "ff1599b90200",
+        "slot_rva": 339776,
+        "kind": "call"
+      },
+      {
+        "rva": 161393,
+        "bytes": "ff15d1b80200",
+        "slot_rva": 339784,
+        "kind": "call"
+      },
+      {
+        "rva": 161820,
+        "bytes": "ff153eb70200",
+        "slot_rva": 339808,
+        "kind": "call"
+      },
+      {
+        "rva": 161868,
+        "bytes": "ff150eb70200",
+        "slot_rva": 339808,
+        "kind": "call"
+      },
+      {
+        "rva": 162201,
+        "bytes": "ff15a1aa0200",
+        "slot_rva": 336960,
+        "kind": "call"
+      },
+      {
+        "rva": 162382,
+        "bytes": "ff1514b50200",
+        "slot_rva": 339816,
+        "kind": "call"
+      },
+      {
+        "rva": 162921,
+        "bytes": "ff25f9a60200",
+        "slot_rva": 336744,
+        "kind": "jmp"
+      },
+      {
+        "rva": 163109,
+        "bytes": "ff1565b20200",
+        "slot_rva": 339856,
+        "kind": "call"
+      },
+      {
+        "rva": 163160,
+        "bytes": "ff1532b20200",
+        "slot_rva": 339856,
+        "kind": "call"
+      },
+      {
+        "rva": 163345,
+        "bytes": "ff2559a50200",
+        "slot_rva": 336752,
+        "kind": "jmp"
+      },
+      {
+        "rva": 163466,
+        "bytes": "ff15e8b00200",
+        "slot_rva": 339832,
+        "kind": "call"
+      },
+      {
+        "rva": 164269,
+        "bytes": "ff1595a00200",
+        "slot_rva": 336456,
+        "kind": "call"
+      },
+      {
+        "rva": 164302,
+        "bytes": "ff155ca00200",
+        "slot_rva": 336432,
+        "kind": "call"
+      },
+      {
+        "rva": 164323,
+        "bytes": "ff150fa20200",
+        "slot_rva": 336888,
+        "kind": "call"
+      },
+      {
+        "rva": 164338,
+        "bytes": "ff1530a00200",
+        "slot_rva": 336424,
+        "kind": "call"
+      },
+      {
+        "rva": 164358,
+        "bytes": "ff1554a00200",
+        "slot_rva": 336480,
+        "kind": "call"
+      },
+      {
+        "rva": 164859,
+        "bytes": "ff254f9e0200",
+        "slot_rva": 336464,
+        "kind": "jmp"
+      },
+      {
+        "rva": 165145,
+        "bytes": "ff15319d0200",
+        "slot_rva": 336464,
+        "kind": "call"
+      },
+      {
+        "rva": 165460,
+        "bytes": "ff1526a70200",
+        "slot_rva": 339328,
+        "kind": "call"
+      },
+      {
+        "rva": 165531,
+        "bytes": "ff1577a90200",
+        "slot_rva": 339992,
+        "kind": "call"
+      },
+      {
+        "rva": 165703,
+        "bytes": "ff1513a60200",
+        "slot_rva": 339296,
+        "kind": "call"
+      },
+      {
+        "rva": 166262,
+        "bytes": "ff15449c0200",
+        "slot_rva": 337344,
+        "kind": "call"
+      },
+      {
+        "rva": 166275,
+        "bytes": "ff15d7a30200",
+        "slot_rva": 339296,
+        "kind": "call"
+      },
+      {
+        "rva": 166294,
+        "bytes": "ff15c4a30200",
+        "slot_rva": 339296,
+        "kind": "call"
+      },
+      {
+        "rva": 166303,
+        "bytes": "ff157b9c0200",
+        "slot_rva": 337440,
+        "kind": "call"
+      },
+      {
+        "rva": 166478,
+        "bytes": "ff1524970200",
+        "slot_rva": 336248,
+        "kind": "call"
+      },
+      {
+        "rva": 166967,
+        "bytes": "ff1523a20200",
+        "slot_rva": 339552,
+        "kind": "call"
+      },
+      {
+        "rva": 166979,
+        "bytes": "ff155fa20200",
+        "slot_rva": 339624,
+        "kind": "call"
+      },
+      {
+        "rva": 167312,
+        "bytes": "ff157a920200",
+        "slot_rva": 335888,
+        "kind": "call"
+      },
+      {
+        "rva": 167389,
+        "bytes": "ff1535920200",
+        "slot_rva": 335896,
+        "kind": "call"
+      },
+      {
+        "rva": 167403,
+        "bytes": "ff152f920200",
+        "slot_rva": 335904,
+        "kind": "call"
+      },
+      {
+        "rva": 167572,
+        "bytes": "ff156e910200",
+        "slot_rva": 335880,
+        "kind": "call"
+      },
+      {
+        "rva": 167640,
+        "bytes": "ff1522910200",
+        "slot_rva": 335872,
+        "kind": "call"
+      },
+      {
+        "rva": 167709,
+        "bytes": "ff15dd900200",
+        "slot_rva": 335872,
+        "kind": "call"
+      },
+      {
+        "rva": 167746,
+        "bytes": "ff15d8900200",
+        "slot_rva": 335904,
+        "kind": "call"
+      },
+      {
+        "rva": 168024,
+        "bytes": "ff1532900200",
+        "slot_rva": 336016,
+        "kind": "call"
+      },
+      {
+        "rva": 168039,
+        "bytes": "ff15139d0200",
+        "slot_rva": 339328,
+        "kind": "call"
+      },
+      {
+        "rva": 168080,
+        "bytes": "ff15fa8f0200",
+        "slot_rva": 336016,
+        "kind": "call"
+      },
+      {
+        "rva": 168093,
+        "bytes": "ff15bd9c0200",
+        "slot_rva": 339296,
+        "kind": "call"
+      },
+      {
+        "rva": 168242,
+        "bytes": "ff15d89a0200",
+        "slot_rva": 338960,
+        "kind": "call"
+      },
+      {
+        "rva": 168290,
+        "bytes": "ff15a89a0200",
+        "slot_rva": 338960,
+        "kind": "call"
+      },
+      {
+        "rva": 168444,
+        "bytes": "ff15e69e0200",
+        "slot_rva": 340200,
+        "kind": "call"
+      },
+      {
+        "rva": 168466,
+        "bytes": "ff15808e0200",
+        "slot_rva": 336024,
+        "kind": "call"
+      },
+      {
+        "rva": 168493,
+        "bytes": "ff15558e0200",
+        "slot_rva": 336008,
+        "kind": "call"
+      },
+      {
+        "rva": 168519,
+        "bytes": "ff15339b0200",
+        "slot_rva": 339328,
+        "kind": "call"
+      },
+      {
+        "rva": 168564,
+        "bytes": "ff15268e0200",
+        "slot_rva": 336032,
+        "kind": "call"
+      },
+      {
+        "rva": 168579,
+        "bytes": "ff15d79a0200",
+        "slot_rva": 339296,
+        "kind": "call"
+      },
+      {
+        "rva": 168646,
+        "bytes": "ff15949a0200",
+        "slot_rva": 339296,
+        "kind": "call"
+      },
+      {
+        "rva": 168671,
+        "bytes": "ff15c38d0200",
+        "slot_rva": 336040,
+        "kind": "call"
+      },
+      {
+        "rva": 168718,
+        "bytes": "ff15748d0200",
+        "slot_rva": 336008,
+        "kind": "call"
+      },
+      {
+        "rva": 170443,
+        "bytes": "ff156f880200",
+        "slot_rva": 336448,
+        "kind": "call"
+      },
+      {
+        "rva": 172254,
+        "bytes": "ff1544800200",
+        "slot_rva": 336168,
+        "kind": "call"
+      },
+      {
+        "rva": 173140,
+        "bytes": "ff15367d0200",
+        "slot_rva": 336272,
+        "kind": "call"
+      },
+      {
+        "rva": 174716,
+        "bytes": "ff159e760200",
+        "slot_rva": 336160,
+        "kind": "call"
+      },
+      {
+        "rva": 181067,
+        "bytes": "ff15ff5d0200",
+        "slot_rva": 336208,
+        "kind": "call"
+      },
+      {
+        "rva": 181095,
+        "bytes": "ff15db5d0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 181115,
+        "bytes": "ff15c75d0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 181135,
+        "bytes": "ff15b35d0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 181219,
+        "bytes": "ff154f5d0200",
+        "slot_rva": 336184,
+        "kind": "call"
+      },
+      {
+        "rva": 181428,
+        "bytes": "ff157e5c0200",
+        "slot_rva": 336184,
+        "kind": "call"
+      },
+      {
+        "rva": 181484,
+        "bytes": "ff25966b0200",
+        "slot_rva": 340104,
+        "kind": "jmp"
+      },
+      {
+        "rva": 184476,
+        "bytes": "ff15a6500200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184515,
+        "bytes": "ff157f500200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184549,
+        "bytes": "ff155d500200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184583,
+        "bytes": "ff153b500200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184617,
+        "bytes": "ff1519500200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184651,
+        "bytes": "ff15f74f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184690,
+        "bytes": "ff15d04f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184724,
+        "bytes": "ff15ae4f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184758,
+        "bytes": "ff158c4f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184792,
+        "bytes": "ff156a4f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184826,
+        "bytes": "ff15484f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184860,
+        "bytes": "ff15264f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184894,
+        "bytes": "ff15044f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184933,
+        "bytes": "ff15dd4e0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 184967,
+        "bytes": "ff15bb4e0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185001,
+        "bytes": "ff15994e0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185035,
+        "bytes": "ff15774e0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185069,
+        "bytes": "ff15554e0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185103,
+        "bytes": "ff15334e0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185140,
+        "bytes": "ff150e4e0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185177,
+        "bytes": "ff15e94d0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185214,
+        "bytes": "ff15c44d0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185251,
+        "bytes": "ff159f4d0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185288,
+        "bytes": "ff157a4d0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185325,
+        "bytes": "ff15554d0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185362,
+        "bytes": "ff15304d0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185399,
+        "bytes": "ff150b4d0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185436,
+        "bytes": "ff15e64c0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185473,
+        "bytes": "ff15c14c0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185510,
+        "bytes": "ff159c4c0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185547,
+        "bytes": "ff15774c0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185584,
+        "bytes": "ff15524c0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185621,
+        "bytes": "ff152d4c0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185658,
+        "bytes": "ff15084c0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185695,
+        "bytes": "ff15e34b0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185732,
+        "bytes": "ff15be4b0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185769,
+        "bytes": "ff15994b0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185806,
+        "bytes": "ff15744b0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185843,
+        "bytes": "ff154f4b0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185880,
+        "bytes": "ff152a4b0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185917,
+        "bytes": "ff15054b0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185954,
+        "bytes": "ff15e04a0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 185991,
+        "bytes": "ff15bb4a0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186028,
+        "bytes": "ff15964a0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186065,
+        "bytes": "ff15714a0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186102,
+        "bytes": "ff154c4a0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186139,
+        "bytes": "ff15274a0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186176,
+        "bytes": "ff15024a0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186213,
+        "bytes": "ff15dd490200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186250,
+        "bytes": "ff15b8490200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186287,
+        "bytes": "ff1593490200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186324,
+        "bytes": "ff156e490200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186361,
+        "bytes": "ff1549490200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186398,
+        "bytes": "ff1524490200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186435,
+        "bytes": "ff15ff480200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186472,
+        "bytes": "ff15da480200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186509,
+        "bytes": "ff15b5480200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186546,
+        "bytes": "ff1590480200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186583,
+        "bytes": "ff156b480200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186620,
+        "bytes": "ff1546480200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186657,
+        "bytes": "ff1521480200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186694,
+        "bytes": "ff15fc470200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186731,
+        "bytes": "ff15d7470200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186768,
+        "bytes": "ff15b2470200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186805,
+        "bytes": "ff158d470200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186842,
+        "bytes": "ff1568470200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186879,
+        "bytes": "ff1543470200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186916,
+        "bytes": "ff151e470200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186953,
+        "bytes": "ff15f9460200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 186990,
+        "bytes": "ff15d4460200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187027,
+        "bytes": "ff15af460200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187064,
+        "bytes": "ff158a460200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187101,
+        "bytes": "ff1565460200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187138,
+        "bytes": "ff1540460200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187175,
+        "bytes": "ff151b460200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187212,
+        "bytes": "ff15f6450200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187249,
+        "bytes": "ff15d1450200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187286,
+        "bytes": "ff15ac450200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187323,
+        "bytes": "ff1587450200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187360,
+        "bytes": "ff1562450200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187397,
+        "bytes": "ff153d450200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187434,
+        "bytes": "ff1518450200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187471,
+        "bytes": "ff15f3440200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187508,
+        "bytes": "ff15ce440200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187545,
+        "bytes": "ff15a9440200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187582,
+        "bytes": "ff1584440200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187619,
+        "bytes": "ff155f440200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187656,
+        "bytes": "ff153a440200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187693,
+        "bytes": "ff1515440200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187730,
+        "bytes": "ff15f0430200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187767,
+        "bytes": "ff15cb430200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187804,
+        "bytes": "ff15a6430200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187841,
+        "bytes": "ff1581430200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187878,
+        "bytes": "ff155c430200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187915,
+        "bytes": "ff1537430200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187952,
+        "bytes": "ff1512430200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 187989,
+        "bytes": "ff15ed420200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188026,
+        "bytes": "ff15c8420200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188063,
+        "bytes": "ff15a3420200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188100,
+        "bytes": "ff157e420200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188137,
+        "bytes": "ff1559420200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188174,
+        "bytes": "ff1534420200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188211,
+        "bytes": "ff150f420200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188248,
+        "bytes": "ff15ea410200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188285,
+        "bytes": "ff15c5410200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188322,
+        "bytes": "ff15a0410200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188359,
+        "bytes": "ff157b410200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188396,
+        "bytes": "ff1556410200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188433,
+        "bytes": "ff1531410200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188470,
+        "bytes": "ff150c410200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188507,
+        "bytes": "ff15e7400200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188544,
+        "bytes": "ff15c2400200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188581,
+        "bytes": "ff159d400200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188618,
+        "bytes": "ff1578400200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188655,
+        "bytes": "ff1553400200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188692,
+        "bytes": "ff152e400200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188729,
+        "bytes": "ff1509400200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188766,
+        "bytes": "ff15e43f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188803,
+        "bytes": "ff15bf3f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188840,
+        "bytes": "ff159a3f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188877,
+        "bytes": "ff15753f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188914,
+        "bytes": "ff15503f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188951,
+        "bytes": "ff152b3f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 188988,
+        "bytes": "ff15063f0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 189118,
+        "bytes": "ff25743e0200",
+        "slot_rva": 336184,
+        "kind": "jmp"
+      },
+      {
+        "rva": 189256,
+        "bytes": "ff25ea3d0200",
+        "slot_rva": 336184,
+        "kind": "jmp"
+      },
+      {
+        "rva": 192848,
+        "bytes": "ff15e22f0200",
+        "slot_rva": 336184,
+        "kind": "call"
+      },
+      {
+        "rva": 192877,
+        "bytes": "ff15c52f0200",
+        "slot_rva": 336184,
+        "kind": "call"
+      },
+      {
+        "rva": 192906,
+        "bytes": "ff15a82f0200",
+        "slot_rva": 336184,
+        "kind": "call"
+      },
+      {
+        "rva": 193030,
+        "bytes": "ff156c2f0200",
+        "slot_rva": 336248,
+        "kind": "call"
+      },
+      {
+        "rva": 193759,
+        "bytes": "ff15b32c0200",
+        "slot_rva": 336280,
+        "kind": "call"
+      },
+      {
+        "rva": 194076,
+        "bytes": "ff157e2b0200",
+        "slot_rva": 336288,
+        "kind": "call"
+      },
+      {
+        "rva": 194157,
+        "bytes": "ff15352b0200",
+        "slot_rva": 336296,
+        "kind": "call"
+      },
+      {
+        "rva": 194189,
+        "bytes": "ff15b52a0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 194218,
+        "bytes": "ff15f82a0200",
+        "slot_rva": 336296,
+        "kind": "call"
+      },
+      {
+        "rva": 194250,
+        "bytes": "ff15782a0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 194279,
+        "bytes": "ff15bb2a0200",
+        "slot_rva": 336296,
+        "kind": "call"
+      },
+      {
+        "rva": 194311,
+        "bytes": "ff153b2a0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 194347,
+        "bytes": "ff15172a0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 194383,
+        "bytes": "ff15f3290200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 194419,
+        "bytes": "ff15cf290200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 194455,
+        "bytes": "ff15ab290200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 194503,
+        "bytes": "ff151b390200",
+        "slot_rva": 340200,
+        "kind": "call"
+      },
+      {
+        "rva": 195458,
+        "bytes": "ff15a8250200",
+        "slot_rva": 336176,
+        "kind": "call"
+      },
+      {
+        "rva": 195509,
+        "bytes": "ff15a5250200",
+        "slot_rva": 336224,
+        "kind": "call"
+      },
+      {
+        "rva": 195566,
+        "bytes": "ff1564250200",
+        "slot_rva": 336216,
+        "kind": "call"
+      },
+      {
+        "rva": 196557,
+        "bytes": "ff153d210200",
+        "slot_rva": 336144,
+        "kind": "call"
+      },
+      {
+        "rva": 197750,
+        "bytes": "ff25241c0200",
+        "slot_rva": 336032,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197756,
+        "bytes": "ff25161c0200",
+        "slot_rva": 336024,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197762,
+        "bytes": "ff25081c0200",
+        "slot_rva": 336016,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197768,
+        "bytes": "ff251a1c0200",
+        "slot_rva": 336040,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197774,
+        "bytes": "ff25f41b0200",
+        "slot_rva": 336008,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197780,
+        "bytes": "ff2526210200",
+        "slot_rva": 337344,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197786,
+        "bytes": "ff2580210200",
+        "slot_rva": 337440,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197792,
+        "bytes": "ff256a1c0200",
+        "slot_rva": 336144,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197798,
+        "bytes": "ff256c1c0200",
+        "slot_rva": 336152,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197804,
+        "bytes": "ff256e1c0200",
+        "slot_rva": 336160,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197810,
+        "bytes": "ff25701c0200",
+        "slot_rva": 336168,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197816,
+        "bytes": "ff25721c0200",
+        "slot_rva": 336176,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197822,
+        "bytes": "ff25741c0200",
+        "slot_rva": 336184,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197828,
+        "bytes": "ff25761c0200",
+        "slot_rva": 336192,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197834,
+        "bytes": "ff25781c0200",
+        "slot_rva": 336200,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197840,
+        "bytes": "ff257a1c0200",
+        "slot_rva": 336208,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197846,
+        "bytes": "ff257c1c0200",
+        "slot_rva": 336216,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197852,
+        "bytes": "ff257e1c0200",
+        "slot_rva": 336224,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197858,
+        "bytes": "ff25801c0200",
+        "slot_rva": 336232,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197864,
+        "bytes": "ff25821c0200",
+        "slot_rva": 336240,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197870,
+        "bytes": "ff25841c0200",
+        "slot_rva": 336248,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197888,
+        "bytes": "ff257a1c0200",
+        "slot_rva": 336256,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197904,
+        "bytes": "ff25721c0200",
+        "slot_rva": 336264,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197910,
+        "bytes": "ff25741c0200",
+        "slot_rva": 336272,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197916,
+        "bytes": "ff25761c0200",
+        "slot_rva": 336280,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197922,
+        "bytes": "ff25781c0200",
+        "slot_rva": 336288,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197928,
+        "bytes": "ff257a1c0200",
+        "slot_rva": 336296,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197934,
+        "bytes": "ff25b42b0200",
+        "slot_rva": 340200,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197940,
+        "bytes": "ff25e61a0200",
+        "slot_rva": 335904,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197946,
+        "bytes": "ff25c81a0200",
+        "slot_rva": 335880,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197952,
+        "bytes": "ff25ca1a0200",
+        "slot_rva": 335888,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197958,
+        "bytes": "ff25cc1a0200",
+        "slot_rva": 335896,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197964,
+        "bytes": "ff25ae1a0200",
+        "slot_rva": 335872,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197970,
+        "bytes": "ff25101d0200",
+        "slot_rva": 336488,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197976,
+        "bytes": "ff25121d0200",
+        "slot_rva": 336496,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197982,
+        "bytes": "ff25141d0200",
+        "slot_rva": 336504,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197988,
+        "bytes": "ff25161d0200",
+        "slot_rva": 336512,
+        "kind": "jmp"
+      },
+      {
+        "rva": 197994,
+        "bytes": "ff25181d0200",
+        "slot_rva": 336520,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198000,
+        "bytes": "ff251a1d0200",
+        "slot_rva": 336528,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198006,
+        "bytes": "ff251c1d0200",
+        "slot_rva": 336536,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198012,
+        "bytes": "ff251e1d0200",
+        "slot_rva": 336544,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198018,
+        "bytes": "ff25201d0200",
+        "slot_rva": 336552,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198024,
+        "bytes": "ff25221d0200",
+        "slot_rva": 336560,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198030,
+        "bytes": "ff25241d0200",
+        "slot_rva": 336568,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198036,
+        "bytes": "ff25261d0200",
+        "slot_rva": 336576,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198042,
+        "bytes": "ff25281d0200",
+        "slot_rva": 336584,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198048,
+        "bytes": "ff252a1d0200",
+        "slot_rva": 336592,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198054,
+        "bytes": "ff252c1d0200",
+        "slot_rva": 336600,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198060,
+        "bytes": "ff252e1d0200",
+        "slot_rva": 336608,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198066,
+        "bytes": "ff25301d0200",
+        "slot_rva": 336616,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198072,
+        "bytes": "ff25321d0200",
+        "slot_rva": 336624,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198078,
+        "bytes": "ff25341d0200",
+        "slot_rva": 336632,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198084,
+        "bytes": "ff25361d0200",
+        "slot_rva": 336640,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198090,
+        "bytes": "ff25381d0200",
+        "slot_rva": 336648,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198096,
+        "bytes": "ff253a1d0200",
+        "slot_rva": 336656,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198102,
+        "bytes": "ff253c1d0200",
+        "slot_rva": 336664,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198108,
+        "bytes": "ff253e1d0200",
+        "slot_rva": 336672,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198114,
+        "bytes": "ff25401d0200",
+        "slot_rva": 336680,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198128,
+        "bytes": "ff253a1d0200",
+        "slot_rva": 336688,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198144,
+        "bytes": "ff25321d0200",
+        "slot_rva": 336696,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198160,
+        "bytes": "ff252a1d0200",
+        "slot_rva": 336704,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198176,
+        "bytes": "ff25221d0200",
+        "slot_rva": 336712,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198192,
+        "bytes": "ff251a1d0200",
+        "slot_rva": 336720,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198208,
+        "bytes": "ff25121d0200",
+        "slot_rva": 336728,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198224,
+        "bytes": "ff250a1d0200",
+        "slot_rva": 336736,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198240,
+        "bytes": "ff25021d0200",
+        "slot_rva": 336744,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198256,
+        "bytes": "ff25fa1c0200",
+        "slot_rva": 336752,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198262,
+        "bytes": "ff25fc1c0200",
+        "slot_rva": 336760,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198268,
+        "bytes": "ff25fe1c0200",
+        "slot_rva": 336768,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198274,
+        "bytes": "ff25001d0200",
+        "slot_rva": 336776,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198280,
+        "bytes": "ff25021d0200",
+        "slot_rva": 336784,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198286,
+        "bytes": "ff25041d0200",
+        "slot_rva": 336792,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198292,
+        "bytes": "ff25061d0200",
+        "slot_rva": 336800,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198682,
+        "bytes": "ff25881b0200",
+        "slot_rva": 336808,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198688,
+        "bytes": "ff258a1b0200",
+        "slot_rva": 336816,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198694,
+        "bytes": "ff258c1b0200",
+        "slot_rva": 336824,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198700,
+        "bytes": "ff258e1b0200",
+        "slot_rva": 336832,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198706,
+        "bytes": "ff25901b0200",
+        "slot_rva": 336840,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198712,
+        "bytes": "ff25921b0200",
+        "slot_rva": 336848,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198718,
+        "bytes": "ff25941b0200",
+        "slot_rva": 336856,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198724,
+        "bytes": "ff25961b0200",
+        "slot_rva": 336864,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198730,
+        "bytes": "ff25981b0200",
+        "slot_rva": 336872,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198736,
+        "bytes": "ff259a1b0200",
+        "slot_rva": 336880,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198742,
+        "bytes": "ff259c1b0200",
+        "slot_rva": 336888,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198748,
+        "bytes": "ff259e1b0200",
+        "slot_rva": 336896,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198754,
+        "bytes": "ff25a01b0200",
+        "slot_rva": 336904,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198760,
+        "bytes": "ff25a21b0200",
+        "slot_rva": 336912,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198766,
+        "bytes": "ff25a41b0200",
+        "slot_rva": 336920,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198772,
+        "bytes": "ff25a61b0200",
+        "slot_rva": 336928,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198778,
+        "bytes": "ff25a81b0200",
+        "slot_rva": 336936,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198784,
+        "bytes": "ff25aa1b0200",
+        "slot_rva": 336944,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198790,
+        "bytes": "ff25ac1b0200",
+        "slot_rva": 336952,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198796,
+        "bytes": "ff25ae1b0200",
+        "slot_rva": 336960,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198802,
+        "bytes": "ff25b01b0200",
+        "slot_rva": 336968,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198808,
+        "bytes": "ff25b21b0200",
+        "slot_rva": 336976,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198814,
+        "bytes": "ff25b41b0200",
+        "slot_rva": 336984,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198820,
+        "bytes": "ff25b61b0200",
+        "slot_rva": 336992,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198826,
+        "bytes": "ff25b81b0200",
+        "slot_rva": 337000,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198832,
+        "bytes": "ff25ba1b0200",
+        "slot_rva": 337008,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198838,
+        "bytes": "ff25bc1b0200",
+        "slot_rva": 337016,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198844,
+        "bytes": "ff25be1b0200",
+        "slot_rva": 337024,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198850,
+        "bytes": "ff25c01b0200",
+        "slot_rva": 337032,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198856,
+        "bytes": "ff25c21b0200",
+        "slot_rva": 337040,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198862,
+        "bytes": "ff25c41b0200",
+        "slot_rva": 337048,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198868,
+        "bytes": "ff25c61b0200",
+        "slot_rva": 337056,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198874,
+        "bytes": "ff25c81b0200",
+        "slot_rva": 337064,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198880,
+        "bytes": "ff25ca1b0200",
+        "slot_rva": 337072,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198896,
+        "bytes": "ff25c21b0200",
+        "slot_rva": 337080,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198902,
+        "bytes": "ff2564190200",
+        "slot_rva": 336480,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198908,
+        "bytes": "ff252e190200",
+        "slot_rva": 336432,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198914,
+        "bytes": "ff2520190200",
+        "slot_rva": 336424,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198920,
+        "bytes": "ff252a190200",
+        "slot_rva": 336440,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198926,
+        "bytes": "ff252c190200",
+        "slot_rva": 336448,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198932,
+        "bytes": "ff252e190200",
+        "slot_rva": 336456,
+        "kind": "jmp"
+      },
+      {
+        "rva": 198938,
+        "bytes": "ff2530190200",
+        "slot_rva": 336464,
+        "kind": "jmp"
+      },
+      {
+        "rva": 201798,
+        "bytes": "ff15fc160200",
+        "slot_rva": 338760,
+        "kind": "call"
+      },
+      {
+        "rva": 201811,
+        "bytes": "ff150f0d0200",
+        "slot_rva": 336232,
+        "kind": "call"
+      },
+      {
+        "rva": 201832,
+        "bytes": "ff15fa0c0200",
+        "slot_rva": 336232,
+        "kind": "call"
+      },
+      {
+        "rva": 201856,
+        "bytes": "ff15c20c0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 201875,
+        "bytes": "ff15af0c0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 201919,
+        "bytes": "ff1563160200",
+        "slot_rva": 338728,
+        "kind": "call"
+      },
+      {
+        "rva": 202058,
+        "bytes": "ff15f8150200",
+        "slot_rva": 338760,
+        "kind": "call"
+      },
+      {
+        "rva": 202071,
+        "bytes": "ff150b0c0200",
+        "slot_rva": 336232,
+        "kind": "call"
+      },
+      {
+        "rva": 202092,
+        "bytes": "ff15f60b0200",
+        "slot_rva": 336232,
+        "kind": "call"
+      },
+      {
+        "rva": 202116,
+        "bytes": "ff15be0b0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 202135,
+        "bytes": "ff15ab0b0200",
+        "slot_rva": 336200,
+        "kind": "call"
+      },
+      {
+        "rva": 202188,
+        "bytes": "ff1556150200",
+        "slot_rva": 338728,
+        "kind": "call"
+      },
+      {
+        "rva": 202283,
+        "bytes": "ff15df140200",
+        "slot_rva": 338704,
+        "kind": "call"
+      },
+      {
+        "rva": 202301,
+        "bytes": "ff154d0b0200",
+        "slot_rva": 336272,
+        "kind": "call"
+      },
+      {
+        "rva": 202340,
+        "bytes": "ff15ae140200",
+        "slot_rva": 338712,
+        "kind": "call"
+      },
+      {
+        "rva": 202356,
+        "bytes": "ff15a6140200",
+        "slot_rva": 338720,
+        "kind": "call"
+      },
+      {
+        "rva": 202400,
+        "bytes": "ff1572140200",
+        "slot_rva": 338712,
+        "kind": "call"
+      },
+      {
+        "rva": 202464,
+        "bytes": "ff153a140200",
+        "slot_rva": 338720,
+        "kind": "call"
+      },
+      {
+        "rva": 202520,
+        "bytes": "ff15fa130200",
+        "slot_rva": 338712,
+        "kind": "call"
+      },
+      {
+        "rva": 202601,
+        "bytes": "ff25b1130200",
+        "slot_rva": 338720,
+        "kind": "jmp"
+      },
+      {
+        "rva": 202640,
+        "bytes": "ff2582130200",
+        "slot_rva": 338712,
+        "kind": "jmp"
+      },
+      {
+        "rva": 202693,
+        "bytes": "ff1575130200",
+        "slot_rva": 338752,
+        "kind": "call"
+      },
+      {
+        "rva": 202711,
+        "bytes": "ff255b130200",
+        "slot_rva": 338744,
+        "kind": "jmp"
+      },
+      {
+        "rva": 202744,
+        "bytes": "ff2522130200",
+        "slot_rva": 338720,
+        "kind": "jmp"
+      },
+      {
+        "rva": 202812,
+        "bytes": "ff15de120200",
+        "slot_rva": 338720,
+        "kind": "call"
+      },
+      {
+        "rva": 202830,
+        "bytes": "ff15dc120200",
+        "slot_rva": 338736,
+        "kind": "call"
+      },
+      {
+        "rva": 202849,
+        "bytes": "ff25b1120200",
+        "slot_rva": 338712,
+        "kind": "jmp"
+      },
+      {
+        "rva": 204135,
+        "bytes": "ff15db0a0200",
+        "slot_rva": 337992,
+        "kind": "call"
+      },
+      {
+        "rva": 204144,
+        "bytes": "ff15ca0a0200",
+        "slot_rva": 337984,
+        "kind": "call"
+      },
+      {
+        "rva": 204150,
+        "bytes": "ff15fc030200",
+        "slot_rva": 336248,
+        "kind": "call"
+      },
+      {
+        "rva": 204170,
+        "bytes": "ff25f00b0200",
+        "slot_rva": 338304,
+        "kind": "jmp"
+      },
+      {
+        "rva": 204206,
+        "bytes": "ff152c0c0200",
+        "slot_rva": 338400,
+        "kind": "call"
+      },
+      {
+        "rva": 204501,
+        "bytes": "ff15050b0200",
+        "slot_rva": 338400,
+        "kind": "call"
+      },
+      {
+        "rva": 204706,
+        "bytes": "ff15380a0200",
+        "slot_rva": 338400,
+        "kind": "call"
+      },
+      {
+        "rva": 205037,
+        "bytes": "ff15ad090200",
+        "slot_rva": 338592,
+        "kind": "call"
+      },
+      {
+        "rva": 205061,
+        "bytes": "ff15a5090200",
+        "slot_rva": 338608,
+        "kind": "call"
+      },
+      {
+        "rva": 205116,
+        "bytes": "ff1566090200",
+        "slot_rva": 338600,
+        "kind": "call"
+      },
+      {
+        "rva": 205171,
+        "bytes": "ff1527090200",
+        "slot_rva": 338592,
+        "kind": "call"
+      },
+      {
+        "rva": 205197,
+        "bytes": "ff151d090200",
+        "slot_rva": 338608,
+        "kind": "call"
+      },
+      {
+        "rva": 205252,
+        "bytes": "ff15de080200",
+        "slot_rva": 338600,
+        "kind": "call"
+      },
+      {
+        "rva": 206108,
+        "bytes": "ff15be040200",
+        "slot_rva": 338400,
+        "kind": "call"
+      },
+      {
+        "rva": 206153,
+        "bytes": "ff1551050200",
+        "slot_rva": 338592,
+        "kind": "call"
+      },
+      {
+        "rva": 206179,
+        "bytes": "ff1547050200",
+        "slot_rva": 338608,
+        "kind": "call"
+      },
+      {
+        "rva": 206244,
+        "bytes": "ff15fe040200",
+        "slot_rva": 338600,
+        "kind": "call"
+      },
+      {
+        "rva": 206328,
+        "bytes": "ff15e2010200",
+        "slot_rva": 337888,
+        "kind": "call"
+      },
+      {
+        "rva": 206361,
+        "bytes": "ff1529020200",
+        "slot_rva": 337992,
+        "kind": "call"
+      },
+      {
+        "rva": 206372,
+        "bytes": "ff1516020200",
+        "slot_rva": 337984,
+        "kind": "call"
+      },
+      {
+        "rva": 206524,
+        "bytes": "ff15a6020200",
+        "slot_rva": 338280,
+        "kind": "call"
+      },
+      {
+        "rva": 206586,
+        "bytes": "ff1568fa0100",
+        "slot_rva": 336232,
+        "kind": "call"
+      },
+      {
+        "rva": 206692,
+        "bytes": "ff25de000200",
+        "slot_rva": 337992,
+        "kind": "jmp"
+      },
+      {
+        "rva": 206854,
+        "bytes": "ff15a4030200",
+        "slot_rva": 338864,
+        "kind": "call"
+      },
+      {
+        "rva": 206868,
+        "bytes": "ff155e010200",
+        "slot_rva": 338296,
+        "kind": "call"
+      },
+      {
+        "rva": 206880,
+        "bytes": "ff154a010200",
+        "slot_rva": 338288,
+        "kind": "call"
+      },
+      {
+        "rva": 206896,
+        "bytes": "ff150a020200",
+        "slot_rva": 338496,
+        "kind": "call"
+      },
+      {
+        "rva": 207016,
+        "bytes": "ff1502030200",
+        "slot_rva": 338864,
+        "kind": "call"
+      },
+      {
+        "rva": 207030,
+        "bytes": "ff15bc000200",
+        "slot_rva": 338296,
+        "kind": "call"
+      },
+      {
+        "rva": 207042,
+        "bytes": "ff15a8000200",
+        "slot_rva": 338288,
+        "kind": "call"
+      },
+      {
+        "rva": 207058,
+        "bytes": "ff1568010200",
+        "slot_rva": 338496,
+        "kind": "call"
+      },
+      {
+        "rva": 207207,
+        "bytes": "ff159bff0100",
+        "slot_rva": 338184,
+        "kind": "call"
+      },
+      {
+        "rva": 207240,
+        "bytes": "ff251aff0100",
+        "slot_rva": 338088,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207479,
+        "bytes": "ff259b000200",
+        "slot_rva": 338712,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207485,
+        "bytes": "ff259d000200",
+        "slot_rva": 338720,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207491,
+        "bytes": "ff25bf000200",
+        "slot_rva": 338760,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207497,
+        "bytes": "ff2581000200",
+        "slot_rva": 338704,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207503,
+        "bytes": "ff25ab000200",
+        "slot_rva": 338752,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207509,
+        "bytes": "ff259d000200",
+        "slot_rva": 338744,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207515,
+        "bytes": "ff258f000200",
+        "slot_rva": 338736,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207521,
+        "bytes": "ff2581000200",
+        "slot_rva": 338728,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207527,
+        "bytes": "ff25f3ff0100",
+        "slot_rva": 338592,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207533,
+        "bytes": "ff25fdff0100",
+        "slot_rva": 338608,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207539,
+        "bytes": "ff25efff0100",
+        "slot_rva": 338600,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207545,
+        "bytes": "ff2581fd0100",
+        "slot_rva": 337984,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207551,
+        "bytes": "ff2583fd0100",
+        "slot_rva": 337992,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207557,
+        "bytes": "ff25b5fe0100",
+        "slot_rva": 338304,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207563,
+        "bytes": "ff250fff0100",
+        "slot_rva": 338400,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207569,
+        "bytes": "ff2509fd0100",
+        "slot_rva": 337888,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207575,
+        "bytes": "ff258bfe0100",
+        "slot_rva": 338280,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207581,
+        "bytes": "ff255dff0100",
+        "slot_rva": 338496,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207587,
+        "bytes": "ff2587fe0100",
+        "slot_rva": 338288,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207593,
+        "bytes": "ff2589fe0100",
+        "slot_rva": 338296,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207599,
+        "bytes": "ff25bb000200",
+        "slot_rva": 338864,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207605,
+        "bytes": "ff250dfe0100",
+        "slot_rva": 338184,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207611,
+        "bytes": "ff25a7fd0100",
+        "slot_rva": 338088,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207617,
+        "bytes": "ff2581fb0100",
+        "slot_rva": 337544,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207623,
+        "bytes": "ff25ebfb0100",
+        "slot_rva": 337656,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207629,
+        "bytes": "ff25edfb0100",
+        "slot_rva": 337664,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207635,
+        "bytes": "ff25effb0100",
+        "slot_rva": 337672,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207641,
+        "bytes": "ff2561fc0100",
+        "slot_rva": 337792,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207647,
+        "bytes": "ff25abfb0100",
+        "slot_rva": 337616,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207653,
+        "bytes": "ff25c5fb0100",
+        "slot_rva": 337648,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207664,
+        "bytes": "ff25b2fb0100",
+        "slot_rva": 337640,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207680,
+        "bytes": "ff259afb0100",
+        "slot_rva": 337632,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207686,
+        "bytes": "ff258cfb0100",
+        "slot_rva": 337624,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207692,
+        "bytes": "ff253efb0100",
+        "slot_rva": 337552,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207698,
+        "bytes": "ff2570fb0100",
+        "slot_rva": 337608,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207712,
+        "bytes": "ff255afb0100",
+        "slot_rva": 337600,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207728,
+        "bytes": "ff2542fb0100",
+        "slot_rva": 337592,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207744,
+        "bytes": "ff252afb0100",
+        "slot_rva": 337584,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207750,
+        "bytes": "ff251cfb0100",
+        "slot_rva": 337576,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207756,
+        "bytes": "ff250efb0100",
+        "slot_rva": 337568,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207762,
+        "bytes": "ff2500fb0100",
+        "slot_rva": 337560,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207768,
+        "bytes": "ff25e2fa0100",
+        "slot_rva": 337536,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207774,
+        "bytes": "ff25fc020200",
+        "slot_rva": 339616,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207780,
+        "bytes": "ff25a6030200",
+        "slot_rva": 339792,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207792,
+        "bytes": "ff25a2030200",
+        "slot_rva": 339800,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207798,
+        "bytes": "ff2534020200",
+        "slot_rva": 339440,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207804,
+        "bytes": "ff2526020200",
+        "slot_rva": 339432,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207810,
+        "bytes": "ff2578030200",
+        "slot_rva": 339776,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207816,
+        "bytes": "ff25d2030200",
+        "slot_rva": 339872,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207822,
+        "bytes": "ff2574030200",
+        "slot_rva": 339784,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207828,
+        "bytes": "ff2586030200",
+        "slot_rva": 339808,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207834,
+        "bytes": "ff25a8030200",
+        "slot_rva": 339848,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207840,
+        "bytes": "ff25b2030200",
+        "slot_rva": 339864,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207846,
+        "bytes": "ff25a4030200",
+        "slot_rva": 339856,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207852,
+        "bytes": "ff2546030200",
+        "slot_rva": 339768,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207858,
+        "bytes": "ff2588030200",
+        "slot_rva": 339840,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207864,
+        "bytes": "ff257a030200",
+        "slot_rva": 339832,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207870,
+        "bytes": "ff256c030200",
+        "slot_rva": 339824,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207876,
+        "bytes": "ff255e030200",
+        "slot_rva": 339816,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207882,
+        "bytes": "ff25d8000200",
+        "slot_rva": 339176,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207888,
+        "bytes": "ff25e2000200",
+        "slot_rva": 339192,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207904,
+        "bytes": "ff253a020200",
+        "slot_rva": 339552,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207910,
+        "bytes": "ff25f4030200",
+        "slot_rva": 340000,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207916,
+        "bytes": "ff2536010200",
+        "slot_rva": 339304,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207936,
+        "bytes": "ff251a010200",
+        "slot_rva": 339296,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207942,
+        "bytes": "ff252c010200",
+        "slot_rva": 339320,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207948,
+        "bytes": "ff25ceff0100",
+        "slot_rva": 338976,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207954,
+        "bytes": "ff25c0ff0100",
+        "slot_rva": 338968,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207960,
+        "bytes": "ff25a2000200",
+        "slot_rva": 339200,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207966,
+        "bytes": "ff2524000200",
+        "slot_rva": 339080,
+        "kind": "jmp"
+      },
+      {
+        "rva": 207984,
+        "bytes": "ff2532020200",
+        "slot_rva": 339624,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208000,
+        "bytes": "ff2592030200",
+        "slot_rva": 339992,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208016,
+        "bytes": "ff257aff0100",
+        "slot_rva": 338960,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208032,
+        "bytes": "ff25da000200",
+        "slot_rva": 339328,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208048,
+        "bytes": "ff2572030200",
+        "slot_rva": 340008,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208064,
+        "bytes": "ff254a030200",
+        "slot_rva": 339984,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208080,
+        "bytes": "ff25aaff0100",
+        "slot_rva": 339072,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208096,
+        "bytes": "ff250a000200",
+        "slot_rva": 339184,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208102,
+        "bytes": "ff25a4010200",
+        "slot_rva": 339600,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208108,
+        "bytes": "ff257e000200",
+        "slot_rva": 339312,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208114,
+        "bytes": "ff2570010200",
+        "slot_rva": 339560,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208120,
+        "bytes": "ff259a010200",
+        "slot_rva": 339608,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208126,
+        "bytes": "ff2574010200",
+        "slot_rva": 339576,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208132,
+        "bytes": "ff25a6010200",
+        "slot_rva": 339632,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208138,
+        "bytes": "ff25b0010200",
+        "slot_rva": 339648,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208144,
+        "bytes": "ff253a010200",
+        "slot_rva": 339536,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208150,
+        "bytes": "ff253c010200",
+        "slot_rva": 339544,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208156,
+        "bytes": "ff254e010200",
+        "slot_rva": 339568,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208162,
+        "bytes": "ff2590010200",
+        "slot_rva": 339640,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208168,
+        "bytes": "ff2552010200",
+        "slot_rva": 339584,
+        "kind": "jmp"
+      },
+      {
+        "rva": 208174,
+        "bytes": "ff2554010200",
+        "slot_rva": 339592,
+        "kind": "jmp"
+      },
+      {
+        "rva": 224193,
+        "bytes": "ff1549b50100",
+        "slot_rva": 336144,
+        "kind": "call"
+      },
+      {
+        "rva": 225155,
+        "bytes": "ff156fb30100",
+        "slot_rva": 336632,
+        "kind": "call"
+      },
+      {
+        "rva": 225267,
+        "bytes": "ff15ffb20100",
+        "slot_rva": 336632,
+        "kind": "call"
+      },
+      {
+        "rva": 225426,
+        "bytes": "ff1558b20100",
+        "slot_rva": 336624,
+        "kind": "call"
+      },
+      {
+        "rva": 225468,
+        "bytes": "ff254eb20100",
+        "slot_rva": 336656,
+        "kind": "jmp"
+      },
+      {
+        "rva": 226168,
+        "bytes": "ff2512b00100",
+        "slot_rva": 336784,
+        "kind": "jmp"
+      },
+      {
+        "rva": 226216,
+        "bytes": "ff25e2af0100",
+        "slot_rva": 336784,
+        "kind": "jmp"
+      },
+      {
+        "rva": 226395,
+        "bytes": "ff1567af0100",
+        "slot_rva": 336840,
+        "kind": "call"
+      },
+      {
+        "rva": 226424,
+        "bytes": "ff258aaf0100",
+        "slot_rva": 336904,
+        "kind": "jmp"
+      },
+      {
+        "rva": 226456,
+        "bytes": "ff25f2ae0100",
+        "slot_rva": 336784,
+        "kind": "jmp"
+      },
+      {
+        "rva": 226834,
+        "bytes": "ff15d8ac0100",
+        "slot_rva": 336624,
+        "kind": "call"
+      },
+      {
+        "rva": 226876,
+        "bytes": "ff25ceac0100",
+        "slot_rva": 336656,
+        "kind": "jmp"
+      },
+      {
+        "rva": 226904,
+        "bytes": "ff2572ac0100",
+        "slot_rva": 336592,
+        "kind": "jmp"
+      },
+      {
+        "rva": 227605,
+        "bytes": "ff15d5a90100",
+        "slot_rva": 336624,
+        "kind": "call"
+      },
+      {
+        "rva": 227644,
+        "bytes": "ff25cea90100",
+        "slot_rva": 336656,
+        "kind": "jmp"
+      },
+      {
+        "rva": 227765,
+        "bytes": "ff1535a90100",
+        "slot_rva": 336624,
+        "kind": "call"
+      },
+      {
+        "rva": 227804,
+        "bytes": "ff252ea90100",
+        "slot_rva": 336656,
+        "kind": "jmp"
+      }
+    ],
+    "relocation_backed_pointers_to_iat_slots": [],
+    "whole_nul_delimited_api_names": [],
+    "resolver_control_triage": [
+      {
+        "pdata_begin": 102048,
+        "pdata_end": 102505,
+        "reachable_syntactic_instructions": [
+          {
+            "rva": 102048,
+            "bytes": "4055",
+            "asm": "push rbp"
+          },
+          {
+            "rva": 102050,
+            "bytes": "56",
+            "asm": "push rsi"
+          },
+          {
+            "rva": 102051,
+            "bytes": "57",
+            "asm": "push rdi"
+          },
+          {
+            "rva": 102052,
+            "bytes": "488bec",
+            "asm": "mov rbp, rsp"
+          },
+          {
+            "rva": 102055,
+            "bytes": "4883ec70",
+            "asm": "sub rsp, 0x70"
+          },
+          {
+            "rva": 102059,
+            "bytes": "488b0576410300",
+            "asm": "mov rax, qword ptr [rip + 0x34176]"
+          },
+          {
+            "rva": 102066,
+            "bytes": "4833c4",
+            "asm": "xor rax, rsp"
+          },
+          {
+            "rva": 102069,
+            "bytes": "488945f8",
+            "asm": "mov qword ptr [rbp - 8], rax"
+          },
+          {
+            "rva": 102073,
+            "bytes": "498bf8",
+            "asm": "mov rdi, r8"
+          },
+          {
+            "rva": 102076,
+            "bytes": "488bf2",
+            "asm": "mov rsi, rdx"
+          },
+          {
+            "rva": 102079,
+            "bytes": "498bd0",
+            "asm": "mov rdx, r8"
+          },
+          {
+            "rva": 102082,
+            "bytes": "ff1580920300",
+            "asm": "call qword ptr [rip + 0x39280]"
+          },
+          {
+            "rva": 102088,
+            "bytes": "488906",
+            "asm": "mov qword ptr [rsi], rax"
+          },
+          {
+            "rva": 102091,
+            "bytes": "48c745d00f000000",
+            "asm": "mov qword ptr [rbp - 0x30], 0xf"
+          },
+          {
+            "rva": 102099,
+            "bytes": "4885c0",
+            "asm": "test rax, rax"
+          },
+          {
+            "rva": 102102,
+            "bytes": "0f85d4000000",
+            "asm": "jne 0x18fb0"
+          },
+          {
+            "rva": 102108,
+            "bytes": "488906",
+            "asm": "mov qword ptr [rsi], rax"
+          },
+          {
+            "rva": 102111,
+            "bytes": "488945c8",
+            "asm": "mov qword ptr [rbp - 0x38], rax"
+          },
+          {
+            "rva": 102115,
+            "bytes": "8845b8",
+            "asm": "mov byte ptr [rbp - 0x48], al"
+          },
+          {
+            "rva": 102118,
+            "bytes": "8d4820",
+            "asm": "lea ecx, [rax + 0x20]"
+          },
+          {
+            "rva": 102121,
+            "bytes": "e86293feff",
+            "asm": "call 0x2250"
+          },
+          {
+            "rva": 102126,
+            "bytes": "488945b0",
+            "asm": "mov qword ptr [rbp - 0x50], rax"
+          },
+          {
+            "rva": 102130,
+            "bytes": "48c745c817000000",
+            "asm": "mov qword ptr [rbp - 0x38], 0x17"
+          },
+          {
+            "rva": 102138,
+            "bytes": "48c745d01f000000",
+            "asm": "mov qword ptr [rbp - 0x30], 0x1f"
+          },
+          {
+            "rva": 102146,
+            "bytes": "0f10058f550200",
+            "asm": "movups xmm0, xmmword ptr [rip + 0x2558f]"
+          },
+          {
+            "rva": 102153,
+            "bytes": "0f1100",
+            "asm": "movups xmmword ptr [rax], xmm0"
+          },
+          {
+            "rva": 102156,
+            "bytes": "8b0d96550200",
+            "asm": "mov ecx, dword ptr [rip + 0x25596]"
+          },
+          {
+            "rva": 102162,
+            "bytes": "894810",
+            "asm": "mov dword ptr [rax + 0x10], ecx"
+          },
+          {
+            "rva": 102165,
+            "bytes": "0fb70d90550200",
+            "asm": "movzx ecx, word ptr [rip + 0x25590]"
+          },
+          {
+            "rva": 102172,
+            "bytes": "66894814",
+            "asm": "mov word ptr [rax + 0x14], cx"
+          },
+          {
+            "rva": 102176,
+            "bytes": "0fb60d87550200",
+            "asm": "movzx ecx, byte ptr [rip + 0x25587]"
+          },
+          {
+            "rva": 102183,
+            "bytes": "884816",
+            "asm": "mov byte ptr [rax + 0x16], cl"
+          },
+          {
+            "rva": 102186,
+            "bytes": "c6401700",
+            "asm": "mov byte ptr [rax + 0x17], 0"
+          },
+          {
+            "rva": 102190,
+            "bytes": "488d55b0",
+            "asm": "lea rdx, [rbp - 0x50]"
+          },
+          {
+            "rva": 102194,
+            "bytes": "488d4db8",
+            "asm": "lea rcx, [rbp - 0x48]"
+          },
+          {
+            "rva": 102198,
+            "bytes": "e8a5a9feff",
+            "asm": "call 0x38e0"
+          },
+          {
+            "rva": 102203,
+            "bytes": "90",
+            "asm": "nop "
+          },
+          {
+            "rva": 102204,
+            "bytes": "4c8bc7",
+            "asm": "mov r8, rdi"
+          },
+          {
+            "rva": 102207,
+            "bytes": "488d55b8",
+            "asm": "lea rdx, [rbp - 0x48]"
+          },
+          {
+            "rva": 102211,
+            "bytes": "488d4dd8",
+            "asm": "lea rcx, [rbp - 0x28]"
+          },
+          {
+            "rva": 102215,
+            "bytes": "e8e4a8feff",
+            "asm": "call 0x3830"
+          },
+          {
+            "rva": 102220,
+            "bytes": "90",
+            "asm": "nop "
+          },
+          {
+            "rva": 102221,
+            "bytes": "4883781810",
+            "asm": "cmp qword ptr [rax + 0x18], 0x10"
+          },
+          {
+            "rva": 102226,
+            "bytes": "7203",
+            "asm": "jb 0x18f57"
+          },
+          {
+            "rva": 102228,
+            "bytes": "488b00",
+            "asm": "mov rax, qword ptr [rax]"
+          },
+          {
+            "rva": 102231,
+            "bytes": "4533c9",
+            "asm": "xor r9d, r9d"
+          },
+          {
+            "rva": 102234,
+            "bytes": "458d4103",
+            "asm": "lea r8d, [r9 + 3]"
+          },
+          {
+            "rva": 102238,
+            "bytes": "488bd0",
+            "asm": "mov rdx, rax"
+          },
+          {
+            "rva": 102241,
+            "bytes": "33c9",
+            "asm": "xor ecx, ecx"
+          },
+          {
+            "rva": 102243,
+            "bytes": "e8388ffeff",
+            "asm": "call 0x1ea0"
+          },
+          {
+            "rva": 102248,
+            "bytes": "90",
+            "asm": "nop "
+          },
+          {
+            "rva": 102249,
+            "bytes": "488b55f0",
+            "asm": "mov rdx, qword ptr [rbp - 0x10]"
+          },
+          {
+            "rva": 102253,
+            "bytes": "4883fa10",
+            "asm": "cmp rdx, 0x10"
+          },
+          {
+            "rva": 102257,
+            "bytes": "720c",
+            "asm": "jb 0x18f7f"
+          },
+          {
+            "rva": 102259,
+            "bytes": "48ffc2",
+            "asm": "inc rdx"
+          },
+          {
+            "rva": 102262,
+            "bytes": "488b4dd8",
+            "asm": "mov rcx, qword ptr [rbp - 0x28]"
+          },
+          {
+            "rva": 102266,
+            "bytes": "e80183feff",
+            "asm": "call 0x1280"
+          },
+          {
+            "rva": 102271,
+            "bytes": "48c745e800000000",
+            "asm": "mov qword ptr [rbp - 0x18], 0"
+          },
+          {
+            "rva": 102279,
+            "bytes": "48c745f00f000000",
+            "asm": "mov qword ptr [rbp - 0x10], 0xf"
+          },
+          {
+            "rva": 102287,
+            "bytes": "c645d800",
+            "asm": "mov byte ptr [rbp - 0x28], 0"
+          },
+          {
+            "rva": 102291,
+            "bytes": "488b55d0",
+            "asm": "mov rdx, qword ptr [rbp - 0x30]"
+          },
+          {
+            "rva": 102295,
+            "bytes": "4883fa10",
+            "asm": "cmp rdx, 0x10"
+          },
+          {
+            "rva": 102299,
+            "bytes": "720c",
+            "asm": "jb 0x18fa9"
+          },
+          {
+            "rva": 102301,
+            "bytes": "48ffc2",
+            "asm": "inc rdx"
+          },
+          {
+            "rva": 102304,
+            "bytes": "488b4db8",
+            "asm": "mov rcx, qword ptr [rbp - 0x48]"
+          },
+          {
+            "rva": 102308,
+            "bytes": "e8d782feff",
+            "asm": "call 0x1280"
+          },
+          {
+            "rva": 102313,
+            "bytes": "32c0",
+            "asm": "xor al, al"
+          },
+          {
+            "rva": 102315,
+            "bytes": "e9a5000000",
+            "asm": "jmp 0x19055"
+          },
+          {
+            "rva": 102320,
+            "bytes": "48c745c80f000000",
+            "asm": "mov qword ptr [rbp - 0x38], 0xf"
+          },
+          {
+            "rva": 102328,
+            "bytes": "f20f1005f8540200",
+            "asm": "movsd xmm0, qword ptr [rip + 0x254f8]"
+          },
+          {
+            "rva": 102336,
+            "bytes": "f20f1145b8",
+            "asm": "movsd qword ptr [rbp - 0x48], xmm0"
+          },
+          {
+            "rva": 102341,
+            "bytes": "8b05f5540200",
+            "asm": "mov eax, dword ptr [rip + 0x254f5]"
+          },
+          {
+            "rva": 102347,
+            "bytes": "8945c0",
+            "asm": "mov dword ptr [rbp - 0x40], eax"
+          },
+          {
+            "rva": 102350,
+            "bytes": "0fb705ef540200",
+            "asm": "movzx eax, word ptr [rip + 0x254ef]"
+          },
+          {
+            "rva": 102357,
+            "bytes": "668945c4",
+            "asm": "mov word ptr [rbp - 0x3c], ax"
+          },
+          {
+            "rva": 102361,
+            "bytes": "0fb605e6540200",
+            "asm": "movzx eax, byte ptr [rip + 0x254e6]"
+          },
+          {
+            "rva": 102368,
+            "bytes": "8845c6",
+            "asm": "mov byte ptr [rbp - 0x3a], al"
+          },
+          {
+            "rva": 102371,
+            "bytes": "c645c700",
+            "asm": "mov byte ptr [rbp - 0x39], 0"
+          },
+          {
+            "rva": 102375,
+            "bytes": "4c8bc7",
+            "asm": "mov r8, rdi"
+          },
+          {
+            "rva": 102378,
+            "bytes": "488d55b8",
+            "asm": "lea rdx, [rbp - 0x48]"
+          },
+          {
+            "rva": 102382,
+            "bytes": "488d4dd8",
+            "asm": "lea rcx, [rbp - 0x28]"
+          },
+          {
+            "rva": 102386,
+            "bytes": "e839a8feff",
+            "asm": "call 0x3830"
+          },
+          {
+            "rva": 102391,
+            "bytes": "90",
+            "asm": "nop "
+          },
+          {
+            "rva": 102392,
+            "bytes": "4883781810",
+            "asm": "cmp qword ptr [rax + 0x18], 0x10"
+          },
+          {
+            "rva": 102397,
+            "bytes": "7203",
+            "asm": "jb 0x19002"
+          },
+          {
+            "rva": 102399,
+            "bytes": "488b00",
+            "asm": "mov rax, qword ptr [rax]"
+          },
+          {
+            "rva": 102402,
+            "bytes": "4533c9",
+            "asm": "xor r9d, r9d"
+          },
+          {
+            "rva": 102405,
+            "bytes": "4533c0",
+            "asm": "xor r8d, r8d"
+          },
+          {
+            "rva": 102408,
+            "bytes": "488bd0",
+            "asm": "mov rdx, rax"
+          },
+          {
+            "rva": 102411,
+            "bytes": "33c9",
+            "asm": "xor ecx, ecx"
+          },
+          {
+            "rva": 102413,
+            "bytes": "e88e8efeff",
+            "asm": "call 0x1ea0"
+          },
+          {
+            "rva": 102418,
+            "bytes": "90",
+            "asm": "nop "
+          },
+          {
+            "rva": 102419,
+            "bytes": "488b55f0",
+            "asm": "mov rdx, qword ptr [rbp - 0x10]"
+          },
+          {
+            "rva": 102423,
+            "bytes": "4883fa10",
+            "asm": "cmp rdx, 0x10"
+          },
+          {
+            "rva": 102427,
+            "bytes": "720c",
+            "asm": "jb 0x19029"
+          },
+          {
+            "rva": 102429,
+            "bytes": "48ffc2",
+            "asm": "inc rdx"
+          },
+          {
+            "rva": 102432,
+            "bytes": "488b4dd8",
+            "asm": "mov rcx, qword ptr [rbp - 0x28]"
+          },
+          {
+            "rva": 102436,
+            "bytes": "e85782feff",
+            "asm": "call 0x1280"
+          },
+          {
+            "rva": 102441,
+            "bytes": "48c745e800000000",
+            "asm": "mov qword ptr [rbp - 0x18], 0"
+          },
+          {
+            "rva": 102449,
+            "bytes": "48c745f00f000000",
+            "asm": "mov qword ptr [rbp - 0x10], 0xf"
+          },
+          {
+            "rva": 102457,
+            "bytes": "c645d800",
+            "asm": "mov byte ptr [rbp - 0x28], 0"
+          },
+          {
+            "rva": 102461,
+            "bytes": "488b55d0",
+            "asm": "mov rdx, qword ptr [rbp - 0x30]"
+          },
+          {
+            "rva": 102465,
+            "bytes": "4883fa10",
+            "asm": "cmp rdx, 0x10"
+          },
+          {
+            "rva": 102469,
+            "bytes": "720c",
+            "asm": "jb 0x19053"
+          },
+          {
+            "rva": 102471,
+            "bytes": "48ffc2",
+            "asm": "inc rdx"
+          },
+          {
+            "rva": 102474,
+            "bytes": "488b4db8",
+            "asm": "mov rcx, qword ptr [rbp - 0x48]"
+          },
+          {
+            "rva": 102478,
+            "bytes": "e82d82feff",
+            "asm": "call 0x1280"
+          },
+          {
+            "rva": 102483,
+            "bytes": "b001",
+            "asm": "mov al, 1"
+          },
+          {
+            "rva": 102485,
+            "bytes": "488b4df8",
+            "asm": "mov rcx, qword ptr [rbp - 8]"
+          },
+          {
+            "rva": 102489,
+            "bytes": "4833cc",
+            "asm": "xor rcx, rsp"
+          },
+          {
+            "rva": 102492,
+            "bytes": "e85f95feff",
+            "asm": "call 0x25c0"
+          },
+          {
+            "rva": 102497,
+            "bytes": "4883c470",
+            "asm": "add rsp, 0x70"
+          },
+          {
+            "rva": 102501,
+            "bytes": "5f",
+            "asm": "pop rdi"
+          },
+          {
+            "rva": 102502,
+            "bytes": "5e",
+            "asm": "pop rsi"
+          },
+          {
+            "rva": 102503,
+            "bytes": "5d",
+            "asm": "pop rbp"
+          },
+          {
+            "rva": 102504,
+            "bytes": "c3",
+            "asm": "ret "
+          }
+        ],
+        "resolver_candidates_on_walk": [
+          102082
+        ],
+        "rip_lea_printable_strings": [],
+        "stops": [],
+        "limit_reached": false
+      },
+      {
+        "pdata_begin": 107642,
+        "pdata_end": 107788,
+        "reachable_syntactic_instructions": [
+          {
+            "rva": 107642,
+            "bytes": "4889742420",
+            "asm": "mov qword ptr [rsp + 0x20], rsi"
+          },
+          {
+            "rva": 107647,
+            "bytes": "488bc8",
+            "asm": "mov rcx, rax"
+          },
+          {
+            "rva": 107650,
+            "bytes": "ff15c07c0300",
+            "asm": "call qword ptr [rip + 0x37cc0]"
+          },
+          {
+            "rva": 107656,
+            "bytes": "488d15b9420200",
+            "asm": "lea rdx, [rip + 0x242b9]"
+          },
+          {
+            "rva": 107663,
+            "bytes": "488bcf",
+            "asm": "mov rcx, rdi"
+          },
+          {
+            "rva": 107666,
+            "bytes": "48894308",
+            "asm": "mov qword ptr [rbx + 8], rax"
+          },
+          {
+            "rva": 107670,
+            "bytes": "ff15ac7c0300",
+            "asm": "call qword ptr [rip + 0x37cac]"
+          },
+          {
+            "rva": 107676,
+            "bytes": "488d15c5420200",
+            "asm": "lea rdx, [rip + 0x242c5]"
+          },
+          {
+            "rva": 107683,
+            "bytes": "488bcf",
+            "asm": "mov rcx, rdi"
+          },
+          {
+            "rva": 107686,
+            "bytes": "488bf0",
+            "asm": "mov rsi, rax"
+          },
+          {
+            "rva": 107689,
+            "bytes": "ff15997c0300",
+            "asm": "call qword ptr [rip + 0x37c99]"
+          },
+          {
+            "rva": 107695,
+            "bytes": "488bf8",
+            "asm": "mov rdi, rax"
+          },
+          {
+            "rva": 107698,
+            "bytes": "4885f6",
+            "asm": "test rsi, rsi"
+          },
+          {
+            "rva": 107701,
+            "bytes": "7449",
+            "asm": "je 0x1a500"
+          },
+          {
+            "rva": 107703,
+            "bytes": "4c8d442448",
+            "asm": "lea r8, [rsp + 0x48]"
+          },
+          {
+            "rva": 107708,
+            "bytes": "488bc6",
+            "asm": "mov rax, rsi"
+          },
+          {
+            "rva": 107711,
+            "bytes": "488d542450",
+            "asm": "lea rdx, [rsp + 0x50]"
+          },
+          {
+            "rva": 107716,
+            "bytes": "488d4c2458",
+            "asm": "lea rcx, [rsp + 0x58]"
+          },
+          {
+            "rva": 107721,
+            "bytes": "ff1551db0300",
+            "asm": "call qword ptr [rip + 0x3db51]"
+          },
+          {
+            "rva": 107727,
+            "bytes": "85c0",
+            "asm": "test eax, eax"
+          },
+          {
+            "rva": 107729,
+            "bytes": "752d",
+            "asm": "jne 0x1a500"
+          },
+          {
+            "rva": 107731,
+            "bytes": "8b442448",
+            "asm": "mov eax, dword ptr [rsp + 0x48]"
+          },
+          {
+            "rva": 107735,
+            "bytes": "48894310",
+            "asm": "mov qword ptr [rbx + 0x10], rax"
+          },
+          {
+            "rva": 107739,
+            "bytes": "4885ff",
+            "asm": "test rdi, rdi"
+          },
+          {
+            "rva": 107742,
+            "bytes": "7420",
+            "asm": "je 0x1a500"
+          },
+          {
+            "rva": 107744,
+            "bytes": "8b4c2450",
+            "asm": "mov ecx, dword ptr [rsp + 0x50]"
+          },
+          {
+            "rva": 107748,
+            "bytes": "4c8d442448",
+            "asm": "lea r8, [rsp + 0x48]"
+          },
+          {
+            "rva": 107753,
+            "bytes": "b201",
+            "asm": "mov dl, 1"
+          },
+          {
+            "rva": 107755,
+            "bytes": "488bc7",
+            "asm": "mov rax, rdi"
+          },
+          {
+            "rva": 107758,
+            "bytes": "ff152cdb0300",
+            "asm": "call qword ptr [rip + 0x3db2c]"
+          },
+          {
+            "rva": 107764,
+            "bytes": "85c0",
+            "asm": "test eax, eax"
+          },
+          {
+            "rva": 107766,
+            "bytes": "7508",
+            "asm": "jne 0x1a500"
+          },
+          {
+            "rva": 107768,
+            "bytes": "8b442450",
+            "asm": "mov eax, dword ptr [rsp + 0x50]"
+          },
+          {
+            "rva": 107772,
+            "bytes": "48894310",
+            "asm": "mov qword ptr [rbx + 0x10], rax"
+          },
+          {
+            "rva": 107776,
+            "bytes": "488b742420",
+            "asm": "mov rsi, qword ptr [rsp + 0x20]"
+          },
+          {
+            "rva": 107781,
+            "bytes": "4883c428",
+            "asm": "add rsp, 0x28"
+          },
+          {
+            "rva": 107785,
+            "bytes": "5f",
+            "asm": "pop rdi"
+          },
+          {
+            "rva": 107786,
+            "bytes": "5b",
+            "asm": "pop rbx"
+          },
+          {
+            "rva": 107787,
+            "bytes": "c3",
+            "asm": "ret "
+          }
+        ],
+        "resolver_candidates_on_walk": [
+          107650,
+          107670,
+          107689
+        ],
+        "rip_lea_printable_strings": [
+          {
+            "instruction_rva": 107656,
+            "target_rva": 255816,
+            "text": "NtQueryTimerResolution"
+          },
+          {
+            "instruction_rva": 107676,
+            "target_rva": 255848,
+            "text": "NtSetTimerResolution"
+          }
+        ],
+        "stops": [],
+        "limit_reached": false
+      },
+      {
+        "pdata_begin": 181024,
+        "pdata_end": 181246,
+        "reachable_syntactic_instructions": [
+          {
+            "rva": 181024,
+            "bytes": "4053",
+            "asm": "push rbx"
+          },
+          {
+            "rva": 181026,
+            "bytes": "4883ec30",
+            "asm": "sub rsp, 0x30"
+          },
+          {
+            "rva": 181030,
+            "bytes": "b930000000",
+            "asm": "mov ecx, 0x30"
+          },
+          {
+            "rva": 181035,
+            "bytes": "e8c04efdff",
+            "asm": "call 0x11f0"
+          },
+          {
+            "rva": 181040,
+            "bytes": "488bd8",
+            "asm": "mov rbx, rax"
+          },
+          {
+            "rva": 181043,
+            "bytes": "4885c0",
+            "asm": "test rax, rax"
+          },
+          {
+            "rva": 181046,
+            "bytes": "0f84ba000000",
+            "asm": "je 0x2c3f6"
+          },
+          {
+            "rva": 181052,
+            "bytes": "33d2",
+            "asm": "xor edx, edx"
+          },
+          {
+            "rva": 181054,
+            "bytes": "488d0dfb4d0100",
+            "asm": "lea rcx, [rip + 0x14dfb]"
+          },
+          {
+            "rva": 181061,
+            "bytes": "41b800080000",
+            "asm": "mov r8d, 0x800"
+          },
+          {
+            "rva": 181067,
+            "bytes": "ff15ff5d0200",
+            "asm": "call qword ptr [rip + 0x25dff]"
+          },
+          {
+            "rva": 181073,
+            "bytes": "488903",
+            "asm": "mov qword ptr [rbx], rax"
+          },
+          {
+            "rva": 181076,
+            "bytes": "4885c0",
+            "asm": "test rax, rax"
+          },
+          {
+            "rva": 181079,
+            "bytes": "0f848c000000",
+            "asm": "je 0x2c3e9"
+          },
+          {
+            "rva": 181085,
+            "bytes": "488d15ec4d0100",
+            "asm": "lea rdx, [rip + 0x14dec]"
+          },
+          {
+            "rva": 181092,
+            "bytes": "488bc8",
+            "asm": "mov rcx, rax"
+          },
+          {
+            "rva": 181095,
+            "bytes": "ff15db5d0200",
+            "asm": "call qword ptr [rip + 0x25ddb]"
+          },
+          {
+            "rva": 181101,
+            "bytes": "488b0b",
+            "asm": "mov rcx, qword ptr [rbx]"
+          },
+          {
+            "rva": 181104,
+            "bytes": "488d15e94d0100",
+            "asm": "lea rdx, [rip + 0x14de9]"
+          },
+          {
+            "rva": 181111,
+            "bytes": "48894308",
+            "asm": "mov qword ptr [rbx + 8], rax"
+          },
+          {
+            "rva": 181115,
+            "bytes": "ff15c75d0200",
+            "asm": "call qword ptr [rip + 0x25dc7]"
+          },
+          {
+            "rva": 181121,
+            "bytes": "488b0b",
+            "asm": "mov rcx, qword ptr [rbx]"
+          },
+          {
+            "rva": 181124,
+            "bytes": "488d15ed4d0100",
+            "asm": "lea rdx, [rip + 0x14ded]"
+          },
+          {
+            "rva": 181131,
+            "bytes": "48894310",
+            "asm": "mov qword ptr [rbx + 0x10], rax"
+          },
+          {
+            "rva": 181135,
+            "bytes": "ff15b35d0200",
+            "asm": "call qword ptr [rip + 0x25db3]"
+          },
+          {
+            "rva": 181141,
+            "bytes": "4c8b5308",
+            "asm": "mov r10, qword ptr [rbx + 8]"
+          },
+          {
+            "rva": 181145,
+            "bytes": "48894318",
+            "asm": "mov qword ptr [rbx + 0x18], rax"
+          },
+          {
+            "rva": 181149,
+            "bytes": "4d85d2",
+            "asm": "test r10, r10"
+          },
+          {
+            "rva": 181152,
+            "bytes": "743e",
+            "asm": "je 0x2c3e0"
+          },
+          {
+            "rva": 181154,
+            "bytes": "48837b1000",
+            "asm": "cmp qword ptr [rbx + 0x10], 0"
+          },
+          {
+            "rva": 181159,
+            "bytes": "7437",
+            "asm": "je 0x2c3e0"
+          },
+          {
+            "rva": 181161,
+            "bytes": "4885c0",
+            "asm": "test rax, rax"
+          },
+          {
+            "rva": 181164,
+            "bytes": "7432",
+            "asm": "je 0x2c3e0"
+          },
+          {
+            "rva": 181166,
+            "bytes": "4c8d4b20",
+            "asm": "lea r9, [rbx + 0x20]"
+          },
+          {
+            "rva": 181170,
+            "bytes": "c7432800000000",
+            "asm": "mov dword ptr [rbx + 0x28], 0"
+          },
+          {
+            "rva": 181177,
+            "bytes": "4c8bc3",
+            "asm": "mov r8, rbx"
+          },
+          {
+            "rva": 181180,
+            "bytes": "488d154dfdffff",
+            "asm": "lea rdx, [rip - 0x2b3]"
+          },
+          {
+            "rva": 181187,
+            "bytes": "488d0d564c0100",
+            "asm": "lea rcx, [rip + 0x14c56]"
+          },
+          {
+            "rva": 181194,
+            "bytes": "498bc2",
+            "asm": "mov rax, r10"
+          },
+          {
+            "rva": 181197,
+            "bytes": "ff154dbc0200",
+            "asm": "call qword ptr [rip + 0x2bc4d]"
+          },
+          {
+            "rva": 181203,
+            "bytes": "85c0",
+            "asm": "test eax, eax"
+          },
+          {
+            "rva": 181205,
+            "bytes": "7509",
+            "asm": "jne 0x2c3e0"
+          },
+          {
+            "rva": 181207,
+            "bytes": "488bc3",
+            "asm": "mov rax, rbx"
+          },
+          {
+            "rva": 181210,
+            "bytes": "4883c430",
+            "asm": "add rsp, 0x30"
+          },
+          {
+            "rva": 181214,
+            "bytes": "5b",
+            "asm": "pop rbx"
+          },
+          {
+            "rva": 181215,
+            "bytes": "c3",
+            "asm": "ret "
+          },
+          {
+            "rva": 181216,
+            "bytes": "488b0b",
+            "asm": "mov rcx, qword ptr [rbx]"
+          },
+          {
+            "rva": 181219,
+            "bytes": "ff154f5d0200",
+            "asm": "call qword ptr [rip + 0x25d4f]"
+          },
+          {
+            "rva": 181225,
+            "bytes": "ba30000000",
+            "asm": "mov edx, 0x30"
+          },
+          {
+            "rva": 181230,
+            "bytes": "488bcb",
+            "asm": "mov rcx, rbx"
+          },
+          {
+            "rva": 181233,
+            "bytes": "e81a70fdff",
+            "asm": "call 0x3410"
+          },
+          {
+            "rva": 181238,
+            "bytes": "33c0",
+            "asm": "xor eax, eax"
+          },
+          {
+            "rva": 181240,
+            "bytes": "4883c430",
+            "asm": "add rsp, 0x30"
+          },
+          {
+            "rva": 181244,
+            "bytes": "5b",
+            "asm": "pop rbx"
+          },
+          {
+            "rva": 181245,
+            "bytes": "c3",
+            "asm": "ret "
+          }
+        ],
+        "resolver_candidates_on_walk": [
+          181095,
+          181115,
+          181135
+        ],
+        "rip_lea_printable_strings": [
+          {
+            "instruction_rva": 181054,
+            "target_rva": 266560,
+            "text": "advapi32.dll"
+          },
+          {
+            "instruction_rva": 181085,
+            "target_rva": 266576,
+            "text": "EventRegister"
+          },
+          {
+            "instruction_rva": 181104,
+            "target_rva": 266592,
+            "text": "EventUnregister"
+          },
+          {
+            "instruction_rva": 181124,
+            "target_rva": 266616,
+            "text": "EventWrite"
+          }
+        ],
+        "stops": [],
+        "limit_reached": false
+      }
+    ]
+  }
+]

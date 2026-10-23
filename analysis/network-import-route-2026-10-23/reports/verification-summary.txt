@@ -1,0 +1,6 @@
+Wow.exe direct 0 reloc-to-IAT 0 wholeAPI [('connect', '0x42491d8'), ('socket', '0x40525d0')]
+wow_loader.dll direct 1 reloc-to-IAT 0 wholeAPI [('WSASocketW', '0x27ddfc9')]
+libxell.dll direct 671 reloc-to-IAT 0 wholeAPI []
+control 0x18ea0 116 [] []
+control 0x1a47a 39 [{'instruction_rva': 107656, 'target_rva': 255816, 'text': 'NtQueryTimerResolution'}, {'instruction_rva': 107676, 'target_rva': 255848, 'text': 'NtSetTimerResolution'}] []
+control 0x2c320 55 [{'instruction_rva': 181054, 'target_rva': 266560, 'text': 'advapi32.dll'}, {'instruction_rva': 181085, 'target_rva': 266576, 'text': 'EventRegister'}, {'instruction_rva': 181104, 'target_rva': 266592, 'text': 'EventUnregister'}, {'instruction_rva': 181124, 'target_rva': 266616, 'text': 'EventWrite'}] []
