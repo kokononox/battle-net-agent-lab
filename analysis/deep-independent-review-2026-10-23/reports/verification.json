@@ -1,0 +1,65 @@
+{
+  "byte_structure_verifier": "PASS; stdlib PE parser, no pefile/Capstone import",
+  "report_checks": "PASS",
+  "mutation_tests": [
+    {
+      "mutation": "input_hash",
+      "rejected": true
+    },
+    {
+      "mutation": "marker",
+      "rejected": true
+    },
+    {
+      "mutation": "record_offset",
+      "rejected": true
+    },
+    {
+      "mutation": "record_value",
+      "rejected": true
+    },
+    {
+      "mutation": "pair_reference",
+      "rejected": true
+    },
+    {
+      "mutation": "slot",
+      "rejected": true
+    },
+    {
+      "mutation": "bytes",
+      "rejected": true
+    },
+    {
+      "mutation": "invented_eid_reference",
+      "rejected": true
+    },
+    {
+      "mutation": "source_hash",
+      "rejected": true
+    },
+    {
+      "mutation": "runtime_identity_claim",
+      "rejected": true
+    },
+    {
+      "mutation": "decryption_claim",
+      "rejected": true
+    },
+    {
+      "mutation": "send_claim",
+      "rejected": true
+    },
+    {
+      "mutation": "no_send_claim",
+      "rejected": true
+    }
+  ],
+  "limits": [
+    "Does not independently verify every assembly mnemonic",
+    "Producer separately cross-checks boundaries with GNU objdump",
+    "Does not prove execution, callee semantics, API binding or decryption"
+  ],
+  "target_executed": false,
+  "live_probe_built_or_requested": false
+}

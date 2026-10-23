@@ -1,0 +1,627 @@
+{
+  "schema": "wlab-deep-independent-review-1",
+  "loader_sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "wow_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "source_image_base": 6442450944,
+  "bodies": [
+    {
+      "begin": 33579756,
+      "end": 33579808,
+      "sha256": "023a9f1eaaf6b02a84356f35c73e518385f86f43d411455586b18bf1a8743b21",
+      "instruction_count": 13,
+      "instructions": [
+        {
+          "rva": 33579756,
+          "bytes": "4053",
+          "asm": "push rbx"
+        },
+        {
+          "rva": 33579758,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33579762,
+          "bytes": "488bd9",
+          "asm": "mov rbx, rcx"
+        },
+        {
+          "rva": 33579765,
+          "bytes": "33c9",
+          "asm": "xor ecx, ecx"
+        },
+        {
+          "rva": 33579767,
+          "bytes": "ff1553a40900",
+          "asm": "call qword ptr [rip + 0x9a453]"
+        },
+        {
+          "rva": 33579773,
+          "bytes": "488bcb",
+          "asm": "mov rcx, rbx"
+        },
+        {
+          "rva": 33579776,
+          "bytes": "ff15e2a40900",
+          "asm": "call qword ptr [rip + 0x9a4e2]"
+        },
+        {
+          "rva": 33579782,
+          "bytes": "ff15f4a00900",
+          "asm": "call qword ptr [rip + 0x9a0f4]"
+        },
+        {
+          "rva": 33579788,
+          "bytes": "488bc8",
+          "asm": "mov rcx, rax"
+        },
+        {
+          "rva": 33579791,
+          "bytes": "ba090400c0",
+          "asm": "mov edx, 0xc0000409"
+        },
+        {
+          "rva": 33579796,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33579800,
+          "bytes": "5b",
+          "asm": "pop rbx"
+        },
+        {
+          "rva": 33579801,
+          "bytes": "48ff2578a40900",
+          "asm": "jmp qword ptr [rip + 0x9a478]"
+        }
+      ]
+    },
+    {
+      "begin": 33579136,
+      "end": 33579293,
+      "sha256": "045d6f8cff8523c2d6fd0ce11892e15d759c8d66d5132b0baabd6304af978595",
+      "instruction_count": 31,
+      "instructions": [
+        {
+          "rva": 33579136,
+          "bytes": "894c2408",
+          "asm": "mov dword ptr [rsp + 8], ecx"
+        },
+        {
+          "rva": 33579140,
+          "bytes": "4883ec28",
+          "asm": "sub rsp, 0x28"
+        },
+        {
+          "rva": 33579144,
+          "bytes": "b917000000",
+          "asm": "mov ecx, 0x17"
+        },
+        {
+          "rva": 33579149,
+          "bytes": "ff1565a50900",
+          "asm": "call qword ptr [rip + 0x9a565]"
+        },
+        {
+          "rva": 33579155,
+          "bytes": "85c0",
+          "asm": "test eax, eax"
+        },
+        {
+          "rva": 33579157,
+          "bytes": "7408",
+          "asm": "je 0x200609f"
+        },
+        {
+          "rva": 33579159,
+          "bytes": "8b442430",
+          "asm": "mov eax, dword ptr [rsp + 0x30]"
+        },
+        {
+          "rva": 33579163,
+          "bytes": "8bc8",
+          "asm": "mov ecx, eax"
+        },
+        {
+          "rva": 33579165,
+          "bytes": "cd29",
+          "asm": "int 0x29"
+        },
+        {
+          "rva": 33579167,
+          "bytes": "488d0d2ae71800",
+          "asm": "lea rcx, [rip + 0x18e72a]"
+        },
+        {
+          "rva": 33579174,
+          "bytes": "e85d010000",
+          "asm": "call 0x2006208"
+        },
+        {
+          "rva": 33579179,
+          "bytes": "488b442428",
+          "asm": "mov rax, qword ptr [rsp + 0x28]"
+        },
+        {
+          "rva": 33579184,
+          "bytes": "48890511e81800",
+          "asm": "mov qword ptr [rip + 0x18e811], rax"
+        },
+        {
+          "rva": 33579191,
+          "bytes": "488d442428",
+          "asm": "lea rax, [rsp + 0x28]"
+        },
+        {
+          "rva": 33579196,
+          "bytes": "4883c008",
+          "asm": "add rax, 8"
+        },
+        {
+          "rva": 33579200,
+          "bytes": "488905a1e71800",
+          "asm": "mov qword ptr [rip + 0x18e7a1], rax"
+        },
+        {
+          "rva": 33579207,
+          "bytes": "488b05fae71800",
+          "asm": "mov rax, qword ptr [rip + 0x18e7fa]"
+        },
+        {
+          "rva": 33579214,
+          "bytes": "4889056be61800",
+          "asm": "mov qword ptr [rip + 0x18e66b], rax"
+        },
+        {
+          "rva": 33579221,
+          "bytes": "c70551e61800090400c0",
+          "asm": "mov dword ptr [rip + 0x18e651], 0xc0000409"
+        },
+        {
+          "rva": 33579231,
+          "bytes": "c7054be6180001000000",
+          "asm": "mov dword ptr [rip + 0x18e64b], 1"
+        },
+        {
+          "rva": 33579241,
+          "bytes": "c70555e6180001000000",
+          "asm": "mov dword ptr [rip + 0x18e655], 1"
+        },
+        {
+          "rva": 33579251,
+          "bytes": "b808000000",
+          "asm": "mov eax, 8"
+        },
+        {
+          "rva": 33579256,
+          "bytes": "486bc000",
+          "asm": "imul rax, rax, 0"
+        },
+        {
+          "rva": 33579260,
+          "bytes": "488d0d4de61800",
+          "asm": "lea rcx, [rip + 0x18e64d]"
+        },
+        {
+          "rva": 33579267,
+          "bytes": "8b542430",
+          "asm": "mov edx, dword ptr [rsp + 0x30]"
+        },
+        {
+          "rva": 33579271,
+          "bytes": "48891401",
+          "asm": "mov qword ptr [rcx + rax], rdx"
+        },
+        {
+          "rva": 33579275,
+          "bytes": "488d0d7ea90300",
+          "asm": "lea rcx, [rip + 0x3a97e]"
+        },
+        {
+          "rva": 33579282,
+          "bytes": "e8d5010000",
+          "asm": "call 0x20062ec"
+        },
+        {
+          "rva": 33579287,
+          "bytes": "90",
+          "asm": "nop "
+        },
+        {
+          "rva": 33579288,
+          "bytes": "4883c428",
+          "asm": "add rsp, 0x28"
+        },
+        {
+          "rva": 33579292,
+          "bytes": "c3",
+          "asm": "ret "
+        }
+      ]
+    },
+    {
+      "begin": 33579316,
+      "end": 33579527,
+      "sha256": "55cac21fe16eedf8fb7d9cd4333f1b04b576d34eaa1f308e77deacbf6c8d8370",
+      "instruction_count": 39,
+      "instructions": [
+        {
+          "rva": 33579316,
+          "bytes": "48894c2408",
+          "asm": "mov qword ptr [rsp + 8], rcx"
+        },
+        {
+          "rva": 33579321,
+          "bytes": "4883ec38",
+          "asm": "sub rsp, 0x38"
+        },
+        {
+          "rva": 33579325,
+          "bytes": "b917000000",
+          "asm": "mov ecx, 0x17"
+        },
+        {
+          "rva": 33579330,
+          "bytes": "ff15b0a40900",
+          "asm": "call qword ptr [rip + 0x9a4b0]"
+        },
+        {
+          "rva": 33579336,
+          "bytes": "85c0",
+          "asm": "test eax, eax"
+        },
+        {
+          "rva": 33579338,
+          "bytes": "7407",
+          "asm": "je 0x2006153"
+        },
+        {
+          "rva": 33579340,
+          "bytes": "b902000000",
+          "asm": "mov ecx, 2"
+        },
+        {
+          "rva": 33579345,
+          "bytes": "cd29",
+          "asm": "int 0x29"
+        },
+        {
+          "rva": 33579347,
+          "bytes": "488d0d76e61800",
+          "asm": "lea rcx, [rip + 0x18e676]"
+        },
+        {
+          "rva": 33579354,
+          "bytes": "e819010000",
+          "asm": "call 0x2006278"
+        },
+        {
+          "rva": 33579359,
+          "bytes": "488b442438",
+          "asm": "mov rax, qword ptr [rsp + 0x38]"
+        },
+        {
+          "rva": 33579364,
+          "bytes": "4889055de71800",
+          "asm": "mov qword ptr [rip + 0x18e75d], rax"
+        },
+        {
+          "rva": 33579371,
+          "bytes": "488d442438",
+          "asm": "lea rax, [rsp + 0x38]"
+        },
+        {
+          "rva": 33579376,
+          "bytes": "4883c008",
+          "asm": "add rax, 8"
+        },
+        {
+          "rva": 33579380,
+          "bytes": "488905ede61800",
+          "asm": "mov qword ptr [rip + 0x18e6ed], rax"
+        },
+        {
+          "rva": 33579387,
+          "bytes": "488b0546e71800",
+          "asm": "mov rax, qword ptr [rip + 0x18e746]"
+        },
+        {
+          "rva": 33579394,
+          "bytes": "488905b7e51800",
+          "asm": "mov qword ptr [rip + 0x18e5b7], rax"
+        },
+        {
+          "rva": 33579401,
+          "bytes": "488b442440",
+          "asm": "mov rax, qword ptr [rsp + 0x40]"
+        },
+        {
+          "rva": 33579406,
+          "bytes": "488905bbe61800",
+          "asm": "mov qword ptr [rip + 0x18e6bb], rax"
+        },
+        {
+          "rva": 33579413,
+          "bytes": "c70591e51800090400c0",
+          "asm": "mov dword ptr [rip + 0x18e591], 0xc0000409"
+        },
+        {
+          "rva": 33579423,
+          "bytes": "c7058be5180001000000",
+          "asm": "mov dword ptr [rip + 0x18e58b], 1"
+        },
+        {
+          "rva": 33579433,
+          "bytes": "c70595e5180001000000",
+          "asm": "mov dword ptr [rip + 0x18e595], 1"
+        },
+        {
+          "rva": 33579443,
+          "bytes": "b808000000",
+          "asm": "mov eax, 8"
+        },
+        {
+          "rva": 33579448,
+          "bytes": "486bc000",
+          "asm": "imul rax, rax, 0"
+        },
+        {
+          "rva": 33579452,
+          "bytes": "488d0d8de51800",
+          "asm": "lea rcx, [rip + 0x18e58d]"
+        },
+        {
+          "rva": 33579459,
+          "bytes": "48c7040102000000",
+          "asm": "mov qword ptr [rcx + rax], 2"
+        },
+        {
+          "rva": 33579467,
+          "bytes": "b808000000",
+          "asm": "mov eax, 8"
+        },
+        {
+          "rva": 33579472,
+          "bytes": "486bc000",
+          "asm": "imul rax, rax, 0"
+        },
+        {
+          "rva": 33579476,
+          "bytes": "488b0de59f0c00",
+          "asm": "mov rcx, qword ptr [rip + 0xc9fe5]"
+        },
+        {
+          "rva": 33579483,
+          "bytes": "48894c0420",
+          "asm": "mov qword ptr [rsp + rax + 0x20], rcx"
+        },
+        {
+          "rva": 33579488,
+          "bytes": "b808000000",
+          "asm": "mov eax, 8"
+        },
+        {
+          "rva": 33579493,
+          "bytes": "486bc001",
+          "asm": "imul rax, rax, 1"
+        },
+        {
+          "rva": 33579497,
+          "bytes": "488b0d10a00c00",
+          "asm": "mov rcx, qword ptr [rip + 0xca010]"
+        },
+        {
+          "rva": 33579504,
+          "bytes": "48894c0420",
+          "asm": "mov qword ptr [rsp + rax + 0x20], rcx"
+        },
+        {
+          "rva": 33579509,
+          "bytes": "488d0d94a80300",
+          "asm": "lea rcx, [rip + 0x3a894]"
+        },
+        {
+          "rva": 33579516,
+          "bytes": "e8eb000000",
+          "asm": "call 0x20062ec"
+        },
+        {
+          "rva": 33579521,
+          "bytes": "90",
+          "asm": "nop "
+        },
+        {
+          "rva": 33579522,
+          "bytes": "4883c438",
+          "asm": "add rsp, 0x38"
+        },
+        {
+          "rva": 33579526,
+          "bytes": "c3",
+          "asm": "ret "
+        }
+      ]
+    }
+  ],
+  "exception_record": {
+    "pair_rva": 33819280,
+    "record_rva": 35211056,
+    "context_rva": 35211216,
+    "layout_offsets": {
+      "ExceptionCode": 0,
+      "ExceptionFlags": 4,
+      "NumberParameters": 24,
+      "ExceptionInformation": 32
+    },
+    "writes": [
+      {
+        "site": 33579413,
+        "bytes": "c70591e51800090400c0",
+        "field": "ExceptionCode",
+        "target": 35211056,
+        "offset": 0,
+        "value": 3221226505
+      },
+      {
+        "site": 33579423,
+        "bytes": "c7058be5180001000000",
+        "field": "ExceptionFlags",
+        "target": 35211060,
+        "offset": 4,
+        "value": 1
+      },
+      {
+        "site": 33579433,
+        "bytes": "c70595e5180001000000",
+        "field": "NumberParameters",
+        "target": 35211080,
+        "offset": 24,
+        "value": 1
+      }
+    ],
+    "information0_address": 35211088,
+    "information0_value": 2,
+    "fastfail_code2_site": 33579340,
+    "fastfail_code2_bytes": "b902000000cd29",
+    "caller_pair_references": [
+      {
+        "lea_site": 33579275,
+        "pair_rva": 33819280,
+        "call_site": 33579282,
+        "wrapper_rva": 33579756
+      },
+      {
+        "lea_site": 33579509,
+        "pair_rva": 33819280,
+        "call_site": 33579516,
+        "wrapper_rva": 33579756
+      }
+    ]
+  },
+  "wrapper_slots": [
+    {
+      "site": 33579767,
+      "slot_rva": 34211664
+    },
+    {
+      "site": 33579776,
+      "slot_rva": 34211816
+    },
+    {
+      "site": 33579782,
+      "slot_rva": 34210816
+    },
+    {
+      "site": 33579801,
+      "slot_rva": 34211736
+    }
+  ],
+  "public_crt_match": {
+    "source_url": "https://github.com/reactos/reactos/blob/fae4549cb0cd6d5867e65e61c2bc29985b57bc98/sdk/lib/crt/startup/gs_support.c",
+    "source_sha256": "6646528059142a84970c34eac90aa500d87a829b0480c6231e984938378d6773",
+    "ordered_source_operations": [
+      "GS_ExceptionRecord.ExceptionCode=STATUS_STACK_BUFFER_OVERRUN;",
+      "SetUnhandledExceptionFilter(NULL);",
+      "UnhandledExceptionFilter((EXCEPTION_POINTERS*)&GS_ExceptionPointers);",
+      "TerminateProcess(GetCurrentProcess(),STATUS_STACK_BUFFER_OVERRUN);"
+    ],
+    "classification": "Strong static consistency with CRT security-failure/fail-fast reporting; no exact symbol or runtime API binding established"
+  },
+  "eid_sections": [
+    {
+      "name": ".eidsig",
+      "rva": 35717120,
+      "virtual_size": 32,
+      "raw_size": 512,
+      "raw_sha256": "c2890b583c9ecaff5aa1c50aed7c99ac1764b1c47aaf7f4f4a0a8b72aa97c348",
+      "first8_hex": "4549444f4c4f4e0b"
+    },
+    {
+      "name": ".eid",
+      "rva": 36110336,
+      "virtual_size": 6094848,
+      "raw_size": 6076928,
+      "raw_sha256": "36d4d4a0725f03f743dc67386ccd96eb91a6eefa4f5754c90e44ece697111b44",
+      "first8_hex": "dc1e88cee3bf9592"
+    }
+  ],
+  "eid_direct_target_reference_scan": [
+    {
+      "target_rva": 28381584,
+      "encoding": "rva32le",
+      "hits_in_file_backed_eid": []
+    },
+    {
+      "target_rva": 28381584,
+      "encoding": "preferred_va64le",
+      "hits_in_file_backed_eid": []
+    },
+    {
+      "target_rva": 28393760,
+      "encoding": "rva32le",
+      "hits_in_file_backed_eid": []
+    },
+    {
+      "target_rva": 28393760,
+      "encoding": "preferred_va64le",
+      "hits_in_file_backed_eid": []
+    },
+    {
+      "target_rva": 53504192,
+      "encoding": "rva32le",
+      "hits_in_file_backed_eid": []
+    },
+    {
+      "target_rva": 53504192,
+      "encoding": "preferred_va64le",
+      "hits_in_file_backed_eid": []
+    },
+    {
+      "target_rva": 28381184,
+      "encoding": "rva32le",
+      "hits_in_file_backed_eid": []
+    },
+    {
+      "target_rva": 28381184,
+      "encoding": "preferred_va64le",
+      "hits_in_file_backed_eid": []
+    },
+    {
+      "target_rva": 28393472,
+      "encoding": "rva32le",
+      "hits_in_file_backed_eid": []
+    },
+    {
+      "target_rva": 28393472,
+      "encoding": "preferred_va64le",
+      "hits_in_file_backed_eid": []
+    },
+    {
+      "target_rva": 53501952,
+      "encoding": "rva32le",
+      "hits_in_file_backed_eid": []
+    },
+    {
+      "target_rva": 53501952,
+      "encoding": "preferred_va64le",
+      "hits_in_file_backed_eid": []
+    }
+  ],
+  "scope_limits": [
+    "Direct byte-pattern scan of only file-backed .eid; encoded/compressed/relative relationships are not covered",
+    "EIDOLON magic observed; following 0x0b byte has no assigned format/version semantics",
+    "Instruction boundaries cross-checked, not complete execution or all callee-effects proof",
+    "No target code decrypted, key recovered or CPU/BIOS network path established"
+  ],
+  "claims": {
+    "runtime_api_identity_confirmed": false,
+    "decrypted_target_code_recovered": false,
+    "decryption_algorithm_identified": false,
+    "cpu_bios_send_proven": false,
+    "cpu_bios_send_disproven": false,
+    "live_test_requested": false,
+    "target_binary_executed": false
+  },
+  "decision": "Keep CRT/API detour out of direct decryptor search; .eid format remains a bounded unresolved research lead, not a found decoder"
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "role": "public-domain CRT source",
+    "url": "https://github.com/reactos/reactos/blob/fae4549cb0cd6d5867e65e61c2bc29985b57bc98/sdk/lib/crt/startup/gs_support.c",
+    "sha256": "6646528059142a84970c34eac90aa500d87a829b0480c6231e984938378d6773",
+    "executed": false
+  },
+  {
+    "role": "matching-language tool scope",
+    "url": "https://github.com/mahmoudimus/maml/blob/8e34b843eb723b3d8faafb6015edaa7d76fe92fb/README.md",
+    "sha256": "7d674f934321a5545c21768e625ab6cab63160fbfe37cc44400a23f77f489967",
+    "scope_quote": "a byte-oriented binary matching language",
+    "executed": false
+  },
+  {
+    "role": "older-build preprocessing example",
+    "url": "https://github.com/mahmoudimus/maml/blob/8e34b843eb723b3d8faafb6015edaa7d76fe92fb/tools/durability/flatten.py",
+    "sha256": "da3d7bf0cf2d705a69ab1d1e5d202f8b1ba79e6e2b0b09a9c736ba1a5c911da5",
+    "observed_example_builds": [
+      "69273",
+      "69382",
+      "69404",
+      "69497"
+    ],
+    "input_filename_marker": "-devirt.dll",
+    "target_70448_example_present": false,
+    "executed": false
+  },
+  {
+    "role": "official fail-fast contract",
+    "url": "https://learn.microsoft.com/en-us/cpp/intrinsics/fastfail?view=msvc-170"
+  },
+  {
+    "role": "official pointer pair",
+    "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-exception_pointers"
+  },
+  {
+    "role": "official record layout",
+    "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-exception_record"
+  }
+]

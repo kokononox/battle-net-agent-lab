@@ -1,0 +1,23 @@
+{
+  "producer": "PASS",
+  "independent_verifier": "PASS; stdlib byte/structure checks, no full mnemonic semantics claim",
+  "independent_objdump_instruction_boundaries": "PASS for three bounded pdata bodies",
+  "repeat_production_identical": true,
+  "evidence_sha256": "d6f605c835fcfaa97097b8806d9e8a294b6f8dff9e58e9fee0bc23c5956e0347",
+  "deliberate_report_corruptions_rejected": 13,
+  "wrong_input_identity_rejected_before_PE_parse": true,
+  "python_source_compile": "PASS",
+  "tools": {
+    "python": "3.13.15",
+    "pefile": "2024.8.26",
+    "capstone": "5.0.7",
+    "objdump": "GNU objdump version 2.41-50.amzn2023.0.5"
+  },
+  "initial_producer_issue": "Wrong assumed tail-jump offset (0x2006318, actually pop RBX) rejected; corrected to 0x2006319 before final report",
+  "target_binary_executed": false,
+  "new_Windows_tool_created": false,
+  "runtime_API_binding_confirmed": false,
+  "decryption_or_network_proof": false,
+  "main_modified": false,
+  "BIOS_Path_GUI_0_2_modified": false
+}
