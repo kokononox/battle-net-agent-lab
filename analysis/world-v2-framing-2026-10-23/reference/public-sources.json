@@ -1,0 +1,164 @@
+{
+  "commit": "dcd1dab1426c2dde3f87ad41768fb3d6b87b67ae",
+  "sources": [
+    {
+      "name": "WorldSocket.h",
+      "url": "https://github.com/TrinityCore/TrinityCore/blob/dcd1dab1426c2dde3f87ad41768fb3d6b87b67ae/src/server/game/Server/WorldSocket.h",
+      "git_blob_sha1": "6f18ef4c52c1262738b28de8c0308669772a45b8",
+      "full_source_sha256": "7893ea245abc2c5f970404c1e17718bc66dd02744176ea49292f1e6aaceac61a",
+      "attribution": "TrinityCore Project; public structural reference, GPL-2.0-or-later; excerpts only, not executed.",
+      "excerpts": [
+        {
+          "label": "packet_header",
+          "start_line": 68,
+          "end_line": 81,
+          "text": "struct PacketHeader\n{\n    uint32 Size;\n    uint8 Tag[12];\n\n    bool IsValidSize() const { return Size < 0x10000; }\n};\n\nstruct IncomingPacketHeader : PacketHeader\n{\n    uint32 EncryptedOpcode;\n};\n\n#pragma pack(pop)",
+          "sha256": "118a000fb9da25bd69210f4ec82c3501baba9c62f7f333b40cf358a418d7ea29"
+        }
+      ]
+    },
+    {
+      "name": "WorldSocket.cpp",
+      "url": "https://github.com/TrinityCore/TrinityCore/blob/dcd1dab1426c2dde3f87ad41768fb3d6b87b67ae/src/server/game/Server/WorldSocket.cpp",
+      "git_blob_sha1": "3b3b627bd7ff7493bfbb539c2ef6cf42f22c534f",
+      "full_source_sha256": "99901af3b5bce61739a2186ba298186ae54925f33a55781f85ce21cc192090fb",
+      "attribution": "TrinityCore Project; public structural reference, GPL-2.0-or-later; excerpts only, not executed.",
+      "excerpts": [
+        {
+          "label": "V2_banner",
+          "start_line": 82,
+          "end_line": 82,
+          "text": "    static constexpr std::string_view ServerConnectionInitialize = \"WORLD OF WARCRAFT CONNECTION - SERVER TO CLIENT - V2\\n\";",
+          "sha256": "cea8b86f72edf74847e0019c3527d6d0758e3fbbd734a722adcc3f31ba53995b"
+        },
+        {
+          "label": "V2_banner",
+          "start_line": 83,
+          "end_line": 83,
+          "text": "    static constexpr std::string_view ClientConnectionInitialize = \"WORLD OF WARCRAFT CONNECTION - CLIENT TO SERVER - V2\\n\";",
+          "sha256": "62a8ac24bfd576b6775a92092bdfc736ee50e12308b4ccb2cb0d474b0b777e41"
+        },
+        {
+          "label": "ack_initializes_cipher",
+          "start_line": 1033,
+          "end_line": 1044,
+          "text": "WorldSocket::ReadDataHandlerResult WorldSocket::HandleEnterEncryptedModeAck()\n{\n    LogOpcodeText(CMSG_ENTER_ENCRYPTED_MODE_ACK);\n\n    _authCrypt.Init(_encryptKey);\n    if (_type == CONNECTION_TYPE_REALM)\n        sWorld->AddSession(_worldSession);\n    else\n        sWorld->AddInstanceSocket(static_pointer_cast<WorldSocket>(shared_from_this()), _key);\n\n    return ReadDataHandlerResult::Ok;\n}",
+          "sha256": "3d0ec7f4098b34e4fa5318c13cb02f2b8497b4e845d13985f9750ecdc96df3a8"
+        }
+      ]
+    },
+    {
+      "name": "Opcodes.h",
+      "url": "https://github.com/TrinityCore/TrinityCore/blob/dcd1dab1426c2dde3f87ad41768fb3d6b87b67ae/src/server/game/Server/Protocol/Opcodes.h",
+      "git_blob_sha1": "6bbf64ae7d0ec3f1ef055ed70d9af5bc8d3dd1ac",
+      "full_source_sha256": "6bebb2c86cc9296f904e6e1d15f7cd384dfec0d7c598c295a043ff53e6de7fd3",
+      "attribution": "TrinityCore Project; public structural reference, GPL-2.0-or-later; excerpts only, not executed.",
+      "excerpts": [
+        {
+          "label": "initial_opcode",
+          "start_line": 86,
+          "end_line": 86,
+          "text": "    CMSG_AUTH_CONTINUED_SESSION                                     = 0x440003,",
+          "sha256": "44c12c10e2741e2ab4466ced6d0647629e317aef859f3dad56bd28a820ff90cb"
+        },
+        {
+          "label": "initial_opcode",
+          "start_line": 87,
+          "end_line": 87,
+          "text": "    CMSG_AUTH_SESSION                                               = 0x440001,",
+          "sha256": "ed67c5c06cb8f2133984d8ed1cd5c9784fbaee4854109349a38ddd036421831f"
+        },
+        {
+          "label": "initial_opcode",
+          "start_line": 351,
+          "end_line": 351,
+          "text": "    CMSG_ENTER_ENCRYPTED_MODE_ACK                                   = 0x440005,",
+          "sha256": "1b97f8a831922aca7900f95ea6b613b514177a046b23f7d12e2b612442c2defa"
+        },
+        {
+          "label": "initial_opcode",
+          "start_line": 1193,
+          "end_line": 1193,
+          "text": "    SMSG_AUTH_CHALLENGE                                             = 0x4C0000,",
+          "sha256": "79228f196350aba86f899b4f74d9ce08f53a4715e76c12bf5712cad49679dae8"
+        },
+        {
+          "label": "initial_opcode",
+          "start_line": 1464,
+          "end_line": 1464,
+          "text": "    SMSG_ENTER_ENCRYPTED_MODE                                       = 0x4C0004,",
+          "sha256": "5892c10c7af4f7c121ddf0e6042a1ed772d995bdce181a3ae0ac3b5c66c88ee1"
+        }
+      ]
+    },
+    {
+      "name": "AuthenticationPackets.h",
+      "url": "https://github.com/TrinityCore/TrinityCore/blob/dcd1dab1426c2dde3f87ad41768fb3d6b87b67ae/src/server/game/Server/Packets/AuthenticationPackets.h",
+      "git_blob_sha1": "2ea31c72cc5a1b64ea49ee3a0861f241b298ae1e",
+      "full_source_sha256": "f6ba682af90e9581df05d0b03c3dc0f358d955ab3385e0236c2d53ae49c5df13",
+      "attribution": "TrinityCore Project; public structural reference, GPL-2.0-or-later; excerpts only, not executed.",
+      "excerpts": [
+        {
+          "label": "challenge_field_sizes",
+          "start_line": 88,
+          "end_line": 99,
+          "text": "        class AuthChallenge final : public ServerPacket\n        {\n        public:\n            explicit AuthChallenge() : ServerPacket(SMSG_AUTH_CHALLENGE, 16 + 4 * 8 + 1) { }\n\n            WorldPacket const* Write() override;\n\n            std::array<uint8, 32> Challenge = { };\n            std::array<uint32, 8> DosChallenge = { };\n            uint8 DosZeroBits = 0;\n        };\n",
+          "sha256": "a1d5c2a4e83b45d3899c15d1665de259fb942a3d10c5372f0e3cd8a89ec71d65"
+        }
+      ]
+    },
+    {
+      "name": "AuthenticationPackets.cpp",
+      "url": "https://github.com/TrinityCore/TrinityCore/blob/dcd1dab1426c2dde3f87ad41768fb3d6b87b67ae/src/server/game/Server/Packets/AuthenticationPackets.cpp",
+      "git_blob_sha1": "a5a796daf9f5411ae0d3f90f29674ff9648a707e",
+      "full_source_sha256": "c66bbf19664819f2e7bcb1dbc2a010554c3dbe4aebc7816656534d994a51026c",
+      "attribution": "TrinityCore Project; public structural reference, GPL-2.0-or-later; excerpts only, not executed.",
+      "excerpts": [
+        {
+          "label": "challenge_writer",
+          "start_line": 68,
+          "end_line": 74,
+          "text": "WorldPacket const* AuthChallenge::Write()\n{\n    _worldPacket.append(DosChallenge.data(), DosChallenge.size());\n    _worldPacket.append(Challenge.data(), Challenge.size());\n    _worldPacket << uint8(DosZeroBits);\n    return &_worldPacket;\n}",
+          "sha256": "ab5a81a874a916c69801b2874220c5d2088501673ed634596f5784dff4d2843f"
+        },
+        {
+          "label": "auth_session_reader",
+          "start_line": 76,
+          "end_line": 93,
+          "text": "void AuthSession::Read()\n{\n    uint32 realmJoinTicketSize;\n\n    _worldPacket >> DosResponse;\n    _worldPacket >> RegionID;\n    _worldPacket >> BattlegroupID;\n    _worldPacket >> RealmID;\n    _worldPacket.read(LocalChallenge.data(), LocalChallenge.size());\n    _worldPacket.read(Digest.data(), Digest.size());\n    _worldPacket >> Bits<1>(UseIPv6);\n    _worldPacket >> realmJoinTicketSize;\n    if (realmJoinTicketSize)\n    {\n        RealmJoinTicket.resize(std::min(realmJoinTicketSize, uint32(_worldPacket.size() - _worldPacket.rpos())));\n        _worldPacket.read(RealmJoinTicket.data(), RealmJoinTicket.size());\n    }\n}",
+          "sha256": "9a0015c20bc78592e6c57809bbd798aeb9004bf8d363347114be413dc6eaae59"
+        },
+        {
+          "label": "continued_session_reader",
+          "start_line": 336,
+          "end_line": 344,
+          "text": "void AuthContinuedSession::Read()\n{\n    _worldPacket >> DosResponse;\n    _worldPacket.read(LocalChallenge.data(), LocalChallenge.size());\n    _worldPacket.read(Digest.data(), Digest.size());\n    _worldPacket >> Key;\n    _worldPacket >> NativeRealmAddress;\n    _worldPacket >> Key3;\n}",
+          "sha256": "b87039e657f05159befc8ac977b47cf059a328a5bf9b5b2e6734798daa9cb553"
+        },
+        {
+          "label": "mode_writer",
+          "start_line": 371,
+          "end_line": 388,
+          "text": "WorldPacket const* EnterEncryptedMode::Write()\n{\n    std::array<uint8, 64> toSign = Trinity::Crypto::HMAC_SHA512::GetDigestOf(EncryptionKey,\n        std::array<uint8, 1>{uint8(Enabled ? 1 : 0)},\n        EnableEncryptionSeed);\n\n    Trinity::Crypto::Ed25519 ed25519(*EnterEncryptedModeSigner);\n    std::vector<uint8> signature;\n\n    ed25519.SignWithContext(toSign, { EnableEncryptionContext.begin(), EnableEncryptionContext.end() }, signature);\n\n    _worldPacket << int32(RegionGroup);\n    _worldPacket.append(signature.data(), signature.size());\n    _worldPacket << Bits<1>(Enabled);\n    _worldPacket.FlushBits();\n\n    return &_worldPacket;\n}",
+          "sha256": "a501d0db7a4456be3d7b70edaf5d992726563a4df7e037427337fce8619c636a"
+        }
+      ]
+    },
+    {
+      "name": "WorldPacketCrypt.cpp",
+      "url": "https://github.com/TrinityCore/TrinityCore/blob/dcd1dab1426c2dde3f87ad41768fb3d6b87b67ae/src/common/Cryptography/Authentication/WorldPacketCrypt.cpp",
+      "git_blob_sha1": "498588c71f018de1954fb9624191fd22b8a5986b",
+      "full_source_sha256": "9fbc6a009743eb1daa0643fd56bdccecd74dff7da4b8be5402c75e6a17bfd9de",
+      "attribution": "TrinityCore Project; public structural reference, GPL-2.0-or-later; excerpts only, not executed.",
+      "excerpts": [
+        {
+          "label": "uninitialized_vs_initialized_tag",
+          "start_line": 71,
+          "end_line": 84,
+          "text": "bool WorldPacketCrypt::EncryptSend(uint8* data, size_t length, Trinity::Crypto::AES::Tag& tag)\n{\n    if (_initialized)\n    {\n        WorldPacketCryptIV iv{ _serverCounter, 0x52565253 };\n        if (!_serverEncrypt.Process(iv.Value, data, length, tag))\n            return false;\n    }\n    else\n        memset(tag, 0, sizeof(tag));\n\n    ++_serverCounter;\n    return true;\n}",
+          "sha256": "f94bfdf0f81cf17e8ada2e24d47d69a2a58bc0b15c0ee7f767e7531f31ff802c"
+        }
+      ]
+    }
+  ]
+}

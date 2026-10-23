@@ -1,0 +1,39 @@
+{
+  "baseline_stream_hashes_checked_again": true,
+  "outer_frames_independently_walked": 319,
+  "clear_prefix_messages": 12,
+  "opaque_nonzero_tag_messages": 307,
+  "public_excerpt_hashes_checked": true,
+  "negative_tests": [
+    {
+      "case": "wrong_banner_version",
+      "rejected": true
+    },
+    {
+      "case": "zero_payload_length",
+      "rejected": true
+    },
+    {
+      "case": "oversized_payload_length",
+      "rejected": true
+    },
+    {
+      "case": "partial_body",
+      "rejected": true
+    },
+    {
+      "case": "partial_header",
+      "rejected": true
+    },
+    {
+      "case": "wrong_challenge_opcode",
+      "rejected": true
+    },
+    {
+      "case": "enable_bit_disabled",
+      "rejected": true
+    }
+  ],
+  "opaque_opcodes_not_interpreted": true,
+  "limits": "Independent walk checks framing, not AEAD tags, cipher keys, server implementation identity, exact client build, or hardware fields. Negative tests do not constitute full parser fuzzing."
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "flow": "F03",
+    "direction": "client_to_server",
+    "banner": "WORLD OF WARCRAFT CONNECTION - CLIENT TO SERVER - V2\n",
+    "banner_length": 53,
+    "stream_length": 5437,
+    "following_first_u32_le": 917,
+    "following_12_bytes_zero": true,
+    "following_u32_at_16": "0x440001"
+  },
+  {
+    "flow": "F03",
+    "direction": "server_to_client",
+    "banner": "WORLD OF WARCRAFT CONNECTION - SERVER TO CLIENT - V2\n",
+    "banner_length": 53,
+    "stream_length": 39957,
+    "following_first_u32_le": 69,
+    "following_12_bytes_zero": true,
+    "following_u32_at_16": "0x4c0000"
+  },
+  {
+    "flow": "F04",
+    "direction": "client_to_server",
+    "banner": "WORLD OF WARCRAFT CONNECTION - CLIENT TO SERVER - V2\n",
+    "banner_length": 53,
+    "stream_length": 806,
+    "following_first_u32_le": 84,
+    "following_12_bytes_zero": true,
+    "following_u32_at_16": "0x440003"
+  },
+  {
+    "flow": "F04",
+    "direction": "server_to_client",
+    "banner": "WORLD OF WARCRAFT CONNECTION - SERVER TO CLIENT - V2\n",
+    "banner_length": 53,
+    "stream_length": 72211,
+    "following_first_u32_le": 69,
+    "following_12_bytes_zero": true,
+    "following_u32_at_16": "0x4c0000"
+  },
+  {
+    "flow": "F05",
+    "direction": "client_to_server",
+    "banner": "WORLD OF WARCRAFT CONNECTION - CLIENT TO SERVER - V2\n",
+    "banner_length": 53,
+    "stream_length": 1590,
+    "following_first_u32_le": 84,
+    "following_12_bytes_zero": true,
+    "following_u32_at_16": "0x440003"
+  },
+  {
+    "flow": "F05",
+    "direction": "server_to_client",
+    "banner": "WORLD OF WARCRAFT CONNECTION - SERVER TO CLIENT - V2\n",
+    "banner_length": 53,
+    "stream_length": 51225,
+    "following_first_u32_le": 69,
+    "following_12_bytes_zero": true,
+    "following_u32_at_16": "0x4c0000"
+  }
+]
