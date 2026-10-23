@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WindowsPerformanceRecorder Version="1.0" Author="WLab">
+  <Profiles>
+    <EventCollector Id="WLabEvents" Name="WLab ETW Control Events">
+      <BufferSize Value="64" />
+      <Buffers Value="64" />
+    </EventCollector>
+    <EventProvider Id="WLabAFD" Name="E53C6823-7BB8-44BB-90DC-3F86090D48A6" Level="5" Stack="true" Strict="true">
+      <Keywords><Keyword Value="0x4" /></Keywords>
+    </EventProvider>
+    <EventProvider Id="WLabSockets" Name="BDE46AEA-2357-51FE-7367-D5296F530BD1" Level="5" Stack="true" Strict="true">
+      <Keywords><Keyword Value="0x1" /></Keywords>
+    </EventProvider>
+    <Profile Id="WLabControl.Verbose.Memory" Name="WLabControl" Description="Loopback only control; request stacks, not guaranteed" LoggingMode="Memory" DetailLevel="Verbose">
+      <Collectors>
+        <EventCollectorId Value="WLabEvents">
+          <EventProviders>
+            <EventProviderId Value="WLabAFD" />
+            <EventProviderId Value="WLabSockets" />
+          </EventProviders>
+        </EventCollectorId>
+      </Collectors>
+    </Profile>
+  </Profiles>
+</WindowsPerformanceRecorder>

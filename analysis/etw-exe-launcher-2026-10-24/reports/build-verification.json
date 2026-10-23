@@ -1,0 +1,27 @@
+{
+  "artifact": "WLab-ETW-Control.exe",
+  "sha256": "dc610572c6ade7b308b8f525ae636164bb4fd3b72ff74217fe18c4eff14031ee",
+  "size_bytes": 2980352,
+  "machine": "AMD64",
+  "subsystem": "Windows GUI",
+  "compiler": {
+    "filename": "go1.27.3.linux-amd64.tar.gz",
+    "os": "linux",
+    "arch": "amd64",
+    "version": "go1.27.3",
+    "sha256": "65efbc80fdc1fa2cd2631cad5b481777a68e8725f34e89f50fc6ac714e379b40",
+    "size": 70588678,
+    "kind": "archive"
+  },
+  "official_compiler_archive_sha256_verified": true,
+  "cross_build_passed": true,
+  "go_vet_windows_passed": true,
+  "embedded_payload_bytes_match_previous_control": true,
+  "encoded_command_chars": 24040,
+  "command_roundtrip_verified": true,
+  "console_startup": "CreateProcessW CREATE_NEW_CONSOLE, STARTF_USESTDHANDLES not set; runtime not tested",
+  "authenticode_signed": false,
+  "windows_runtime_tested": false,
+  "uac_runtime_tested": false,
+  "etw_capture_tested": false
+}
