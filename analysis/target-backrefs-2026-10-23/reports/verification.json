@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "scope": "Independent stdlib PE/metadata-cycle/relocation/section checks; full raw E8/E9 and RIP-displacement arithmetic prefilter over executable sections; not a semantic decoder/ABI/runtime proof.",
+  "relocation_references_checked": 687,
+  "reference_kinds": {
+    "prototype_first_qword": 2,
+    "parse_fallback_candidate": 680,
+    "candidate_parse_header": 2,
+    "candidate_class_record": 1,
+    "merge_candidate": 1,
+    "creator_candidate": 1
+  },
+  "reference_sections": {
+    ".rdata": 2,
+    ".data": 685
+  },
+  "executable_reference_slots": 0,
+  "independent_raw_direct_branch_hits": 0,
+  "independent_raw_rip_prefilter_hits": 0,
+  "raw_rip_prefilter_sample": [],
+  "mutations_rejected": [
+    "target address",
+    "record range",
+    "pointer slot",
+    "executable classification",
+    "collector claim",
+    "selected target"
+  ]
+}

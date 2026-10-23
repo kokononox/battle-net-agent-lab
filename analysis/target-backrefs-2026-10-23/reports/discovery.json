@@ -1,0 +1,4857 @@
+{
+  "sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "image_base": 5368709120,
+  "selection": {
+    "target": "creator_candidate",
+    "reason": "Metadata-pinned creator slot and containing ClassData cycle provide a bounded backward anchor; NOT selected as a confirmed CPU/BIOS collector. Other two code targets indexed for comparison only.",
+    "slot_rva": 75298832,
+    "target_rva": 28381584
+  },
+  "code_targets": {
+    "merge_candidate": 28393760,
+    "creator_candidate": 28381584,
+    "parse_fallback_candidate": 53504192
+  },
+  "slot_rvas": {
+    "merge_candidate": 75298816,
+    "creator_candidate": 75298832,
+    "parse_fallback_candidate": 75295800
+  },
+  "metadata_ranges": [
+    [
+      "candidate_class_record",
+      75298784,
+      75298888
+    ],
+    [
+      "candidate_parse_header",
+      75295752,
+      75295808
+    ],
+    [
+      "prototype_first_qword",
+      75851024,
+      75851032
+    ]
+  ],
+  "geometry_assumption": "Prior candidate upstream protobuf ClassData/TcParseTable geometry; fork ABI identity not established.",
+  "direct_branch_candidates": [],
+  "rip_metadata_candidates": [],
+  "relocation_backed_references": [
+    {
+      "slot_rva": 64236288,
+      "target_rva": 75851024,
+      "target_kind": "prototype_first_qword",
+      "slot_section": ".rdata",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 69898672,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".rdata",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75258696,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75259080,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75259200,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75259672,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75260224,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75260712,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75261256,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75261376,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75261816,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75262088,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75262664,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75263528,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75264104,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75264600,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75264984,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75265576,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75266008,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75266488,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75266984,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75267208,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75267656,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75268264,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75268680,
+      "target_rva": 75295752,
+      "target_kind": "candidate_parse_header",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75268952,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75269640,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75269928,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75270520,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75270968,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75271672,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75272344,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75272792,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75273512,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75274408,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75275192,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75275848,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75276248,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75276728,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75277288,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75277784,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75278328,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75278776,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75278944,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75279208,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75279592,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75279944,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75280232,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75280952,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75281120,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75281416,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75281616,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75282056,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75282176,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75282712,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75282832,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75283224,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75283400,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75283800,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75283984,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75284344,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75284520,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75284936,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75285112,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75285512,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75285776,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75286280,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75286664,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75287048,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75287416,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75287816,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75288216,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75288520,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75288776,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75289032,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75289368,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75289488,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75289832,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75289952,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75290296,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75290416,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75290760,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75290856,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75291256,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75291376,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75291720,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75291944,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75292424,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75292600,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75293080,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75293248,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75293592,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75293712,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75294104,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75294280,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75294728,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75294904,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75295368,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75295784,
+      "target_rva": 75298784,
+      "target_kind": "candidate_class_record",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75295800,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75297960,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75298376,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75298576,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75298784,
+      "target_rva": 75851024,
+      "target_kind": "prototype_first_qword",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75298792,
+      "target_rva": 75295752,
+      "target_kind": "candidate_parse_header",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75298816,
+      "target_rva": 28393760,
+      "target_kind": "merge_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75298832,
+      "target_rva": 28381584,
+      "target_kind": "creator_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75298936,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75299752,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75300360,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75300840,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75355368,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75355704,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75356008,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75356248,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75356384,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75356744,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75356952,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75357240,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75357576,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75358152,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75358392,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75358536,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75358904,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75359208,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75359592,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75360168,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75360680,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75360848,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75361256,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75361608,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75361992,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75362200,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75362408,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75362696,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75363064,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75363784,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75363992,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75364200,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75364504,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75364760,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75365032,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75365304,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75365672,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75365912,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75366120,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75366352,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75366792,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75367224,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75367392,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75367712,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75368168,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75368552,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75369000,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75369096,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75369480,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75369832,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75370504,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75370936,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75371072,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75371544,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75371680,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75371816,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75372056,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75372520,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75372656,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75373128,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75373264,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75373360,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75373608,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75374040,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75374160,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75374304,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75374552,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75374872,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75375008,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75375192,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75375624,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75375720,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75376056,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75376248,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75376552,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75376648,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75376744,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75377080,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75377464,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75377640,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75377840,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75378152,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75378664,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75378768,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75379016,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75379448,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75379632,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75379848,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75380152,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75380744,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75381064,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75381400,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75381672,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75382056,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75382248,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75382776,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75383152,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75383528,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75383912,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75384232,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75384328,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75384632,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75384840,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75385040,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75385352,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75385560,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75385864,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75386088,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75386312,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75386536,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75386776,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75386968,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75387272,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75387704,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75387832,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75388872,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75389064,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75389320,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75389848,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75390040,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75390568,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75390792,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75391352,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75391656,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75392008,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75392296,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75392568,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75392776,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75393592,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75394216,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75394808,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75395128,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75395672,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75396040,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75396264,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75396568,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75396872,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75397192,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75397624,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75397728,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75398056,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75398264,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75398368,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75398616,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75398936,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75399128,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75399384,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75399896,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75401384,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75402536,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75403064,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75403344,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75403448,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75403552,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75403832,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75403936,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75404112,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75404584,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75404984,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75405688,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75405864,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75406088,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75406312,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75406712,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75407160,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75407368,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75407672,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75407976,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75408184,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75408496,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75408952,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75409160,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75409368,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75409816,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75410408,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75411288,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75411424,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75411736,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75412024,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75412168,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75412408,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75413160,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75414344,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75414600,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75414936,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75415800,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75416136,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75416696,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75417352,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75417752,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75417888,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75418064,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75418344,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75418856,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75418976,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75419152,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75419432,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75419864,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75420040,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75420328,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75420696,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75421112,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75421312,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75421512,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75421720,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75422152,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75422432,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75422608,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75422824,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75423352,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75423544,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75423680,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75423960,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75424376,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75424728,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75424928,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75425112,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75425320,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75425752,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75425944,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75426264,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75426464,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75426760,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75427048,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75427448,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75427632,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75427808,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75428088,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75428600,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75428776,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75428952,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75429160,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75429624,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75429808,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75429984,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75430264,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75430776,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75430880,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75431016,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75431304,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75431816,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75431920,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75432152,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75432504,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75433064,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75433168,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75433304,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75433592,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75434104,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75434288,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75434392,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75434776,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75435016,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75435368,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75435512,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75435648,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75435848,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75436312,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75436416,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75436712,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75437080,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75437368,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75437768,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75437952,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75438088,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75438376,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75438888,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75439072,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75439288,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75439464,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75439928,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75440200,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75440488,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75440776,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75441176,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75441440,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75441704,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75441992,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75442504,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75442680,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75443048,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75443320,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75443912,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75444176,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75444552,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75444936,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75445352,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75445736,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75445920,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75446216,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75446400,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75446920,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75447192,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75447512,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75447616,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75447696,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75448136,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75448240,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75448456,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75448592,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75448952,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75449144,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75449352,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75449592,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75449768,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75450232,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75450440,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75450728,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75451000,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75451512,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75451896,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75452000,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75452248,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75452536,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75452856,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75452936,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75453128,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75453512,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75453592,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75453696,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75454024,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75454232,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75454424,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75454528,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75454936,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75455016,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75455208,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75455528,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75455608,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75455712,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75456152,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75456256,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75456360,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75456792,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75457192,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75457328,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75457448,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75458088,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75458392,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75458712,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75458808,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75458904,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75459208,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75459560,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75459784,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75460088,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75460296,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75460488,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75460568,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75460888,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75460992,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75461096,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75461704,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75462032,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75462488,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75462728,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75462920,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75463024,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75463432,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75463608,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75463960,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75464096,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75464424,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75464560,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75464872,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75465064,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75465560,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75465736,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75466088,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75466264,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75466648,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75467016,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75467112,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75467336,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75467816,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75468264,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75468552,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75468840,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75469048,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75469608,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75469800,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75470264,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75470712,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75471384,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75471944,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75472064,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75472376,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75472664,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75472968,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75473400,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75473688,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75474120,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75474328,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75474872,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75475080,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75475288,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75475736,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75476280,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75476448,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75476840,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75477096,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75477240,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75477608,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75477792,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75478200,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75478400,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75478840,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75479448,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75479656,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75479792,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75480120,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75480456,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75480696,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75481416,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75481584,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75481944,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75482248,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75482440,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75483128,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75483608,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75483728,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75484088,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75484488,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75484664,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75485528,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75485672,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75486104,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75486248,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75486520,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75487000,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75487488,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75487592,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75488088,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75488440,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75488680,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75489080,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75489344,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75489656,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75490104,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75490272,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75490616,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75491224,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75491408,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75492008,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75492376,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75492856,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75493288,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75493384,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75494440,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75494840,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75495368,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75495536,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75496104,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75496248,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75496584,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75496704,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75497112,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75497320,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75497752,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75498056,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75498664,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75499272,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75499816,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75500064,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75500200,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75500336,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75500520,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75500656,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75500752,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75501008,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75501480,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75501992,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75502200,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75503144,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75503512,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75504648,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75504784,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75505112,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75505688,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75505840,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75506376,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75506680,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75506784,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75507384,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75507568,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75508216,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75508360,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75508952,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75509144,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75509512,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75509880,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75510472,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75513128,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75513512,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75513656,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75513912,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75514464,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75524344,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75525016,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75525304,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75525848,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75526040,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75526376,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75526920,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75527384,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75527616,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75528184,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75528288,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75528512,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75528952,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75529240,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75529424,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75529848,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75530136,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75531216,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75531672,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75532616,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75533080,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75533400,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75533672,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75533776,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75534200,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75534376,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75534672,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75535016,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75535312,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75535720,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75536408,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75536808,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75537256,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75537736,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75557488,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75558088,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75558520,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75559000,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75559400,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75559896,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75560504,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75561016,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75561232,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75561608,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75562072,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75562296,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75562600,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75563208,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75563608,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75564120,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75564424,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75565064,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75565368,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75565880,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75566296,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75566760,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75567464,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75568056,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75568440,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75568640,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75568824,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75569416,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75570184,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75570568,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75571080,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75571576,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75571976,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75572296,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75573032,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75573400,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75573752,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75574168,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75574792,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75575208,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75575592,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75576008,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75576520,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75577256,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75577464,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75577672,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75577776,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75578248,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    },
+    {
+      "slot_rva": 75579800,
+      "target_rva": 53504192,
+      "target_kind": "parse_fallback_candidate",
+      "slot_section": ".data",
+      "slot_in_executable_section": false
+    }
+  ],
+  "claims": {
+    "real_caller_identified": false,
+    "hardware_collector_identified": false,
+    "field_population_identified": false,
+    "serialization_or_send_identified": false
+  }
+}
