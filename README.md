@@ -1,6 +1,14 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## آخرین گام — WLab Snapshot 0.1.4، خروجی روی درایو بازی
+## آخرین گام — WLab Snapshot 0.1.5، سنجش native فضای خروجی
+
+[راهنما](user-tools/wlab-snapshot-0.1.5/README.fa.md) · [شواهد صفر خلاف گزارش کاربر](user-tools/wlab-snapshot-0.1.5/USER-FREE-SPACE-OBSERVATION.json) · [QA](user-tools/wlab-snapshot-0.1.5/QA.json) · [هش](user-tools/wlab-snapshot-0.1.5/PROVENANCE.json) · [وضعیت](user-tools/wlab-snapshot-0.1.5/SYNC-STATUS.json).
+
+گزارش 0.1.4 خروجی درست روی G را تأیید کرد، اما PSDrive.Free صفر بود؛ کاربر دوباره ۱۶ گیگ فضای آزاد را تأیید کرد. capture شروع نشد و علت دقیق عدد صفر provider هنوز معلوم نیست. این نسخه GetDiskFreeSpaceExW را روی همان پوشهٔ موجود خروجی فراخوانی می‌کند؛ معیار caller-available است و total/total_free و خطای Win32 جدا ثبت می‌شوند. PSDrive و DriveInfo فقط تشخیصی‌اند، نه مجوز انتخاب عدد بزرگ‌تر. خطای سنجش/null از صفر واقعی جداست. سنجش حین capture هم native است؛ حداقل ۸ GiB و لغو آرام زیر ۱ GiB حفظ شده‌اند. مسیر درایو بازی و cache/قفل کوچک LocalAppData عوض نشده‌اند.
+
+۲۵ آزمون Go، پنج fixture مصنوعی، قفل و child runner مستقل، کامپایل declaration native، mock عدد native ۱۶ GiB در برابر provider صفر، صفر واقعی، مرزها و خطاهای API و دو build یکسان گذشتند. فراخوانی واقعی Windows API در Linux ساخت آزموده نشده است؛ نسخهٔ جدید پیش از capture نتیجهٔ واقعی آن را ثبت می‌کند. main و GUI BIOS Path 0.2 تغییر نکرده‌اند؛ CPU/BIOS روی TCP/3724 همچنان نامعلوم است. قدم بعد فقط یک تلاش با 0.1.5 و ارسال گزارش جدید است؛ بخش‌های قدیمی زیر سابقه‌اند.
+
+## گام پیشین — WLab Snapshot 0.1.4، خروجی روی درایو بازی
 
 [راهنما](user-tools/wlab-snapshot-0.1.4/README.fa.md) · [گزارش توقف کمبود فضا](user-tools/wlab-snapshot-0.1.4/USER-STORAGE-OBSERVATION.json) · [QA](user-tools/wlab-snapshot-0.1.4/QA.json) · [هش باینری](user-tools/wlab-snapshot-0.1.4/PROVENANCE.json) · [وضعیت](user-tools/wlab-snapshot-0.1.4/SYNC-STATUS.json).
 

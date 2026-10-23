@@ -1,0 +1,95 @@
+{
+  "version": "0.1.5",
+  "previous_user_observation": "0.1.4 correct G output, old provider free=0; user reconfirms 16 GB; capture_started=false",
+  "diagnosis": "provider zero conflicts with user report; precise Windows cause not established; change measurement boundary rather than lower space requirement",
+  "go_unit_tests_passed": 25,
+  "test_breakdown": {
+    "parser_tests": 18,
+    "pure_geometry_tests": 4,
+    "startup_flag_guard": 1,
+    "phase_report_bundle_test": 1,
+    "storage_wiring_guard": 1
+  },
+  "offline_synthetic_integration_cases": [
+    {
+      "case": "unchanged",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "changed",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "missing",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "wrong-module-stamp",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "wrong-memory-header",
+      "passed": true,
+      "synthetic_only": true
+    }
+  ],
+  "capture_lock_regression": {
+    "platform": "Linux PowerShell/.NET",
+    "preexisting_file_without_handle_accepted": true,
+    "second_live_holder_rejected": true,
+    "graceful_release_reacquires": true,
+    "terminated_owned_test_holder_reacquires": true,
+    "windows_ui_runtime_tested": false,
+    "game_capture_tested": false
+  },
+  "child_runner_regression": {
+    "platform": "PowerShell on current test OS",
+    "null_classified_unknown": true,
+    "string_zero_classified_unknown": true,
+    "actual_zero_and_nonzero_selftests": [
+      {
+        "expected_exit_code": 0,
+        "actual_exit_code": 0,
+        "status": "succeeded",
+        "passed": true
+      },
+      {
+        "expected_exit_code": 7,
+        "actual_exit_code": 7,
+        "status": "failed",
+        "passed": true
+      }
+    ],
+    "fast_exit_children_verified": 8,
+    "result_reuse_after_cleanup": true,
+    "windows_runtime_tested": false
+  },
+  "child_runner_platform": "Linux PowerShell 7.6.8/.NET; 10 actual owned probe children, not Wow",
+  "powershell_AST_parse": "all four embedded scripts passed on Linux PowerShell; not Windows PS 5.1 runtime",
+  "windows_x64_GUI_cross_compile": "passed; PE32+ GUI x86-64",
+  "go_vet_linux_and_windows_targets": "passed",
+  "two_builds_byte_identical": true,
+  "wow_snapshot_capture_tested": false,
+  "next_test": "user Windows native query on G output directory, followed by single capture only if preflight succeeds",
+  "runtime_network_send_3724": "unresolved",
+  "storage_regression": {
+    "drive_mapping_cases_passed": 4,
+    "unsupported_paths_rejected": 4,
+    "native_declaration_compiled": true,
+    "actual_output_directory_passed_to_native_boundary": true,
+    "native_16_GiB_not_overridden_by_legacy_zero": true,
+    "real_zero_classified_low": true,
+    "boundary_cases_passed": 4,
+    "invalid_numeric_cases_rejected": 4,
+    "win32_error_preserved_as_unknown": true,
+    "native_exception_preserved_as_unknown": true,
+    "native_Windows_API_executed": false,
+    "windows_volume_write_tested": false
+  },
+  "version_0_1_5_windows_runtime_tested": false,
+  "native_Windows_disk_API_executed_in_build_environment": false
+}

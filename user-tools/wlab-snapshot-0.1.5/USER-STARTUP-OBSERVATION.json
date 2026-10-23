@@ -1,0 +1,36 @@
+{
+  "source_filename": "Documents.zip",
+  "source_sha256": "60d6d4f1b3174addeb376e1461323236014d1fd66a70ec11879e67bd00039b7a",
+  "user_observation": "process present in Task Manager; no visible UI",
+  "entries": [
+    {
+      "launcher_log": [
+        "WLab Snapshot 0.1.1 launcher",
+        "UTC: 2026-10-23T02:38:37Z",
+        "PID: 9744"
+      ],
+      "shown_marker_present": true,
+      "elevation_handoff_marker_present": false
+    },
+    {
+      "launcher_log": [
+        "WLab Snapshot 0.1.1 launcher",
+        "UTC: 2026-10-23T02:38:37Z",
+        "PID: 11284"
+      ],
+      "shown_marker_present": false,
+      "elevation_handoff_marker_present": true
+    },
+    {
+      "launcher_log": [
+        "WLab Snapshot 0.1.1 launcher",
+        "UTC: 2026-10-23T02:39:18Z",
+        "PID: 9812"
+      ],
+      "shown_marker_present": true,
+      "elevation_handoff_marker_present": false
+    }
+  ],
+  "conclusion": "two Shown-event markers, one elevation handoff, no error text recorded in these launcher logs; not proof of user-visible UI, nor evidence of a snapshot capture",
+  "cause": "HideWindow/SW_HIDE startup found in 0.1.1; plausible display-state conflict, not verified causal diagnosis on user Windows"
+}

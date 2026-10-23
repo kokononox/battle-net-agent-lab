@@ -1,0 +1,51 @@
+{
+  "source_filename": "READY-TO-SEND.zip",
+  "source_sha256": "134842b2b37252ae603ec3725bced1ec96be17d885695fc2e442fb3ea6aadaf4",
+  "run": {
+    "tool": "WLab Snapshot 0.1.4",
+    "started_utc": "2026-10-23T03:54:28.9675163Z",
+    "target_pid": 4900,
+    "target_start_ticks": 639283186697332027,
+    "game_screen_user_reported": "In world",
+    "expected_wow_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+    "capture_started": false,
+    "capture_arguments_planned": "-accepteula -ma -r 1 -n 1 -at 120 PID snapshot.dmp",
+    "stability": "not established; ask user",
+    "network_sending": "unresolved",
+    "output_policy": "selected Wow.exe local drive root; no fallback",
+    "output_directory": "G:\\WLabSnapshot\\20261023-065428-419579e2",
+    "output_drive": "G:",
+    "state": "capture_preflight_or_start_failed",
+    "cancel_requested": false,
+    "observations": [],
+    "updated_utc": "2026-10-23T03:54:30.7888396Z",
+    "child_runner_self_test": [
+      {
+        "expected_exit_code": 0,
+        "actual_exit_code": 0,
+        "status": "succeeded",
+        "passed": true
+      },
+      {
+        "expected_exit_code": 7,
+        "actual_exit_code": 7,
+        "status": "failed",
+        "passed": true
+      }
+    ],
+    "prepare_exit_code": 0,
+    "prepare_status": "succeeded",
+    "prepare_result_source": "owned System.Diagnostics.Process.Start handle",
+    "prepare_error": "",
+    "procdump_sha256": "22c2a2b09ade73a342a18dab838354385f73fc98e324b9903fd61fff949c5124",
+    "actual_wow_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+    "signature_status": "Valid",
+    "windows_build": "26200",
+    "output_free_bytes_before_capture": 0,
+    "error": "Need at least 8 GiB free on output drive G:; a full dump may need more.",
+    "finished_utc": "2026-10-23T03:54:30.7873311Z"
+  },
+  "user_reconfirmed_actual_free_space": "16 GB on game drive; no independent direct Windows measurement available here",
+  "interpretation": "output correctly on G; old PSDrive query returned zero and capture did not start; exact cause of provider zero unresolved",
+  "repair": "native GetDiskFreeSpaceExW for actual output directory; preserve caller-available and total free separately; legacy PSDrive/DriveInfo diagnostic only"
+}
