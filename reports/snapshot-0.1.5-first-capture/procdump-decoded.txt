@@ -1,0 +1,41 @@
+
+ProcDump v12.02 - Sysinternals process dump utility
+Copyright (C) 2009-2026 Mark Russinovich and Andrew Richards
+Sysinternals - www.sysinternals.com
+
+Process:               Wow.exe (4900)
+Process image:         G:\World of Warcraft\_retail_\Wow.exe
+CPU threshold:         n/a
+Performance counter:   n/a
+Commit threshold:      n/a
+Threshold seconds:     10
+Hung window check:     Disabled
+Log debug strings:     Disabled
+Exception monitor:     Disabled
+Exception filter:      [Includes]
+                       *
+                       [Excludes]
+Terminate monitor:     Disabled
+Cloning type:          PSS
+Concurrent limit:      1
+Avoid outage:          Disabled
+Concurrent limit:      n/a
+Avoid outage:          n/a
+Number of dumps:       1
+Dump folder:           G:\WLabSnapshot\20261023-070924-f48c460b\
+Dump filename/mask:    snapshot
+Queue to WER:          Disabled
+Kill after dump:       Disabled
+
+
+Press Ctrl-C to end monitoring without terminating the process.
+
+[07:09:27]Timed:
+[07:09:28]Dump 1 info: Available space: 17312059392
+[07:09:28]Dump 1 initiated: G:\WLabSnapshot\20261023-070924-f48c460b\snapshot.dmp
+[07:09:28]Dump 1 error: Target process no longer running.
+[07:09:28]Dump 1 error: Error writing dump file: 0x8007001D
+The system cannot write to the specified device. (0x8007001D, -2147024867)
+
+[07:09:29]Dump count reached.
+

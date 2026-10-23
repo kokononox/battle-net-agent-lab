@@ -1,5 +1,13 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
+## تازه‌ترین مشاهده — تلاش واقعی 0.1.5، شکست ProcDump با بازی عادی
+
+[بررسی و قدم بعد](reports/snapshot-0.1.5-first-capture/REVIEW.fa.md) · [گزارش ساختاریافته](reports/snapshot-0.1.5-first-capture/OBSERVATION.json) · [لاگ decoded](reports/snapshot-0.1.5-first-capture/procdump-decoded.txt).
+
+سنجش native و خود ProcDump بر 17,312,059,392 بایت فضای آزاد روی G توافق دارند. capture شروع شد ولی با خروج 1، Target process no longer running و 0x8007001D شکست خورد. کاربر تأیید کرد **خود بازی عادی مانده است**؛ از این پیام نمی‌توان بسته‌شدن بازی، خرابی دیسک یا دخالت anti-cheat را نتیجه گرفت. PSS clone در لاگ ذکر شده، اما وضعیت و علت شکست clone قطعی نیست. تحلیل کد هنوز تولید نشده است.
+
+قدم بعد فقط بررسی وجود و اندازهٔ artifact محلی snapshot.dmp همین اجراست؛ بدون تکرار capture یا تغییر روش زنده تا روشن‌شدن شواهد. دستور تست انتشار زیر سابقهٔ قبل از این نتیجه است، نه درخواست تکرار. CPU/BIOS روی TCP/3724 همچنان نامعلوم است.
+
 ## آخرین گام — WLab Snapshot 0.1.5، سنجش native فضای خروجی
 
 [راهنما](user-tools/wlab-snapshot-0.1.5/README.fa.md) · [شواهد صفر خلاف گزارش کاربر](user-tools/wlab-snapshot-0.1.5/USER-FREE-SPACE-OBSERVATION.json) · [QA](user-tools/wlab-snapshot-0.1.5/QA.json) · [هش](user-tools/wlab-snapshot-0.1.5/PROVENANCE.json) · [وضعیت](user-tools/wlab-snapshot-0.1.5/SYNC-STATUS.json).
