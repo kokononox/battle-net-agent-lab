@@ -1,6 +1,14 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## قدم بعد — WLab Control 0.1.0، فقط هدف آزمایشی متعلق به خود ابزار
+## تازه‌ترین نتیجه — هر دو dump کنترل ساخته شدند؛ label عمومی خروج گمراه‌کننده است
+
+[بررسی](reports/control-0.1.0-first-run/REVIEW.fa.md) · [گزارش ساختاریافته](reports/control-0.1.0-first-run/OBSERVATION.json) · [لاگ clone](reports/control-0.1.0-first-run/control-clone.decoded.txt) · [لاگ direct](reports/control-0.1.0-first-run/control-direct.decoded.txt).
+
+در هر دو مسیر، ProcDump پیام Dump complete داده، فایل با اندازهٔ ثبت‌شده وجود داشته و header ابتدایی معتبر بوده است. هر دو کد خروج 1 دارند؛ label عمومی failed فقط از عدد غیرصفر آمده و نباید به‌تنهایی شکست تولید dump شمرده شود. این مشاهده هم مجوز فرض کلی «۱ همیشه موفق است» نیست. dumpها فقط از هدف کنترل‌اند؛ کامل parse نشده‌اند و هیچ نتیجه‌ای از حافظهٔ بازی نداریم. worker پس از هر دو آزمون زنده بود و در cleanup خود ابزار بسته شد.
+
+نوشتن روی G و PSS/direct برای همین هدف کنترل کار کرده‌اند؛ شکست قبلی روی بازی هنوز توضیح قطعی ندارد. آزمون کنترل و full dump قبلی فعلاً تکرار نشوند. قدم پیشنهادی بعد: خواندن محدود سه صفحهٔ کد ثابت با API فقط‌خواندنی Windows، بدون clone/debugger/injection/patch/تغییر protection؛ با تطبیق هویت و توقف در access denied. این مسیر هنوز ساخته/اجرا نشده است. main و GUI BIOS Path 0.2 دست‌نخورده‌اند؛ CPU/BIOS روی TCP/3724 همچنان نامعلوم است.
+
+## ابزار کنترل اجراشده — WLab Control 0.1.0، فقط هدف آزمایشی متعلق به خود ابزار
 
 [راهنما](user-tools/wlab-control-0.1.0/README.fa.md) · [QA](user-tools/wlab-control-0.1.0/QA.json) · [هش و provenance](user-tools/wlab-control-0.1.0/PROVENANCE.json) · [وضعیت](user-tools/wlab-control-0.1.0/SYNC-STATUS.json).
 

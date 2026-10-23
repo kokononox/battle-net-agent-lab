@@ -1,0 +1,145 @@
+{
+  "source_filename": "READY-TO-SEND.zip",
+  "source_sha256": "a7c74da500e67befda38d7e2220f03e037c8f93a4f28a61e6aa8c824ac338d96",
+  "run": {
+    "tool": "WLab Control 0.1.0",
+    "state": "control_tests_complete",
+    "started_utc": "2026-10-23T04:40:30.0944232Z",
+    "game_access_requested": false,
+    "game_capture_requested": false,
+    "output_directory": "G:\\WLabControl\\20261023-074030-ba0eb56a",
+    "network_sending": "unresolved",
+    "cases": [
+      {
+        "name": "control-clone",
+        "target": "owned WLab control worker only",
+        "target_pid": 7500,
+        "clone": true,
+        "arguments": "-accepteula -ma -r 1 -n 1 -at 30 7500 \"G:\\WLabControl\\20261023-074030-ba0eb56a\\control-clone.dmp\"",
+        "started_utc": "2026-10-23T04:40:30.8248948Z",
+        "timed_out_or_cancelled": false,
+        "result": {
+          "status": "failed",
+          "exit_code": 1,
+          "exit_code_error": null,
+          "child_pid": 10032,
+          "native_handle_acquired": true,
+          "stdio_drained": true,
+          "stdio_error": null,
+          "source": "owned System.Diagnostics.Process.Start handle",
+          "completed_utc": "2026-10-23T04:40:32.1723157Z"
+        },
+        "dump_header": {
+          "exists": true,
+          "size_bytes": 67735027,
+          "signature": "MDMP",
+          "stream_count": 18,
+          "directory_rva": 32,
+          "basic_header_valid": true,
+          "scope": "32-byte header and directory bounds only; not full dump validation",
+          "error": null
+        },
+        "worker_alive_after": true,
+        "finished_utc": "2026-10-23T04:40:32.2424901Z"
+      },
+      {
+        "name": "control-direct",
+        "target": "owned WLab control worker only",
+        "target_pid": 7500,
+        "clone": false,
+        "arguments": "-accepteula -ma -n 1 -at 30 7500 \"G:\\WLabControl\\20261023-074030-ba0eb56a\\control-direct.dmp\"",
+        "started_utc": "2026-10-23T04:40:32.2522022Z",
+        "timed_out_or_cancelled": false,
+        "result": {
+          "status": "failed",
+          "exit_code": 1,
+          "exit_code_error": null,
+          "child_pid": 8152,
+          "native_handle_acquired": true,
+          "stdio_drained": true,
+          "stdio_error": null,
+          "source": "owned System.Diagnostics.Process.Start handle",
+          "completed_utc": "2026-10-23T04:40:33.7541197Z"
+        },
+        "dump_header": {
+          "exists": true,
+          "size_bytes": 67820879,
+          "signature": "MDMP",
+          "stream_count": 18,
+          "directory_rva": 32,
+          "basic_header_valid": true,
+          "scope": "32-byte header and directory bounds only; not full dump validation",
+          "error": null
+        },
+        "worker_alive_after": true,
+        "finished_utc": "2026-10-23T04:40:33.7612122Z"
+      }
+    ],
+    "space_before": {
+      "status": "succeeded",
+      "path": "G:\\WLabControl\\20261023-074030-ba0eb56a\\",
+      "source": "Win32 GetDiskFreeSpaceExW on actual output directory",
+      "available_bytes": 17311453184,
+      "total_bytes": 180152692736,
+      "total_free_bytes": 17311453184,
+      "win32_error_code": 0,
+      "error": null,
+      "queried_utc": "2026-10-23T04:40:30.3819186Z"
+    },
+    "write_probe": {
+      "passed": true,
+      "size_bytes": 1048576,
+      "sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+      "scope": "one MiB flush/readback only; not a disk health test or full-dump capacity guarantee"
+    },
+    "child_runner_self_test": [
+      {
+        "expected_exit_code": 0,
+        "actual_exit_code": 0,
+        "status": "succeeded",
+        "passed": true
+      },
+      {
+        "expected_exit_code": 7,
+        "actual_exit_code": 7,
+        "status": "failed",
+        "passed": true
+      }
+    ],
+    "preparation_result": {
+      "status": "succeeded",
+      "exit_code": 0,
+      "exit_code_error": null,
+      "child_pid": 9516,
+      "native_handle_acquired": true,
+      "stdio_drained": true,
+      "stdio_error": null,
+      "source": "owned System.Diagnostics.Process.Start handle",
+      "completed_utc": "2026-10-23T04:40:30.6456679Z"
+    },
+    "procdump_sha256": "22c2a2b09ade73a342a18dab838354385f73fc98e324b9903fd61fff949c5124",
+    "signature_status": "Valid",
+    "owned_worker_pid": 7500,
+    "space_after": {
+      "status": "succeeded",
+      "path": "G:\\WLabControl\\20261023-074030-ba0eb56a\\",
+      "source": "Win32 GetDiskFreeSpaceExW on actual output directory",
+      "available_bytes": 17175867392,
+      "total_bytes": 180152692736,
+      "total_free_bytes": 17175867392,
+      "win32_error_code": 0,
+      "error": null,
+      "queried_utc": "2026-10-23T04:40:33.7647157Z"
+    },
+    "finished_utc": "2026-10-23T04:40:33.7847182Z",
+    "cancel_requested": false
+  },
+  "interpretation": {
+    "clone": "ProcDump reports Dump complete; file exists and basic header is valid; full dump contents not supplied or independently parsed",
+    "direct": "ProcDump reports Dump complete; file exists and basic header is valid; full dump contents not supplied or independently parsed",
+    "generic_exit_classifier": "nonzero OS exit value retained as process telemetry; must not independently decide ProcDump capture success",
+    "worker_exit_minus_one": "owned diagnostic worker intentionally stopped by parent cleanup after both tests; not a game event",
+    "scope": "write probe and both control capture paths worked in this run; no game capture support or exact cause of previous game PSS failure established",
+    "network_send_3724": "unresolved"
+  }
+}
