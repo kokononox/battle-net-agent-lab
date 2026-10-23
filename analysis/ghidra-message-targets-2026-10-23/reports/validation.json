@@ -1,0 +1,45 @@
+{
+  "input_sha256_after_analysis": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "input_file_bytes": 80834256,
+  "amd64_pe32plus": true,
+  "clr_directory_absent": true,
+  "range_and_listing_checks_passed": true,
+  "negative_tests": [
+    {
+      "case": "wrong_slot",
+      "rejected": true
+    },
+    {
+      "case": "changed_hash",
+      "rejected": true
+    },
+    {
+      "case": "wrong_range",
+      "rejected": true
+    },
+    {
+      "case": "listing_byte_mutation",
+      "rejected": true
+    },
+    {
+      "case": "hide_bad_data_marker",
+      "rejected": true
+    },
+    {
+      "case": "drop_positive_control",
+      "rejected": true
+    }
+  ],
+  "decompiler_api_completed": 4,
+  "target_requests": 3,
+  "targets_with_bad_data_C": 3,
+  "targets_accepted_as_recovered": 0,
+  "positive_control_without_bad_data": true,
+  "prefix_bytes": {
+    "merge_candidate": 6,
+    "creator_candidate": 0,
+    "parse_fallback_candidate": 23,
+    "positive_control_entry_stub": 25
+  },
+  "caveat": "Accept/reject is a conservative experiment gate, not proof of whole-function semantics or impossibility of future recovery."
+}

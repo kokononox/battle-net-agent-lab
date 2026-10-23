@@ -1,0 +1,124 @@
+{
+  "sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "image_base": 5368709120,
+  "targets": [
+    {
+      "role": "merge_candidate",
+      "rva": 28393760,
+      "end": 28393784,
+      "slot_rva": 75298816,
+      "range_sha256": "ce215fa9d367badcbd70eaab99d8931eea573473e1d1b88ba73eb713f3cf0aba",
+      "bytes_hex": "0d84dff8fc9e0e5037c1f1009629c7332b36abee8a1a6779",
+      "previous_targeted_entry_in_audited_script": false,
+      "previous_pilot_sample_entry": false
+    },
+    {
+      "role": "creator_candidate",
+      "rva": 28381584,
+      "end": 28381694,
+      "slot_rva": 75298832,
+      "range_sha256": "e75f6343602af74e067448cd54bf88f4c023ba9d33bd12692af9433d54474efe",
+      "bytes_hex": "d529e3de3cd1eb53826f3a3cb427363357b965dec8dccd966cc83c80e9d4fbbb0b9dbbdcdf96e0a4ced14c408acee2548418d63b48518b46521f995e853a1af0608edf5e6f0a8cdc7dbdb8c7b55661a88799e7ee980253b507e987a21f6ca7d2c5e65dedfcc9f8319c4240e346f3",
+      "previous_targeted_entry_in_audited_script": false,
+      "previous_pilot_sample_entry": false
+    },
+    {
+      "role": "parse_fallback_candidate",
+      "rva": 53504192,
+      "end": 53504436,
+      "slot_rva": 75295800,
+      "range_sha256": "e9f0aa7f885f8ac4b429b40d5f6d8221d8d456b114722fd4da8530705dc93119",
+      "bytes_hex": "cdf56dae0c6966a3dc39188749a3519518a64703ce31943f0a67da16288455383115e5bce552d3faff138020b5916751ee507170e510f6500a693093805123b67a93512d71081e497e230aa53524f2417ff9e7fcb799f34cf04d1e9266fa67afa4538283dc80abf4d45711fed12d96cb0a6c2171a17b3ee6f33797a61d39476c65fd4bad861cf8b1ab357ae1eadbb2fee26864a64ba6acdd237d39e89550e58a3496fc94072130b9ca2c7b36efbf422c5ed2d514fb62200db060f63443fc0a6d0794a8e469bed69bd1b743a04bbcad89b2646b90f3f8875338d9aaa0a7d2a6efc71f5672d7d912d895d324c3ab7ccf9335a77415",
+      "previous_targeted_entry_in_audited_script": false,
+      "previous_pilot_sample_entry": false
+    },
+    {
+      "role": "positive_control_entry_stub",
+      "rva": 1943984,
+      "end": 1944009,
+      "slot_rva": null,
+      "range_sha256": "a4c6eef377c34328f95352c476bbbfd0d42491db959bd7e8fac97640a06e40d8",
+      "bytes_hex": "4883ec28488b057db58f044885c07402ffd033c04883c428c3",
+      "previous_targeted_entry_in_audited_script": true,
+      "previous_pilot_sample_entry": false
+    }
+  ],
+  "prior_sources": [
+    {
+      "name": "prior-targeted.java",
+      "repo_uri": "repo://kokononox/battle-net-agent-lab/sha/9e4bde6537f4e3c29cf920730897f8cbcead0850/contents/analysis/ghidra-targeted-2026-10-22/scripts/TargetedReview.java",
+      "git_blob_sha": "044f2fb77cd0003629f8e8c0e91561308b4b9e26",
+      "sha256": "f8e087321808bd5b243a0a9ed0e42ab4d369a2d8c3ed7dfdd72298a0d356d5d8"
+    },
+    {
+      "name": "prior-pilot-summary.txt",
+      "repo_uri": "repo://kokononox/battle-net-agent-lab/sha/9e4bde6537f4e3c29cf920730897f8cbcead0850/contents/analysis/ghidra-pilot-2026-10-22/output/Wow.exe.summary.txt",
+      "git_blob_sha": "65bc43d0713a8b693d1bf83c12b295605ea91d63",
+      "sha256": "ec12d0d0e3ba87d832251bac6265dfb3953c7439cba371510ec7844d5cdafe60"
+    },
+    {
+      "name": "prior-loader-targeted.tsv",
+      "repo_uri": "repo://kokononox/battle-net-agent-lab/sha/9e4bde6537f4e3c29cf920730897f8cbcead0850/contents/analysis/ghidra-targeted-2026-10-22/output/wow_loader.dll.targeted.tsv",
+      "git_blob_sha": "1cd8ad33d023951262085ef4f9cc52c69f1a81f9",
+      "sha256": "a7902bf606f543e16035b724d4a5ec0fa7cd96e1f86aa0a3b26ab6b6eec362c0"
+    }
+  ],
+  "prior_coverage": {
+    "targeted_loader_ranges": [
+      [
+        33580592,
+        33580653
+      ],
+      [
+        33580656,
+        33580828
+      ],
+      [
+        33580296,
+        33580592
+      ],
+      [
+        29276208,
+        29276741
+      ],
+      [
+        2289648,
+        2291238
+      ]
+    ],
+    "targeted_exe_ranges": [
+      [
+        1943984,
+        1944009
+      ],
+      [
+        1944032,
+        1944035
+      ]
+    ],
+    "pilot_exe_sample_rvas": [
+      1045469,
+      1048192,
+      1304576,
+      1305248,
+      1307440,
+      1308320,
+      1308560,
+      1309584,
+      1309776,
+      1310032,
+      1310224,
+      1436432
+    ],
+    "scope_caveat": "These audited script/output lists, not every historical Ghidra project or all autoanalysis-discovered functions."
+  },
+  "experiment": {
+    "no_global_autoanalysis": true,
+    "no_patch_or_cfg_override": true,
+    "decompile_timeout_seconds_per_function": 30,
+    "heap": "1800M",
+    "max_cpu": 2,
+    "requests": 4,
+    "native_input_execution": false
+  }
+}

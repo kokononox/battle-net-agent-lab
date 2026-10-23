@@ -1,0 +1,18 @@
+role	rva	bytes	assembly
+merge_candidate	1b14120	0d84dff8fc	OR EAX,0xfcf8df84
+merge_candidate	1b14125	9e	SAHF
+parse_fallback_candidate	33068c0	cdf5	INT 0xf5
+parse_fallback_candidate	33068c2	6d	INSD RDI,DX
+parse_fallback_candidate	33068c3	ae	SCASB RDI
+parse_fallback_candidate	33068c4	0c69	OR AL,0x69
+parse_fallback_candidate	33068c6	66a3dc39188749a35195	MOV [0x9551a349871839dc],AX
+parse_fallback_candidate	33068d0	18a64703ce31	SBB byte ptr [RSI + 0x31ce0347],AH
+parse_fallback_candidate	33068d6	94	XCHG EAX,ESP
+positive_control_entry_stub	1da9b0	4883ec28	SUB RSP,0x28
+positive_control_entry_stub	1da9b4	488b057db58f04	MOV RAX,qword ptr [0x144ad5f38]
+positive_control_entry_stub	1da9bb	4885c0	TEST RAX,RAX
+positive_control_entry_stub	1da9be	7402	JZ 0x1401da9c2
+positive_control_entry_stub	1da9c0	ffd0	CALL RAX
+positive_control_entry_stub	1da9c2	33c0	XOR EAX,EAX
+positive_control_entry_stub	1da9c4	4883c428	ADD RSP,0x28
+positive_control_entry_stub	1da9c8	c3	RET

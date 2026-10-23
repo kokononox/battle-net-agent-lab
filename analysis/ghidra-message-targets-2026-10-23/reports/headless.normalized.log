@@ -1,0 +1,99 @@
+openjdk version "25.0.4.1" 2026-08-18 LTS
+OpenJDK Runtime Environment Corretto-25.0.4.10.1 (build 25.0.4.1+10-LTS)
+OpenJDK 64-Bit Server VM Corretto-25.0.4.10.1 (build 25.0.4.1+10-LTS, mixed mode)
+INFO  Using log config file: jar:file:<TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /home/vercel-sandbox/.config/ghidra/ghidra_12.2_PUBLIC/application.log (LoggingInitialization)  
+INFO  Loading user preferences: /home/vercel-sandbox/.config/ghidra/ghidra_12.2_PUBLIC/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (1151 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Loaded 143 trusted CA certificate(s) from /etc/ssl/certs/ca-certificates.crt (UnixSystemTrustKeyStoreUtil)  
+INFO  Loaded 143 trusted CA certificates from the OS trust store. (DefaultTrustManagerFactory)  
+INFO  Loaded 146 trusted CA certificates from the Java default trust store. (DefaultTrustManagerFactory)  
+INFO  Starting cache cleanup: /var/tmp/vercel-sandbox-ghidra/fscache2 (FileCacheMaintenanceDaemon)  
+INFO  Finished cache cleanup, estimated storage used: 0 (FileCacheMaintenanceDaemon)  
+INFO  Headless startup complete (2550 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 60 extension points (19 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    <REVIEW_DIR>/source
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/Base/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/VersionTracking/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Processors/Atmel/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/GnuDemangler/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Processors/JVM/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/Swift/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/SystemEmulation/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/BytePatterns/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Debug/Debugger/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/BSim/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/PyGhidra/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Processors/DATA/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/FileFormats/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/FunctionID/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/Decompiler/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Features/PDB/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Processors/8051/ghidra_scripts
+    <TOOLS_DIR>/ghidra_12.2_PUBLIC/Ghidra/Processors/PIC/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: <REVIEW_DIR>/work/run-01/projects/MessageTargets (HeadlessAnalyzer)  
+INFO  Creating project: <REVIEW_DIR>/work/run-01/projects/MessageTargets (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: <REVIEW_DIR>/work/run-01/projects/MessageTargets (HeadlessAnalyzer)  
+INFO  IMPORTING: file://<INPUT_DIR>/Wow.exe (HeadlessAnalyzer)  
+INFO  Using Loader: Portable Executable (PE) (ProgramLoader)  
+INFO  Using Language/Compiler: x86:LE:64:default:windows (ProgramLoader)  
+INFO  Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64] (ProgramLoader)  
+INFO  TLS callbacks at 143b6a768 (TLSDirectory)  
+WARN  Invalid or missing function at 144775778 (ExportDataDirectory)  
+INFO  TLS callbacks at 18209f398 (TLSDirectory)  
+INFO  Additional info:
+Loading file://<INPUT_DIR>/Wow.exe?MD5=b36ac789caf3c72f1227021d2591009b...
+------------------------------------------------
+
+Searching 7 paths for library BATTLENET.LIBHTTPCLIENT.WIN32.V1.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library BATTLENET.OVERLAY.CLIENT.V1.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library OLEAUT32.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 7 paths for library WOW_LOADER.DLL...
+Loading file://<INPUT_DIR>/wow_loader.dll?MD5=c3812b4d1612a1c2c93737d96e216740...
+Created exports file: /home/vercel-sandbox/.config/ghidra/ghidra_12.2_PUBLIC/symbols/win64/wow_loader.exports
+Library not saved to project.
+------------------------------------------------
+
+Applying cached symbols from WOW_LOADER.DLL
+Unable to locate symbol [Ordinal_1] in [/home/vercel-sandbox/.config/ghidra/ghidra_12.2_PUBLIC/symbols/win64/wow_loader.exports]. Please verify the version is correct.
+Linking the External Programs of 'Wow.exe' to imported libraries...
+  [WOW_LOADER.DLL] -> not found in project
+  [OLEAUT32.DLL] -> not found in project
+  [BATTLENET.LIBHTTPCLIENT.WIN32.V1.DLL] -> not found in project
+  [BATTLENET.OVERLAY.CLIENT.V1.DLL] -> not found in project
+------------------------------------------------
+
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: MessageTargets.java '<REVIEW_DIR>/work/run-01/output' '<REVIEW_DIR>/reference/targets.tsv'  (HeadlessAnalyzer)  
+INFO  SCRIPT: <REVIEW_DIR>/source/MessageTargets.java (HeadlessAnalyzer)  
+WARN  Decompiling 141b14120, pcode error at 141b14126: Unable to resolve constructor at 141b14126 (DecompileCallback)  
+INFO  MessageTargets.java> MESSAGE_TARGET merge_candidate API=true C=true entry=true instructions=2 (GhidraScript)  
+WARN  Decompiling 141b11190, pcode error at 141b11190: Unable to resolve constructor at 141b11190 (DecompileCallback)  
+INFO  MessageTargets.java> MESSAGE_TARGET creator_candidate API=true C=true entry=false instructions=0 (GhidraScript)  
+WARN  Decompiling 1433068c0, pcode error at 1433068d7: Unable to resolve constructor at 1433068d7 (DecompileCallback)  
+INFO  MessageTargets.java> MESSAGE_TARGET parse_fallback_candidate API=true C=true entry=true instructions=7 (GhidraScript)  
+INFO  MessageTargets.java> MESSAGE_TARGET positive_control_entry_stub API=true C=true entry=true instructions=8 (GhidraScript)  
+INFO  /Wow.exe: file created (vercel-sandbox) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /Wow.exe (MessageTargets:/Wow.exe) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  
