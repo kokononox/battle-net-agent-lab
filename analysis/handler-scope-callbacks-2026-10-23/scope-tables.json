@@ -1,0 +1,1157 @@
+{
+  "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "layout_evidence": "Handler 0x20069b4 reads table count and 16-byte entries through DispatcherContext.HandlerData; 0x2035a08 delegates to it after cookie check. Layout applicability is limited to these two exact handlers.",
+  "tables": [
+    {
+      "function_begin": 1203184,
+      "function_end": 1203267,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34233304,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 1203232,
+          "end": 1203259,
+          "filter_or_finally": 32824448,
+          "jump_target": 1203265,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 1528048,
+      "function_end": 1528131,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34235128,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 1528090,
+          "end": 1528112,
+          "filter_or_finally": 1,
+          "jump_target": 1528125,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 6355024,
+      "function_end": 6355125,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34250844,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 6355092,
+          "end": 6355106,
+          "filter_or_finally": 1,
+          "jump_target": 6355119,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 12697952,
+      "function_end": 12699931,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34273152,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 12699705,
+          "end": 12699734,
+          "filter_or_finally": 1,
+          "jump_target": 12699911,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 19711344,
+      "function_end": 19714903,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34296484,
+      "scope_count": 2,
+      "scopes": [
+        {
+          "begin": 19714572,
+          "end": 19714602,
+          "filter_or_finally": 1,
+          "jump_target": 19714883,
+          "kind": "except"
+        },
+        {
+          "begin": 19714673,
+          "end": 19714679,
+          "filter_or_finally": 1,
+          "jump_target": 19714883,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 22688112,
+      "function_end": 22697681,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34306372,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 22691283,
+          "end": 22691293,
+          "filter_or_finally": 25021776,
+          "jump_target": 22697661,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 27713312,
+      "function_end": 27723657,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34324360,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 27723191,
+          "end": 27723201,
+          "filter_or_finally": 1,
+          "jump_target": 27723602,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33514288,
+      "function_end": 33515607,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34344740,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33515461,
+          "end": 33515483,
+          "filter_or_finally": 12947776,
+          "jump_target": 33515482,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33567348,
+      "function_end": 33567500,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34218352,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33567355,
+          "end": 33567493,
+          "filter_or_finally": 33796786,
+          "jump_target": 33567493,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33579808,
+      "function_end": 33580086,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34219724,
+      "scope_count": 2,
+      "scopes": [
+        {
+          "begin": 33579864,
+          "end": 33579975,
+          "filter_or_finally": 33798079,
+          "jump_target": 0,
+          "kind": "finally"
+        },
+        {
+          "begin": 33580074,
+          "end": 33580085,
+          "filter_or_finally": 33798079,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33580088,
+      "function_end": 33580216,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34219776,
+      "scope_count": 4,
+      "scopes": [
+        {
+          "begin": 33580143,
+          "end": 33580174,
+          "filter_or_finally": 33798102,
+          "jump_target": 0,
+          "kind": "finally"
+        },
+        {
+          "begin": 33580132,
+          "end": 33580194,
+          "filter_or_finally": 33798127,
+          "jump_target": 0,
+          "kind": "finally"
+        },
+        {
+          "begin": 33580203,
+          "end": 33580214,
+          "filter_or_finally": 33798102,
+          "jump_target": 0,
+          "kind": "finally"
+        },
+        {
+          "begin": 33580203,
+          "end": 33580215,
+          "filter_or_finally": 33798127,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33580296,
+      "function_end": 33580592,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34219864,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33580349,
+          "end": 33580570,
+          "filter_or_finally": 33798147,
+          "jump_target": 33580570,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33581160,
+      "function_end": 33581269,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34219932,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33581217,
+          "end": 33581232,
+          "filter_or_finally": 33798201,
+          "jump_target": 33581232,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33585120,
+      "function_end": 33585201,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34220140,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33585159,
+          "end": 33585191,
+          "filter_or_finally": 33798519,
+          "jump_target": 33585191,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33585204,
+      "function_end": 33585285,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34220184,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33585243,
+          "end": 33585275,
+          "filter_or_finally": 33798351,
+          "jump_target": 33585275,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33603012,
+      "function_end": 33603073,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34220704,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33603042,
+          "end": 33603052,
+          "filter_or_finally": 33798701,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33620632,
+      "function_end": 33620687,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34220916,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33620646,
+          "end": 33620671,
+          "filter_or_finally": 33798758,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33621132,
+      "function_end": 33621335,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34221012,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33621165,
+          "end": 33621254,
+          "filter_or_finally": 33798806,
+          "jump_target": 33621329,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33621336,
+      "function_end": 33621392,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34221048,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33621365,
+          "end": 33621374,
+          "filter_or_finally": 33798780,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33622100,
+      "function_end": 33622219,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34221108,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33622129,
+          "end": 33622199,
+          "filter_or_finally": 33798851,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33624080,
+      "function_end": 33624139,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34221200,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33624109,
+          "end": 33624119,
+          "filter_or_finally": 33798780,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33624140,
+      "function_end": 33624199,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34221236,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33624169,
+          "end": 33624179,
+          "filter_or_finally": 33798780,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33630476,
+      "function_end": 33630657,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34221552,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33630510,
+          "end": 33630632,
+          "filter_or_finally": 33798970,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33638344,
+      "function_end": 33638630,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34221892,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33638561,
+          "end": 33638616,
+          "filter_or_finally": 33799022,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33646336,
+      "function_end": 33646621,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34222288,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33646545,
+          "end": 33646606,
+          "filter_or_finally": 33798999,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33649096,
+      "function_end": 33649218,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34222460,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33649193,
+          "end": 33649206,
+          "filter_or_finally": 33798903,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33649824,
+      "function_end": 33649980,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34222504,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33649854,
+          "end": 33649961,
+          "filter_or_finally": 33798701,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33649980,
+      "function_end": 33650205,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34222544,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33650012,
+          "end": 33650181,
+          "filter_or_finally": 33799165,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33650208,
+      "function_end": 33650272,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34222580,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33650238,
+          "end": 33650251,
+          "filter_or_finally": 33798701,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33650672,
+      "function_end": 33651029,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34222664,
+      "scope_count": 2,
+      "scopes": [
+        {
+          "begin": 33650772,
+          "end": 33650969,
+          "filter_or_finally": 33799218,
+          "jump_target": 0,
+          "kind": "finally"
+        },
+        {
+          "begin": 33650978,
+          "end": 33651014,
+          "filter_or_finally": 33799218,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33651032,
+      "function_end": 33651197,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34222728,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33651159,
+          "end": 33651184,
+          "filter_or_finally": 33799244,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33654552,
+      "function_end": 33654615,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34222960,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33654582,
+          "end": 33654593,
+          "filter_or_finally": 33798701,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33659548,
+      "function_end": 33659998,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34223212,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33659636,
+          "end": 33659779,
+          "filter_or_finally": 33799268,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33660000,
+      "function_end": 33660633,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34223260,
+      "scope_count": 2,
+      "scopes": [
+        {
+          "begin": 33660301,
+          "end": 33660482,
+          "filter_or_finally": 33799293,
+          "jump_target": 0,
+          "kind": "finally"
+        },
+        {
+          "begin": 33660608,
+          "end": 33660632,
+          "filter_or_finally": 33799293,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33660904,
+      "function_end": 33660976,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34223348,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33660930,
+          "end": 33660955,
+          "filter_or_finally": 33798780,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33685760,
+      "function_end": 33685837,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34223964,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33685773,
+          "end": 33685824,
+          "filter_or_finally": 33799328,
+          "jump_target": 33685824,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33687880,
+      "function_end": 33688274,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34224032,
+      "scope_count": 3,
+      "scopes": [
+        {
+          "begin": 33688018,
+          "end": 33688164,
+          "filter_or_finally": 33799751,
+          "jump_target": 33688164,
+          "kind": "except"
+        },
+        {
+          "begin": 33687959,
+          "end": 33688203,
+          "filter_or_finally": 33799773,
+          "jump_target": 0,
+          "kind": "finally"
+        },
+        {
+          "begin": 33688262,
+          "end": 33688268,
+          "filter_or_finally": 33799773,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33688428,
+      "function_end": 33688918,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34224108,
+      "scope_count": 2,
+      "scopes": [
+        {
+          "begin": 33688641,
+          "end": 33688678,
+          "filter_or_finally": 33799388,
+          "jump_target": 33688678,
+          "kind": "except"
+        },
+        {
+          "begin": 33688641,
+          "end": 33688798,
+          "filter_or_finally": 33799425,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33688920,
+      "function_end": 33689695,
+      "handler_rva": 33774088,
+      "handler_data_rva": 34224176,
+      "scope_count": 2,
+      "scopes": [
+        {
+          "begin": 33689500,
+          "end": 33689595,
+          "filter_or_finally": 33799808,
+          "jump_target": 33689595,
+          "kind": "except"
+        },
+        {
+          "begin": 33689268,
+          "end": 33689627,
+          "filter_or_finally": 33799830,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33689696,
+      "function_end": 33690285,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34224240,
+      "scope_count": 4,
+      "scopes": [
+        {
+          "begin": 33689951,
+          "end": 33690026,
+          "filter_or_finally": 33799559,
+          "jump_target": 33690026,
+          "kind": "except"
+        },
+        {
+          "begin": 33689951,
+          "end": 33690150,
+          "filter_or_finally": 33799606,
+          "jump_target": 0,
+          "kind": "finally"
+        },
+        {
+          "begin": 33690278,
+          "end": 33690284,
+          "filter_or_finally": 33799559,
+          "jump_target": 33690026,
+          "kind": "except"
+        },
+        {
+          "begin": 33690278,
+          "end": 33690284,
+          "filter_or_finally": 33799606,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33690852,
+      "function_end": 33690927,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34224348,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33690858,
+          "end": 33690907,
+          "filter_or_finally": 33799360,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33691580,
+      "function_end": 33692090,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34224396,
+      "scope_count": 2,
+      "scopes": [
+        {
+          "begin": 33691717,
+          "end": 33692026,
+          "filter_or_finally": 1,
+          "jump_target": 33692084,
+          "kind": "except"
+        },
+        {
+          "begin": 33692058,
+          "end": 33692084,
+          "filter_or_finally": 1,
+          "jump_target": 33692084,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33692092,
+      "function_end": 33692605,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34224460,
+      "scope_count": 2,
+      "scopes": [
+        {
+          "begin": 33692230,
+          "end": 33692541,
+          "filter_or_finally": 1,
+          "jump_target": 33692599,
+          "kind": "except"
+        },
+        {
+          "begin": 33692573,
+          "end": 33692599,
+          "filter_or_finally": 1,
+          "jump_target": 33692599,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33692608,
+      "function_end": 33692800,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34224520,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33692654,
+          "end": 33692772,
+          "filter_or_finally": 1,
+          "jump_target": 33692794,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33692800,
+      "function_end": 33692993,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34224564,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33692847,
+          "end": 33692965,
+          "filter_or_finally": 1,
+          "jump_target": 33692987,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33698584,
+      "function_end": 33698821,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34224808,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33698661,
+          "end": 33698806,
+          "filter_or_finally": 33799877,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33735204,
+      "function_end": 33735267,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34225572,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33735233,
+          "end": 33735249,
+          "filter_or_finally": 33798780,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33735268,
+      "function_end": 33735337,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34225608,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33735297,
+          "end": 33735319,
+          "filter_or_finally": 33798780,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33735340,
+      "function_end": 33735435,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34225644,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33735369,
+          "end": 33735417,
+          "filter_or_finally": 33798780,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33735436,
+      "function_end": 33735497,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34225680,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33735465,
+          "end": 33735479,
+          "filter_or_finally": 33798780,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33735500,
+      "function_end": 33735559,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34225712,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33735518,
+          "end": 33735541,
+          "filter_or_finally": 33799899,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33738576,
+      "function_end": 33739038,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34225900,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33738605,
+          "end": 33739020,
+          "filter_or_finally": 33799924,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33739880,
+      "function_end": 33740058,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34225944,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33739906,
+          "end": 33740033,
+          "filter_or_finally": 33799975,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33744952,
+      "function_end": 33745062,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34226136,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33744983,
+          "end": 33745039,
+          "filter_or_finally": 33800000,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33745424,
+      "function_end": 33745742,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34226184,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33745463,
+          "end": 33745703,
+          "filter_or_finally": 33799899,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33746372,
+      "function_end": 33746540,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34226244,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33746455,
+          "end": 33746526,
+          "filter_or_finally": 33799899,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33754836,
+      "function_end": 33754884,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34226604,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33754856,
+          "end": 33754866,
+          "filter_or_finally": 33800026,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33754884,
+      "function_end": 33754950,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34226636,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33754908,
+          "end": 33754931,
+          "filter_or_finally": 33800026,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33759228,
+      "function_end": 33759367,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34226784,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33759257,
+          "end": 33759347,
+          "filter_or_finally": 33798851,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33763088,
+      "function_end": 33763212,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34226948,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33763154,
+          "end": 33763161,
+          "filter_or_finally": 33800051,
+          "jump_target": 33763161,
+          "kind": "except"
+        }
+      ]
+    },
+    {
+      "function_begin": 33781600,
+      "function_end": 33781710,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34227256,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33781657,
+          "end": 33781675,
+          "filter_or_finally": 33800095,
+          "jump_target": 0,
+          "kind": "finally"
+        }
+      ]
+    },
+    {
+      "function_begin": 33792260,
+      "function_end": 33792926,
+      "handler_rva": 33581492,
+      "handler_data_rva": 34227496,
+      "scope_count": 1,
+      "scopes": [
+        {
+          "begin": 33792695,
+          "end": 33792704,
+          "filter_or_finally": 33800051,
+          "jump_target": 33792704,
+          "kind": "except"
+        }
+      ]
+    }
+  ],
+  "callback_counts": {
+    "0x1f4dc80": 1,
+    "0x17dcd50": 1,
+    "0xc59140": 1,
+    "0x203b2b2": 1,
+    "0x203b7bf": 2,
+    "0x203b7d6": 2,
+    "0x203b7ef": 2,
+    "0x203b803": 1,
+    "0x203b839": 1,
+    "0x203b977": 1,
+    "0x203b8cf": 1,
+    "0x203ba2d": 4,
+    "0x203ba66": 1,
+    "0x203ba96": 1,
+    "0x203ba7c": 8,
+    "0x203bac3": 2,
+    "0x203bb3a": 1,
+    "0x203bb6e": 1,
+    "0x203bb57": 1,
+    "0x203baf7": 1,
+    "0x203bbfd": 1,
+    "0x203bc32": 2,
+    "0x203bc4c": 1,
+    "0x203bc64": 1,
+    "0x203bc7d": 2,
+    "0x203bca0": 1,
+    "0x203be47": 1,
+    "0x203be5d": 2,
+    "0x203bcdc": 1,
+    "0x203bd01": 1,
+    "0x203be80": 1,
+    "0x203be96": 1,
+    "0x203bd87": 2,
+    "0x203bdb6": 2,
+    "0x203bcc0": 1,
+    "0x203bec5": 1,
+    "0x203bedb": 3,
+    "0x203bef4": 1,
+    "0x203bf27": 1,
+    "0x203bf40": 1,
+    "0x203bf5a": 2,
+    "0x203bf73": 2,
+    "0x203bf9f": 1
+  },
+  "unresolved_other_handler_formats": true,
+  "vectored_handlers_not_in_scope": true
+}

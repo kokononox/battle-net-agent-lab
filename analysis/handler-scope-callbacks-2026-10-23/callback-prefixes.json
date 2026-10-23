@@ -1,0 +1,3070 @@
+{
+  "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "callbacks": [
+    {
+      "rva": 32824448,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 32824448,
+          "bytes": "48ff2541e12400",
+          "asm": "jmp qword ptr [rip + 0x24e141]"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 1203184,
+          "handler_data_rva": 34233304,
+          "scope": {
+            "begin": 1203232,
+            "end": 1203259,
+            "filter_or_finally": 32824448,
+            "jump_target": 1203265,
+            "kind": "except"
+          }
+        }
+      ],
+      "disk_indirect_slot": {
+        "rva": 35241416,
+        "section": ".data",
+        "file_backed": false,
+        "file_offset": null,
+        "zero_filled_virtual_tail": true,
+        "qword": null,
+        "raw_bytes": null,
+        "runtime_value_known": false
+      },
+      "containing_runtime_functions": []
+    },
+    {
+      "rva": 25021776,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 25021776,
+          "bytes": "b8ffffffff",
+          "asm": "mov eax, 0xffffffff"
+        },
+        {
+          "rva": 25021781,
+          "bytes": "c3",
+          "asm": "ret "
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 22688112,
+          "handler_data_rva": 34306372,
+          "scope": {
+            "begin": 22691283,
+            "end": 22691293,
+            "filter_or_finally": 25021776,
+            "jump_target": 22697661,
+            "kind": "except"
+          }
+        }
+      ],
+      "constant_return_stub": {
+        "bytes": "b8ffffffffc3",
+        "u32_return": 4294967295,
+        "signed_return": -1
+      },
+      "containing_runtime_functions": []
+    },
+    {
+      "rva": 12947776,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 12947776,
+          "bytes": "4157",
+          "asm": "push r15"
+        },
+        {
+          "rva": 12947778,
+          "bytes": "4156",
+          "asm": "push r14"
+        },
+        {
+          "rva": 12947780,
+          "bytes": "4155",
+          "asm": "push r13"
+        },
+        {
+          "rva": 12947782,
+          "bytes": "4154",
+          "asm": "push r12"
+        },
+        {
+          "rva": 12947784,
+          "bytes": "56",
+          "asm": "push rsi"
+        },
+        {
+          "rva": 12947785,
+          "bytes": "57",
+          "asm": "push rdi"
+        },
+        {
+          "rva": 12947786,
+          "bytes": "55",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 12947787,
+          "bytes": "53",
+          "asm": "push rbx"
+        },
+        {
+          "rva": 12947788,
+          "bytes": "4881ecc8000000",
+          "asm": "sub rsp, 0xc8"
+        },
+        {
+          "rva": 12947795,
+          "bytes": "8b05d7654e01",
+          "asm": "mov eax, dword ptr [rip + 0x14e65d7]"
+        },
+        {
+          "rva": 12947801,
+          "bytes": "89c1",
+          "asm": "mov ecx, eax"
+        },
+        {
+          "rva": 12947803,
+          "bytes": "01c9",
+          "asm": "add ecx, ecx"
+        },
+        {
+          "rva": 12947805,
+          "bytes": "01c1",
+          "asm": "add ecx, eax"
+        },
+        {
+          "rva": 12947807,
+          "bytes": "81c1f17ebb17",
+          "asm": "add ecx, 0x17bb7ef1"
+        },
+        {
+          "rva": 12947813,
+          "bytes": "01c1",
+          "asm": "add ecx, eax"
+        },
+        {
+          "rva": 12947815,
+          "bytes": "81c1f17ebb17",
+          "asm": "add ecx, 0x17bb7ef1"
+        },
+        {
+          "rva": 12947821,
+          "bytes": "f7d9",
+          "asm": "neg ecx"
+        },
+        {
+          "rva": 12947823,
+          "bytes": "01c8",
+          "asm": "add eax, ecx"
+        },
+        {
+          "rva": 12947825,
+          "bytes": "0584849999",
+          "asm": "add eax, 0x99998484"
+        },
+        {
+          "rva": 12947830,
+          "bytes": "89442428",
+          "asm": "mov dword ptr [rsp + 0x28], eax"
+        },
+        {
+          "rva": 12947834,
+          "bytes": "bb35918614",
+          "asm": "mov ebx, 0x14869135"
+        },
+        {
+          "rva": 12947839,
+          "bytes": "48b80000000000000000",
+          "asm": "movabs rax, 0"
+        },
+        {
+          "rva": 12947849,
+          "bytes": "4c8dbc0260000000",
+          "asm": "lea r15, [rdx + rax + 0x60]"
+        },
+        {
+          "rva": 12947857,
+          "bytes": "41bc302a0352",
+          "asm": "mov r12d, 0x52032a30"
+        },
+        {
+          "rva": 12947863,
+          "bytes": "41bd5ea76fb4",
+          "asm": "mov r13d, 0xb46fa75e"
+        },
+        {
+          "rva": 12947869,
+          "bytes": "bee4cc918c",
+          "asm": "mov esi, 0x8c91cce4"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33514288,
+          "handler_data_rva": 34344740,
+          "scope": {
+            "begin": 33515461,
+            "end": 33515483,
+            "filter_or_finally": 12947776,
+            "jump_target": 33515482,
+            "kind": "except"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          12947776,
+          12950928,
+          34228700
+        ]
+      ]
+    },
+    {
+      "rva": 33796786,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33796786,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33796788,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33796791,
+          "bytes": "488b01",
+          "asm": "mov rax, qword ptr [rcx]"
+        },
+        {
+          "rva": 33796794,
+          "bytes": "33c9",
+          "asm": "xor ecx, ecx"
+        },
+        {
+          "rva": 33796796,
+          "bytes": "8138050000c0",
+          "asm": "cmp dword ptr [rax], 0xc0000005"
+        },
+        {
+          "rva": 33796802,
+          "bytes": "0f94c1",
+          "asm": "sete cl"
+        },
+        {
+          "rva": 33796805,
+          "bytes": "8bc1",
+          "asm": "mov eax, ecx"
+        },
+        {
+          "rva": 33796807,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33796808,
+          "bytes": "c3",
+          "asm": "ret "
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33567348,
+          "handler_data_rva": 34218352,
+          "scope": {
+            "begin": 33567355,
+            "end": 33567493,
+            "filter_or_finally": 33796786,
+            "jump_target": 33567493,
+            "kind": "except"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33796786,
+          33796810,
+          34218372
+        ]
+      ]
+    },
+    {
+      "rva": 33798079,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798079,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798081,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33798085,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798088,
+          "bytes": "8a4d40",
+          "asm": "mov cl, byte ptr [rbp + 0x40]"
+        },
+        {
+          "rva": 33798091,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33798095,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33798096,
+          "bytes": "e9737bfcff",
+          "asm": "jmp 0x2003348"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33579808,
+          "handler_data_rva": 34219724,
+          "scope": {
+            "begin": 33579864,
+            "end": 33579975,
+            "filter_or_finally": 33798079,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33579808,
+          "handler_data_rva": 34219724,
+          "scope": {
+            "begin": 33580074,
+            "end": 33580085,
+            "filter_or_finally": 33798079,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798079,
+          33798102,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33798102,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798102,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798104,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33798108,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798111,
+          "bytes": "8a4d20",
+          "asm": "mov cl, byte ptr [rbp + 0x20]"
+        },
+        {
+          "rva": 33798114,
+          "bytes": "e8617bfcff",
+          "asm": "call 0x2003348"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33580088,
+          "handler_data_rva": 34219776,
+          "scope": {
+            "begin": 33580143,
+            "end": 33580174,
+            "filter_or_finally": 33798102,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33580088,
+          "handler_data_rva": 34219776,
+          "scope": {
+            "begin": 33580203,
+            "end": 33580214,
+            "filter_or_finally": 33798102,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798102,
+          33798127,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33798127,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798127,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798129,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33798133,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798136,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33798140,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33798141,
+          "bytes": "e93a7dfcff",
+          "asm": "jmp 0x200353c"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33580088,
+          "handler_data_rva": 34219776,
+          "scope": {
+            "begin": 33580132,
+            "end": 33580194,
+            "filter_or_finally": 33798127,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33580088,
+          "handler_data_rva": 34219776,
+          "scope": {
+            "begin": 33580203,
+            "end": 33580215,
+            "filter_or_finally": 33798127,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798127,
+          33798147,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33798147,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798147,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798149,
+          "bytes": "4883ec30",
+          "asm": "sub rsp, 0x30"
+        },
+        {
+          "rva": 33798153,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798156,
+          "bytes": "488b01",
+          "asm": "mov rax, qword ptr [rcx]"
+        },
+        {
+          "rva": 33798159,
+          "bytes": "8b10",
+          "asm": "mov edx, dword ptr [rax]"
+        },
+        {
+          "rva": 33798161,
+          "bytes": "48894c2428",
+          "asm": "mov qword ptr [rsp + 0x28], rcx"
+        },
+        {
+          "rva": 33798166,
+          "bytes": "89542420",
+          "asm": "mov dword ptr [rsp + 0x20], edx"
+        },
+        {
+          "rva": 33798170,
+          "bytes": "4c8d0d97acfcff",
+          "asm": "lea r9, [rip - 0x35369]"
+        },
+        {
+          "rva": 33798177,
+          "bytes": "4c8b4570",
+          "asm": "mov r8, qword ptr [rbp + 0x70]"
+        },
+        {
+          "rva": 33798181,
+          "bytes": "8b5568",
+          "asm": "mov edx, dword ptr [rbp + 0x68]"
+        },
+        {
+          "rva": 33798184,
+          "bytes": "488b4d60",
+          "asm": "mov rcx, qword ptr [rbp + 0x60]"
+        },
+        {
+          "rva": 33798188,
+          "bytes": "e82f7cfcff",
+          "asm": "call 0x2003460"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33580296,
+          "handler_data_rva": 34219864,
+          "scope": {
+            "begin": 33580349,
+            "end": 33580570,
+            "filter_or_finally": 33798147,
+            "jump_target": 33580570,
+            "kind": "except"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798147,
+          33798201,
+          34219884
+        ]
+      ]
+    },
+    {
+      "rva": 33798201,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798201,
+          "bytes": "4053",
+          "asm": "push rbx"
+        },
+        {
+          "rva": 33798203,
+          "bytes": "55",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798204,
+          "bytes": "4883ec28",
+          "asm": "sub rsp, 0x28"
+        },
+        {
+          "rva": 33798208,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798211,
+          "bytes": "48894d38",
+          "asm": "mov qword ptr [rbp + 0x38], rcx"
+        },
+        {
+          "rva": 33798215,
+          "bytes": "48894d30",
+          "asm": "mov qword ptr [rbp + 0x30], rcx"
+        },
+        {
+          "rva": 33798219,
+          "bytes": "807d5800",
+          "asm": "cmp byte ptr [rbp + 0x58], 0"
+        },
+        {
+          "rva": 33798223,
+          "bytes": "746c",
+          "asm": "je 0x203b8bd"
+        },
+        {
+          "rva": 33798225,
+          "bytes": "488b4530",
+          "asm": "mov rax, qword ptr [rbp + 0x30]"
+        },
+        {
+          "rva": 33798229,
+          "bytes": "488b08",
+          "asm": "mov rcx, qword ptr [rax]"
+        },
+        {
+          "rva": 33798232,
+          "bytes": "48894d28",
+          "asm": "mov qword ptr [rbp + 0x28], rcx"
+        },
+        {
+          "rva": 33798236,
+          "bytes": "488b4528",
+          "asm": "mov rax, qword ptr [rbp + 0x28]"
+        },
+        {
+          "rva": 33798240,
+          "bytes": "813863736de0",
+          "asm": "cmp dword ptr [rax], 0xe06d7363"
+        },
+        {
+          "rva": 33798246,
+          "bytes": "7555",
+          "asm": "jne 0x203b8bd"
+        },
+        {
+          "rva": 33798248,
+          "bytes": "488b4528",
+          "asm": "mov rax, qword ptr [rbp + 0x28]"
+        },
+        {
+          "rva": 33798252,
+          "bytes": "83781804",
+          "asm": "cmp dword ptr [rax + 0x18], 4"
+        },
+        {
+          "rva": 33798256,
+          "bytes": "754b",
+          "asm": "jne 0x203b8bd"
+        },
+        {
+          "rva": 33798258,
+          "bytes": "488b4528",
+          "asm": "mov rax, qword ptr [rbp + 0x28]"
+        },
+        {
+          "rva": 33798262,
+          "bytes": "81782020059319",
+          "asm": "cmp dword ptr [rax + 0x20], 0x19930520"
+        },
+        {
+          "rva": 33798269,
+          "bytes": "741a",
+          "asm": "je 0x203b899"
+        },
+        {
+          "rva": 33798271,
+          "bytes": "488b4528",
+          "asm": "mov rax, qword ptr [rbp + 0x28]"
+        },
+        {
+          "rva": 33798275,
+          "bytes": "81782021059319",
+          "asm": "cmp dword ptr [rax + 0x20], 0x19930521"
+        },
+        {
+          "rva": 33798282,
+          "bytes": "740d",
+          "asm": "je 0x203b899"
+        },
+        {
+          "rva": 33798284,
+          "bytes": "488b4528",
+          "asm": "mov rax, qword ptr [rbp + 0x28]"
+        },
+        {
+          "rva": 33798288,
+          "bytes": "81782022059319",
+          "asm": "cmp dword ptr [rax + 0x20], 0x19930522"
+        },
+        {
+          "rva": 33798295,
+          "bytes": "7524",
+          "asm": "jne 0x203b8bd"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33581160,
+          "handler_data_rva": 34219932,
+          "scope": {
+            "begin": 33581217,
+            "end": 33581232,
+            "filter_or_finally": 33798201,
+            "jump_target": 33581232,
+            "kind": "except"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798201,
+          33798351,
+          34219952
+        ]
+      ]
+    },
+    {
+      "rva": 33798519,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798519,
+          "bytes": "4053",
+          "asm": "push rbx"
+        },
+        {
+          "rva": 33798521,
+          "bytes": "55",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798522,
+          "bytes": "57",
+          "asm": "push rdi"
+        },
+        {
+          "rva": 33798523,
+          "bytes": "4883ec40",
+          "asm": "sub rsp, 0x40"
+        },
+        {
+          "rva": 33798527,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798530,
+          "bytes": "48894d50",
+          "asm": "mov qword ptr [rbp + 0x50], rcx"
+        },
+        {
+          "rva": 33798534,
+          "bytes": "48894d48",
+          "asm": "mov qword ptr [rbp + 0x48], rcx"
+        },
+        {
+          "rva": 33798538,
+          "bytes": "e8a545feff",
+          "asm": "call 0x201ff34"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33585120,
+          "handler_data_rva": 34220140,
+          "scope": {
+            "begin": 33585159,
+            "end": 33585191,
+            "filter_or_finally": 33798519,
+            "jump_target": 33585191,
+            "kind": "except"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798519,
+          33798701,
+          34220160
+        ]
+      ]
+    },
+    {
+      "rva": 33798351,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798351,
+          "bytes": "4053",
+          "asm": "push rbx"
+        },
+        {
+          "rva": 33798353,
+          "bytes": "55",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798354,
+          "bytes": "57",
+          "asm": "push rdi"
+        },
+        {
+          "rva": 33798355,
+          "bytes": "4883ec40",
+          "asm": "sub rsp, 0x40"
+        },
+        {
+          "rva": 33798359,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798362,
+          "bytes": "48894d50",
+          "asm": "mov qword ptr [rbp + 0x50], rcx"
+        },
+        {
+          "rva": 33798366,
+          "bytes": "48894d48",
+          "asm": "mov qword ptr [rbp + 0x48], rcx"
+        },
+        {
+          "rva": 33798370,
+          "bytes": "e84d46feff",
+          "asm": "call 0x201ff34"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33585204,
+          "handler_data_rva": 34220184,
+          "scope": {
+            "begin": 33585243,
+            "end": 33585275,
+            "filter_or_finally": 33798351,
+            "jump_target": 33585275,
+            "kind": "except"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798351,
+          33798519,
+          34220160
+        ]
+      ]
+    },
+    {
+      "rva": 33798701,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798701,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798703,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33798707,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798710,
+          "bytes": "488b4d48",
+          "asm": "mov rcx, qword ptr [rbp + 0x48]"
+        },
+        {
+          "rva": 33798714,
+          "bytes": "488b09",
+          "asm": "mov rcx, qword ptr [rcx]"
+        },
+        {
+          "rva": 33798717,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33798721,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33798722,
+          "bytes": "e975c7fcff",
+          "asm": "jmp 0x20081bc"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33603012,
+          "handler_data_rva": 34220704,
+          "scope": {
+            "begin": 33603042,
+            "end": 33603052,
+            "filter_or_finally": 33798701,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33649824,
+          "handler_data_rva": 34222504,
+          "scope": {
+            "begin": 33649854,
+            "end": 33649961,
+            "filter_or_finally": 33798701,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33650208,
+          "handler_data_rva": 34222580,
+          "scope": {
+            "begin": 33650238,
+            "end": 33650251,
+            "filter_or_finally": 33798701,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33654552,
+          "handler_data_rva": 34222960,
+          "scope": {
+            "begin": 33654582,
+            "end": 33654593,
+            "filter_or_finally": 33798701,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798701,
+          33798728,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33798758,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798758,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798760,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33798764,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798767,
+          "bytes": "33c9",
+          "asm": "xor ecx, ecx"
+        },
+        {
+          "rva": 33798769,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33798773,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33798774,
+          "bytes": "e97101ffff",
+          "asm": "jmp 0x202bbec"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33620632,
+          "handler_data_rva": 34220916,
+          "scope": {
+            "begin": 33620646,
+            "end": 33620671,
+            "filter_or_finally": 33798758,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798758,
+          33798780,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33798806,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798806,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798808,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33798812,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798815,
+          "bytes": "48894d28",
+          "asm": "mov qword ptr [rbp + 0x28], rcx"
+        },
+        {
+          "rva": 33798819,
+          "bytes": "488b01",
+          "asm": "mov rax, qword ptr [rcx]"
+        },
+        {
+          "rva": 33798822,
+          "bytes": "8b08",
+          "asm": "mov ecx, dword ptr [rax]"
+        },
+        {
+          "rva": 33798824,
+          "bytes": "894d24",
+          "asm": "mov dword ptr [rbp + 0x24], ecx"
+        },
+        {
+          "rva": 33798827,
+          "bytes": "33c0",
+          "asm": "xor eax, eax"
+        },
+        {
+          "rva": 33798829,
+          "bytes": "81f963736de0",
+          "asm": "cmp ecx, 0xe06d7363"
+        },
+        {
+          "rva": 33798835,
+          "bytes": "0f94c0",
+          "asm": "sete al"
+        },
+        {
+          "rva": 33798838,
+          "bytes": "894520",
+          "asm": "mov dword ptr [rbp + 0x20], eax"
+        },
+        {
+          "rva": 33798841,
+          "bytes": "8b4520",
+          "asm": "mov eax, dword ptr [rbp + 0x20]"
+        },
+        {
+          "rva": 33798844,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33798848,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33798849,
+          "bytes": "c3",
+          "asm": "ret "
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33621132,
+          "handler_data_rva": 34221012,
+          "scope": {
+            "begin": 33621165,
+            "end": 33621254,
+            "filter_or_finally": 33798806,
+            "jump_target": 33621329,
+            "kind": "except"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798806,
+          33798851,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33798780,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798780,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798782,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33798786,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798789,
+          "bytes": "488b4548",
+          "asm": "mov rax, qword ptr [rbp + 0x48]"
+        },
+        {
+          "rva": 33798793,
+          "bytes": "8b08",
+          "asm": "mov ecx, dword ptr [rax]"
+        },
+        {
+          "rva": 33798795,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33798799,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33798800,
+          "bytes": "e95701ffff",
+          "asm": "jmp 0x202bbec"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33621336,
+          "handler_data_rva": 34221048,
+          "scope": {
+            "begin": 33621365,
+            "end": 33621374,
+            "filter_or_finally": 33798780,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33624080,
+          "handler_data_rva": 34221200,
+          "scope": {
+            "begin": 33624109,
+            "end": 33624119,
+            "filter_or_finally": 33798780,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33624140,
+          "handler_data_rva": 34221236,
+          "scope": {
+            "begin": 33624169,
+            "end": 33624179,
+            "filter_or_finally": 33798780,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33660904,
+          "handler_data_rva": 34223348,
+          "scope": {
+            "begin": 33660930,
+            "end": 33660955,
+            "filter_or_finally": 33798780,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33735204,
+          "handler_data_rva": 34225572,
+          "scope": {
+            "begin": 33735233,
+            "end": 33735249,
+            "filter_or_finally": 33798780,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33735268,
+          "handler_data_rva": 34225608,
+          "scope": {
+            "begin": 33735297,
+            "end": 33735319,
+            "filter_or_finally": 33798780,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33735340,
+          "handler_data_rva": 34225644,
+          "scope": {
+            "begin": 33735369,
+            "end": 33735417,
+            "filter_or_finally": 33798780,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33735436,
+          "handler_data_rva": 34225680,
+          "scope": {
+            "begin": 33735465,
+            "end": 33735479,
+            "filter_or_finally": 33798780,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798780,
+          33798806,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33798851,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798851,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798853,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33798857,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798860,
+          "bytes": "488b4548",
+          "asm": "mov rax, qword ptr [rbp + 0x48]"
+        },
+        {
+          "rva": 33798864,
+          "bytes": "8b08",
+          "asm": "mov ecx, dword ptr [rax]"
+        },
+        {
+          "rva": 33798866,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33798870,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33798871,
+          "bytes": "e9b833ffff",
+          "asm": "jmp 0x202ee94"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33622100,
+          "handler_data_rva": 34221108,
+          "scope": {
+            "begin": 33622129,
+            "end": 33622199,
+            "filter_or_finally": 33798851,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33759228,
+          "handler_data_rva": 34226784,
+          "scope": {
+            "begin": 33759257,
+            "end": 33759347,
+            "filter_or_finally": 33798851,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798851,
+          33798877,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33798970,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798970,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798972,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33798976,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798979,
+          "bytes": "488b8588000000",
+          "asm": "mov rax, qword ptr [rbp + 0x88]"
+        },
+        {
+          "rva": 33798986,
+          "bytes": "8b08",
+          "asm": "mov ecx, dword ptr [rax]"
+        },
+        {
+          "rva": 33798988,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33798992,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33798993,
+          "bytes": "e93e33ffff",
+          "asm": "jmp 0x202ee94"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33630476,
+          "handler_data_rva": 34221552,
+          "scope": {
+            "begin": 33630510,
+            "end": 33630632,
+            "filter_or_finally": 33798970,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798970,
+          33798999,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33799022,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799022,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799024,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33799028,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799031,
+          "bytes": "8b4d40",
+          "asm": "mov ecx, dword ptr [rbp + 0x40]"
+        },
+        {
+          "rva": 33799034,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33799038,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33799039,
+          "bytes": "e91033ffff",
+          "asm": "jmp 0x202ee94"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33638344,
+          "handler_data_rva": 34221892,
+          "scope": {
+            "begin": 33638561,
+            "end": 33638616,
+            "filter_or_finally": 33799022,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799022,
+          33799045,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33798999,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798999,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799001,
+          "bytes": "4883ec30",
+          "asm": "sub rsp, 0x30"
+        },
+        {
+          "rva": 33799005,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799008,
+          "bytes": "8b4d60",
+          "asm": "mov ecx, dword ptr [rbp + 0x60]"
+        },
+        {
+          "rva": 33799011,
+          "bytes": "4883c430",
+          "asm": "add rsp, 0x30"
+        },
+        {
+          "rva": 33799015,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33799016,
+          "bytes": "e92733ffff",
+          "asm": "jmp 0x202ee94"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33646336,
+          "handler_data_rva": 34222288,
+          "scope": {
+            "begin": 33646545,
+            "end": 33646606,
+            "filter_or_finally": 33798999,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798999,
+          33799022,
+          34219884
+        ]
+      ]
+    },
+    {
+      "rva": 33798903,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33798903,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33798905,
+          "bytes": "4883ec30",
+          "asm": "sub rsp, 0x30"
+        },
+        {
+          "rva": 33798909,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33798912,
+          "bytes": "488b4d40",
+          "asm": "mov rcx, qword ptr [rbp + 0x40]"
+        },
+        {
+          "rva": 33798916,
+          "bytes": "4883c430",
+          "asm": "add rsp, 0x30"
+        },
+        {
+          "rva": 33798920,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33798921,
+          "bytes": "e9aec6fcff",
+          "asm": "jmp 0x20081bc"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33649096,
+          "handler_data_rva": 34222460,
+          "scope": {
+            "begin": 33649193,
+            "end": 33649206,
+            "filter_or_finally": 33798903,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33798903,
+          33798927,
+          34219884
+        ]
+      ]
+    },
+    {
+      "rva": 33799165,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799165,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799167,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33799171,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799174,
+          "bytes": "488b8598000000",
+          "asm": "mov rax, qword ptr [rbp + 0x98]"
+        },
+        {
+          "rva": 33799181,
+          "bytes": "8b08",
+          "asm": "mov ecx, dword ptr [rax]"
+        },
+        {
+          "rva": 33799183,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33799187,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33799188,
+          "bytes": "e9d3fffeff",
+          "asm": "jmp 0x202bbec"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33649980,
+          "handler_data_rva": 34222544,
+          "scope": {
+            "begin": 33650012,
+            "end": 33650181,
+            "filter_or_finally": 33799165,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799165,
+          33799194,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33799218,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799218,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799220,
+          "bytes": "4883ec30",
+          "asm": "sub rsp, 0x30"
+        },
+        {
+          "rva": 33799224,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799227,
+          "bytes": "488b4d58",
+          "asm": "mov rcx, qword ptr [rbp + 0x58]"
+        },
+        {
+          "rva": 33799231,
+          "bytes": "e878c5fcff",
+          "asm": "call 0x20081bc"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33650672,
+          "handler_data_rva": 34222664,
+          "scope": {
+            "begin": 33650772,
+            "end": 33650969,
+            "filter_or_finally": 33799218,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33650672,
+          "handler_data_rva": 34222664,
+          "scope": {
+            "begin": 33650978,
+            "end": 33651014,
+            "filter_or_finally": 33799218,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799218,
+          33799244,
+          34219884
+        ]
+      ]
+    },
+    {
+      "rva": 33799244,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799244,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799246,
+          "bytes": "4883ec30",
+          "asm": "sub rsp, 0x30"
+        },
+        {
+          "rva": 33799250,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799253,
+          "bytes": "488b4d60",
+          "asm": "mov rcx, qword ptr [rbp + 0x60]"
+        },
+        {
+          "rva": 33799257,
+          "bytes": "4883c430",
+          "asm": "add rsp, 0x30"
+        },
+        {
+          "rva": 33799261,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33799262,
+          "bytes": "e959c5fcff",
+          "asm": "jmp 0x20081bc"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33651032,
+          "handler_data_rva": 34222728,
+          "scope": {
+            "begin": 33651159,
+            "end": 33651184,
+            "filter_or_finally": 33799244,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799244,
+          33799268,
+          34219884
+        ]
+      ]
+    },
+    {
+      "rva": 33799268,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799268,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799270,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33799274,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799277,
+          "bytes": "b903000000",
+          "asm": "mov ecx, 3"
+        },
+        {
+          "rva": 33799282,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33799286,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33799287,
+          "bytes": "e970fffeff",
+          "asm": "jmp 0x202bbec"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33659548,
+          "handler_data_rva": 34223212,
+          "scope": {
+            "begin": 33659636,
+            "end": 33659779,
+            "filter_or_finally": 33799268,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799268,
+          33799293,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33799293,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799293,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799295,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33799299,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799302,
+          "bytes": "807d7000",
+          "asm": "cmp byte ptr [rbp + 0x70], 0"
+        },
+        {
+          "rva": 33799306,
+          "bytes": "740b",
+          "asm": "je 0x203bc97"
+        },
+        {
+          "rva": 33799308,
+          "bytes": "b903000000",
+          "asm": "mov ecx, 3"
+        },
+        {
+          "rva": 33799313,
+          "bytes": "e856fffeff",
+          "asm": "call 0x202bbec"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33660000,
+          "handler_data_rva": 34223260,
+          "scope": {
+            "begin": 33660301,
+            "end": 33660482,
+            "filter_or_finally": 33799293,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33660000,
+          "handler_data_rva": 34223260,
+          "scope": {
+            "begin": 33660608,
+            "end": 33660632,
+            "filter_or_finally": 33799293,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799293,
+          33799326,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33799328,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799328,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799330,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33799334,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799337,
+          "bytes": "488b01",
+          "asm": "mov rax, qword ptr [rcx]"
+        },
+        {
+          "rva": 33799340,
+          "bytes": "33c9",
+          "asm": "xor ecx, ecx"
+        },
+        {
+          "rva": 33799342,
+          "bytes": "8138050000c0",
+          "asm": "cmp dword ptr [rax], 0xc0000005"
+        },
+        {
+          "rva": 33799348,
+          "bytes": "0f94c1",
+          "asm": "sete cl"
+        },
+        {
+          "rva": 33799351,
+          "bytes": "8bc1",
+          "asm": "mov eax, ecx"
+        },
+        {
+          "rva": 33799353,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33799357,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33799358,
+          "bytes": "c3",
+          "asm": "ret "
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33685760,
+          "handler_data_rva": 34223964,
+          "scope": {
+            "begin": 33685773,
+            "end": 33685824,
+            "filter_or_finally": 33799328,
+            "jump_target": 33685824,
+            "kind": "except"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799328,
+          33799360,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33799751,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799751,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799753,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33799757,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799760,
+          "bytes": "e8f7aafcff",
+          "asm": "call 0x200694c"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33687880,
+          "handler_data_rva": 34224032,
+          "scope": {
+            "begin": 33688018,
+            "end": 33688164,
+            "filter_or_finally": 33799751,
+            "jump_target": 33688164,
+            "kind": "except"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799751,
+          33799773,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33799773,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799773,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799775,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33799779,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799782,
+          "bytes": "e8c940feff",
+          "asm": "call 0x201ff34"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33687880,
+          "handler_data_rva": 34224032,
+          "scope": {
+            "begin": 33687959,
+            "end": 33688203,
+            "filter_or_finally": 33799773,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33687880,
+          "handler_data_rva": 34224032,
+          "scope": {
+            "begin": 33688262,
+            "end": 33688268,
+            "filter_or_finally": 33799773,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799773,
+          33799808,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33799388,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799388,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799390,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33799394,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799397,
+          "bytes": "48894d58",
+          "asm": "mov qword ptr [rbp + 0x58], rcx"
+        },
+        {
+          "rva": 33799401,
+          "bytes": "4c8d4520",
+          "asm": "lea r8, [rbp + 0x20]"
+        },
+        {
+          "rva": 33799405,
+          "bytes": "488b95b8000000",
+          "asm": "mov rdx, qword ptr [rbp + 0xb8]"
+        },
+        {
+          "rva": 33799412,
+          "bytes": "e8b755feff",
+          "asm": "call 0x20212b0"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33688428,
+          "handler_data_rva": 34224108,
+          "scope": {
+            "begin": 33688641,
+            "end": 33688678,
+            "filter_or_finally": 33799388,
+            "jump_target": 33688678,
+            "kind": "except"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799388,
+          33799425,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33799425,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799425,
+          "bytes": "4053",
+          "asm": "push rbx"
+        },
+        {
+          "rva": 33799427,
+          "bytes": "55",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799428,
+          "bytes": "4883ec28",
+          "asm": "sub rsp, 0x28"
+        },
+        {
+          "rva": 33799432,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799435,
+          "bytes": "488b4d38",
+          "asm": "mov rcx, qword ptr [rbp + 0x38]"
+        },
+        {
+          "rva": 33799439,
+          "bytes": "e830b9fcff",
+          "asm": "call 0x2007644"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33688428,
+          "handler_data_rva": 34224108,
+          "scope": {
+            "begin": 33688641,
+            "end": 33688798,
+            "filter_or_finally": 33799425,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799425,
+          33799559,
+          34219952
+        ]
+      ]
+    },
+    {
+      "rva": 33799808,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799808,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799810,
+          "bytes": "4883ec30",
+          "asm": "sub rsp, 0x30"
+        },
+        {
+          "rva": 33799814,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799817,
+          "bytes": "e8beaafcff",
+          "asm": "call 0x200694c"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33688920,
+          "handler_data_rva": 34224176,
+          "scope": {
+            "begin": 33689500,
+            "end": 33689595,
+            "filter_or_finally": 33799808,
+            "jump_target": 33689595,
+            "kind": "except"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799808,
+          33799830,
+          34219884
+        ]
+      ]
+    },
+    {
+      "rva": 33799830,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799830,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799832,
+          "bytes": "4883ec30",
+          "asm": "sub rsp, 0x30"
+        },
+        {
+          "rva": 33799836,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799839,
+          "bytes": "e89040feff",
+          "asm": "call 0x201ff34"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33688920,
+          "handler_data_rva": 34224176,
+          "scope": {
+            "begin": 33689268,
+            "end": 33689627,
+            "filter_or_finally": 33799830,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799830,
+          33799865,
+          34219884
+        ]
+      ]
+    },
+    {
+      "rva": 33799559,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799559,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799561,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33799565,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799568,
+          "bytes": "48898d80000000",
+          "asm": "mov qword ptr [rbp + 0x80], rcx"
+        },
+        {
+          "rva": 33799575,
+          "bytes": "4c8d4d20",
+          "asm": "lea r9, [rbp + 0x20]"
+        },
+        {
+          "rva": 33799579,
+          "bytes": "448b85d8000000",
+          "asm": "mov r8d, dword ptr [rbp + 0xd8]"
+        },
+        {
+          "rva": 33799586,
+          "bytes": "488b95e8000000",
+          "asm": "mov rdx, qword ptr [rbp + 0xe8]"
+        },
+        {
+          "rva": 33799593,
+          "bytes": "e88655feff",
+          "asm": "call 0x2021334"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33689696,
+          "handler_data_rva": 34224240,
+          "scope": {
+            "begin": 33689951,
+            "end": 33690026,
+            "filter_or_finally": 33799559,
+            "jump_target": 33690026,
+            "kind": "except"
+          }
+        },
+        {
+          "function_begin": 33689696,
+          "handler_data_rva": 34224240,
+          "scope": {
+            "begin": 33690278,
+            "end": 33690284,
+            "filter_or_finally": 33799559,
+            "jump_target": 33690026,
+            "kind": "except"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799559,
+          33799606,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33799606,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799606,
+          "bytes": "4053",
+          "asm": "push rbx"
+        },
+        {
+          "rva": 33799608,
+          "bytes": "55",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799609,
+          "bytes": "4883ec28",
+          "asm": "sub rsp, 0x28"
+        },
+        {
+          "rva": 33799613,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799616,
+          "bytes": "488b4d48",
+          "asm": "mov rcx, qword ptr [rbp + 0x48]"
+        },
+        {
+          "rva": 33799620,
+          "bytes": "e87bb8fcff",
+          "asm": "call 0x2007644"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33689696,
+          "handler_data_rva": 34224240,
+          "scope": {
+            "begin": 33689951,
+            "end": 33690150,
+            "filter_or_finally": 33799606,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33689696,
+          "handler_data_rva": 34224240,
+          "scope": {
+            "begin": 33690278,
+            "end": 33690284,
+            "filter_or_finally": 33799606,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799606,
+          33799751,
+          34219952
+        ]
+      ]
+    },
+    {
+      "rva": 33799360,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799360,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799362,
+          "bytes": "4883ec40",
+          "asm": "sub rsp, 0x40"
+        },
+        {
+          "rva": 33799366,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799369,
+          "bytes": "e86642feff",
+          "asm": "call 0x201ff34"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33690852,
+          "handler_data_rva": 34224348,
+          "scope": {
+            "begin": 33690858,
+            "end": 33690907,
+            "filter_or_finally": 33799360,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799360,
+          33799388,
+          34222080
+        ]
+      ]
+    },
+    {
+      "rva": 33799877,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799877,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799879,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33799883,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799886,
+          "bytes": "33c9",
+          "asm": "xor ecx, ecx"
+        },
+        {
+          "rva": 33799888,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33799892,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33799893,
+          "bytes": "e97af4feff",
+          "asm": "jmp 0x202b354"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33698584,
+          "handler_data_rva": 34224808,
+          "scope": {
+            "begin": 33698661,
+            "end": 33698806,
+            "filter_or_finally": 33799877,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799877,
+          33799899,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33799899,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799899,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799901,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33799905,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799908,
+          "bytes": "b907000000",
+          "asm": "mov ecx, 7"
+        },
+        {
+          "rva": 33799913,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33799917,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33799918,
+          "bytes": "e9f9fcfeff",
+          "asm": "jmp 0x202bbec"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33735500,
+          "handler_data_rva": 34225712,
+          "scope": {
+            "begin": 33735518,
+            "end": 33735541,
+            "filter_or_finally": 33799899,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33745424,
+          "handler_data_rva": 34226184,
+          "scope": {
+            "begin": 33745463,
+            "end": 33745703,
+            "filter_or_finally": 33799899,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33746372,
+          "handler_data_rva": 34226244,
+          "scope": {
+            "begin": 33746455,
+            "end": 33746526,
+            "filter_or_finally": 33799899,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799899,
+          33799924,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33799924,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799924,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799926,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33799930,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799933,
+          "bytes": "488b4568",
+          "asm": "mov rax, qword ptr [rbp + 0x68]"
+        },
+        {
+          "rva": 33799937,
+          "bytes": "8b08",
+          "asm": "mov ecx, dword ptr [rax]"
+        },
+        {
+          "rva": 33799939,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33799943,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33799944,
+          "bytes": "e9dffcfeff",
+          "asm": "jmp 0x202bbec"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33738576,
+          "handler_data_rva": 34225900,
+          "scope": {
+            "begin": 33738605,
+            "end": 33739020,
+            "filter_or_finally": 33799924,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799924,
+          33799950,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33799975,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33799975,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33799977,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33799981,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33799984,
+          "bytes": "b908000000",
+          "asm": "mov ecx, 8"
+        },
+        {
+          "rva": 33799989,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33799993,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33799994,
+          "bytes": "e9adfcfeff",
+          "asm": "jmp 0x202bbec"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33739880,
+          "handler_data_rva": 34225944,
+          "scope": {
+            "begin": 33739906,
+            "end": 33740033,
+            "filter_or_finally": 33799975,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33799975,
+          33800000,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33800000,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33800000,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33800002,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33800006,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33800009,
+          "bytes": "488b4558",
+          "asm": "mov rax, qword ptr [rbp + 0x58]"
+        },
+        {
+          "rva": 33800013,
+          "bytes": "8b08",
+          "asm": "mov ecx, dword ptr [rax]"
+        },
+        {
+          "rva": 33800015,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33800019,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33800020,
+          "bytes": "e993fcfeff",
+          "asm": "jmp 0x202bbec"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33744952,
+          "handler_data_rva": 34226136,
+          "scope": {
+            "begin": 33744983,
+            "end": 33745039,
+            "filter_or_finally": 33800000,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33800000,
+          33800026,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33800026,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33800026,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33800028,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33800032,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33800035,
+          "bytes": "b906000000",
+          "asm": "mov ecx, 6"
+        },
+        {
+          "rva": 33800040,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33800044,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33800045,
+          "bytes": "e97afcfeff",
+          "asm": "jmp 0x202bbec"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33754836,
+          "handler_data_rva": 34226604,
+          "scope": {
+            "begin": 33754856,
+            "end": 33754866,
+            "filter_or_finally": 33800026,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        },
+        {
+          "function_begin": 33754884,
+          "handler_data_rva": 34226636,
+          "scope": {
+            "begin": 33754908,
+            "end": 33754931,
+            "filter_or_finally": 33800026,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33800026,
+          33800051,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33800051,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33800051,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33800053,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33800057,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33800060,
+          "bytes": "488b01",
+          "asm": "mov rax, qword ptr [rcx]"
+        },
+        {
+          "rva": 33800063,
+          "bytes": "8138050000c0",
+          "asm": "cmp dword ptr [rax], 0xc0000005"
+        },
+        {
+          "rva": 33800069,
+          "bytes": "740c",
+          "asm": "je 0x203bf93"
+        },
+        {
+          "rva": 33800071,
+          "bytes": "81381d0000c0",
+          "asm": "cmp dword ptr [rax], 0xc000001d"
+        },
+        {
+          "rva": 33800077,
+          "bytes": "7404",
+          "asm": "je 0x203bf93"
+        },
+        {
+          "rva": 33800079,
+          "bytes": "33c0",
+          "asm": "xor eax, eax"
+        },
+        {
+          "rva": 33800081,
+          "bytes": "eb05",
+          "asm": "jmp 0x203bf98"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33763088,
+          "handler_data_rva": 34226948,
+          "scope": {
+            "begin": 33763154,
+            "end": 33763161,
+            "filter_or_finally": 33800051,
+            "jump_target": 33763161,
+            "kind": "except"
+          }
+        },
+        {
+          "function_begin": 33792260,
+          "handler_data_rva": 34227496,
+          "scope": {
+            "begin": 33792695,
+            "end": 33792704,
+            "filter_or_finally": 33800051,
+            "jump_target": 33792704,
+            "kind": "except"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33800051,
+          33800095,
+          34219052
+        ]
+      ]
+    },
+    {
+      "rva": 33800095,
+      "prefix_only": true,
+      "instructions": [
+        {
+          "rva": 33800095,
+          "bytes": "4055",
+          "asm": "push rbp"
+        },
+        {
+          "rva": 33800097,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20"
+        },
+        {
+          "rva": 33800101,
+          "bytes": "488bea",
+          "asm": "mov rbp, rdx"
+        },
+        {
+          "rva": 33800104,
+          "bytes": "b904000000",
+          "asm": "mov ecx, 4"
+        },
+        {
+          "rva": 33800109,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20"
+        },
+        {
+          "rva": 33800113,
+          "bytes": "5d",
+          "asm": "pop rbp"
+        },
+        {
+          "rva": 33800114,
+          "bytes": "e935fcfeff",
+          "asm": "jmp 0x202bbec"
+        }
+      ],
+      "scope_links": [
+        {
+          "function_begin": 33781600,
+          "handler_data_rva": 34227256,
+          "scope": {
+            "begin": 33781657,
+            "end": 33781675,
+            "filter_or_finally": 33800095,
+            "jump_target": 0,
+            "kind": "finally"
+          }
+        }
+      ],
+      "containing_runtime_functions": [
+        [
+          33800095,
+          33800120,
+          34219052
+        ]
+      ]
+    }
+  ],
+  "scope": "Only prefixes and metadata links, not complete callback semantics."
+}

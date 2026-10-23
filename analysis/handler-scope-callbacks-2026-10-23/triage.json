@@ -1,0 +1,4064 @@
+{
+  "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "roots_from_unwind_inventory": [
+    33584792,
+    33581492,
+    33584928,
+    33578712,
+    33578680,
+    33745176,
+    33758952,
+    33774088
+  ],
+  "additional_roots": "first direct callee of handler families, addresses verified at call sites",
+  "functions": [
+    {
+      "root": 33584792,
+      "unwind_range": [
+        33584792,
+        33584926
+      ],
+      "unwind_rva": 34220088,
+      "nodes": [
+        {
+          "rva": 33584792,
+          "bytes": "488bc4",
+          "asm": "mov rax, rsp",
+          "successors": [
+            33584795
+          ]
+        },
+        {
+          "rva": 33584795,
+          "bytes": "48895810",
+          "asm": "mov qword ptr [rax + 0x10], rbx",
+          "successors": [
+            33584799
+          ]
+        },
+        {
+          "rva": 33584799,
+          "bytes": "48896818",
+          "asm": "mov qword ptr [rax + 0x18], rbp",
+          "successors": [
+            33584803
+          ]
+        },
+        {
+          "rva": 33584803,
+          "bytes": "48897020",
+          "asm": "mov qword ptr [rax + 0x20], rsi",
+          "successors": [
+            33584807
+          ]
+        },
+        {
+          "rva": 33584807,
+          "bytes": "57",
+          "asm": "push rdi",
+          "successors": [
+            33584808
+          ]
+        },
+        {
+          "rva": 33584808,
+          "bytes": "4883ec40",
+          "asm": "sub rsp, 0x40",
+          "successors": [
+            33584812
+          ]
+        },
+        {
+          "rva": 33584812,
+          "bytes": "498b5908",
+          "asm": "mov rbx, qword ptr [r9 + 8]",
+          "successors": [
+            33584816
+          ]
+        },
+        {
+          "rva": 33584816,
+          "bytes": "498bf9",
+          "asm": "mov rdi, r9",
+          "successors": [
+            33584819
+          ]
+        },
+        {
+          "rva": 33584819,
+          "bytes": "498bf0",
+          "asm": "mov rsi, r8",
+          "successors": [
+            33584822
+          ]
+        },
+        {
+          "rva": 33584822,
+          "bytes": "48895008",
+          "asm": "mov qword ptr [rax + 8], rdx",
+          "successors": [
+            33584826
+          ]
+        },
+        {
+          "rva": 33584826,
+          "bytes": "488be9",
+          "asm": "mov rbp, rcx",
+          "successors": [
+            33584829
+          ]
+        },
+        {
+          "rva": 33584829,
+          "bytes": "e872880100",
+          "asm": "call 0x201ff34",
+          "successors": [
+            33584834
+          ]
+        },
+        {
+          "rva": 33584834,
+          "bytes": "48895860",
+          "asm": "mov qword ptr [rax + 0x60], rbx",
+          "successors": [
+            33584838
+          ]
+        },
+        {
+          "rva": 33584838,
+          "bytes": "488b5d38",
+          "asm": "mov rbx, qword ptr [rbp + 0x38]",
+          "successors": [
+            33584842
+          ]
+        },
+        {
+          "rva": 33584842,
+          "bytes": "e865880100",
+          "asm": "call 0x201ff34",
+          "successors": [
+            33584847
+          ]
+        },
+        {
+          "rva": 33584847,
+          "bytes": "48895868",
+          "asm": "mov qword ptr [rax + 0x68], rbx",
+          "successors": [
+            33584851
+          ]
+        },
+        {
+          "rva": 33584851,
+          "bytes": "e85c880100",
+          "asm": "call 0x201ff34",
+          "successors": [
+            33584856
+          ]
+        },
+        {
+          "rva": 33584856,
+          "bytes": "488b4f38",
+          "asm": "mov rcx, qword ptr [rdi + 0x38]",
+          "successors": [
+            33584860
+          ]
+        },
+        {
+          "rva": 33584860,
+          "bytes": "4c8bcf",
+          "asm": "mov r9, rdi",
+          "successors": [
+            33584863
+          ]
+        },
+        {
+          "rva": 33584863,
+          "bytes": "4c8bc6",
+          "asm": "mov r8, rsi",
+          "successors": [
+            33584866
+          ]
+        },
+        {
+          "rva": 33584866,
+          "bytes": "8b11",
+          "asm": "mov edx, dword ptr [rcx]",
+          "successors": [
+            33584868
+          ]
+        },
+        {
+          "rva": 33584868,
+          "bytes": "488bcd",
+          "asm": "mov rcx, rbp",
+          "successors": [
+            33584871
+          ]
+        },
+        {
+          "rva": 33584871,
+          "bytes": "48035060",
+          "asm": "add rdx, qword ptr [rax + 0x60]",
+          "successors": [
+            33584875
+          ]
+        },
+        {
+          "rva": 33584875,
+          "bytes": "33c0",
+          "asm": "xor eax, eax",
+          "successors": [
+            33584877
+          ]
+        },
+        {
+          "rva": 33584877,
+          "bytes": "88442438",
+          "asm": "mov byte ptr [rsp + 0x38], al",
+          "successors": [
+            33584881
+          ]
+        },
+        {
+          "rva": 33584881,
+          "bytes": "4889442430",
+          "asm": "mov qword ptr [rsp + 0x30], rax",
+          "successors": [
+            33584886
+          ]
+        },
+        {
+          "rva": 33584886,
+          "bytes": "89442428",
+          "asm": "mov dword ptr [rsp + 0x28], eax",
+          "successors": [
+            33584890
+          ]
+        },
+        {
+          "rva": 33584890,
+          "bytes": "4889542420",
+          "asm": "mov qword ptr [rsp + 0x20], rdx",
+          "successors": [
+            33584895
+          ]
+        },
+        {
+          "rva": 33584895,
+          "bytes": "488d542450",
+          "asm": "lea rdx, [rsp + 0x50]",
+          "successors": [
+            33584900
+          ]
+        },
+        {
+          "rva": 33584900,
+          "bytes": "e8d39d0100",
+          "asm": "call 0x20214dc",
+          "successors": [
+            33584905
+          ]
+        },
+        {
+          "rva": 33584905,
+          "bytes": "488b5c2458",
+          "asm": "mov rbx, qword ptr [rsp + 0x58]",
+          "successors": [
+            33584910
+          ]
+        },
+        {
+          "rva": 33584910,
+          "bytes": "488b6c2460",
+          "asm": "mov rbp, qword ptr [rsp + 0x60]",
+          "successors": [
+            33584915
+          ]
+        },
+        {
+          "rva": 33584915,
+          "bytes": "488b742468",
+          "asm": "mov rsi, qword ptr [rsp + 0x68]",
+          "successors": [
+            33584920
+          ]
+        },
+        {
+          "rva": 33584920,
+          "bytes": "4883c440",
+          "asm": "add rsp, 0x40",
+          "successors": [
+            33584924
+          ]
+        },
+        {
+          "rva": 33584924,
+          "bytes": "5f",
+          "asm": "pop rdi",
+          "successors": [
+            33584925
+          ]
+        },
+        {
+          "rva": 33584925,
+          "bytes": "c3",
+          "asm": "ret ",
+          "successors": []
+        }
+      ],
+      "calls": [
+        {
+          "site": 33584829,
+          "target": 33685300,
+          "asm": "0x201ff34"
+        },
+        {
+          "site": 33584842,
+          "target": 33685300,
+          "asm": "0x201ff34"
+        },
+        {
+          "site": 33584851,
+          "target": 33685300,
+          "asm": "0x201ff34"
+        },
+        {
+          "site": 33584900,
+          "target": 33690844,
+          "asm": "0x20214dc"
+        }
+      ],
+      "tail_destinations": [],
+      "indirect_transfers": [],
+      "constants": [
+        {
+          "site": 33584829,
+          "u32": "0x201ff34",
+          "asm": "call 0x201ff34"
+        },
+        {
+          "site": 33584842,
+          "u32": "0x201ff34",
+          "asm": "call 0x201ff34"
+        },
+        {
+          "site": 33584851,
+          "u32": "0x201ff34",
+          "asm": "call 0x201ff34"
+        },
+        {
+          "site": 33584900,
+          "u32": "0x20214dc",
+          "asm": "call 0x20214dc"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "root": 33581492,
+      "unwind_range": [
+        33581492,
+        33582027
+      ],
+      "unwind_rva": 34219964,
+      "nodes": [
+        {
+          "rva": 33581492,
+          "bytes": "48895c2408",
+          "asm": "mov qword ptr [rsp + 8], rbx",
+          "successors": [
+            33581497
+          ]
+        },
+        {
+          "rva": 33581497,
+          "bytes": "48896c2410",
+          "asm": "mov qword ptr [rsp + 0x10], rbp",
+          "successors": [
+            33581502
+          ]
+        },
+        {
+          "rva": 33581502,
+          "bytes": "4889742418",
+          "asm": "mov qword ptr [rsp + 0x18], rsi",
+          "successors": [
+            33581507
+          ]
+        },
+        {
+          "rva": 33581507,
+          "bytes": "57",
+          "asm": "push rdi",
+          "successors": [
+            33581508
+          ]
+        },
+        {
+          "rva": 33581508,
+          "bytes": "4154",
+          "asm": "push r12",
+          "successors": [
+            33581510
+          ]
+        },
+        {
+          "rva": 33581510,
+          "bytes": "4155",
+          "asm": "push r13",
+          "successors": [
+            33581512
+          ]
+        },
+        {
+          "rva": 33581512,
+          "bytes": "4156",
+          "asm": "push r14",
+          "successors": [
+            33581514
+          ]
+        },
+        {
+          "rva": 33581514,
+          "bytes": "4157",
+          "asm": "push r15",
+          "successors": [
+            33581516
+          ]
+        },
+        {
+          "rva": 33581516,
+          "bytes": "4883ec40",
+          "asm": "sub rsp, 0x40",
+          "successors": [
+            33581520
+          ]
+        },
+        {
+          "rva": 33581520,
+          "bytes": "488bf1",
+          "asm": "mov rsi, rcx",
+          "successors": [
+            33581523
+          ]
+        },
+        {
+          "rva": 33581523,
+          "bytes": "4d8bf9",
+          "asm": "mov r15, r9",
+          "successors": [
+            33581526
+          ]
+        },
+        {
+          "rva": 33581526,
+          "bytes": "498bc8",
+          "asm": "mov rcx, r8",
+          "successors": [
+            33581529
+          ]
+        },
+        {
+          "rva": 33581529,
+          "bytes": "498be8",
+          "asm": "mov rbp, r8",
+          "successors": [
+            33581532
+          ]
+        },
+        {
+          "rva": 33581532,
+          "bytes": "4c8bea",
+          "asm": "mov r13, rdx",
+          "successors": [
+            33581535
+          ]
+        },
+        {
+          "rva": 33581535,
+          "bytes": "e8d0970100",
+          "asm": "call 0x20201b4",
+          "successors": [
+            33581540
+          ]
+        },
+        {
+          "rva": 33581540,
+          "bytes": "4d8b6708",
+          "asm": "mov r12, qword ptr [r15 + 8]",
+          "successors": [
+            33581544
+          ]
+        },
+        {
+          "rva": 33581544,
+          "bytes": "4d8b37",
+          "asm": "mov r14, qword ptr [r15]",
+          "successors": [
+            33581547
+          ]
+        },
+        {
+          "rva": 33581547,
+          "bytes": "498b5f38",
+          "asm": "mov rbx, qword ptr [r15 + 0x38]",
+          "successors": [
+            33581551
+          ]
+        },
+        {
+          "rva": 33581551,
+          "bytes": "4d2bf4",
+          "asm": "sub r14, r12",
+          "successors": [
+            33581554
+          ]
+        },
+        {
+          "rva": 33581554,
+          "bytes": "f6460466",
+          "asm": "test byte ptr [rsi + 4], 0x66",
+          "successors": [
+            33581558
+          ]
+        },
+        {
+          "rva": 33581558,
+          "bytes": "418b7f48",
+          "asm": "mov edi, dword ptr [r15 + 0x48]",
+          "successors": [
+            33581562
+          ]
+        },
+        {
+          "rva": 33581562,
+          "bytes": "0f85f1000000",
+          "asm": "jne 0x2006af1",
+          "successors": [
+            33581809,
+            33581568
+          ]
+        },
+        {
+          "rva": 33581568,
+          "bytes": "4889742430",
+          "asm": "mov qword ptr [rsp + 0x30], rsi",
+          "successors": [
+            33581573
+          ]
+        },
+        {
+          "rva": 33581573,
+          "bytes": "48896c2438",
+          "asm": "mov qword ptr [rsp + 0x38], rbp",
+          "successors": [
+            33581578
+          ]
+        },
+        {
+          "rva": 33581578,
+          "bytes": "e9ce000000",
+          "asm": "jmp 0x2006add",
+          "successors": [
+            33581789
+          ]
+        },
+        {
+          "rva": 33581583,
+          "bytes": "8bcf",
+          "asm": "mov ecx, edi",
+          "successors": [
+            33581585
+          ]
+        },
+        {
+          "rva": 33581585,
+          "bytes": "4803c9",
+          "asm": "add rcx, rcx",
+          "successors": [
+            33581588
+          ]
+        },
+        {
+          "rva": 33581588,
+          "bytes": "8bef",
+          "asm": "mov ebp, edi",
+          "successors": [
+            33581590
+          ]
+        },
+        {
+          "rva": 33581590,
+          "bytes": "8b44cb04",
+          "asm": "mov eax, dword ptr [rbx + rcx*8 + 4]",
+          "successors": [
+            33581594
+          ]
+        },
+        {
+          "rva": 33581594,
+          "bytes": "4c3bf0",
+          "asm": "cmp r14, rax",
+          "successors": [
+            33581597
+          ]
+        },
+        {
+          "rva": 33581597,
+          "bytes": "0f82b8000000",
+          "asm": "jb 0x2006adb",
+          "successors": [
+            33581787,
+            33581603
+          ]
+        },
+        {
+          "rva": 33581603,
+          "bytes": "8b44cb08",
+          "asm": "mov eax, dword ptr [rbx + rcx*8 + 8]",
+          "successors": [
+            33581607
+          ]
+        },
+        {
+          "rva": 33581607,
+          "bytes": "4c3bf0",
+          "asm": "cmp r14, rax",
+          "successors": [
+            33581610
+          ]
+        },
+        {
+          "rva": 33581610,
+          "bytes": "0f83ab000000",
+          "asm": "jae 0x2006adb",
+          "successors": [
+            33581787,
+            33581616
+          ]
+        },
+        {
+          "rva": 33581616,
+          "bytes": "837ccb1000",
+          "asm": "cmp dword ptr [rbx + rcx*8 + 0x10], 0",
+          "successors": [
+            33581621
+          ]
+        },
+        {
+          "rva": 33581621,
+          "bytes": "0f84a0000000",
+          "asm": "je 0x2006adb",
+          "successors": [
+            33581787,
+            33581627
+          ]
+        },
+        {
+          "rva": 33581627,
+          "bytes": "837ccb0c01",
+          "asm": "cmp dword ptr [rbx + rcx*8 + 0xc], 1",
+          "successors": [
+            33581632
+          ]
+        },
+        {
+          "rva": 33581632,
+          "bytes": "741b",
+          "asm": "je 0x2006a5d",
+          "successors": [
+            33581661,
+            33581634
+          ]
+        },
+        {
+          "rva": 33581634,
+          "bytes": "8b44cb0c",
+          "asm": "mov eax, dword ptr [rbx + rcx*8 + 0xc]",
+          "successors": [
+            33581638
+          ]
+        },
+        {
+          "rva": 33581638,
+          "bytes": "498bd5",
+          "asm": "mov rdx, r13",
+          "successors": [
+            33581641
+          ]
+        },
+        {
+          "rva": 33581641,
+          "bytes": "4903c4",
+          "asm": "add rax, r12",
+          "successors": [
+            33581644
+          ]
+        },
+        {
+          "rva": 33581644,
+          "bytes": "488d4c2430",
+          "asm": "lea rcx, [rsp + 0x30]",
+          "successors": [
+            33581649
+          ]
+        },
+        {
+          "rva": 33581649,
+          "bytes": "ffd0",
+          "asm": "call rax",
+          "successors": [
+            33581651
+          ]
+        },
+        {
+          "rva": 33581651,
+          "bytes": "85c0",
+          "asm": "test eax, eax",
+          "successors": [
+            33581653
+          ]
+        },
+        {
+          "rva": 33581653,
+          "bytes": "0f888f000000",
+          "asm": "js 0x2006aea",
+          "successors": [
+            33581802,
+            33581659
+          ]
+        },
+        {
+          "rva": 33581659,
+          "bytes": "7e7e",
+          "asm": "jle 0x2006adb",
+          "successors": [
+            33581787,
+            33581661
+          ]
+        },
+        {
+          "rva": 33581661,
+          "bytes": "813e63736de0",
+          "asm": "cmp dword ptr [rsi], 0xe06d7363",
+          "successors": [
+            33581667
+          ]
+        },
+        {
+          "rva": 33581667,
+          "bytes": "7528",
+          "asm": "jne 0x2006a8d",
+          "successors": [
+            33581709,
+            33581669
+          ]
+        },
+        {
+          "rva": 33581669,
+          "bytes": "48833d93a1030000",
+          "asm": "cmp qword ptr [rip + 0x3a193], 0",
+          "successors": [
+            33581677
+          ]
+        },
+        {
+          "rva": 33581677,
+          "bytes": "741e",
+          "asm": "je 0x2006a8d",
+          "successors": [
+            33581709,
+            33581679
+          ]
+        },
+        {
+          "rva": 33581679,
+          "bytes": "488d0d8aa10300",
+          "asm": "lea rcx, [rip + 0x3a18a]",
+          "successors": [
+            33581686
+          ]
+        },
+        {
+          "rva": 33581686,
+          "bytes": "e885960100",
+          "asm": "call 0x2020100",
+          "successors": [
+            33581691
+          ]
+        },
+        {
+          "rva": 33581691,
+          "bytes": "85c0",
+          "asm": "test eax, eax",
+          "successors": [
+            33581693
+          ]
+        },
+        {
+          "rva": 33581693,
+          "bytes": "740e",
+          "asm": "je 0x2006a8d",
+          "successors": [
+            33581709,
+            33581695
+          ]
+        },
+        {
+          "rva": 33581695,
+          "bytes": "ba01000000",
+          "asm": "mov edx, 1",
+          "successors": [
+            33581700
+          ]
+        },
+        {
+          "rva": 33581700,
+          "bytes": "488bce",
+          "asm": "mov rcx, rsi",
+          "successors": [
+            33581703
+          ]
+        },
+        {
+          "rva": 33581703,
+          "bytes": "ff1573a10300",
+          "asm": "call qword ptr [rip + 0x3a173]",
+          "successors": [
+            33581709
+          ]
+        },
+        {
+          "rva": 33581709,
+          "bytes": "488d4501",
+          "asm": "lea rax, [rbp + 1]",
+          "successors": [
+            33581713
+          ]
+        },
+        {
+          "rva": 33581713,
+          "bytes": "41b801000000",
+          "asm": "mov r8d, 1",
+          "successors": [
+            33581719
+          ]
+        },
+        {
+          "rva": 33581719,
+          "bytes": "4803c0",
+          "asm": "add rax, rax",
+          "successors": [
+            33581722
+          ]
+        },
+        {
+          "rva": 33581722,
+          "bytes": "498bd5",
+          "asm": "mov rdx, r13",
+          "successors": [
+            33581725
+          ]
+        },
+        {
+          "rva": 33581725,
+          "bytes": "8b0cc3",
+          "asm": "mov ecx, dword ptr [rbx + rax*8]",
+          "successors": [
+            33581728
+          ]
+        },
+        {
+          "rva": 33581728,
+          "bytes": "4903cc",
+          "asm": "add rcx, r12",
+          "successors": [
+            33581731
+          ]
+        },
+        {
+          "rva": 33581731,
+          "bytes": "e8d8960100",
+          "asm": "call 0x2020180",
+          "successors": [
+            33581736
+          ]
+        },
+        {
+          "rva": 33581736,
+          "bytes": "448b0e",
+          "asm": "mov r9d, dword ptr [rsi]",
+          "successors": [
+            33581739
+          ]
+        },
+        {
+          "rva": 33581739,
+          "bytes": "488d4501",
+          "asm": "lea rax, [rbp + 1]",
+          "successors": [
+            33581743
+          ]
+        },
+        {
+          "rva": 33581743,
+          "bytes": "4803c0",
+          "asm": "add rax, rax",
+          "successors": [
+            33581746
+          ]
+        },
+        {
+          "rva": 33581746,
+          "bytes": "4c8bc6",
+          "asm": "mov r8, rsi",
+          "successors": [
+            33581749
+          ]
+        },
+        {
+          "rva": 33581749,
+          "bytes": "498bcd",
+          "asm": "mov rcx, r13",
+          "successors": [
+            33581752
+          ]
+        },
+        {
+          "rva": 33581752,
+          "bytes": "8b14c3",
+          "asm": "mov edx, dword ptr [rbx + rax*8]",
+          "successors": [
+            33581755
+          ]
+        },
+        {
+          "rva": 33581755,
+          "bytes": "498b4740",
+          "asm": "mov rax, qword ptr [r15 + 0x40]",
+          "successors": [
+            33581759
+          ]
+        },
+        {
+          "rva": 33581759,
+          "bytes": "4903d4",
+          "asm": "add rdx, r12",
+          "successors": [
+            33581762
+          ]
+        },
+        {
+          "rva": 33581762,
+          "bytes": "4889442428",
+          "asm": "mov qword ptr [rsp + 0x28], rax",
+          "successors": [
+            33581767
+          ]
+        },
+        {
+          "rva": 33581767,
+          "bytes": "498b4728",
+          "asm": "mov rax, qword ptr [r15 + 0x28]",
+          "successors": [
+            33581771
+          ]
+        },
+        {
+          "rva": 33581771,
+          "bytes": "4889442420",
+          "asm": "mov qword ptr [rsp + 0x20], rax",
+          "successors": [
+            33581776
+          ]
+        },
+        {
+          "rva": 33581776,
+          "bytes": "ff153a960900",
+          "asm": "call qword ptr [rip + 0x9963a]",
+          "successors": [
+            33581782
+          ]
+        },
+        {
+          "rva": 33581782,
+          "bytes": "e8d5960100",
+          "asm": "call 0x20201b0",
+          "successors": [
+            33581787
+          ]
+        },
+        {
+          "rva": 33581787,
+          "bytes": "ffc7",
+          "asm": "inc edi",
+          "successors": [
+            33581789
+          ]
+        },
+        {
+          "rva": 33581789,
+          "bytes": "3b3b",
+          "asm": "cmp edi, dword ptr [rbx]",
+          "successors": [
+            33581791
+          ]
+        },
+        {
+          "rva": 33581791,
+          "bytes": "0f822affffff",
+          "asm": "jb 0x2006a0f",
+          "successors": [
+            33581583,
+            33581797
+          ]
+        },
+        {
+          "rva": 33581797,
+          "bytes": "e9be000000",
+          "asm": "jmp 0x2006ba8",
+          "successors": [
+            33581992
+          ]
+        },
+        {
+          "rva": 33581802,
+          "bytes": "33c0",
+          "asm": "xor eax, eax",
+          "successors": [
+            33581804
+          ]
+        },
+        {
+          "rva": 33581804,
+          "bytes": "e9bc000000",
+          "asm": "jmp 0x2006bad",
+          "successors": [
+            33581997
+          ]
+        },
+        {
+          "rva": 33581809,
+          "bytes": "498b6f20",
+          "asm": "mov rbp, qword ptr [r15 + 0x20]",
+          "successors": [
+            33581813
+          ]
+        },
+        {
+          "rva": 33581813,
+          "bytes": "492bec",
+          "asm": "sub rbp, r12",
+          "successors": [
+            33581816
+          ]
+        },
+        {
+          "rva": 33581816,
+          "bytes": "e99f000000",
+          "asm": "jmp 0x2006b9c",
+          "successors": [
+            33581980
+          ]
+        },
+        {
+          "rva": 33581821,
+          "bytes": "448bcf",
+          "asm": "mov r9d, edi",
+          "successors": [
+            33581824
+          ]
+        },
+        {
+          "rva": 33581824,
+          "bytes": "4d03c9",
+          "asm": "add r9, r9",
+          "successors": [
+            33581827
+          ]
+        },
+        {
+          "rva": 33581827,
+          "bytes": "428b44cb04",
+          "asm": "mov eax, dword ptr [rbx + r9*8 + 4]",
+          "successors": [
+            33581832
+          ]
+        },
+        {
+          "rva": 33581832,
+          "bytes": "4c3bf0",
+          "asm": "cmp r14, rax",
+          "successors": [
+            33581835
+          ]
+        },
+        {
+          "rva": 33581835,
+          "bytes": "0f8289000000",
+          "asm": "jb 0x2006b9a",
+          "successors": [
+            33581978,
+            33581841
+          ]
+        },
+        {
+          "rva": 33581841,
+          "bytes": "428b44cb08",
+          "asm": "mov eax, dword ptr [rbx + r9*8 + 8]",
+          "successors": [
+            33581846
+          ]
+        },
+        {
+          "rva": 33581846,
+          "bytes": "4c3bf0",
+          "asm": "cmp r14, rax",
+          "successors": [
+            33581849
+          ]
+        },
+        {
+          "rva": 33581849,
+          "bytes": "737f",
+          "asm": "jae 0x2006b9a",
+          "successors": [
+            33581978,
+            33581851
+          ]
+        },
+        {
+          "rva": 33581851,
+          "bytes": "f6460420",
+          "asm": "test byte ptr [rsi + 4], 0x20",
+          "successors": [
+            33581855
+          ]
+        },
+        {
+          "rva": 33581855,
+          "bytes": "743f",
+          "asm": "je 0x2006b60",
+          "successors": [
+            33581920,
+            33581857
+          ]
+        },
+        {
+          "rva": 33581857,
+          "bytes": "33d2",
+          "asm": "xor edx, edx",
+          "successors": [
+            33581859
+          ]
+        },
+        {
+          "rva": 33581859,
+          "bytes": "4585c0",
+          "asm": "test r8d, r8d",
+          "successors": [
+            33581862
+          ]
+        },
+        {
+          "rva": 33581862,
+          "bytes": "7434",
+          "asm": "je 0x2006b5c",
+          "successors": [
+            33581916,
+            33581864
+          ]
+        },
+        {
+          "rva": 33581864,
+          "bytes": "8bca",
+          "asm": "mov ecx, edx",
+          "successors": [
+            33581866
+          ]
+        },
+        {
+          "rva": 33581866,
+          "bytes": "4803c9",
+          "asm": "add rcx, rcx",
+          "successors": [
+            33581869
+          ]
+        },
+        {
+          "rva": 33581869,
+          "bytes": "8b44cb04",
+          "asm": "mov eax, dword ptr [rbx + rcx*8 + 4]",
+          "successors": [
+            33581873
+          ]
+        },
+        {
+          "rva": 33581873,
+          "bytes": "483be8",
+          "asm": "cmp rbp, rax",
+          "successors": [
+            33581876
+          ]
+        },
+        {
+          "rva": 33581876,
+          "bytes": "721f",
+          "asm": "jb 0x2006b55",
+          "successors": [
+            33581909,
+            33581878
+          ]
+        },
+        {
+          "rva": 33581878,
+          "bytes": "8b44cb08",
+          "asm": "mov eax, dword ptr [rbx + rcx*8 + 8]",
+          "successors": [
+            33581882
+          ]
+        },
+        {
+          "rva": 33581882,
+          "bytes": "483be8",
+          "asm": "cmp rbp, rax",
+          "successors": [
+            33581885
+          ]
+        },
+        {
+          "rva": 33581885,
+          "bytes": "7316",
+          "asm": "jae 0x2006b55",
+          "successors": [
+            33581909,
+            33581887
+          ]
+        },
+        {
+          "rva": 33581887,
+          "bytes": "428b44cb10",
+          "asm": "mov eax, dword ptr [rbx + r9*8 + 0x10]",
+          "successors": [
+            33581892
+          ]
+        },
+        {
+          "rva": 33581892,
+          "bytes": "3944cb10",
+          "asm": "cmp dword ptr [rbx + rcx*8 + 0x10], eax",
+          "successors": [
+            33581896
+          ]
+        },
+        {
+          "rva": 33581896,
+          "bytes": "750b",
+          "asm": "jne 0x2006b55",
+          "successors": [
+            33581909,
+            33581898
+          ]
+        },
+        {
+          "rva": 33581898,
+          "bytes": "428b44cb0c",
+          "asm": "mov eax, dword ptr [rbx + r9*8 + 0xc]",
+          "successors": [
+            33581903
+          ]
+        },
+        {
+          "rva": 33581903,
+          "bytes": "3944cb0c",
+          "asm": "cmp dword ptr [rbx + rcx*8 + 0xc], eax",
+          "successors": [
+            33581907
+          ]
+        },
+        {
+          "rva": 33581907,
+          "bytes": "7407",
+          "asm": "je 0x2006b5c",
+          "successors": [
+            33581916,
+            33581909
+          ]
+        },
+        {
+          "rva": 33581909,
+          "bytes": "ffc2",
+          "asm": "inc edx",
+          "successors": [
+            33581911
+          ]
+        },
+        {
+          "rva": 33581911,
+          "bytes": "413bd0",
+          "asm": "cmp edx, r8d",
+          "successors": [
+            33581914
+          ]
+        },
+        {
+          "rva": 33581914,
+          "bytes": "72cc",
+          "asm": "jb 0x2006b28",
+          "successors": [
+            33581864,
+            33581916
+          ]
+        },
+        {
+          "rva": 33581916,
+          "bytes": "3b13",
+          "asm": "cmp edx, dword ptr [rbx]",
+          "successors": [
+            33581918
+          ]
+        },
+        {
+          "rva": 33581918,
+          "bytes": "7548",
+          "asm": "jne 0x2006ba8",
+          "successors": [
+            33581992,
+            33581920
+          ]
+        },
+        {
+          "rva": 33581920,
+          "bytes": "8bc7",
+          "asm": "mov eax, edi",
+          "successors": [
+            33581922
+          ]
+        },
+        {
+          "rva": 33581922,
+          "bytes": "48ffc0",
+          "asm": "inc rax",
+          "successors": [
+            33581925
+          ]
+        },
+        {
+          "rva": 33581925,
+          "bytes": "8bcf",
+          "asm": "mov ecx, edi",
+          "successors": [
+            33581927
+          ]
+        },
+        {
+          "rva": 33581927,
+          "bytes": "4803c0",
+          "asm": "add rax, rax",
+          "successors": [
+            33581930
+          ]
+        },
+        {
+          "rva": 33581930,
+          "bytes": "4803c9",
+          "asm": "add rcx, rcx",
+          "successors": [
+            33581933
+          ]
+        },
+        {
+          "rva": 33581933,
+          "bytes": "833cc300",
+          "asm": "cmp dword ptr [rbx + rax*8], 0",
+          "successors": [
+            33581937
+          ]
+        },
+        {
+          "rva": 33581937,
+          "bytes": "7410",
+          "asm": "je 0x2006b83",
+          "successors": [
+            33581955,
+            33581939
+          ]
+        },
+        {
+          "rva": 33581939,
+          "bytes": "8b04c3",
+          "asm": "mov eax, dword ptr [rbx + rax*8]",
+          "successors": [
+            33581942
+          ]
+        },
+        {
+          "rva": 33581942,
+          "bytes": "483be8",
+          "asm": "cmp rbp, rax",
+          "successors": [
+            33581945
+          ]
+        },
+        {
+          "rva": 33581945,
+          "bytes": "751f",
+          "asm": "jne 0x2006b9a",
+          "successors": [
+            33581978,
+            33581947
+          ]
+        },
+        {
+          "rva": 33581947,
+          "bytes": "f6460420",
+          "asm": "test byte ptr [rsi + 4], 0x20",
+          "successors": [
+            33581951
+          ]
+        },
+        {
+          "rva": 33581951,
+          "bytes": "7527",
+          "asm": "jne 0x2006ba8",
+          "successors": [
+            33581992,
+            33581953
+          ]
+        },
+        {
+          "rva": 33581953,
+          "bytes": "eb17",
+          "asm": "jmp 0x2006b9a",
+          "successors": [
+            33581978
+          ]
+        },
+        {
+          "rva": 33581955,
+          "bytes": "8d4701",
+          "asm": "lea eax, [rdi + 1]",
+          "successors": [
+            33581958
+          ]
+        },
+        {
+          "rva": 33581958,
+          "bytes": "498bd5",
+          "asm": "mov rdx, r13",
+          "successors": [
+            33581961
+          ]
+        },
+        {
+          "rva": 33581961,
+          "bytes": "41894748",
+          "asm": "mov dword ptr [r15 + 0x48], eax",
+          "successors": [
+            33581965
+          ]
+        },
+        {
+          "rva": 33581965,
+          "bytes": "448b44cb0c",
+          "asm": "mov r8d, dword ptr [rbx + rcx*8 + 0xc]",
+          "successors": [
+            33581970
+          ]
+        },
+        {
+          "rva": 33581970,
+          "bytes": "b101",
+          "asm": "mov cl, 1",
+          "successors": [
+            33581972
+          ]
+        },
+        {
+          "rva": 33581972,
+          "bytes": "4d03c4",
+          "asm": "add r8, r12",
+          "successors": [
+            33581975
+          ]
+        },
+        {
+          "rva": 33581975,
+          "bytes": "41ffd0",
+          "asm": "call r8",
+          "successors": [
+            33581978
+          ]
+        },
+        {
+          "rva": 33581978,
+          "bytes": "ffc7",
+          "asm": "inc edi",
+          "successors": [
+            33581980
+          ]
+        },
+        {
+          "rva": 33581980,
+          "bytes": "448b03",
+          "asm": "mov r8d, dword ptr [rbx]",
+          "successors": [
+            33581983
+          ]
+        },
+        {
+          "rva": 33581983,
+          "bytes": "413bf8",
+          "asm": "cmp edi, r8d",
+          "successors": [
+            33581986
+          ]
+        },
+        {
+          "rva": 33581986,
+          "bytes": "0f8255ffffff",
+          "asm": "jb 0x2006afd",
+          "successors": [
+            33581821,
+            33581992
+          ]
+        },
+        {
+          "rva": 33581992,
+          "bytes": "b801000000",
+          "asm": "mov eax, 1",
+          "successors": [
+            33581997
+          ]
+        },
+        {
+          "rva": 33581997,
+          "bytes": "4c8d5c2440",
+          "asm": "lea r11, [rsp + 0x40]",
+          "successors": [
+            33582002
+          ]
+        },
+        {
+          "rva": 33582002,
+          "bytes": "498b5b30",
+          "asm": "mov rbx, qword ptr [r11 + 0x30]",
+          "successors": [
+            33582006
+          ]
+        },
+        {
+          "rva": 33582006,
+          "bytes": "498b6b38",
+          "asm": "mov rbp, qword ptr [r11 + 0x38]",
+          "successors": [
+            33582010
+          ]
+        },
+        {
+          "rva": 33582010,
+          "bytes": "498b7340",
+          "asm": "mov rsi, qword ptr [r11 + 0x40]",
+          "successors": [
+            33582014
+          ]
+        },
+        {
+          "rva": 33582014,
+          "bytes": "498be3",
+          "asm": "mov rsp, r11",
+          "successors": [
+            33582017
+          ]
+        },
+        {
+          "rva": 33582017,
+          "bytes": "415f",
+          "asm": "pop r15",
+          "successors": [
+            33582019
+          ]
+        },
+        {
+          "rva": 33582019,
+          "bytes": "415e",
+          "asm": "pop r14",
+          "successors": [
+            33582021
+          ]
+        },
+        {
+          "rva": 33582021,
+          "bytes": "415d",
+          "asm": "pop r13",
+          "successors": [
+            33582023
+          ]
+        },
+        {
+          "rva": 33582023,
+          "bytes": "415c",
+          "asm": "pop r12",
+          "successors": [
+            33582025
+          ]
+        },
+        {
+          "rva": 33582025,
+          "bytes": "5f",
+          "asm": "pop rdi",
+          "successors": [
+            33582026
+          ]
+        },
+        {
+          "rva": 33582026,
+          "bytes": "c3",
+          "asm": "ret ",
+          "successors": []
+        }
+      ],
+      "calls": [
+        {
+          "site": 33581535,
+          "target": 33685940,
+          "asm": "0x20201b4"
+        },
+        {
+          "site": 33581649,
+          "target": null,
+          "asm": "rax"
+        },
+        {
+          "site": 33581686,
+          "target": 33685760,
+          "asm": "0x2020100"
+        },
+        {
+          "site": 33581703,
+          "target": null,
+          "asm": "qword ptr [rip + 0x3a173]"
+        },
+        {
+          "site": 33581731,
+          "target": 33685888,
+          "asm": "0x2020180"
+        },
+        {
+          "site": 33581776,
+          "target": null,
+          "asm": "qword ptr [rip + 0x9963a]"
+        },
+        {
+          "site": 33581782,
+          "target": 33685936,
+          "asm": "0x20201b0"
+        },
+        {
+          "site": 33581975,
+          "target": null,
+          "asm": "r8"
+        }
+      ],
+      "tail_destinations": [],
+      "indirect_transfers": [],
+      "constants": [
+        {
+          "site": 33581535,
+          "u32": "0x20201b4",
+          "asm": "call 0x20201b4"
+        },
+        {
+          "site": 33581562,
+          "u32": "0x2006af1",
+          "asm": "jne 0x2006af1"
+        },
+        {
+          "site": 33581578,
+          "u32": "0x2006add",
+          "asm": "jmp 0x2006add"
+        },
+        {
+          "site": 33581791,
+          "u32": "0x2006a0f",
+          "asm": "jb 0x2006a0f"
+        },
+        {
+          "site": 33581797,
+          "u32": "0x2006ba8",
+          "asm": "jmp 0x2006ba8"
+        },
+        {
+          "site": 33581597,
+          "u32": "0x2006adb",
+          "asm": "jb 0x2006adb"
+        },
+        {
+          "site": 33581610,
+          "u32": "0x2006adb",
+          "asm": "jae 0x2006adb"
+        },
+        {
+          "site": 33581621,
+          "u32": "0x2006adb",
+          "asm": "je 0x2006adb"
+        },
+        {
+          "site": 33581632,
+          "u32": "0x2006a5d",
+          "asm": "je 0x2006a5d"
+        },
+        {
+          "site": 33581653,
+          "u32": "0x2006aea",
+          "asm": "js 0x2006aea"
+        },
+        {
+          "site": 33581659,
+          "u32": "0x2006adb",
+          "asm": "jle 0x2006adb"
+        },
+        {
+          "site": 33581661,
+          "u32": "0xe06d7363",
+          "asm": "cmp dword ptr [rsi], 0xe06d7363"
+        },
+        {
+          "site": 33581667,
+          "u32": "0x2006a8d",
+          "asm": "jne 0x2006a8d"
+        },
+        {
+          "site": 33581677,
+          "u32": "0x2006a8d",
+          "asm": "je 0x2006a8d"
+        },
+        {
+          "site": 33581686,
+          "u32": "0x2020100",
+          "asm": "call 0x2020100"
+        },
+        {
+          "site": 33581693,
+          "u32": "0x2006a8d",
+          "asm": "je 0x2006a8d"
+        },
+        {
+          "site": 33581731,
+          "u32": "0x2020180",
+          "asm": "call 0x2020180"
+        },
+        {
+          "site": 33581782,
+          "u32": "0x20201b0",
+          "asm": "call 0x20201b0"
+        },
+        {
+          "site": 33581804,
+          "u32": "0x2006bad",
+          "asm": "jmp 0x2006bad"
+        },
+        {
+          "site": 33581816,
+          "u32": "0x2006b9c",
+          "asm": "jmp 0x2006b9c"
+        },
+        {
+          "site": 33581986,
+          "u32": "0x2006afd",
+          "asm": "jb 0x2006afd"
+        },
+        {
+          "site": 33581835,
+          "u32": "0x2006b9a",
+          "asm": "jb 0x2006b9a"
+        },
+        {
+          "site": 33581849,
+          "u32": "0x2006b9a",
+          "asm": "jae 0x2006b9a"
+        },
+        {
+          "site": 33581855,
+          "u32": "0x2006b60",
+          "asm": "je 0x2006b60"
+        },
+        {
+          "site": 33581862,
+          "u32": "0x2006b5c",
+          "asm": "je 0x2006b5c"
+        },
+        {
+          "site": 33581876,
+          "u32": "0x2006b55",
+          "asm": "jb 0x2006b55"
+        },
+        {
+          "site": 33581885,
+          "u32": "0x2006b55",
+          "asm": "jae 0x2006b55"
+        },
+        {
+          "site": 33581896,
+          "u32": "0x2006b55",
+          "asm": "jne 0x2006b55"
+        },
+        {
+          "site": 33581907,
+          "u32": "0x2006b5c",
+          "asm": "je 0x2006b5c"
+        },
+        {
+          "site": 33581914,
+          "u32": "0x2006b28",
+          "asm": "jb 0x2006b28"
+        },
+        {
+          "site": 33581918,
+          "u32": "0x2006ba8",
+          "asm": "jne 0x2006ba8"
+        },
+        {
+          "site": 33581937,
+          "u32": "0x2006b83",
+          "asm": "je 0x2006b83"
+        },
+        {
+          "site": 33581945,
+          "u32": "0x2006b9a",
+          "asm": "jne 0x2006b9a"
+        },
+        {
+          "site": 33581951,
+          "u32": "0x2006ba8",
+          "asm": "jne 0x2006ba8"
+        },
+        {
+          "site": 33581953,
+          "u32": "0x2006b9a",
+          "asm": "jmp 0x2006b9a"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "root": 33584928,
+      "unwind_range": [
+        33584928,
+        33585119
+      ],
+      "unwind_rva": 34220108,
+      "nodes": [
+        {
+          "rva": 33584928,
+          "bytes": "488bc4",
+          "asm": "mov rax, rsp",
+          "successors": [
+            33584931
+          ]
+        },
+        {
+          "rva": 33584931,
+          "bytes": "48895810",
+          "asm": "mov qword ptr [rax + 0x10], rbx",
+          "successors": [
+            33584935
+          ]
+        },
+        {
+          "rva": 33584935,
+          "bytes": "48896818",
+          "asm": "mov qword ptr [rax + 0x18], rbp",
+          "successors": [
+            33584939
+          ]
+        },
+        {
+          "rva": 33584939,
+          "bytes": "48897020",
+          "asm": "mov qword ptr [rax + 0x20], rsi",
+          "successors": [
+            33584943
+          ]
+        },
+        {
+          "rva": 33584943,
+          "bytes": "57",
+          "asm": "push rdi",
+          "successors": [
+            33584944
+          ]
+        },
+        {
+          "rva": 33584944,
+          "bytes": "4883ec60",
+          "asm": "sub rsp, 0x60",
+          "successors": [
+            33584948
+          ]
+        },
+        {
+          "rva": 33584948,
+          "bytes": "8360dc00",
+          "asm": "and dword ptr [rax - 0x24], 0",
+          "successors": [
+            33584952
+          ]
+        },
+        {
+          "rva": 33584952,
+          "bytes": "498bf9",
+          "asm": "mov rdi, r9",
+          "successors": [
+            33584955
+          ]
+        },
+        {
+          "rva": 33584955,
+          "bytes": "8360e000",
+          "asm": "and dword ptr [rax - 0x20], 0",
+          "successors": [
+            33584959
+          ]
+        },
+        {
+          "rva": 33584959,
+          "bytes": "498bf0",
+          "asm": "mov rsi, r8",
+          "successors": [
+            33584962
+          ]
+        },
+        {
+          "rva": 33584962,
+          "bytes": "8360e400",
+          "asm": "and dword ptr [rax - 0x1c], 0",
+          "successors": [
+            33584966
+          ]
+        },
+        {
+          "rva": 33584966,
+          "bytes": "488be9",
+          "asm": "mov rbp, rcx",
+          "successors": [
+            33584969
+          ]
+        },
+        {
+          "rva": 33584969,
+          "bytes": "8360e800",
+          "asm": "and dword ptr [rax - 0x18], 0",
+          "successors": [
+            33584973
+          ]
+        },
+        {
+          "rva": 33584973,
+          "bytes": "8360ec00",
+          "asm": "and dword ptr [rax - 0x14], 0",
+          "successors": [
+            33584977
+          ]
+        },
+        {
+          "rva": 33584977,
+          "bytes": "498b5908",
+          "asm": "mov rbx, qword ptr [r9 + 8]",
+          "successors": [
+            33584981
+          ]
+        },
+        {
+          "rva": 33584981,
+          "bytes": "c640d800",
+          "asm": "mov byte ptr [rax - 0x28], 0",
+          "successors": [
+            33584985
+          ]
+        },
+        {
+          "rva": 33584985,
+          "bytes": "48895008",
+          "asm": "mov qword ptr [rax + 8], rdx",
+          "successors": [
+            33584989
+          ]
+        },
+        {
+          "rva": 33584989,
+          "bytes": "e8d2870100",
+          "asm": "call 0x201ff34",
+          "successors": [
+            33584994
+          ]
+        },
+        {
+          "rva": 33584994,
+          "bytes": "48895860",
+          "asm": "mov qword ptr [rax + 0x60], rbx",
+          "successors": [
+            33584998
+          ]
+        },
+        {
+          "rva": 33584998,
+          "bytes": "488b5d38",
+          "asm": "mov rbx, qword ptr [rbp + 0x38]",
+          "successors": [
+            33585002
+          ]
+        },
+        {
+          "rva": 33585002,
+          "bytes": "e8c5870100",
+          "asm": "call 0x201ff34",
+          "successors": [
+            33585007
+          ]
+        },
+        {
+          "rva": 33585007,
+          "bytes": "48895868",
+          "asm": "mov qword ptr [rax + 0x68], rbx",
+          "successors": [
+            33585011
+          ]
+        },
+        {
+          "rva": 33585011,
+          "bytes": "e8bc870100",
+          "asm": "call 0x201ff34",
+          "successors": [
+            33585016
+          ]
+        },
+        {
+          "rva": 33585016,
+          "bytes": "488b4f38",
+          "asm": "mov rcx, qword ptr [rdi + 0x38]",
+          "successors": [
+            33585020
+          ]
+        },
+        {
+          "rva": 33585020,
+          "bytes": "488d542440",
+          "asm": "lea rdx, [rsp + 0x40]",
+          "successors": [
+            33585025
+          ]
+        },
+        {
+          "rva": 33585025,
+          "bytes": "4c8b4f10",
+          "asm": "mov r9, qword ptr [rdi + 0x10]",
+          "successors": [
+            33585029
+          ]
+        },
+        {
+          "rva": 33585029,
+          "bytes": "4c8b4708",
+          "asm": "mov r8, qword ptr [rdi + 8]",
+          "successors": [
+            33585033
+          ]
+        },
+        {
+          "rva": 33585033,
+          "bytes": "c644242000",
+          "asm": "mov byte ptr [rsp + 0x20], 0",
+          "successors": [
+            33585038
+          ]
+        },
+        {
+          "rva": 33585038,
+          "bytes": "8b09",
+          "asm": "mov ecx, dword ptr [rcx]",
+          "successors": [
+            33585040
+          ]
+        },
+        {
+          "rva": 33585040,
+          "bytes": "48034860",
+          "asm": "add rcx, qword ptr [rax + 0x60]",
+          "successors": [
+            33585044
+          ]
+        },
+        {
+          "rva": 33585044,
+          "bytes": "458b09",
+          "asm": "mov r9d, dword ptr [r9]",
+          "successors": [
+            33585047
+          ]
+        },
+        {
+          "rva": 33585047,
+          "bytes": "e830f4ffff",
+          "asm": "call 0x2006bcc",
+          "successors": [
+            33585052
+          ]
+        },
+        {
+          "rva": 33585052,
+          "bytes": "c644243800",
+          "asm": "mov byte ptr [rsp + 0x38], 0",
+          "successors": [
+            33585057
+          ]
+        },
+        {
+          "rva": 33585057,
+          "bytes": "488d442440",
+          "asm": "lea rax, [rsp + 0x40]",
+          "successors": [
+            33585062
+          ]
+        },
+        {
+          "rva": 33585062,
+          "bytes": "488364243000",
+          "asm": "and qword ptr [rsp + 0x30], 0",
+          "successors": [
+            33585068
+          ]
+        },
+        {
+          "rva": 33585068,
+          "bytes": "488d542470",
+          "asm": "lea rdx, [rsp + 0x70]",
+          "successors": [
+            33585073
+          ]
+        },
+        {
+          "rva": 33585073,
+          "bytes": "8364242800",
+          "asm": "and dword ptr [rsp + 0x28], 0",
+          "successors": [
+            33585078
+          ]
+        },
+        {
+          "rva": 33585078,
+          "bytes": "4c8bcf",
+          "asm": "mov r9, rdi",
+          "successors": [
+            33585081
+          ]
+        },
+        {
+          "rva": 33585081,
+          "bytes": "4c8bc6",
+          "asm": "mov r8, rsi",
+          "successors": [
+            33585084
+          ]
+        },
+        {
+          "rva": 33585084,
+          "bytes": "4889442420",
+          "asm": "mov qword ptr [rsp + 0x20], rax",
+          "successors": [
+            33585089
+          ]
+        },
+        {
+          "rva": 33585089,
+          "bytes": "488bcd",
+          "asm": "mov rcx, rbp",
+          "successors": [
+            33585092
+          ]
+        },
+        {
+          "rva": 33585092,
+          "bytes": "e81b9d0100",
+          "asm": "call 0x20214e4",
+          "successors": [
+            33585097
+          ]
+        },
+        {
+          "rva": 33585097,
+          "bytes": "4c8d5c2460",
+          "asm": "lea r11, [rsp + 0x60]",
+          "successors": [
+            33585102
+          ]
+        },
+        {
+          "rva": 33585102,
+          "bytes": "498b5b18",
+          "asm": "mov rbx, qword ptr [r11 + 0x18]",
+          "successors": [
+            33585106
+          ]
+        },
+        {
+          "rva": 33585106,
+          "bytes": "498b6b20",
+          "asm": "mov rbp, qword ptr [r11 + 0x20]",
+          "successors": [
+            33585110
+          ]
+        },
+        {
+          "rva": 33585110,
+          "bytes": "498b7328",
+          "asm": "mov rsi, qword ptr [r11 + 0x28]",
+          "successors": [
+            33585114
+          ]
+        },
+        {
+          "rva": 33585114,
+          "bytes": "498be3",
+          "asm": "mov rsp, r11",
+          "successors": [
+            33585117
+          ]
+        },
+        {
+          "rva": 33585117,
+          "bytes": "5f",
+          "asm": "pop rdi",
+          "successors": [
+            33585118
+          ]
+        },
+        {
+          "rva": 33585118,
+          "bytes": "c3",
+          "asm": "ret ",
+          "successors": []
+        }
+      ],
+      "calls": [
+        {
+          "site": 33584989,
+          "target": 33685300,
+          "asm": "0x201ff34"
+        },
+        {
+          "site": 33585002,
+          "target": 33685300,
+          "asm": "0x201ff34"
+        },
+        {
+          "site": 33585011,
+          "target": 33685300,
+          "asm": "0x201ff34"
+        },
+        {
+          "site": 33585047,
+          "target": 33582028,
+          "asm": "0x2006bcc"
+        },
+        {
+          "site": 33585092,
+          "target": 33690852,
+          "asm": "0x20214e4"
+        }
+      ],
+      "tail_destinations": [],
+      "indirect_transfers": [],
+      "constants": [
+        {
+          "site": 33584989,
+          "u32": "0x201ff34",
+          "asm": "call 0x201ff34"
+        },
+        {
+          "site": 33585002,
+          "u32": "0x201ff34",
+          "asm": "call 0x201ff34"
+        },
+        {
+          "site": 33585011,
+          "u32": "0x201ff34",
+          "asm": "call 0x201ff34"
+        },
+        {
+          "site": 33585047,
+          "u32": "0x2006bcc",
+          "asm": "call 0x2006bcc"
+        },
+        {
+          "site": 33585092,
+          "u32": "0x20214e4",
+          "asm": "call 0x20214e4"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "root": 33578712,
+      "unwind_range": [
+        33578712,
+        33578839
+      ],
+      "unwind_rva": 34218600,
+      "nodes": [
+        {
+          "rva": 33578712,
+          "bytes": "488bc4",
+          "asm": "mov rax, rsp",
+          "successors": [
+            33578715
+          ]
+        },
+        {
+          "rva": 33578715,
+          "bytes": "48895808",
+          "asm": "mov qword ptr [rax + 8], rbx",
+          "successors": [
+            33578719
+          ]
+        },
+        {
+          "rva": 33578719,
+          "bytes": "48896810",
+          "asm": "mov qword ptr [rax + 0x10], rbp",
+          "successors": [
+            33578723
+          ]
+        },
+        {
+          "rva": 33578723,
+          "bytes": "48897018",
+          "asm": "mov qword ptr [rax + 0x18], rsi",
+          "successors": [
+            33578727
+          ]
+        },
+        {
+          "rva": 33578727,
+          "bytes": "48897820",
+          "asm": "mov qword ptr [rax + 0x20], rdi",
+          "successors": [
+            33578731
+          ]
+        },
+        {
+          "rva": 33578731,
+          "bytes": "4156",
+          "asm": "push r14",
+          "successors": [
+            33578733
+          ]
+        },
+        {
+          "rva": 33578733,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20",
+          "successors": [
+            33578737
+          ]
+        },
+        {
+          "rva": 33578737,
+          "bytes": "498b5938",
+          "asm": "mov rbx, qword ptr [r9 + 0x38]",
+          "successors": [
+            33578741
+          ]
+        },
+        {
+          "rva": 33578741,
+          "bytes": "488bf2",
+          "asm": "mov rsi, rdx",
+          "successors": [
+            33578744
+          ]
+        },
+        {
+          "rva": 33578744,
+          "bytes": "4d8bf0",
+          "asm": "mov r14, r8",
+          "successors": [
+            33578747
+          ]
+        },
+        {
+          "rva": 33578747,
+          "bytes": "488be9",
+          "asm": "mov rbp, rcx",
+          "successors": [
+            33578750
+          ]
+        },
+        {
+          "rva": 33578750,
+          "bytes": "498bd1",
+          "asm": "mov rdx, r9",
+          "successors": [
+            33578753
+          ]
+        },
+        {
+          "rva": 33578753,
+          "bytes": "488bce",
+          "asm": "mov rcx, rsi",
+          "successors": [
+            33578756
+          ]
+        },
+        {
+          "rva": 33578756,
+          "bytes": "498bf9",
+          "asm": "mov rdi, r9",
+          "successors": [
+            33578759
+          ]
+        },
+        {
+          "rva": 33578759,
+          "bytes": "4c8d4304",
+          "asm": "lea r8, [rbx + 4]",
+          "successors": [
+            33578763
+          ]
+        },
+        {
+          "rva": 33578763,
+          "bytes": "e84cffffff",
+          "asm": "call 0x2005e5c",
+          "successors": [
+            33578768
+          ]
+        },
+        {
+          "rva": 33578768,
+          "bytes": "8b4504",
+          "asm": "mov eax, dword ptr [rbp + 4]",
+          "successors": [
+            33578771
+          ]
+        },
+        {
+          "rva": 33578771,
+          "bytes": "2466",
+          "asm": "and al, 0x66",
+          "successors": [
+            33578773
+          ]
+        },
+        {
+          "rva": 33578773,
+          "bytes": "f6d8",
+          "asm": "neg al",
+          "successors": [
+            33578775
+          ]
+        },
+        {
+          "rva": 33578775,
+          "bytes": "b801000000",
+          "asm": "mov eax, 1",
+          "successors": [
+            33578780
+          ]
+        },
+        {
+          "rva": 33578780,
+          "bytes": "451bc0",
+          "asm": "sbb r8d, r8d",
+          "successors": [
+            33578783
+          ]
+        },
+        {
+          "rva": 33578783,
+          "bytes": "41f7d8",
+          "asm": "neg r8d",
+          "successors": [
+            33578786
+          ]
+        },
+        {
+          "rva": 33578786,
+          "bytes": "4403c0",
+          "asm": "add r8d, eax",
+          "successors": [
+            33578789
+          ]
+        },
+        {
+          "rva": 33578789,
+          "bytes": "44854304",
+          "asm": "test dword ptr [rbx + 4], r8d",
+          "successors": [
+            33578793
+          ]
+        },
+        {
+          "rva": 33578793,
+          "bytes": "7411",
+          "asm": "je 0x2005f3c",
+          "successors": [
+            33578812,
+            33578795
+          ]
+        },
+        {
+          "rva": 33578795,
+          "bytes": "4c8bcf",
+          "asm": "mov r9, rdi",
+          "successors": [
+            33578798
+          ]
+        },
+        {
+          "rva": 33578798,
+          "bytes": "4d8bc6",
+          "asm": "mov r8, r14",
+          "successors": [
+            33578801
+          ]
+        },
+        {
+          "rva": 33578801,
+          "bytes": "488bd6",
+          "asm": "mov rdx, rsi",
+          "successors": [
+            33578804
+          ]
+        },
+        {
+          "rva": 33578804,
+          "bytes": "488bcd",
+          "asm": "mov rcx, rbp",
+          "successors": [
+            33578807
+          ]
+        },
+        {
+          "rva": 33578807,
+          "bytes": "e8e4170000",
+          "asm": "call 0x2007720",
+          "successors": [
+            33578812
+          ]
+        },
+        {
+          "rva": 33578812,
+          "bytes": "488b5c2430",
+          "asm": "mov rbx, qword ptr [rsp + 0x30]",
+          "successors": [
+            33578817
+          ]
+        },
+        {
+          "rva": 33578817,
+          "bytes": "488b6c2438",
+          "asm": "mov rbp, qword ptr [rsp + 0x38]",
+          "successors": [
+            33578822
+          ]
+        },
+        {
+          "rva": 33578822,
+          "bytes": "488b742440",
+          "asm": "mov rsi, qword ptr [rsp + 0x40]",
+          "successors": [
+            33578827
+          ]
+        },
+        {
+          "rva": 33578827,
+          "bytes": "488b7c2448",
+          "asm": "mov rdi, qword ptr [rsp + 0x48]",
+          "successors": [
+            33578832
+          ]
+        },
+        {
+          "rva": 33578832,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20",
+          "successors": [
+            33578836
+          ]
+        },
+        {
+          "rva": 33578836,
+          "bytes": "415e",
+          "asm": "pop r14",
+          "successors": [
+            33578838
+          ]
+        },
+        {
+          "rva": 33578838,
+          "bytes": "c3",
+          "asm": "ret ",
+          "successors": []
+        }
+      ],
+      "calls": [
+        {
+          "site": 33578763,
+          "target": 33578588,
+          "asm": "0x2005e5c"
+        },
+        {
+          "site": 33578807,
+          "target": 33584928,
+          "asm": "0x2007720"
+        }
+      ],
+      "tail_destinations": [],
+      "indirect_transfers": [],
+      "constants": [
+        {
+          "site": 33578763,
+          "u32": "0x2005e5c",
+          "asm": "call 0x2005e5c"
+        },
+        {
+          "site": 33578793,
+          "u32": "0x2005f3c",
+          "asm": "je 0x2005f3c"
+        },
+        {
+          "site": 33578807,
+          "u32": "0x2007720",
+          "asm": "call 0x2007720"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "root": 33578680,
+      "unwind_range": [
+        33578680,
+        33578709
+      ],
+      "unwind_rva": 34218332,
+      "nodes": [
+        {
+          "rva": 33578680,
+          "bytes": "4883ec28",
+          "asm": "sub rsp, 0x28",
+          "successors": [
+            33578684
+          ]
+        },
+        {
+          "rva": 33578684,
+          "bytes": "4d8b4138",
+          "asm": "mov r8, qword ptr [r9 + 0x38]",
+          "successors": [
+            33578688
+          ]
+        },
+        {
+          "rva": 33578688,
+          "bytes": "488bca",
+          "asm": "mov rcx, rdx",
+          "successors": [
+            33578691
+          ]
+        },
+        {
+          "rva": 33578691,
+          "bytes": "498bd1",
+          "asm": "mov rdx, r9",
+          "successors": [
+            33578694
+          ]
+        },
+        {
+          "rva": 33578694,
+          "bytes": "e891ffffff",
+          "asm": "call 0x2005e5c",
+          "successors": [
+            33578699
+          ]
+        },
+        {
+          "rva": 33578699,
+          "bytes": "b801000000",
+          "asm": "mov eax, 1",
+          "successors": [
+            33578704
+          ]
+        },
+        {
+          "rva": 33578704,
+          "bytes": "4883c428",
+          "asm": "add rsp, 0x28",
+          "successors": [
+            33578708
+          ]
+        },
+        {
+          "rva": 33578708,
+          "bytes": "c3",
+          "asm": "ret ",
+          "successors": []
+        }
+      ],
+      "calls": [
+        {
+          "site": 33578694,
+          "target": 33578588,
+          "asm": "0x2005e5c"
+        }
+      ],
+      "tail_destinations": [],
+      "indirect_transfers": [],
+      "constants": [
+        {
+          "site": 33578694,
+          "u32": "0x2005e5c",
+          "asm": "call 0x2005e5c"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "root": 33745176,
+      "unwind_range": [
+        33745176,
+        33745251
+      ],
+      "unwind_rva": 34218400,
+      "nodes": [
+        {
+          "rva": 33745176,
+          "bytes": "48895c2408",
+          "asm": "mov qword ptr [rsp + 8], rbx",
+          "successors": [
+            33745181
+          ]
+        },
+        {
+          "rva": 33745181,
+          "bytes": "57",
+          "asm": "push rdi",
+          "successors": [
+            33745182
+          ]
+        },
+        {
+          "rva": 33745182,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20",
+          "successors": [
+            33745186
+          ]
+        },
+        {
+          "rva": 33745186,
+          "bytes": "498bf8",
+          "asm": "mov rdi, r8",
+          "successors": [
+            33745189
+          ]
+        },
+        {
+          "rva": 33745189,
+          "bytes": "488bd9",
+          "asm": "mov rbx, rcx",
+          "successors": [
+            33745192
+          ]
+        },
+        {
+          "rva": 33745192,
+          "bytes": "e88780fdff",
+          "asm": "call 0x20069b4",
+          "successors": [
+            33745197
+          ]
+        },
+        {
+          "rva": 33745197,
+          "bytes": "f6430466",
+          "asm": "test byte ptr [rbx + 4], 0x66",
+          "successors": [
+            33745201
+          ]
+        },
+        {
+          "rva": 33745201,
+          "bytes": "750d",
+          "asm": "jne 0x202e940",
+          "successors": [
+            33745216,
+            33745203
+          ]
+        },
+        {
+          "rva": 33745203,
+          "bytes": "813b63736de0",
+          "asm": "cmp dword ptr [rbx], 0xe06d7363",
+          "successors": [
+            33745209
+          ]
+        },
+        {
+          "rva": 33745209,
+          "bytes": "7505",
+          "asm": "jne 0x202e940",
+          "successors": [
+            33745216,
+            33745211
+          ]
+        },
+        {
+          "rva": 33745211,
+          "bytes": "83f801",
+          "asm": "cmp eax, 1",
+          "successors": [
+            33745214
+          ]
+        },
+        {
+          "rva": 33745214,
+          "bytes": "740b",
+          "asm": "je 0x202e94b",
+          "successors": [
+            33745227,
+            33745216
+          ]
+        },
+        {
+          "rva": 33745216,
+          "bytes": "488b5c2430",
+          "asm": "mov rbx, qword ptr [rsp + 0x30]",
+          "successors": [
+            33745221
+          ]
+        },
+        {
+          "rva": 33745221,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20",
+          "successors": [
+            33745225
+          ]
+        },
+        {
+          "rva": 33745225,
+          "bytes": "5f",
+          "asm": "pop rdi",
+          "successors": [
+            33745226
+          ]
+        },
+        {
+          "rva": 33745226,
+          "bytes": "c3",
+          "asm": "ret ",
+          "successors": []
+        },
+        {
+          "rva": 33745227,
+          "bytes": "e8e415ffff",
+          "asm": "call 0x201ff34",
+          "successors": [
+            33745232
+          ]
+        },
+        {
+          "rva": 33745232,
+          "bytes": "48895820",
+          "asm": "mov qword ptr [rax + 0x20], rbx",
+          "successors": [
+            33745236
+          ]
+        },
+        {
+          "rva": 33745236,
+          "bytes": "e8db15ffff",
+          "asm": "call 0x201ff34",
+          "successors": [
+            33745241
+          ]
+        },
+        {
+          "rva": 33745241,
+          "bytes": "48897828",
+          "asm": "mov qword ptr [rax + 0x28], rdi",
+          "successors": [
+            33745245
+          ]
+        },
+        {
+          "rva": 33745245,
+          "bytes": "e82203ffff",
+          "asm": "call 0x201ec84",
+          "successors": [
+            33745250
+          ]
+        },
+        {
+          "rva": 33745250,
+          "bytes": "cc",
+          "asm": "int3 ",
+          "successors": [
+            33745251
+          ]
+        }
+      ],
+      "calls": [
+        {
+          "site": 33745192,
+          "target": 33581492,
+          "asm": "0x20069b4"
+        },
+        {
+          "site": 33745227,
+          "target": 33685300,
+          "asm": "0x201ff34"
+        },
+        {
+          "site": 33745236,
+          "target": 33685300,
+          "asm": "0x201ff34"
+        },
+        {
+          "site": 33745245,
+          "target": 33680516,
+          "asm": "0x201ec84"
+        }
+      ],
+      "tail_destinations": [
+        33745251
+      ],
+      "indirect_transfers": [],
+      "constants": [
+        {
+          "site": 33745192,
+          "u32": "0x20069b4",
+          "asm": "call 0x20069b4"
+        },
+        {
+          "site": 33745201,
+          "u32": "0x202e940",
+          "asm": "jne 0x202e940"
+        },
+        {
+          "site": 33745203,
+          "u32": "0xe06d7363",
+          "asm": "cmp dword ptr [rbx], 0xe06d7363"
+        },
+        {
+          "site": 33745209,
+          "u32": "0x202e940",
+          "asm": "jne 0x202e940"
+        },
+        {
+          "site": 33745214,
+          "u32": "0x202e94b",
+          "asm": "je 0x202e94b"
+        },
+        {
+          "site": 33745227,
+          "u32": "0x201ff34",
+          "asm": "call 0x201ff34"
+        },
+        {
+          "site": 33745236,
+          "u32": "0x201ff34",
+          "asm": "call 0x201ff34"
+        },
+        {
+          "site": 33745245,
+          "u32": "0x201ec84",
+          "asm": "call 0x201ec84"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "root": 33758952,
+      "unwind_range": [
+        33758952,
+        33759079
+      ],
+      "unwind_rva": 34218600,
+      "nodes": [
+        {
+          "rva": 33758952,
+          "bytes": "488bc4",
+          "asm": "mov rax, rsp",
+          "successors": [
+            33758955
+          ]
+        },
+        {
+          "rva": 33758955,
+          "bytes": "48895808",
+          "asm": "mov qword ptr [rax + 8], rbx",
+          "successors": [
+            33758959
+          ]
+        },
+        {
+          "rva": 33758959,
+          "bytes": "48896810",
+          "asm": "mov qword ptr [rax + 0x10], rbp",
+          "successors": [
+            33758963
+          ]
+        },
+        {
+          "rva": 33758963,
+          "bytes": "48897018",
+          "asm": "mov qword ptr [rax + 0x18], rsi",
+          "successors": [
+            33758967
+          ]
+        },
+        {
+          "rva": 33758967,
+          "bytes": "48897820",
+          "asm": "mov qword ptr [rax + 0x20], rdi",
+          "successors": [
+            33758971
+          ]
+        },
+        {
+          "rva": 33758971,
+          "bytes": "4156",
+          "asm": "push r14",
+          "successors": [
+            33758973
+          ]
+        },
+        {
+          "rva": 33758973,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20",
+          "successors": [
+            33758977
+          ]
+        },
+        {
+          "rva": 33758977,
+          "bytes": "498b5938",
+          "asm": "mov rbx, qword ptr [r9 + 0x38]",
+          "successors": [
+            33758981
+          ]
+        },
+        {
+          "rva": 33758981,
+          "bytes": "488bf2",
+          "asm": "mov rsi, rdx",
+          "successors": [
+            33758984
+          ]
+        },
+        {
+          "rva": 33758984,
+          "bytes": "4d8bf0",
+          "asm": "mov r14, r8",
+          "successors": [
+            33758987
+          ]
+        },
+        {
+          "rva": 33758987,
+          "bytes": "488be9",
+          "asm": "mov rbp, rcx",
+          "successors": [
+            33758990
+          ]
+        },
+        {
+          "rva": 33758990,
+          "bytes": "498bd1",
+          "asm": "mov rdx, r9",
+          "successors": [
+            33758993
+          ]
+        },
+        {
+          "rva": 33758993,
+          "bytes": "488bce",
+          "asm": "mov rcx, rsi",
+          "successors": [
+            33758996
+          ]
+        },
+        {
+          "rva": 33758996,
+          "bytes": "498bf9",
+          "asm": "mov rdi, r9",
+          "successors": [
+            33758999
+          ]
+        },
+        {
+          "rva": 33758999,
+          "bytes": "4c8d4304",
+          "asm": "lea r8, [rbx + 4]",
+          "successors": [
+            33759003
+          ]
+        },
+        {
+          "rva": 33759003,
+          "bytes": "e83c3ffdff",
+          "asm": "call 0x2005e5c",
+          "successors": [
+            33759008
+          ]
+        },
+        {
+          "rva": 33759008,
+          "bytes": "8b4504",
+          "asm": "mov eax, dword ptr [rbp + 4]",
+          "successors": [
+            33759011
+          ]
+        },
+        {
+          "rva": 33759011,
+          "bytes": "2466",
+          "asm": "and al, 0x66",
+          "successors": [
+            33759013
+          ]
+        },
+        {
+          "rva": 33759013,
+          "bytes": "f6d8",
+          "asm": "neg al",
+          "successors": [
+            33759015
+          ]
+        },
+        {
+          "rva": 33759015,
+          "bytes": "b801000000",
+          "asm": "mov eax, 1",
+          "successors": [
+            33759020
+          ]
+        },
+        {
+          "rva": 33759020,
+          "bytes": "451bc0",
+          "asm": "sbb r8d, r8d",
+          "successors": [
+            33759023
+          ]
+        },
+        {
+          "rva": 33759023,
+          "bytes": "41f7d8",
+          "asm": "neg r8d",
+          "successors": [
+            33759026
+          ]
+        },
+        {
+          "rva": 33759026,
+          "bytes": "4403c0",
+          "asm": "add r8d, eax",
+          "successors": [
+            33759029
+          ]
+        },
+        {
+          "rva": 33759029,
+          "bytes": "44854304",
+          "asm": "test dword ptr [rbx + 4], r8d",
+          "successors": [
+            33759033
+          ]
+        },
+        {
+          "rva": 33759033,
+          "bytes": "7411",
+          "asm": "je 0x2031f4c",
+          "successors": [
+            33759052,
+            33759035
+          ]
+        },
+        {
+          "rva": 33759035,
+          "bytes": "4c8bcf",
+          "asm": "mov r9, rdi",
+          "successors": [
+            33759038
+          ]
+        },
+        {
+          "rva": 33759038,
+          "bytes": "4d8bc6",
+          "asm": "mov r8, r14",
+          "successors": [
+            33759041
+          ]
+        },
+        {
+          "rva": 33759041,
+          "bytes": "488bd6",
+          "asm": "mov rdx, rsi",
+          "successors": [
+            33759044
+          ]
+        },
+        {
+          "rva": 33759044,
+          "bytes": "488bcd",
+          "asm": "mov rcx, rbp",
+          "successors": [
+            33759047
+          ]
+        },
+        {
+          "rva": 33759047,
+          "bytes": "e84c57fdff",
+          "asm": "call 0x2007698",
+          "successors": [
+            33759052
+          ]
+        },
+        {
+          "rva": 33759052,
+          "bytes": "488b5c2430",
+          "asm": "mov rbx, qword ptr [rsp + 0x30]",
+          "successors": [
+            33759057
+          ]
+        },
+        {
+          "rva": 33759057,
+          "bytes": "488b6c2438",
+          "asm": "mov rbp, qword ptr [rsp + 0x38]",
+          "successors": [
+            33759062
+          ]
+        },
+        {
+          "rva": 33759062,
+          "bytes": "488b742440",
+          "asm": "mov rsi, qword ptr [rsp + 0x40]",
+          "successors": [
+            33759067
+          ]
+        },
+        {
+          "rva": 33759067,
+          "bytes": "488b7c2448",
+          "asm": "mov rdi, qword ptr [rsp + 0x48]",
+          "successors": [
+            33759072
+          ]
+        },
+        {
+          "rva": 33759072,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20",
+          "successors": [
+            33759076
+          ]
+        },
+        {
+          "rva": 33759076,
+          "bytes": "415e",
+          "asm": "pop r14",
+          "successors": [
+            33759078
+          ]
+        },
+        {
+          "rva": 33759078,
+          "bytes": "c3",
+          "asm": "ret ",
+          "successors": []
+        }
+      ],
+      "calls": [
+        {
+          "site": 33759003,
+          "target": 33578588,
+          "asm": "0x2005e5c"
+        },
+        {
+          "site": 33759047,
+          "target": 33584792,
+          "asm": "0x2007698"
+        }
+      ],
+      "tail_destinations": [],
+      "indirect_transfers": [],
+      "constants": [
+        {
+          "site": 33759003,
+          "u32": "0x2005e5c",
+          "asm": "call 0x2005e5c"
+        },
+        {
+          "site": 33759033,
+          "u32": "0x2031f4c",
+          "asm": "je 0x2031f4c"
+        },
+        {
+          "site": 33759047,
+          "u32": "0x2007698",
+          "asm": "call 0x2007698"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "root": 33774088,
+      "unwind_range": [
+        33774088,
+        33774221
+      ],
+      "unwind_rva": 34218600,
+      "nodes": [
+        {
+          "rva": 33774088,
+          "bytes": "488bc4",
+          "asm": "mov rax, rsp",
+          "successors": [
+            33774091
+          ]
+        },
+        {
+          "rva": 33774091,
+          "bytes": "48895808",
+          "asm": "mov qword ptr [rax + 8], rbx",
+          "successors": [
+            33774095
+          ]
+        },
+        {
+          "rva": 33774095,
+          "bytes": "48896810",
+          "asm": "mov qword ptr [rax + 0x10], rbp",
+          "successors": [
+            33774099
+          ]
+        },
+        {
+          "rva": 33774099,
+          "bytes": "48897018",
+          "asm": "mov qword ptr [rax + 0x18], rsi",
+          "successors": [
+            33774103
+          ]
+        },
+        {
+          "rva": 33774103,
+          "bytes": "48897820",
+          "asm": "mov qword ptr [rax + 0x20], rdi",
+          "successors": [
+            33774107
+          ]
+        },
+        {
+          "rva": 33774107,
+          "bytes": "4156",
+          "asm": "push r14",
+          "successors": [
+            33774109
+          ]
+        },
+        {
+          "rva": 33774109,
+          "bytes": "4883ec20",
+          "asm": "sub rsp, 0x20",
+          "successors": [
+            33774113
+          ]
+        },
+        {
+          "rva": 33774113,
+          "bytes": "4d8b5138",
+          "asm": "mov r10, qword ptr [r9 + 0x38]",
+          "successors": [
+            33774117
+          ]
+        },
+        {
+          "rva": 33774117,
+          "bytes": "488bf2",
+          "asm": "mov rsi, rdx",
+          "successors": [
+            33774120
+          ]
+        },
+        {
+          "rva": 33774120,
+          "bytes": "4d8bf0",
+          "asm": "mov r14, r8",
+          "successors": [
+            33774123
+          ]
+        },
+        {
+          "rva": 33774123,
+          "bytes": "488be9",
+          "asm": "mov rbp, rcx",
+          "successors": [
+            33774126
+          ]
+        },
+        {
+          "rva": 33774126,
+          "bytes": "498bd1",
+          "asm": "mov rdx, r9",
+          "successors": [
+            33774129
+          ]
+        },
+        {
+          "rva": 33774129,
+          "bytes": "488bce",
+          "asm": "mov rcx, rsi",
+          "successors": [
+            33774132
+          ]
+        },
+        {
+          "rva": 33774132,
+          "bytes": "498bf9",
+          "asm": "mov rdi, r9",
+          "successors": [
+            33774135
+          ]
+        },
+        {
+          "rva": 33774135,
+          "bytes": "418b1a",
+          "asm": "mov ebx, dword ptr [r10]",
+          "successors": [
+            33774138
+          ]
+        },
+        {
+          "rva": 33774138,
+          "bytes": "48c1e304",
+          "asm": "shl rbx, 4",
+          "successors": [
+            33774142
+          ]
+        },
+        {
+          "rva": 33774142,
+          "bytes": "4903da",
+          "asm": "add rbx, r10",
+          "successors": [
+            33774145
+          ]
+        },
+        {
+          "rva": 33774145,
+          "bytes": "4c8d4304",
+          "asm": "lea r8, [rbx + 4]",
+          "successors": [
+            33774149
+          ]
+        },
+        {
+          "rva": 33774149,
+          "bytes": "e81204fdff",
+          "asm": "call 0x2005e5c",
+          "successors": [
+            33774154
+          ]
+        },
+        {
+          "rva": 33774154,
+          "bytes": "8b4504",
+          "asm": "mov eax, dword ptr [rbp + 4]",
+          "successors": [
+            33774157
+          ]
+        },
+        {
+          "rva": 33774157,
+          "bytes": "2466",
+          "asm": "and al, 0x66",
+          "successors": [
+            33774159
+          ]
+        },
+        {
+          "rva": 33774159,
+          "bytes": "f6d8",
+          "asm": "neg al",
+          "successors": [
+            33774161
+          ]
+        },
+        {
+          "rva": 33774161,
+          "bytes": "b801000000",
+          "asm": "mov eax, 1",
+          "successors": [
+            33774166
+          ]
+        },
+        {
+          "rva": 33774166,
+          "bytes": "1bd2",
+          "asm": "sbb edx, edx",
+          "successors": [
+            33774168
+          ]
+        },
+        {
+          "rva": 33774168,
+          "bytes": "f7da",
+          "asm": "neg edx",
+          "successors": [
+            33774170
+          ]
+        },
+        {
+          "rva": 33774170,
+          "bytes": "03d0",
+          "asm": "add edx, eax",
+          "successors": [
+            33774172
+          ]
+        },
+        {
+          "rva": 33774172,
+          "bytes": "855304",
+          "asm": "test dword ptr [rbx + 4], edx",
+          "successors": [
+            33774175
+          ]
+        },
+        {
+          "rva": 33774175,
+          "bytes": "7411",
+          "asm": "je 0x2035a72",
+          "successors": [
+            33774194,
+            33774177
+          ]
+        },
+        {
+          "rva": 33774177,
+          "bytes": "4c8bcf",
+          "asm": "mov r9, rdi",
+          "successors": [
+            33774180
+          ]
+        },
+        {
+          "rva": 33774180,
+          "bytes": "4d8bc6",
+          "asm": "mov r8, r14",
+          "successors": [
+            33774183
+          ]
+        },
+        {
+          "rva": 33774183,
+          "bytes": "488bd6",
+          "asm": "mov rdx, rsi",
+          "successors": [
+            33774186
+          ]
+        },
+        {
+          "rva": 33774186,
+          "bytes": "488bcd",
+          "asm": "mov rcx, rbp",
+          "successors": [
+            33774189
+          ]
+        },
+        {
+          "rva": 33774189,
+          "bytes": "e8420ffdff",
+          "asm": "call 0x20069b4",
+          "successors": [
+            33774194
+          ]
+        },
+        {
+          "rva": 33774194,
+          "bytes": "488b5c2430",
+          "asm": "mov rbx, qword ptr [rsp + 0x30]",
+          "successors": [
+            33774199
+          ]
+        },
+        {
+          "rva": 33774199,
+          "bytes": "488b6c2438",
+          "asm": "mov rbp, qword ptr [rsp + 0x38]",
+          "successors": [
+            33774204
+          ]
+        },
+        {
+          "rva": 33774204,
+          "bytes": "488b742440",
+          "asm": "mov rsi, qword ptr [rsp + 0x40]",
+          "successors": [
+            33774209
+          ]
+        },
+        {
+          "rva": 33774209,
+          "bytes": "488b7c2448",
+          "asm": "mov rdi, qword ptr [rsp + 0x48]",
+          "successors": [
+            33774214
+          ]
+        },
+        {
+          "rva": 33774214,
+          "bytes": "4883c420",
+          "asm": "add rsp, 0x20",
+          "successors": [
+            33774218
+          ]
+        },
+        {
+          "rva": 33774218,
+          "bytes": "415e",
+          "asm": "pop r14",
+          "successors": [
+            33774220
+          ]
+        },
+        {
+          "rva": 33774220,
+          "bytes": "c3",
+          "asm": "ret ",
+          "successors": []
+        }
+      ],
+      "calls": [
+        {
+          "site": 33774149,
+          "target": 33578588,
+          "asm": "0x2005e5c"
+        },
+        {
+          "site": 33774189,
+          "target": 33581492,
+          "asm": "0x20069b4"
+        }
+      ],
+      "tail_destinations": [],
+      "indirect_transfers": [],
+      "constants": [
+        {
+          "site": 33774149,
+          "u32": "0x2005e5c",
+          "asm": "call 0x2005e5c"
+        },
+        {
+          "site": 33774175,
+          "u32": "0x2035a72",
+          "asm": "je 0x2035a72"
+        },
+        {
+          "site": 33774189,
+          "u32": "0x20069b4",
+          "asm": "call 0x20069b4"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "root": 33578588,
+      "unwind_range": [
+        33578588,
+        33578679
+      ],
+      "unwind_rva": 34219596,
+      "nodes": [
+        {
+          "rva": 33578588,
+          "bytes": "4053",
+          "asm": "push rbx",
+          "successors": [
+            33578590
+          ]
+        },
+        {
+          "rva": 33578590,
+          "bytes": "458b18",
+          "asm": "mov r11d, dword ptr [r8]",
+          "successors": [
+            33578593
+          ]
+        },
+        {
+          "rva": 33578593,
+          "bytes": "488bda",
+          "asm": "mov rbx, rdx",
+          "successors": [
+            33578596
+          ]
+        },
+        {
+          "rva": 33578596,
+          "bytes": "4183e3f8",
+          "asm": "and r11d, 0xfffffff8",
+          "successors": [
+            33578600
+          ]
+        },
+        {
+          "rva": 33578600,
+          "bytes": "4c8bc9",
+          "asm": "mov r9, rcx",
+          "successors": [
+            33578603
+          ]
+        },
+        {
+          "rva": 33578603,
+          "bytes": "41f60004",
+          "asm": "test byte ptr [r8], 4",
+          "successors": [
+            33578607
+          ]
+        },
+        {
+          "rva": 33578607,
+          "bytes": "4c8bd1",
+          "asm": "mov r10, rcx",
+          "successors": [
+            33578610
+          ]
+        },
+        {
+          "rva": 33578610,
+          "bytes": "7413",
+          "asm": "je 0x2005e87",
+          "successors": [
+            33578631,
+            33578612
+          ]
+        },
+        {
+          "rva": 33578612,
+          "bytes": "418b4008",
+          "asm": "mov eax, dword ptr [r8 + 8]",
+          "successors": [
+            33578616
+          ]
+        },
+        {
+          "rva": 33578616,
+          "bytes": "4d635004",
+          "asm": "movsxd r10, dword ptr [r8 + 4]",
+          "successors": [
+            33578620
+          ]
+        },
+        {
+          "rva": 33578620,
+          "bytes": "f7d8",
+          "asm": "neg eax",
+          "successors": [
+            33578622
+          ]
+        },
+        {
+          "rva": 33578622,
+          "bytes": "4c03d1",
+          "asm": "add r10, rcx",
+          "successors": [
+            33578625
+          ]
+        },
+        {
+          "rva": 33578625,
+          "bytes": "4863c8",
+          "asm": "movsxd rcx, eax",
+          "successors": [
+            33578628
+          ]
+        },
+        {
+          "rva": 33578628,
+          "bytes": "4c23d1",
+          "asm": "and r10, rcx",
+          "successors": [
+            33578631
+          ]
+        },
+        {
+          "rva": 33578631,
+          "bytes": "4963c3",
+          "asm": "movsxd rax, r11d",
+          "successors": [
+            33578634
+          ]
+        },
+        {
+          "rva": 33578634,
+          "bytes": "4a8b1410",
+          "asm": "mov rdx, qword ptr [rax + r10]",
+          "successors": [
+            33578638
+          ]
+        },
+        {
+          "rva": 33578638,
+          "bytes": "488b4310",
+          "asm": "mov rax, qword ptr [rbx + 0x10]",
+          "successors": [
+            33578642
+          ]
+        },
+        {
+          "rva": 33578642,
+          "bytes": "8b4808",
+          "asm": "mov ecx, dword ptr [rax + 8]",
+          "successors": [
+            33578645
+          ]
+        },
+        {
+          "rva": 33578645,
+          "bytes": "488b4308",
+          "asm": "mov rax, qword ptr [rbx + 8]",
+          "successors": [
+            33578649
+          ]
+        },
+        {
+          "rva": 33578649,
+          "bytes": "f64401030f",
+          "asm": "test byte ptr [rcx + rax + 3], 0xf",
+          "successors": [
+            33578654
+          ]
+        },
+        {
+          "rva": 33578654,
+          "bytes": "740b",
+          "asm": "je 0x2005eab",
+          "successors": [
+            33578667,
+            33578656
+          ]
+        },
+        {
+          "rva": 33578656,
+          "bytes": "0fb6440103",
+          "asm": "movzx eax, byte ptr [rcx + rax + 3]",
+          "successors": [
+            33578661
+          ]
+        },
+        {
+          "rva": 33578661,
+          "bytes": "83e0f0",
+          "asm": "and eax, 0xfffffff0",
+          "successors": [
+            33578664
+          ]
+        },
+        {
+          "rva": 33578664,
+          "bytes": "4c03c8",
+          "asm": "add r9, rax",
+          "successors": [
+            33578667
+          ]
+        },
+        {
+          "rva": 33578667,
+          "bytes": "4c33ca",
+          "asm": "xor r9, rdx",
+          "successors": [
+            33578670
+          ]
+        },
+        {
+          "rva": 33578670,
+          "bytes": "498bc9",
+          "asm": "mov rcx, r9",
+          "successors": [
+            33578673
+          ]
+        },
+        {
+          "rva": 33578673,
+          "bytes": "5b",
+          "asm": "pop rbx",
+          "successors": [
+            33578674
+          ]
+        },
+        {
+          "rva": 33578674,
+          "bytes": "e9b9000000",
+          "asm": "jmp 0x2005f70",
+          "successors": [
+            33578864
+          ]
+        }
+      ],
+      "calls": [],
+      "tail_destinations": [
+        33578864
+      ],
+      "indirect_transfers": [],
+      "constants": [
+        {
+          "site": 33578596,
+          "u32": "0xfffffff8",
+          "asm": "and r11d, 0xfffffff8"
+        },
+        {
+          "site": 33578610,
+          "u32": "0x2005e87",
+          "asm": "je 0x2005e87"
+        },
+        {
+          "site": 33578654,
+          "u32": "0x2005eab",
+          "asm": "je 0x2005eab"
+        },
+        {
+          "site": 33578661,
+          "u32": "0xfffffff0",
+          "asm": "and eax, 0xfffffff0"
+        },
+        {
+          "site": 33578674,
+          "u32": "0x2005f70",
+          "asm": "jmp 0x2005f70"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "root": 33685300,
+      "unwind_range": [
+        33685300,
+        33685325
+      ],
+      "unwind_rva": 34218332,
+      "nodes": [
+        {
+          "rva": 33685300,
+          "bytes": "4883ec28",
+          "asm": "sub rsp, 0x28",
+          "successors": [
+            33685304
+          ]
+        },
+        {
+          "rva": 33685304,
+          "bytes": "e813000000",
+          "asm": "call 0x201ff50",
+          "successors": [
+            33685309
+          ]
+        },
+        {
+          "rva": 33685309,
+          "bytes": "4885c0",
+          "asm": "test rax, rax",
+          "successors": [
+            33685312
+          ]
+        },
+        {
+          "rva": 33685312,
+          "bytes": "7405",
+          "asm": "je 0x201ff47",
+          "successors": [
+            33685319,
+            33685314
+          ]
+        },
+        {
+          "rva": 33685314,
+          "bytes": "4883c428",
+          "asm": "add rsp, 0x28",
+          "successors": [
+            33685318
+          ]
+        },
+        {
+          "rva": 33685318,
+          "bytes": "c3",
+          "asm": "ret ",
+          "successors": []
+        },
+        {
+          "rva": 33685319,
+          "bytes": "e8dc70ffff",
+          "asm": "call 0x2017028",
+          "successors": [
+            33685324
+          ]
+        },
+        {
+          "rva": 33685324,
+          "bytes": "cc",
+          "asm": "int3 ",
+          "successors": [
+            33685325
+          ]
+        }
+      ],
+      "calls": [
+        {
+          "site": 33685304,
+          "target": 33685328,
+          "asm": "0x201ff50"
+        },
+        {
+          "site": 33685319,
+          "target": 33648680,
+          "asm": "0x2017028"
+        }
+      ],
+      "tail_destinations": [
+        33685325
+      ],
+      "indirect_transfers": [],
+      "constants": [
+        {
+          "site": 33685304,
+          "u32": "0x201ff50",
+          "asm": "call 0x201ff50"
+        },
+        {
+          "site": 33685312,
+          "u32": "0x201ff47",
+          "asm": "je 0x201ff47"
+        },
+        {
+          "site": 33685319,
+          "u32": "0x2017028",
+          "asm": "call 0x2017028"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "root": 33685940,
+      "range_matches": []
+    }
+  ],
+  "scope": "Per-function CFG from on-disk bytes, follows direct local branches only. Does not execute inputs, resolve indirect calls, follow callees, or model exceptions. Not a decryption claim."
+}
