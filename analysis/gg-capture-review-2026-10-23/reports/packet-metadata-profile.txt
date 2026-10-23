@@ -1,0 +1,21 @@
+## /data/wlab-network-capture-review/work/packet_metadata.csv
+
+- Shape: 688 rows x 8 columns
+- Duplicate rows: 0
+- Candidate key columns (distinct == rows): first_frame_index, relative_seconds
+
+| column | type | non-null | distinct | values |
+| --- | --- | --- | --- | --- |
+| first_frame_index | number | 100% | 688 | 1 → 1,742, mean 1,328 |
+| captured_frames_in_segment | number | 100% | 4 | 1 → 6, mean 1.074 |
+| relative_seconds | number | 100% | 688 | 0 → 148.9, mean 110.6 |
+| flow | text | 100% | 5 | top: F03 (283), F05 (258), F04 (123), F01 (17), F02 (7) |
+| direction | text | 100% | 4 | top: server_to_client (337), client_to_server (327), A_to_B (13), B_to_A (11) |
+| payload_bytes | number | 100% | 136 | 0 → 8,820, mean 250.5 |
+| flags | number | 100% | 7 | 2 → 24, mean 20.19 |
+| truncated | text | 100% | 1 | top: False (688) |
+
+**Warnings:**
+
+- ⚠️ `truncated` is constant
+
