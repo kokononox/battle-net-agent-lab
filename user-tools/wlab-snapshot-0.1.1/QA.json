@@ -1,0 +1,50 @@
+{
+  "version": "0.1.1",
+  "user_observation_previous_release": "already open message before usable UI",
+  "previous_lock_owner_verified": false,
+  "change": "remove startup mutex; exclusive FileStream handle only during capture attempt; unique startup logs",
+  "go_unit_tests_passed": 18,
+  "offline_synthetic_integration_cases": [
+    {
+      "case": "unchanged",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "changed",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "missing",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "wrong-module-stamp",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "wrong-memory-header",
+      "passed": true,
+      "synthetic_only": true
+    }
+  ],
+  "capture_lock_regression": {
+    "platform": "Linux PowerShell/.NET",
+    "preexisting_file_without_handle_accepted": true,
+    "second_live_holder_rejected": true,
+    "graceful_release_reacquires": true,
+    "terminated_owned_test_holder_reacquires": true,
+    "windows_ui_runtime_tested": false,
+    "game_capture_tested": false
+  },
+  "powershell_AST_both_helpers": "passed with official Linux PowerShell; not Windows PS 5.1 runtime",
+  "windows_x64_GUI_cross_compile": "passed",
+  "go_vet_linux_and_windows_targets": "passed",
+  "two_builds_byte_identical": true,
+  "windows_UI_runtime_tested": false,
+  "wow_snapshot_capture_tested": false,
+  "all_18_tests_are_not_runtime_game_proof": true
+}

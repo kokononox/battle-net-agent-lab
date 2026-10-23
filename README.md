@@ -1,6 +1,16 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## آخرین گام — WLab Snapshot 0.1.0 آمادهٔ اولین آزمون ویندوز
+## آخرین گام — WLab Snapshot 0.1.1، اصلاح مانع بازشدن رابط
+
+[نسخه و راهنمای اصلاحی](user-tools/wlab-snapshot-0.1.1/README.fa.md) · [QA](user-tools/wlab-snapshot-0.1.1/QA.json) · [هش باینری](user-tools/wlab-snapshot-0.1.1/PROVENANCE.json) · [وضعیت](user-tools/wlab-snapshot-0.1.1/SYNC-STATUS.json).
+
+کاربر در 0.1.0 پیام «already open» را پیش از دسترسی به رابط گزارش کرد. از این گزارش، مالک قفل یا بازبودن واقعی یک رابط قبلی تأیید نشده است. قفل Mutex در شروع رابط حذف شد؛ فقط تلاش ثبت snapshot با handle انحصاری فایل هماهنگ می‌شود. فایل باقی‌مانده بدون handle فعال مانع نیست. رابط‌های متعدد ممکن‌اند، اما فقط یک تلاش capture در هر زمان برای این کاربر در نسخهٔ تازه مجاز است. در نسخهٔ قدیمی Capture نزنید؛ روش ضبط، hash pinها و بررسی ProcDump موجود تغییر نکرده‌اند.
+
+نام اجرایی تازه `WLab-Snapshot-0.1.1.exe` است. لاگ شروع هر اجرا جداست و اگر بازشدن رابط تأیید نشود، پوشهٔ لاگ باز می‌شود. هیچ فرایند موجود کاربر، بازی یا PowerShell به‌زور بسته نمی‌شود. main و GUI BIOS Path 0.2 تغییر نکرده‌اند.
+
+۱۸ آزمون parser، پنج fixture مصنوعی، چهار وضعیت قفل میان فرایندهای آزمایشی Linux، بررسی نحو و دو build یکسان گذشتند. **Windows UI و capture روی بازی هنوز تأیید نشده‌اند**؛ این اصلاح نیز اثبات ارسال/عدم ارسال CPU/BIOS روی 3724 نیست.
+
+## گام پیشین — WLab Snapshot 0.1.0 و گزارش مشکل شروع
 
 [راهنما و منبع ابزار مستقل](user-tools/wlab-snapshot-0.1.0/README.fa.md) · [QA و حدود آزمون](user-tools/wlab-snapshot-0.1.0/QA.json) · [هش باینری و منشأ ابزارها](user-tools/wlab-snapshot-0.1.0/PROVENANCE.json) · [وضعیت](user-tools/wlab-snapshot-0.1.0/SYNC-STATUS.json).
 

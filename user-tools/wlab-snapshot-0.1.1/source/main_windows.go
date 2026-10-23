@@ -1,0 +1,77 @@
+//go:build windows
+
+package main
+
+import (
+	_ "embed"
+	"fmt"
+	"os"
+	"os/exec"
+	"path/filepath"
+	"strings"
+	"syscall"
+	"time"
+)
+
+//go:embed capture.ps1
+var guiScript string
+
+//go:embed capture-lock.ps1
+var captureLockScript string
+
+func message(s string) {
+	p, _ := syscall.UTF16PtrFromString(s)
+	t, _ := syscall.UTF16PtrFromString("WLab Snapshot 0.1.1")
+	syscall.NewLazyDLL("user32.dll").NewProc("MessageBoxW").Call(0, uintptr(unsafePointer(p)), uintptr(unsafePointer(t)), 0x10)
+}
+func main() {
+	if len(os.Args) > 1 {
+		runCLI()
+		return
+	}
+	exe, e := os.Executable()
+	if e != nil {
+		message(e.Error())
+		return
+	}
+	base, e := os.UserCacheDir()
+	if e != nil {
+		base = os.TempDir()
+	}
+	parent := filepath.Join(base, "WLabSnapshot", "launcher")
+	if e = os.MkdirAll(parent, 0700); e != nil {
+		message("Cannot create startup log folder: " + e.Error())
+		return
+	}
+	logs, e := os.MkdirTemp(parent, "startup-")
+	if e != nil {
+		message(e.Error())
+		return
+	}
+	log, e := os.OpenFile(filepath.Join(logs, "launcher.log"), os.O_CREATE|os.O_WRONLY|os.O_EXCL, 0600)
+	if e != nil {
+		message(e.Error())
+		return
+	}
+	fmt.Fprintf(log, "WLab Snapshot 0.1.1 launcher\nUTC: %s\nPID: %d\n", time.Now().UTC().Format(time.RFC3339), os.Getpid())
+	script := "$WLabExe='" + psQuote(exe) + "';$WLabRoot='" + psQuote(filepath.Dir(exe)) + "';$WLabLogDir='" + psQuote(logs) + "';" + captureLockScript + "\n" + guiScript
+	loader := "$b=New-Object IO.MemoryStream;[Console]::OpenStandardInput().CopyTo($b); & ([scriptblock]::Create([Text.Encoding]::UTF8.GetString($b.ToArray())))"
+	cmd := exec.Command(filepath.Join(os.Getenv("SystemRoot"), "System32", "WindowsPowerShell", "v1.0", "powershell.exe"), "-NoLogo", "-NoProfile", "-NonInteractive", "-STA", "-Command", loader)
+	cmd.Stdin = strings.NewReader(script)
+	cmd.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
+	cmd.Dir = filepath.Dir(exe)
+	cmd.Stdout = log
+	cmd.Stderr = log
+	e = cmd.Run()
+	if e != nil {
+		fmt.Fprintf(log, "\nLauncher error: %v\n", e)
+	}
+	log.Close()
+	_, ready := os.Stat(filepath.Join(logs, "ui-ready.txt"))
+	_, handoff := os.Stat(filepath.Join(logs, "elevation-handoff.txt"))
+	if e != nil || (ready != nil && handoff != nil) {
+		message("The interface could not be confirmed open. Send launcher.log from this folder:\n" + logs)
+		exec.Command(filepath.Join(os.Getenv("SystemRoot"), "explorer.exe"), logs).Start()
+	}
+}
+func psQuote(s string) string { return strings.ReplaceAll(s, "'", "''") }
