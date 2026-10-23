@@ -1,6 +1,18 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## آخرین گام — گلوگاه کد اختصاصی پیام سخت‌افزار
+## آخرین گام — WLab Snapshot 0.1.0 آمادهٔ اولین آزمون ویندوز
+
+[راهنما و منبع ابزار مستقل](user-tools/wlab-snapshot-0.1.0/README.fa.md) · [QA و حدود آزمون](user-tools/wlab-snapshot-0.1.0/QA.json) · [هش باینری و منشأ ابزارها](user-tools/wlab-snapshot-0.1.0/PROVENANCE.json) · [وضعیت](user-tools/wlab-snapshot-0.1.0/SYNC-STATUS.json).
+
+پس از تأیید تازهٔ کاربر برای بررسی روی حساب آزمایشی، ابزار یک‌کلیکی تازه‌ای برای **یک snapshot مبتنی بر clone و استخراج آفلاین سه محدودهٔ کد** آماده شد. این ابزار CDB/Frida قبلی نیست؛ GUI BIOS Path 0.2 و main تغییر نمی‌کنند. بازی را خودکار اجرا نمی‌کند و capture تنها با انتخاب کاربر و پذیرش EULA شروع می‌شود.
+
+فایل Wow.exe به همان SHA256 بیلد 12.1.5.70448 pin شده است. ProcDump مستقیماً از Microsoft دریافت می‌شود، نه بازتوزیع داخل بسته؛ هش ZIP/EXE و امضای معتبر Microsoft پیش از اجرا الزام‌اند. روش مستند `-ma -r 1 -n 1 -at 120` است. dump کامل محلی می‌ماند؛ READY-TO-SEND.zip فقط گزارش و byte windowهای کوچک را شامل می‌شود. برنامه آپلود، تزریق، patch، تغییر firewall یا retry خودکار ندارد.
+
+**وضعیت واقعی:** cross-compile Windows x64 GUI، ۱۸ آزمون parser، پنج fixture مصنوعی، کنترل نحو PowerShell در Linux و دو باینری یکسان انجام شد. **اجرای واقعی WinForms/Windows PowerShell 5.1 و capture روی بازی هنوز تأیید نشده است.** یک دقیقه مشاهدهٔ بقای فرایند/Responding جای تأیید قابل‌استفاده‌بودن بازی را نمی‌گیرد. باینری پروژه امضای تجاری ندارد؛ هش آن در provenance ثبت و نسخهٔ اجرایی در بستهٔ تحویل ارائه می‌شود، نه به‌عنوان متن Git.
+
+هنوز شاهد جدیدی از مقداردهی BIOS یا ارسال روی TCP/3724 نداریم. معیار گام بعد، دریافت خروجی واقعی و بررسی قابل‌تحلیل‌بودن بایت‌های کد حافظه است؛ اختلاف بایت به‌تنهایی به معنای رمزگشایی یا ارسال نیست. مسیر عمومی لودر همچنان گسترش داده نمی‌شود.
+
+## گام پیشین — گلوگاه کد اختصاصی پیام سخت‌افزار
 
 [گزارش بررسی محدود سه ورودی](analysis/entry-loader-startup-2026-10-23/hardware-message-code-gate/README.fa.md) · [شواهد دو دیکدر](analysis/entry-loader-startup-2026-10-23/hardware-message-code-gate/evidence.json) · [وضعیت و شرط ادامه](analysis/entry-loader-startup-2026-10-23/hardware-message-code-gate/SYNC-STATUS.json).
 

@@ -1,0 +1,45 @@
+{
+  "platform_of_tests": "Linux x64",
+  "windows_x64_gui_cross_compiled": true,
+  "windows_pe_machine": "AMD64",
+  "windows_pe_subsystem": "GUI",
+  "two_builds_byte_identical": true,
+  "go_unit_tests_passed": 18,
+  "offline_synthetic_integration_cases": [
+    {
+      "case": "unchanged",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "changed",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "missing",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "wrong-module-stamp",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "wrong-memory-header",
+      "passed": true,
+      "synthetic_only": true
+    }
+  ],
+  "go_vet_linux_and_windows_targets": "passed",
+  "powershell_ast_parse": "passed with official Linux PowerShell, not Windows PowerShell 5.1 runtime",
+  "powershell_utf8_stdin_transport_and_helper_array_binding": "passed on Linux PowerShell",
+  "official_download_helper_test": "downloaded pinned ZIP from Microsoft; extracted executable hash matched; executable was NOT run",
+  "microsoft_authenticode_validation": "implemented runtime gate; not executed on Linux",
+  "windows_gui_runtime_tested": false,
+  "wow_snapshot_capture_tested": false,
+  "game_stability_established": false,
+  "cpu_bios_tcp_3724_proven": false,
+  "not_a_success_metric": "test counts and compilation do not establish capture or hardware sending"
+}
