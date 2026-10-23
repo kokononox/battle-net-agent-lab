@@ -1,0 +1,136 @@
+{
+  "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "range": [
+    33579756,
+    33579808
+  ],
+  "raw_bytes": "40534883ec20488bd933c9ff1553a40900488bcbff15e2a40900ff15f4a00900488bc8ba090400c04883c4205b48ff2578a40900",
+  "instructions": [
+    {
+      "rva": 33579756,
+      "bytes": "4053",
+      "asm": "push rbx"
+    },
+    {
+      "rva": 33579758,
+      "bytes": "4883ec20",
+      "asm": "sub rsp, 0x20"
+    },
+    {
+      "rva": 33579762,
+      "bytes": "488bd9",
+      "asm": "mov rbx, rcx"
+    },
+    {
+      "rva": 33579765,
+      "bytes": "33c9",
+      "asm": "xor ecx, ecx"
+    },
+    {
+      "rva": 33579767,
+      "bytes": "ff1553a40900",
+      "asm": "call qword ptr [rip + 0x9a453]"
+    },
+    {
+      "rva": 33579773,
+      "bytes": "488bcb",
+      "asm": "mov rcx, rbx"
+    },
+    {
+      "rva": 33579776,
+      "bytes": "ff15e2a40900",
+      "asm": "call qword ptr [rip + 0x9a4e2]"
+    },
+    {
+      "rva": 33579782,
+      "bytes": "ff15f4a00900",
+      "asm": "call qword ptr [rip + 0x9a0f4]"
+    },
+    {
+      "rva": 33579788,
+      "bytes": "488bc8",
+      "asm": "mov rcx, rax"
+    },
+    {
+      "rva": 33579791,
+      "bytes": "ba090400c0",
+      "asm": "mov edx, 0xc0000409"
+    },
+    {
+      "rva": 33579796,
+      "bytes": "4883c420",
+      "asm": "add rsp, 0x20"
+    },
+    {
+      "rva": 33579800,
+      "bytes": "5b",
+      "asm": "pop rbx"
+    },
+    {
+      "rva": 33579801,
+      "bytes": "48ff2578a40900",
+      "asm": "jmp qword ptr [rip + 0x9a478]"
+    }
+  ],
+  "indirect_slots": [
+    {
+      "site": 33579767,
+      "kind": "call",
+      "slot_rva": 34211664
+    },
+    {
+      "site": 33579776,
+      "kind": "call",
+      "slot_rva": 34211816
+    },
+    {
+      "site": 33579782,
+      "kind": "call",
+      "slot_rva": 34210816
+    },
+    {
+      "site": 33579801,
+      "kind": "jmp",
+      "slot_rva": 34211736
+    }
+  ],
+  "static_pattern": "RCX saved; RCX set to zero before same unresolved slot; original RCX passed to a second slot; result from third slot passed to tail slot with EDX=0xC0000409. Consistent with error-handling/termination plumbing, but API names are not proven.",
+  "hypothesis": {
+    "slot_rva": 34211664,
+    "candidate_api": "SetUnhandledExceptionFilter",
+    "status": "unconfirmed; consistency hypothesis only",
+    "support": [
+      "zero first argument at several call sites",
+      "return saved as candidate callback elsewhere",
+      "shared short wrapper has error-handling-shaped call sequence"
+    ],
+    "not_evidence": [
+      "runtime pointer",
+      "named import binding",
+      "matched export address"
+    ]
+  },
+  "official_contracts": [
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-setunhandledexceptionfilter",
+      "contract": "NULL selects default handling; return is previous filter address."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-unhandledexceptionfilter",
+      "contract": "Takes EXCEPTION_POINTERS pointer; returns LONG disposition."
+    }
+  ],
+  "verification": {
+    "independent_objdump_boundaries": 13,
+    "indirect_slot_displacements_verified": 4,
+    "runtime_probe_performed": false
+  },
+  "next_gate": {
+    "requested_live_memory_bytes": 8,
+    "location": "loaded wow_loader.dll base + 0x20A0750",
+    "required_identity": "same process creation identity, module path/base/size, exact pinned file SHA and stable mapping",
+    "read_policy": "one bounded read only if committed/readable and mapping matches module; stop on guard/noaccess/identity change; do not change protection or attach debugger",
+    "resolution_policy": "compare captured pointer with exact export addresses of matching loaded Windows modules; retain all aliases; unresolved/hooked/non-export addresses stay unresolved; do not chase trampolines",
+    "success_criterion": "Unique supported export match confirms current binding, not page-preparation semantics. Standard API binding would deprioritize this branch as a direct decryptor search."
+  }
+}
