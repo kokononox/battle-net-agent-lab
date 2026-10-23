@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scope": "Independent stdlib PE/index/relocation/literal/byte/overlap checks; objdump checks 2 anchor candidates + 7 call-site candidates. NOT proof of full scan completeness, CFG correctness or runtime.",
+  "rip_candidates_checked": 2,
+  "relocation_matches_checked": 1,
+  "callback_instruction_bytes_checked": 2422,
+  "independently_confirmed_overlap_pairs": 10,
+  "objdump_boundaries_checked": 9,
+  "mutation_tests_rejected": [
+    "reference target",
+    "node pointer",
+    "relocation target",
+    "raw literal count",
+    "false closed model",
+    "consumer claim"
+  ]
+}

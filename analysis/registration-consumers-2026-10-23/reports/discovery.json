@@ -1,0 +1,55 @@
+{
+  "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "target_ranges": [
+    [
+      "head_slot",
+      34417944,
+      34417952
+    ],
+    [
+      "initial_node_fields",
+      34415432,
+      34415448
+    ]
+  ],
+  "head_disk_qword": 6476866376,
+  "initial_node_disk_fields": {
+    "rva": 34415432,
+    "first_qword": 6471956784,
+    "second_qword": 0
+  },
+  "syntactic_candidates": [
+    {
+      "rva": 9797407,
+      "bytes": "488d05f2ad7701",
+      "asm": "lea rax, [rip + 0x177adf2]",
+      "target_rva": 34417944,
+      "disp_offset": 3,
+      "function": [
+        9797376,
+        9797846
+      ]
+    },
+    {
+      "rva": 9797408,
+      "bytes": "8d05f2ad7701",
+      "asm": "lea eax, [rip + 0x177adf2]",
+      "target_rva": 34417944,
+      "disp_offset": 2,
+      "function": [
+        9797376,
+        9797846
+      ]
+    }
+  ],
+  "relocation_backed_pointers": [
+    {
+      "slot_rva": 34417944,
+      "target_rva": 34415432
+    }
+  ],
+  "claims": {
+    "runtime_consumer_identified": false,
+    "eid_consumer_identified": false
+  }
+}
