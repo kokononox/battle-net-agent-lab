@@ -1,0 +1,247 @@
+{
+  "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "function_range": [
+    9448000,
+    9460390
+  ],
+  "stack_slot_candidates": [
+    {
+      "rva": 9448980,
+      "bytes": "4889842438030000",
+      "asm": "mov qword ptr [rsp + 0x338], rax",
+      "access": "write"
+    },
+    {
+      "rva": 9448981,
+      "bytes": "89842438030000",
+      "asm": "mov dword ptr [rsp + 0x338], eax",
+      "access": "write"
+    },
+    {
+      "rva": 9460027,
+      "bytes": "488b842438030000",
+      "asm": "mov rax, qword ptr [rsp + 0x338]",
+      "access": "read"
+    },
+    {
+      "rva": 9460028,
+      "bytes": "8b842438030000",
+      "asm": "mov eax, dword ptr [rsp + 0x338]",
+      "access": "read"
+    }
+  ],
+  "scan_scope": "Exact RSP+0x338 displacements in this function only. Overlapping prefix decodes retained. Not complete alias/interprocedural analysis.",
+  "dispatch_path_to_frontier": [
+    {
+      "rva": 9448276,
+      "bytes": "8b442430",
+      "asm": "mov eax, dword ptr [rsp + 0x30]"
+    },
+    {
+      "rva": 9448280,
+      "bytes": "3d28f88436",
+      "asm": "cmp eax, 0x3684f828"
+    },
+    {
+      "rva": 9448285,
+      "bytes": "7f71",
+      "asm": "jg 0x902bd0"
+    },
+    {
+      "rva": 9448287,
+      "bytes": "3da4b65f18",
+      "asm": "cmp eax, 0x185fb6a4"
+    },
+    {
+      "rva": 9448292,
+      "bytes": "0f8e26020000",
+      "asm": "jle 0x902d90"
+    },
+    {
+      "rva": 9448848,
+      "bytes": "3d5607270b",
+      "asm": "cmp eax, 0xb270756"
+    },
+    {
+      "rva": 9448853,
+      "bytes": "0f8f96020000",
+      "asm": "jg 0x903031"
+    },
+    {
+      "rva": 9448859,
+      "bytes": "3d39609508",
+      "asm": "cmp eax, 0x8956039"
+    },
+    {
+      "rva": 9448864,
+      "bytes": "0f8ec6070000",
+      "asm": "jle 0x90356c"
+    },
+    {
+      "rva": 9448870,
+      "bytes": "3d9d87480a",
+      "asm": "cmp eax, 0xa48879d"
+    },
+    {
+      "rva": 9448875,
+      "bytes": "0f8ff2120000",
+      "asm": "jg 0x9040a3"
+    },
+    {
+      "rva": 9448881,
+      "bytes": "3d3a609508",
+      "asm": "cmp eax, 0x895603a"
+    },
+    {
+      "rva": 9448886,
+      "bytes": "0f85a5230000",
+      "asm": "jne 0x905161"
+    },
+    {
+      "rva": 9448892,
+      "bytes": "8b8424b8000000",
+      "asm": "mov eax, dword ptr [rsp + 0xb8]"
+    }
+  ],
+  "path_scope": "Syntactic dispatcher path only; feasible runtime state, stack initialization and execution sequence are not proved.",
+  "initialization_block": [
+    {
+      "rva": 9448892,
+      "bytes": "8b8424b8000000",
+      "asm": "mov eax, dword ptr [rsp + 0xb8]"
+    },
+    {
+      "rva": 9448899,
+      "bytes": "b99d8aaa0c",
+      "asm": "mov ecx, 0xcaa8a9d"
+    },
+    {
+      "rva": 9448904,
+      "bytes": "31c8",
+      "asm": "xor eax, ecx"
+    },
+    {
+      "rva": 9448906,
+      "bytes": "03442454",
+      "asm": "add eax, dword ptr [rsp + 0x54]"
+    },
+    {
+      "rva": 9448910,
+      "bytes": "2b8424bc000000",
+      "asm": "sub eax, dword ptr [rsp + 0xbc]"
+    },
+    {
+      "rva": 9448917,
+      "bytes": "398424b4000000",
+      "asm": "cmp dword ptr [rsp + 0xb4], eax"
+    },
+    {
+      "rva": 9448924,
+      "bytes": "0f8394290000",
+      "asm": "jae 0x905776"
+    },
+    {
+      "rva": 9448930,
+      "bytes": "b91b000000",
+      "asm": "mov ecx, 0x1b"
+    },
+    {
+      "rva": 9448935,
+      "bytes": "ba06000000",
+      "asm": "mov edx, 6"
+    },
+    {
+      "rva": 9448940,
+      "bytes": "41b827000000",
+      "asm": "mov r8d, 0x27"
+    },
+    {
+      "rva": 9448946,
+      "bytes": "e8e916a9ff",
+      "asm": "call 0x3944e0"
+    },
+    {
+      "rva": 9448951,
+      "bytes": "b93f000000",
+      "asm": "mov ecx, 0x3f"
+    },
+    {
+      "rva": 9448956,
+      "bytes": "ba49000000",
+      "asm": "mov edx, 0x49"
+    },
+    {
+      "rva": 9448961,
+      "bytes": "41b826000000",
+      "asm": "mov r8d, 0x26"
+    },
+    {
+      "rva": 9448967,
+      "bytes": "e8d4258500",
+      "asm": "call 0x11553e0"
+    },
+    {
+      "rva": 9448972,
+      "bytes": "31c9",
+      "asm": "xor ecx, ecx"
+    },
+    {
+      "rva": 9448974,
+      "bytes": "ff153cd97901",
+      "asm": "call qword ptr [rip + 0x179d93c]"
+    },
+    {
+      "rva": 9448980,
+      "bytes": "4889842438030000",
+      "asm": "mov qword ptr [rsp + 0x338], rax"
+    }
+  ],
+  "local_predicate": {
+    "site": 9448924,
+    "asm": "jae 0x905776",
+    "fallthrough_required_for_calls_and_store": true,
+    "predicate_values": "stack-derived and unresolved"
+  },
+  "return_origin": {
+    "call_site": 9448974,
+    "call_slot_rva": 34211664,
+    "known_argument": "ECX=0, hence RCX=0, immediately before call",
+    "store_site": 9448980,
+    "stack_offset": 824,
+    "relation": "On normal return, RAX is stored immediately; no intervening instruction. Other argument registers are not resolved."
+  },
+  "disk_call_slot": {
+    "rva": 34211664,
+    "section": ".rdata",
+    "file_backed": true,
+    "file_offset": 34131792,
+    "zero_filled_virtual_tail": false,
+    "qword": 34216600,
+    "possible_name_record_rva": 34216600,
+    "candidate_name_record_first_30_bytes": "000000000000000000000000000000000000000000000000000000000000",
+    "api_name_identified": false,
+    "runtime_target_known": false,
+    "interpretation": "Disk qword is not treated as the runtime target. Possible import-name interpretation is unconfirmed; candidate record bytes are zero."
+  },
+  "raw_ff15_ff25_reference_sites": [
+    9448974,
+    18175850,
+    33578497,
+    33579767,
+    33636083
+  ],
+  "downstream_store": {
+    "load_rva": 9460027,
+    "store_rva": 9460035,
+    "destination_slot_rva": 35241416,
+    "bytes": "488b8424380300004889057e648901",
+    "relation": "If no intervening writes/aliases change the local slot, loaded value is the earlier saved call return. Execution order and whole-function aliases are unresolved."
+  },
+  "claims": {
+    "local_return_store_relation_verified": true,
+    "api_identity_proven": false,
+    "runtime_pointer_recovered": false,
+    "target_page_writer_proven": false,
+    "cpu_bios_send_proven": false
+  }
+}

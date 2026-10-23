@@ -1,0 +1,19 @@
+{
+  "fresh_stdlib_pe_parser": true,
+  "independent_objdump_instruction_boundaries": 34,
+  "syntactic_dispatcher_path_verified": true,
+  "initialization_block_bytes_verified": true,
+  "call_ends_at_return_store": true,
+  "call_slot_and_downstream_destination_verified": true,
+  "disk_name_candidate_empty_verified": true,
+  "claims_not_proven": [
+    "runtime API identity",
+    "earlier calls return normally",
+    "local predicate enables block",
+    "initialization block executes before downstream store",
+    "complete alias analysis",
+    "runtime pointer value",
+    "target-page preparation",
+    "CPU/BIOS sending"
+  ]
+}
