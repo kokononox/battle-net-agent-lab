@@ -1,0 +1,13 @@
+{
+  "base_commit": "28825042c1608cd27f8f4b17e9e62be425c17b99",
+  "branch": "analysis/entry-loader-startup-2026-10-23",
+  "step": "bounded-readonly-code-pages-0.1.0",
+  "user_authorized": "start proposed bounded read-only method; stop on access denied without bypass",
+  "completed": "standalone read/query backend; pinned disk and PID creation-time/module/PE identity gates; per-range query/protection checks; 3 fixed pages and 2 PE-header reads maximum; no staged binary exports on access/read/identity failures; small allowlisted report and one-attempt GUI",
+  "pending": "first real Windows read result and user game-usability report",
+  "next_action": "Read code once in new WLab-CodeRead tool; send READY-TO-SEND.zip even on failure; do not rerun old full dump/control tests",
+  "main_modified": false,
+  "gui_bios_path_0_2_modified": false,
+  "debugger_clone_injection_patch_or_target_protection_changes": false,
+  "runtime_send_3724": "unresolved"
+}

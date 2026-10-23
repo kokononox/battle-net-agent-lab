@@ -1,6 +1,14 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## تازه‌ترین نتیجه — هر دو dump کنترل ساخته شدند؛ label عمومی خروج گمراه‌کننده است
+## قدم فعلی — WLab CodeRead 0.1.0، خواندن محدود و فقط‌خواندنی
+
+[راهنما](user-tools/wlab-coderead-0.1.0/README.fa.md) · [QA](user-tools/wlab-coderead-0.1.0/QA.json) · [هش و provenance](user-tools/wlab-coderead-0.1.0/PROVENANCE.json) · [وضعیت](user-tools/wlab-coderead-0.1.0/SYNC-STATUS.json).
+
+پس از کنترل موفقِ هدف کوچک و نبود artifact بازی، کاربر شروع روش پیشنهادی خواندن محدود را تأیید کرد. ابزار تازه فقط metadata و ReadProcessMemory درخواست می‌کند: تطبیق PID/creation FILETIME، مسیر ماژول/پایه/اندازه، SHA256 دقیق دیسک build 12.1.5.70448 و PE header، سپس سه صفحهٔ ثابت و کنترل header/identity بعد. حداکثر پنج خواندن ۴ KiB است؛ سه صفحه به اضافهٔ دو header. فقط پس از موفقیت همهٔ gates، سه صفحه و سه پنجرهٔ نامزد صادر می‌شوند. Guard/no-access، read/query error، partial read یا تغییر هویت باعث توقف بدون صدور bytes staged می‌شود. هیچ retry، debug privilege adjustment، protection change، clone، debugger attach، injection یا target write وجود ندارد. UAC در آغاز ممکن است با تأیید کاربر درخواست شود؛ پس از رد دسترسی bypass یا escalation انجام نمی‌شود.
+
+۲۲ آزمون Go، fake reader برای خطا/guard/partial/تغییر، fixture واقعی دیسک پین‌شده، قفل و child runner مستقل، مسیر unsupported-platform، سه parse PowerShell، vet، compile assertion ABI Windows و دو build یکسان گذشتند. **Windows live read و رابط واقعی این روش در Linux ساخت آزموده نشده‌اند.** داده‌ها sequential هستند، نه snapshot اتمیک؛ اختلاف raw کد ≠ decryption/execution/serialization/send. خروجی کوچک روی درایو بازی در WLabCodeRead است؛ ProcDump دانلود/اجرا نمی‌شود. قدم بعد یک Read code once و ارسال ZIP کوچک و گزارش قابل‌استفاده‌بودن بازی است. main و GUI BIOS Path 0.2 دست‌نخورده‌اند؛ CPU/BIOS روی TCP/3724 همچنان نامعلوم است. دستورهای ابزارهای قدیمی زیر سابقه‌اند، نه درخواست اجرای دوبارهٔ آن‌ها.
+
+## نتیجهٔ پیشین — هر دو dump کنترل ساخته شدند؛ label عمومی خروج گمراه‌کننده است
 
 [بررسی](reports/control-0.1.0-first-run/REVIEW.fa.md) · [گزارش ساختاریافته](reports/control-0.1.0-first-run/OBSERVATION.json) · [لاگ clone](reports/control-0.1.0-first-run/control-clone.decoded.txt) · [لاگ direct](reports/control-0.1.0-first-run/control-direct.decoded.txt).
 
