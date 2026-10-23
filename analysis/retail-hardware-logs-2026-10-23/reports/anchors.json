@@ -1,0 +1,57 @@
+{
+  "sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "anchors": [
+    {
+      "pattern": "Motherboard:",
+      "rva": 69935720,
+      "file_offset": 69932648,
+      "format_string": "Motherboard: \"%s\" by \"%s\" (BIOS:%s version:%s date:%s)",
+      "sha256": "a509c53e7abb996e57677deeab4210854cadddb0cbe7ebaffc62514757351a9c"
+    },
+    {
+      "pattern": "Max Frequency:",
+      "rva": 69940056,
+      "file_offset": 69936984,
+      "format_string": "Max Frequency: %.1fGHz | ",
+      "sha256": "a49fb45a947d121f5658e53dda9216a3e5bbd2b116abf721a0d088a019954e61"
+    },
+    {
+      "pattern": "Sockets:",
+      "rva": 69940112,
+      "file_offset": 69937040,
+      "format_string": "%s | Sockets:%u Cores:%u Threads:%u Hybrid:%s",
+      "sha256": "554bf6181fe45009f0ee2f4984f1e042f5231b5c6a0b12a76d947986680d8942"
+    },
+    {
+      "pattern": "vendor:",
+      "rva": 62316800,
+      "file_offset": 62313728,
+      "format_string": "vendor: %s",
+      "sha256": "15bef86302fce75de9c1f172307695f80052a27741af73adcdca3af81dfc0af1"
+    },
+    {
+      "pattern": "vendor:",
+      "rva": 68709176,
+      "file_offset": 68706104,
+      "format_string": "Processor vendor:\t%s\n",
+      "sha256": "2724085caa33a46c3a7504ea5faaf8ba1e7070f4abb42e970190e51b1d6dd2eb"
+    },
+    {
+      "pattern": "vendor:",
+      "rva": 69941760,
+      "file_offset": 69938688,
+      "format_string": "Adapter %u: \"%s\" %uGB family:%s type:%s location:%u%s driver_date:%s driver_ver:%hu.%hu.%hu.%hu vendor:0x%04x device:0x%04x dx11:%s dx12:%s",
+      "sha256": "658ecea8dc8a8f5c8e9acf0cc43b65d2ec70c0965d32c20f8d6406d372d3bbac"
+    },
+    {
+      "pattern": "branding:",
+      "rva": 62316816,
+      "file_offset": 62313744,
+      "format_string": "branding: %s",
+      "sha256": "638241236be23940ce40e8b12bcec0c24bf11361391fcc6a3b6eb7e5be331ac7"
+    }
+  ],
+  "syntactic_rip_references": [],
+  "relocation_backed_string_pointers": [],
+  "limits": "Exact string starts only; offset references, computed addresses and runtime pointers may be missed. A syntactic instruction/pdata owner is not a proven reachable use or hardware collector."
+}
