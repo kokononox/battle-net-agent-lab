@@ -1,0 +1,37 @@
+{
+  "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "scope": {
+    "begin": 33515461,
+    "end": 33515483,
+    "filter_or_finally": 12947776,
+    "jump_target": 33515482,
+    "kind": "except"
+  },
+  "parent_function": 33514288,
+  "first_call": {
+    "site": 33515477,
+    "callee": 14608912,
+    "call_bytes": "e83682dffe",
+    "prepared_registers": {
+      "ecx": 48,
+      "edx": 27,
+      "r8d": 79
+    }
+  },
+  "callee_prefix": {
+    "rva": 14608912,
+    "bytes": "4883ec28b962000000ba2300000041b83e000000e8b7be95ff",
+    "next_call_site": 14608932,
+    "next_callee": 7645408,
+    "prepared_registers": {
+      "ecx": 98,
+      "edx": 35,
+      "r8d": 62
+    }
+  },
+  "scope_end_is_not_an_instruction_boundary": true,
+  "boundary_note": "The next MOV starts at 0x1ff67da, which is also the metadata jump target. Scope end is 0x1ff67db. The interval is reported exactly, not rounded to decoder instruction boundaries.",
+  "callee_semantics": "unresolved; prefix and relative-call targets only",
+  "runtime_observed": false,
+  "code_preparation_proven": false
+}
