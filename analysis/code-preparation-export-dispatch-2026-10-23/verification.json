@@ -1,0 +1,13 @@
+{
+  "raw_instruction_bytes_matched": 49,
+  "independent_concrete_samples": 10004,
+  "solver_witnesses_verified": 7,
+  "sampled_frontiers": 7,
+  "independent_decoder": "stdlib struct for MOV/CMP/rel32 signed conditional branches; no Capstone/Z3",
+  "sample_scope": "Sampling is not universal proof; universal coverage is the separate Z3 result.",
+  "mutations_rejected": [
+    "rva",
+    "witness"
+  ],
+  "disk_value_not_runtime_invariant": true
+}

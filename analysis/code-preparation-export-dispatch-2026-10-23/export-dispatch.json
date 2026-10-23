@@ -1,0 +1,419 @@
+{
+  "module_sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "entry_rva": 2289648,
+  "scope": "Only first dispatcher from imported ordinal 1. Invocation and runtime globals are not established. Frontier bodies are not analyzed. No input executable is run.",
+  "global_rva": 34694052,
+  "disk_global_u32": 2734866422,
+  "initial_state_smt": "(let ((a!1 (bvxor (bvadd (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                         #x6def6a44)\n                  #xc2d359a2)))\n(let ((a!2 (bvadd (bvsub (bvxor (bvadd global_u32 #x624149a5) #xa135c2cd) a!1)\n                  global_u32\n                  #x624149a5\n                  (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                  #x6def6a44)))\n  (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)))",
+  "leaves": [
+    {
+      "rva": 2289945,
+      "path": [
+        2289888,
+        2289893,
+        2289900,
+        2289906,
+        2289913,
+        2289919,
+        2289926,
+        2289932,
+        2289939,
+        2289945
+      ],
+      "witness": 1124261862,
+      "disk_matches": true,
+      "condition": "(let ((a!1 (bvxor (bvadd (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                         #x6def6a44)\n                  #xc2d359a2)))\n(let ((a!2 (bvadd (bvsub (bvxor (bvadd global_u32 #x624149a5) #xa135c2cd) a!1)\n                  global_u32\n                  #x624149a5\n                  (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                  #x6def6a44)))\n(let ((a!3 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x57c4e4f3))\n      (a!4 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x61c43086))\n      (a!5 (bvsgt (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x773c6982))\n      (a!6 (distinct (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                     #x61c43087)))\n  (and (not a!3) (not a!4) (not a!5) (not a!6)))))"
+    },
+    {
+      "rva": 2290811,
+      "path": [
+        2289888,
+        2289893,
+        2289900,
+        2289906,
+        2289913,
+        2289919,
+        2289926,
+        2289932,
+        2289939,
+        2290811
+      ],
+      "witness": 2857289162,
+      "disk_matches": false,
+      "condition": "(let ((a!1 (bvxor (bvadd (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                         #x6def6a44)\n                  #xc2d359a2)))\n(let ((a!2 (bvadd (bvsub (bvxor (bvadd global_u32 #x624149a5) #xa135c2cd) a!1)\n                  global_u32\n                  #x624149a5\n                  (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                  #x6def6a44)))\n(let ((a!3 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x57c4e4f3))\n      (a!4 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x61c43086))\n      (a!5 (bvsgt (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x773c6982))\n      (a!6 (distinct (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                     #x61c43087)))\n  (and (not a!3) (not a!4) (not a!5) a!6))))"
+    },
+    {
+      "rva": 2290914,
+      "path": [
+        2289888,
+        2289893,
+        2289900,
+        2289906,
+        2289913,
+        2289919,
+        2289926,
+        2290560,
+        2290567,
+        2290914
+      ],
+      "witness": 3419510224,
+      "disk_matches": false,
+      "condition": "(let ((a!1 (bvxor (bvadd (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                         #x6def6a44)\n                  #xc2d359a2)))\n(let ((a!2 (bvadd (bvsub (bvxor (bvadd global_u32 #x624149a5) #xa135c2cd) a!1)\n                  global_u32\n                  #x624149a5\n                  (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                  #x6def6a44)))\n(let ((a!3 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x57c4e4f3))\n      (a!4 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x61c43086))\n      (a!5 (bvsgt (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x773c6982))\n      (a!6 (distinct (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                     #x773c6983)))\n  (and (not a!3) (not a!4) a!5 a!6))))"
+    },
+    {
+      "rva": 2290687,
+      "path": [
+        2289888,
+        2289893,
+        2289900,
+        2289906,
+        2289913,
+        2290240,
+        2290247,
+        2290253,
+        2290260,
+        2290687
+      ],
+      "witness": 1189082096,
+      "disk_matches": false,
+      "condition": "(let ((a!1 (bvxor (bvadd (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                         #x6def6a44)\n                  #xc2d359a2)))\n(let ((a!2 (bvadd (bvsub (bvxor (bvadd global_u32 #x624149a5) #xa135c2cd) a!1)\n                  global_u32\n                  #x624149a5\n                  (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                  #x6def6a44)))\n(let ((a!3 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x57c4e4f3))\n      (a!4 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x61c43086))\n      (a!5 (= (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32) #x57c4e4f4))\n      (a!6 (distinct (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                     #x5afdcfa9)))\n  (and (not a!3) a!4 (not a!5) a!6))))"
+    },
+    {
+      "rva": 2291106,
+      "path": [
+        2289888,
+        2289893,
+        2289900,
+        2290128,
+        2290135,
+        2290141,
+        2290148,
+        2290154,
+        2290161,
+        2291106
+      ],
+      "witness": 1459459536,
+      "disk_matches": false,
+      "condition": "(let ((a!1 (bvxor (bvadd (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                         #x6def6a44)\n                  #xc2d359a2)))\n(let ((a!2 (bvadd (bvsub (bvxor (bvadd global_u32 #x624149a5) #xa135c2cd) a!1)\n                  global_u32\n                  #x624149a5\n                  (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                  #x6def6a44)))\n(let ((a!3 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x57c4e4f3))\n      (a!4 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x125d2691))\n      (a!5 (bvsgt (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x1d7603db))\n      (a!6 (distinct (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                     #x125d2692)))\n  (and a!3 (not a!4) (not a!5) a!6))))"
+    },
+    {
+      "rva": 2291207,
+      "path": [
+        2289888,
+        2289893,
+        2289900,
+        2290128,
+        2290135,
+        2290141,
+        2290148,
+        2290609,
+        2290616,
+        2291207
+      ],
+      "witness": 2126442336,
+      "disk_matches": false,
+      "condition": "(let ((a!1 (bvxor (bvadd (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                         #x6def6a44)\n                  #xc2d359a2)))\n(let ((a!2 (bvadd (bvsub (bvxor (bvadd global_u32 #x624149a5) #xa135c2cd) a!1)\n                  global_u32\n                  #x624149a5\n                  (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                  #x6def6a44)))\n(let ((a!3 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x57c4e4f3))\n      (a!4 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x125d2691))\n      (a!5 (bvsgt (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x1d7603db))\n      (a!6 (distinct (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                     #x47555d1f)))\n  (and a!3 (not a!4) a!5 a!6))))"
+    },
+    {
+      "rva": 2291023,
+      "path": [
+        2289888,
+        2289893,
+        2289900,
+        2290128,
+        2290135,
+        2290352,
+        2290359,
+        2290365,
+        2290372,
+        2291023
+      ],
+      "witness": 1706165648,
+      "disk_matches": false,
+      "condition": "(let ((a!1 (bvxor (bvadd (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                         #x6def6a44)\n                  #xc2d359a2)))\n(let ((a!2 (bvadd (bvsub (bvxor (bvadd global_u32 #x624149a5) #xa135c2cd) a!1)\n                  global_u32\n                  #x624149a5\n                  (bvxor (bvadd global_u32 #x624149a5) #x961d302b)\n                  #x6def6a44)))\n(let ((a!3 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x57c4e4f3))\n      (a!4 (bvsle (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                  #x125d2691))\n      (a!5 (= (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32) #x0194a331))\n      (a!6 (distinct (bvxor (bvadd (bvsub a!2 a!1) #x9f000b38) global_u32)\n                     #x0da873db)))\n  (and a!3 a!4 (not a!5) a!6))))"
+    }
+  ],
+  "nodes": [
+    {
+      "rva": 2289654,
+      "bytes": "8b05a873ee01",
+      "asm": "mov eax, dword ptr [rip + 0x1ee73a8]"
+    },
+    {
+      "rva": 2289660,
+      "bytes": "8d88a5494162",
+      "asm": "lea ecx, [rax + 0x624149a5]"
+    },
+    {
+      "rva": 2289666,
+      "bytes": "89ca",
+      "asm": "mov edx, ecx"
+    },
+    {
+      "rva": 2289668,
+      "bytes": "81f22b301d96",
+      "asm": "xor edx, 0x961d302b"
+    },
+    {
+      "rva": 2289674,
+      "bytes": "448d82446aef6d",
+      "asm": "lea r8d, [rdx + 0x6def6a44]"
+    },
+    {
+      "rva": 2289681,
+      "bytes": "4181f0a259d3c2",
+      "asm": "xor r8d, 0xc2d359a2"
+    },
+    {
+      "rva": 2289688,
+      "bytes": "81f1cdc235a1",
+      "asm": "xor ecx, 0xa135c2cd"
+    },
+    {
+      "rva": 2289694,
+      "bytes": "4429c1",
+      "asm": "sub ecx, r8d"
+    },
+    {
+      "rva": 2289697,
+      "bytes": "01c1",
+      "asm": "add ecx, eax"
+    },
+    {
+      "rva": 2289699,
+      "bytes": "81c1a5494162",
+      "asm": "add ecx, 0x624149a5"
+    },
+    {
+      "rva": 2289705,
+      "bytes": "01d1",
+      "asm": "add ecx, edx"
+    },
+    {
+      "rva": 2289707,
+      "bytes": "81c1446aef6d",
+      "asm": "add ecx, 0x6def6a44"
+    },
+    {
+      "rva": 2289713,
+      "bytes": "4429c1",
+      "asm": "sub ecx, r8d"
+    },
+    {
+      "rva": 2289716,
+      "bytes": "81c1380b009f",
+      "asm": "add ecx, 0x9f000b38"
+    },
+    {
+      "rva": 2289722,
+      "bytes": "31c1",
+      "asm": "xor ecx, eax"
+    },
+    {
+      "rva": 2289888,
+      "bytes": "448b54240c",
+      "asm": "mov r10d, dword ptr [rsp + 0xc]"
+    },
+    {
+      "rva": 2289893,
+      "bytes": "4181faf3e4c457",
+      "asm": "cmp r10d, 0x57c4e4f3"
+    },
+    {
+      "rva": 2289900,
+      "bytes": "0f8ede000000",
+      "asm": "jle 0x22f1d0"
+    },
+    {
+      "rva": 2289906,
+      "bytes": "4181fa8630c461",
+      "asm": "cmp r10d, 0x61c43086"
+    },
+    {
+      "rva": 2289913,
+      "bytes": "0f8e41010000",
+      "asm": "jle 0x22f240"
+    },
+    {
+      "rva": 2289919,
+      "bytes": "4181fa82693c77",
+      "asm": "cmp r10d, 0x773c6982"
+    },
+    {
+      "rva": 2289926,
+      "bytes": "0f8f74020000",
+      "asm": "jg 0x22f380"
+    },
+    {
+      "rva": 2289932,
+      "bytes": "4181fa8730c461",
+      "asm": "cmp r10d, 0x61c43087"
+    },
+    {
+      "rva": 2289939,
+      "bytes": "0f8562030000",
+      "asm": "jne 0x22f47b"
+    },
+    {
+      "rva": 2289945,
+      "bytes": "448b157cc0ea01",
+      "asm": "mov r10d, dword ptr [rip + 0x1eac07c]"
+    },
+    {
+      "rva": 2290128,
+      "bytes": "4181fa91265d12",
+      "asm": "cmp r10d, 0x125d2691"
+    },
+    {
+      "rva": 2290135,
+      "bytes": "0f8ed3000000",
+      "asm": "jle 0x22f2b0"
+    },
+    {
+      "rva": 2290141,
+      "bytes": "4181fadb03761d",
+      "asm": "cmp r10d, 0x1d7603db"
+    },
+    {
+      "rva": 2290148,
+      "bytes": "0f8fc7010000",
+      "asm": "jg 0x22f3b1"
+    },
+    {
+      "rva": 2290154,
+      "bytes": "4181fa92265d12",
+      "asm": "cmp r10d, 0x125d2692"
+    },
+    {
+      "rva": 2290161,
+      "bytes": "0f85ab030000",
+      "asm": "jne 0x22f5a2"
+    },
+    {
+      "rva": 2290240,
+      "bytes": "4181faf4e4c457",
+      "asm": "cmp r10d, 0x57c4e4f4"
+    },
+    {
+      "rva": 2290247,
+      "bytes": "0f8413feffff",
+      "asm": "je 0x22f060"
+    },
+    {
+      "rva": 2290253,
+      "bytes": "4181faa9cffd5a",
+      "asm": "cmp r10d, 0x5afdcfa9"
+    },
+    {
+      "rva": 2290260,
+      "bytes": "0f85a5010000",
+      "asm": "jne 0x22f3ff"
+    },
+    {
+      "rva": 2290352,
+      "bytes": "4181fa31a39401",
+      "asm": "cmp r10d, 0x194a331"
+    },
+    {
+      "rva": 2290359,
+      "bytes": "0f847d010000",
+      "asm": "je 0x22f43a"
+    },
+    {
+      "rva": 2290365,
+      "bytes": "4181fadb73a80d",
+      "asm": "cmp r10d, 0xda873db"
+    },
+    {
+      "rva": 2290372,
+      "bytes": "0f8585020000",
+      "asm": "jne 0x22f54f"
+    },
+    {
+      "rva": 2290560,
+      "bytes": "4181fa83693c77",
+      "asm": "cmp r10d, 0x773c6983"
+    },
+    {
+      "rva": 2290567,
+      "bytes": "0f8555010000",
+      "asm": "jne 0x22f4e2"
+    },
+    {
+      "rva": 2290609,
+      "bytes": "4181fa1f5d5547",
+      "asm": "cmp r10d, 0x47555d1f"
+    },
+    {
+      "rva": 2290616,
+      "bytes": "0f8549020000",
+      "asm": "jne 0x22f607"
+    },
+    {
+      "rva": 2290687,
+      "bytes": "448b54243c",
+      "asm": "mov r10d, dword ptr [rsp + 0x3c]"
+    },
+    {
+      "rva": 2290811,
+      "bytes": "448b542454",
+      "asm": "mov r10d, dword ptr [rsp + 0x54]"
+    },
+    {
+      "rva": 2290914,
+      "bytes": "448b542418",
+      "asm": "mov r10d, dword ptr [rsp + 0x18]"
+    },
+    {
+      "rva": 2291023,
+      "bytes": "448b542434",
+      "asm": "mov r10d, dword ptr [rsp + 0x34]"
+    },
+    {
+      "rva": 2291106,
+      "bytes": "448b54241c",
+      "asm": "mov r10d, dword ptr [rsp + 0x1c]"
+    },
+    {
+      "rva": 2291207,
+      "bytes": "8b442464",
+      "asm": "mov eax, dword ptr [rsp + 0x64]"
+    }
+  ],
+  "branch_query_results": [
+    "sat",
+    "sat",
+    "sat",
+    "sat",
+    "sat",
+    "sat",
+    "sat",
+    "sat",
+    "sat",
+    "unsat",
+    "unsat",
+    "sat",
+    "sat",
+    "unsat",
+    "sat",
+    "sat",
+    "sat",
+    "sat",
+    "sat",
+    "unsat",
+    "sat",
+    "unsat",
+    "unsat",
+    "sat",
+    "sat",
+    "unsat"
+  ],
+  "uncovered_input_query": "unsat",
+  "claims": {
+    "decryptor_identified": false,
+    "key_recovered": false,
+    "runtime_path_observed": false,
+    "page_writer_identified": false,
+    "hardware_send_proven": false
+  }
+}

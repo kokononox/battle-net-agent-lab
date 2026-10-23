@@ -1,0 +1,826 @@
+[
+  {
+    "file": "Wow.exe",
+    "sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+    "entry_rva": "0x1da9b0",
+    "directories": [
+      [
+        74929984,
+        592
+      ],
+      [
+        74930576,
+        440
+      ],
+      [
+        120303616,
+        191792
+      ],
+      [
+        117350400,
+        2809368
+      ],
+      [
+        80823808,
+        10448
+      ],
+      [
+        120496128,
+        427064
+      ],
+      [
+        70757108,
+        84
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        70757632,
+        40
+      ],
+      [
+        62320304,
+        320
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        62238720,
+        5880
+      ],
+      [
+        74928640,
+        128
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "sections": [
+      [
+        ".text",
+        62234508,
+        4096,
+        62234624,
+        1024
+      ],
+      [
+        ".rdata",
+        12712162,
+        62238720,
+        12712448,
+        62235648
+      ],
+      [
+        ".data",
+        42394977,
+        74952704,
+        2305536,
+        74948096
+      ],
+      [
+        ".pdata",
+        2809368,
+        117350400,
+        2809856,
+        77253632
+      ],
+      [
+        "_RDATA",
+        140512,
+        120160256,
+        140800,
+        80063488
+      ],
+      [
+        ".rsrc",
+        191792,
+        120303616,
+        192000,
+        80204288
+      ],
+      [
+        ".reloc",
+        427064,
+        120496128,
+        427520,
+        80396288
+      ]
+    ],
+    "imports": [
+      {
+        "dll": "Wow_loader.dll",
+        "descriptor_file_offset": 74927504,
+        "first_thunk": 62238720,
+        "original_first_thunk": 74931016,
+        "entries": [
+          {
+            "ordinal": 1,
+            "literal_name": null,
+            "slot_rva": 62238720
+          }
+        ]
+      }
+    ],
+    "tls": [
+      {
+        "slot_rva": 62302056,
+        "callback_rva": 1944032
+      },
+      {
+        "slot_rva": 62302064,
+        "callback_rva": 1944032
+      },
+      {
+        "slot_rva": 62302072,
+        "callback_rva": 1944032
+      }
+    ],
+    "literal_candidates": [
+      {
+        "name": "GetProcAddress",
+        "encoding": "ascii",
+        "offset": 69960458,
+        "rvas": [
+          "0x42b8f0a"
+        ]
+      },
+      {
+        "name": "GetProcAddress",
+        "encoding": "ascii",
+        "offset": 69960506,
+        "rvas": [
+          "0x42b8f3a"
+        ]
+      },
+      {
+        "name": "GetProcAddress",
+        "encoding": "ascii",
+        "offset": 69960555,
+        "rvas": [
+          "0x42b8f6b"
+        ]
+      },
+      {
+        "name": "GetProcAddress",
+        "encoding": "ascii",
+        "offset": 69960850,
+        "rvas": [
+          "0x42b9092"
+        ]
+      },
+      {
+        "name": "GetProcAddress",
+        "encoding": "ascii",
+        "offset": 70005088,
+        "rvas": [
+          "0x42c3d60"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "wow_loader.dll",
+    "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+    "entry_rva": "0x2006630",
+    "directories": [
+      [
+        34206696,
+        349
+      ],
+      [
+        41805318,
+        740
+      ],
+      [
+        35979264,
+        664
+      ],
+      [
+        35586048,
+        72012
+      ],
+      [
+        41239552,
+        10448
+      ],
+      [
+        36044800,
+        6304
+      ],
+      [
+        34205984,
+        28
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        34165888,
+        40
+      ],
+      [
+        33819328,
+        320
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        34209928,
+        2560
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "sections": [
+      [
+        ".text",
+        33735190,
+        65536,
+        33735680,
+        1024
+      ],
+      [
+        ".rdata",
+        528972,
+        33816576,
+        529408,
+        33736704
+      ],
+      [
+        ".data",
+        1139537,
+        34406400,
+        804864,
+        34266112
+      ],
+      [
+        ".pdata",
+        72012,
+        35586048,
+        72192,
+        35070976
+      ],
+      [
+        ".eidsig",
+        32,
+        35717120,
+        512,
+        35143168
+      ],
+      [
+        ".gxfg",
+        10160,
+        35782656,
+        10240,
+        35143680
+      ],
+      [
+        ".tls",
+        97,
+        35848192,
+        512,
+        35153920
+      ],
+      [
+        "_RDATA",
+        500,
+        35913728,
+        512,
+        35154432
+      ],
+      [
+        ".rsrc",
+        664,
+        35979264,
+        1024,
+        35154944
+      ],
+      [
+        ".reloc",
+        6304,
+        36044800,
+        6656,
+        35155968
+      ],
+      [
+        ".eid",
+        6094848,
+        36110336,
+        6076928,
+        35162624
+      ]
+    ],
+    "imports": [
+      {
+        "dll": "ADVAPI32.dll",
+        "descriptor_file_offset": 40857606,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804742,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "RegDeleteValueW",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "WS2_32.dll",
+        "descriptor_file_offset": 40857626,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804758,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "WSASocketW",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "COMCTL32.dll",
+        "descriptor_file_offset": 40857646,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804774,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "InitCommonControlsEx",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "CRYPT32.dll",
+        "descriptor_file_offset": 40857666,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804790,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "CertGetNameStringA",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "GDI32.dll",
+        "descriptor_file_offset": 40857686,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804806,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "DeleteObject",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "IMM32.dll",
+        "descriptor_file_offset": 40857706,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804822,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "ImmReleaseContext",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "KERNEL32.dll",
+        "descriptor_file_offset": 40857726,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804838,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "K32GetModuleFileNameExW",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "ole32.dll",
+        "descriptor_file_offset": 40857746,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804854,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "CreateStreamOnHGlobal",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "SHELL32.dll",
+        "descriptor_file_offset": 40857766,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804870,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "DragAcceptFiles",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "USER32.dll",
+        "descriptor_file_offset": 40857786,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804886,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "DisplayConfigGetDeviceInfo",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "WINMM.dll",
+        "descriptor_file_offset": 40857806,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804902,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "waveInGetDevCapsA",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "ntdll.dll",
+        "descriptor_file_offset": 40857826,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804918,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "RtlIpv6AddressToStringExA",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "IPHLPAPI.DLL",
+        "descriptor_file_offset": 40857846,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804934,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "GetAdaptersAddresses",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "dwmapi.dll",
+        "descriptor_file_offset": 40857866,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804950,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "DwmSetWindowAttribute",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "VERSION.dll",
+        "descriptor_file_offset": 40857886,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804966,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "GetFileVersionInfoSizeW",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "api-ms-win-core-synch-l1-2-0.dll",
+        "descriptor_file_offset": 40857906,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804982,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "WakeByAddressSingle",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "MSACM32.dll",
+        "descriptor_file_offset": 40857926,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41804998,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "acmStreamPrepareHeader",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "SETUPAPI.dll",
+        "descriptor_file_offset": 40857946,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805014,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "SetupDiGetDeviceRegistryPropertyA",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "WINHTTP.dll",
+        "descriptor_file_offset": 40857966,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805030,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "WinHttpOpen",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "ncrypt.dll",
+        "descriptor_file_offset": 40857986,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805046,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "NCryptFreeObject",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "WINTRUST.dll",
+        "descriptor_file_offset": 40858006,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805062,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "WinVerifyTrust",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "ntdll.dll",
+        "descriptor_file_offset": 40858026,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805078,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "LdrLockLoaderLock",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "VERSION.dll",
+        "descriptor_file_offset": 40858046,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805094,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "GetFileVersionInfoA",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "IPHLPAPI.DLL",
+        "descriptor_file_offset": 40858066,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805110,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "GetAdaptersInfo",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "ADVAPI32.dll",
+        "descriptor_file_offset": 40858086,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805126,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "CryptAcquireContextA",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "sfc.dll",
+        "descriptor_file_offset": 40858106,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805142,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "SfcIsFileProtected",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "bcrypt.dll",
+        "descriptor_file_offset": 40858126,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805158,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "BCryptCloseAlgorithmProvider",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "tbs.dll",
+        "descriptor_file_offset": 40858146,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805174,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "Tbsi_Context_Create",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "KERNEL32.dll",
+        "descriptor_file_offset": 40858166,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805190,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "AcquireSRWLockExclusive",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "USER32.dll",
+        "descriptor_file_offset": 40858186,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805206,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "EnumThreadWindows",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "SHELL32.dll",
+        "descriptor_file_offset": 40858206,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805222,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "CommandLineToArgvW",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "COMCTL32.dll",
+        "descriptor_file_offset": 40858226,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805238,
+        "entries": [
+          {
+            "ordinal": 345,
+            "literal_name": null,
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "WS2_32.dll",
+        "descriptor_file_offset": 40858246,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805254,
+        "entries": [
+          {
+            "ordinal": 116,
+            "literal_name": null,
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "ole32.dll",
+        "descriptor_file_offset": 40858266,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805270,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "CoTaskMemFree",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "CRYPT32.dll",
+        "descriptor_file_offset": 40858286,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805286,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "CertAddCertificateContextToStore",
+            "slot_rva": 34209928
+          }
+        ]
+      },
+      {
+        "dll": "Secur32.dll",
+        "descriptor_file_offset": 40858306,
+        "first_thunk": 34209928,
+        "original_first_thunk": 41805302,
+        "entries": [
+          {
+            "ordinal": null,
+            "literal_name": "InitSecurityInterfaceA",
+            "slot_rva": 34209928
+          }
+        ]
+      }
+    ],
+    "tls": [
+      {
+        "slot_rva": 34206616,
+        "callback_rva": 14649280
+      },
+      {
+        "slot_rva": 34206624,
+        "callback_rva": 33567132
+      }
+    ],
+    "literal_candidates": []
+  }
+]
