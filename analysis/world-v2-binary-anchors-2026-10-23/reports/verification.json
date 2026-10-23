@@ -1,0 +1,25 @@
+{
+  "modules": [
+    {
+      "module": "Wow.exe",
+      "sha256_and_string_and_dword_matches_independently_checked": true
+    },
+    {
+      "module": "wow_loader.dll",
+      "sha256_and_string_and_dword_matches_independently_checked": true
+    },
+    {
+      "module": "libxell.dll",
+      "sha256_and_string_and_dword_matches_independently_checked": true
+    }
+  ],
+  "normalized_banner_bytes_and_hashes_checked": 2,
+  "rip_candidate_arithmetic_checked": 3,
+  "dir64_candidates_independently_repeated": 15,
+  "opcode_context_bytes_checked": 241,
+  "nearby_relocated_error_strings_checked": true,
+  "network_component_string_hashes_checked": true,
+  "raw_dump_narrow_searches_repeated": true,
+  "loader_xor_objdump_checked": true,
+  "limits": "Does not independently reimplement full RIP-candidate discovery or establish reachability/semantic dataflow. A numeric immediate and nearby source/type names do not identify the V2 dispatcher or cryptographic initialization function."
+}

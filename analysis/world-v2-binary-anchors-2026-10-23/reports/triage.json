@@ -1,0 +1,160 @@
+{
+  "adjacent_page_relocation_contexts": [
+    {
+      "slot_rva": 64175392,
+      "target_rva": 68485024,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGObject_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175400,
+      "target_rva": 68485008,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGItem_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175408,
+      "target_rva": 68485072,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGContainer_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175416,
+      "target_rva": 68485040,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGAzeriteEmpoweredItem_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175424,
+      "target_rva": 68484952,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGAzeriteItem_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175432,
+      "target_rva": 68484936,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGUnit_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175440,
+      "target_rva": 68484992,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGPlayer_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175448,
+      "target_rva": 68484968,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGActivePlayer_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175456,
+      "target_rva": 68484888,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGGameObject_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175464,
+      "target_rva": 68484864,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGDynamicObject_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175472,
+      "target_rva": 68484920,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGCorpse_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175480,
+      "target_rva": 68484904,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGAreaTrigger_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175488,
+      "target_rva": 68484768,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGSceneObject_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175496,
+      "target_rva": 68484744,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGConversation_C",
+      "inside_either_banner": false
+    },
+    {
+      "slot_rva": 64175504,
+      "target_rva": 68484848,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "target_text": "CGMeshObject_C",
+      "inside_either_banner": false
+    }
+  ],
+  "adjacent_page_rip_contexts": [
+    {
+      "rva": 13803119,
+      "bytes": "193d4b614203",
+      "asm": "sbb dword ptr [rip + 0x342614b], edi",
+      "target_rva": 68485056,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "disp_offset": 2,
+      "pdata_owner": [
+        13801312,
+        13803542
+      ],
+      "target_container": "CGAzeriteEmpoweredItem_C",
+      "target_offset_within_container": 16,
+      "network_banner_reference_proven": false
+    }
+  ],
+  "decision": "Only normalized V2 strings and nearby NetClient/type diagnostics are identified. No banner consumer, dispatcher or encryption-entry function is recovered. Do not follow neighbouring CG object-type strings as if they were V2 handlers.",
+  "scope": "No CFG was reconstructed from the single non-banner RIP candidate. Loader XOR immediate is a numeric match without protocol dataflow evidence."
+}

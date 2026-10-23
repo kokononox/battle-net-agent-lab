@@ -1,0 +1,213 @@
+{
+  "anchors": [
+    {
+      "role": "server_banner",
+      "rva": 68481176,
+      "text": "WORLD OF WARCRAFT CONNECTION - SERVER TO CLIENT - V2",
+      "length_including_nul": 53,
+      "sha256": "36e0a221ca2b9b8719fff06f79a40de4d01a4e2acaf6630e37165d916ecdc9a3"
+    },
+    {
+      "role": "client_banner",
+      "rva": 68481232,
+      "text": "WORLD OF WARCRAFT CONNECTION - CLIENT TO SERVER - V2",
+      "length_including_nul": 53,
+      "sha256": "9a295bfc7f06a31138bd22e902b0b1c74da45e204a02d07f05668a435e50029a"
+    }
+  ],
+  "target_spans": [
+    {
+      "name": "server_banner",
+      "begin": 68481176,
+      "end": 68481229
+    },
+    {
+      "name": "client_banner",
+      "begin": 68481232,
+      "end": 68481285
+    },
+    {
+      "name": "adjacent_banner_page",
+      "begin": 68481024,
+      "end": 68485120
+    },
+    {
+      "name": "positive_control_global_page",
+      "begin": 78467072,
+      "end": 78471168
+    }
+  ],
+  "rip_candidates": [
+    {
+      "rva": 1943988,
+      "bytes": "488b057db58f04",
+      "asm": "mov rax, qword ptr [rip + 0x48fb57d]",
+      "target_rva": 78470968,
+      "target_spans": [
+        "positive_control_global_page"
+      ],
+      "disp_offset": 3,
+      "pdata_owner": [
+        1943984,
+        1944009
+      ]
+    },
+    {
+      "rva": 1943989,
+      "bytes": "8b057db58f04",
+      "asm": "mov eax, dword ptr [rip + 0x48fb57d]",
+      "target_rva": 78470968,
+      "target_spans": [
+        "positive_control_global_page"
+      ],
+      "disp_offset": 2,
+      "pdata_owner": [
+        1943984,
+        1944009
+      ]
+    },
+    {
+      "rva": 13803119,
+      "bytes": "193d4b614203",
+      "asm": "sbb dword ptr [rip + 0x342614b], edi",
+      "target_rva": 68485056,
+      "target_spans": [
+        "adjacent_banner_page"
+      ],
+      "disp_offset": 2,
+      "pdata_owner": [
+        13801312,
+        13803542
+      ]
+    }
+  ],
+  "relocation_pointer_candidates": [
+    {
+      "slot_rva": 64175392,
+      "target_rva": 68485024,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175400,
+      "target_rva": 68485008,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175408,
+      "target_rva": 68485072,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175416,
+      "target_rva": 68485040,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175424,
+      "target_rva": 68484952,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175432,
+      "target_rva": 68484936,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175440,
+      "target_rva": 68484992,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175448,
+      "target_rva": 68484968,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175456,
+      "target_rva": 68484888,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175464,
+      "target_rva": 68484864,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175472,
+      "target_rva": 68484920,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175480,
+      "target_rva": 68484904,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175488,
+      "target_rva": 68484768,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175496,
+      "target_rva": 68484744,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    },
+    {
+      "slot_rva": 64175504,
+      "target_rva": 68484848,
+      "target_spans": [
+        "adjacent_banner_page"
+      ]
+    }
+  ],
+  "literal_banner_address_matches": [],
+  "loader_executable_literal_triage": [
+    {
+      "literal_rva": 21599704,
+      "literal_value": 4980736,
+      "decoder_immediate_candidates": [
+        {
+          "rva": 21599703,
+          "bytes": "3500004c00",
+          "asm": "xor eax, 0x4c0000"
+        }
+      ],
+      "network_semantics_proven": false
+    },
+    {
+      "literal_rva": 21611757,
+      "literal_value": 4980736,
+      "decoder_immediate_candidates": [],
+      "network_semantics_proven": false
+    }
+  ],
+  "limits": "RIP syntax and literal/pointer inventory do not prove runtime reachability. Banner normalization removes final wire newline and requires static NUL; no assumption about where newline is appended. Encoded/computed pointers, indirect dataflow and runtime-only code remain outside coverage."
+}
