@@ -1,0 +1,110 @@
+{
+  "source_filename": "READY-TO-SEND.zip",
+  "source_sha256": "a33831d0ff1a4eac3088587dec206efb81454fe143bdc433363ce6c5e8421b3f",
+  "analysis": {
+    "comparison_limit": "raw byte differences are not proof of decryption, execution, serialization or sending; relocations not normalized",
+    "consistency_limit": "live sequential reads, not an atomic snapshot; same identities and PE headers do not prove code never changed between reads",
+    "disk_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+    "error": "not a committed MEM_IMAGE page of expected module",
+    "expected_creation_filetime": 134371954697332027,
+    "expected_pid": 4900,
+    "finished_utc": "2026-10-23T05:10:43.2689942Z",
+    "header_before": {
+      "protection_or_bounds_error": "not a committed MEM_IMAGE page of expected module",
+      "purpose": "loaded PE identity before; not exported",
+      "region": {
+        "base": 140701247143936,
+        "allocation_base": 140701247143936,
+        "size": 4096,
+        "state": 4096,
+        "protect": 2,
+        "type": 262144
+      }
+    },
+    "identity_before": {
+      "pid": 4900,
+      "creation_filetime": 134371954697332027,
+      "image_path": "G:\\World of Warcraft\\_retail_\\Wow.exe",
+      "module_base": 140701247143936,
+      "module_image_size": 120926208,
+      "module_path": "G:\\World of Warcraft\\_retail_\\Wow.exe"
+    },
+    "identity_initial": {
+      "pid": 4900,
+      "creation_filetime": 134371954697332027,
+      "image_path": "G:\\World of Warcraft\\_retail_\\Wow.exe",
+      "module_base": 140701247143936,
+      "module_image_size": 120926208,
+      "module_path": "G:\\World of Warcraft\\_retail_\\Wow.exe"
+    },
+    "maximum_target_memory_requested_bytes": 20480,
+    "method": "query metadata + ReadProcessMemory only; no clone/debugger/injection/target writes/protection changes",
+    "page_reads": [],
+    "pinned_wow_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+    "sending_on_3724": "unresolved",
+    "started_utc": "2026-10-23T05:10:42.9428746Z",
+    "status": "read_failed",
+    "tool": "WLab CodeRead 0.1.0"
+  },
+  "run": {
+    "tool": "WLab CodeRead 0.1.0",
+    "state": "read_stopped",
+    "started_utc": "2026-10-23T05:10:42.7420062Z",
+    "expected_pid": 4900,
+    "expected_creation_filetime": 134371954697332027,
+    "game_screen_user_reported": "In world",
+    "output_directory": "G:\\WLabCodeRead\\20261023-081042-a1ebf673",
+    "read_requested": true,
+    "game_stability": "not established; ask user",
+    "network_sending": "unresolved",
+    "observations": [
+      {
+        "utc": "2026-10-23T05:10:43.4227143Z",
+        "same_process_alive": true,
+        "responding": true
+      },
+      {
+        "utc": "2026-10-23T05:10:48.4563044Z",
+        "same_process_alive": true,
+        "responding": true
+      },
+      {
+        "utc": "2026-10-23T05:10:53.5225747Z",
+        "same_process_alive": true,
+        "responding": true
+      }
+    ],
+    "child_runner_self_test": [
+      {
+        "expected_exit_code": 0,
+        "actual_exit_code": 0,
+        "status": "succeeded",
+        "passed": true
+      },
+      {
+        "expected_exit_code": 7,
+        "actual_exit_code": 7,
+        "status": "failed",
+        "passed": true
+      }
+    ],
+    "read_helper_result": {
+      "status": "failed",
+      "exit_code": 1,
+      "exit_code_error": null,
+      "child_pid": 9848,
+      "native_handle_acquired": true,
+      "stdio_drained": true,
+      "stdio_error": null,
+      "source": "owned System.Diagnostics.Process.Start handle",
+      "completed_utc": "2026-10-23T05:10:43.3366238Z"
+    },
+    "analysis_status": "read_failed",
+    "finished_utc": "2026-10-23T05:10:53.5258073Z",
+    "cancel_requested": false
+  },
+  "interpretation": "0.1.0 internal region-type policy stopped before the first ReadProcessMemory call, not a reported Windows access denial; header was committed read-only MEM_MAPPED with matching allocation base",
+  "exact_cause_of_mapped_layout": "not established; no anti-cheat/loader attribution",
+  "repair": "permit MEM_MAPPED as well as MEM_IMAGE only with existing range/allocation/state/readability/identity gates; keep MEM_PRIVATE, guard and no-access rejected; add fixed-range metadata census before reads",
+  "Windows_0_1_1_runtime_pending": true
+}

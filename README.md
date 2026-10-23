@@ -1,6 +1,16 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## قدم فعلی — WLab CodeRead 0.1.0، خواندن محدود و فقط‌خواندنی
+## قدم فعلی — WLab CodeRead 0.1.1، اصلاح gate نوع mapping بر پایهٔ گزارش واقعی
+
+[راهنما](user-tools/wlab-coderead-0.1.1/README.fa.md) · [گزارش کاربر](user-tools/wlab-coderead-0.1.1/USER-MAPPED-OBSERVATION.json) · [QA](user-tools/wlab-coderead-0.1.1/QA.json) · [هش](user-tools/wlab-coderead-0.1.1/PROVENANCE.json) · [وضعیت](user-tools/wlab-coderead-0.1.1/SYNC-STATUS.json).
+
+گزارش 0.1.0 تطبیق PID/creation time/ماژول و SHA256 دیسک را نشان داد. Header در region با state=MEM_COMMIT و protection=PAGE_READONLY و AllocationBase درست قرار داشت، ولی type=MEM_MAPPED بود. شرط داخلی MEM_IMAGE-only پیش از نخستین ReadProcessMemory ابزار را متوقف کرد؛ این access denied نیست و علت remap/anti-cheat از آن معلوم نمی‌شود. هیچ کدی صادر نشد.
+
+0.1.1 MEM_MAPPED قابل‌خواندن را نیز با همان شرط allocation base/حدود/هویت/PE و بدون تغییر protection می‌پذیرد؛ MEM_PRIVATE و guard/no-access، partial read، خطای API و تغییر هویت همچنان رد می‌شوند. metadata چهار محدودهٔ ثابت پیش از خواندن در planned_region_census ثبت می‌شود تا تشخیص بعدی به header تنها محدود نباشد؛ scan یا خواندن اضافی محتوا نیست. سقف پنج ReadProcessMemory چهار KiB و خروجی 12,666 بایت در موفقیت کامل حفظ شده است.
+
+۲۷ آزمون Go از جمله بازتولید حالت mapped/readonly گزارش‌شده، mapped guard/wrong allocation، قفل/child runner مستقل، مسیر unsupported، parse سه PS، vet و دو build یکسان گذشتند. **Windows واقعی 0.1.1 هنوز تأیید نشده است.** هیچ protection change، debug privilege adjustment، clone، debugger یا bypass اضافه نشده است. قدم بعد فقط یک Read code once با نسخهٔ جدید و ارسال ZIP است؛ ابزارهای قدیمی تکرار نشوند. main و GUI BIOS Path 0.2 دست‌نخورده‌اند؛ CPU/BIOS روی TCP/3724 همچنان نامعلوم است.
+
+## نسخهٔ پیشین — WLab CodeRead 0.1.0، خواندن محدود و فقط‌خواندنی
 
 [راهنما](user-tools/wlab-coderead-0.1.0/README.fa.md) · [QA](user-tools/wlab-coderead-0.1.0/QA.json) · [هش و provenance](user-tools/wlab-coderead-0.1.0/PROVENANCE.json) · [وضعیت](user-tools/wlab-coderead-0.1.0/SYNC-STATUS.json).
 

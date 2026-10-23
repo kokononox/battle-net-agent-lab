@@ -1,0 +1,13 @@
+{
+  "base_commit": "c98342ea5dcb760024afcf5b9473de7b9f06dda7",
+  "branch": "analysis/entry-loader-startup-2026-10-23",
+  "step": "bounded-readonly-code-pages-0.1.1-mapped-policy-fix",
+  "user_authorized": "start proposed bounded read-only method; stop on access denied without bypass",
+  "completed": "repair MEM_IMAGE-only internal gate using user evidence; permit readable MEM_MAPPED at verified allocation; keep private/guard/noaccess/bounds/identity checks; metadata census of four fixed ranges; no new target-memory read ranges",
+  "pending": "first user Windows 0.1.1 attempt; no code memory obtained yet",
+  "next_action": "Read code once in new WLab-CodeRead tool; send READY-TO-SEND.zip even on failure; do not rerun old full dump/control tests",
+  "main_modified": false,
+  "gui_bios_path_0_2_modified": false,
+  "debugger_clone_injection_patch_or_target_protection_changes": false,
+  "runtime_send_3724": "unresolved"
+}

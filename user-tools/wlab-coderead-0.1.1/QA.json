@@ -1,0 +1,72 @@
+{
+  "tool": "WLab CodeRead 0.1.1",
+  "go_unit_tests_passed": 27,
+  "breakdown": {
+    "fake_reader_identity_protection_partial_error_and_change_tests": 18,
+    "report_allowlist": 1,
+    "native_API_source_guard": 1,
+    "pinned_disk_and_wrong_disk_hash_tests": 2,
+    "window_geometry_and_startup_flag_tests": 5
+  },
+  "fake_reader_scope": "synthetic pages and fake APIs only; no live game memory read",
+  "disk_fixture": "actual pinned Wow.exe read as disk data, SHA256 checked; not executed or included in package",
+  "maximum_explicit_RPM_requests_on_success": 5,
+  "maximum_explicit_RPM_bytes": 20480,
+  "exported_code_bytes_on_success": 12666,
+  "partial_or_failed_identity_read_exports": false,
+  "actual_child_runner_regression": {
+    "platform": "PowerShell on current test OS",
+    "null_classified_unknown": true,
+    "string_zero_classified_unknown": true,
+    "actual_zero_and_nonzero_selftests": [
+      {
+        "expected_exit_code": 0,
+        "actual_exit_code": 0,
+        "status": "succeeded",
+        "passed": true
+      },
+      {
+        "expected_exit_code": 7,
+        "actual_exit_code": 7,
+        "status": "failed",
+        "passed": true
+      }
+    ],
+    "fast_exit_children_verified": 8,
+    "result_reuse_after_cleanup": true,
+    "windows_runtime_tested": false
+  },
+  "capture_lock_regression": {
+    "platform": "Linux PowerShell/.NET",
+    "preexisting_file_without_handle_accepted": true,
+    "second_live_holder_rejected": true,
+    "graceful_release_reacquires": true,
+    "terminated_owned_test_holder_reacquires": true,
+    "windows_ui_runtime_tested": false,
+    "game_capture_tested": false
+  },
+  "unsupported_platform_regression": {
+    "platform": "Linux unsupported backend; no process opened",
+    "failure_analysis_written": true,
+    "same_output_directory_reuse_rejected": true,
+    "prior_analysis_not_overwritten": true,
+    "binary_export_on_failure": false
+  },
+  "powershell_AST": "all three embedded PS scripts passed on Linux PowerShell; not Windows PS 5.1 runtime",
+  "go_vet_linux_and_windows": "passed",
+  "Windows_amd64_GUI_cross_compile": "passed",
+  "Windows_native_struct_layout_compile_assertions": {
+    "MODULEENTRY32W_bytes": 1080,
+    "MEMORY_BASIC_INFORMATION_bytes": 48
+  },
+  "two_builds_byte_identical": true,
+  "actual_Windows_read_APIs_executed_here": false,
+  "game_memory_read_runtime_verified": false,
+  "Windows_GUI_executed_here": false,
+  "no_privilege_adjustment_or_protection_change_API_requested": true,
+  "runtime_send_3724": "unresolved",
+  "previous_Windows_observation": "0.1.0 stopped before first ReadProcessMemory: committed readonly MEM_MAPPED header, not access denied",
+  "region_policy": "MEM_IMAGE or MEM_MAPPED with existing allocation/bounds/readability/identity checks; MEM_PRIVATE/guard/no-access rejected",
+  "fixed_metadata_census_ranges": 4,
+  "mapped_policy_regressions_added": 5
+}

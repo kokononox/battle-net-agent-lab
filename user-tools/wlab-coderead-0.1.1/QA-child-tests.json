@@ -1,0 +1,22 @@
+{
+  "platform": "PowerShell on current test OS",
+  "null_classified_unknown": true,
+  "string_zero_classified_unknown": true,
+  "actual_zero_and_nonzero_selftests": [
+    {
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "status": "succeeded",
+      "passed": true
+    },
+    {
+      "expected_exit_code": 7,
+      "actual_exit_code": 7,
+      "status": "failed",
+      "passed": true
+    }
+  ],
+  "fast_exit_children_verified": 8,
+  "result_reuse_after_cleanup": true,
+  "windows_runtime_tested": false
+}
