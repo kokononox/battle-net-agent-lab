@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8'?>
+<WindowsPerformanceRecorder Version="1.0" Author="WLab">
+  <Profiles>
+    <EventCollector Id="C0" Name="WLabDiag0">
+      <BufferSize Value="64" />
+      <Buffers Value="32" />
+    </EventCollector>
+    <EventCollector Id="C1" Name="WLabDiag1">
+      <BufferSize Value="64" />
+      <Buffers Value="32" />
+    </EventCollector>
+    <EventCollector Id="C2" Name="WLabDiag2">
+      <BufferSize Value="64" />
+      <Buffers Value="32" />
+    </EventCollector>
+    <EventCollector Id="C3" Name="WLabDiag3">
+      <BufferSize Value="64" />
+      <Buffers Value="32" />
+    </EventCollector>
+    <EventCollector Id="C4" Name="WLabDiag4">
+      <BufferSize Value="64" />
+      <Buffers Value="32" />
+    </EventCollector>
+    <EventCollector Id="C5" Name="WLabDiag5">
+      <BufferSize Value="64" />
+      <Buffers Value="32" />
+    </EventCollector>
+    <EventProvider Id="P0" Name="E53C6823-7BB8-44BB-90DC-3F86090D48A6" Level="5" Stack="false" NonPagedMemory="false" Strict="true">
+      <Keywords>
+        <Keyword Value="0x4" />
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="P1" Name="E53C6823-7BB8-44BB-90DC-3F86090D48A6" Level="5" Stack="true" NonPagedMemory="false" Strict="true">
+      <Keywords>
+        <Keyword Value="0x4" />
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="P2" Name="E53C6823-7BB8-44BB-90DC-3F86090D48A6" Level="5" Stack="false" NonPagedMemory="true" Strict="true">
+      <Keywords>
+        <Keyword Value="0x4" />
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="P3" Name="E53C6823-7BB8-44BB-90DC-3F86090D48A6" Level="5" Stack="true" NonPagedMemory="true" Strict="true">
+      <Keywords>
+        <Keyword Value="0x4" />
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="P4" Name="BDE46AEA-2357-51FE-7367-D5296F530BD1" Level="5" Stack="false" NonPagedMemory="false" Strict="true">
+      <Keywords>
+        <Keyword Value="0x1" />
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="P5" Name="BDE46AEA-2357-51FE-7367-D5296F530BD1" Level="5" Stack="true" NonPagedMemory="false" Strict="true">
+      <Keywords>
+        <Keyword Value="0x1" />
+      </Keywords>
+    </EventProvider>
+    <Profile Id="AFD_Paged_NoStack.Verbose.Memory" Name="AFD_Paged_NoStack" Description="Single provider enable diagnostic" LoggingMode="Memory" DetailLevel="Verbose">
+      <Collectors>
+        <EventCollectorId Value="C0">
+          <EventProviders>
+            <EventProviderId Value="P0" />
+          </EventProviders>
+        </EventCollectorId>
+      </Collectors>
+    </Profile>
+    <Profile Id="AFD_Paged_Stack.Verbose.Memory" Name="AFD_Paged_Stack" Description="Single provider enable diagnostic" LoggingMode="Memory" DetailLevel="Verbose">
+      <Collectors>
+        <EventCollectorId Value="C1">
+          <EventProviders>
+            <EventProviderId Value="P1" />
+          </EventProviders>
+        </EventCollectorId>
+      </Collectors>
+    </Profile>
+    <Profile Id="AFD_NonPaged_NoStack.Verbose.Memory" Name="AFD_NonPaged_NoStack" Description="Single provider enable diagnostic" LoggingMode="Memory" DetailLevel="Verbose">
+      <Collectors>
+        <EventCollectorId Value="C2">
+          <EventProviders>
+            <EventProviderId Value="P2" />
+          </EventProviders>
+        </EventCollectorId>
+      </Collectors>
+    </Profile>
+    <Profile Id="AFD_NonPaged_Stack.Verbose.Memory" Name="AFD_NonPaged_Stack" Description="Single provider enable diagnostic" LoggingMode="Memory" DetailLevel="Verbose">
+      <Collectors>
+        <EventCollectorId Value="C3">
+          <EventProviders>
+            <EventProviderId Value="P3" />
+          </EventProviders>
+        </EventCollectorId>
+      </Collectors>
+    </Profile>
+    <Profile Id="Sockets_Paged_NoStack.Verbose.Memory" Name="Sockets_Paged_NoStack" Description="Single provider enable diagnostic" LoggingMode="Memory" DetailLevel="Verbose">
+      <Collectors>
+        <EventCollectorId Value="C4">
+          <EventProviders>
+            <EventProviderId Value="P4" />
+          </EventProviders>
+        </EventCollectorId>
+      </Collectors>
+    </Profile>
+    <Profile Id="Sockets_Paged_Stack.Verbose.Memory" Name="Sockets_Paged_Stack" Description="Single provider enable diagnostic" LoggingMode="Memory" DetailLevel="Verbose">
+      <Collectors>
+        <EventCollectorId Value="C5">
+          <EventProviders>
+            <EventProviderId Value="P5" />
+          </EventProviders>
+        </EventCollectorId>
+      </Collectors>
+    </Profile>
+  </Profiles>
+</WindowsPerformanceRecorder>

@@ -1,0 +1,53 @@
+{
+  "runtime": "7.6.8",
+  "platform": "Unix",
+  "powershell_ast_errors": 0,
+  "actual_helper_tests": [
+    {
+      "test": "Real returned text, zero exit",
+      "expected": "Inactive",
+      "actual": "Inactive",
+      "passed": true
+    },
+    {
+      "test": "Explicit inactive, nonzero exit",
+      "expected": "Inactive",
+      "actual": "Inactive",
+      "passed": true
+    },
+    {
+      "test": "Official no-profile wording",
+      "expected": "Inactive",
+      "actual": "Inactive",
+      "passed": true
+    },
+    {
+      "test": "Explicit active and success",
+      "expected": "Active",
+      "actual": "Active",
+      "passed": true
+    },
+    {
+      "test": "Active words but error exit",
+      "expected": "Unknown",
+      "actual": "Unknown",
+      "passed": true
+    },
+    {
+      "test": "Zero exit alone is not active",
+      "expected": "Unknown",
+      "actual": "Unknown",
+      "passed": true
+    },
+    {
+      "test": "Unrecognized text",
+      "expected": "Unknown",
+      "actual": "Unknown",
+      "passed": true
+    }
+  ],
+  "csharp_compiled": true,
+  "loopback_run": false,
+  "native_wpr_invoked": false,
+  "windows_target_execution_tested": false
+}
