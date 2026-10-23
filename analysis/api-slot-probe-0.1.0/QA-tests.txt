@@ -1,0 +1,84 @@
+=== RUN   TestExportAliasesPreserved
+--- PASS: TestExportAliasesPreserved (0.00s)
+=== RUN   TestForwardedExportNotAddressMatched
+--- PASS: TestForwardedExportNotAddressMatched (0.00s)
+=== RUN   TestMalformedExportOrdinalRejected
+--- PASS: TestMalformedExportOrdinalRejected (0.00s)
+=== RUN   TestMalformedExportCountRejected
+--- PASS: TestMalformedExportCountRejected (0.00s)
+=== RUN   TestGoodMappedSample
+--- PASS: TestGoodMappedSample (0.44s)
+=== RUN   TestGoodImageSample
+--- PASS: TestGoodImageSample (0.32s)
+=== RUN   TestPreReadGates
+=== RUN   TestPreReadGates/noaccess
+=== RUN   TestPreReadGates/guard
+=== RUN   TestPreReadGates/private
+=== RUN   TestPreReadGates/allocation
+=== RUN   TestPreReadGates/notcommitted
+=== RUN   TestPreReadGates/range
+=== RUN   TestPreReadGates/query
+=== RUN   TestPreReadGates/identity
+=== RUN   TestPreReadGates/manifest
+=== RUN   TestPreReadGates/hash
+=== RUN   TestPreReadGates/module-size
+--- PASS: TestPreReadGates (2.26s)
+    --- PASS: TestPreReadGates/noaccess (0.24s)
+    --- PASS: TestPreReadGates/guard (0.19s)
+    --- PASS: TestPreReadGates/private (0.20s)
+    --- PASS: TestPreReadGates/allocation (0.21s)
+    --- PASS: TestPreReadGates/notcommitted (0.23s)
+    --- PASS: TestPreReadGates/range (0.19s)
+    --- PASS: TestPreReadGates/query (0.20s)
+    --- PASS: TestPreReadGates/identity (0.11s)
+    --- PASS: TestPreReadGates/manifest (0.24s)
+    --- PASS: TestPreReadGates/hash (0.25s)
+    --- PASS: TestPreReadGates/module-size (0.19s)
+=== RUN   TestPostReadFailuresDiscardPointer
+=== RUN   TestPostReadFailuresDiscardPointer/partial
+=== RUN   TestPostReadFailuresDiscardPointer/read-error
+=== RUN   TestPostReadFailuresDiscardPointer/identity
+=== RUN   TestPostReadFailuresDiscardPointer/module
+=== RUN   TestPostReadFailuresDiscardPointer/region
+=== RUN   TestPostReadFailuresDiscardPointer/disk
+--- PASS: TestPostReadFailuresDiscardPointer (1.61s)
+    --- PASS: TestPostReadFailuresDiscardPointer/partial (0.22s)
+    --- PASS: TestPostReadFailuresDiscardPointer/read-error (0.26s)
+    --- PASS: TestPostReadFailuresDiscardPointer/identity (0.26s)
+    --- PASS: TestPostReadFailuresDiscardPointer/module (0.24s)
+    --- PASS: TestPostReadFailuresDiscardPointer/region (0.24s)
+    --- PASS: TestPostReadFailuresDiscardPointer/disk (0.40s)
+=== RUN   TestUntrustedAndUnknownStayUnresolved
+=== RUN   TestUntrustedAndUnknownStayUnresolved/zero
+=== RUN   TestUntrustedAndUnknownStayUnresolved/nonexport
+=== RUN   TestUntrustedAndUnknownStayUnresolved/untrusted
+=== RUN   TestUntrustedAndUnknownStayUnresolved/hash
+=== RUN   TestUntrustedAndUnknownStayUnresolved/publisher
+=== RUN   TestUntrustedAndUnknownStayUnresolved/path
+--- PASS: TestUntrustedAndUnknownStayUnresolved (2.17s)
+    --- PASS: TestUntrustedAndUnknownStayUnresolved/zero (0.31s)
+    --- PASS: TestUntrustedAndUnknownStayUnresolved/nonexport (0.32s)
+    --- PASS: TestUntrustedAndUnknownStayUnresolved/untrusted (0.39s)
+    --- PASS: TestUntrustedAndUnknownStayUnresolved/hash (0.36s)
+    --- PASS: TestUntrustedAndUnknownStayUnresolved/publisher (0.39s)
+    --- PASS: TestUntrustedAndUnknownStayUnresolved/path (0.39s)
+=== RUN   TestRangeOverflowSafety
+--- PASS: TestRangeOverflowSafety (0.00s)
+=== RUN   TestBundleAllowlist
+--- PASS: TestBundleAllowlist (0.00s)
+=== RUN   TestAttemptMarkerStopsReuseBeforeOpen
+--- PASS: TestAttemptMarkerStopsReuseBeforeOpen (0.00s)
+=== RUN   TestEndianSlot
+--- PASS: TestEndianSlot (0.00s)
+=== RUN   TestCenterNormalWindow
+--- PASS: TestCenterNormalWindow (0.00s)
+=== RUN   TestCenterNegativeMonitorOrigin
+--- PASS: TestCenterNegativeMonitorOrigin (0.00s)
+=== RUN   TestOversizedOwnWindowAnchorsAtWorkArea
+--- PASS: TestOversizedOwnWindowAnchorsAtWorkArea (0.00s)
+=== RUN   TestBadWindowRectangleNotMoved
+--- PASS: TestBadWindowRectangleNotMoved (0.00s)
+=== RUN   TestGUIWorkerDoesNotRequestHiddenStartup
+--- PASS: TestGUIWorkerDoesNotRequestHiddenStartup (0.00s)
+PASS
+ok  	wlab-apiprobe	6.824s

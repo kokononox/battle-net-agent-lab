@@ -1,0 +1,33 @@
+{
+  "tool": "WLab APIProbe 0.1.0",
+  "tests": {
+    "go_tests": "PASS; synthetic fake target, local pinned disk fixtures, export aliases and refusal/failure cases",
+    "go_vet_linux": "PASS",
+    "go_vet_windows_amd64": "PASS",
+    "windows_cross_compile": "PASS",
+    "windows_test_binary_compile": "PASS; not executed",
+    "powerShell_ast": "PASS on Linux PowerShell 7.6.8; Windows PowerShell 5 runtime untested",
+    "owned_child_runner": "PASS on Linux; own children only, exit 0/7",
+    "cross_version_file_lock": "PASS on Linux/.NET; same helper as CodeRead/Snapshot",
+    "unsupported_backend": "PASS; zero target reads and one-attempt marker checked",
+    "repeat_build_byte_identical": true
+  },
+  "exe": {
+    "sha256": "1e9373fe6322922ddf271b5a59a9637f1f2491a06b40864efbc9857f69ab8b07",
+    "size": 3585536,
+    "pe_machine": "AMD64 0x8664",
+    "pe_subsystem": "Windows GUI 2",
+    "authenticode_signature": "absent"
+  },
+  "windows_runtime_tested": false,
+  "live_game_tested": false,
+  "api_name_resolved_on_user_machine": false,
+  "scope": "Only loader RVA 0x20A0750, at most one direct RPM call for exactly 8 bytes; no automatic retry",
+  "known_limits": [
+    "Non-atomic metadata/disk checks",
+    "Signed-disk-export address equality does not prove loaded code integrity or execution",
+    "Launcher signature assertions are not a hostile-local-input security boundary",
+    "OS signature verification may use system trust network services",
+    "No decrypted code or CPU/BIOS send evidence"
+  ]
+}

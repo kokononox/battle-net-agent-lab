@@ -1,0 +1,25 @@
+{
+  "tool": "WLab APIProbe 0.1.0",
+  "source_origin": "GUI/owned-child/shared-lock/own-window monitor adapted from local WLab CodeRead 0.1.1; new fixed-slot native backend and export resolver",
+  "build": "Go 1.27.3, Windows AMD64, CGO_ENABLED=0; source/build.sh; reproducible byte-identical rebuild observed",
+  "go": {
+    "archive": "go1.27.3.linux-amd64.tar.gz",
+    "sha256": "65efbc80fdc1fa2cd2631cad5b481777a68e8725f34e89f50fc6ac714e379b40",
+    "checksum_source": "https://go.dev/dl/?mode=json"
+  },
+  "powershell_for_syntax_tests": {
+    "asset": "powershell-7.6.8-linux-x64.tar.gz",
+    "sha256": "59112e38ad83350e4f6dc0195953c66b5926792f300ca2e7691b8242e7a16e7f",
+    "digest_source": "https://api.github.com/repos/PowerShell/PowerShell/releases/latest"
+  },
+  "exe": {
+    "sha256": "1e9373fe6322922ddf271b5a59a9637f1f2491a06b40864efbc9857f69ab8b07",
+    "size": 3585536,
+    "pe_machine": "AMD64 0x8664",
+    "pe_subsystem": "Windows GUI 2",
+    "authenticode_signature": "absent"
+  },
+  "windows_runtime_tested": false,
+  "third_party_archive_code_executed": false,
+  "user_game_binaries_in_package": false
+}
