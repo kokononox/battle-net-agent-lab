@@ -1,6 +1,16 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## آخرین گام — WLab Snapshot 0.1.2، اصلاح نمایش بر پایهٔ لاگ کاربر
+## آخرین گام — WLab Snapshot 0.1.3، اصلاح نتیجهٔ نامعلوم helper و ثبت خطا
+
+[راهنما](user-tools/wlab-snapshot-0.1.3/README.fa.md) · [شواهد کاربر](user-tools/wlab-snapshot-0.1.3/USER-PREPARATION-OBSERVATION.json) · [QA](user-tools/wlab-snapshot-0.1.3/QA.json) · [منشأ و هش باینری](user-tools/wlab-snapshot-0.1.3/PROVENANCE.json) · [وضعیت](user-tools/wlab-snapshot-0.1.3/SYNC-STATUS.json).
+
+گزارش 0.1.2 نشان داد کاربر از رابط به آماده‌سازی رسیده است، اما capture_started=false و prepare_exit_code=null بوده‌اند. این شواهد شکست قطعی دانلود یا اجرای snapshot نیستند. مقایسهٔ مستقیم null با صفر در کد قبلی نتیجه را به‌اشتباه failure می‌کرد؛ علت دقیق null روی Windows کاربر اثبات نشده است.
+
+اجرای مرحله‌ها اکنون با Process.Start و handle متعلق به برنامه انجام می‌شود؛ صفر، غیرصفر و unknown جدا هستند. دو probe متعلق به WLab با خروج عمدی 0 و 7 پیش از دانلود/capture، دریافت کد خروج و stdout/stderr را کنترل می‌کنند. گزارش کوچک شامل لاگ و نتیجهٔ مرحله‌های موجود است؛ dump کامل محلی می‌ماند. پیام پایان در توقف پیش از capture دیگر ادعای وجود dump نمی‌کند. روش ProcDump، hash pinها و اصلاح نمایش حفظ شده‌اند.
+
+۲۴ آزمون Go، پنج fixture مصنوعی، آزمون قفل، ۱۰ فرزند آزمایشی واقعی در Linux PowerShell، بررسی نحو و دو build یکسان گذشتند. **اجرای Windows نسخهٔ 0.1.3 و capture واقعی هنوز تأیید نشده‌اند.** گام بعد یک تلاش با نسخهٔ جدید و ارسال READY-TO-SEND.zip حتی در صورت خطاست؛ بدون تکرار خودکار. main و GUI BIOS Path 0.2 تغییر نکرده‌اند؛ ارسال CPU/BIOS روی TCP/3724 همچنان نامعلوم است. بخش‌های قدیمی زیر سابقه‌اند، نه دستور اجرای فعلی.
+
+## گام پیشین — WLab Snapshot 0.1.2، اصلاح نمایش بر پایهٔ لاگ کاربر
 
 [راهنمای نسخه](user-tools/wlab-snapshot-0.1.2/README.fa.md) · [شواهد شروع کاربر](user-tools/wlab-snapshot-0.1.2/USER-STARTUP-OBSERVATION.json) · [QA](user-tools/wlab-snapshot-0.1.2/QA.json) · [هش باینری](user-tools/wlab-snapshot-0.1.2/PROVENANCE.json) · [وضعیت](user-tools/wlab-snapshot-0.1.2/SYNC-STATUS.json).
 
