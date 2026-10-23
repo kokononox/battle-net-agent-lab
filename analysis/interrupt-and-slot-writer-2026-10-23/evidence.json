@@ -1,0 +1,82 @@
+{
+  "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "interrupt_stub": {
+    "rva": 7645408,
+    "first_bytes": "cd2ccccccccccccccccccccccccccccc",
+    "instruction": "int 0x2c",
+    "runtime_function_matches": [],
+    "runtime_interrupt_disposition": "unknown"
+  },
+  "wrapper": {
+    "begin": 14608912,
+    "bytes_through_call_and_trap": "4883ec28b962000000ba2300000041b83e000000e8b7be95ffcc",
+    "call_site": 14608932,
+    "callee": 7645408,
+    "runtime_function_matches": [
+      [
+        14608912,
+        14608938,
+        34218332
+      ]
+    ]
+  },
+  "slot": {
+    "rva": 35241416,
+    "section": ".data",
+    "file_backed": false,
+    "file_offset": null,
+    "zero_filled_virtual_tail": true,
+    "runtime_value_known": false
+  },
+  "slot_reference_scan": {
+    "executable_raw_bytes": 33735680,
+    "tails": [
+      0,
+      1,
+      2,
+      4,
+      8
+    ],
+    "candidates": [
+      {
+        "rva": 9460035,
+        "bytes": "4889057e648901",
+        "asm": "mov qword ptr [rip + 0x189647e], rax",
+        "access": "write",
+        "instruction_boundary_proven": false,
+        "reachable_writer_proven": false
+      },
+      {
+        "rva": 9460036,
+        "bytes": "89057e648901",
+        "asm": "mov dword ptr [rip + 0x189647e], eax",
+        "access": "write",
+        "instruction_boundary_proven": false,
+        "reachable_writer_proven": false
+      },
+      {
+        "rva": 32824448,
+        "bytes": "48ff2541e12400",
+        "asm": "jmp qword ptr [rip + 0x24e141]",
+        "access": "read",
+        "instruction_boundary_proven": true,
+        "reachable_writer_proven": false
+      },
+      {
+        "rva": 32824449,
+        "bytes": "ff2541e12400",
+        "asm": "jmp qword ptr [rip + 0x24e141]",
+        "access": "read",
+        "instruction_boundary_proven": false,
+        "reachable_writer_proven": false
+      }
+    ],
+    "scope": "Raw RIP-relative references only. Does not cover computed addresses, register-based writes, indirect initialization, runtime-generated code, exception transfers or all instruction starts. No writer is proven solely by decoding."
+  },
+  "claims": {
+    "decryptor_recovered": false,
+    "slot_writer_proven": false,
+    "key_recovered": false,
+    "hardware_send_proven": false
+  }
+}

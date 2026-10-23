@@ -1,0 +1,111 @@
+{
+  "sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "function_range": [
+    9448000,
+    9460390
+  ],
+  "entry_prefix": {
+    "rva": 9448000,
+    "bytes": "4157415641554154565755534881ec88070000488b0566d77c014831e0488984248007000049bd1eef01d77f66f2e949bf9a8dd0a4bc62a0dc48bdaf2e980cf335ebc849bc62185bc9a308885c48bf65722f5b439d5f238b0533dd820189c181f125d3d99c3529c01b9d01c181c1d7e05af5058a513f3431c148be817d58dcfa8b4917894c2430488d9c24600500004c8db42470060000eb7b",
+    "scope": "Straight-line prologue ending with direct JMP to dispatcher; no calls."
+  },
+  "initial_global_rva": 34801616,
+  "initial_global_policy": "symbolic DWORD; not fixed to disk or claimed as observed runtime",
+  "state_smt": "(bvxor (bvadd (bvxor initial_global_u32 #x9cd9d325)\n              (bvxor initial_global_u32 #x9d1bc029)\n              #xf55ae0d7)\n       (bvadd (bvxor initial_global_u32 #x9d1bc029) #x343f518a))",
+  "path": [
+    {
+      "rva": 9448276,
+      "bytes": "8b442430",
+      "asm": "mov eax, dword ptr [rsp + 0x30]"
+    },
+    {
+      "rva": 9448280,
+      "bytes": "3d28f88436",
+      "asm": "cmp eax, 0x3684f828"
+    },
+    {
+      "rva": 9448285,
+      "bytes": "7f71",
+      "asm": "jg 0x902bd0",
+      "taken": true
+    },
+    {
+      "rva": 9448400,
+      "bytes": "3d2e042250",
+      "asm": "cmp eax, 0x5022042e"
+    },
+    {
+      "rva": 9448405,
+      "bytes": "0f8ef5000000",
+      "asm": "jle 0x902cd0",
+      "taken": false
+    },
+    {
+      "rva": 9448411,
+      "bytes": "3d2268e26e",
+      "asm": "cmp eax, 0x6ee26822"
+    },
+    {
+      "rva": 9448416,
+      "bytes": "0f8f72020000",
+      "asm": "jg 0x902e58",
+      "taken": true
+    },
+    {
+      "rva": 9449048,
+      "bytes": "3d2ae46179",
+      "asm": "cmp eax, 0x7961e42a"
+    },
+    {
+      "rva": 9449053,
+      "bytes": "0f8e25040000",
+      "asm": "jle 0x903288",
+      "taken": true
+    },
+    {
+      "rva": 9450120,
+      "bytes": "3d6eef2f71",
+      "asm": "cmp eax, 0x712fef6e"
+    },
+    {
+      "rva": 9450125,
+      "bytes": "0f8e71120000",
+      "asm": "jle 0x904504",
+      "taken": true
+    },
+    {
+      "rva": 9454852,
+      "bytes": "3d2368e26e",
+      "asm": "cmp eax, 0x6ee26823"
+    },
+    {
+      "rva": 9454857,
+      "bytes": "0f852c140000",
+      "asm": "jne 0x90593b",
+      "taken": true
+    },
+    {
+      "rva": 9460027,
+      "bytes": "488b842438030000",
+      "asm": "mov rax, qword ptr [rsp + 0x338]"
+    }
+  ],
+  "path_smt_result": "sat",
+  "witness_global_u32": 4061583960,
+  "witness_state_u32": 1887137598,
+  "store_block": {
+    "rva": 9460027,
+    "bytes": "488b8424380300004889057e648901",
+    "load": "RAX <- [RSP+0x338]",
+    "store_rva": 9460035,
+    "destination_slot_rva": 35241416,
+    "stored_value_provenance": "local stack slot only; prior initialization and runtime pointer unresolved"
+  },
+  "claims": {
+    "static_store_instruction_verified": true,
+    "model_path_to_store_satisfiable": true,
+    "observed_runtime_store": false,
+    "runtime_pointer_recovered": false,
+    "target_page_preparation_proven": false
+  }
+}
