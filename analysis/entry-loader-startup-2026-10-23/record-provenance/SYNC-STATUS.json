@@ -1,0 +1,16 @@
+{
+  "schema": "wlab-step-sync-1",
+  "branch": "analysis/entry-loader-startup-2026-10-23",
+  "parent_review_commit": "dec998500dce550a8f1d497df441d4be9bb95ab3",
+  "step": "record-provenance",
+  "classification": "BaseDllName input under the cited conventional x64 loader layout; not runtime observation",
+  "length_half_condition": "word global at RVA 0x20F9B98 equals 0xF92D at read",
+  "pause_deeper_generic_callee_expansion": true,
+  "core_6995d0_analyzed": false,
+  "bios_send_3724_status": "unproven",
+  "absence_of_hardware_send_proven": false,
+  "main_modified": false,
+  "binary_input_modified": false,
+  "next_work": "Return to dedicated hardware-collection/message-population evidence; choose a concrete missing link instead of following generic callees",
+  "policy": "Commit source, evidence, tests and qualified conclusions at each completed step; no background synchronization"
+}

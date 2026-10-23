@@ -1,0 +1,29 @@
+{
+  "packaged_entrypoint_ran_twice": true,
+  "reports": [
+    {
+      "file": "provenance-proof.json",
+      "byte_identical": true,
+      "sha256": "bb6133aa0837170d83f9bf40bcc09546b17f9105dcdd71af9baae6ba9d4cc522"
+    },
+    {
+      "file": "verification.json",
+      "byte_identical": true,
+      "sha256": "67f7e3db62b4e81474f1bf498a3e8db10062a1be4de91ced170d693d296e5ff9"
+    }
+  ],
+  "negative_input_tests": [
+    {
+      "input_case": 0,
+      "unpinned_input_rejected": true,
+      "no_report_created": true
+    },
+    {
+      "input_case": 1,
+      "unpinned_input_rejected": true,
+      "no_report_created": true
+    }
+  ],
+  "input_PE_executed": false,
+  "binary_sha256_after": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c"
+}

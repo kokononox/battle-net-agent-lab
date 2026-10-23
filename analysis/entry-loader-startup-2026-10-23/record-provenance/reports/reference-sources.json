@@ -1,0 +1,11 @@
+{
+  "kind": "Public layout interpretation; not a runtime memory or OS-build observation",
+  "sources": [
+    {"url": "https://learn.microsoft.com/en-us/windows/win32/api/winternl/ns-winternl-teb", "role": "Official TEB definition", "used_fact": "The x64 pointer layout places ProcessEnvironmentBlock after twelve reserved pointers; offset 0x60.", "limit": "The definition is internal and may change; ordinary x64 GS/TEB semantics are assumed, not measured."},
+    {"url": "https://learn.microsoft.com/en-us/windows/win32/api/winternl/ns-winternl-peb", "role": "Official PEB definition", "used_fact": "The documented x64 prefix places the loader-data pointer at 0x18; it refers to loaded-module information.", "limit": "Not verification of the user's OS build."},
+    {"url": "https://learn.microsoft.com/en-us/windows/win32/api/winternl/ns-winternl-peb_ldr_data", "role": "Official partial loader-data definition and warning", "used_fact": "The public structure describes loaded modules but does not expose all internal field names.", "limit": "InLoadOrder and BaseDllName names/offsets below use a separate symbol-based reference, not this partial definition alone."},
+    {"url": "https://www.geoffchappell.com/studies/windows/km/ntoskrnl/inc/api/ntpsapi_x/peb_ldr_data.htm", "role": "Symbol-based private-layout reference", "used_fact": "The x64 InLoadOrderModuleList head is at 0x10.", "limit": "Historical public-symbol analysis; not symbols fetched for the user's machine."},
+    {"url": "https://www.geoffchappell.com/studies/windows/km/ntoskrnl/inc/api/ntldr/ldr_data_table_entry", "role": "Symbol-based private-layout reference", "used_fact": "The x64 load-order link begins at entry offset 0; BaseDllName is at 0x58, unlike FullDllName at 0x48.", "limit": "Layout interpretation only; no actual module name or enumeration observed."},
+    {"url": "https://learn.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-_unicode_string", "role": "Official string descriptor semantics", "used_fact": "Length counts bytes and Buffer points to wide-character storage. The x64 aligned Buffer member is eight bytes into the descriptor.", "limit": "No source bytes decoded; N is not a Unicode code-point count."}
+  ]
+}

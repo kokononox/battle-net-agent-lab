@@ -1,0 +1,77 @@
+{
+  "schema": "wlab-record-provenance-package-1",
+  "binary_inputs_included": false,
+  "baseline_artifacts_included": "Prior verified JSON and verifier source only, no PE",
+  "files": [
+    {
+      "path": "README.fa.md",
+      "bytes": 13501,
+      "sha256": "1f11daee0933ec63a8c50e43d82a0e1531f50cf2e1a5b42f170bfa8747d44305"
+    },
+    {
+      "path": "SYNC-STATUS.json",
+      "bytes": 892,
+      "sha256": "39347b92420604fb0c98eaeec1945b6a07fcf168ee2f4f65b2b0e0083b0286e3"
+    },
+    {
+      "path": "baseline/5c6440-scenario-proof.json",
+      "bytes": 77055,
+      "sha256": "46adf094875866a21580a222547763189bbd9e07e3f0c053a6501dc1770fd07b"
+    },
+    {
+      "path": "reports/length-arithmetic.asm",
+      "bytes": 1415,
+      "sha256": "a606aee1ab473851ba18985044eea822d55c5221f6ade6da73623edf61e1984f"
+    },
+    {
+      "path": "reports/provenance-proof.json",
+      "bytes": 11722,
+      "sha256": "bb6133aa0837170d83f9bf40bcc09546b17f9105dcdd71af9baae6ba9d4cc522"
+    },
+    {
+      "path": "reports/reference-sources.json",
+      "bytes": 2218,
+      "sha256": "0def61e5b2904f49daf58192889121aefd9c1b293a3236ed25fdc19f9f6b763c"
+    },
+    {
+      "path": "reports/reproduction.json",
+      "bytes": 758,
+      "sha256": "35d19af76463b6d2737070ccfdd1d825a9cf5ba9244de14deff07be951e76118"
+    },
+    {
+      "path": "reports/verification.json",
+      "bytes": 3970,
+      "sha256": "67f7e3db62b4e81474f1bf498a3e8db10062a1be4de91ced170d693d296e5ff9"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 54,
+      "sha256": "b71f7bcc447a80a42c83e3af2c85f6bd2aded0ec4bd286bc9bbe9ed1ad635359"
+    },
+    {
+      "path": "source/analyze_record.py",
+      "bytes": 7524,
+      "sha256": "1ce21914bdce672c1991c40de487ba1c7920ebbdcfb4a8c9b292279e42efb84e"
+    },
+    {
+      "path": "source/baseline_5c6440.py",
+      "bytes": 9978,
+      "sha256": "ce5efa1e1110061602307968d56847b6c5d272323ba523fe0ed055def093e72c"
+    },
+    {
+      "path": "source/pe_manual.py",
+      "bytes": 2788,
+      "sha256": "606df467bab3d472993007987333fd363c65338aec93a8548cdcca3ba8d3e018"
+    },
+    {
+      "path": "source/run_review.py",
+      "bytes": 702,
+      "sha256": "dc5a29a975a0e6ea86770ff6caa773cdb70d36e7ae15091a204d00c141494eb5"
+    },
+    {
+      "path": "source/verify_record.py",
+      "bytes": 11404,
+      "sha256": "8b61730f435b7aff3e64cf2e0c31d82ea5b3b67a5a785217e564f1a86161ed8f"
+    }
+  ]
+}

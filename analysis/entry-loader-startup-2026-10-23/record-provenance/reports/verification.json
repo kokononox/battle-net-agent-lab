@@ -1,0 +1,195 @@
+{
+  "manual_PE_and_byte_locks": "passed",
+  "current_arithmetic_implementation": "separate Python integers, no Z3 or Capstone required for new length formula",
+  "global_shift_domain_size": 65536,
+  "global_shift_histogram": {
+    "0": 1024,
+    "1": 1024,
+    "2": 1024,
+    "3": 1024,
+    "4": 1024,
+    "5": 1024,
+    "6": 1024,
+    "7": 1024,
+    "8": 1024,
+    "9": 1024,
+    "10": 1024,
+    "11": 1024,
+    "12": 1024,
+    "13": 1024,
+    "14": 1024,
+    "15": 1024,
+    "16": 1024,
+    "17": 1024,
+    "18": 1024,
+    "19": 1024,
+    "20": 1024,
+    "21": 1024,
+    "22": 1024,
+    "23": 1024,
+    "24": 1024,
+    "25": 1024,
+    "26": 1024,
+    "27": 1024,
+    "28": 1024,
+    "29": 1024,
+    "30": 1024,
+    "31": 1024,
+    "32": 1024,
+    "33": 1024,
+    "34": 1024,
+    "35": 1024,
+    "36": 1024,
+    "37": 1024,
+    "38": 1024,
+    "39": 1024,
+    "40": 1024,
+    "41": 1024,
+    "42": 1024,
+    "43": 1024,
+    "44": 1024,
+    "45": 1024,
+    "46": 1024,
+    "47": 1024,
+    "48": 1024,
+    "49": 1024,
+    "50": 1024,
+    "51": 1024,
+    "52": 1024,
+    "53": 1024,
+    "54": 1024,
+    "55": 1024,
+    "56": 1024,
+    "57": 1024,
+    "58": 1024,
+    "59": 1024,
+    "60": 1024,
+    "61": 1024,
+    "62": 1024,
+    "63": 1024
+  },
+  "length_domain_at_disk_global": 65536,
+  "disk_shift": 1,
+  "reference_layout_derived_with_ctypes": {
+    "TEB.ProcessEnvironmentBlock": 96,
+    "PEB.Ldr": 24,
+    "PEB_LDR_DATA.InLoadOrderModuleList": 16,
+    "LDR_DATA_TABLE_ENTRY.InLoadOrderLinks": 0,
+    "UNICODE_STRING.Buffer": 8,
+    "LDR_DATA_TABLE_ENTRY.BaseDllName": 88,
+    "record_length_offset": 88,
+    "record_buffer_offset": 96,
+    "record_adjustment": 0,
+    "reference_layout_only": true,
+    "runtime_os_build_confirmed": false
+  },
+  "synthetic_fixtures": [
+    {
+      "synthetic": true,
+      "length_bytes": 0,
+      "N": 0,
+      "source_byte_extent": 0
+    },
+    {
+      "synthetic": true,
+      "length_bytes": 2,
+      "N": 1,
+      "source_byte_extent": 2
+    },
+    {
+      "synthetic": true,
+      "length_bytes": 6,
+      "N": 3,
+      "source_byte_extent": 6
+    },
+    {
+      "synthetic": true,
+      "length_bytes": 14,
+      "N": 7,
+      "source_byte_extent": 14
+    },
+    {
+      "synthetic": true,
+      "length_bytes": 65534,
+      "N": 32767,
+      "source_byte_extent": 65534
+    },
+    {
+      "synthetic": true,
+      "length_bytes": 65535,
+      "N": 32767,
+      "source_byte_extent": 65534
+    },
+    {
+      "synthetic": true,
+      "empty_list_returns_frontier": "0x14C3838",
+      "record_fields_read": false
+    }
+  ],
+  "guard_paths_checked": {
+    "record_PF_cases": 2,
+    "wrapper_CF_cases": 2
+  },
+  "prior_5c6440_replay_rechecked": true,
+  "prior_replay_decoder": "shared Capstone from earlier verifier; not an independent decoder",
+  "mutation_tests": [
+    {
+      "mutation": "wrong_list",
+      "rejected": true
+    },
+    {
+      "mutation": "wrong_entry_adjustment",
+      "rejected": true
+    },
+    {
+      "mutation": "wrong_string_field",
+      "rejected": true
+    },
+    {
+      "mutation": "wrong_buffer_offset",
+      "rejected": true
+    },
+    {
+      "mutation": "assumed_runtime_global",
+      "rejected": true
+    },
+    {
+      "mutation": "removed_length_condition",
+      "rejected": true
+    },
+    {
+      "mutation": "wrong_N_scale",
+      "rejected": true
+    },
+    {
+      "mutation": "wrong_U_source",
+      "rejected": true
+    },
+    {
+      "mutation": "damaged_bytes",
+      "rejected": true
+    },
+    {
+      "mutation": "claimed_runtime_name",
+      "rejected": true
+    },
+    {
+      "mutation": "claimed_no_hardware_send",
+      "rejected": true
+    },
+    {
+      "mutation": "claimed_BIOS_send",
+      "rejected": true
+    },
+    {
+      "mutation": "claimed_current_OS_verified",
+      "rejected": true
+    },
+    {
+      "mutation": "damaged_baseline_link",
+      "rejected": true
+    }
+  ],
+  "input_PE_executed": false,
+  "runtime_structure_contents_observed": false
+}

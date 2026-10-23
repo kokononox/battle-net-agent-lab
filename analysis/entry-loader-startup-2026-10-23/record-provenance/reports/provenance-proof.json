@@ -1,0 +1,339 @@
+{
+  "schema": "wlab-record-provenance-1",
+  "module_sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "assumptions": [
+    "Conditional on reaching 0x14C2225 and its nonempty-list branch; code unchanged and ordinary valid reads; no concurrent loader-list mutation",
+    "Structure names assume ordinary Windows x64 GS/TEB semantics and the cited reference layout, not an observed OS build or runtime memory snapshot",
+    "The half-length formula requires word global G=0xF92D at the read; no runtime invariance is assumed",
+    "Transfer through 0x5C6440 inherits the rechecked previous static disk-global scenario and stack guard; it is not an observed execution"
+  ],
+  "byte_sections": [
+    {
+      "name": "record_chain",
+      "rva": 21766693,
+      "bytes": "65488b042560000000488b4018488d481048898c2460030000488b40104839c80f84ed150000"
+    },
+    {
+      "name": "record_preservation",
+      "rva": 21766731,
+      "bytes": "4889842490020000488b8424900200004889842418010000"
+    },
+    {
+      "name": "length_arithmetic",
+      "rva": 21766883,
+      "bytes": "0fb740580fb70daa78c3008d912af8ffff448d81bc1100004131d089caf7d24189d14181c9962d00004189d24181e269d2ffff4501ca81e1962d000001c981f12c5b00004401d129d1ffc14431c10c008aed"
+    },
+    {
+      "name": "shift",
+      "rva": 21767028,
+      "bytes": "80f1d648d3e8"
+    },
+    {
+      "name": "argument_preparation",
+      "rva": 21767188,
+      "bytes": "488b8c24180100004c8b4160488d8c24d805000048894c242848c74424305b00000048c74424204d00000041b9440000004889c1488d9424e0070000e84b1c0f00"
+    },
+    {
+      "name": "wrapper_entry",
+      "rva": 22757536,
+      "bytes": "4883ec384c89c04c8b4c2468"
+    },
+    {
+      "name": "wrapper_transfer",
+      "rva": 22757611,
+      "bytes": "48894c243048c74424281c00000048c74424202100000041b8460000004889d14889c2e82d2301ff"
+    },
+    {
+      "name": "consumer_inputs",
+      "rva": 6829979,
+      "bytes": "488b8424480100004c8bac2438010000488b9c2430010000"
+    },
+    {
+      "name": "consumer_end",
+      "rva": 6830059,
+      "bytes": "498d744500"
+    },
+    {
+      "name": "length_jump",
+      "rva": 21766965,
+      "bytes": "713d"
+    },
+    {
+      "name": "guard_14c237a",
+      "rva": 21767034,
+      "bytes": "7b36"
+    },
+    {
+      "name": "guard_14c237c",
+      "rva": 21767036,
+      "bytes": "7a4a"
+    },
+    {
+      "name": "guard_14c23b2",
+      "rva": 21767090,
+      "bytes": "7b08"
+    },
+    {
+      "name": "guard_14c23bc",
+      "rva": 21767100,
+      "bytes": "7b16"
+    },
+    {
+      "name": "guard_14c23c8",
+      "rva": 21767112,
+      "bytes": "7a0a"
+    },
+    {
+      "name": "guard_14c23d4",
+      "rva": 21767124,
+      "bytes": "a8e1"
+    },
+    {
+      "name": "guard_14c23d6",
+      "rva": 21767126,
+      "bytes": "c0ff00"
+    },
+    {
+      "name": "guard_14c23d9",
+      "rva": 21767129,
+      "bytes": "7128"
+    },
+    {
+      "name": "guard_14c2403",
+      "rva": 21767171,
+      "bytes": "90"
+    },
+    {
+      "name": "guard_14c2404",
+      "rva": 21767172,
+      "bytes": "710e"
+    },
+    {
+      "name": "guard_15b40ac",
+      "rva": 22757548,
+      "bytes": "733b"
+    },
+    {
+      "name": "guard_15b40ae",
+      "rva": 22757550,
+      "bytes": "86ff"
+    },
+    {
+      "name": "guard_15b40b0",
+      "rva": 22757552,
+      "bytes": "722b"
+    },
+    {
+      "name": "guard_15b40dd",
+      "rva": 22757597,
+      "bytes": "720c"
+    },
+    {
+      "name": "guard_15b40e9",
+      "rva": 22757609,
+      "bytes": "7300"
+    }
+  ],
+  "arithmetic_trace": [
+    {
+      "rva": 21766883,
+      "bytes": "0fb74058",
+      "mnemonic": "movzx",
+      "operands": "eax, word ptr [rax + 0x58]"
+    },
+    {
+      "rva": 21766887,
+      "bytes": "0fb70daa78c300",
+      "mnemonic": "movzx",
+      "operands": "ecx, word ptr [rip + 0xc378aa]"
+    },
+    {
+      "rva": 21766894,
+      "bytes": "8d912af8ffff",
+      "mnemonic": "lea",
+      "operands": "edx, [rcx - 0x7d6]"
+    },
+    {
+      "rva": 21766900,
+      "bytes": "448d81bc110000",
+      "mnemonic": "lea",
+      "operands": "r8d, [rcx + 0x11bc]"
+    },
+    {
+      "rva": 21766907,
+      "bytes": "4131d0",
+      "mnemonic": "xor",
+      "operands": "r8d, edx"
+    },
+    {
+      "rva": 21766910,
+      "bytes": "89ca",
+      "mnemonic": "mov",
+      "operands": "edx, ecx"
+    },
+    {
+      "rva": 21766912,
+      "bytes": "f7d2",
+      "mnemonic": "not",
+      "operands": "edx"
+    },
+    {
+      "rva": 21766914,
+      "bytes": "4189d1",
+      "mnemonic": "mov",
+      "operands": "r9d, edx"
+    },
+    {
+      "rva": 21766917,
+      "bytes": "4181c9962d0000",
+      "mnemonic": "or",
+      "operands": "r9d, 0x2d96"
+    },
+    {
+      "rva": 21766924,
+      "bytes": "4189d2",
+      "mnemonic": "mov",
+      "operands": "r10d, edx"
+    },
+    {
+      "rva": 21766927,
+      "bytes": "4181e269d2ffff",
+      "mnemonic": "and",
+      "operands": "r10d, 0xffffd269"
+    },
+    {
+      "rva": 21766934,
+      "bytes": "4501ca",
+      "mnemonic": "add",
+      "operands": "r10d, r9d"
+    },
+    {
+      "rva": 21766937,
+      "bytes": "81e1962d0000",
+      "mnemonic": "and",
+      "operands": "ecx, 0x2d96"
+    },
+    {
+      "rva": 21766943,
+      "bytes": "01c9",
+      "mnemonic": "add",
+      "operands": "ecx, ecx"
+    },
+    {
+      "rva": 21766945,
+      "bytes": "81f12c5b0000",
+      "mnemonic": "xor",
+      "operands": "ecx, 0x5b2c"
+    },
+    {
+      "rva": 21766951,
+      "bytes": "4401d1",
+      "mnemonic": "add",
+      "operands": "ecx, r10d"
+    },
+    {
+      "rva": 21766954,
+      "bytes": "29d1",
+      "mnemonic": "sub",
+      "operands": "ecx, edx"
+    },
+    {
+      "rva": 21766956,
+      "bytes": "ffc1",
+      "mnemonic": "inc",
+      "operands": "ecx"
+    },
+    {
+      "rva": 21766958,
+      "bytes": "4431c1",
+      "mnemonic": "xor",
+      "operands": "ecx, r8d"
+    },
+    {
+      "rva": 21766961,
+      "bytes": "0c00",
+      "mnemonic": "or",
+      "operands": "al, 0"
+    },
+    {
+      "rva": 21766963,
+      "bytes": "8aed",
+      "mnemonic": "mov",
+      "operands": "ch, ch"
+    },
+    {
+      "rva": 21767028,
+      "bytes": "80f1d6",
+      "mnemonic": "xor",
+      "operands": "cl, 0xd6"
+    },
+    {
+      "rva": 21767031,
+      "bytes": "48d3e8",
+      "mnemonic": "shr",
+      "operands": "rax, cl"
+    }
+  ],
+  "word_global": {
+    "rva": 34577304,
+    "disk_u16": 63789,
+    "runtime_invariant": false
+  },
+  "symbolic": {
+    "effective_shift_smt2": "(let ((a!1 (bvmul #x00000002\n                  (concat #b000000000000000000\n                          ((_ extract 13 13) word_global)\n                          #b0\n                          ((_ extract 11 10) word_global)\n                          #b0\n                          ((_ extract 8 7) word_global)\n                          #b00\n                          ((_ extract 4 4) word_global)\n                          #b0\n                          ((_ extract 2 1) word_global)\n                          #b0))))\n(let ((a!2 (concat (bvnot ((_ extract 5 5) a!1))\n                   ((_ extract 4 4) a!1)\n                   (bvnot ((_ extract 3 2) a!1))\n                   (bvmul #b10 (concat ((_ extract 1 1) word_global) #b0)))))\n(let ((a!3 (bvadd #b000001\n                  a!2\n                  (concat (bvnot ((_ extract 5 5) word_global))\n                          #b0\n                          (bvnot ((_ extract 3 3) word_global))\n                          #b00\n                          (bvnot ((_ extract 0 0) word_global)))\n                  (concat (bvnot ((_ extract 5 5) word_global))\n                          #b1\n                          (bvnot ((_ extract 3 3) word_global))\n                          #b11\n                          (bvnot ((_ extract 0 0) word_global)))\n                  (bvmul #b111111 (bvnot ((_ extract 5 0) word_global))))))\n  (concat #b0000000000000000000000000000000000000000000000000000000000\n          (bvxor #b010110\n                 a!3\n                 (bvadd #b111100 ((_ extract 5 0) word_global))\n                 (bvadd #b101010 ((_ extract 5 0) word_global)))))))",
+    "N_smt2": "(let ((a!1 (bvmul #x00000002\n                  (concat #b000000000000000000\n                          ((_ extract 13 13) word_global)\n                          #b0\n                          ((_ extract 11 10) word_global)\n                          #b0\n                          ((_ extract 8 7) word_global)\n                          #b00\n                          ((_ extract 4 4) word_global)\n                          #b0\n                          ((_ extract 2 1) word_global)\n                          #b0))))\n(let ((a!2 (concat (bvnot ((_ extract 5 5) a!1))\n                   ((_ extract 4 4) a!1)\n                   (bvnot ((_ extract 3 2) a!1))\n                   (bvmul #b10 (concat ((_ extract 1 1) word_global) #b0)))))\n(let ((a!3 (bvadd #b000001\n                  a!2\n                  (concat (bvnot ((_ extract 5 5) word_global))\n                          #b0\n                          (bvnot ((_ extract 3 3) word_global))\n                          #b00\n                          (bvnot ((_ extract 0 0) word_global)))\n                  (concat (bvnot ((_ extract 5 5) word_global))\n                          #b1\n                          (bvnot ((_ extract 3 3) word_global))\n                          #b11\n                          (bvnot ((_ extract 0 0) word_global)))\n                  (bvmul #b111111 (bvnot ((_ extract 5 0) word_global))))))\n(let ((a!4 (concat #b0000000000000000000000000000000000000000000000000000000000\n                   (bvxor #b010110\n                          a!3\n                          (bvadd #b111100 ((_ extract 5 0) word_global))\n                          (bvadd #b101010 ((_ extract 5 0) word_global))))))\n  (bvlshr (concat #x000000000000 record_word_58) a!4)))))"
+  },
+  "proofs": {
+    "disk_shift_is_one": "unsat",
+    "disk_N_is_half_word": "unsat",
+    "even_byte_extent": "unsat",
+    "all_byte_extent": "unsat",
+    "source_end": "unsat"
+  },
+  "noninvariant_counterexample": {
+    "kind": "solver witness, not runtime observation",
+    "global_word": 6,
+    "effective_shift": 52,
+    "record_word": 2,
+    "N": 0,
+    "half_word": 1
+  },
+  "layout_mapping": {
+    "TEB.ProcessEnvironmentBlock": 96,
+    "PEB.Ldr": 24,
+    "PEB_LDR_DATA.InLoadOrderModuleList": 16,
+    "LDR_DATA_TABLE_ENTRY.InLoadOrderLinks": 0,
+    "UNICODE_STRING.Buffer": 8,
+    "LDR_DATA_TABLE_ENTRY.BaseDllName": 88,
+    "record_length_offset": 88,
+    "record_buffer_offset": 96,
+    "record_adjustment": 0,
+    "reference_layout_only": true,
+    "runtime_os_build_confirmed": false
+  },
+  "transfer": {
+    "U": "qword(record + 0x60)",
+    "L": "word(record + 0x58)",
+    "N_disk_scenario": "floor(L/2)",
+    "argument_path": [
+      "0x14C2450: RCX=N, R8=U",
+      "0x15B410E: RDX=U, stack argument 7=N",
+      "0x5C6ED9: stack argument 6=U, stack argument 8=N",
+      "0x68379B..0x6837EF: source range U..U+2*N"
+    ],
+    "baseline_5c6440_rechecked": true,
+    "baseline_report_sha256": "46adf094875866a21580a222547763189bbd9e07e3f0c053a6501dc1770fd07b"
+  },
+  "conclusions": {
+    "static_reference_layout_interpretation": "loaded-module BaseDllName descriptor",
+    "actual_module_name_observed": false,
+    "runtime_execution_observed": false,
+    "BIOS_read_proven": false,
+    "CPU_BIOS_send_3724_proven": false,
+    "absence_of_hardware_send_proven": false,
+    "runtime_contents_decoded": false,
+    "core_6995d0_analyzed": false,
+    "pause_deeper_generic_callee_expansion": true,
+    "next_work": "Return to dedicated hardware-collection/message-population evidence; do not continue this generic name-buffer branch solely for 3724"
+  }
+}
