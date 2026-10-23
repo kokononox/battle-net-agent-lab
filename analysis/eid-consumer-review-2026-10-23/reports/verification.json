@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "Stdlib byte/index/PE/partition and two local branch-contradiction checks; NOT independent instruction/CFG validation or runtime evidence.",
+  "indexed_candidates_checked": 746,
+  "dir64_target_matches": 0,
+  "corruptions_rejected": [
+    "wrong target",
+    "wrong bytes",
+    "wrong displacement",
+    "wrong literal offset",
+    "unbacked consumer claim",
+    "wrong section bounds"
+  ],
+  "local_witness_contradictions_verified": 2,
+  "input_sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c"
+}
