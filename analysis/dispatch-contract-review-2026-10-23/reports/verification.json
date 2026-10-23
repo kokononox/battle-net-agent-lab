@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "Independent stdlib load-config/slot/call/thunk arithmetic and objdump instruction boundaries; no runtime or full CFG validation.",
+  "dispatch_fields_checked": 2,
+  "disk_chains_checked": 2,
+  "callsites_checked": 3,
+  "unique_instruction_boundaries_checked": 110,
+  "direct_relative_branches_checked": 13,
+  "mutations_rejected": [
+    "field offset",
+    "dispatch slot",
+    "thunk target",
+    "terminal bytes",
+    "runtime claim",
+    "helper bytes",
+    "config size"
+  ]
+}
