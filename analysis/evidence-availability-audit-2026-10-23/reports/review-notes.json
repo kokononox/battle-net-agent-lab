@@ -1,0 +1,41 @@
+{
+  "archive_scope": {
+    "zip_archives": 35,
+    "members_fully_read": 707,
+    "original_game_disk_pe_members": 3,
+    "lab_tool_pe_members": 11,
+    "raw_dump_etl_pdb_packet_members": 0,
+    "unread_or_encrypted_members": 0
+  },
+  "local_nonarchive_findings": {
+    "synthetic_dump_test_files": 27,
+    "powershell_symbol_file_not_game_symbol": 1,
+    "user_text_notes": 3,
+    "fixture_provenance_files": 2
+  },
+  "probe_interpretation": [
+    "CodeRead 0.1.0 analysis reports read_failed and zero page-read records.",
+    "CodeRead 0.1.1 analysis reports stopped on guard/no-access page; this is not recovered code.",
+    "APIProbe 0.1.0 and 0.1.1 report read_calls=0 and memory_bytes_returned=0.",
+    "ProcDump success logs identify WLab-Control-0.1.0.exe, not Wow.exe; actual control dump files are not members of the return ZIP."
+  ],
+  "third_party_interpretation": [
+    "NORMAL/AGGRESSIVE/ANSWERS archives contain reports, scripts and CSVs, not raw ETL, reconstructed game pages or matched game symbols.",
+    "Registry values in a monitor CSV are not a build-matched trace of game message-field population."
+  ],
+  "conversation_gap": {
+    "artifact": "gg.pcapng.gz",
+    "mentioned_in": "pasted-text(11).txt",
+    "available_in_current_local_scope": false,
+    "interpretation": "Previous conversation describes a network capture and its analysis, not recovered target code. Missing from current scope does not mean never supplied or nonexistent on user machine.",
+    "would_resolve_code_or_plaintext_chain_by_itself": false
+  },
+  "limited_repository_check": {
+    "url": "https://github.com/kokononox/battle-net-agent-lab/blob/f6feaddae7176382f61f785bab6f4dbad607ef95/reports/session-20261022/wow-network-evidence.json",
+    "git_blob_sha": "af5b62c5a86eaf786b586e55414f36c355179322",
+    "schema": "wow-session-evidence-summary-1",
+    "raw_capture_synced_field": false,
+    "interpretation": "Derived network/session summary, not the raw gg capture and not a field-population trace. Search returned incomplete_results; no exhaustive repository absence claim."
+  },
+  "decision": "No new build-matched runtime code, field-population trace or matched game symbols were established in audited materials. Do not install or repeat collection tools without defining the missing witness and acceptance checks."
+}

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "Inventory size/hash/member-list recomputation with Python ZipFile plus separate unzip CRC test; not independent semantic proof of all text or runtime origins.",
+  "input_entries_verified": 70,
+  "archives_crc_verified_with_unzip": 35,
+  "members_verified": 707,
+  "pe_members_verified_as_original_disk_or_lab_tools": 14,
+  "synthetic_fixture_source_checked_not_executed": true,
+  "control_success_logs_confirmed_as_control_process": true,
+  "mutations_rejected": [
+    "member removed",
+    "member hash changed",
+    "archive count inflated",
+    "fixture reclassified runtime",
+    "symbols claim",
+    "unread gap hidden"
+  ]
+}
