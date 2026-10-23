@@ -1,6 +1,14 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## تازه‌ترین مشاهده — تلاش واقعی 0.1.5، شکست ProcDump با بازی عادی
+## قدم بعد — WLab Control 0.1.0، فقط هدف آزمایشی متعلق به خود ابزار
+
+[راهنما](user-tools/wlab-control-0.1.0/README.fa.md) · [QA](user-tools/wlab-control-0.1.0/QA.json) · [هش و provenance](user-tools/wlab-control-0.1.0/PROVENANCE.json) · [وضعیت](user-tools/wlab-control-0.1.0/SYNC-STATUS.json).
+
+کاربر تأیید کرد در تلاش شکست‌خوردهٔ 0.1.5 هیچ snapshot.dmp باقی نمانده و بازی عادی بوده است؛ بنابراین artifact برای تحلیل آفلاین نداریم. به‌جای تکرار capture بازی، ابزار مستقل کنترل آماده شد: write/flush/readback یک MiB روی G، و دو dump از فرزند تازهٔ خود WLab، یکی PSS clone و یکی بدون clone. PID فقط از فرزند ساخته‌شده می‌آید؛ هیچ انتخاب Wow، PID دلخواه یا CLI استخراج بازی در این ابزار وجود ندارد. روش مستقیم فقط برای همین هدف کنترل است و مجوز/پیشنهاد attach مستقیم به بازی نیست. dumpهای کنترل محلی می‌مانند؛ ZIP فقط گزارش و لاگ‌هاست.
+
+۱۰ آزمون Go، پنج parse PowerShell، شش header fixture، write/readback واقعی Linux، decode لاگ UTF-16LE، آزمون child runner و قفل مستقل و worker CLI واقعی، vet و دو build یکسان گذشتند. **ProcDump/PSS و رابط Windows واقعاً در محیط ساخت اجرا نشده‌اند.** این آزمون کنترل هنوز باید روی دستگاه کاربر اجرا شود؛ هیچ علت قطعی برای خطای قبلی یا موفقیت capture بازی اعلام نشده است. بازی برای کنترل لازم نیست باز باشد. main و GUI BIOS Path 0.2 دست‌نخورده‌اند؛ CPU/BIOS روی TCP/3724 همچنان نامعلوم است. دستورهای قدیمی Snapshot زیر سابقه‌اند، نه درخواست capture مجدد بازی.
+
+## مشاهدهٔ پیشین — تلاش واقعی 0.1.5، شکست ProcDump با بازی عادی
 
 [بررسی و قدم بعد](reports/snapshot-0.1.5-first-capture/REVIEW.fa.md) · [گزارش ساختاریافته](reports/snapshot-0.1.5-first-capture/OBSERVATION.json) · [لاگ decoded](reports/snapshot-0.1.5-first-capture/procdump-decoded.txt).
 

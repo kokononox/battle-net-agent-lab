@@ -1,0 +1,23 @@
+=== RUN   TestOwnedWorkerWritesIdentity
+WLAB-CONTROL-WORKER-READY
+--- PASS: TestOwnedWorkerWritesIdentity (0.01s)
+=== RUN   TestOwnedWorkerDoesNotOverwriteReady
+--- PASS: TestOwnedWorkerDoesNotOverwriteReady (0.00s)
+=== RUN   TestBundleExcludesDumpsAndUnknownFiles
+--- PASS: TestBundleExcludesDumpsAndUnknownFiles (0.00s)
+=== RUN   TestBundleRejectsLargeAllowedMember
+--- PASS: TestBundleRejectsLargeAllowedMember (0.00s)
+=== RUN   TestControlTargetComesOnlyFromOwnedWorker
+--- PASS: TestControlTargetComesOnlyFromOwnedWorker (0.00s)
+=== RUN   TestCenterNormalWindow
+--- PASS: TestCenterNormalWindow (0.00s)
+=== RUN   TestCenterNegativeMonitorOrigin
+--- PASS: TestCenterNegativeMonitorOrigin (0.00s)
+=== RUN   TestOversizedOwnWindowAnchorsAtWorkArea
+--- PASS: TestOversizedOwnWindowAnchorsAtWorkArea (0.00s)
+=== RUN   TestBadWindowRectangleNotMoved
+--- PASS: TestBadWindowRectangleNotMoved (0.00s)
+=== RUN   TestGUIWorkerDoesNotRequestHiddenStartup
+--- PASS: TestGUIWorkerDoesNotRequestHiddenStartup (0.00s)
+PASS
+ok  	wlab-control	0.018s

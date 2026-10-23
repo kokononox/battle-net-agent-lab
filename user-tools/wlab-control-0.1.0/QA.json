@@ -1,0 +1,65 @@
+{
+  "tool": "WLab Control 0.1.0",
+  "go_unit_tests_passed": 10,
+  "go_tests": {
+    "owned_worker_identity_and_no_overwrite": 2,
+    "report_allowlist_and_size_limit": 2,
+    "own_target_source_guard": 1,
+    "window_geometry_and_startup_flags": 5
+  },
+  "powershell_support_tests": {
+    "header_cases_passed": 6,
+    "header_scope": "basic header only",
+    "one_MiB_flush_readback_passed": true,
+    "write_probe_cleanup_passed": true,
+    "UTF16LE_without_BOM_decoded": true,
+    "case_list_JSON_preserved": true,
+    "windows_ProcDump_executed": false
+  },
+  "actual_child_runner_regression": {
+    "platform": "PowerShell on current test OS",
+    "null_classified_unknown": true,
+    "string_zero_classified_unknown": true,
+    "actual_zero_and_nonzero_selftests": [
+      {
+        "expected_exit_code": 0,
+        "actual_exit_code": 0,
+        "status": "succeeded",
+        "passed": true
+      },
+      {
+        "expected_exit_code": 7,
+        "actual_exit_code": 7,
+        "status": "failed",
+        "passed": true
+      }
+    ],
+    "fast_exit_children_verified": 8,
+    "result_reuse_after_cleanup": true,
+    "windows_runtime_tested": false
+  },
+  "capture_lock_regression": {
+    "platform": "Linux PowerShell/.NET",
+    "preexisting_file_without_handle_accepted": true,
+    "second_live_holder_rejected": true,
+    "graceful_release_reacquires": true,
+    "terminated_owned_test_holder_reacquires": true,
+    "windows_ui_runtime_tested": false,
+    "game_capture_tested": false
+  },
+  "owned_worker_CLI_smoke_test": {
+    "actual_Linux_owned_CLI_worker_ready": true,
+    "PID_matches_created_child": true,
+    "allocated_test_bytes": 2097152,
+    "Windows_capture_tested": false
+  },
+  "powershell_AST": "all five embedded .ps1 scripts passed on Linux PowerShell 7.6.8; not Windows PS 5.1 runtime",
+  "go_vet_linux_and_windows": "passed",
+  "Windows_amd64_GUI_cross_compile": "passed",
+  "two_builds_identical": true,
+  "native_Win32_UI_and_disk_API_executed_here": false,
+  "actual_Windows_ProcDump_controls_tested_here": false,
+  "game_capture_requested": false,
+  "game_capture_support_established": false,
+  "runtime_send_3724": "unresolved"
+}

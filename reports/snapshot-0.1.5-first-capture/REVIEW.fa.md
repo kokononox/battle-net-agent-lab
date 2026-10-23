@@ -11,3 +11,5 @@
 ارسال CPU/BIOS روی TCP/3724 همچنان نامعلوم است. main و GUI BIOS Path 0.2 دست‌نخورده‌اند.
 
 منبع رسمی: https://learn.microsoft.com/en-us/sysinternals/downloads/procdump
+
+کاربر سپس نبود snapshot.dmp را تأیید کرد. قدم بعد به آزمون مستقل روی فرزند خود WLab محدود شد؛ بازی برای آن لازم نیست و capture مجدد بازی انجام نمی‌شود. راهنما: ../../user-tools/wlab-control-0.1.0/README.fa.md

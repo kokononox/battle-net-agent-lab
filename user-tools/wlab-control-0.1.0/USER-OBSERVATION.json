@@ -1,0 +1,95 @@
+{
+  "source_filename": "READY-TO-SEND.zip",
+  "source_sha256": "a4be65bdca073a21bf7f88f978bbcc3d6a06c56ad4ee1caba5458bb17a020579",
+  "run": {
+    "tool": "WLab Snapshot 0.1.5",
+    "started_utc": "2026-10-23T04:09:24.7534845Z",
+    "target_pid": 4900,
+    "target_start_ticks": 639283186697332027,
+    "game_screen_user_reported": "In world",
+    "expected_wow_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+    "capture_started": true,
+    "capture_arguments_planned": "-accepteula -ma -r 1 -n 1 -at 120 PID snapshot.dmp",
+    "stability": "not established; ask user",
+    "network_sending": "unresolved",
+    "output_policy": "selected Wow.exe local drive root; no fallback",
+    "output_directory": "G:\\WLabSnapshot\\20261023-070924-f48c460b",
+    "output_drive": "G:",
+    "state": "capture_failed",
+    "cancel_requested": false,
+    "observations": [],
+    "updated_utc": "2026-10-23T04:09:30.0261816Z",
+    "child_runner_self_test": [
+      {
+        "expected_exit_code": 0,
+        "actual_exit_code": 0,
+        "status": "succeeded",
+        "passed": true
+      },
+      {
+        "expected_exit_code": 7,
+        "actual_exit_code": 7,
+        "status": "failed",
+        "passed": true
+      }
+    ],
+    "prepare_exit_code": 0,
+    "prepare_status": "succeeded",
+    "prepare_result_source": "owned System.Diagnostics.Process.Start handle",
+    "prepare_error": "",
+    "procdump_sha256": "22c2a2b09ade73a342a18dab838354385f73fc98e324b9903fd61fff949c5124",
+    "actual_wow_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+    "signature_status": "Valid",
+    "windows_build": "26200",
+    "output_space_before_capture": {
+      "status": "succeeded",
+      "path": "G:\\WLabSnapshot\\20261023-070924-f48c460b\\",
+      "source": "Win32 GetDiskFreeSpaceExW on actual output directory",
+      "available_bytes": 17312059392,
+      "total_bytes": 180152692736,
+      "total_free_bytes": 17312059392,
+      "win32_error_code": 0,
+      "error": null,
+      "queried_utc": "2026-10-23T04:09:26.6341018Z"
+    },
+    "output_space_legacy_diagnostics": {
+      "psdrive_free_bytes": 17312059392,
+      "psdrive_error": null,
+      "dotnet_available_bytes": 17312059392,
+      "dotnet_total_free_bytes": 17312059392,
+      "dotnet_error": null
+    },
+    "output_free_bytes_before_capture": 17312059392,
+    "capture_process_pid": 10652,
+    "output_space_last_query": {
+      "status": "succeeded",
+      "path": "G:\\WLabSnapshot\\20261023-070924-f48c460b\\",
+      "source": "Win32 GetDiskFreeSpaceExW on actual output directory",
+      "available_bytes": 17312059392,
+      "total_bytes": 180152692736,
+      "total_free_bytes": 17312059392,
+      "win32_error_code": 0,
+      "error": null,
+      "queried_utc": "2026-10-23T04:09:28.9802429Z"
+    },
+    "procdump_exit_code": 1,
+    "procdump_status": "failed",
+    "finished_utc": "2026-10-23T04:09:30.0251693Z"
+  },
+  "user_reported_original_game_usable_after_attempt": true,
+  "procdump_log_encoding": "UTF-16LE without BOM",
+  "findings": [
+    "native disk query and ProcDump agree on 17312059392 available bytes",
+    "ProcDump PSS capture started but exited 1",
+    "Target process no longer running followed by error writing dump 0x8007001D",
+    "no extracted code analysis supplied",
+    "user confirms game remained normal; original game termination is not established by ProcDump message"
+  ],
+  "unknowns": [
+    "existence, size and validity of local snapshot.dmp",
+    "exact failure location and status of PSS clone",
+    "cause of write failure; not evidence by itself of anti-cheat action or storage-device failure"
+  ],
+  "next_step_constraint": "no automatic capture retry or debugger attach; inspect existing artifacts before selecting another capture method",
+  "user_reported_snapshot_dmp_exists_after_attempt": false
+}
