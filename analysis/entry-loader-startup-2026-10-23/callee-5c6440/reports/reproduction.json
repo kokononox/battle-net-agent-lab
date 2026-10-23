@@ -1,0 +1,39 @@
+{
+  "packaged_entrypoint_ran_twice": true,
+  "reports": [
+    {
+      "file": "dispatch-proof.json",
+      "byte_identical": true,
+      "sha256": "a4f1a7332e6828b5761bf9293d67d57d3004db6f6347837f5628724b3b71a5cd"
+    },
+    {
+      "file": "scenario-proof.json",
+      "byte_identical": true,
+      "sha256": "46adf094875866a21580a222547763189bbd9e07e3f0c053a6501dc1770fd07b"
+    },
+    {
+      "file": "dispatch-verification.json",
+      "byte_identical": true,
+      "sha256": "dc7521cd3fe6b59e714b5317415298e95a4fa1a143d0fd49de923b6e6705b767"
+    },
+    {
+      "file": "verification.json",
+      "byte_identical": true,
+      "sha256": "a41fc916e63e6e68d26e82985016ca928340af757e671f19e3ef588f593c2243"
+    }
+  ],
+  "negative_input_tests": [
+    {
+      "tool": "analyze_dispatch.py",
+      "unpinned_input_rejected": true,
+      "no_report_created": true
+    },
+    {
+      "tool": "analyze_scenario.py",
+      "unpinned_input_rejected": true,
+      "no_report_created": true
+    }
+  ],
+  "input_PE_executed": false,
+  "binary_input_sha256_after": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c"
+}

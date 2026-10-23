@@ -1,0 +1,23 @@
+{
+  "manual_opcode_paths": "passed",
+  "independent_expression_and_coverage": "passed; same Z3 solver",
+  "paths": 17,
+  "distinct_frontiers": 17,
+  "uncovered_DWORD": "unsat",
+  "pairwise_overlap": "unsat",
+  "runtime_observed": false,
+  "mutation_tests": [
+    {
+      "mutation": "deleted_path",
+      "rejected": true
+    },
+    {
+      "mutation": "changed_global",
+      "rejected": true
+    },
+    {
+      "mutation": "wrong_witness",
+      "rejected": true
+    }
+  ]
+}

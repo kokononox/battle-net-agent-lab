@@ -1,0 +1,728 @@
+{
+  "schema": "wlab-callee-dispatch-1",
+  "module_sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "global_rva": 34746988,
+  "disk": 545740725,
+  "disk_state": 1242869804,
+  "leaves": [
+    {
+      "rva": 6055338,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055286,
+        6055293,
+        6055299,
+        6055306,
+        6055312,
+        6055319,
+        6055325,
+        6055332,
+        6055338
+      ],
+      "witness": 3458743990,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x58760653)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x75e47625)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x79c887ba)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (= a!1 #x79c887bb)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (distinct a!1 #x7d704b27)))"
+      ]
+    },
+    {
+      "rva": 6057570,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055286,
+        6055293,
+        6055299,
+        6055306,
+        6055312,
+        6055319,
+        6055325,
+        6055332,
+        6057570
+      ],
+      "witness": 3806498816,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x58760653)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x75e47625)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x79c887ba)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (= a!1 #x79c887bb)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (distinct a!1 #x7d704b27))"
+      ]
+    },
+    {
+      "rva": 6056588,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055286,
+        6055293,
+        6055299,
+        6055306,
+        6055312,
+        6055319,
+        6056588
+      ],
+      "witness": 3502997538,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x58760653)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x75e47625)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x79c887ba)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (= a!1 #x79c887bb))"
+      ]
+    },
+    {
+      "rva": 6055939,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055286,
+        6055293,
+        6055299,
+        6055306,
+        6055926,
+        6055933,
+        6055939
+      ],
+      "witness": 4211886339,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x58760653)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x75e47625)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x79c887ba))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (= a!1 #x75e47626)))"
+      ]
+    },
+    {
+      "rva": 6055131,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055286,
+        6055293,
+        6055299,
+        6055306,
+        6055926,
+        6055933,
+        6055131
+      ],
+      "witness": 4237791671,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x58760653)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x75e47625)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x79c887ba))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (= a!1 #x75e47626))"
+      ]
+    },
+    {
+      "rva": 6055594,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055286,
+        6055293,
+        6055568,
+        6055575,
+        6055581,
+        6055588,
+        6055594
+      ],
+      "witness": 4044424045,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x58760653)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x75e47625))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsgt a!1 #x6c156d92)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (distinct a!1 #x58760654)))"
+      ]
+    },
+    {
+      "rva": 6056665,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055286,
+        6055293,
+        6055568,
+        6055575,
+        6055581,
+        6055588,
+        6056665
+      ],
+      "witness": 3654329271,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x58760653)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x75e47625))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsgt a!1 #x6c156d92)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (distinct a!1 #x58760654))"
+      ]
+    },
+    {
+      "rva": 6056013,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055286,
+        6055293,
+        6055568,
+        6055575,
+        6056000,
+        6056007,
+        6056013
+      ],
+      "witness": 4270266922,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x58760653)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x75e47625))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsgt a!1 #x6c156d92))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (distinct a!1 #x6c156d93)))"
+      ]
+    },
+    {
+      "rva": 6056915,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055286,
+        6055293,
+        6055568,
+        6055575,
+        6056000,
+        6056007,
+        6056915
+      ],
+      "witness": 3523087033,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x58760653)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x75e47625))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsgt a!1 #x6c156d92))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (distinct a!1 #x6c156d93))"
+      ]
+    },
+    {
+      "rva": 6055463,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055424,
+        6055431,
+        6055437,
+        6055444,
+        6055450,
+        6055457,
+        6055463
+      ],
+      "witness": 1211299875,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x58760653))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsgt a!1 #x3e0d2fdc)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsgt a!1 #x1ab876e5)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (distinct a!1 #x13500fba)))"
+      ]
+    },
+    {
+      "rva": 6057039,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055424,
+        6055431,
+        6055437,
+        6055444,
+        6055450,
+        6055457,
+        6057039
+      ],
+      "witness": 950208480,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x58760653))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsgt a!1 #x3e0d2fdc)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsgt a!1 #x1ab876e5)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (distinct a!1 #x13500fba))"
+      ]
+    },
+    {
+      "rva": 6056099,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055424,
+        6055431,
+        6055437,
+        6055444,
+        6056086,
+        6056093,
+        6056099
+      ],
+      "witness": 788239095,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x58760653))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsgt a!1 #x3e0d2fdc)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsgt a!1 #x1ab876e5))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (distinct a!1 #x1ab876e6)))"
+      ]
+    },
+    {
+      "rva": 6057297,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055424,
+        6055431,
+        6055437,
+        6055444,
+        6056086,
+        6056093,
+        6057297
+      ],
+      "witness": 402653184,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x58760653))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsgt a!1 #x3e0d2fdc)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsgt a!1 #x1ab876e5))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (distinct a!1 #x1ab876e6))"
+      ]
+    },
+    {
+      "rva": 6055799,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055424,
+        6055431,
+        6055696,
+        6055703,
+        6055709,
+        6055716,
+        6055722,
+        6055799
+      ],
+      "witness": 613013476,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x58760653))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsgt a!1 #x3e0d2fdc))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsgt a!1 #x4df67a15)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (distinct a!1 #x3e0d2fdd)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (= a!1 #x3e0d2fdd))"
+      ]
+    },
+    {
+      "rva": 6057134,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055424,
+        6055431,
+        6055696,
+        6055703,
+        6055709,
+        6055716,
+        6057132,
+        6057134
+      ],
+      "witness": 610913197,
+      "disk_match": true,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x58760653))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsgt a!1 #x3e0d2fdc))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsgt a!1 #x4df67a15)))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (distinct a!1 #x3e0d2fdd))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (bvsle a!1 #x3e0d2fdd)))"
+      ]
+    },
+    {
+      "rva": 6056414,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055424,
+        6055431,
+        6055696,
+        6055703,
+        6056401,
+        6056408,
+        6056414
+      ],
+      "witness": 4103179687,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x58760653))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsgt a!1 #x3e0d2fdc))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsgt a!1 #x4df67a15))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (not (distinct a!1 #x4df67a16)))"
+      ]
+    },
+    {
+      "rva": 6057401,
+      "path": [
+        6055268,
+        6055273,
+        6055280,
+        6055424,
+        6055431,
+        6055696,
+        6055703,
+        6056401,
+        6056408,
+        6057401
+      ],
+      "witness": 155582464,
+      "disk_match": false,
+      "conditions": [
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsle a!1 #x58760653))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsgt a!1 #x3e0d2fdc))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (bvsgt a!1 #x4df67a15))",
+        "(let ((a!1 (bvadd (bvsub (bvxor (bvadd x #x4605e98c) #x9d9ec112)\n                         (bvmul #x00000002 x))\n                  #x900fdf43)))\n  (distinct a!1 #x4df67a16))"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "rva": 6055268,
+      "bytes": "448b6c2444",
+      "mnemonic": "mov",
+      "operands": "r13d, dword ptr [rsp + 0x44]"
+    },
+    {
+      "rva": 6055273,
+      "bytes": "4181fd53067658",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x58760653"
+    },
+    {
+      "rva": 6055280,
+      "bytes": "0f8e8a000000",
+      "mnemonic": "jle",
+      "operands": "0x5c6600"
+    },
+    {
+      "rva": 6055286,
+      "bytes": "4181fd2576e475",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x75e47625"
+    },
+    {
+      "rva": 6055293,
+      "bytes": "0f8e0d010000",
+      "mnemonic": "jle",
+      "operands": "0x5c6690"
+    },
+    {
+      "rva": 6055299,
+      "bytes": "4181fdba87c879",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x79c887ba"
+    },
+    {
+      "rva": 6055306,
+      "bytes": "0f8e66020000",
+      "mnemonic": "jle",
+      "operands": "0x5c67f6"
+    },
+    {
+      "rva": 6055312,
+      "bytes": "4181fdbb87c879",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x79c887bb"
+    },
+    {
+      "rva": 6055319,
+      "bytes": "0f84ef040000",
+      "mnemonic": "je",
+      "operands": "0x5c6a8c"
+    },
+    {
+      "rva": 6055325,
+      "bytes": "4181fd274b707d",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x7d704b27"
+    },
+    {
+      "rva": 6055332,
+      "bytes": "0f85b8080000",
+      "mnemonic": "jne",
+      "operands": "0x5c6e62"
+    },
+    {
+      "rva": 6055338,
+      "bytes": "8b44246c",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x6c]"
+    },
+    {
+      "rva": 6057570,
+      "bytes": "8b8424ac000000",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0xac]"
+    },
+    {
+      "rva": 6056588,
+      "bytes": "8b44244c",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x4c]"
+    },
+    {
+      "rva": 6055926,
+      "bytes": "4181fd2676e475",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x75e47626"
+    },
+    {
+      "rva": 6055933,
+      "bytes": "0f84d8fcffff",
+      "mnemonic": "je",
+      "operands": "0x5c64db"
+    },
+    {
+      "rva": 6055939,
+      "bytes": "8b44244c",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x4c]"
+    },
+    {
+      "rva": 6055131,
+      "bytes": "80e7ff",
+      "mnemonic": "and",
+      "operands": "bh, 0xff"
+    },
+    {
+      "rva": 6055568,
+      "bytes": "4181fd926d156c",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x6c156d92"
+    },
+    {
+      "rva": 6055575,
+      "bytes": "0f8fa3010000",
+      "mnemonic": "jg",
+      "operands": "0x5c6840"
+    },
+    {
+      "rva": 6055581,
+      "bytes": "4181fd54067658",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x58760654"
+    },
+    {
+      "rva": 6055588,
+      "bytes": "0f852f040000",
+      "mnemonic": "jne",
+      "operands": "0x5c6ad9"
+    },
+    {
+      "rva": 6055594,
+      "bytes": "8b442448",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x48]"
+    },
+    {
+      "rva": 6056665,
+      "bytes": "8b442454",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x54]"
+    },
+    {
+      "rva": 6056000,
+      "bytes": "4181fd936d156c",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x6c156d93"
+    },
+    {
+      "rva": 6056007,
+      "bytes": "0f8586030000",
+      "mnemonic": "jne",
+      "operands": "0x5c6bd3"
+    },
+    {
+      "rva": 6056013,
+      "bytes": "8b8424a4000000",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0xa4]"
+    },
+    {
+      "rva": 6056915,
+      "bytes": "8b44245c",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x5c]"
+    },
+    {
+      "rva": 6055424,
+      "bytes": "4181fddc2f0d3e",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x3e0d2fdc"
+    },
+    {
+      "rva": 6055431,
+      "bytes": "0f8f03010000",
+      "mnemonic": "jg",
+      "operands": "0x5c6710"
+    },
+    {
+      "rva": 6055437,
+      "bytes": "4181fde576b81a",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x1ab876e5"
+    },
+    {
+      "rva": 6055444,
+      "bytes": "0f8f7c020000",
+      "mnemonic": "jg",
+      "operands": "0x5c6896"
+    },
+    {
+      "rva": 6055450,
+      "bytes": "4181fdba0f5013",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x13500fba"
+    },
+    {
+      "rva": 6055457,
+      "bytes": "0f8528060000",
+      "mnemonic": "jne",
+      "operands": "0x5c6c4f"
+    },
+    {
+      "rva": 6055463,
+      "bytes": "448b6c2448",
+      "mnemonic": "mov",
+      "operands": "r13d, dword ptr [rsp + 0x48]"
+    },
+    {
+      "rva": 6057039,
+      "bytes": "8b842494000000",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x94]"
+    },
+    {
+      "rva": 6056086,
+      "bytes": "4181fde676b81a",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x1ab876e6"
+    },
+    {
+      "rva": 6056093,
+      "bytes": "0f85ae040000",
+      "mnemonic": "jne",
+      "operands": "0x5c6d51"
+    },
+    {
+      "rva": 6056099,
+      "bytes": "8b842484000000",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x84]"
+    },
+    {
+      "rva": 6057297,
+      "bytes": "8b442464",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x64]"
+    },
+    {
+      "rva": 6055696,
+      "bytes": "4181fd157af64d",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x4df67a15"
+    },
+    {
+      "rva": 6055703,
+      "bytes": "0f8fb4020000",
+      "mnemonic": "jg",
+      "operands": "0x5c69d1"
+    },
+    {
+      "rva": 6055709,
+      "bytes": "4181fddd2f0d3e",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x3e0d2fdd"
+    },
+    {
+      "rva": 6055716,
+      "bytes": "0f8582050000",
+      "mnemonic": "jne",
+      "operands": "0x5c6cac"
+    },
+    {
+      "rva": 6055722,
+      "bytes": "744b",
+      "mnemonic": "je",
+      "operands": "0x5c6777"
+    },
+    {
+      "rva": 6055799,
+      "bytes": "8b442478",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x78]"
+    },
+    {
+      "rva": 6057132,
+      "bytes": "7e43",
+      "mnemonic": "jle",
+      "operands": "0x5c6cf1"
+    },
+    {
+      "rva": 6057134,
+      "bytes": "c0ff00",
+      "mnemonic": "sar",
+      "operands": "bh, 0"
+    },
+    {
+      "rva": 6056401,
+      "bytes": "4181fd167af64d",
+      "mnemonic": "cmp",
+      "operands": "r13d, 0x4df67a16"
+    },
+    {
+      "rva": 6056408,
+      "bytes": "0f85db030000",
+      "mnemonic": "jne",
+      "operands": "0x5c6db9"
+    },
+    {
+      "rva": 6056414,
+      "bytes": "8b8424a8000000",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0xa8]"
+    },
+    {
+      "rva": 6057401,
+      "bytes": "f7c581da8f67",
+      "mnemonic": "test",
+      "operands": "ebp, 0x678fda81"
+    }
+  ],
+  "coverage": "unsat for uncovered DWORD",
+  "pairwise_disjoint": true,
+  "runtime_global_invariant": false,
+  "scope": "First dispatch only; all symbolic DWORD inputs, not observed runtime paths"
+}
