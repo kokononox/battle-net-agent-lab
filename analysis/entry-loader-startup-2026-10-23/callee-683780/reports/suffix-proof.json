@@ -1,0 +1,1237 @@
+{
+  "phase": "suffix",
+  "trace": [
+    {
+      "rva": 6831272,
+      "bytes": "8944244c",
+      "mnemonic": "mov",
+      "operands": "dword ptr [rsp + 0x4c], eax"
+    },
+    {
+      "rva": 6831276,
+      "bytes": "488b8424a0000000",
+      "mnemonic": "mov",
+      "operands": "rax, qword ptr [rsp + 0xa0]"
+    },
+    {
+      "rva": 6831284,
+      "bytes": "4889442438",
+      "mnemonic": "mov",
+      "operands": "qword ptr [rsp + 0x38], rax"
+    },
+    {
+      "rva": 6831289,
+      "bytes": "8b052127aa01",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rip + 0x1aa2721]"
+    },
+    {
+      "rva": 6831295,
+      "bytes": "8d0c00",
+      "mnemonic": "lea",
+      "operands": "ecx, [rax + rax]"
+    },
+    {
+      "rva": 6831298,
+      "bytes": "01c1",
+      "mnemonic": "add",
+      "operands": "ecx, eax"
+    },
+    {
+      "rva": 6831300,
+      "bytes": "b8ff7c65c5",
+      "mnemonic": "mov",
+      "operands": "eax, 0xc5657cff"
+    },
+    {
+      "rva": 6831305,
+      "bytes": "29c8",
+      "mnemonic": "sub",
+      "operands": "eax, ecx"
+    },
+    {
+      "rva": 6831307,
+      "bytes": "e99cfbffff",
+      "mnemonic": "jmp",
+      "operands": "0x68386c"
+    },
+    {
+      "rva": 6830188,
+      "bytes": "89442434",
+      "mnemonic": "mov",
+      "operands": "dword ptr [rsp + 0x34], eax"
+    },
+    {
+      "rva": 6830192,
+      "bytes": "8b442434",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x34]"
+    },
+    {
+      "rva": 6830196,
+      "bytes": "3d54128243",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x43821254"
+    },
+    {
+      "rva": 6830201,
+      "bytes": "0f8e91000000",
+      "mnemonic": "jle",
+      "operands": "0x683910"
+    },
+    {
+      "rva": 6830352,
+      "bytes": "3dce38c33c",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x3cc338ce"
+    },
+    {
+      "rva": 6830357,
+      "bytes": "7f49",
+      "mnemonic": "jg",
+      "operands": "0x683960"
+    },
+    {
+      "rva": 6830359,
+      "bytes": "3d72459800",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x984572"
+    },
+    {
+      "rva": 6830364,
+      "bytes": "0f84ad010000",
+      "mnemonic": "je",
+      "operands": "0x683acf"
+    },
+    {
+      "rva": 6830799,
+      "bytes": "48895c2440",
+      "mnemonic": "mov",
+      "operands": "qword ptr [rsp + 0x40], rbx"
+    },
+    {
+      "rva": 6830804,
+      "bytes": "488b442438",
+      "mnemonic": "mov",
+      "operands": "rax, qword ptr [rsp + 0x38]"
+    },
+    {
+      "rva": 6830809,
+      "bytes": "4809e8",
+      "mnemonic": "or",
+      "operands": "rax, rbp"
+    },
+    {
+      "rva": 6830812,
+      "bytes": "84f4",
+      "mnemonic": "test",
+      "operands": "ah, dh"
+    },
+    {
+      "rva": 6830814,
+      "bytes": "7342",
+      "mnemonic": "jae",
+      "operands": "0x683b22"
+    },
+    {
+      "rva": 6830882,
+      "bytes": "48f7d0",
+      "mnemonic": "not",
+      "operands": "rax"
+    },
+    {
+      "rva": 6830885,
+      "bytes": "488d0c80",
+      "mnemonic": "lea",
+      "operands": "rcx, [rax + rax*4]"
+    },
+    {
+      "rva": 6830889,
+      "bytes": "488d0448",
+      "mnemonic": "lea",
+      "operands": "rax, [rax + rcx*2]"
+    },
+    {
+      "rva": 6830893,
+      "bytes": "4889442460",
+      "mnemonic": "mov",
+      "operands": "qword ptr [rsp + 0x60], rax"
+    },
+    {
+      "rva": 6830898,
+      "bytes": "488b442438",
+      "mnemonic": "mov",
+      "operands": "rax, qword ptr [rsp + 0x38]"
+    },
+    {
+      "rva": 6830903,
+      "bytes": "488b4c2440",
+      "mnemonic": "mov",
+      "operands": "rcx, qword ptr [rsp + 0x40]"
+    },
+    {
+      "rva": 6830908,
+      "bytes": "4889c2",
+      "mnemonic": "mov",
+      "operands": "rdx, rax"
+    },
+    {
+      "rva": 6830911,
+      "bytes": "4809ca",
+      "mnemonic": "or",
+      "operands": "rdx, rcx"
+    },
+    {
+      "rva": 6830914,
+      "bytes": "4c8d0492",
+      "mnemonic": "lea",
+      "operands": "r8, [rdx + rdx*4]"
+    },
+    {
+      "rva": 6830918,
+      "bytes": "4a8d1442",
+      "mnemonic": "lea",
+      "operands": "rdx, [rdx + r8*2]"
+    },
+    {
+      "rva": 6830922,
+      "bytes": "4889542468",
+      "mnemonic": "mov",
+      "operands": "qword ptr [rsp + 0x68], rdx"
+    },
+    {
+      "rva": 6830927,
+      "bytes": "4831c8",
+      "mnemonic": "xor",
+      "operands": "rax, rcx"
+    },
+    {
+      "rva": 6830930,
+      "bytes": "4889442470",
+      "mnemonic": "mov",
+      "operands": "qword ptr [rsp + 0x70], rax"
+    },
+    {
+      "rva": 6830935,
+      "bytes": "8b058728aa01",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rip + 0x1aa2887]"
+    },
+    {
+      "rva": 6830941,
+      "bytes": "8d88a8cb249b",
+      "mnemonic": "lea",
+      "operands": "ecx, [rax - 0x64db3458]"
+    },
+    {
+      "rva": 6830947,
+      "bytes": "89ca",
+      "mnemonic": "mov",
+      "operands": "edx, ecx"
+    },
+    {
+      "rva": 6830949,
+      "bytes": "81f20e09b5a7",
+      "mnemonic": "xor",
+      "operands": "edx, 0xa7b5090e"
+    },
+    {
+      "rva": 6830955,
+      "bytes": "448d8217fe59a7",
+      "mnemonic": "lea",
+      "operands": "r8d, [rdx - 0x58a601e9]"
+    },
+    {
+      "rva": 6830962,
+      "bytes": "448d8a21dbce7c",
+      "mnemonic": "lea",
+      "operands": "r9d, [rdx + 0x7ccedb21]"
+    },
+    {
+      "rva": 6830969,
+      "bytes": "448d927d4000fd",
+      "mnemonic": "lea",
+      "operands": "r10d, [rdx - 0x2ffbf83]"
+    },
+    {
+      "rva": 6830976,
+      "bytes": "4531ca",
+      "mnemonic": "xor",
+      "operands": "r10d, r9d"
+    },
+    {
+      "rva": 6830979,
+      "bytes": "4181f230be8dce",
+      "mnemonic": "xor",
+      "operands": "r10d, 0xce8dbe30"
+    },
+    {
+      "rva": 6830986,
+      "bytes": "4129d2",
+      "mnemonic": "sub",
+      "operands": "r10d, edx"
+    },
+    {
+      "rva": 6830989,
+      "bytes": "4531c2",
+      "mnemonic": "xor",
+      "operands": "r10d, r8d"
+    },
+    {
+      "rva": 6830992,
+      "bytes": "4129ca",
+      "mnemonic": "sub",
+      "operands": "r10d, ecx"
+    },
+    {
+      "rva": 6830995,
+      "bytes": "4101c2",
+      "mnemonic": "add",
+      "operands": "r10d, eax"
+    },
+    {
+      "rva": 6830998,
+      "bytes": "4489542434",
+      "mnemonic": "mov",
+      "operands": "dword ptr [rsp + 0x34], r10d"
+    },
+    {
+      "rva": 6831003,
+      "bytes": "e9d0fcffff",
+      "mnemonic": "jmp",
+      "operands": "0x683870"
+    },
+    {
+      "rva": 6830192,
+      "bytes": "8b442434",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x34]"
+    },
+    {
+      "rva": 6830196,
+      "bytes": "3d54128243",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x43821254"
+    },
+    {
+      "rva": 6830201,
+      "bytes": "0f8e91000000",
+      "mnemonic": "jle",
+      "operands": "0x683910"
+    },
+    {
+      "rva": 6830207,
+      "bytes": "3de2bf8b5a",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x5a8bbfe2"
+    },
+    {
+      "rva": 6830212,
+      "bytes": "0f8e76010000",
+      "mnemonic": "jle",
+      "operands": "0x683a00"
+    },
+    {
+      "rva": 6830218,
+      "bytes": "3de3bf8b5a",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x5a8bbfe3"
+    },
+    {
+      "rva": 6830223,
+      "bytes": "0f8474ffffff",
+      "mnemonic": "je",
+      "operands": "0x683809"
+    },
+    {
+      "rva": 6830089,
+      "bytes": "488b442470",
+      "mnemonic": "mov",
+      "operands": "rax, qword ptr [rsp + 0x70]"
+    },
+    {
+      "rva": 6830094,
+      "bytes": "4889442478",
+      "mnemonic": "mov",
+      "operands": "qword ptr [rsp + 0x78], rax"
+    },
+    {
+      "rva": 6830099,
+      "bytes": "488b442440",
+      "mnemonic": "mov",
+      "operands": "rax, qword ptr [rsp + 0x40]"
+    },
+    {
+      "rva": 6830104,
+      "bytes": "48f7d0",
+      "mnemonic": "not",
+      "operands": "rax"
+    },
+    {
+      "rva": 6830107,
+      "bytes": "4823442438",
+      "mnemonic": "and",
+      "operands": "rax, qword ptr [rsp + 0x38]"
+    },
+    {
+      "rva": 6830112,
+      "bytes": "4889842480000000",
+      "mnemonic": "mov",
+      "operands": "qword ptr [rsp + 0x80], rax"
+    },
+    {
+      "rva": 6830120,
+      "bytes": "8b059a2baa01",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rip + 0x1aa2b9a]"
+    },
+    {
+      "rva": 6830126,
+      "bytes": "8d88c8df24b6",
+      "mnemonic": "lea",
+      "operands": "ecx, [rax - 0x49db2038]"
+    },
+    {
+      "rva": 6830132,
+      "bytes": "8d90fb777cca",
+      "mnemonic": "lea",
+      "operands": "edx, [rax - 0x35838805]"
+    },
+    {
+      "rva": 6830138,
+      "bytes": "81f2f187f5ae",
+      "mnemonic": "xor",
+      "operands": "edx, 0xaef587f1"
+    },
+    {
+      "rva": 6830144,
+      "bytes": "81c2fe1dcc09",
+      "mnemonic": "add",
+      "operands": "edx, 0x9cc1dfe"
+    },
+    {
+      "rva": 6830150,
+      "bytes": "4189d0",
+      "mnemonic": "mov",
+      "operands": "r8d, edx"
+    },
+    {
+      "rva": 6830153,
+      "bytes": "4181f0f9023b0f",
+      "mnemonic": "xor",
+      "operands": "r8d, 0xf3b02f9"
+    },
+    {
+      "rva": 6830160,
+      "bytes": "31c1",
+      "mnemonic": "xor",
+      "operands": "ecx, eax"
+    },
+    {
+      "rva": 6830162,
+      "bytes": "81f1054a36f1",
+      "mnemonic": "xor",
+      "operands": "ecx, 0xf1364a05"
+    },
+    {
+      "rva": 6830168,
+      "bytes": "29d1",
+      "mnemonic": "sub",
+      "operands": "ecx, edx"
+    },
+    {
+      "rva": 6830170,
+      "bytes": "4401c1",
+      "mnemonic": "add",
+      "operands": "ecx, r8d"
+    },
+    {
+      "rva": 6830173,
+      "bytes": "31d1",
+      "mnemonic": "xor",
+      "operands": "ecx, edx"
+    },
+    {
+      "rva": 6830175,
+      "bytes": "81f13a572489",
+      "mnemonic": "xor",
+      "operands": "ecx, 0x8924573a"
+    },
+    {
+      "rva": 6830181,
+      "bytes": "01c8",
+      "mnemonic": "add",
+      "operands": "eax, ecx"
+    },
+    {
+      "rva": 6830183,
+      "bytes": "05fb777cca",
+      "mnemonic": "add",
+      "operands": "eax, 0xca7c77fb"
+    },
+    {
+      "rva": 6830188,
+      "bytes": "89442434",
+      "mnemonic": "mov",
+      "operands": "dword ptr [rsp + 0x34], eax"
+    },
+    {
+      "rva": 6830192,
+      "bytes": "8b442434",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x34]"
+    },
+    {
+      "rva": 6830196,
+      "bytes": "3d54128243",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x43821254"
+    },
+    {
+      "rva": 6830201,
+      "bytes": "0f8e91000000",
+      "mnemonic": "jle",
+      "operands": "0x683910"
+    },
+    {
+      "rva": 6830207,
+      "bytes": "3de2bf8b5a",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x5a8bbfe2"
+    },
+    {
+      "rva": 6830212,
+      "bytes": "0f8e76010000",
+      "mnemonic": "jle",
+      "operands": "0x683a00"
+    },
+    {
+      "rva": 6830218,
+      "bytes": "3de3bf8b5a",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x5a8bbfe3"
+    },
+    {
+      "rva": 6830223,
+      "bytes": "0f8474ffffff",
+      "mnemonic": "je",
+      "operands": "0x683809"
+    },
+    {
+      "rva": 6830229,
+      "bytes": "3dd0939e65",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x659e93d0"
+    },
+    {
+      "rva": 6830234,
+      "bytes": "0f8500030000",
+      "mnemonic": "jne",
+      "operands": "0x683ba0"
+    },
+    {
+      "rva": 6831008,
+      "bytes": "488b842480000000",
+      "mnemonic": "mov",
+      "operands": "rax, qword ptr [rsp + 0x80]"
+    },
+    {
+      "rva": 6831016,
+      "bytes": "488d04c0",
+      "mnemonic": "lea",
+      "operands": "rax, [rax + rax*8]"
+    },
+    {
+      "rva": 6831020,
+      "bytes": "4889842488000000",
+      "mnemonic": "mov",
+      "operands": "qword ptr [rsp + 0x88], rax"
+    },
+    {
+      "rva": 6831028,
+      "bytes": "7e67",
+      "mnemonic": "jle",
+      "operands": "0x683c1d"
+    },
+    {
+      "rva": 6831030,
+      "bytes": "86c0",
+      "mnemonic": "xchg",
+      "operands": "al, al"
+    },
+    {
+      "rva": 6831032,
+      "bytes": "7f63",
+      "mnemonic": "jg",
+      "operands": "0x683c1d"
+    },
+    {
+      "rva": 6831133,
+      "bytes": "488b442438",
+      "mnemonic": "mov",
+      "operands": "rax, qword ptr [rsp + 0x38]"
+    },
+    {
+      "rva": 6831138,
+      "bytes": "4823442440",
+      "mnemonic": "and",
+      "operands": "rax, qword ptr [rsp + 0x40]"
+    },
+    {
+      "rva": 6831143,
+      "bytes": "4889842490000000",
+      "mnemonic": "mov",
+      "operands": "qword ptr [rsp + 0x90], rax"
+    },
+    {
+      "rva": 6831151,
+      "bytes": "8b05b327aa01",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rip + 0x1aa27b3]"
+    },
+    {
+      "rva": 6831157,
+      "bytes": "8d881eda3655",
+      "mnemonic": "lea",
+      "operands": "ecx, [rax + 0x5536da1e]"
+    },
+    {
+      "rva": 6831163,
+      "bytes": "89ca",
+      "mnemonic": "mov",
+      "operands": "edx, ecx"
+    },
+    {
+      "rva": 6831165,
+      "bytes": "81f2f928fed0",
+      "mnemonic": "xor",
+      "operands": "edx, 0xd0fe28f9"
+    },
+    {
+      "rva": 6831171,
+      "bytes": "81c2993f0085",
+      "mnemonic": "add",
+      "operands": "edx, 0x85003f99"
+    },
+    {
+      "rva": 6831177,
+      "bytes": "31c1",
+      "mnemonic": "xor",
+      "operands": "ecx, eax"
+    },
+    {
+      "rva": 6831179,
+      "bytes": "31d1",
+      "mnemonic": "xor",
+      "operands": "ecx, edx"
+    },
+    {
+      "rva": 6831181,
+      "bytes": "29c1",
+      "mnemonic": "sub",
+      "operands": "ecx, eax"
+    },
+    {
+      "rva": 6831183,
+      "bytes": "81c1307cbc36",
+      "mnemonic": "add",
+      "operands": "ecx, 0x36bc7c30"
+    },
+    {
+      "rva": 6831189,
+      "bytes": "894c2434",
+      "mnemonic": "mov",
+      "operands": "dword ptr [rsp + 0x34], ecx"
+    },
+    {
+      "rva": 6831193,
+      "bytes": "e912fcffff",
+      "mnemonic": "jmp",
+      "operands": "0x683870"
+    },
+    {
+      "rva": 6830192,
+      "bytes": "8b442434",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x34]"
+    },
+    {
+      "rva": 6830196,
+      "bytes": "3d54128243",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x43821254"
+    },
+    {
+      "rva": 6830201,
+      "bytes": "0f8e91000000",
+      "mnemonic": "jle",
+      "operands": "0x683910"
+    },
+    {
+      "rva": 6830207,
+      "bytes": "3de2bf8b5a",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x5a8bbfe2"
+    },
+    {
+      "rva": 6830212,
+      "bytes": "0f8e76010000",
+      "mnemonic": "jle",
+      "operands": "0x683a00"
+    },
+    {
+      "rva": 6830218,
+      "bytes": "3de3bf8b5a",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x5a8bbfe3"
+    },
+    {
+      "rva": 6830223,
+      "bytes": "0f8474ffffff",
+      "mnemonic": "je",
+      "operands": "0x683809"
+    },
+    {
+      "rva": 6830229,
+      "bytes": "3dd0939e65",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x659e93d0"
+    },
+    {
+      "rva": 6830234,
+      "bytes": "0f8500030000",
+      "mnemonic": "jne",
+      "operands": "0x683ba0"
+    },
+    {
+      "rva": 6830240,
+      "bytes": "486b842490000000f5",
+      "mnemonic": "imul",
+      "operands": "rax, qword ptr [rsp + 0x90], -0xb"
+    },
+    {
+      "rva": 6830249,
+      "bytes": "482b842488000000",
+      "mnemonic": "sub",
+      "operands": "rax, qword ptr [rsp + 0x88]"
+    },
+    {
+      "rva": 6830257,
+      "bytes": "482b442478",
+      "mnemonic": "sub",
+      "operands": "rax, qword ptr [rsp + 0x78]"
+    },
+    {
+      "rva": 6830262,
+      "bytes": "4803442468",
+      "mnemonic": "add",
+      "operands": "rax, qword ptr [rsp + 0x68]"
+    },
+    {
+      "rva": 6830267,
+      "bytes": "482b442460",
+      "mnemonic": "sub",
+      "operands": "rax, qword ptr [rsp + 0x60]"
+    },
+    {
+      "rva": 6830272,
+      "bytes": "4889842498000000",
+      "mnemonic": "mov",
+      "operands": "qword ptr [rsp + 0x98], rax"
+    },
+    {
+      "rva": 6830280,
+      "bytes": "8b051e2baa01",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rip + 0x1aa2b1e]"
+    },
+    {
+      "rva": 6830286,
+      "bytes": "8d8816fd040c",
+      "mnemonic": "lea",
+      "operands": "ecx, [rax + 0xc04fd16]"
+    },
+    {
+      "rva": 6830292,
+      "bytes": "89ca",
+      "mnemonic": "mov",
+      "operands": "edx, ecx"
+    },
+    {
+      "rva": 6830294,
+      "bytes": "81f252e76e11",
+      "mnemonic": "xor",
+      "operands": "edx, 0x116ee752"
+    },
+    {
+      "rva": 6830300,
+      "bytes": "448d820b88e97d",
+      "mnemonic": "lea",
+      "operands": "r8d, [rdx + 0x7de9880b]"
+    },
+    {
+      "rva": 6830307,
+      "bytes": "4181f0d78e79bc",
+      "mnemonic": "xor",
+      "operands": "r8d, 0xbc798ed7"
+    },
+    {
+      "rva": 6830314,
+      "bytes": "41b9669111cb",
+      "mnemonic": "mov",
+      "operands": "r9d, 0xcb119166"
+    },
+    {
+      "rva": 6830320,
+      "bytes": "4129d1",
+      "mnemonic": "sub",
+      "operands": "r9d, edx"
+    },
+    {
+      "rva": 6830323,
+      "bytes": "4131d1",
+      "mnemonic": "xor",
+      "operands": "r9d, edx"
+    },
+    {
+      "rva": 6830326,
+      "bytes": "438d1401",
+      "mnemonic": "lea",
+      "operands": "edx, [r9 + r8]"
+    },
+    {
+      "rva": 6830330,
+      "bytes": "81c2bde1a09e",
+      "mnemonic": "add",
+      "operands": "edx, 0x9ea0e1bd"
+    },
+    {
+      "rva": 6830336,
+      "bytes": "31ca",
+      "mnemonic": "xor",
+      "operands": "edx, ecx"
+    },
+    {
+      "rva": 6830338,
+      "bytes": "01c2",
+      "mnemonic": "add",
+      "operands": "edx, eax"
+    },
+    {
+      "rva": 6830340,
+      "bytes": "89542434",
+      "mnemonic": "mov",
+      "operands": "dword ptr [rsp + 0x34], edx"
+    },
+    {
+      "rva": 6830344,
+      "bytes": "e963ffffff",
+      "mnemonic": "jmp",
+      "operands": "0x683870"
+    },
+    {
+      "rva": 6830192,
+      "bytes": "8b442434",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x34]"
+    },
+    {
+      "rva": 6830196,
+      "bytes": "3d54128243",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x43821254"
+    },
+    {
+      "rva": 6830201,
+      "bytes": "0f8e91000000",
+      "mnemonic": "jle",
+      "operands": "0x683910"
+    },
+    {
+      "rva": 6830352,
+      "bytes": "3dce38c33c",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x3cc338ce"
+    },
+    {
+      "rva": 6830357,
+      "bytes": "7f49",
+      "mnemonic": "jg",
+      "operands": "0x683960"
+    },
+    {
+      "rva": 6830359,
+      "bytes": "3d72459800",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x984572"
+    },
+    {
+      "rva": 6830364,
+      "bytes": "0f84ad010000",
+      "mnemonic": "je",
+      "operands": "0x683acf"
+    },
+    {
+      "rva": 6830370,
+      "bytes": "3d310ab405",
+      "mnemonic": "cmp",
+      "operands": "eax, 0x5b40a31"
+    },
+    {
+      "rva": 6830375,
+      "bytes": "0f85a3030000",
+      "mnemonic": "jne",
+      "operands": "0x683cd0"
+    },
+    {
+      "rva": 6831312,
+      "bytes": "488b842498000000",
+      "mnemonic": "mov",
+      "operands": "rax, qword ptr [rsp + 0x98]"
+    },
+    {
+      "rva": 6831320,
+      "bytes": "488b4c2450",
+      "mnemonic": "mov",
+      "operands": "rcx, qword ptr [rsp + 0x50]"
+    },
+    {
+      "rva": 6831325,
+      "bytes": "488901",
+      "mnemonic": "mov",
+      "operands": "qword ptr [rcx], rax"
+    },
+    {
+      "rva": 6831328,
+      "bytes": "8b44244c",
+      "mnemonic": "mov",
+      "operands": "eax, dword ptr [rsp + 0x4c]"
+    },
+    {
+      "rva": 6831332,
+      "bytes": "488b8c24c0000000",
+      "mnemonic": "mov",
+      "operands": "rcx, qword ptr [rsp + 0xc0]"
+    },
+    {
+      "rva": 6831340,
+      "bytes": "4831e1",
+      "mnemonic": "xor",
+      "operands": "rcx, rsp"
+    },
+    {
+      "rva": 6831343,
+      "bytes": "483b0dcac4a401",
+      "mnemonic": "cmp",
+      "operands": "rcx, qword ptr [rip + 0x1a4c4ca]"
+    },
+    {
+      "rva": 6831350,
+      "bytes": "7514",
+      "mnemonic": "jne",
+      "operands": "0x683d0c"
+    },
+    {
+      "rva": 6831352,
+      "bytes": "4881c4c8000000",
+      "mnemonic": "add",
+      "operands": "rsp, 0xc8"
+    },
+    {
+      "rva": 6831359,
+      "bytes": "5b",
+      "mnemonic": "pop",
+      "operands": "rbx"
+    },
+    {
+      "rva": 6831360,
+      "bytes": "5d",
+      "mnemonic": "pop",
+      "operands": "rbp"
+    },
+    {
+      "rva": 6831361,
+      "bytes": "5f",
+      "mnemonic": "pop",
+      "operands": "rdi"
+    },
+    {
+      "rva": 6831362,
+      "bytes": "5e",
+      "mnemonic": "pop",
+      "operands": "rsi"
+    },
+    {
+      "rva": 6831363,
+      "bytes": "415c",
+      "mnemonic": "pop",
+      "operands": "r12"
+    },
+    {
+      "rva": 6831365,
+      "bytes": "415d",
+      "mnemonic": "pop",
+      "operands": "r13"
+    },
+    {
+      "rva": 6831367,
+      "bytes": "415e",
+      "mnemonic": "pop",
+      "operands": "r14"
+    },
+    {
+      "rva": 6831369,
+      "bytes": "415f",
+      "mnemonic": "pop",
+      "operands": "r15"
+    },
+    {
+      "rva": 6831371,
+      "bytes": "c3",
+      "mnemonic": "ret",
+      "operands": ""
+    }
+  ],
+  "global_reads": [
+    {
+      "rva": 34406848,
+      "size": 8,
+      "bytes": "32a2df2d992b0000"
+    },
+    {
+      "rva": 34759624,
+      "size": 4,
+      "bytes": "c90eb704"
+    },
+    {
+      "rva": 34759648,
+      "size": 4,
+      "bytes": "2fbd9941"
+    },
+    {
+      "rva": 34759652,
+      "size": 4,
+      "bytes": "62d5b7f2"
+    },
+    {
+      "rva": 34759656,
+      "size": 4,
+      "bytes": "617c8e9c"
+    },
+    {
+      "rva": 34759660,
+      "size": 4,
+      "bytes": "9d5c81c4"
+    }
+  ],
+  "branches": [
+    {
+      "site": 6830201,
+      "taken": true
+    },
+    {
+      "site": 6830357,
+      "taken": false
+    },
+    {
+      "site": 6830364,
+      "taken": true
+    },
+    {
+      "site": 6830814,
+      "taken": true
+    },
+    {
+      "site": 6830201,
+      "taken": false
+    },
+    {
+      "site": 6830212,
+      "taken": false
+    },
+    {
+      "site": 6830223,
+      "taken": true
+    },
+    {
+      "site": 6830201,
+      "taken": false
+    },
+    {
+      "site": 6830212,
+      "taken": false
+    },
+    {
+      "site": 6830223,
+      "taken": false
+    },
+    {
+      "site": 6830234,
+      "taken": true
+    },
+    {
+      "site": 6831028,
+      "taken": false
+    },
+    {
+      "site": 6831032,
+      "taken": true
+    },
+    {
+      "site": 6830201,
+      "taken": false
+    },
+    {
+      "site": 6830212,
+      "taken": false
+    },
+    {
+      "site": 6830223,
+      "taken": false
+    },
+    {
+      "site": 6830234,
+      "taken": false
+    },
+    {
+      "site": 6830201,
+      "taken": true
+    },
+    {
+      "site": 6830357,
+      "taken": false
+    },
+    {
+      "site": 6830364,
+      "taken": false
+    },
+    {
+      "site": 6830375,
+      "taken": true
+    },
+    {
+      "site": 6831350,
+      "taken": false
+    }
+  ],
+  "events": [
+    {
+      "kind": "return",
+      "rax": "Concat(0, Extract(31, 0, opaque_return_rax))"
+    }
+  ],
+  "calls": [],
+  "external_writes": [
+    {
+      "site": 6831325,
+      "pointer": "output_qword_pointer",
+      "size": 8,
+      "value_smt2": "(let ((a!1 (bvnot (bvor (bvnot ((_ extract 63 56) cursor_after_opaque_call))\n                        (bvnot ((_ extract 63 56) destination_base)))))\n      (a!2 (bvnot (bvor (bvnot ((_ extract 55 48) cursor_after_opaque_call))\n                        (bvnot ((_ extract 55 48) destination_base)))))\n      (a!3 (bvnot (bvor (bvnot ((_ extract 47 40) cursor_after_opaque_call))\n                        (bvnot ((_ extract 47 40) destination_base)))))\n      (a!4 (bvnot (bvor (bvnot ((_ extract 39 32) cursor_after_opaque_call))\n                        (bvnot ((_ extract 39 32) destination_base)))))\n      (a!5 (bvnot (bvor (bvnot ((_ extract 31 24) cursor_after_opaque_call))\n                        (bvnot ((_ extract 31 24) destination_base)))))\n      (a!6 (bvnot (bvor (bvnot ((_ extract 23 16) cursor_after_opaque_call))\n                        (bvnot ((_ extract 23 16) destination_base)))))\n      (a!7 (bvnot (bvor (bvnot ((_ extract 15 8) cursor_after_opaque_call))\n                        (bvnot ((_ extract 15 8) destination_base)))))\n      (a!8 (bvnot (bvor (bvnot ((_ extract 7 0) cursor_after_opaque_call))\n                        (bvnot ((_ extract 7 0) destination_base)))))\n      (a!9 (bvnot (bvor ((_ extract 63 56) destination_base)\n                        (bvnot ((_ extract 63 56) cursor_after_opaque_call)))))\n      (a!10 (bvnot (bvor ((_ extract 55 48) destination_base)\n                         (bvnot ((_ extract 55 48) cursor_after_opaque_call)))))\n      (a!11 (bvnot (bvor ((_ extract 47 40) destination_base)\n                         (bvnot ((_ extract 47 40) cursor_after_opaque_call)))))\n      (a!12 (bvnot (bvor ((_ extract 39 32) destination_base)\n                         (bvnot ((_ extract 39 32) cursor_after_opaque_call)))))\n      (a!13 (bvnot (bvor ((_ extract 31 24) destination_base)\n                         (bvnot ((_ extract 31 24) cursor_after_opaque_call)))))\n      (a!14 (bvnot (bvor ((_ extract 23 16) destination_base)\n                         (bvnot ((_ extract 23 16) cursor_after_opaque_call)))))\n      (a!15 (bvnot (bvor ((_ extract 15 8) destination_base)\n                         (bvnot ((_ extract 15 8) cursor_after_opaque_call)))))\n      (a!16 (bvnot (bvor ((_ extract 7 0) destination_base)\n                         (bvnot ((_ extract 7 0) cursor_after_opaque_call)))))\n      (a!18 (bvmul #xffffffffffffffff\n                   (concat (bvxor ((_ extract 63 56) cursor_after_opaque_call)\n                                  ((_ extract 63 56) destination_base))\n                           (bvxor ((_ extract 55 48) cursor_after_opaque_call)\n                                  ((_ extract 55 48) destination_base))\n                           (bvxor ((_ extract 47 40) cursor_after_opaque_call)\n                                  ((_ extract 47 40) destination_base))\n                           (bvxor ((_ extract 39 32) cursor_after_opaque_call)\n                                  ((_ extract 39 32) destination_base))\n                           (bvxor ((_ extract 31 24) cursor_after_opaque_call)\n                                  ((_ extract 31 24) destination_base))\n                           (bvxor ((_ extract 23 16) cursor_after_opaque_call)\n                                  ((_ extract 23 16) destination_base))\n                           (bvxor ((_ extract 15 8) cursor_after_opaque_call)\n                                  ((_ extract 15 8) destination_base))\n                           (bvxor ((_ extract 7 0) cursor_after_opaque_call)\n                                  ((_ extract 7 0) destination_base)))))\n      (a!19 (concat ((_ extract 63 8)\n                      (bvmul #x000000000000000b\n                             (bvor cursor_after_opaque_call destination_base)))\n                    (bvmul #x0b\n                           (bvor ((_ extract 7 0) cursor_after_opaque_call)\n                                 ((_ extract 7 0) destination_base)))))\n      (a!20 (bvmul #x000000000000000b\n                   (bvnot (bvor cursor_after_opaque_call\n                                (bvnot destination_base)))))\n      (a!21 (bvnot (bvor ((_ extract 7 0) cursor_after_opaque_call)\n                         (bvnot ((_ extract 7 0) destination_base))))))\n(let ((a!17 (concat ((_ extract 63 8)\n                      (bvmul #x0000000000000009\n                             (concat a!9 a!10 a!11 a!12 a!13 a!14 a!15 a!16)))\n                    (bvmul #x09 a!16)))\n      (a!23 (bvadd (bvmul #xf5 a!8)\n                   (bvmul #xf7 a!16)\n                   (bvmul #xff\n                          (bvxor ((_ extract 7 0) cursor_after_opaque_call)\n                                 ((_ extract 7 0) destination_base)))\n                   (bvmul #x0b\n                          (bvor ((_ extract 7 0) cursor_after_opaque_call)\n                                ((_ extract 7 0) destination_base)))\n                   (bvmul #xf5 a!21))))\n(let ((a!22 (bvadd (bvmul #xfffffffffffffff5\n                          (concat a!1 a!2 a!3 a!4 a!5 a!6 a!7 a!8))\n                   (bvmul #xffffffffffffffff a!17)\n                   a!18\n                   a!19\n                   (bvmul #xffffffffffffffff\n                          (concat ((_ extract 63 8) a!20) (bvmul #x0b a!21))))))\n  (concat ((_ extract 63 8) a!22) a!23))))"
+    }
+  ],
+  "final_registers": {
+    "rax": "Concat(0, Extract(31, 0, opaque_return_rax))",
+    "rbx": "saved_rbx",
+    "rcx": "47936899621426",
+    "rdx": "830604",
+    "rsi": "saved_rsi",
+    "rdi": "saved_rdi",
+    "rbp": "saved_rbp",
+    "rsp": "68719476744",
+    "r8": "2209073211",
+    "r9": "3368053860",
+    "r10": "1519108067",
+    "r11": "entry_r11",
+    "r12": "saved_r12",
+    "r13": "saved_r13",
+    "r14": "saved_r14",
+    "r15": "saved_r15"
+  },
+  "locals": {
+    "0x38": "cursor_after_opaque_call",
+    "0x40": "destination_base",
+    "0x50": "output_qword_pointer",
+    "0x98": "Concat(Extract(63,\n               8,\n               18446744073709551605*\n               Concat(~(~Extract(63,\n                                 56,\n                                 cursor_after_opaque_call) |\n                        ~Extract(63, 56, destination_base)),\n                      ~(~Extract(55,\n                                 48,\n                                 cursor_after_opaque_call) |\n                        ~Extract(55, 48, destination_base)),\n                      ~(~Extract(47,\n                                 40,\n                                 cursor_after_opaque_call) |\n                        ~Extract(47, 40, destination_base)),\n                      ~(~Extract(39,\n                                 32,\n                                 cursor_after_opaque_call) |\n                        ~Extract(39, 32, destination_base)),\n                      ~(~Extract(31,\n                                 24,\n                                 cursor_after_opaque_call) |\n                        ~Extract(31, 24, destination_base)),\n                      ~(~Extract(23,\n                                 16,\n                                 cursor_after_opaque_call) |\n                        ~Extract(23, 16, destination_base)),\n                      ~(~Extract(15,\n                                 8,\n                                 cursor_after_opaque_call) |\n                        ~Extract(15, 8, destination_base)),\n                      ~(~Extract(7,\n                                 0,\n                                 cursor_after_opaque_call) |\n                        ~Extract(7, 0, destination_base))) +\n               18446744073709551615*\n               Concat(Extract(63,\n                              8,\n                              9*\n                              Concat(~(Extract(63,\n                                        56,\n                                        destination_base) |\n                                       ~Extract(63,\n                                        56,\n                                        cursor_after_opaque_call)),\n                                     ~(Extract(55,\n                                        48,\n                                        destination_base) |\n                                       ~Extract(55,\n                                        48,\n                                        cursor_after_opaque_call)),\n                                     ~(Extract(47,\n                                        40,\n                                        destination_base) |\n                                       ~Extract(47,\n                                        40,\n                                        cursor_after_opaque_call)),\n                                     ~(Extract(39,\n                                        32,\n                                        destination_base) |\n                                       ~Extract(39,\n                                        32,\n                                        cursor_after_opaque_call)),\n                                     ~(Extract(31,\n                                        24,\n                                        destination_base) |\n                                       ~Extract(31,\n                                        24,\n                                        cursor_after_opaque_call)),\n                                     ~(Extract(23,\n                                        16,\n                                        destination_base) |\n                                       ~Extract(23,\n                                        16,\n                                        cursor_after_opaque_call)),\n                                     ~(Extract(15,\n                                        8,\n                                        destination_base) |\n                                       ~Extract(15,\n                                        8,\n                                        cursor_after_opaque_call)),\n                                     ~(Extract(7,\n                                        0,\n                                        destination_base) |\n                                       ~Extract(7,\n                                        0,\n                                        cursor_after_opaque_call)))),\n                      9*\n                      ~(Extract(7, 0, destination_base) |\n                        ~Extract(7,\n                                 0,\n                                 cursor_after_opaque_call))) +\n               18446744073709551615*\n               Concat(Extract(63,\n                              56,\n                              cursor_after_opaque_call) ^\n                      Extract(63, 56, destination_base),\n                      Extract(55,\n                              48,\n                              cursor_after_opaque_call) ^\n                      Extract(55, 48, destination_base),\n                      Extract(47,\n                              40,\n                              cursor_after_opaque_call) ^\n                      Extract(47, 40, destination_base),\n                      Extract(39,\n                              32,\n                              cursor_after_opaque_call) ^\n                      Extract(39, 32, destination_base),\n                      Extract(31,\n                              24,\n                              cursor_after_opaque_call) ^\n                      Extract(31, 24, destination_base),\n                      Extract(23,\n                              16,\n                              cursor_after_opaque_call) ^\n                      Extract(23, 16, destination_base),\n                      Extract(15,\n                              8,\n                              cursor_after_opaque_call) ^\n                      Extract(15, 8, destination_base),\n                      Extract(7,\n                              0,\n                              cursor_after_opaque_call) ^\n                      Extract(7, 0, destination_base)) +\n               Concat(Extract(63,\n                              8,\n                              11*\n                              (cursor_after_opaque_call |\n                               destination_base)),\n                      11*\n                      (Extract(7,\n                               0,\n                               cursor_after_opaque_call) |\n                       Extract(7, 0, destination_base))) +\n               18446744073709551615*\n               Concat(Extract(63,\n                              8,\n                              11*\n                              ~(cursor_after_opaque_call |\n                                ~destination_base)),\n                      11*\n                      ~(Extract(7,\n                                0,\n                                cursor_after_opaque_call) |\n                        ~Extract(7, 0, destination_base)))),\n       245*\n       ~(~Extract(7, 0, cursor_after_opaque_call) |\n         ~Extract(7, 0, destination_base)) +\n       247*\n       ~(Extract(7, 0, destination_base) |\n         ~Extract(7, 0, cursor_after_opaque_call)) +\n       255*\n       (Extract(7, 0, cursor_after_opaque_call) ^\n        Extract(7, 0, destination_base)) +\n       11*\n       (Extract(7, 0, cursor_after_opaque_call) |\n        Extract(7, 0, destination_base)) +\n       245*\n       ~(Extract(7, 0, cursor_after_opaque_call) |\n         ~Extract(7, 0, destination_base)))",
+    "0xa0": "cursor_after_opaque_call",
+    "0xa8": "uninitialized in this fragment",
+    "0xb0": "uninitialized in this fragment",
+    "0xb8": "uninitialized in this fragment"
+  },
+  "intermediate_proofs": {
+    "0x60": "unsat",
+    "0x68": "unsat",
+    "0x70": "unsat",
+    "0x78": "unsat",
+    "0x80": "unsat",
+    "0x88": "unsat",
+    "0x90": "unsat"
+  },
+  "partition_ring_proof": "unsat",
+  "partition_truth_table": [
+    {
+      "a": 0,
+      "b": 0,
+      "common": 0,
+      "only_A": 0,
+      "only_B": 0
+    },
+    {
+      "a": 0,
+      "b": 1,
+      "common": 0,
+      "only_A": 0,
+      "only_B": 1
+    },
+    {
+      "a": 1,
+      "b": 0,
+      "common": 0,
+      "only_A": 1,
+      "only_B": 0
+    },
+    {
+      "a": 1,
+      "b": 1,
+      "common": 1,
+      "only_A": 0,
+      "only_B": 0
+    }
+  ],
+  "output_identity": "cursor_after_opaque_call - destination_base (mod 2^64)",
+  "schema": "wlab-span-adapter-suffix-1",
+  "module_sha256": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c",
+  "synthetic_entry_rsp": 68719476744,
+  "assumptions": [
+    "All recorded module reads equal their disk bytes at each read; instruction bytes unchanged",
+    "Valid stack, ordinary memory and nonaliasing analysis regions; no exceptions, nonlocal control flow or asynchronous code mutation",
+    "The prefix ends before the opaque call; the suffix is a separate snapshot, NOT an inferred postcondition of that call"
+  ],
+  "conclusions": {
+    "runtime_observed": false,
+    "opaque_call_implemented_or_summarized": false,
+    "source_content_or_encoding_proven": false,
+    "hardware_read_proven": false,
+    "hardware_send_3724_proven": false,
+    "exe_slot_writer_found": false,
+    "actual_output_bytes_proven": false
+  },
+  "snapshot": {
+    "entry_instruction": "0x683CA8",
+    "frame": "entry RSP - 0x108",
+    "RBX": "D",
+    "RBP": "~D",
+    "frame+0xA0": "arbitrary A (cursor_after_opaque_call)",
+    "frame+0x50": "arbitrary Q (output_qword_pointer)",
+    "RAX": "arbitrary opaque return",
+    "cookie": "matching recorded cookie for normal epilogue",
+    "saved_nonvolatile_registers": "arbitrary saved values for epilogue"
+  },
+  "semantic_contract": {
+    "write_site": "0x683CDD",
+    "write_size": 8,
+    "destination": "Q",
+    "value": "A - D (mod 2^64)",
+    "return_low32": "low32 of opaque return",
+    "does_not_establish": "A is advanced correctly, output is in bounds, or bytes were actually produced by the opaque call"
+  }
+}

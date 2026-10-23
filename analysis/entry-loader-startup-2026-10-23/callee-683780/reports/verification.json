@@ -1,0 +1,72 @@
+{
+  "manual_PE_and_function_ranges": "passed",
+  "separate_integer_replay": "passed",
+  "shared_decoder": "Capstone; not independent disassemblers",
+  "numeric_cases_per_fragment": 106,
+  "numeric_cases_are_universal_proof": false,
+  "prefix_instructions": 209,
+  "suffix_instructions": 165,
+  "prefix_stops_before_opaque_call": true,
+  "suffix_is_separate_snapshot": true,
+  "byte_locked_partition_algebra": "proved modulo 2^64; exhaustive one-bit partition plus ring coefficient identity",
+  "source_bytes_encoding_and_core_effects": "unresolved",
+  "mutation_tests": [
+    {
+      "mutation": "changed_span_end",
+      "rejected": true
+    },
+    {
+      "mutation": "changed_source_scale",
+      "rejected": true
+    },
+    {
+      "mutation": "changed_opaque_target",
+      "rejected": true
+    },
+    {
+      "mutation": "crossed_opaque_boundary",
+      "rejected": true
+    },
+    {
+      "mutation": "deleted_instruction",
+      "rejected": true
+    },
+    {
+      "mutation": "flipped_branch",
+      "rejected": true
+    },
+    {
+      "mutation": "removed_snapshot_boundary",
+      "rejected": true
+    },
+    {
+      "mutation": "xor_instead_of_subtraction",
+      "rejected": true
+    },
+    {
+      "mutation": "wrong_output_width",
+      "rejected": true
+    },
+    {
+      "mutation": "wrong_output_site",
+      "rejected": true
+    },
+    {
+      "mutation": "claimed_actual_output",
+      "rejected": true
+    },
+    {
+      "mutation": "claimed_hardware_send",
+      "rejected": true
+    },
+    {
+      "mutation": "changed_global_bytes",
+      "rejected": true
+    },
+    {
+      "mutation": "changed_algebra_certificate",
+      "rejected": true
+    }
+  ],
+  "input_PE_executed": false
+}

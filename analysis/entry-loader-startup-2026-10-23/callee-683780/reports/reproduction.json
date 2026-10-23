@@ -1,0 +1,34 @@
+{
+  "packaged_entrypoint_ran_twice": true,
+  "reports": [
+    {
+      "file": "prefix-proof.json",
+      "byte_identical": true,
+      "sha256": "19534ef2d43fa5dce9be1b60457f27e421357978c091ac586f63bdec92d72668"
+    },
+    {
+      "file": "suffix-proof.json",
+      "byte_identical": true,
+      "sha256": "84c5c4361f39c51e741ffd7b5197efd8793302b160354d562d04b2984903abe7"
+    },
+    {
+      "file": "verification.json",
+      "byte_identical": true,
+      "sha256": "79c1564feb5d8351466ecc9476a8883a6c670a5f9ca27ae50e907892ef1d488e"
+    }
+  ],
+  "negative_input_tests": [
+    {
+      "input_case": 0,
+      "unpinned_input_rejected": true,
+      "no_valid_report_created": true
+    },
+    {
+      "input_case": 1,
+      "unpinned_input_rejected": true,
+      "no_valid_report_created": true
+    }
+  ],
+  "input_PE_executed": false,
+  "binary_sha256_after": "c0a3c393db5cee834387e4f151fb97b109370330a0ed02310f597cad999b6b0c"
+}
