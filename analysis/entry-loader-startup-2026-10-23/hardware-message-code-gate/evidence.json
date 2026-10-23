@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "source_sha256": "1c51e68c00e7183c2c187606d2c443c27252a629406454de4afec336e8c5753a",
+  "image_base": "0x140000000",
+  "scope": "three metadata-pinned candidates only; not all message methods and not a collector search",
+  "layout_assumption": "candidate protobuf v30.1 model for protobuf_blz, not proven fork ABI identity",
+  "tools": {
+    "pefile": "2024.8.26",
+    "capstone": "5.0.7",
+    "objdump": "GNU objdump version 2.41-50.amzn2023.0.5"
+  },
+  "targets": [
+    {
+      "role_candidate": "merge_candidate",
+      "slot_rva": "0x47cf800",
+      "slot_has_dir64_relocation": true,
+      "target_rva": "0x1b14120",
+      "section": ".text",
+      "section_executable": true,
+      "pdata_begin": "0x1b14120",
+      "pdata_end": "0x1b14138",
+      "unwind_rva": "0x44f3844",
+      "range_bytes": 24,
+      "range_sha256": "ce215fa9d367badcbd70eaab99d8931eea573473e1d1b88ba73eb713f3cf0aba",
+      "first_24_bytes": "0d84dff8fc9e0e5037c1f1009629c7332b36abee8a1a6779",
+      "capstone_linear_prefix": [
+        {
+          "rva": "0x1b14120",
+          "bytes": "0d84dff8fc",
+          "mnemonic": "or",
+          "op_str": "eax, 0xfcf8df84"
+        },
+        {
+          "rva": "0x1b14125",
+          "bytes": "9e",
+          "mnemonic": "sahf",
+          "op_str": ""
+        }
+      ],
+      "capstone_consumed_bytes": 6,
+      "capstone_first_undecoded_rva": "0x1b14126",
+      "objdump_prefix_through_first_bad": [
+        " 1b14120:\t0d 84 df f8 fc       \tor     eax,0xfcf8df84",
+        " 1b14125:\t9e                   \tsahf",
+        " 1b14126:\t0e                   \t(bad)"
+      ],
+      "interpretation": "ordinary x86-64 linear decode gate did not establish a callable body; no CFG/semantics claim"
+    },
+    {
+      "role_candidate": "creator_candidate",
+      "slot_rva": "0x47cf810",
+      "slot_has_dir64_relocation": true,
+      "target_rva": "0x1b11190",
+      "section": ".text",
+      "section_executable": true,
+      "pdata_begin": "0x1b11190",
+      "pdata_end": "0x1b111fe",
+      "unwind_rva": "0x449fc68",
+      "range_bytes": 110,
+      "range_sha256": "e75f6343602af74e067448cd54bf88f4c023ba9d33bd12692af9433d54474efe",
+      "first_24_bytes": "d529e3de3cd1eb53826f3a3cb427363357b965dec8dccd96",
+      "capstone_linear_prefix": [],
+      "capstone_consumed_bytes": 0,
+      "capstone_first_undecoded_rva": "0x1b11190",
+      "objdump_prefix_through_first_bad": [
+        " 1b11190:\td5 29 e3             \t(bad)"
+      ],
+      "interpretation": "ordinary x86-64 linear decode gate did not establish a callable body; no CFG/semantics claim"
+    },
+    {
+      "role_candidate": "parse_fallback_candidate",
+      "slot_rva": "0x47cec38",
+      "slot_has_dir64_relocation": true,
+      "target_rva": "0x33068c0",
+      "section": ".text",
+      "section_executable": true,
+      "pdata_begin": "0x33068c0",
+      "pdata_end": "0x33069b4",
+      "unwind_rva": "0x44acd54",
+      "range_bytes": 244,
+      "range_sha256": "e9f0aa7f885f8ac4b429b40d5f6d8221d8d456b114722fd4da8530705dc93119",
+      "first_24_bytes": "cdf56dae0c6966a3dc39188749a3519518a64703ce31943f",
+      "capstone_linear_prefix": [
+        {
+          "rva": "0x33068c0",
+          "bytes": "cdf5",
+          "mnemonic": "int",
+          "op_str": "0xf5"
+        },
+        {
+          "rva": "0x33068c2",
+          "bytes": "6d",
+          "mnemonic": "insd",
+          "op_str": "dword ptr [rdi], dx"
+        },
+        {
+          "rva": "0x33068c3",
+          "bytes": "ae",
+          "mnemonic": "scasb",
+          "op_str": "al, byte ptr [rdi]"
+        },
+        {
+          "rva": "0x33068c4",
+          "bytes": "0c69",
+          "mnemonic": "or",
+          "op_str": "al, 0x69"
+        },
+        {
+          "rva": "0x33068c6",
+          "bytes": "66a3dc39188749a35195",
+          "mnemonic": "movabs",
+          "op_str": "word ptr [0x9551a349871839dc], ax"
+        },
+        {
+          "rva": "0x33068d0",
+          "bytes": "18a64703ce31",
+          "mnemonic": "sbb",
+          "op_str": "byte ptr [rsi + 0x31ce0347], ah"
+        },
+        {
+          "rva": "0x33068d6",
+          "bytes": "94",
+          "mnemonic": "xchg",
+          "op_str": "esp, eax"
+        }
+      ],
+      "capstone_consumed_bytes": 23,
+      "capstone_first_undecoded_rva": "0x33068d7",
+      "objdump_prefix_through_first_bad": [
+        " 33068c0:\tcd f5                \tint    0xf5",
+        " 33068c2:\t6d                   \tins    DWORD PTR es:[rdi],dx",
+        " 33068c3:\tae                   \tscas   al,BYTE PTR es:[rdi]",
+        " 33068c4:\t0c 69                \tor     al,0x69",
+        " 33068c6:\t66 a3 dc 39 18 87 49 \tmovabs ds:0x9551a349871839dc,ax",
+        " 33068cd:\ta3 51 95 ",
+        " 33068d0:\t18 a6 47 03 ce 31    \tsbb    BYTE PTR [rsi+0x31ce0347],ah",
+        " 33068d6:\t94                   \txchg   esp,eax",
+        " 33068d7:\t3f                   \t(bad)"
+      ],
+      "interpretation": "ordinary x86-64 linear decode gate did not establish a callable body; no CFG/semantics claim"
+    }
+  ],
+  "decision": "stop this static code gate; do not infer runtime code, encryption, collection, serialization, sending or no-send",
+  "claims": {
+    "message_field_population_proven": false,
+    "serialization_proven": false,
+    "send_on_tcp_3724_proven": false,
+    "no_send_proven": false
+  }
+}

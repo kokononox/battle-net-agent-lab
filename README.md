@@ -1,6 +1,14 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## آخرین گام — منشأ بافر، تطبیق نام ماژول و توقف گسترش عمومی
+## آخرین گام — گلوگاه کد اختصاصی پیام سخت‌افزار
+
+[گزارش بررسی محدود سه ورودی](analysis/entry-loader-startup-2026-10-23/hardware-message-code-gate/README.fa.md) · [شواهد دو دیکدر](analysis/entry-loader-startup-2026-10-23/hardware-message-code-gate/evidence.json) · [وضعیت و شرط ادامه](analysis/entry-loader-startup-2026-10-23/hardware-message-code-gate/SYNC-STATUS.json).
+
+سه اشاره‌گرِ نامزد merge/creator/parse-fallback از متادیتای ClientEngineLogV2 به ابتدای رکوردهای pdata در `.text` دنبال شدند؛ اسلات هر سه DIR64 relocation دارد. دیکد خطی معمول با Capstone و objdump از این ورودی‌ها بدنهٔ قابل اتکایی برای دنبال‌کردن مقداردهی سخت‌افزار به دست نداد. این نتیجه دربارهٔ بایت روی دیسک و ابزارهای ثبت‌شده است، نه اثبات نامعتبر بودن کد زمان اجرا، رمزگذاری، حفاظت یا نبود ارسال.
+
+**تصمیم:** این مسیر نیز فعلاً در انتظار شاهد تازهٔ مجاز و منطبق با build متوقف است؛ اسکن تکراری رشته‌ها و گسترش عمومی لودر پیشرفت رفتاری محسوب نمی‌شوند. صحت اسلات/relocation/pdata/بایت با PE reader مستقل کنترل و گزارش دو بار یکسان تولید شد؛ این کنترل‌ها اثبات معنایی نیستند. CPU/BIOS روی TCP/3724 همچنان نه اثبات و نه رد شده است. بازی اجرا/patch نشد؛ main، GUI 0.2 و firewall دست‌نخورده‌اند.
+
+## گام پیشین — منشأ بافر، تطبیق نام ماژول و توقف گسترش عمومی
 
 [گزارش منشأ U و N، منابع و بازتولید](analysis/entry-loader-startup-2026-10-23/record-provenance/README.fa.md) · [وضعیت و تصمیم ادامه](analysis/entry-loader-startup-2026-10-23/record-provenance/SYNC-STATUS.json).
 
