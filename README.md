@@ -1,6 +1,16 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
-## آخرین گام — WLab Snapshot 0.1.1، اصلاح مانع بازشدن رابط
+## آخرین گام — WLab Snapshot 0.1.2، اصلاح نمایش بر پایهٔ لاگ کاربر
+
+[راهنمای نسخه](user-tools/wlab-snapshot-0.1.2/README.fa.md) · [شواهد شروع کاربر](user-tools/wlab-snapshot-0.1.2/USER-STARTUP-OBSERVATION.json) · [QA](user-tools/wlab-snapshot-0.1.2/QA.json) · [هش باینری](user-tools/wlab-snapshot-0.1.2/PROVENANCE.json) · [وضعیت](user-tools/wlab-snapshot-0.1.2/SYNC-STATUS.json).
+
+آرشیو Documents.zip دو marker رویداد Shown، یک marker elevation و لاگ‌های بدون متن خطای شروع داشت؛ کاربر بااین‌حال هیچ پنجره‌ای نمی‌دید. Shown صرفاً رویداد WinForms است، نه تأیید قابل‌دیدن‌بودن رابط. این شواهد نشان‌دهندهٔ اجرای snapshot یا ارسال شبکه نیستند.
+
+منبع Go تأیید کرد `HideWindow: true` در launcher قبلی، STARTF_USESHOWWINDOW/SW_HIDE را تنظیم می‌کرد. این گزینه با CREATE_NO_WINDOW جایگزین شد تا کنسول جدا ساخته نشود، بدون درخواست مخفی‌شدن رابط. ارتباط علّی آن با desktop کاربر هنوز اثبات نشده است. monitor تازه فقط برای PID همان worker و عنوان همین نسخه، وضعیت native پنجره را ثبت و restore/center/foreground را درخواست می‌کند؛ هیچ پنجرهٔ بازی یا فرایند دیگری تغییر/خاتمه داده نمی‌شود. window-state.json جای اعتماد صرف به UI shown را می‌گیرد؛ وضعیت native نیز به‌تنهایی اثبات دیده‌شدن انسانی نیست.
+
+۲۳ آزمون (۱۸ parser، چهار هندسه و یک guard منبع flags)، پنج fixture مصنوعی، چهار وضعیت قفل، بررسی نحو و دو build یکسان گذشتند. **نمایش واقعی 0.1.2 روی Windows هنوز تأیید نشده است.** قدم بعد فقط بازکردن WLab-Snapshot-0.1.2.exe و تأیید رابط است؛ بازی و Capture برای این آزمون لازم نیست. main، GUI BIOS Path 0.2 و روش capture قبلی تغییر نکرده‌اند. CPU/BIOS روی TCP/3724 همچنان نامعلوم است.
+
+## گام پیشین — WLab Snapshot 0.1.1، اصلاح قفل و مشکل نمایش تأییدنشده
 
 [نسخه و راهنمای اصلاحی](user-tools/wlab-snapshot-0.1.1/README.fa.md) · [QA](user-tools/wlab-snapshot-0.1.1/QA.json) · [هش باینری](user-tools/wlab-snapshot-0.1.1/PROVENANCE.json) · [وضعیت](user-tools/wlab-snapshot-0.1.1/SYNC-STATUS.json).
 

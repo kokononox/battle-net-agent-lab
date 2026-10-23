@@ -1,0 +1,17 @@
+WLab Snapshot 0.1.2 - Window display repair
+
+FIRST TEST: only check that the interface appears. No game launch or Capture is needed yet.
+1) Extract into a NEW folder.
+2) Run WLab-Snapshot-0.1.2.exe. Approve administrator access if requested.
+3) Wait briefly. The tool requests restore, center and foreground for its OWN window.
+4) Say whether the interface is visible. Do not click Capture yet.
+
+If no interface appears, send the launcher folder ZIP again. Include window-state.json and launcher.log.
+Path: %LOCALAPPDATA%\WLabSnapshot\launcher
+
+This version removes HideWindow/SW_HIDE from the GUI worker startup.
+A Shown-event marker is NOT proof that a user can see a window.
+Real display on your Windows system is pending verification.
+No other PowerShell or game process is killed. No game window is modified.
+No automatic capture or upload.
+Full Persian instructions and later capture procedure: README.fa.md

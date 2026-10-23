@@ -1,0 +1,57 @@
+{
+  "version": "0.1.2",
+  "previous_user_windows_observation": "two WinForms Shown markers but user could not see UI; see USER-STARTUP-OBSERVATION.json",
+  "causal_diagnosis": "HideWindow/SW_HIDE startup found; plausible, not verified as the cause on the user desktop",
+  "change": "CREATE_NO_WINDOW instead of hidden startup; own-PID/exact-title native visibility/geometry diagnostics and restore/position requests",
+  "go_unit_tests_passed": 23,
+  "test_breakdown": {
+    "parser_tests": 18,
+    "pure_geometry_tests": 4,
+    "source_level_startup_flag_guard": 1
+  },
+  "offline_synthetic_integration_cases": [
+    {
+      "case": "unchanged",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "changed",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "missing",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "wrong-module-stamp",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "wrong-memory-header",
+      "passed": true,
+      "synthetic_only": true
+    }
+  ],
+  "capture_lock_regression": {
+    "platform": "Linux PowerShell/.NET",
+    "preexisting_file_without_handle_accepted": true,
+    "second_live_holder_rejected": true,
+    "graceful_release_reacquires": true,
+    "terminated_owned_test_holder_reacquires": true,
+    "windows_ui_runtime_tested": false,
+    "game_capture_tested": false
+  },
+  "powershell_AST_parse": "passed on official Linux PowerShell; not Windows PS 5.1 runtime",
+  "windows_x64_GUI_cross_compile": "passed",
+  "go_vet_linux_and_windows_targets": "passed",
+  "two_builds_byte_identical": true,
+  "native_Win32_UI_calls_executed_in_build_environment": false,
+  "version_0_1_2_windows_UI_verified_by_user": false,
+  "wow_snapshot_capture_tested": false,
+  "next_test": "UI appearance only; no game/capture required",
+  "test_counts_are_not_runtime_visibility_or_game_proof": true
+}
