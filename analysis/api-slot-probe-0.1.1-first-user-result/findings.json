@@ -1,0 +1,21 @@
+{
+  "tool": "WLab APIProbe 0.1.1",
+  "input_archive_sha256": "5c3839c1ab78981cc2dd95a76cacb0c5659ae5d689df91b055bf52600544e330",
+  "status": "read_stopped",
+  "geometry_gate_result": "pinned_rdata_section_allocation",
+  "failed_call": "first K32GetMappedFileNameW, at slot address",
+  "win32_error": 1006,
+  "win32_symbol": "ERROR_FILE_INVALID",
+  "slot_mapped_name_returned": false,
+  "allocation_name_query_reached": false,
+  "backing_method_disk_open_reached": false,
+  "direct_rpm_calls": 0,
+  "requested_memory_bytes": 0,
+  "returned_memory_bytes": 0,
+  "api_identity": "unresolved",
+  "pointer_sampled": false,
+  "same_process_alive_in_metadata_observations": true,
+  "responding_in_metadata_observations": true,
+  "subjective_usability_user_reported": false,
+  "decision": "Park API/handler detour; no further live rerun or validator weakening from this evidence alone"
+}
