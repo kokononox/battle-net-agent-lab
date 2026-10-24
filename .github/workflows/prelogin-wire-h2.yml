@@ -12,7 +12,7 @@ concurrency:
 jobs:
   observe:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved prelogin wire h2 20261024-b2'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved prelogin wire h2 20261024-b3'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:

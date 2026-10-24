@@ -22,7 +22,7 @@
 ## اجرای هدف و قیود
 
 - فقط GitHub-hosted Windows تازه، attempt اول، شاخهٔ تحقیق و commit message مشخص در workflow.
-- فقط منبع رسمی موجود در `scripts/observe_agent.py`؛ SHA-256 bootstrapper باید `de5d32d4ea5eed5a9e120027fb68b370976dbfecc8f2a8f91305977f0b87fcaf` باشد. تغییر نسخه ⇒ توقف، نه حذف pin یا جایگزینی بی‌اعلام.
+- فقط منبع رسمی موجود در `scripts/observe_agent.py`؛ SHA-256 bootstrapper در اجرای b3 باید `f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6` باشد (هویت نسخهٔ فعلی در بررسی مستقل c1؛ این تصویر با H1 یکسان نیست). تغییر نسخه ⇒ توقف، نه حذف pin یا جایگزینی بی‌اعلام.
 - امضای Authenticode و ناشر Blizzard برای root/child، نام تصویر مجاز و هویت PID پیش از resume کنترل می‌شوند. child نامعتبر متوقف می‌شود.
 - فقط یک بار انتخاب/Continue صفحهٔ زبان با guardهای فعلی مخزن؛ **بدون Install، حساب، پذیرش شروط حقوقی یا دانلود بازی**. اجرای هدف 90 ثانیه مشاهده می‌شود؛ مرحلهٔ bootstrapper از قبل از اجرا ثبت می‌شود.
 - هیچ argument، return value، بافر هدف، hosts، CA، TLS verification یا keylog تغییر نمی‌کند.
@@ -67,3 +67,9 @@ schema عمومی `bnet-prelogin-wire-h2-1` حاوی وضعیت gate، hash تص
 ## اجرای بومی b1 و اصلاح b2
 
 run `40077820970` با source `62a8ab6c1b2437f247a9431eb663775b38abd437`: دو درخواست fixture تا شبکه پیوند خوردند، اما صفر پاسخ و دو خطای collector ثبت شد. gate رد شد و **نصاب اجرا نشد**. علت در بررسی کد: `DecryptMessage` descriptor را در آرگومان دوم می‌گیرد، نه سوم؛ اشتراک نادرست indexing با EncryptMessage اصلاح شد. دو آزمون تازه selector واقعی JavaScript را در VM بدون شبکه اجرا می‌کنند. نتیجهٔ b1 در `reports/prelogin-wire-h2-b1-runtime.json` حفظ شده است. b2 آزمایش تازهٔ صحت است و پیشاپیش موفق اعلام نمی‌شود.
+
+## b2 و c1: کنترل نسخه واقعاً مانع اجرا شد
+
+- b2، run `40078035888`: کنترل بومی پاس شد؛ دو درخواست و دو پاسخ fixture تا شبکه پیوند خوردند؛ صفر خطا/افت رویداد. سپس hash دانلود رسمی با pin تاریخی برابر نبود و **نصاب اجرا نشد**. گزارش در `reports/prelogin-wire-h2-b2-runtime.json` حفظ شد.
+- c1، run `40078214408`: فقط دانلود/امضاسنجی، بدون اجرای نصاب. دو دانلود رسمی هر دو 4700880 بایت و با hash یکسان `f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6` بودند؛ WinVerifyTrust=0 و ناشر Blizzard هر دو پذیرفته شدند. منبع: `reports/prelogin-bootstrap-identity-c1.json`.
+- b3 pin تازه را صریحاً به این تصویر امضاشدهٔ بررسی‌شده محدود می‌کند. pin حذف یا به wildcard تبدیل نشده؛ تغییر دوبارهٔ دانلود باز هم باعث توقف می‌شود. نتایج باینری جدید با H1 ادغامِ بی‌اعلام نمی‌شوند.
