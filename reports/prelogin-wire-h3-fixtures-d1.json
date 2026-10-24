@@ -1,0 +1,87 @@
+{
+  "schema": "bnet-h3-owned-fixtures-1",
+  "source_commit": "e3e66971aa96939fa6de6530abb5a53b863e106d",
+  "run_id": "40079447967",
+  "target_launched": false,
+  "game_download_requested": false,
+  "raw_values_exported": false,
+  "tls_validation_changed": false,
+  "scope": "owned_loopback_and_example_com_only",
+  "async_scope": "event_WSAGetOverlappedResult_success_only",
+  "iocp_supported": false,
+  "callback_supported": false,
+  "all_network_paths_covered": false,
+  "passed": false,
+  "fixtures": [
+    {
+      "architecture": "x64",
+      "passed": false,
+      "stage": "complete",
+      "error_type": null,
+      "fixture_exit_code": 0,
+      "root_child_instrumented": true,
+      "bitness_confirmed": true,
+      "negative_encryption_observed": true,
+      "linked_probe_requests": 2,
+      "http_responses_linked": 2,
+      "collector_errors": 7,
+      "dropped_events": 0,
+      "collector_fatal": false,
+      "completed_operations": 2,
+      "pending_socket_events": 7,
+      "diagnostics": {
+        "WSARecv|enter|overlapped_reuse": 7
+      },
+      "capture_issues": {},
+      "packet_count": 138,
+      "witness": {
+        "large_recv": true,
+        "multibuffer_recv": true,
+        "pending_recv": true,
+        "false_completion_checked": true,
+        "async_recv": true,
+        "async_send": true
+      },
+      "hook_checks": {
+        "large_recv": true,
+        "multibuffer_recv": true,
+        "async_recv": true,
+        "async_send": true
+      }
+    },
+    {
+      "architecture": "x86",
+      "passed": true,
+      "stage": "complete",
+      "error_type": null,
+      "fixture_exit_code": 0,
+      "root_child_instrumented": true,
+      "bitness_confirmed": true,
+      "negative_encryption_observed": true,
+      "linked_probe_requests": 2,
+      "http_responses_linked": 2,
+      "collector_errors": 0,
+      "dropped_events": 0,
+      "collector_fatal": false,
+      "completed_operations": 2,
+      "pending_socket_events": 0,
+      "diagnostics": {},
+      "capture_issues": {},
+      "packet_count": 130,
+      "witness": {
+        "large_recv": true,
+        "multibuffer_recv": true,
+        "pending_recv": true,
+        "false_completion_checked": true,
+        "async_recv": true,
+        "async_send": true
+      },
+      "hook_checks": {
+        "large_recv": true,
+        "multibuffer_recv": true,
+        "async_recv": true,
+        "async_send": true
+      }
+    }
+  ]
+}
