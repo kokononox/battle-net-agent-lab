@@ -1,0 +1,304 @@
+{
+  "schema": "bnet-prelogin-wire-h2-1",
+  "source_commit": "3f8cde1941de4a7624ca04f8c3547c375e1d5bfd",
+  "run_id": "40078573714",
+  "status": "collector_incomplete",
+  "error_code": null,
+  "selftest": {
+    "passed": true,
+    "root_child_instrumented": true,
+    "negative_encryption_observed": true,
+    "linked_probe_requests": 2,
+    "http_responses_linked": 2,
+    "collector_errors": 0,
+    "dropped_events": 0,
+    "stage": "complete",
+    "error_type": null,
+    "fixture_exit_code": 0,
+    "packets": 141,
+    "successful_encryptions": 2,
+    "successful_decryptions": 2,
+    "socket_events": 52,
+    "diagnostics": {
+      "request_count": 2,
+      "socket_linked_requests": 2,
+      "parse_states": {
+        "complete": 2,
+        "context_has_failed_or_incomplete_encryption": 1
+      },
+      "capture_issues": {},
+      "asynchronous_socket_events": 14,
+      "ambiguous_socket_events": 0
+    }
+  },
+  "bootstrap_pin_match": true,
+  "target_launched": true,
+  "processes": [
+    {
+      "name": "battle.net-setup.exe",
+      "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "instrumented_before_resume": true,
+      "script_errors": 55
+    },
+    {
+      "name": "agent.exe",
+      "sha256": "7d20ba6ef1d34a3cedbd7d3fd7c14228f173668a9a1e338351d529048de45079",
+      "instrumented_before_resume": true,
+      "script_errors": 0
+    },
+    {
+      "name": "agent.exe",
+      "sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "instrumented_before_resume": true,
+      "script_errors": 4
+    }
+  ],
+  "requests": [
+    {
+      "destination": "telemetry-in.battle.net",
+      "method": "POST",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "telemetry-in.battle.net",
+      "method": "POST",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "telemetry-in.battle.net",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "telemetry-in.battle.net",
+      "method": "POST",
+      "tls_record_count": 2,
+      "hardware_payload_verified": true,
+      "hardware_field_count": 22,
+      "cpu_reference_match": true,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "telemetry-in.battle.net",
+      "method": "POST",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "telemetry-in.battle.net",
+      "method": "POST",
+      "tls_record_count": 2,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": false,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    }
+  ],
+  "parse_states": {
+    "complete": 12
+  },
+  "network_linked_hardware_requests": 0,
+  "request_count": 18,
+  "capture": {
+    "start_code": 0,
+    "stop_code": 0,
+    "convert_code": 0,
+    "packets": 6981,
+    "issues": {
+      "ip_bounds": 30,
+      "tcp_overlap_conflict": 2
+    }
+  },
+  "collector_errors": 59,
+  "dropped_events": 0,
+  "collector_fatal": false,
+  "limits": {
+    "server_storage_proven": false,
+    "all_network_paths_covered": false,
+    "raw_values_exported": false,
+    "login_performed": false,
+    "game_download_requested": false,
+    "install_action_requested": false,
+    "tls_validation_changed": false,
+    "sspi_http1_only": true,
+    "async_completion_supported": false,
+    "circular_capture_can_drop_early_packets": true
+  }
+}

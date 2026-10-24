@@ -1,0 +1,37 @@
+{
+  "schema": "prelogin-h2-review-1",
+  "date": "2026-10-24",
+  "runtime_run_id": "40078573714",
+  "runtime_commit": "fdddc31444a8f6bd2615d2b9e70238615592181f",
+  "source_commit": "3f8cde1941de4a7624ca04f8c3547c375e1d5bfd",
+  "target_launched": true,
+  "new_prelogin_hardware_request_observed": true,
+  "hardware_verified_requests": 1,
+  "hardware_field_count": 22,
+  "cpu_reference_match": true,
+  "request_count": 18,
+  "post_request_count": 5,
+  "collector_errors_crosschecked": 59,
+  "accepted_wire_linked_hardware_verdicts": 0,
+  "wire_flags_suppressed_by_fail_closed_policy": true,
+  "zero_accepted_links_is_not_evidence_of_no_send": true,
+  "server_receipt_proven": false,
+  "server_storage_proven": false,
+  "local_unit_tests_passed": 32,
+  "native_gate_passed_for_final_run": true,
+  "scope": "startup_language_only_no_Install_no_login_no_game_download_not_full_installation",
+  "preserved_prior_runs": {
+    "b1": "40077820970",
+    "b2": "40078035888",
+    "identity_c1": "40078214408",
+    "b3": "40078366295"
+  },
+  "next_distinguishing_work": [
+    "Per-API and per-reason safe error classification before another installer run.",
+    "Owned x86 native TLS fixture and oversized/multi-buffer descriptor tests.",
+    "Validate asynchronous completion and per-flow taint isolation; do not promote failed/unknown writes.",
+    "Resolve capture ip_bounds/overlap ambiguity without silently discarding or inventing bytes."
+  ],
+  "q2": "queued_not_started",
+  "raw_capture_or_hardware_values_published": false
+}
