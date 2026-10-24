@@ -1,0 +1,58 @@
+name: Pre-login bootstrap identity only
+on:
+  push:
+    branches: [research/prelogin-telemetry-wow-data-provenance]
+    paths:
+      - 'analysis-tools/prelogin-wire-h2/inspect_bootstrap.py'
+      - '.github/workflows/prelogin-bootstrap-identity.yml'
+permissions: {}
+jobs:
+  inspect:
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved prelogin bootstrap identity 20261024-c1'
+    runs-on: windows-2025
+    timeout-minutes: 7
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Download twice and inspect Authenticode, never launch installer
+        env:
+          BOOTSTRAP_IDENTITY_ONLY: 20261024-c1
+        run: python analysis-tools/prelogin-wire-h2/inspect_bootstrap.py
+      - name: Validate metadata allowlist
+        if: always()
+        run: python analysis-tools/prelogin-wire-h2/inspect_bootstrap.py output/bootstrap-identity.json sanitized/bootstrap-identity.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: bootstrap-identity-only
+          path: sanitized/bootstrap-identity.json
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: inspect
+    if: needs.inspect.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: research/prelogin-telemetry-wow-data-provenance
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: bootstrap-identity-only
+          path: incoming
+      - name: Revalidate and commit metadata only
+        run: |
+          set -euo pipefail
+          python analysis-tools/prelogin-wire-h2/inspect_bootstrap.py incoming/bootstrap-identity.json reports/prelogin-bootstrap-identity-c1.json
+          git config user.name prelogin-wire-report
+          git config user.email prelogin-wire-report@users.noreply.github.com
+          git add -- reports/prelogin-bootstrap-identity-c1.json
+          git commit -m 'lab: publish bootstrap identity only, no target execution'
+          git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
