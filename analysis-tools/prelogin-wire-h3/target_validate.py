@@ -5,7 +5,7 @@ import re
 import sys
 from validate import validate as validate_fixture, APIS, REASONS
 
-TOP=set('schema source_commit run_id status error_code selftest bootstrap_pin_match target_launched processes requests parse_states network_linked_hardware_requests request_count capture collector_errors dropped_events collector_fatal async_scope limits link_diagnostics capture_diagnostics'.split())
+TOP=set('schema source_commit run_id status error_code selftest bootstrap_pin_match target_launched processes requests parse_states network_linked_hardware_requests request_count capture collector_errors dropped_events collector_fatal async_scope limits link_diagnostics capture_diagnostics capture_policy'.split())
 STATES={'not_started','native_gate','native_gate_failed_no_installer','observation_complete','target_stopped','collector_incomplete','stopped'}
 PARSE={'incomplete_headers','unsupported_request_boundary','invalid_headers','invalid_host','transfer_encoding_unsupported','invalid_length','body_limit','incomplete_body','complete','request_limit','context_has_failed_or_incomplete_encryption','concurrent_context','context_limit'}
 ISSUES={'snapshot_truncated','short_ethernet','unsupported_link','short_ip','ip_bounds','ip_fragments_unsupported','short_ip6','ip6_bounds','ipv6_extension_unsupported','short_tcp','tcp_bounds','tcp_overlap_conflict'}
@@ -27,7 +27,7 @@ def counts(d,keys):
 
 
 def validate(r):
-    if type(r) is not dict or set(r)!=TOP or r['schema']!='bnet-prelogin-wire-h3-target-6':raise ValueError('schema')
+    if type(r) is not dict or set(r)!=TOP or r['schema']!='bnet-prelogin-wire-h3-target-7':raise ValueError('schema')
     if type(r['source_commit']) is not str or not re.fullmatch('[a-f0-9]{40}',r['source_commit']):raise ValueError('source')
     if type(r['run_id']) is not str or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('run')
     if r['async_scope']!='event_and_registered_win32_callbacks_only':raise ValueError('async_scope')
@@ -100,7 +100,10 @@ def validate(r):
     if s is not None:
         validate_fixture(s)
         if s['source_commit']!=r['source_commit'] or s['run_id']!=r['run_id']:raise ValueError('qualification_identity')
+    from capture_policy import validate as validate_policy
+    if r['capture_policy'] is not None:validate_policy(r['capture_policy'])
     if r['target_launched'] and not (s and s['passed'] and r['bootstrap_pin_match']):raise ValueError('ungated_launch')
+    if r['target_launched'] and r['capture_policy'] is None:raise ValueError('capture_policy_missing')
     if r['network_linked_hardware_requests'] and (r['collector_errors'] or r['dropped_events'] or r['collector_fatal'] or not r['target_launched']):raise ValueError('incomplete_verdict')
     if r['collector_errors'] or r['dropped_events'] or r['collector_fatal']:
         if any(x['socket_send_linked'] or x['packet_bytes_linked'] or x['http_response_status'] is not None for x in r['requests']):raise ValueError('incomplete_collector_claim')

@@ -4,13 +4,13 @@ from test_validate import report as fixture_report
 from target_validate import validate,LIMITS
 
 def report(launched=False):
-    r=dict(schema='bnet-prelogin-wire-h3-target-6',source_commit='a'*40,run_id='123',status='not_started',error_code=None,selftest=None,bootstrap_pin_match=None,target_launched=False,async_scope='event_and_registered_win32_callbacks_only',processes=[],requests=[],parse_states={},network_linked_hardware_requests=0,request_count=0,capture=None,capture_diagnostics=None,link_diagnostics=[],collector_errors=0,dropped_events=0,collector_fatal=False,limits=dict(LIMITS))
+    r=dict(schema='bnet-prelogin-wire-h3-target-7',source_commit='a'*40,run_id='123',status='not_started',error_code=None,selftest=None,bootstrap_pin_match=None,target_launched=False,async_scope='event_and_registered_win32_callbacks_only',processes=[],requests=[],parse_states={},network_linked_hardware_requests=0,request_count=0,capture=None,capture_diagnostics=None,capture_policy=None,link_diagnostics=[],collector_errors=0,dropped_events=0,collector_fatal=False,limits=dict(LIMITS))
     if launched:
         f=fixture_report()
         for x in f['fixtures']:
             x.update(passed=True,stage='complete',fixture_exit_code=0,root_child_instrumented=True,bitness_confirmed=True,negative_encryption_observed=True,linked_probe_requests=2,http_responses_linked=2,completed_operations=4,witness={k:True for k in x['witness']},hook_checks={k:True for k in x['hook_checks']})
         f['passed']=True
-        r.update(selftest=f,target_launched=True,bootstrap_pin_match=True,status='observation_complete')
+        r.update(capture_policy=dict(method='disable_netadapter_lso',adapter_count=1,previously_enabled_count=1,verified_disabled=True),selftest=f,target_launched=True,bootstrap_pin_match=True,status='observation_complete')
     return r
 
 def row():return dict(destination='telemetry-in.battle.net',method='POST',tls_record_count=1,hardware_payload_verified=True,hardware_field_count=22,cpu_reference_match=True,socket_send_linked=True,packet_bytes_linked=True,http_response_status=200,server_storage_proven=False)
@@ -51,6 +51,9 @@ class TargetAllowlist(unittest.TestCase):
         with self.assertRaises(ValueError):validate(r)
     def test_storage_claim_refused(self):
         r=report(True);v=row();v['server_storage_proven']=True;r.update(requests=[v],request_count=1,network_linked_hardware_requests=1,link_diagnostics=[[dict(rejected_ip_prefix_matches=None,rejected_ip_middle_matches=None,rejected_ip_suffix_matches=None,valid_segment_prefix_matches=None,valid_segment_middle_matches=None,valid_segment_suffix_matches=None,conflicted_segment_prefix_matches=None,conflicted_segment_middle_matches=None,conflicted_segment_suffix_matches=None,plaintext_bytes=10,encrypted_bytes=39,pcap_prefix_matches=None,pcap_middle_matches=None,pcap_suffix_matches=None,socket_matches=1,socket_pid_match=True,packet_matches=1,packet_prefix_matches=1,packet_suffix_matches=1)]])
+        with self.assertRaises(ValueError):validate(r)
+    def test_capture_policy_required_for_target(self):
+        r=report(True);r['capture_policy']=None
         with self.assertRaises(ValueError):validate(r)
     def test_diagnostic_alignment_required(self):
         r=report(True);r.update(requests=[row()],request_count=1,network_linked_hardware_requests=1)
