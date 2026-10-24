@@ -1,17 +1,17 @@
 {
-  "schema": "bnet-h3-review-2",
+  "schema": "bnet-h3-review-3",
   "scope": "native_controls_and_bounded_prelogin_target",
-  "latest_source_commit": "0b674b8d0ca799c86c5861d8237549cf18a24c6f",
-  "latest_run_id": "40081602871",
-  "published_evidence_commit": "fc5cf624c7168758908898e8a06a2ec212282e6d",
-  "local_python_tests_passed": 58,
+  "latest_source_commit": "9cb8bd01d793a1cbb0d1e10afc28d231ed3ea775",
+  "latest_run_id": "40087394664",
+  "published_evidence_commit": "f2ebccdb1d2fa55c65c090ee6097fd495836c8a2",
+  "local_python_tests_passed": 90,
   "actual_js_contract_checks_included": 62,
   "target_launched": true,
   "gate_passed": true,
   "collector_errors": 0,
   "dropped_events": 0,
   "collector_fatal": false,
-  "q1_evidence_upgrade": "verified_hardware_payload_linked_to_successful_local_socket_send_only",
+  "q1_evidence_upgrade": "verified_hardware_request_ciphertext_linked_to_successful_socket_send_and_unique_local_NIC_TCP_capture",
   "hardware_request": {
     "destination": "telemetry-in.battle.net",
     "method": "POST",
@@ -20,22 +20,21 @@
     "hardware_field_count": 22,
     "cpu_reference_match": true,
     "socket_send_linked": true,
-    "packet_bytes_linked": false,
+    "packet_bytes_linked": true,
     "http_response_status": null,
     "server_storage_proven": false
   },
-  "hardware_packet_match_proven": false,
+  "hardware_packet_match_proven": true,
   "hardware_server_response_proven": false,
   "server_storage_proven": false,
   "historical_h2_errors_explained": false,
-  "remaining_work": "establish_exact_ciphertext_packet_correlation_for_the_hardware_request_without_weakening_matching",
+  "remaining_work": "pair_a_valid_HTTP_response_to_the_hardware_request_and_independently_examine_ingest_without_assuming_exclusive_endpoint",
   "capture": {
     "start_code": 0,
     "stop_code": 0,
     "convert_code": 0,
-    "packets": 7026,
+    "packets": 6875,
     "issues": {
-      "ip_bounds": 30,
       "tcp_overlap_conflict": 2
     }
   },
@@ -149,6 +148,79 @@
       "source_commit": "0b674b8d0ca799c86c5861d8237549cf18a24c6f",
       "run_id": "40081602871",
       "outcome": "observation_complete_zero_errors_zero_drops_hardware_socket_link_only"
+    },
+    {
+      "stage": "e4",
+      "source_commit": "f624df23b567f0cd9c40af0f31020413d56e63b9",
+      "run_id": "40086509550",
+      "status": "observation_complete",
+      "collector_errors": 0,
+      "dropped_events": 0,
+      "hardware_packet_match_proven": false
+    },
+    {
+      "stage": "e5",
+      "source_commit": "ce9fb82777ebe497737a249ec660c1ca2e87433b",
+      "run_id": "40086808864",
+      "status": "observation_complete",
+      "collector_errors": 0,
+      "dropped_events": 0,
+      "hardware_packet_match_proven": false
+    },
+    {
+      "stage": "e6",
+      "source_commit": "58a40612ae03a47d2a11e09f04c64934e44c7360",
+      "run_id": "40087112086",
+      "status": "observation_complete",
+      "collector_errors": 0,
+      "dropped_events": 0,
+      "hardware_packet_match_proven": false
+    },
+    {
+      "stage": "e7",
+      "source_commit": "9cb8bd01d793a1cbb0d1e10afc28d231ed3ea775",
+      "run_id": "40087394664",
+      "status": "observation_complete",
+      "collector_errors": 0,
+      "dropped_events": 0,
+      "hardware_packet_match_proven": true
     }
-  ]
+  ],
+  "previous_e3_verdict": {
+    "latest_source_commit": "0b674b8d0ca799c86c5861d8237549cf18a24c6f",
+    "latest_run_id": "40081602871",
+    "q1_evidence_upgrade": "verified_hardware_payload_linked_to_successful_local_socket_send_only",
+    "hardware_request": {
+      "destination": "telemetry-in.battle.net",
+      "method": "POST",
+      "tls_record_count": 2,
+      "hardware_payload_verified": true,
+      "hardware_field_count": 22,
+      "cpu_reference_match": true,
+      "socket_send_linked": true,
+      "packet_bytes_linked": false,
+      "http_response_status": null,
+      "server_storage_proven": false
+    },
+    "hardware_packet_match_proven": false,
+    "hardware_server_response_proven": false,
+    "capture": {
+      "start_code": 0,
+      "stop_code": 0,
+      "convert_code": 0,
+      "packets": 7026,
+      "issues": {
+        "ip_bounds": 30,
+        "tcp_overlap_conflict": 2
+      }
+    },
+    "remaining_work": "establish_exact_ciphertext_packet_correlation_for_the_hardware_request_without_weakening_matching"
+  },
+  "capture_policy": {
+    "method": "disable_netadapter_lso",
+    "adapter_count": 3,
+    "previously_enabled_count": 3,
+    "verified_disabled": true
+  },
+  "local_capture_not_server_side": true
 }

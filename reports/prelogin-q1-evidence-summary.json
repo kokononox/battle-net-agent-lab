@@ -1,10 +1,10 @@
 {
-  "schema": "bnet-prelogin-q1-verdict-1",
+  "schema": "bnet-prelogin-q1-verdict-2",
   "review_date": "2026-10-24",
-  "scope": "Existing pre-account H1 startup evidence plus separate user-reported pre-account installation attachments. Not a new Windows run.",
+  "scope": "Historical pre-account H1 and separate private user attachments, plus fresh bounded hosted Windows H3/e7 pre-account startup with native qualification and verified disabled LSO.",
   "verdict": {
     "hardware_in_observed_preaccount_outbound_request": "established",
-    "observation_point": "successful SSPI EncryptMessage input; NOT a confirmed network send completion",
+    "observation_point": "H3/e7: decoded hardware request -> successful local socket write -> full exact ciphertext match in unique local NIC TCP capture; no paired hardware HTTP response or server storage proof",
     "destination_for_decoded_startagent": "telemetry-in.battle.net",
     "remote_application_receipt_of_same_hardware_payload": "not_established",
     "remote_storage_of_payload": "not_established",
@@ -13,7 +13,8 @@
     "host_id_agent_wire_mapping": "/1/4/1",
     "host_id_restart_persistence": "not_tested",
     "host_id_hardware_derived": "not_established",
-    "wow_data_marking_question": "queued_not_tested"
+    "wow_data_marking_question": "queued_not_tested",
+    "same_hardware_payload_ciphertext_in_local_network_capture": "established_in_h3_e7"
   },
   "sources": {
     "h1_baseline": {
@@ -52,6 +53,24 @@
         "ingest.gdp.blizzard.com"
       ],
       "relationship_to_h1": "separate_run_not_same_payload"
+    },
+    "h3_e7": {
+      "run_id": "40087394664",
+      "source_commit": "9cb8bd01d793a1cbb0d1e10afc28d231ed3ea775",
+      "evidence_commit": "f2ebccdb1d2fa55c65c090ee6097fd495836c8a2",
+      "report": "reports/prelogin-wire-h3-target-e7.json",
+      "hardware_field_count": 22,
+      "hardware_request_zero_based": 15,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
+      "http_response_status": null,
+      "capture_location": "same_host_NIC_not_server",
+      "capture_policy": {
+        "method": "disable_netadapter_lso",
+        "adapter_count": 3,
+        "previously_enabled_count": 3,
+        "verified_disabled": true
+      }
     }
   },
   "decoding": {
@@ -77,6 +96,19 @@
     "private_image_provided_to_optional_tests": true,
     "new_installer_execution": false,
     "workflow_dispatched": false,
-    "raw_attachments_published": false
+    "raw_attachments_published": false,
+    "scope": "historical_H1_offline_validation_only",
+    "h3_e7": {
+      "local_python_tests_passed": 90,
+      "actual_js_contract_checks_included": 62,
+      "native_x86_passed": true,
+      "native_x64_passed": true,
+      "collector_errors": 0,
+      "dropped_events": 0,
+      "collector_fatal": false,
+      "login_performed": false,
+      "install_action_requested": false,
+      "game_download_requested": false
+    }
   }
 }
