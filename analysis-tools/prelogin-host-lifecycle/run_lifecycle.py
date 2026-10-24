@@ -10,6 +10,7 @@ sys.path.insert(0,str(ROOT/'scripts'))
 sys.path.insert(0,str(HERE.parent/'prelogin-wire-h3'))
 sys.path.append(str(HERE.parent/'prelogin-wire-h2'))
 from identity_compare import Tracking,compare,eligible
+from phase_diagnostics import blank_debug,collect_diagnostics,error_kind
 from validate_lifecycle import validate,LIMITS
 import target_run as first
 from manager import Manager
@@ -31,13 +32,14 @@ def fold_analysis(p,a,t):
         wire_linked_hardware_requests=a['network_linked_hardware_requests'],**t.summary())
     if p['collector_errors'] or p['dropped_events'] or p['collector_fatal']:p['wire_linked_hardware_requests']=0
 
-def second_start(frida,env,setup,p,trackers):
+def second_start(frida,env,setup,p,trackers,diag):
     import observe_agent as obs
     from classify import Classifier
     from language_step import run as language_run
     import native_gui
     images={};ids={};manager=None;capture=None;handle=None
     # Recheck original download before launch, and pin both agent mapping and root.
+    diag['stage']='pin'
     if obs.is_reparse(setup) or hashlib.sha256(setup.read_bytes()).hexdigest()!=first.PIN:raise RuntimeError('pin')
     if not obs.signature(setup,env)['accepted_for_execution']:raise RuntimeError('signature')
     p['bootstrap_pin_match']=True
@@ -46,8 +48,14 @@ def second_start(frida,env,setup,p,trackers):
         if recheck:
             if ids[pid]!=(info['creation'],str(path).lower()):raise RuntimeError('identity')
             return {}
-        if path.name.lower() not in obs.NAMES or obs.is_reparse(path) or not 0<path.stat().st_size<=128*1024*1024:raise RuntimeError('image')
-        if not obs.signature(path,env)['accepted_for_execution']:raise RuntimeError('signature')
+        if path.name.lower() not in obs.NAMES:
+            diag['refusal_reason']='unexpected_image_name';raise RuntimeError('image')
+        if obs.is_reparse(path):
+            diag['refusal_reason']='reparse_or_missing_image';raise RuntimeError('image')
+        if not 0<path.stat().st_size<=128*1024*1024:
+            diag['refusal_reason']='image_size';raise RuntimeError('image')
+        if not obs.signature(path,env)['accepted_for_execution']:
+            diag['refusal_reason']='image_signature';raise RuntimeError('signature')
         data=path.read_bytes();digest=hashlib.sha256(data).hexdigest()
         if sum(map(len,images.values()))+len(data)>256*1024*1024:raise RuntimeError('budget')
         images[digest]=data;ids[pid]=(info['creation'],str(path).lower())
@@ -60,8 +68,10 @@ def second_start(frida,env,setup,p,trackers):
     except OSError:pass
     with tempfile.TemporaryDirectory(prefix='host-lifecycle-',dir=os.environ['RUNNER_TEMP']) as tmp:
         try:
-            capture=Capture(tmp,env);capture.start();manager=Manager(frida,verify)
+            diag['stage']='capture';capture=Capture(tmp,env);capture.start();manager=Manager(frida,verify)
+            diag['stage']='spawn'
             pid=manager.spawn([setup],env,setup.parent);handle=Process(manager,pid);p['launched']=True
+            diag['stage']='observe'
             start=time.monotonic();inspected=False
             while time.monotonic()-start<90:
                 if manager.fatal:raise RuntimeError('collector')
@@ -75,19 +85,29 @@ def second_start(frida,env,setup,p,trackers):
                     native_gui.inspect(set(manager.owned),round(time.monotonic()-start,2),on_visible_targets=advance)
                 time.sleep(.25)
             p['completed']=True
+        except Exception as exc:
+            diag['error_type']=error_kind(type(exc).__name__)
         finally:
             if manager:manager.close()
             if handle:handle.close()
-            packets=capture.finish() if capture else {'runs':[]}
-        if manager:
-            rows=list(manager.rows.values());p.update(instrumented_processes=len(rows),all_processes_instrumented=bool(rows) and all(x['instrumented_before_resume'] for x in rows),collector_errors=sum(x['script_errors'] for x in rows),dropped_events=manager.dropped,collector_fatal=manager.fatal)
-            tracker=Tracking(Classifier(images,cpu));trackers.append(tracker)
-            fold_analysis(p,analyze(manager.inputs,packets,tracker),tracker)
-            # Capture, TLS buffers and process images die with this scope.
+            if manager:
+                rows=list(manager.rows.values());collect_diagnostics(p,diag,manager)
+            try:packets=capture.finish() if capture else {'runs':[]}
+            except Exception as exc:
+                diag['error_type']=error_kind(type(exc).__name__);p['completed']=False;packets={'runs':[]}
+            if manager:
+                tracker=Tracking(Classifier(images,cpu));trackers.append(tracker)
+                try:fold_analysis(p,analyze(manager.inputs,packets,tracker),tracker)
+                except Exception as exc:
+                    diag['error_type']=error_kind(type(exc).__name__);p['completed']=False;p['wire_linked_hardware_requests']=0
+            if diag['error_type'] is not None:p['completed']=False;p['wire_linked_hardware_requests']=0
+            else:diag['stage']='complete'
+            # All failure diagnostics are retained, never an exception string.
+
 
 def main():
-    if not (sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_HOST_LIFECYCLE')=='approved-host-lifecycle-20261024-a3'):raise SystemExit('fresh_hosted_once_required')
-    report=dict(schema='bnet-host-lifecycle-1',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],status='stopped',error_code=None,first_native_gate_passed=False,same_machine=True,configuration_preserved=True,second_start_clean_processes=False,comparison=None,phases=[],limits=dict(LIMITS))
+    if not (sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_HOST_LIFECYCLE')=='approved-host-lifecycle-20261024-a4'):raise SystemExit('fresh_hosted_once_required')
+    report=dict(schema='bnet-host-lifecycle-2',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],status='stopped',error_code=None,first_native_gate_passed=False,same_machine=True,configuration_preserved=True,second_start_clean_processes=False,comparison=None,phases=[],second_diagnostics=blank_debug(),limits=dict(LIMITS))
     trackers=[];original_analyze=first.analyze;old_flag=os.environ.get('BNET_WIRE_H3')
     def observe_first(events,packets,classifier):
         tracker=Tracking(classifier);trackers.append(tracker)
@@ -114,7 +134,7 @@ def main():
         report['second_start_clean_processes']=True
         # Same bootstrapper, exact original location and untouched machine/config.
         setup=Path(os.environ['RUNNER_TEMP'])/('bnet-observe-'+os.environ['GITHUB_RUN_ID']+'-1')/'Battle.net-Setup.exe'
-        p=blank();report['phases'].append(p);second_start(frida,env,setup,p,trackers)
+        p=blank();report['phases'].append(p);second_start(frida,env,setup,p,trackers,report['second_diagnostics'])
         result=compare(trackers[0],trackers[1],report['phases']) if len(trackers)==2 else None
         report['comparison']=result
         report['status']=('same_host_id_after_process_restart' if result else 'changed_host_id_after_process_restart') if result is not None else 'inconclusive'
