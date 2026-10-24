@@ -1,0 +1,76 @@
+{
+  "schema": "unifiedfw-trace082-sanitized-review-1",
+  "input_zip_sha256": "17fc877d25249037853082d4fbbabad7ad91eb248b5e899f5f4b9a7c6a5534af",
+  "input_hash_manifest_verified": true,
+  "read_only_preflight_completed": true,
+  "full_run_completed": false,
+  "outcome": "inconclusive",
+  "error_codes": [
+    "coexistence_post_restore_connectivity_check_failed; policy_restore_status_is_separate"
+  ],
+  "restore_verified": true,
+  "phases": [
+    {
+      "name": "baseline",
+      "restored": true,
+      "baseline_strict_equal": true
+    },
+    {
+      "name": "wl_allows",
+      "restored": true,
+      "baseline_strict_equal": true
+    },
+    {
+      "name": "wl_denies",
+      "restored": true,
+      "baseline_strict_equal": true
+    },
+    {
+      "name": "wl_allows_bl_A",
+      "restored": true,
+      "baseline_strict_equal": true
+    },
+    {
+      "name": "wl_allows_bl_B",
+      "restored": true,
+      "baseline_strict_equal": true
+    },
+    {
+      "name": "wl_allows_bl_both",
+      "restored": true,
+      "baseline_strict_equal": true
+    }
+  ],
+  "missing_phase": "wl_denies_bl_A",
+  "probe_count": 108,
+  "expected_block_count": 18,
+  "expected_block_native_denials": 18,
+  "unexpected_allowed_failures": [
+    {
+      "role": "B",
+      "round": 1,
+      "pacing_sequence": 102,
+      "probe_valid": true,
+      "connected": false,
+      "tls_verified": false,
+      "http_status": null,
+      "handshake_ok": false,
+      "error": "TimeoutError:timed out",
+      "error_code": null,
+      "elapsed_ms": 3016.4,
+      "stage": "tcp_connect",
+      "phase": "wl_allows_bl_both",
+      "matrix_stage": "after_restore",
+      "expected_blocked": false
+    }
+  ],
+  "trace_event_count": 774,
+  "trace_closed": true,
+  "trace_write_ok": true,
+  "root_cause_proven": false,
+  "global_whitelist_qualified": false,
+  "kill_switch_implemented": false,
+  "production_ready": false,
+  "raw_reports_published": false,
+  "next_step": "Package desktop with explicit blacklist-only LAB activation and unchanged recovery gates; no additional optional user tests requested."
+}
