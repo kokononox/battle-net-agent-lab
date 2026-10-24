@@ -1,7 +1,7 @@
 {
-  "schema": "bnet-host-lifecycle-2",
-  "source_commit": "8432d4cdaa8bf260958e65dd6e5af757a1b87165",
-  "run_id": "40090018452",
+  "schema": "bnet-host-lifecycle-3",
+  "source_commit": "7753138fe5e225f85aec81ef688ae0d2d4b30ead",
+  "run_id": "40144180232",
   "status": "inconclusive",
   "error_code": "second_phase_ineligible",
   "first_native_gate_passed": true,
@@ -49,6 +49,18 @@
     "stage": "observe",
     "error_type": "RuntimeError",
     "refusal_reason": "unexpected_image_name",
+    "refused_image": {
+      "status": "metadata_complete",
+      "basename_class": "other",
+      "path_class": "battle_net_programdata",
+      "image_bytes": 3642064,
+      "image_file_sha256": "a3a444e6bd163732a648967c01a5fd509f7f33d6963b381c19bdffb604138651",
+      "authenticode_valid": true,
+      "publisher_class": "blizzard",
+      "winverifytrust_status": 0,
+      "blocked_before_resume": true,
+      "execution_authorized": false
+    },
     "processes": [
       {
         "name": "battle.net-setup.exe",
