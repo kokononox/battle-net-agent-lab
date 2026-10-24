@@ -1,0 +1,258 @@
+{
+  "schema": "unifiedfw-traffic-request-1",
+  "address": "8.8.8.8",
+  "port": 39443,
+  "programs": [
+    {
+      "role": "A",
+      "id": "173027681369ff6ba58712bd",
+      "path": "C:\\Fixture\\runtime\\python.exe",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "enabled": true
+    },
+    {
+      "role": "B",
+      "id": "365747ff79ff7afa29f94054",
+      "path": "C:\\Fixture\\runtime\\pythonw.exe",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "enabled": true
+    }
+  ],
+  "phases": [
+    {
+      "name": "only_A",
+      "request": {
+        "schema": "unified-lab-request-1",
+        "mode": "blacklist_only",
+        "legacy_imports": [],
+        "legacy_acknowledged": false,
+        "programs": [
+          {
+            "id": "173027681369ff6ba58712bd",
+            "path": "C:\\Fixture\\runtime\\python.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          },
+          {
+            "id": "365747ff79ff7afa29f94054",
+            "path": "C:\\Fixture\\runtime\\pythonw.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          }
+        ],
+        "plan": {
+          "schema": "unified-firewall-plan-1",
+          "config_digest": "59dd6ee2dce19d329dff8e93200a98a55f5c5e2ba6974d19dadde151c53e36dd",
+          "owner": "c52974f2a2684f37bb9fbbd6662f301c",
+          "rules": [
+            {
+              "name": "UnifiedFW-c52974f2a2684f37bb9fbbd6662f301c-blacklist-2fc0a557d72cf68cecae09b9",
+              "owner": "c52974f2a2684f37bb9fbbd6662f301c",
+              "component": "blacklist",
+              "spec": {
+                "program_id": "173027681369ff6ba58712bd",
+                "program": "C:\\Fixture\\runtime\\python.exe",
+                "action": "Block",
+                "direction": "Outbound",
+                "interface_type": "Any",
+                "protocol": "TCP",
+                "port": 39443,
+                "remote_addresses": [
+                  "8.8.8.8/32"
+                ],
+                "profile": "Any",
+                "local_addresses": [
+                  "Any"
+                ],
+                "local_port": "Any",
+                "interface_alias": "Any",
+                "service": "Any",
+                "edge_traversal": "Block",
+                "authentication": "NotRequired",
+                "encryption": "NotRequired",
+                "override_block_rules": false
+              }
+            }
+          ],
+          "overlaps": [],
+          "blockers": [
+            "production_firewall_activation_not_enabled",
+            "shared_restore_not_windows_tested",
+            "legacy_feature_migration_incomplete"
+          ],
+          "activation_allowed": false,
+          "policy_scope": "whitelist_global_on_RemoteAccess; blacklist_per_selected_executable",
+          "no_leak_certified": false,
+          "existing_rule_effects": "not_loaded_or_verified",
+          "hosts_changes": []
+        }
+      }
+    },
+    {
+      "name": "only_B",
+      "request": {
+        "schema": "unified-lab-request-1",
+        "mode": "blacklist_only",
+        "legacy_imports": [],
+        "legacy_acknowledged": false,
+        "programs": [
+          {
+            "id": "173027681369ff6ba58712bd",
+            "path": "C:\\Fixture\\runtime\\python.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          },
+          {
+            "id": "365747ff79ff7afa29f94054",
+            "path": "C:\\Fixture\\runtime\\pythonw.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          }
+        ],
+        "plan": {
+          "schema": "unified-firewall-plan-1",
+          "config_digest": "881cf6b989196c87243a5f215844c3a6dd2d79fbf3fdb246847c1e74fec6f08e",
+          "owner": "c52974f2a2684f37bb9fbbd6662f301c",
+          "rules": [
+            {
+              "name": "UnifiedFW-c52974f2a2684f37bb9fbbd6662f301c-blacklist-a9d0cf76263205dcab85c75c",
+              "owner": "c52974f2a2684f37bb9fbbd6662f301c",
+              "component": "blacklist",
+              "spec": {
+                "program_id": "365747ff79ff7afa29f94054",
+                "program": "C:\\Fixture\\runtime\\pythonw.exe",
+                "action": "Block",
+                "direction": "Outbound",
+                "interface_type": "Any",
+                "protocol": "TCP",
+                "port": 39443,
+                "remote_addresses": [
+                  "8.8.8.8/32"
+                ],
+                "profile": "Any",
+                "local_addresses": [
+                  "Any"
+                ],
+                "local_port": "Any",
+                "interface_alias": "Any",
+                "service": "Any",
+                "edge_traversal": "Block",
+                "authentication": "NotRequired",
+                "encryption": "NotRequired",
+                "override_block_rules": false
+              }
+            }
+          ],
+          "overlaps": [],
+          "blockers": [
+            "production_firewall_activation_not_enabled",
+            "shared_restore_not_windows_tested",
+            "legacy_feature_migration_incomplete"
+          ],
+          "activation_allowed": false,
+          "policy_scope": "whitelist_global_on_RemoteAccess; blacklist_per_selected_executable",
+          "no_leak_certified": false,
+          "existing_rule_effects": "not_loaded_or_verified",
+          "hosts_changes": []
+        }
+      }
+    },
+    {
+      "name": "both",
+      "request": {
+        "schema": "unified-lab-request-1",
+        "mode": "blacklist_only",
+        "legacy_imports": [],
+        "legacy_acknowledged": false,
+        "programs": [
+          {
+            "id": "173027681369ff6ba58712bd",
+            "path": "C:\\Fixture\\runtime\\python.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          },
+          {
+            "id": "365747ff79ff7afa29f94054",
+            "path": "C:\\Fixture\\runtime\\pythonw.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          }
+        ],
+        "plan": {
+          "schema": "unified-firewall-plan-1",
+          "config_digest": "54f6c8cce382144267998b2394606592cf7cdd36c84867f702cd2012f02aeeae",
+          "owner": "c52974f2a2684f37bb9fbbd6662f301c",
+          "rules": [
+            {
+              "name": "UnifiedFW-c52974f2a2684f37bb9fbbd6662f301c-blacklist-2fc0a557d72cf68cecae09b9",
+              "owner": "c52974f2a2684f37bb9fbbd6662f301c",
+              "component": "blacklist",
+              "spec": {
+                "program_id": "173027681369ff6ba58712bd",
+                "program": "C:\\Fixture\\runtime\\python.exe",
+                "action": "Block",
+                "direction": "Outbound",
+                "interface_type": "Any",
+                "protocol": "TCP",
+                "port": 39443,
+                "remote_addresses": [
+                  "8.8.8.8/32"
+                ],
+                "profile": "Any",
+                "local_addresses": [
+                  "Any"
+                ],
+                "local_port": "Any",
+                "interface_alias": "Any",
+                "service": "Any",
+                "edge_traversal": "Block",
+                "authentication": "NotRequired",
+                "encryption": "NotRequired",
+                "override_block_rules": false
+              }
+            },
+            {
+              "name": "UnifiedFW-c52974f2a2684f37bb9fbbd6662f301c-blacklist-a9d0cf76263205dcab85c75c",
+              "owner": "c52974f2a2684f37bb9fbbd6662f301c",
+              "component": "blacklist",
+              "spec": {
+                "program_id": "365747ff79ff7afa29f94054",
+                "program": "C:\\Fixture\\runtime\\pythonw.exe",
+                "action": "Block",
+                "direction": "Outbound",
+                "interface_type": "Any",
+                "protocol": "TCP",
+                "port": 39443,
+                "remote_addresses": [
+                  "8.8.8.8/32"
+                ],
+                "profile": "Any",
+                "local_addresses": [
+                  "Any"
+                ],
+                "local_port": "Any",
+                "interface_alias": "Any",
+                "service": "Any",
+                "edge_traversal": "Block",
+                "authentication": "NotRequired",
+                "encryption": "NotRequired",
+                "override_block_rules": false
+              }
+            }
+          ],
+          "overlaps": [],
+          "blockers": [
+            "production_firewall_activation_not_enabled",
+            "shared_restore_not_windows_tested",
+            "legacy_feature_migration_incomplete"
+          ],
+          "activation_allowed": false,
+          "policy_scope": "whitelist_global_on_RemoteAccess; blacklist_per_selected_executable",
+          "no_leak_certified": false,
+          "existing_rule_effects": "not_loaded_or_verified",
+          "hosts_changes": []
+        }
+      }
+    }
+  ]
+}
