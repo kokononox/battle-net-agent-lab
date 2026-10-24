@@ -1,7 +1,7 @@
 """Private equality only; never export a UUID, its hash, or computer-name candidate."""
 import re
 PINNED_AGENT='b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5'
-UUID4=re.compile(rb'[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}')
+UUID4=re.compile(rb'[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}',re.I)
 class Tracking:
     def __init__(self,delegate):
         self.delegate=delegate;self.values=set();self.observations=0;self.invalid=0

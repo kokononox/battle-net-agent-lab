@@ -86,7 +86,7 @@ def second_start(frida,env,setup,p,trackers):
             # Capture, TLS buffers and process images die with this scope.
 
 def main():
-    if not (sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_HOST_LIFECYCLE')=='approved-host-lifecycle-20261024-a1'):raise SystemExit('fresh_hosted_once_required')
+    if not (sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_HOST_LIFECYCLE')=='approved-host-lifecycle-20261024-a2'):raise SystemExit('fresh_hosted_once_required')
     report=dict(schema='bnet-host-lifecycle-1',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],status='stopped',error_code=None,first_native_gate_passed=False,same_machine=True,configuration_preserved=True,second_start_clean_processes=False,comparison=None,phases=[],limits=dict(LIMITS))
     trackers=[];original_analyze=first.analyze;old_flag=os.environ.get('BNET_WIRE_H3')
     def observe_first(events,packets,classifier):

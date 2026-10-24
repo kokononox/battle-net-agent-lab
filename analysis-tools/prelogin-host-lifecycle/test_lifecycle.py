@@ -25,6 +25,10 @@ class Tests(unittest.TestCase):
     def test_different(self):self.assertIs(compare(tracker(),tracker(b'00000000-0000-4000-8000-000000000002'),[phase(),phase()]),False)
     def test_no_hwid_guess(self):
         t=tracker(b'computer-name');self.assertEqual(t.summary(),dict(host_id_observations=0,host_id_unique=0,invalid_host_id_events=1))
+    def test_uppercase_uuid4_accepted(self):
+        t=tracker(b'ABCDEFAB-ABCD-4ABC-ABCD-ABCDEFABCDEF');self.assertEqual(t.observations,1);self.assertEqual(t.invalid,0)
+    def test_case_not_silently_normalized(self):
+        a=tracker(b'ABCDEFAB-ABCD-4ABC-ABCD-ABCDEFABCDEF');b=tracker(b'abcdefab-abcd-4abc-abcd-abcdefabcdef');self.assertIs(compare(a,b,[phase(),phase()]),False)
     def test_non_v4_refused(self):self.assertEqual(tracker(b'00000000-0000-1000-8000-000000000001').invalid,1)
     def test_duplicate_slot_refused(self):
         r=request();r['body']=b(1,b(4,b(1,b'x')+b(1,b'y')))+b(2,b'Blizzard.Telemetry.Distribution.Agent')+b(3,b'StartAgent')
