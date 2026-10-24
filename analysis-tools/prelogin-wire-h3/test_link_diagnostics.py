@@ -29,6 +29,15 @@ class Diagnostics(unittest.TestCase):
         e,p=fixture();e[0]['return_code']=-1;r,d=self.review(e,p);self.assertEqual(d,[])
     def test_multiple_requests_alignment(self):
         e,p=fixture();e[0]['before']=REQ+REQ;r,d=self.review(e,p);self.assertEqual(len(d),2)
+    def test_raw_container_not_valid_network_evidence(self):
+        e,p=fixture();p['runs']=[];p['_private_pcap_bytes']=b'CONTAINER'+CIPHER+b'OTHER';r,d=self.review(e,p)
+        self.assertFalse(r['requests'][0]['packet_bytes_linked']);self.assertEqual([d[0][0][k] for k in ('pcap_prefix_matches','pcap_middle_matches','pcap_suffix_matches')],[1,1,1])
+    def test_raw_scan_explicitly_unavailable(self):
+        e,p=fixture();r,d=self.review(e,p);self.assertIsNone(d[0][0]['pcap_prefix_matches'])
+    def test_raw_scan_available_but_no_match(self):
+        e,p=fixture();p['_private_pcap_bytes']=b'UNRELATED';r,d=self.review(e,p);self.assertEqual(d[0][0]['pcap_prefix_matches'],0)
+    def test_raw_scan_counter_capped(self):
+        e,p=fixture();p['_private_pcap_bytes']=CIPHER*5;r,d=self.review(e,p);self.assertEqual(d[0][0]['pcap_prefix_matches'],2)
     def test_private_bytes_not_exported(self):
-        e,p=fixture();r,d=self.review(e,p);self.assertEqual(set(d[0][0]),{'socket_matches','socket_pid_match','packet_matches','packet_prefix_matches','packet_suffix_matches'})
+        e,p=fixture();r,d=self.review(e,p);self.assertEqual(set(d[0][0]),{'socket_matches','socket_pid_match','packet_matches','packet_prefix_matches','packet_suffix_matches','plaintext_bytes','encrypted_bytes','pcap_prefix_matches','pcap_middle_matches','pcap_suffix_matches'})
 if __name__=='__main__':unittest.main()

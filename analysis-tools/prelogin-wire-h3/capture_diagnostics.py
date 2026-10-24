@@ -10,5 +10,6 @@ class Capture(Original):
         if etl.exists() and pcap.exists():
             a=etl.stat().st_size;b=pcap.stat().st_size
             if not 0<a<=80*1024*1024 or not 0<b<=128*1024*1024:raise ValueError('capture_diagnostic_size')
+            result['_private_pcap_bytes']=pcap.read_bytes()
             self.diagnostics={'etl_bytes':a,'pcap_bytes':b,'etl_at_configured_capacity':a>=64*1024*1024}
         return result

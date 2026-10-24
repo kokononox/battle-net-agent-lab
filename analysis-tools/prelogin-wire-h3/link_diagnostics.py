@@ -1,6 +1,12 @@
 """Allowlisted diagnostic counts only. Never substitute partial matches for evidence."""
 import collections
 
+def capped_count(needle,haystack):
+    if len(needle)<16:return 0
+    first=haystack.find(needle)
+    if first<0:return 0
+    return 2 if haystack.find(needle,first+1)>=0 else 1
+
 def diagnose(events, packets, base, request_count):
     sends=base.socket_streams(events,'send')
     wire={r['key']:r['chunks'] for r in packets.get('runs',[])}
@@ -21,7 +27,12 @@ def diagnose(events, packets, base, request_count):
             records=[]
             for e in relevant:
                 raw=e.get('after',b'');sm=base.locations(raw,sends);pm=base.locations(raw,wire)
-                records.append({'socket_matches':len(sm),'socket_pid_match':len(sm)==1 and sm[0][0]==pid,
+                private=packets.get('_private_pcap_bytes')
+                probes=[raw[:32],raw[max(0,len(raw)//2-16):len(raw)//2+16],raw[-32:]]
+                raw_counts=[capped_count(x,private) if isinstance(private,bytes) else None for x in probes]
+                records.append({'plaintext_bytes':len(e['before']),'encrypted_bytes':len(raw),
+                    'pcap_prefix_matches':raw_counts[0],'pcap_middle_matches':raw_counts[1],'pcap_suffix_matches':raw_counts[2],
+                    'socket_matches':len(sm),'socket_pid_match':len(sm)==1 and sm[0][0]==pid,
                     'packet_matches':len(pm),
                     'packet_prefix_matches':len(base.locations(raw[:32],wire)) if len(raw)>=32 else 0,
                     'packet_suffix_matches':len(base.locations(raw[-32:],wire)) if len(raw)>=32 else 0})
