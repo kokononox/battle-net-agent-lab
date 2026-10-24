@@ -50,7 +50,8 @@ class SocketFixture {
           Check(WSAGetOverlappedResult(client.Handle,ov,out completed,true,out cf)&&completed==96);
           // Receiver-side witness is independent of the collector's completion event.
           int got=0;while(got<96){int r=recv(peer.Handle,a,96-got,0);Check(r>0);byte[] part=new byte[r];Marshal.Copy(a,part,0,r);for(int i=0;i<r;i++)Check(part[i]==m[got+i]);got+=r;}
-          File.WriteAllText(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName+".witness.json","{\"large_recv\":true,\"multibuffer_recv\":true,\"pending_recv\":true,\"false_completion_checked\":true,\"async_recv\":true,\"async_send\":true}");
+          CallbackFixture.Probe(false);CallbackFixture.Probe(true);
+          File.WriteAllText(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName+".witness.json","{\"large_recv\":true,\"multibuffer_recv\":true,\"pending_recv\":true,\"false_completion_checked\":true,\"async_recv\":true,\"async_send\":true,\"bound_callback_recv\":true,\"threadpool_recv\":true}");
         } finally {if(ov!=IntPtr.Zero)Marshal.FreeHGlobal(ov);if(ev!=IntPtr.Zero)WSACloseEvent(ev);Marshal.FreeHGlobal(a);Marshal.FreeHGlobal(b);}
       }
     }

@@ -75,14 +75,14 @@ class Manager:
                     row['installed_hooks'].append(event.get('api'))
             elif kind in ('read_error', 'install_error'):
                 row['script_errors'] += 1
-                apis = {'EncryptMessage','DecryptMessage','send','recv','WSASend','WSARecv','WSAGetOverlappedResult','connect','WSAConnect','closesocket'}
+                apis = {'EncryptMessage','DecryptMessage','send','recv','WSASend','WSARecv','WSAGetOverlappedResult','connect','WSAConnect','closesocket','BindIoCompletionCallback','CreateThreadpoolIo'}
                 phases = {'enter','leave','install','completion'}
-                reasons = {'bounded','buffer_count','data_layout','stream_layout','socket_limit','context_limit','accepted_bounds','pending_limit','overlapped_reuse','callback_unsupported','completion_unmatched','memory_access','missing_export'}
+                reasons = {'bounded','buffer_count','data_layout','stream_layout','socket_limit','context_limit','accepted_bounds','pending_limit','overlapped_reuse','callback_unsupported','completion_unmatched','memory_access','missing_export','callback_limit','completion_race','completion_ambiguous','callback_origin'}
                 key = '|'.join((event.get('api') if event.get('api') in apis else 'other', event.get('phase') if event.get('phase') in phases else 'other', event.get('reason') if event.get('reason') in reasons else 'other'))
                 row['diagnostics'][key] = row['diagnostics'].get(key, 0) + 1
             elif kind == 'probe':
-                apis={'send','recv','WSASend','WSARecv','GetQueuedCompletionStatus','GetQueuedCompletionStatusEx','GetOverlappedResult','GetOverlappedResultEx','NtRemoveIoCompletion','NtRemoveIoCompletionEx'}
-                phases={'submission','reuse','completion_call'}
+                apis={'send','recv','WSASend','WSARecv','GetQueuedCompletionStatus','GetQueuedCompletionStatusEx','GetOverlappedResult','GetOverlappedResultEx','NtRemoveIoCompletion','NtRemoveIoCompletionEx','BindIoCompletionCallback','CreateThreadpoolIo'}
+                phases={'submission','reuse','completion_call','registration'}
                 states={'pending','non_pending_error','unknown_error','immediate','synchronous','true','false'}
                 if event.get('api') not in apis or event.get('phase') not in phases or event.get('state') not in states:
                     row['script_errors'] += 1

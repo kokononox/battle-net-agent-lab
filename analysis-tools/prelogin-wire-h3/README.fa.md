@@ -25,3 +25,9 @@
 - https://learn.microsoft.com/en-us/windows/win32/secauthn/encryptmessage--schannel
 
 مراجع تکمیل فوری: https://learn.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-wsarecv و https://learn.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-wsasend
+
+## d4 — callbackهای ثبت‌شدهٔ Win32
+
+پشتیبانی محدود به callback ثبت‌شده با `BindIoCompletionCallback` و `CreateThreadpoolIo` اضافه شد. تطبیق همان نسل سوکت، OVERLAPPED و برای TP همان شیء I/O لازم است؛ موفقیت callback و شمار بایت محدود بررسی می‌شود. ورود callback باید از ماژول سیستمی Windows باشد. callbackها جایگزین یا فراخوانی نمی‌شوند. رقابت callback با برگشت WSARecv/WSASend با نگه‌داری موقت و انتشار رویداد اولیه پیش از تکمیل مدیریت می‌شود. callback خطادار شاهد مثبت نمی‌سازد و پایان عملیات شکست‌خورده از pending جدا می‌شود. دو کنترل loopback مستقل با تأیید گیرنده برای این مسیرها لازم‌اند؛ حداقل تکمیل‌های پذیرفته‌شدهٔ کنترل از دو به چهار افزایش یافته است.
+
+فیلدهای `callback_supported: false` و `iocp_supported: false` همچنان یعنی پشتیبانی عمومی/کامل ادعا نمی‌شود؛ دامنهٔ محدود در `async_scope` آمده است. callback مستقیم Winsock، GQCS/Ex و مسیرهای داخلی دیگر صرفاً از این تغییر پشتیبانی‌شده تلقی نمی‌شوند. census فقط شمارندهٔ نام API و نتیجهٔ کلی است و هیچ بایتی را ارتقا نمی‌دهد. تشخیص وضعیت اولیه با Frida lastError نیز تنها تشخیصی است؛ به‌تنهایی نه پایان عملیات را اثبات می‌کند و نه داده‌ای را پذیرفته‌شده می‌نامد.
