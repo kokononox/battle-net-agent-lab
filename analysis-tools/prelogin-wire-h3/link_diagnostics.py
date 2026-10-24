@@ -30,7 +30,12 @@ def diagnose(events, packets, base, request_count):
                 private=packets.get('_private_pcap_bytes')
                 probes=[raw[:32],raw[max(0,len(raw)//2-16):len(raw)//2+16],raw[-32:]]
                 raw_counts=[capped_count(x,private) if isinstance(private,bytes) else None for x in probes]
-                records.append({'plaintext_bytes':len(e['before']),'encrypted_bytes':len(raw),
+                frame_counts={}
+                for key,tag in [('_private_rejected_ip_frames','rejected_ip'),('_private_valid_segments','valid_segment'),('_private_conflicted_segments','conflicted_segment')]:
+                    frames=packets.get(key)
+                    for label,probe in zip(('prefix','middle','suffix'),probes):
+                        frame_counts[tag+'_'+label+'_matches']=min(2,sum(capped_count(probe,x) for x in frames)) if frames is not None else None
+                records.append({**frame_counts,'plaintext_bytes':len(e['before']),'encrypted_bytes':len(raw),
                     'pcap_prefix_matches':raw_counts[0],'pcap_middle_matches':raw_counts[1],'pcap_suffix_matches':raw_counts[2],
                     'socket_matches':len(sm),'socket_pid_match':len(sm)==1 and sm[0][0]==pid,
                     'packet_matches':len(pm),

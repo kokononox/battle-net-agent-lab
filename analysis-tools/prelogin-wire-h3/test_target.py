@@ -4,7 +4,7 @@ from test_validate import report as fixture_report
 from target_validate import validate,LIMITS
 
 def report(launched=False):
-    r=dict(schema='bnet-prelogin-wire-h3-target-5',source_commit='a'*40,run_id='123',status='not_started',error_code=None,selftest=None,bootstrap_pin_match=None,target_launched=False,async_scope='event_and_registered_win32_callbacks_only',processes=[],requests=[],parse_states={},network_linked_hardware_requests=0,request_count=0,capture=None,capture_diagnostics=None,link_diagnostics=[],collector_errors=0,dropped_events=0,collector_fatal=False,limits=dict(LIMITS))
+    r=dict(schema='bnet-prelogin-wire-h3-target-6',source_commit='a'*40,run_id='123',status='not_started',error_code=None,selftest=None,bootstrap_pin_match=None,target_launched=False,async_scope='event_and_registered_win32_callbacks_only',processes=[],requests=[],parse_states={},network_linked_hardware_requests=0,request_count=0,capture=None,capture_diagnostics=None,link_diagnostics=[],collector_errors=0,dropped_events=0,collector_fatal=False,limits=dict(LIMITS))
     if launched:
         f=fixture_report()
         for x in f['fixtures']:
@@ -33,7 +33,7 @@ class TargetAllowlist(unittest.TestCase):
         r=report(True);r['bootstrap_pin_match']=False
         with self.assertRaises(ValueError):validate(r)
     def test_verified_ladder(self):
-        r=report(True);r.update(requests=[row()],request_count=1,network_linked_hardware_requests=1,link_diagnostics=[[dict(plaintext_bytes=10,encrypted_bytes=39,pcap_prefix_matches=None,pcap_middle_matches=None,pcap_suffix_matches=None,socket_matches=1,socket_pid_match=True,packet_matches=1,packet_prefix_matches=1,packet_suffix_matches=1)]]);validate(r)
+        r=report(True);r.update(requests=[row()],request_count=1,network_linked_hardware_requests=1,link_diagnostics=[[dict(rejected_ip_prefix_matches=None,rejected_ip_middle_matches=None,rejected_ip_suffix_matches=None,valid_segment_prefix_matches=None,valid_segment_middle_matches=None,valid_segment_suffix_matches=None,conflicted_segment_prefix_matches=None,conflicted_segment_middle_matches=None,conflicted_segment_suffix_matches=None,plaintext_bytes=10,encrypted_bytes=39,pcap_prefix_matches=None,pcap_middle_matches=None,pcap_suffix_matches=None,socket_matches=1,socket_pid_match=True,packet_matches=1,packet_prefix_matches=1,packet_suffix_matches=1)]]);validate(r)
     def test_incomplete_collector_even_nonhardware_refused(self):
         r=report(True);p=proc();p['script_errors']=1;r['processes']=[p];r['collector_errors']=1
         v=row();v.update(hardware_payload_verified=False,hardware_field_count=0,cpu_reference_match=False);r.update(requests=[v],request_count=1)
@@ -50,7 +50,7 @@ class TargetAllowlist(unittest.TestCase):
         r=report();r['collector_errors']=1
         with self.assertRaises(ValueError):validate(r)
     def test_storage_claim_refused(self):
-        r=report(True);v=row();v['server_storage_proven']=True;r.update(requests=[v],request_count=1,network_linked_hardware_requests=1,link_diagnostics=[[dict(plaintext_bytes=10,encrypted_bytes=39,pcap_prefix_matches=None,pcap_middle_matches=None,pcap_suffix_matches=None,socket_matches=1,socket_pid_match=True,packet_matches=1,packet_prefix_matches=1,packet_suffix_matches=1)]])
+        r=report(True);v=row();v['server_storage_proven']=True;r.update(requests=[v],request_count=1,network_linked_hardware_requests=1,link_diagnostics=[[dict(rejected_ip_prefix_matches=None,rejected_ip_middle_matches=None,rejected_ip_suffix_matches=None,valid_segment_prefix_matches=None,valid_segment_middle_matches=None,valid_segment_suffix_matches=None,conflicted_segment_prefix_matches=None,conflicted_segment_middle_matches=None,conflicted_segment_suffix_matches=None,plaintext_bytes=10,encrypted_bytes=39,pcap_prefix_matches=None,pcap_middle_matches=None,pcap_suffix_matches=None,socket_matches=1,socket_pid_match=True,packet_matches=1,packet_prefix_matches=1,packet_suffix_matches=1)]])
         with self.assertRaises(ValueError):validate(r)
     def test_diagnostic_alignment_required(self):
         r=report(True);r.update(requests=[row()],request_count=1,network_linked_hardware_requests=1)
@@ -63,10 +63,10 @@ class TargetAllowlist(unittest.TestCase):
         r['capture_diagnostics']['etl_at_configured_capacity']=False
         with self.assertRaises(ValueError):validate(r)
     def test_partial_match_not_valid_full_evidence(self):
-        r=report(True);r.update(requests=[row()],request_count=1,network_linked_hardware_requests=1,link_diagnostics=[[dict(plaintext_bytes=10,encrypted_bytes=39,pcap_prefix_matches=None,pcap_middle_matches=None,pcap_suffix_matches=None,socket_matches=1,socket_pid_match=True,packet_matches=0,packet_prefix_matches=1,packet_suffix_matches=1)]])
+        r=report(True);r.update(requests=[row()],request_count=1,network_linked_hardware_requests=1,link_diagnostics=[[dict(rejected_ip_prefix_matches=None,rejected_ip_middle_matches=None,rejected_ip_suffix_matches=None,valid_segment_prefix_matches=None,valid_segment_middle_matches=None,valid_segment_suffix_matches=None,conflicted_segment_prefix_matches=None,conflicted_segment_middle_matches=None,conflicted_segment_suffix_matches=None,plaintext_bytes=10,encrypted_bytes=39,pcap_prefix_matches=None,pcap_middle_matches=None,pcap_suffix_matches=None,socket_matches=1,socket_pid_match=True,packet_matches=0,packet_prefix_matches=1,packet_suffix_matches=1)]])
         with self.assertRaises(ValueError):validate(r)
     def test_boolean_match_count_rejected(self):
-        r=report(True);r.update(requests=[row()],request_count=1,network_linked_hardware_requests=1,link_diagnostics=[[dict(plaintext_bytes=10,encrypted_bytes=39,pcap_prefix_matches=None,pcap_middle_matches=None,pcap_suffix_matches=None,socket_matches=True,socket_pid_match=True,packet_matches=1,packet_prefix_matches=1,packet_suffix_matches=1)]])
+        r=report(True);r.update(requests=[row()],request_count=1,network_linked_hardware_requests=1,link_diagnostics=[[dict(rejected_ip_prefix_matches=None,rejected_ip_middle_matches=None,rejected_ip_suffix_matches=None,valid_segment_prefix_matches=None,valid_segment_middle_matches=None,valid_segment_suffix_matches=None,conflicted_segment_prefix_matches=None,conflicted_segment_middle_matches=None,conflicted_segment_suffix_matches=None,plaintext_bytes=10,encrypted_bytes=39,pcap_prefix_matches=None,pcap_middle_matches=None,pcap_suffix_matches=None,socket_matches=True,socket_pid_match=True,packet_matches=1,packet_prefix_matches=1,packet_suffix_matches=1)]])
         with self.assertRaises(ValueError):validate(r)
     def test_counter_no_private_key(self):
         r=report(True);p=proc();p['observations']={'UUID|SECRET|ADDRESS':1};r['processes']=[p]

@@ -38,6 +38,12 @@ class Diagnostics(unittest.TestCase):
         e,p=fixture();p['_private_pcap_bytes']=b'UNRELATED';r,d=self.review(e,p);self.assertEqual(d[0][0]['pcap_prefix_matches'],0)
     def test_raw_scan_counter_capped(self):
         e,p=fixture();p['_private_pcap_bytes']=CIPHER*5;r,d=self.review(e,p);self.assertEqual(d[0][0]['pcap_prefix_matches'],2)
+    def test_rejected_ip_not_network_evidence(self):
+        e,p=fixture();p['runs']=[];p['_private_rejected_ip_frames']=[CIPHER];r,d=self.review(e,p)
+        self.assertFalse(r['requests'][0]['packet_bytes_linked']);self.assertEqual(d[0][0]['rejected_ip_prefix_matches'],1)
+    def test_conflicted_segments_not_network_evidence(self):
+        e,p=fixture();p['runs']=[];p['_private_conflicted_segments']=[CIPHER];r,d=self.review(e,p)
+        self.assertFalse(r['requests'][0]['packet_bytes_linked']);self.assertEqual(d[0][0]['conflicted_segment_prefix_matches'],1)
     def test_private_bytes_not_exported(self):
-        e,p=fixture();r,d=self.review(e,p);self.assertEqual(set(d[0][0]),{'socket_matches','socket_pid_match','packet_matches','packet_prefix_matches','packet_suffix_matches','plaintext_bytes','encrypted_bytes','pcap_prefix_matches','pcap_middle_matches','pcap_suffix_matches'})
+        e,p=fixture();r,d=self.review(e,p);self.assertEqual(set(d[0][0]),{'socket_matches','socket_pid_match','packet_matches','packet_prefix_matches','packet_suffix_matches','plaintext_bytes','encrypted_bytes','pcap_prefix_matches','pcap_middle_matches','pcap_suffix_matches','rejected_ip_prefix_matches','rejected_ip_middle_matches','rejected_ip_suffix_matches','valid_segment_prefix_matches','valid_segment_middle_matches','valid_segment_suffix_matches','conflicted_segment_prefix_matches','conflicted_segment_middle_matches','conflicted_segment_suffix_matches'})
 if __name__=='__main__':unittest.main()

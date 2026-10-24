@@ -27,7 +27,7 @@ def counts(d,keys):
 
 
 def validate(r):
-    if type(r) is not dict or set(r)!=TOP or r['schema']!='bnet-prelogin-wire-h3-target-5':raise ValueError('schema')
+    if type(r) is not dict or set(r)!=TOP or r['schema']!='bnet-prelogin-wire-h3-target-6':raise ValueError('schema')
     if type(r['source_commit']) is not str or not re.fullmatch('[a-f0-9]{40}',r['source_commit']):raise ValueError('source')
     if type(r['run_id']) is not str or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('run')
     if r['async_scope']!='event_and_registered_win32_callbacks_only':raise ValueError('async_scope')
@@ -73,8 +73,10 @@ def validate(r):
     for row, records in zip(r['requests'],diagnostics):
         if type(records) is not list or len(records)!=row['tls_record_count']:raise ValueError('diagnostic_records')
         for d in records:
-            if type(d) is not dict or set(d)!={'socket_matches','socket_pid_match','packet_matches','packet_prefix_matches','packet_suffix_matches','plaintext_bytes','encrypted_bytes','pcap_prefix_matches','pcap_middle_matches','pcap_suffix_matches'}:raise ValueError('diagnostic_keys')
+            if type(d) is not dict or set(d)!={'socket_matches','socket_pid_match','packet_matches','packet_prefix_matches','packet_suffix_matches','plaintext_bytes','encrypted_bytes','pcap_prefix_matches','pcap_middle_matches','pcap_suffix_matches','rejected_ip_prefix_matches','rejected_ip_middle_matches','rejected_ip_suffix_matches','valid_segment_prefix_matches','valid_segment_middle_matches','valid_segment_suffix_matches','conflicted_segment_prefix_matches','conflicted_segment_middle_matches','conflicted_segment_suffix_matches'}:raise ValueError('diagnostic_keys')
             boolean(d['socket_pid_match'])
+            for k in ('rejected_ip_prefix_matches', 'rejected_ip_middle_matches', 'rejected_ip_suffix_matches', 'valid_segment_prefix_matches', 'valid_segment_middle_matches', 'valid_segment_suffix_matches', 'conflicted_segment_prefix_matches', 'conflicted_segment_middle_matches', 'conflicted_segment_suffix_matches'):
+                if d[k] is not None:number(d[k],2)
             for k in ('plaintext_bytes','encrypted_bytes'):number(d[k],131072)
             for k in ('pcap_prefix_matches','pcap_middle_matches','pcap_suffix_matches'):
                 if d[k] is not None:number(d[k],2)

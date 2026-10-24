@@ -39,12 +39,12 @@ def gate(frida,env):
 
 
 def main():
-    allowed=(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_WIRE_H3')=='approved-wire-h3-20261024-e5')
+    allowed=(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_WIRE_H3')=='approved-wire-h3-20261024-e6')
     if not allowed:raise SystemExit('fresh_hosted_once_required')
     source=os.environ.get('GITHUB_SHA','');run=os.environ.get('GITHUB_RUN_ID','')
     if not re.fullmatch('[0-9a-f]{40}',source) or not run.isdigit():raise SystemExit('run_identity')
     out=Path('output');out.mkdir(exist_ok=True)
-    report={'schema':'bnet-prelogin-wire-h3-target-5','source_commit':source,'run_id':run,
+    report={'schema':'bnet-prelogin-wire-h3-target-6','source_commit':source,'run_id':run,
             'status':'not_started','error_code':None,'selftest':None,'bootstrap_pin_match':None,
             'target_launched':False,'async_scope':'event_and_registered_win32_callbacks_only','processes':[],'requests':[],'parse_states':{},
             'network_linked_hardware_requests':0,'request_count':0,
