@@ -1,0 +1,1240 @@
+{
+  "schema": "prelogin-all-events-audit-1",
+  "run_id": "39167612892",
+  "source_commit": "ac62d58f9b61f190f4a8279e185366bd27d1c377",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "descriptor_manifest": [
+    {
+      "file": "GenericAlert.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5270040,
+      "bytes": 236,
+      "sha256": "46964d7338b17a2154f717fccc86a159e77ee53db83b845dd78235920619d875"
+    },
+    {
+      "file": "PatchServerStatistics.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5281296,
+      "bytes": 634,
+      "sha256": "cc44918ebe28dc42b70e723ba8e7cab8851acf59ef39f6efb9bff8894309e9e8"
+    },
+    {
+      "file": "AdminEnd.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5282248,
+      "bytes": 208,
+      "sha256": "8750b814c88f96fa27ee010ed8a5bfdd8fd1f513fbc7f5008835737c2322c44b"
+    },
+    {
+      "file": "AdminStart.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5282616,
+      "bytes": 413,
+      "sha256": "73bd66ef6c5a1f51d1281ffa6da4ded91c94aac478a527e00d40c222e2bee3e0"
+    },
+    {
+      "file": "Register.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5283720,
+      "bytes": 1285,
+      "sha256": "094310defc51c32b8910035771d231a7696b01ceadd9d76976229b29603112a4"
+    },
+    {
+      "file": "DatabaseWriteFailure.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5305048,
+      "bytes": 114,
+      "sha256": "f94703eaff5926eb864561ce6e230e92daa608327f9684ddf3054e60d1e52c4a"
+    },
+    {
+      "file": "GameDetails.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5305280,
+      "bytes": 552,
+      "sha256": "d9b4d344910aa2193dfc0a57d4548cc898ebfd8737a0fb2ae78f7e637c2b378b"
+    },
+    {
+      "file": "Launch.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5306104,
+      "bytes": 283,
+      "sha256": "159e132ce4a8d1474228a67ca83c92bca69ce01054391a612750d2a1ac54732c"
+    },
+    {
+      "file": "LaunchConflicts.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5306568,
+      "bytes": 301,
+      "sha256": "58e198e5a75f9d89f53d3ce25c85d709212f5e0da0ddaeeb342635e38f42069f"
+    },
+    {
+      "file": "Startup.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5307144,
+      "bytes": 2774,
+      "sha256": "62dd014b30182602254cacc1d1a47b49e6a301b95963a107b1b3d1341ac936eb"
+    },
+    {
+      "file": "DeferredDeleteFailure.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5311176,
+      "bytes": 121,
+      "sha256": "93ec66250f745e8c868e31e65a4bc4039844f72f24237186a9a9412d49a4c06a"
+    },
+    {
+      "file": "VersionFetch.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5311440,
+      "bytes": 688,
+      "sha256": "d456ce737c318b8012f19993849d4f1ca4bd2794229b9708d9054250eaa67900"
+    },
+    {
+      "file": "Install.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5312736,
+      "bytes": 548,
+      "sha256": "7ab79f1196a587710882268d577b8d589f358cbbbb1069e7580d218f88c16f19"
+    },
+    {
+      "file": "MissingSharedInstallSubfolder.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5313496,
+      "bytes": 230,
+      "sha256": "17644319e20a30c19976cfcdd79fb9b06ed93fe11d2292dc13a97ac7e892a1eb"
+    },
+    {
+      "file": "Uninstall.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5313888,
+      "bytes": 373,
+      "sha256": "53880658089d330a8032c70dd4eeab1d31c9f0da6e6a95f6953f69bcb56b5565"
+    },
+    {
+      "file": "LocalCertificate.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5321640,
+      "bytes": 114,
+      "sha256": "68626928f41f84b4c15e0dd47b0c550ca7eb0d949f50c66952cf0123eeec7b7d"
+    },
+    {
+      "file": "Operation.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5321920,
+      "bytes": 755,
+      "sha256": "ebdbc229f5b5510394896b777b888023b12764461c3bcf74a237b502661b2626"
+    },
+    {
+      "file": "Compaction2.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5323048,
+      "bytes": 643,
+      "sha256": "b15dcf98951cb612bc4dc4243e022f91d552c92267b941065be2bc0485d29897"
+    },
+    {
+      "file": "tact/Unrecognized.proto",
+      "package": "Blizzard.Telemetry.Distribution.Tact",
+      "offset": 5323960,
+      "bytes": 110,
+      "sha256": "7bf19dbfce05a96c24d24e63e61333b0f2c64748e27bdababdb0da024b41e949"
+    },
+    {
+      "file": "Version.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5324696,
+      "bytes": 346,
+      "sha256": "17abb8538c1fe514a1f4163072a7b267e2f6525ed7b92c0311622c41d80025b2"
+    },
+    {
+      "file": "SpeedReport.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5327152,
+      "bytes": 1648,
+      "sha256": "3153ef6f05af3ba22f8d0ca8da023bdd96497a73e88e1906edb8884a36b4174f"
+    },
+    {
+      "file": "tact/BadHeaderError.proto",
+      "package": "Blizzard.Telemetry.Distribution.Tact",
+      "offset": 5329248,
+      "bytes": 183,
+      "sha256": "b7bf5d6b4a998498343c59d329da9a5eb96c05327d84e1d9674bd2eab29549c0"
+    },
+    {
+      "file": "tact/BSPatch.proto",
+      "package": "Blizzard.Telemetry.Distribution.Tact",
+      "offset": 5329592,
+      "bytes": 151,
+      "sha256": "dd45f713e533d90f5892173c82cf02bf3d50774572e2e4adefcc5bc965337899"
+    },
+    {
+      "file": "tact/ClientUpdate.proto",
+      "package": "Blizzard.Telemetry.Distribution.Tact",
+      "offset": 5329888,
+      "bytes": 574,
+      "sha256": "33e4122865b6052b8cf904f0ff6d10cdf44823ef1f6750c4b171a86d7fbb1507"
+    },
+    {
+      "file": "tact/DownloadPerformance.proto",
+      "package": "Blizzard.Telemetry.Distribution.Tact",
+      "offset": 5330744,
+      "bytes": 287,
+      "sha256": "545bef130da9e49c962bb09c6df67d4a9274c9db8ccdd1ecb70beb5a7f5b320b"
+    },
+    {
+      "file": "tact/DownloaderSummaryPerformance.proto",
+      "package": "Blizzard.Telemetry.Distribution.Tact",
+      "offset": 5331224,
+      "bytes": 217,
+      "sha256": "107d35538d9917889bd4331651b07ae83c433641c4212d29b73eb5c6f943957d"
+    },
+    {
+      "file": "tact/GarbageCollection.proto",
+      "package": "Blizzard.Telemetry.Distribution.Tact",
+      "offset": 5331608,
+      "bytes": 167,
+      "sha256": "c452e71b830e9ad7619cc46dae8b1819207163d82757a12ba88efe607b67f57a"
+    },
+    {
+      "file": "tact/OrphanedFileDeletion.proto",
+      "package": "Blizzard.Telemetry.Distribution.Tact",
+      "offset": 5331920,
+      "bytes": 227,
+      "sha256": "98da3487bd04d92b8b9b2441e76dd285770afc31edd43dc3a375a7878cea9645"
+    },
+    {
+      "file": "tact/RepairDetails.proto",
+      "package": "Blizzard.Telemetry.Distribution.Tact",
+      "offset": 5332304,
+      "bytes": 378,
+      "sha256": "b91f1c7b085b66e459336a191525bdccc58bc125f037334a9bccbd40aa0e6a89"
+    },
+    {
+      "file": "tact/RepairFailure.proto",
+      "package": "Blizzard.Telemetry.Distribution.Tact",
+      "offset": 5332888,
+      "bytes": 147,
+      "sha256": "31467da9d1ef026784ee0e5c881ce6050f3544d8d8caf8ba7a08d4538d77d1fe"
+    },
+    {
+      "file": "tact/RetryHostInfo.proto",
+      "package": "Blizzard.Telemetry.Distribution.Tact",
+      "offset": 5333184,
+      "bytes": 200,
+      "sha256": "97904af58b4bd54f85bbf22f52f48b11f4e333b2a68ddbea4e64f023bf89f115"
+    },
+    {
+      "file": "tact/TruncatedError.proto",
+      "package": "Blizzard.Telemetry.Distribution.Tact",
+      "offset": 5333568,
+      "bytes": 158,
+      "sha256": "5a472ae402be9377f2a0a8daea40bb7f317774c6f64665b7c9ee935997d37ce7"
+    },
+    {
+      "file": "Backfill.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5295136,
+      "bytes": 641,
+      "sha256": "55d19f50ce22a4291faf55ce130dfa2b61562e437c1a61aa945eba271eb957e6"
+    },
+    {
+      "file": "Repair.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5295952,
+      "bytes": 588,
+      "sha256": "3fd0a6b1218fa9fd7fdf3e6cde79b0de5629ec92b7935b88b8334b7421ceb4ec"
+    },
+    {
+      "file": "Update.proto",
+      "package": "Blizzard.Telemetry.Distribution.Agent",
+      "offset": 5296712,
+      "bytes": 1348,
+      "sha256": "c4f5ba96c3a79c81181a017845ff5ee98e5161f4712da0121d2048a969fcc255"
+    }
+  ],
+  "unresolved_descriptor_dependencies": [],
+  "events": [
+    {
+      "request_index": 1,
+      "part_index": 0,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.App.Bootstrapper.SessionGenerate",
+      "payload_decoding": "schema_unavailable",
+      "fields_present": [],
+      "context_uuid_reused_at_payload_wire_paths": [
+        "/4/1"
+      ]
+    },
+    {
+      "request_index": 2,
+      "part_index": 0,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.App.Bootstrapper.SessionUpdate",
+      "payload_decoding": "schema_unavailable",
+      "fields_present": [],
+      "context_uuid_reused_at_payload_wire_paths": [
+        "/4/2"
+      ]
+    },
+    {
+      "request_index": 26,
+      "part_index": 0,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.App.Bootstrapper.SelfPatch",
+      "payload_decoding": "schema_unavailable",
+      "fields_present": [],
+      "context_uuid_reused_at_payload_wire_paths": []
+    },
+    {
+      "request_index": 28,
+      "part_index": 0,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.App.Bootstrapper.SessionUpdate",
+      "payload_decoding": "schema_unavailable",
+      "fields_present": [],
+      "context_uuid_reused_at_payload_wire_paths": [
+        "/4/2"
+      ]
+    },
+    {
+      "request_index": 31,
+      "part_index": 0,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.App.Bootstrapper.SessionUpdate",
+      "payload_decoding": "schema_unavailable",
+      "fields_present": [],
+      "context_uuid_reused_at_payload_wire_paths": [
+        "/4/2"
+      ]
+    },
+    {
+      "request_index": 77,
+      "part_index": 0,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.Distribution.Tact.DownloadPerformance",
+      "payload_decoding": "schema_verified",
+      "fields_present": [
+        {
+          "path": "product",
+          "field_number": 1,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "hostname",
+          "field_number": 2,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "total_bytes",
+          "field_number": 6,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "error3xx",
+          "field_number": 7,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error4xx",
+          "field_number": 8,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error404",
+          "field_number": 9,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error5xx",
+          "field_number": 10,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "is_fallback",
+          "field_number": 11,
+          "type": "TYPE_BOOL",
+          "present": true
+        }
+      ],
+      "context_uuid_reused_at_payload_wire_paths": [],
+      "unknown_payload_fields_present": false
+    },
+    {
+      "request_index": 77,
+      "part_index": 1,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.Distribution.Tact.DownloadPerformance",
+      "payload_decoding": "schema_verified",
+      "fields_present": [
+        {
+          "path": "product",
+          "field_number": 1,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "hostname",
+          "field_number": 2,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "total_bytes",
+          "field_number": 6,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "error3xx",
+          "field_number": 7,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error4xx",
+          "field_number": 8,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error404",
+          "field_number": 9,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error5xx",
+          "field_number": 10,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "is_fallback",
+          "field_number": 11,
+          "type": "TYPE_BOOL",
+          "present": true
+        }
+      ],
+      "context_uuid_reused_at_payload_wire_paths": [],
+      "unknown_payload_fields_present": false
+    },
+    {
+      "request_index": 77,
+      "part_index": 2,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.Standard.Process.Start",
+      "payload_decoding": "schema_unavailable",
+      "fields_present": [],
+      "context_uuid_reused_at_payload_wire_paths": []
+    },
+    {
+      "request_index": 77,
+      "part_index": 3,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.Distribution.Agent.VersionFetch",
+      "payload_decoding": "schema_verified",
+      "fields_present": [
+        {
+          "path": "time_in_ms",
+          "field_number": 1,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "summary_result",
+          "field_number": 2,
+          "type": "TYPE_ENUM",
+          "present": true
+        },
+        {
+          "path": "download_count",
+          "field_number": 3,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "local_read_count",
+          "field_number": 4,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "cached_count",
+          "field_number": 5,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "total_count",
+          "field_number": 6,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error",
+          "field_number": 7,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "server",
+          "field_number": 8,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "secs_since_update",
+          "field_number": 11,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "prior_summary_id",
+          "field_number": 12,
+          "type": "TYPE_UINT64",
+          "present": true
+        },
+        {
+          "path": "summary_id",
+          "field_number": 13,
+          "type": "TYPE_UINT64",
+          "present": true
+        },
+        {
+          "path": "attempts_since_update",
+          "field_number": 14,
+          "type": "TYPE_INT32",
+          "present": true
+        }
+      ],
+      "context_uuid_reused_at_payload_wire_paths": [],
+      "unknown_payload_fields_present": false
+    },
+    {
+      "request_index": 77,
+      "part_index": 4,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.Distribution.Agent.StartAgent",
+      "payload_decoding": "schema_verified",
+      "fields_present": [
+        {
+          "path": "region",
+          "field_number": 1002,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "igr",
+          "field_number": 1003,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "ipv6_support",
+          "field_number": 1004,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "wmi_enabled",
+          "field_number": 1005,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "database_type",
+          "field_number": 1006,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "real_os_version",
+          "field_number": 1007,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "download_limit",
+          "field_number": 1008,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "backfill_limit",
+          "field_number": 1009,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.cpu_arch",
+          "field_number": 1,
+          "type": "TYPE_ENUM",
+          "present": true
+        },
+        {
+          "path": "hardware.cpu_num_cores",
+          "field_number": 2,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "hardware.cpu_speed",
+          "field_number": 3,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.memory",
+          "field_number": 4,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.num_gpus",
+          "field_number": 5,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.vendor_id",
+          "field_number": 1,
+          "type": "TYPE_UINT32",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.device_id",
+          "field_number": 2,
+          "type": "TYPE_UINT32",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.shared_memory",
+          "field_number": 3,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.video_memory",
+          "field_number": 4,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.system_memory",
+          "field_number": 5,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.integrated",
+          "field_number": 7,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.name",
+          "field_number": 8,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "hardware.gpu_2.vendor_id",
+          "field_number": 1,
+          "type": "TYPE_UINT32",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_2.device_id",
+          "field_number": 2,
+          "type": "TYPE_UINT32",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_2.shared_memory",
+          "field_number": 3,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_2.video_memory",
+          "field_number": 4,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_2.system_memory",
+          "field_number": 5,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_2.integrated",
+          "field_number": 7,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_2.name",
+          "field_number": 8,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "hardware.cpu_vendor",
+          "field_number": 9,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "hardware.cpu_brand",
+          "field_number": 10,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "hardware.cpu_hypervisor_vendor",
+          "field_number": 11,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "os_arch",
+          "field_number": 1012,
+          "type": "TYPE_ENUM",
+          "present": true
+        },
+        {
+          "path": "crash_report_disabled",
+          "field_number": 1013,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "running_agents.agent_count",
+          "field_number": 1,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "running_agents.phx_count",
+          "field_number": 2,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "running_agents.other_count",
+          "field_number": 3,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "running_agents.unknown_count",
+          "field_number": 4,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "running_agents.total_count",
+          "field_number": 5,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "running_agents.other_process_list",
+          "field_number": 10,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": false
+        }
+      ],
+      "context_uuid_reused_at_payload_wire_paths": [],
+      "unknown_payload_fields_present": false
+    },
+    {
+      "request_index": 77,
+      "part_index": 5,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.Standard.Metric.MetricSet",
+      "payload_decoding": "schema_unavailable",
+      "fields_present": [],
+      "context_uuid_reused_at_payload_wire_paths": []
+    },
+    {
+      "request_index": 77,
+      "part_index": 6,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.Distribution.Tact.DownloaderSummaryPerformance",
+      "payload_decoding": "schema_verified",
+      "fields_present": [
+        {
+          "path": "product",
+          "field_number": 1,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "hosts",
+          "field_number": 2,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "total_bytes",
+          "field_number": 3,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "throughput",
+          "field_number": 4,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "throughput_limit_in_kb",
+          "field_number": 5,
+          "type": "TYPE_INT64",
+          "present": true
+        }
+      ],
+      "context_uuid_reused_at_payload_wire_paths": [],
+      "unknown_payload_fields_present": false
+    },
+    {
+      "request_index": 77,
+      "part_index": 7,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.Standard.Metric.MetricSet",
+      "payload_decoding": "schema_unavailable",
+      "fields_present": [],
+      "context_uuid_reused_at_payload_wire_paths": []
+    },
+    {
+      "request_index": 77,
+      "part_index": 8,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.Distribution.Tact.DownloadPerformance",
+      "payload_decoding": "schema_verified",
+      "fields_present": [
+        {
+          "path": "product",
+          "field_number": 1,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "hostname",
+          "field_number": 2,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "total_bytes",
+          "field_number": 6,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "error3xx",
+          "field_number": 7,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error4xx",
+          "field_number": 8,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error404",
+          "field_number": 9,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error5xx",
+          "field_number": 10,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "is_fallback",
+          "field_number": 11,
+          "type": "TYPE_BOOL",
+          "present": true
+        }
+      ],
+      "context_uuid_reused_at_payload_wire_paths": [],
+      "unknown_payload_fields_present": false
+    },
+    {
+      "request_index": 77,
+      "part_index": 9,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.Distribution.Tact.DownloadPerformance",
+      "payload_decoding": "schema_verified",
+      "fields_present": [
+        {
+          "path": "product",
+          "field_number": 1,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "hostname",
+          "field_number": 2,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "total_bytes",
+          "field_number": 6,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "error3xx",
+          "field_number": 7,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error4xx",
+          "field_number": 8,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error404",
+          "field_number": 9,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error5xx",
+          "field_number": 10,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "is_fallback",
+          "field_number": 11,
+          "type": "TYPE_BOOL",
+          "present": true
+        }
+      ],
+      "context_uuid_reused_at_payload_wire_paths": [],
+      "unknown_payload_fields_present": false
+    },
+    {
+      "request_index": 78,
+      "part_index": 0,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.App.Bootstrapper.InstallReport",
+      "payload_decoding": "schema_unavailable",
+      "fields_present": [],
+      "context_uuid_reused_at_payload_wire_paths": []
+    },
+    {
+      "request_index": 79,
+      "part_index": 0,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.Distribution.Agent.Update",
+      "payload_decoding": "schema_verified",
+      "fields_present": [
+        {
+          "path": "base.product",
+          "field_number": 1,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "base.region",
+          "field_number": 2,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "base.igr",
+          "field_number": 3,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "base.exit_code",
+          "field_number": 4,
+          "type": "TYPE_ENUM",
+          "present": true
+        },
+        {
+          "path": "base.error_code",
+          "field_number": 5,
+          "type": "TYPE_UINT32",
+          "present": true
+        },
+        {
+          "path": "base.install_path_length",
+          "field_number": 9,
+          "type": "TYPE_UINT32",
+          "present": true
+        },
+        {
+          "path": "base.is_shared_install",
+          "field_number": 10,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "base.tags",
+          "field_number": 11,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "base.error_message",
+          "field_number": 12,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "is_install",
+          "field_number": 3,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "is_playable",
+          "field_number": 4,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "build_config_key",
+          "field_number": 7,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "prev_config_key",
+          "field_number": 8,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        }
+      ],
+      "context_uuid_reused_at_payload_wire_paths": [],
+      "unknown_payload_fields_present": false
+    },
+    {
+      "request_index": 79,
+      "part_index": 1,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.Distribution.Agent.VersionFetch",
+      "payload_decoding": "schema_verified",
+      "fields_present": [
+        {
+          "path": "time_in_ms",
+          "field_number": 1,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "summary_result",
+          "field_number": 2,
+          "type": "TYPE_ENUM",
+          "present": true
+        },
+        {
+          "path": "download_count",
+          "field_number": 3,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "local_read_count",
+          "field_number": 4,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "cached_count",
+          "field_number": 5,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "total_count",
+          "field_number": 6,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "error",
+          "field_number": 7,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "server",
+          "field_number": 8,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "product",
+          "field_number": 9,
+          "type": "TYPE_STRING",
+          "present": true,
+          "nonempty_value_present": true
+        },
+        {
+          "path": "secs_since_update",
+          "field_number": 11,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "prior_summary_id",
+          "field_number": 12,
+          "type": "TYPE_UINT64",
+          "present": true
+        },
+        {
+          "path": "summary_id",
+          "field_number": 13,
+          "type": "TYPE_UINT64",
+          "present": true
+        },
+        {
+          "path": "attempts_since_update",
+          "field_number": 14,
+          "type": "TYPE_INT32",
+          "present": true
+        }
+      ],
+      "context_uuid_reused_at_payload_wire_paths": [],
+      "unknown_payload_fields_present": false
+    },
+    {
+      "request_index": 79,
+      "part_index": 2,
+      "host": "telemetry-in.battle.net",
+      "event_type": "Blizzard.Telemetry.Distribution.Agent.RegisterGame",
+      "payload_decoding": "schema_verified",
+      "fields_present": [
+        {
+          "path": "is_single_search_path",
+          "field_number": 1,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "has_search_path",
+          "field_number": 2,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "discovered_builds",
+          "field_number": 3,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "found_legacy_build",
+          "field_number": 4,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "found_via_registry",
+          "field_number": 5,
+          "type": "TYPE_BOOL",
+          "present": true
+        }
+      ],
+      "context_uuid_reused_at_payload_wire_paths": [],
+      "unknown_payload_fields_present": false
+    }
+  ],
+  "payload_status_counts": {
+    "schema_unavailable": 9,
+    "schema_verified": 10
+  },
+  "context_identifier_shapes": [
+    {
+      "wire_path": "/1/16",
+      "shape": "uuid_text",
+      "occurrences": 13,
+      "distinct_values_within_submitted_report": 13,
+      "distinct_process_images": 1,
+      "distinct_event_types": 8,
+      "nil_uuid_occurrences": 0,
+      "semantic_label": "unverified",
+      "persistence_across_restarts": "untested",
+      "hardware_derivation": "unverified"
+    },
+    {
+      "wire_path": "/1/4/1",
+      "shape": "uuid_text",
+      "occurrences": 19,
+      "distinct_values_within_submitted_report": 1,
+      "distinct_process_images": 3,
+      "distinct_event_types": 12,
+      "nil_uuid_occurrences": 0,
+      "semantic_label": "unverified",
+      "persistence_across_restarts": "untested",
+      "hardware_derivation": "unverified"
+    }
+  ],
+  "parse_errors": [],
+  "context_schema_decoded": false,
+  "limitations": [
+    "Only exact-image hash matches permit payload schema decoding.",
+    "Event and context framing is observed wire structure; context field names are NOT established.",
+    "UUID-shaped values may be session/correlation/install/host identifiers; their form and in-run equality do not prove which.",
+    "No inference of persistence, global uniqueness, hardware derivation, account linkage or game-file marking.",
+    "A schema-unavailable payload has NOT been checked for hidden system fields.",
+    "Previously captured pre-TLS inputs are not a new runtime/network-delivery experiment.",
+    "Other TLS implementations, protocols and processes remain outside established coverage."
+  ],
+  "report_sha256": "952396ccb15994570bc201f0cef59803fa41554607b2890699cd820a833fcafe",
+  "independent_checks": {
+    "context_shared_uuid_occurrences": 19,
+    "same_uuid_occurrences_in_payloads": 4,
+    "raw_body_occurrences_total": 23,
+    "all_event_statuses_accounted_for": true,
+    "unknown_fields_in_decoded_payloads": false
+  }
+}
