@@ -28,7 +28,8 @@ def gate(frida,env):
     result={'passed':False,'root_child_instrumented':False,'negative_encryption_observed':False,
             'linked_probe_requests':0,'http_responses_linked':0,'collector_errors':0,'dropped_events':0,
             'stage':'compile','error_type':None,'fixture_exit_code':None,'packets':0,
-            'successful_encryptions':0,'successful_decryptions':0,'socket_events':0}
+            'successful_encryptions':0,'successful_decryptions':0,'socket_events':0,
+            'diagnostics':{'request_count':0,'socket_linked_requests':0,'parse_states':{},'capture_issues':{},'asynchronous_socket_events':0,'ambiguous_socket_events':0}}
     manager=None;capture=None;code=None;packets={'runs':[]}
     try:
         with tempfile.TemporaryDirectory(prefix='h2-owned-',dir=os.environ['RUNNER_TEMP']) as tmp:
@@ -58,6 +59,7 @@ def gate(frida,env):
                 manager.close();packets=capture.finish()
             result['stage']='analyze'
             review=analyze(manager.inputs,packets)
+            result['diagnostics'].update(request_count=review['request_count'],socket_linked_requests=sum(x['socket_send_linked'] for x in review['requests']),parse_states=review['parse_states'],capture_issues=packets['issues'])
             rows=list(manager.rows.values())
             result['root_child_instrumented']=len(rows)==2 and all(x['instrumented_before_resume'] and x['child_gating_enabled'] for x in rows)
             result['negative_encryption_observed']=any(e['kind']=='encrypt' and e['return_code']!=0 and e['before']==b'SYNTHETIC_INVALID_CONTEXT_NOT_TARGET' for e in manager.inputs)
@@ -75,6 +77,8 @@ def gate(frida,env):
             result['successful_encryptions']=sum(e['kind']=='encrypt' and e.get('return_code')==0 for e in manager.inputs)
             result['successful_decryptions']=sum(e['kind']=='decrypt' and e.get('return_code')==0 for e in manager.inputs)
             result['socket_events']=sum(e['kind'] in ('send','recv') for e in manager.inputs)
+            result['diagnostics']['asynchronous_socket_events']=sum(e.get('asynchronous') is True for e in manager.inputs)
+            result['diagnostics']['ambiguous_socket_events']=sum(e.get('ambiguous') is True for e in manager.inputs)
         result['fixture_exit_code']=code
         if capture:result['packets']=capture.meta['packets']
     return result

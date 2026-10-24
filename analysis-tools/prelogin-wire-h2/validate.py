@@ -61,7 +61,12 @@ def validate(r):
     s=r['selftest']
     if s is not None:
         keys=set('passed root_child_instrumented negative_encryption_observed linked_probe_requests http_responses_linked collector_errors dropped_events stage error_type fixture_exit_code packets successful_encryptions successful_decryptions socket_events'.split())
-        if type(s) is not dict or set(s)!=keys:raise ValueError('selftest')
+        if type(s) is not dict or set(s) not in (keys,keys|{'diagnostics'}):raise ValueError('selftest')
+        if 'diagnostics' in s:
+            d=s['diagnostics'];dk=set('request_count socket_linked_requests parse_states capture_issues asynchronous_socket_events ambiguous_socket_events'.split())
+            if type(d) is not dict or set(d)!=dk:raise ValueError('gate_diagnostics')
+            counts(d['parse_states'],PARSE);counts(d['capture_issues'],ISSUES)
+            for k in ('request_count','socket_linked_requests','asynchronous_socket_events','ambiguous_socket_events'):number(d[k])
         for k in ('passed','root_child_instrumented','negative_encryption_observed'):boolean(s[k])
         for k in ('linked_probe_requests','http_responses_linked','collector_errors','dropped_events','packets','successful_encryptions','successful_decryptions','socket_events'):number(s[k])
         if s['stage'] not in ('compile','capture','spawn_fixture','wait_fixture','analyze','complete') or s['error_type'] not in (None,'OSError','RuntimeError','TimeoutExpired','ValueError','Exception'):raise ValueError('gate_status')
