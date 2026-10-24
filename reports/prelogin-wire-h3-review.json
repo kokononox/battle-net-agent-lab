@@ -1,66 +1,154 @@
 {
-  "schema": "bnet-h3-review-1",
-  "scope": "owned_fixtures_only_not_new_target_evidence",
-  "latest_source_commit": "0e51872972d9d5cadc954cfa4cd11bc7c3d8a56a",
-  "latest_run_id": "40079679985",
-  "local_python_tests_passed": 30,
-  "actual_js_contract_checks_included": 38,
-  "target_launched": false,
-  "q1_evidence_upgrade": false,
-  "gate_passed": false,
-  "remaining_failure": "x64_WSARecv_overlapped_reuse_with_unobserved_completion",
+  "schema": "bnet-h3-review-2",
+  "scope": "native_controls_and_bounded_prelogin_target",
+  "latest_source_commit": "0b674b8d0ca799c86c5861d8237549cf18a24c6f",
+  "latest_run_id": "40081602871",
+  "published_evidence_commit": "fc5cf624c7168758908898e8a06a2ec212282e6d",
+  "local_python_tests_passed": 58,
+  "actual_js_contract_checks_included": 62,
+  "target_launched": true,
+  "gate_passed": true,
+  "collector_errors": 0,
+  "dropped_events": 0,
+  "collector_fatal": false,
+  "q1_evidence_upgrade": "verified_hardware_payload_linked_to_successful_local_socket_send_only",
+  "hardware_request": {
+    "destination": "telemetry-in.battle.net",
+    "method": "POST",
+    "tls_record_count": 2,
+    "hardware_payload_verified": true,
+    "hardware_field_count": 22,
+    "cpu_reference_match": true,
+    "socket_send_linked": true,
+    "packet_bytes_linked": false,
+    "http_response_status": null,
+    "server_storage_proven": false
+  },
+  "hardware_packet_match_proven": false,
+  "hardware_server_response_proven": false,
+  "server_storage_proven": false,
   "historical_h2_errors_explained": false,
-  "next_required_work": "observe_and_qualify_missing_completion_paths_before_target_rerun",
-  "runs": [
-    {
-      "source_commit": "e3e66971aa96939fa6de6530abb5a53b863e106d",
-      "run_id": "40079447967",
-      "passed": false,
-      "architectures": [
-        {
-          "architecture": "x64",
-          "passed": false,
-          "collector_errors": 7,
-          "diagnostics": {
-            "WSARecv|enter|overlapped_reuse": 7
+  "remaining_work": "establish_exact_ciphertext_packet_correlation_for_the_hardware_request_without_weakening_matching",
+  "capture": {
+    "start_code": 0,
+    "stop_code": 0,
+    "convert_code": 0,
+    "packets": 7026,
+    "issues": {
+      "ip_bounds": 30,
+      "tcp_overlap_conflict": 2
+    }
+  },
+  "limits": {
+    "server_storage_proven": false,
+    "all_network_paths_covered": false,
+    "raw_values_exported": false,
+    "login_performed": false,
+    "game_download_requested": false,
+    "install_action_requested": false,
+    "tls_validation_changed": false,
+    "socket_chunking_supported": true,
+    "diagnostic_counters_partial": true,
+    "sspi_http1_only": true,
+    "all_async_completion_methods_supported": false,
+    "circular_capture_can_drop_early_packets": true
+  },
+  "previous_d2_review": {
+    "schema": "bnet-h3-review-1",
+    "scope": "owned_fixtures_only_not_new_target_evidence",
+    "latest_source_commit": "0e51872972d9d5cadc954cfa4cd11bc7c3d8a56a",
+    "latest_run_id": "40079679985",
+    "local_python_tests_passed": 30,
+    "actual_js_contract_checks_included": 38,
+    "target_launched": false,
+    "q1_evidence_upgrade": false,
+    "gate_passed": false,
+    "remaining_failure": "x64_WSARecv_overlapped_reuse_with_unobserved_completion",
+    "historical_h2_errors_explained": false,
+    "next_required_work": "observe_and_qualify_missing_completion_paths_before_target_rerun",
+    "runs": [
+      {
+        "source_commit": "e3e66971aa96939fa6de6530abb5a53b863e106d",
+        "run_id": "40079447967",
+        "passed": false,
+        "architectures": [
+          {
+            "architecture": "x64",
+            "passed": false,
+            "collector_errors": 7,
+            "diagnostics": {
+              "WSARecv|enter|overlapped_reuse": 7
+            },
+            "linked_probe_requests": 2,
+            "http_responses_linked": 2
           },
-          "linked_probe_requests": 2,
-          "http_responses_linked": 2
-        },
-        {
-          "architecture": "x86",
-          "passed": true,
-          "collector_errors": 0,
-          "diagnostics": {},
-          "linked_probe_requests": 2,
-          "http_responses_linked": 2
-        }
-      ]
+          {
+            "architecture": "x86",
+            "passed": true,
+            "collector_errors": 0,
+            "diagnostics": {},
+            "linked_probe_requests": 2,
+            "http_responses_linked": 2
+          }
+        ]
+      },
+      {
+        "source_commit": "0e51872972d9d5cadc954cfa4cd11bc7c3d8a56a",
+        "run_id": "40079679985",
+        "passed": false,
+        "architectures": [
+          {
+            "architecture": "x64",
+            "passed": false,
+            "collector_errors": 3,
+            "diagnostics": {
+              "WSARecv|enter|overlapped_reuse": 3
+            },
+            "linked_probe_requests": 2,
+            "http_responses_linked": 2
+          },
+          {
+            "architecture": "x86",
+            "passed": true,
+            "collector_errors": 0,
+            "diagnostics": {},
+            "linked_probe_requests": 2,
+            "http_responses_linked": 2
+          }
+        ]
+      }
+    ]
+  },
+  "intermediate_runs": [
+    {
+      "stage": "d3",
+      "source_commit": "51fe44a6ff1cb2c2cde6eaaff64150e38f268a6b",
+      "run_id": "40080140535",
+      "outcome": "x64_reuse_failure_remained"
     },
     {
-      "source_commit": "0e51872972d9d5cadc954cfa4cd11bc7c3d8a56a",
-      "run_id": "40079679985",
-      "passed": false,
-      "architectures": [
-        {
-          "architecture": "x64",
-          "passed": false,
-          "collector_errors": 3,
-          "diagnostics": {
-            "WSARecv|enter|overlapped_reuse": 3
-          },
-          "linked_probe_requests": 2,
-          "http_responses_linked": 2
-        },
-        {
-          "architecture": "x86",
-          "passed": true,
-          "collector_errors": 0,
-          "diagnostics": {},
-          "linked_probe_requests": 2,
-          "http_responses_linked": 2
-        }
-      ]
+      "stage": "d4",
+      "source_commit": "2b54fbc098181b18bb210064db89bbaa4b9a03c9",
+      "run_id": "40080527456",
+      "outcome": "both_native_architectures_passed_zero_errors"
+    },
+    {
+      "stage": "e1",
+      "source_commit": "d781c5b3a8318b12508b47891b9062312a01cbc6",
+      "run_id": "40080801069",
+      "outcome": "incomplete_two_dropped_events_no_positive_network_claims"
+    },
+    {
+      "stage": "e2",
+      "source_commit": "172ff9a0ef811dfb258cf8fab1fedc29d36c8052",
+      "run_id": "40081168675",
+      "outcome": "incomplete_29_large_receive_errors_no_positive_network_claims"
+    },
+    {
+      "stage": "e3",
+      "source_commit": "0b674b8d0ca799c86c5861d8237549cf18a24c6f",
+      "run_id": "40081602871",
+      "outcome": "observation_complete_zero_errors_zero_drops_hardware_socket_link_only"
     }
   ]
 }
