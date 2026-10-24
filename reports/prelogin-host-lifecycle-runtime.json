@@ -1,19 +1,36 @@
 {
   "schema": "bnet-host-lifecycle-1",
-  "source_commit": "178c04208e5b99561b5eda38db2149b9ed925c3a",
-  "run_id": "40089112247",
-  "status": "inconclusive",
-  "error_code": "first_phase_ineligible",
-  "first_native_gate_passed": false,
+  "source_commit": "f3c72106d86cbec171796d7193d27bdb57f2135a",
+  "run_id": "40089538604",
+  "status": "stopped",
+  "error_code": "bounded_lifecycle_failed",
+  "first_native_gate_passed": true,
   "same_machine": true,
   "configuration_preserved": true,
-  "second_start_clean_processes": false,
+  "second_start_clean_processes": true,
   "comparison": null,
   "phases": [
     {
-      "launched": false,
+      "launched": true,
+      "completed": true,
+      "bootstrap_pin_match": true,
+      "instrumented_processes": 3,
+      "collector_errors": 0,
+      "dropped_events": 0,
+      "collector_fatal": false,
+      "request_count": 18,
+      "hardware_requests": 1,
+      "wire_linked_hardware_requests": 1,
+      "host_id_observations": 1,
+      "host_id_unique": 1,
+      "invalid_host_id_events": 0,
+      "all_processes_instrumented": true,
+      "language_status": "not_observed"
+    },
+    {
+      "launched": true,
       "completed": false,
-      "bootstrap_pin_match": false,
+      "bootstrap_pin_match": true,
       "instrumented_processes": 0,
       "collector_errors": 0,
       "dropped_events": 0,
@@ -25,7 +42,7 @@
       "host_id_unique": 0,
       "invalid_host_id_events": 0,
       "all_processes_instrumented": false,
-      "language_status": "not_observed"
+      "language_status": "other"
     }
   ],
   "limits": {
