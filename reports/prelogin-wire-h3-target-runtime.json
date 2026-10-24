@@ -1,19 +1,20 @@
 {
-  "schema": "bnet-prelogin-wire-h3-target-2",
-  "source_commit": "172ff9a0ef811dfb258cf8fab1fedc29d36c8052",
-  "run_id": "40081168675",
-  "status": "collector_incomplete",
+  "schema": "bnet-prelogin-wire-h3-target-3",
+  "source_commit": "0b674b8d0ca799c86c5861d8237549cf18a24c6f",
+  "run_id": "40081602871",
+  "status": "observation_complete",
   "error_code": null,
   "selftest": {
-    "schema": "bnet-h3-owned-fixtures-5",
-    "source_commit": "172ff9a0ef811dfb258cf8fab1fedc29d36c8052",
-    "run_id": "40081168675",
+    "schema": "bnet-h3-owned-fixtures-6",
+    "source_commit": "0b674b8d0ca799c86c5861d8237549cf18a24c6f",
+    "run_id": "40081602871",
     "target_launched": false,
     "game_download_requested": false,
     "raw_values_exported": false,
     "tls_validation_changed": false,
     "scope": "owned_loopback_and_example_com_only",
     "async_scope": "event_and_registered_win32_callbacks_only",
+    "socket_chunking_supported": true,
     "diagnostic_counters_partial": true,
     "iocp_supported": false,
     "callback_supported": false,
@@ -36,13 +37,11 @@
         "collector_fatal": false,
         "completed_operations": 9,
         "pending_socket_events": 3,
-        "unlinked_immediate_socket_events": 5,
+        "unlinked_immediate_socket_events": 6,
         "diagnostics": {},
         "observations": {},
-        "capture_issues": {
-          "ip_bounds": 2
-        },
-        "packet_count": 292,
+        "capture_issues": {},
+        "packet_count": 149,
         "witness": {
           "large_recv": true,
           "multibuffer_recv": true,
@@ -51,7 +50,8 @@
           "async_recv": true,
           "async_send": true,
           "bound_callback_recv": true,
-          "threadpool_recv": true
+          "threadpool_recv": true,
+          "large_actual_recv": true
         },
         "hook_checks": {
           "large_recv": true,
@@ -59,7 +59,8 @@
           "async_recv": true,
           "async_send": true,
           "async_bound_recv": true,
-          "async_tp_recv": true
+          "async_tp_recv": true,
+          "large_actual_recv": true
         }
       },
       {
@@ -80,9 +81,21 @@
         "pending_socket_events": 0,
         "unlinked_immediate_socket_events": 0,
         "diagnostics": {},
-        "observations": {},
-        "capture_issues": {},
-        "packet_count": 200,
+        "observations": {
+          "send|submission|synchronous": 8,
+          "recv|submission|synchronous": 3,
+          "WSARecv|submission|synchronous": 1,
+          "WSARecv|submission|pending": 1,
+          "GetOverlappedResultEx|completion_call|false": 1,
+          "GetOverlappedResult|completion_call|false": 1,
+          "GetOverlappedResultEx|completion_call|true": 2,
+          "GetOverlappedResult|completion_call|true": 2,
+          "WSASend|submission|immediate": 1
+        },
+        "capture_issues": {
+          "ip_bounds": 2
+        },
+        "packet_count": 169,
         "witness": {
           "large_recv": true,
           "multibuffer_recv": true,
@@ -91,7 +104,8 @@
           "async_recv": true,
           "async_send": true,
           "bound_callback_recv": true,
-          "threadpool_recv": true
+          "threadpool_recv": true,
+          "large_actual_recv": true
         },
         "hook_checks": {
           "large_recv": true,
@@ -99,7 +113,8 @@
           "async_recv": true,
           "async_send": true,
           "async_bound_recv": true,
-          "async_tp_recv": true
+          "async_tp_recv": true,
+          "large_actual_recv": true
         }
       }
     ]
@@ -112,29 +127,26 @@
       "name": "battle.net-setup.exe",
       "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
       "instrumented_before_resume": true,
-      "script_errors": 29,
+      "script_errors": 0,
       "pointer_bits": 32,
-      "diagnostics": {
-        "recv|leave|bounded": 29
-      },
+      "diagnostics": {},
       "observations": {
-        "send|submission|synchronous": 176,
-        "recv|submission|synchronous": 196,
+        "send|submission|synchronous": 175,
+        "recv|submission|synchronous": 195,
         "NtRemoveIoCompletion|completion_call|true": 45,
-        "NtRemoveIoCompletion|completion_call|false": 2,
-        "NtRemoveIoCompletionEx|completion_call|false": 5683,
-        "NtRemoveIoCompletionEx|completion_call|true": 2089,
-        "GetOverlappedResultEx|completion_call|true": 4165,
-        "GetOverlappedResult|completion_call|true": 4165,
+        "NtRemoveIoCompletion|completion_call|false": 4,
+        "NtRemoveIoCompletionEx|completion_call|false": 6371,
+        "NtRemoveIoCompletionEx|completion_call|true": 2091,
+        "GetOverlappedResultEx|completion_call|true": 4457,
+        "GetOverlappedResult|completion_call|true": 4457,
         "GetOverlappedResultEx|completion_call|false": 3,
         "GetOverlappedResult|completion_call|false": 3,
-        "GetQueuedCompletionStatusEx|completion_call|false": 5675,
-        "GetQueuedCompletionStatusEx|completion_call|true": 2075,
+        "GetQueuedCompletionStatusEx|completion_call|false": 6363,
+        "GetQueuedCompletionStatusEx|completion_call|true": 2077,
         "CreateThreadpoolIo|registration|true": 1,
-        "CreateThreadpoolIo|completion_call|true": 2,
+        "CreateThreadpoolIo|completion_call|true": 3,
         "WSARecv|submission|pending": 2,
-        "WSASend|submission|immediate": 1,
-        "CreateThreadpoolIo|completion_call|false": 1
+        "WSASend|submission|immediate": 1
       },
       "completed_operations": 1,
       "unresolved_async_events": 1,
@@ -160,11 +172,12 @@
       "pointer_bits": 32,
       "diagnostics": {},
       "observations": {
-        "send|submission|synchronous": 173,
-        "recv|submission|synchronous": 104,
-        "NtRemoveIoCompletion|completion_call|true": 10,
-        "NtRemoveIoCompletionEx|completion_call|false": 4360,
-        "GetQueuedCompletionStatusEx|completion_call|false": 4360,
+        "send|submission|synchronous": 180,
+        "recv|submission|synchronous": 105,
+        "NtRemoveIoCompletion|completion_call|true": 11,
+        "NtRemoveIoCompletion|completion_call|false": 1,
+        "NtRemoveIoCompletionEx|completion_call|false": 4944,
+        "GetQueuedCompletionStatusEx|completion_call|false": 4944,
         "NtRemoveIoCompletionEx|completion_call|true": 2,
         "GetQueuedCompletionStatusEx|completion_call|true": 2,
         "GetOverlappedResultEx|completion_call|true": 1,
@@ -183,9 +196,9 @@
       "hardware_payload_verified": false,
       "hardware_field_count": 0,
       "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
-      "http_response_status": null,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
+      "http_response_status": 202,
       "server_storage_proven": false
     },
     {
@@ -195,8 +208,56 @@
       "hardware_payload_verified": false,
       "hardware_field_count": 0,
       "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
+      "http_response_status": 202,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
+      "http_response_status": 200,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
+      "http_response_status": 200,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
+      "http_response_status": 200,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
       "http_response_status": null,
       "server_storage_proven": false
     },
@@ -207,8 +268,8 @@
       "hardware_payload_verified": false,
       "hardware_field_count": 0,
       "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
       "http_response_status": null,
       "server_storage_proven": false
     },
@@ -219,8 +280,8 @@
       "hardware_payload_verified": false,
       "hardware_field_count": 0,
       "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
       "http_response_status": null,
       "server_storage_proven": false
     },
@@ -231,8 +292,8 @@
       "hardware_payload_verified": false,
       "hardware_field_count": 0,
       "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
       "http_response_status": null,
       "server_storage_proven": false
     },
@@ -243,8 +304,8 @@
       "hardware_payload_verified": false,
       "hardware_field_count": 0,
       "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
       "http_response_status": null,
       "server_storage_proven": false
     },
@@ -255,8 +316,8 @@
       "hardware_payload_verified": false,
       "hardware_field_count": 0,
       "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
       "http_response_status": null,
       "server_storage_proven": false
     },
@@ -267,8 +328,20 @@
       "hardware_payload_verified": false,
       "hardware_field_count": 0,
       "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
+      "http_response_status": 200,
+      "server_storage_proven": false
+    },
+    {
+      "destination": "other",
+      "method": "GET",
+      "tls_record_count": 1,
+      "hardware_payload_verified": false,
+      "hardware_field_count": 0,
+      "cpu_reference_match": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
       "http_response_status": null,
       "server_storage_proven": false
     },
@@ -279,68 +352,8 @@
       "hardware_payload_verified": false,
       "hardware_field_count": 0,
       "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
-      "http_response_status": null,
-      "server_storage_proven": false
-    },
-    {
-      "destination": "other",
-      "method": "GET",
-      "tls_record_count": 1,
-      "hardware_payload_verified": false,
-      "hardware_field_count": 0,
-      "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
-      "http_response_status": null,
-      "server_storage_proven": false
-    },
-    {
-      "destination": "other",
-      "method": "GET",
-      "tls_record_count": 1,
-      "hardware_payload_verified": false,
-      "hardware_field_count": 0,
-      "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
-      "http_response_status": null,
-      "server_storage_proven": false
-    },
-    {
-      "destination": "other",
-      "method": "GET",
-      "tls_record_count": 1,
-      "hardware_payload_verified": false,
-      "hardware_field_count": 0,
-      "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
-      "http_response_status": null,
-      "server_storage_proven": false
-    },
-    {
-      "destination": "other",
-      "method": "GET",
-      "tls_record_count": 1,
-      "hardware_payload_verified": false,
-      "hardware_field_count": 0,
-      "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
-      "http_response_status": null,
-      "server_storage_proven": false
-    },
-    {
-      "destination": "other",
-      "method": "GET",
-      "tls_record_count": 1,
-      "hardware_payload_verified": false,
-      "hardware_field_count": 0,
-      "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
       "http_response_status": null,
       "server_storage_proven": false
     },
@@ -351,8 +364,8 @@
       "hardware_payload_verified": false,
       "hardware_field_count": 0,
       "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
       "http_response_status": null,
       "server_storage_proven": false
     },
@@ -363,7 +376,7 @@
       "hardware_payload_verified": true,
       "hardware_field_count": 22,
       "cpu_reference_match": true,
-      "socket_send_linked": false,
+      "socket_send_linked": true,
       "packet_bytes_linked": false,
       "http_response_status": null,
       "server_storage_proven": false
@@ -375,9 +388,9 @@
       "hardware_payload_verified": false,
       "hardware_field_count": 0,
       "cpu_reference_match": false,
-      "socket_send_linked": false,
-      "packet_bytes_linked": false,
-      "http_response_status": null,
+      "socket_send_linked": true,
+      "packet_bytes_linked": true,
+      "http_response_status": 202,
       "server_storage_proven": false
     },
     {
@@ -387,7 +400,7 @@
       "hardware_payload_verified": false,
       "hardware_field_count": 0,
       "cpu_reference_match": false,
-      "socket_send_linked": false,
+      "socket_send_linked": true,
       "packet_bytes_linked": false,
       "http_response_status": null,
       "server_storage_proven": false
@@ -402,13 +415,13 @@
     "start_code": 0,
     "stop_code": 0,
     "convert_code": 0,
-    "packets": 7370,
+    "packets": 7026,
     "issues": {
-      "ip_bounds": 26,
+      "ip_bounds": 30,
       "tcp_overlap_conflict": 2
     }
   },
-  "collector_errors": 29,
+  "collector_errors": 0,
   "dropped_events": 0,
   "collector_fatal": false,
   "limits": {
@@ -419,6 +432,7 @@
     "game_download_requested": false,
     "install_action_requested": false,
     "tls_validation_changed": false,
+    "socket_chunking_supported": true,
     "diagnostic_counters_partial": true,
     "sspi_http1_only": true,
     "all_async_completion_methods_supported": false,
