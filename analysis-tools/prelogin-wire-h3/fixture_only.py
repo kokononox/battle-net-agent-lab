@@ -24,8 +24,8 @@ def fixture(frida,arch,env):
             'root_child_instrumented':False,'bitness_confirmed':False,'negative_encryption_observed':False,
             'linked_probe_requests':0,'http_responses_linked':0,'collector_errors':0,'dropped_events':0,'collector_fatal':False,
             'completed_operations':0,'pending_socket_events':0,'unlinked_immediate_socket_events':0,'diagnostics':{},'observations':{},'capture_issues':{},'packet_count':0,
-            'witness':{k:False for k in ['large_recv','multibuffer_recv','pending_recv','false_completion_checked','async_recv','async_send','bound_callback_recv','threadpool_recv']},
-            'hook_checks':{k:False for k in MARKERS}}
+            'witness':{k:False for k in ['large_recv','multibuffer_recv','pending_recv','false_completion_checked','async_recv','async_send','bound_callback_recv','threadpool_recv','large_actual_recv']},
+            'hook_checks':dict({k:False for k in MARKERS},large_actual_recv=False)}
     manager=None;capture=None;code=None
     try:
         with tempfile.TemporaryDirectory(prefix='h3-owned-',dir=os.environ['RUNNER_TEMP']) as tmp:
@@ -64,6 +64,11 @@ def fixture(frida,arch,env):
             for key,(kind,api,text) in MARKERS.items():
                 matches=[e for e in manager.inputs if e['pid']==pid and e['kind']==kind and e.get('api')==api and e.get('accepted_bytes')==96 and e.get('raw')==marker(text) and e.get('complete') and not e.get('ambiguous')]
                 result['hook_checks'][key]=len(matches)==1 and (not key.startswith('async_') or matches[0].get('completion_proven') is True)
+            expected=bytearray(i%251 for i in range(262241));prefix=b'SYNTHETIC_H3_LARGE_ACTUAL_RECV_';expected[:len(prefix)]=prefix
+            slices=[e for e in manager.inputs if e['pid']==pid and e.get('is_slice') is True and e.get('operation_total_bytes')==len(expected)]
+            from correlate import normalized
+            checked=normalized(slices)
+            result['hook_checks']['large_actual_recv']=bool(len(checked)==3 and all(e.get('complete') and not e.get('ambiguous') for e in checked) and b''.join(e['raw'] for e in sorted(checked,key=lambda e:e['slice_offset']))==bytes(expected))
             result['negative_encryption_observed']=any(e['kind']=='encrypt' and e['return_code']!=0 and e['before']==b'SYNTHETIC_INVALID_CONTEXT_NOT_TARGET' for e in manager.inputs)
             rows=list(manager.rows.values())
             result['root_child_instrumented']=len(rows)==2 and all(r['instrumented_before_resume'] and r['child_gating_enabled'] for r in rows)
@@ -89,17 +94,17 @@ def fixture(frida,arch,env):
     return result
 
 def main():
-    allowed=(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_H3_FIXTURE')=='owned-only-20261024-d5')
+    allowed=(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_H3_FIXTURE')=='owned-only-20261024-d6')
     if not allowed:raise SystemExit('hosted_once_fixture_only_required')
     import frida
     if frida.__version__!='17.24.2':raise SystemExit('pinned_frida_required')
     # Small environment, no GitHub credentials inherited by fixture processes.
     names={'SYSTEMROOT','WINDIR','PATH','TEMP','TMP','COMSPEC','PATHEXT','PROGRAMFILES','PROGRAMFILES(X86)','PROGRAMDATA','USERPROFILE','LOCALAPPDATA','APPDATA','ALLUSERSPROFILE','HOMEDRIVE','HOMEPATH','NUMBER_OF_PROCESSORS','PROCESSOR_ARCHITECTURE','PROCESSOR_IDENTIFIER'}
     env={k:v for k,v in os.environ.items() if k.upper() in names}
-    report={'schema':'bnet-h3-owned-fixtures-5','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
+    report={'schema':'bnet-h3-owned-fixtures-6','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
             'target_launched':False,'game_download_requested':False,'raw_values_exported':False,'tls_validation_changed':False,
             'scope':'owned_loopback_and_example_com_only','async_scope':'event_and_registered_win32_callbacks_only',
-            'diagnostic_counters_partial':True,'iocp_supported':False,'callback_supported':False,'all_network_paths_covered':False,'passed':False,'fixtures':[]}
+            'socket_chunking_supported':True,'diagnostic_counters_partial':True,'iocp_supported':False,'callback_supported':False,'all_network_paths_covered':False,'passed':False,'fixtures':[]}
     report['fixtures']=[fixture(frida,arch,env) for arch in ('x64','x86')]
     report['passed']=all(x['passed'] for x in report['fixtures'])
     validate(report);out=Path('output');out.mkdir(exist_ok=True)

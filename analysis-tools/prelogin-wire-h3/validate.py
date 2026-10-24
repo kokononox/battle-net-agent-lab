@@ -7,16 +7,16 @@ BOOLS={'root_child_instrumented','bitness_confirmed','negative_encryption_observ
 COUNTS={'linked_probe_requests','http_responses_linked','collector_errors','dropped_events','completed_operations','pending_socket_events','unlinked_immediate_socket_events','packet_count'}
 APIS={'EncryptMessage','DecryptMessage','send','recv','WSASend','WSARecv','WSAGetOverlappedResult','connect','WSAConnect','closesocket','other','BindIoCompletionCallback','CreateThreadpoolIo'}
 REASONS={'bounded','buffer_count','data_layout','stream_layout','socket_limit','context_limit','accepted_bounds','pending_limit','overlapped_reuse','callback_unsupported','completion_unmatched','memory_access','missing_export','other','callback_limit','completion_race','completion_ambiguous','callback_origin'}
-WITNESS={'large_recv','multibuffer_recv','pending_recv','false_completion_checked','async_recv','async_send','bound_callback_recv','threadpool_recv'}
-CHECKS={'large_recv','multibuffer_recv','async_recv','async_send','async_bound_recv','async_tp_recv'}
+WITNESS={'large_recv','multibuffer_recv','pending_recv','false_completion_checked','async_recv','async_send','bound_callback_recv','threadpool_recv','large_actual_recv'}
+CHECKS={'large_recv','multibuffer_recv','async_recv','async_send','async_bound_recv','async_tp_recv','large_actual_recv'}
 def require(x):
     if not x:raise ValueError('non_allowlisted_or_inconsistent_summary')
 def count(x):require(type(x) is int and 0<=x<=10000000)
 def validate(r):
-    require(type(r) is dict and set(r)=={'schema','source_commit','run_id','target_launched','game_download_requested','raw_values_exported','tls_validation_changed','scope','async_scope','diagnostic_counters_partial','iocp_supported','callback_supported','all_network_paths_covered','passed','fixtures'})
-    require(r['schema']=='bnet-h3-owned-fixtures-5' and type(r['source_commit']) is str and re.fullmatch('[0-9a-f]{40}',r['source_commit']) and type(r['run_id']) is str and re.fullmatch('[0-9]{1,20}',r['run_id']))
+    require(type(r) is dict and set(r)=={'schema','source_commit','run_id','target_launched','game_download_requested','raw_values_exported','tls_validation_changed','scope','async_scope','diagnostic_counters_partial','socket_chunking_supported','iocp_supported','callback_supported','all_network_paths_covered','passed','fixtures'})
+    require(r['schema']=='bnet-h3-owned-fixtures-6' and type(r['source_commit']) is str and re.fullmatch('[0-9a-f]{40}',r['source_commit']) and type(r['run_id']) is str and re.fullmatch('[0-9]{1,20}',r['run_id']))
     for k in ('target_launched','game_download_requested','raw_values_exported','tls_validation_changed','iocp_supported','callback_supported','all_network_paths_covered'):require(r[k] is False)
-    require(r['diagnostic_counters_partial'] is True)
+    require(r['diagnostic_counters_partial'] is True and r['socket_chunking_supported'] is True)
     require(r['scope']=='owned_loopback_and_example_com_only' and r['async_scope']=='event_and_registered_win32_callbacks_only')
     require(type(r['passed']) is bool and type(r['fixtures']) is list and len(r['fixtures'])==2)
     require([x['architecture'] for x in r['fixtures']]==['x64','x86'])

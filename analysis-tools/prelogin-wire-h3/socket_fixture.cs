@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 class SocketFixture {
   [StructLayout(LayoutKind.Sequential)] struct Buf { public uint len;public IntPtr data; }
   [DllImport("ws2_32.dll",SetLastError=true)] static extern int recv(IntPtr s,IntPtr b,int n,int f);
@@ -50,8 +51,13 @@ class SocketFixture {
           Check(WSAGetOverlappedResult(client.Handle,ov,out completed,true,out cf)&&completed==96);
           // Receiver-side witness is independent of the collector's completion event.
           int got=0;while(got<96){int r=recv(peer.Handle,a,96-got,0);Check(r>0);byte[] part=new byte[r];Marshal.Copy(a,part,0,r);for(int i=0;i<r;i++)Check(part[i]==m[got+i]);got+=r;}
+          byte[] big=new byte[262241];for(int i=0;i<big.Length;i++)big[i]=(byte)(i%251);
+          byte[] prefix=Encoding.ASCII.GetBytes("SYNTHETIC_H3_LARGE_ACTUAL_RECV_");Array.Copy(prefix,big,prefix.Length);
+          bool pushed=false;Thread sender=new Thread(delegate(){try{int offset=0;while(offset<big.Length){int length=Math.Min(65536,big.Length-offset);byte[] part=new byte[length];Array.Copy(big,offset,part,0,length);int amount=send(peer.Handle,part,length,0);if(amount<=0)return;offset+=amount;}pushed=true;}catch{}});
+          sender.IsBackground=true;sender.Start();Check(recv(client.Handle,a,big.Length,8)==big.Length);Check(sender.Join(10000)&&pushed);
+          byte[] largeGot=new byte[big.Length];Marshal.Copy(a,largeGot,0,largeGot.Length);for(int i=0;i<big.Length;i++)Check(largeGot[i]==big[i]);
           CallbackFixture.Probe(false);CallbackFixture.Probe(true);
-          File.WriteAllText(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName+".witness.json","{\"large_recv\":true,\"multibuffer_recv\":true,\"pending_recv\":true,\"false_completion_checked\":true,\"async_recv\":true,\"async_send\":true,\"bound_callback_recv\":true,\"threadpool_recv\":true}");
+          File.WriteAllText(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName+".witness.json","{\"large_recv\":true,\"multibuffer_recv\":true,\"pending_recv\":true,\"false_completion_checked\":true,\"async_recv\":true,\"async_send\":true,\"bound_callback_recv\":true,\"threadpool_recv\":true,\"large_actual_recv\":true}");
         } finally {if(ov!=IntPtr.Zero)Marshal.FreeHGlobal(ov);if(ev!=IntPtr.Zero)WSACloseEvent(ev);Marshal.FreeHGlobal(a);Marshal.FreeHGlobal(b);}
       }
     }

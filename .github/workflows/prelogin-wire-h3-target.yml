@@ -12,7 +12,7 @@ concurrency:
 jobs:
   observe:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved prelogin wire h3 20261024-e2'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved prelogin wire h3 20261024-e3'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -33,7 +33,7 @@ jobs:
         run: python -m pip install --disable-pip-version-check frida==17.24.2 protobuf==6.33.0
       - name: Native HTTPS wire gate then signed pinned startup only
         env:
-          BNET_WIRE_H3: approved-wire-h3-20261024-e2
+          BNET_WIRE_H3: approved-wire-h3-20261024-e3
         run: python analysis-tools/prelogin-wire-h3/target_run.py
       - name: Strictly validate only the shareable summary
         if: always()

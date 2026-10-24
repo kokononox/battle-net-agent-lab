@@ -24,6 +24,18 @@ function joined(arrays,limit){
   for(const [p,n] of arrays){const take=Math.min(n,wanted-offset);if(take>0){b.set(new Uint8Array(p.readByteArray(take)),offset);offset+=take;}if(offset===wanted)break;}
   return b;
 }
+function rangeBytes(arrays,offset,size){
+ const pieces=[];let skip=offset,left=size;
+ for(const [p,n] of arrays){if(skip>=n){skip-=n;continue;}const take=Math.min(n-skip,left);if(take>0)pieces.push([p.add(skip),take]);left-=take;skip=0;if(!left)break;}
+ if(left)fault('accepted_bounds');return joined(pieces);
+}
+function receiveSlices(x,state,api,code,accepted){
+ if(!x.operation)x.operation='o'+(++nextOperation);
+ for(let offset=0;offset<accepted;offset+=MAX){const n=Math.min(MAX,accepted-offset),raw=rangeBytes(x.arrays,offset,n);
+  emit({kind:'recv',api:api,socket:state.id,order:x.order,return_code:code,accepted_bytes:n,declared_bytes:n,asynchronous:false,completion_proven:false,operation:x.operation,ambiguous:state.ambiguous,complete:true,is_slice:true,slice_offset:offset,operation_total_bytes:accepted,slice_final:offset+n===accepted},raw.buffer);
+  if(limited)break;
+ }
+}
 function buffers(desc){const n=desc.add(4).readU32(),p=desc.add(8).readPointer(),width=Process.pointerSize===8?16:12;if(n>16)fault('buffer_count');const out=[];for(let i=0;i<n;i++){const b=p.add(i*width);out.push({type:b.add(4).readU32()&0xffff,n:b.readU32(),p:b.add(8).readPointer()});}return out;}
 function messageDescriptor(api,args){if(api==='EncryptMessage')return args[2];if(api==='DecryptMessage')return args[1];fault('data_layout');}
 function tls(mod){
@@ -53,7 +65,7 @@ function network(mod){
       const x={arrays:arrays,declared:declared,async:async,out:out,order:++sequence,before:sending?joined(arrays):null,sending:sending,operation:async?'o'+(++nextOperation):null,state:s,pf:pf,api:api,immediate:false,counted:async,overlapped:async?args[5].toString():null,reported:false,early:null};this.item=x;
       if(async){pending.set(key,x);s[pf]++;}
     }catch(e){diagnostic(api,'enter',e);}},
-    onLeave(ret){try{const x=this.item,s=this.state;if(x&&s){const code=ret.toInt32();x.return_class=x.async?(code===0?'immediate':(Number.isInteger(this.lastError)?(this.lastError===997?'pending':'non_pending_error'):'unknown_error')):'synchronous';emit({kind:'probe',api:api,phase:'submission',state:x.return_class});if(x.async&&code===0){x.immediate=true;if(x.counted){s[x.pf]--;x.counted=false;}}let accepted=null;if(!x.async){if(api==='send'||api==='recv'){if(code>=0)accepted=code;}else if(code===0&&!x.out.isNull())accepted=x.out.readU32();}if(accepted!==null&&(accepted<0||accepted>x.declared))fault('accepted_bounds');const raw=x.sending?x.before:(accepted!==null?joined(x.arrays,accepted):new Uint8Array(0));emit({kind:x.sending?'send':'recv',api:api,socket:s.id,order:x.order,return_code:code,accepted_bytes:accepted,declared_bytes:x.declared,asynchronous:x.async,completion_proven:false,immediate_completion:x.immediate,operation:x.operation,ambiguous:s.ambiguous,complete:true},raw.buffer);x.reported=true;if(x.early)emit(x.early.event,x.early.raw.buffer);}}catch(e){diagnostic(api,'leave',e);}finally{if(this.state)this.state[this.field]--;leave(this);}}
+    onLeave(ret){try{const x=this.item,s=this.state;if(x&&s){const code=ret.toInt32();x.return_class=x.async?(code===0?'immediate':(Number.isInteger(this.lastError)?(this.lastError===997?'pending':'non_pending_error'):'unknown_error')):'synchronous';emit({kind:'probe',api:api,phase:'submission',state:x.return_class});if(x.async&&code===0){x.immediate=true;if(x.counted){s[x.pf]--;x.counted=false;}}let accepted=null;if(!x.async){if(api==='send'||api==='recv'){if(code>=0)accepted=code;}else if(code===0&&!x.out.isNull())accepted=x.out.readU32();}if(accepted!==null&&(accepted<0||accepted>x.declared))fault('accepted_bounds');if(!x.sending&&!x.async&&accepted>MAX){receiveSlices(x,s,api,code,accepted);return;}const raw=x.sending?x.before:(accepted!==null?joined(x.arrays,accepted):new Uint8Array(0));emit({kind:x.sending?'send':'recv',api:api,socket:s.id,order:x.order,return_code:code,accepted_bytes:accepted,declared_bytes:x.declared,asynchronous:x.async,completion_proven:false,immediate_completion:x.immediate,operation:x.operation,ambiguous:s.ambiguous,complete:true},raw.buffer);x.reported=true;if(x.early)emit(x.early.event,x.early.raw.buffer);}}catch(e){diagnostic(api,'leave',e);}finally{if(this.state)this.state[this.field]--;leave(this);}}
   });
   attach('WSAGetOverlappedResult',{
     onEnter(args){this.s=sockets.get(args[0].toString());this.key=this.s?this.s.id+':'+args[1].toString():null;this.out=args[2];},

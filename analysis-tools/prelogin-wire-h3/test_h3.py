@@ -16,7 +16,7 @@ class HookContract(unittest.TestCase):
     def test_actual_js_32_and_64_bit_contracts(self):
         p=Path(__file__).parent
         r=subprocess.run(['node',str(p/'contract.js'),str(p/'wire_hook.js')],capture_output=True,check=True,timeout=15)
-        self.assertEqual(json.loads(r.stdout)['actual_js_contract_checks'],60)
+        self.assertEqual(json.loads(r.stdout)['actual_js_contract_checks'],62)
 class ManagerTests(unittest.TestCase):
     def setUp(self):
         self.m=Manager.__new__(Manager);self.m.lock=threading.Lock();self.m.inputs=[];self.m.total_bytes=0;self.m.dropped=0
