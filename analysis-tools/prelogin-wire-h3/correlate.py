@@ -1,5 +1,5 @@
-"""H2 remains frozen. Only successfully matched event-based completions normalize.
-IOCP/callback/unmatched/ambiguous events remain barriers, never positive evidence.
+"""H2 remains frozen. Only matched event or registered Win32 callback completions normalize.
+Other IOCP/callback, unmatched and ambiguous events remain barriers.
 """
 import importlib.util
 from pathlib import Path

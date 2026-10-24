@@ -4,7 +4,7 @@ from test_validate import report as fixture_report
 from target_validate import validate,LIMITS
 
 def report(launched=False):
-    r=dict(schema='bnet-prelogin-wire-h3-target-1',source_commit='a'*40,run_id='123',status='not_started',error_code=None,selftest=None,bootstrap_pin_match=None,target_launched=False,async_scope='event_and_registered_win32_callbacks_only',processes=[],requests=[],parse_states={},network_linked_hardware_requests=0,request_count=0,capture=None,collector_errors=0,dropped_events=0,collector_fatal=False,limits=dict(LIMITS))
+    r=dict(schema='bnet-prelogin-wire-h3-target-2',source_commit='a'*40,run_id='123',status='not_started',error_code=None,selftest=None,bootstrap_pin_match=None,target_launched=False,async_scope='event_and_registered_win32_callbacks_only',processes=[],requests=[],parse_states={},network_linked_hardware_requests=0,request_count=0,capture=None,collector_errors=0,dropped_events=0,collector_fatal=False,limits=dict(LIMITS))
     if launched:
         f=fixture_report()
         for x in f['fixtures']:

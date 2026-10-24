@@ -13,9 +13,10 @@ def require(x):
     if not x:raise ValueError('non_allowlisted_or_inconsistent_summary')
 def count(x):require(type(x) is int and 0<=x<=10000000)
 def validate(r):
-    require(type(r) is dict and set(r)=={'schema','source_commit','run_id','target_launched','game_download_requested','raw_values_exported','tls_validation_changed','scope','async_scope','iocp_supported','callback_supported','all_network_paths_covered','passed','fixtures'})
-    require(r['schema']=='bnet-h3-owned-fixtures-4' and type(r['source_commit']) is str and re.fullmatch('[0-9a-f]{40}',r['source_commit']) and type(r['run_id']) is str and re.fullmatch('[0-9]{1,20}',r['run_id']))
+    require(type(r) is dict and set(r)=={'schema','source_commit','run_id','target_launched','game_download_requested','raw_values_exported','tls_validation_changed','scope','async_scope','diagnostic_counters_partial','iocp_supported','callback_supported','all_network_paths_covered','passed','fixtures'})
+    require(r['schema']=='bnet-h3-owned-fixtures-5' and type(r['source_commit']) is str and re.fullmatch('[0-9a-f]{40}',r['source_commit']) and type(r['run_id']) is str and re.fullmatch('[0-9]{1,20}',r['run_id']))
     for k in ('target_launched','game_download_requested','raw_values_exported','tls_validation_changed','iocp_supported','callback_supported','all_network_paths_covered'):require(r[k] is False)
+    require(r['diagnostic_counters_partial'] is True)
     require(r['scope']=='owned_loopback_and_example_com_only' and r['async_scope']=='event_and_registered_win32_callbacks_only')
     require(type(r['passed']) is bool and type(r['fixtures']) is list and len(r['fixtures'])==2)
     require([x['architecture'] for x in r['fixtures']]==['x64','x86'])

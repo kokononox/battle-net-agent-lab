@@ -28,10 +28,10 @@ BRANCH='refs/heads/research/prelogin-telemetry-wow-data-provenance'
 
 
 def gate(frida,env):
-    r={'schema':'bnet-h3-owned-fixtures-4','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
+    r={'schema':'bnet-h3-owned-fixtures-5','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
        'target_launched':False,'game_download_requested':False,'raw_values_exported':False,'tls_validation_changed':False,
        'scope':'owned_loopback_and_example_com_only','async_scope':'event_and_registered_win32_callbacks_only',
-       'iocp_supported':False,'callback_supported':False,'all_network_paths_covered':False,'passed':False,'fixtures':[]}
+       'diagnostic_counters_partial':True,'iocp_supported':False,'callback_supported':False,'all_network_paths_covered':False,'passed':False,'fixtures':[]}
     r['fixtures']=[fixture(frida,arch,env) for arch in ('x64','x86')]
     r['passed']=all(x['passed'] for x in r['fixtures'])
     validate_fixture(r)
@@ -39,12 +39,12 @@ def gate(frida,env):
 
 
 def main():
-    allowed=(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_WIRE_H3')=='approved-wire-h3-20261024-e1')
+    allowed=(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_WIRE_H3')=='approved-wire-h3-20261024-e2')
     if not allowed:raise SystemExit('fresh_hosted_once_required')
     source=os.environ.get('GITHUB_SHA','');run=os.environ.get('GITHUB_RUN_ID','')
     if not re.fullmatch('[0-9a-f]{40}',source) or not run.isdigit():raise SystemExit('run_identity')
     out=Path('output');out.mkdir(exist_ok=True)
-    report={'schema':'bnet-prelogin-wire-h3-target-1','source_commit':source,'run_id':run,
+    report={'schema':'bnet-prelogin-wire-h3-target-2','source_commit':source,'run_id':run,
             'status':'not_started','error_code':None,'selftest':None,'bootstrap_pin_match':None,
             'target_launched':False,'async_scope':'event_and_registered_win32_callbacks_only','processes':[],'requests':[],'parse_states':{},
             'network_linked_hardware_requests':0,'request_count':0,
@@ -52,7 +52,7 @@ def main():
             'limits':{'server_storage_proven':False,'all_network_paths_covered':False,
                       'raw_values_exported':False,'login_performed':False,'game_download_requested':False,
                       'install_action_requested':False,'tls_validation_changed':False,
-                      'sspi_http1_only':True,'all_async_completion_methods_supported':False,
+                      'diagnostic_counters_partial':True,'sspi_http1_only':True,'all_async_completion_methods_supported':False,
                       'circular_capture_can_drop_early_packets':True}}
     import frida
     import observe_agent as obs

@@ -3,8 +3,13 @@
 const sockets=new Map(), contexts=new Map(), hooked=new Set(), depth=new Map(), pending=new Map();
 let sequence=0,nextSocket=0,nextContext=0,nextOperation=0,emitted=0,limited=false;
 const MAX=131072, CAPACITY=67108864;
+// Diagnostics have a separate bounded channel, never consume raw-evidence slots.
+const probeCounts=new Map();let probeBatches=0;
+function flushProbes(){if(!probeCounts.size||probeBatches>=256)return;send({kind:'probe_counts',counts:Object.fromEntries(probeCounts)});probeCounts.clear();probeBatches++;}
+const probeTimer=setInterval(flushProbes,2000);
+rpc.exports={flushprobes(){flushProbes();return true;}};
 const REASONS=new Set(['bounded','buffer_count','data_layout','stream_layout','socket_limit','context_limit','accepted_bounds','pending_limit','overlapped_reuse','callback_unsupported','completion_unmatched','callback_limit','completion_race','completion_ambiguous','callback_origin']);
-function emit(e,b){if(emitted>=1024){if(!limited){limited=true;send({kind:'limit'});}return;}emitted++;e.sequence=++sequence;send(e,b||undefined);}
+function emit(e,b){if(e.kind==='probe'){const key=e.api+'|'+e.phase+'|'+e.state;if(probeCounts.has(key)||probeCounts.size<100)probeCounts.set(key,(probeCounts.get(key)||0)+1);return;}if(emitted>=1024){if(!limited){limited=true;send({kind:'limit'});}return;}emitted++;e.sequence=++sequence;send(e,b||undefined);}
 function fault(reason){throw Error(reason);}
 function diagnostic(api,phase,error){const r=REASONS.has(error.message)?error.message:'memory_access';emit({kind:'read_error',api:api,phase:phase,reason:r});}
 function enter(c,g){c.guard=g+':'+Process.getCurrentThreadId();const n=depth.get(c.guard)||0;depth.set(c.guard,n+1);c.outer=n===0;}

@@ -16,7 +16,7 @@ class HookContract(unittest.TestCase):
     def test_actual_js_32_and_64_bit_contracts(self):
         p=Path(__file__).parent
         r=subprocess.run(['node',str(p/'contract.js'),str(p/'wire_hook.js')],capture_output=True,check=True,timeout=15)
-        self.assertEqual(json.loads(r.stdout)['actual_js_contract_checks'],56)
+        self.assertEqual(json.loads(r.stdout)['actual_js_contract_checks'],60)
 class ManagerTests(unittest.TestCase):
     def setUp(self):
         self.m=Manager.__new__(Manager);self.m.lock=threading.Lock();self.m.inputs=[];self.m.total_bytes=0;self.m.dropped=0
@@ -54,6 +54,13 @@ class ManagerTests(unittest.TestCase):
         self.pending();self.msg({'kind':'probe','api':'GetQueuedCompletionStatus','phase':'completion_call','state':'true'})
         self.assertFalse(self.m.inputs[0]['completion_proven'])
         self.assertEqual(self.row['observations'],{'GetQueuedCompletionStatus|completion_call|true':1})
+    def test_batched_census_is_not_completion(self):
+        self.pending();self.msg({'kind':'probe_counts','counts':{'GetQueuedCompletionStatus|completion_call|false':10000}})
+        self.assertFalse(self.m.inputs[0]['completion_proven']);self.assertEqual(self.row['observations']['GetQueuedCompletionStatus|completion_call|false'],10000)
+    def test_batched_private_keys_refused(self):
+        self.msg({'kind':'probe_counts','counts':{'PRIVATE|KEY|SECRET':1}});self.assertEqual(self.row['script_errors'],1);self.assertEqual(self.row['observations'],{})
+    def test_invalid_batch_count_refused(self):
+        self.msg({'kind':'probe_counts','counts':{'GetQueuedCompletionStatus|completion_call|false':True}});self.assertEqual(self.row['script_errors'],1)
     def test_ready_bitness(self):
         self.msg({'kind':'ready','pointer_bits':32});self.assertEqual(self.row['pointer_bits'],32)
     def test_completion_budget_keeps_barrier(self):

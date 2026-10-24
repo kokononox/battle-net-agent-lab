@@ -89,17 +89,17 @@ def fixture(frida,arch,env):
     return result
 
 def main():
-    allowed=(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_H3_FIXTURE')=='owned-only-20261024-d4')
+    allowed=(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_H3_FIXTURE')=='owned-only-20261024-d5')
     if not allowed:raise SystemExit('hosted_once_fixture_only_required')
     import frida
     if frida.__version__!='17.24.2':raise SystemExit('pinned_frida_required')
     # Small environment, no GitHub credentials inherited by fixture processes.
     names={'SYSTEMROOT','WINDIR','PATH','TEMP','TMP','COMSPEC','PATHEXT','PROGRAMFILES','PROGRAMFILES(X86)','PROGRAMDATA','USERPROFILE','LOCALAPPDATA','APPDATA','ALLUSERSPROFILE','HOMEDRIVE','HOMEPATH','NUMBER_OF_PROCESSORS','PROCESSOR_ARCHITECTURE','PROCESSOR_IDENTIFIER'}
     env={k:v for k,v in os.environ.items() if k.upper() in names}
-    report={'schema':'bnet-h3-owned-fixtures-4','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
+    report={'schema':'bnet-h3-owned-fixtures-5','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
             'target_launched':False,'game_download_requested':False,'raw_values_exported':False,'tls_validation_changed':False,
             'scope':'owned_loopback_and_example_com_only','async_scope':'event_and_registered_win32_callbacks_only',
-            'iocp_supported':False,'callback_supported':False,'all_network_paths_covered':False,'passed':False,'fixtures':[]}
+            'diagnostic_counters_partial':True,'iocp_supported':False,'callback_supported':False,'all_network_paths_covered':False,'passed':False,'fixtures':[]}
     report['fixtures']=[fixture(frida,arch,env) for arch in ('x64','x86')]
     report['passed']=all(x['passed'] for x in report['fixtures'])
     validate(report);out=Path('output');out.mkdir(exist_ok=True)

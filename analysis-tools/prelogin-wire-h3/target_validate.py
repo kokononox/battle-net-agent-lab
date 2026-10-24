@@ -10,7 +10,7 @@ STATES={'not_started','native_gate','native_gate_failed_no_installer','observati
 PARSE={'incomplete_headers','unsupported_request_boundary','invalid_headers','invalid_host','transfer_encoding_unsupported','invalid_length','body_limit','incomplete_body','complete','request_limit','context_has_failed_or_incomplete_encryption','concurrent_context','context_limit'}
 ISSUES={'snapshot_truncated','short_ethernet','unsupported_link','short_ip','ip_bounds','ip_fragments_unsupported','short_ip6','ip6_bounds','ipv6_extension_unsupported','short_tcp','tcp_bounds','tcp_overlap_conflict'}
 NAMES={'agent.exe','battle.net.exe','battle.net launcher.exe','battle.net-setup.exe','battle.net helper.exe','blizzarderror.exe','other'}
-LIMITS={'server_storage_proven':False,'all_network_paths_covered':False,'raw_values_exported':False,'login_performed':False,'game_download_requested':False,'install_action_requested':False,'tls_validation_changed':False,'sspi_http1_only':True,'all_async_completion_methods_supported':False,'circular_capture_can_drop_early_packets':True}
+LIMITS={'server_storage_proven':False,'all_network_paths_covered':False,'raw_values_exported':False,'login_performed':False,'game_download_requested':False,'install_action_requested':False,'tls_validation_changed':False,'diagnostic_counters_partial':True,'sspi_http1_only':True,'all_async_completion_methods_supported':False,'circular_capture_can_drop_early_packets':True}
 
 
 def number(v,maximum=2**31):
@@ -27,7 +27,7 @@ def counts(d,keys):
 
 
 def validate(r):
-    if type(r) is not dict or set(r)!=TOP or r['schema']!='bnet-prelogin-wire-h3-target-1':raise ValueError('schema')
+    if type(r) is not dict or set(r)!=TOP or r['schema']!='bnet-prelogin-wire-h3-target-2':raise ValueError('schema')
     if type(r['source_commit']) is not str or not re.fullmatch('[a-f0-9]{40}',r['source_commit']):raise ValueError('source')
     if type(r['run_id']) is not str or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('run')
     if r['async_scope']!='event_and_registered_win32_callbacks_only':raise ValueError('async_scope')

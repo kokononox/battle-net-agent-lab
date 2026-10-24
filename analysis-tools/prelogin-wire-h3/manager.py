@@ -80,15 +80,23 @@ class Manager:
                 reasons = {'bounded','buffer_count','data_layout','stream_layout','socket_limit','context_limit','accepted_bounds','pending_limit','overlapped_reuse','callback_unsupported','completion_unmatched','memory_access','missing_export','callback_limit','completion_race','completion_ambiguous','callback_origin'}
                 key = '|'.join((event.get('api') if event.get('api') in apis else 'other', event.get('phase') if event.get('phase') in phases else 'other', event.get('reason') if event.get('reason') in reasons else 'other'))
                 row['diagnostics'][key] = row['diagnostics'].get(key, 0) + 1
-            elif kind == 'probe':
+            elif kind in ('probe','probe_counts'):
                 apis={'send','recv','WSASend','WSARecv','GetQueuedCompletionStatus','GetQueuedCompletionStatusEx','GetOverlappedResult','GetOverlappedResultEx','NtRemoveIoCompletion','NtRemoveIoCompletionEx','BindIoCompletionCallback','CreateThreadpoolIo'}
                 phases={'submission','reuse','completion_call','registration'}
                 states={'pending','non_pending_error','unknown_error','immediate','synchronous','true','false'}
-                if event.get('api') not in apis or event.get('phase') not in phases or event.get('state') not in states:
+                if kind == 'probe':
+                    values={'|'.join(str(event.get(k,'')) for k in ('api','phase','state')):1}
+                else: values=event.get('counts')
+                if type(values) is not dict or len(values)>100:
                     row['script_errors'] += 1
                     return
-                key='|'.join((event['api'],event['phase'],event['state']))
-                row['observations'][key]=row['observations'].get(key,0)+1
+                for key,n in values.items():
+                    parts=key.split('|') if type(key) is str else []
+                    if (len(parts)!=3 or parts[0] not in apis or parts[1] not in phases or parts[2] not in states
+                        or type(n) is not int or not 0<=n<=10000000):
+                        row['script_errors'] += 1
+                        return
+                for key,n in values.items():row['observations'][key]=row['observations'].get(key,0)+n
             elif kind == 'socket_complete':
                 op = event.get('operation')
                 matches = [x for x in self.inputs if x.get('pid') == row['pid'] and x.get('operation') == op and x.get('asynchronous') is True]
@@ -198,6 +206,11 @@ class Manager:
         self.thread.join(timeout=10)
         if self.thread.is_alive():
             self.fatal = True
+        # Flush diagnostics only; RPC never changes target state or network buffers.
+        # A process may already have exited: these diagnostic counters are explicitly partial.
+        for script in self.scripts:
+            try: bounded(self.frida, lambda s=script: s.exports_sync.flushprobes())
+            except Exception: pass
         for pid in list(self.owned):
             try:
                 bounded(self.frida, lambda p=pid: self.device.kill(p))
