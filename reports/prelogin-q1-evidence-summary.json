@@ -1,0 +1,82 @@
+{
+  "schema": "bnet-prelogin-q1-verdict-1",
+  "review_date": "2026-10-24",
+  "scope": "Existing pre-account H1 startup evidence plus separate user-reported pre-account installation attachments. Not a new Windows run.",
+  "verdict": {
+    "hardware_in_observed_preaccount_outbound_request": "established",
+    "observation_point": "successful SSPI EncryptMessage input; NOT a confirmed network send completion",
+    "destination_for_decoded_startagent": "telemetry-in.battle.net",
+    "remote_application_receipt_of_same_hardware_payload": "not_established",
+    "remote_storage_of_payload": "not_established",
+    "all_users_all_versions": "not_established",
+    "exclusive_hardware_destination": "not_established",
+    "host_id_agent_wire_mapping": "/1/4/1",
+    "host_id_restart_persistence": "not_tested",
+    "host_id_hardware_derived": "not_established",
+    "wow_data_marking_question": "queued_not_tested"
+  },
+  "sources": {
+    "h1_baseline": {
+      "run_id": "39167612892",
+      "source_commit": "ac62d58f9b61f190f4a8279e185366bd27d1c377",
+      "evidence_commit": "27d065c1846b0a7be16fd38980511edffe6d6d04",
+      "sha256": "952396ccb15994570bc201f0cef59803fa41554607b2890699cd820a833fcafe",
+      "request_count": 80,
+      "startagent_request_zero_based": 77,
+      "startagent_multipart_index_zero_based": 4
+    },
+    "agent": {
+      "sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "same_image_in_user_archive_and_h1": true
+    },
+    "private_user_zip": {
+      "filename": "setup-battlenet.zip",
+      "sha256": "bf2a5f929b6827228d09bb6069a879349c14462ffc035368538087773a6f0cd9",
+      "published": false
+    },
+    "private_user_capture": {
+      "filename": "8.pcapng.gz",
+      "sha256": "f179deb9db029af0cb4dd319420c0eb67ac554362f42ebf0e77c30701696aae6",
+      "published": false,
+      "packets": 362,
+      "start_utc": "2026-10-24T00:40:30.157060+00:00",
+      "end_utc": "2026-10-24T00:49:23.634283+00:00",
+      "parser_issues": {},
+      "decryption_secrets_blocks_present": false,
+      "decrypted_application_content": false,
+      "process_attribution": false,
+      "initial_bootstrapper_captured": false,
+      "filtered_export": true,
+      "relevant_observed_tls_sni": [
+        "telemetry-in.battle.net",
+        "ingest.gdp.blizzard.com"
+      ],
+      "relationship_to_h1": "separate_run_not_same_payload"
+    }
+  },
+  "decoding": {
+    "envelopes": 19,
+    "schema_verified_payloads": 10,
+    "schema_unavailable_payloads": 9,
+    "parse_errors": 0,
+    "shared_context_uuid_occurrences": 19,
+    "same_uuid_bootstrapper_payload_occurrences": 4,
+    "raw_identifiers_exported": false
+  },
+  "static_host_id": {
+    "pinned_instruction_anchors": 25,
+    "runtime_branch_selected": "not_established",
+    "storage_location": "not_established",
+    "uuid_v4_fallback_present": true
+  },
+  "validation": {
+    "test_count": 29,
+    "passed": 29,
+    "skipped": 0,
+    "failed": 0,
+    "private_image_provided_to_optional_tests": true,
+    "new_installer_execution": false,
+    "workflow_dispatched": false,
+    "raw_attachments_published": false
+  }
+}

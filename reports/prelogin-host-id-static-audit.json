@@ -1,0 +1,150 @@
+{
+  "schema": "bnet-static-host-id-1",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "method": "manual static data-flow review with pinned instruction anchors",
+  "checks": [
+    {
+      "label": "host_id diagnostic literal",
+      "va": "0x9f71dc",
+      "verified": true
+    },
+    {
+      "label": "diagnostic xref",
+      "va": "0x8b087a",
+      "verified": true
+    },
+    {
+      "label": "default context fill",
+      "va": "0x8b077a",
+      "target": "0x8b0f01",
+      "verified": true
+    },
+    {
+      "label": "diagnostic validates same nested string",
+      "va": "0x8b07a7",
+      "verified": true
+    },
+    {
+      "label": "UUID wrapper",
+      "va": "0x8ba2a3",
+      "target": "0x8ba244",
+      "verified": true
+    },
+    {
+      "label": "UUID bit-setting generator",
+      "va": "0x8ba24d",
+      "target": "0x8c8d80",
+      "verified": true
+    },
+    {
+      "label": "Context field 4 object at +0x28",
+      "va": "0x7d53e9",
+      "verified": true
+    },
+    {
+      "label": "Context field 4 serializer helper",
+      "va": "0x7d53ee",
+      "target": "0x81275e",
+      "verified": true
+    },
+    {
+      "label": "nested string at +0x20",
+      "va": "0x7d45c1",
+      "verified": true
+    },
+    {
+      "label": "nested field number 1",
+      "va": "0x7d45d2",
+      "verified": true
+    },
+    {
+      "label": "nested string serializer",
+      "va": "0x7d45d4",
+      "target": "0x48921b",
+      "verified": true
+    },
+    {
+      "label": "provider vtable slot 0x1c",
+      "va": "0x8b100b",
+      "verified": true
+    },
+    {
+      "label": "provider constructor vtable",
+      "va": "0x8b97a6",
+      "verified": true
+    },
+    {
+      "label": "provider function pointer",
+      "va": "0x9f82a4",
+      "verified": true
+    },
+    {
+      "label": "configuration source_id key",
+      "va": "0x9f9958",
+      "verified": true
+    },
+    {
+      "label": "source read virtual call",
+      "va": "0x8c147d",
+      "verified": true
+    },
+    {
+      "label": "UUID fallback generator",
+      "va": "0x8c14b7",
+      "target": "0x8ba288",
+      "verified": true
+    },
+    {
+      "label": "source write virtual call",
+      "va": "0x8c151b",
+      "verified": true
+    },
+    {
+      "label": "ephemeral suffix literal",
+      "va": "0x9f9964",
+      "verified": true
+    },
+    {
+      "label": "UUID version 4 bits",
+      "va": "0x8c8d98",
+      "verified": true
+    },
+    {
+      "label": "UUID variant bits",
+      "va": "0x8c8da2",
+      "verified": true
+    },
+    {
+      "label": "candidate host name helper",
+      "va": "0x8b9ca1",
+      "target": "0x8b9785",
+      "verified": true
+    },
+    {
+      "label": "host name wrapper",
+      "va": "0x8b9790",
+      "target": "0x86cfed",
+      "verified": true
+    },
+    {
+      "label": "GetComputerNameW import call",
+      "va": "0x86d019",
+      "verified": true
+    },
+    {
+      "label": "GetComputerNameW import name",
+      "va": "0xa4a866",
+      "verified": true
+    }
+  ],
+  "wire_path": "/1/4/1",
+  "mapped_agent_field": "host_id",
+  "configuration_key_in_fallback": "source_id",
+  "uuid_v4_fallback_present": true,
+  "runtime_branch_selected": "not_established",
+  "actual_storage_path": "not_established",
+  "persistence_after_restart": "not_tested",
+  "hardware_derivation": "not_established",
+  "global_uniqueness": "not_established",
+  "note": "Only the Agent field mapping is reviewed; Bootstrapper payload field names remain unavailable."
+}
