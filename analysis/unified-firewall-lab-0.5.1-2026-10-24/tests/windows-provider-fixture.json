@@ -1,0 +1,2870 @@
+{
+  "row": {
+    "name": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+    "count": 1,
+    "expected_spec": {
+      "program_id": "0bc6e55d03c89832ddca39d7",
+      "program": "C:\\Fixture\\Unified-Firewall\\runtime\\python.exe",
+      "action": "Block",
+      "direction": "Outbound",
+      "interface_type": "Any",
+      "protocol": "TCP",
+      "port": 9,
+      "remote_addresses": [
+        "1.1.1.1/32"
+      ],
+      "profile": "Any",
+      "local_addresses": [
+        "Any"
+      ],
+      "local_port": "Any",
+      "interface_alias": "Any",
+      "service": "Any",
+      "edge_traversal": "Block",
+      "authentication": "NotRequired",
+      "encryption": "NotRequired",
+      "override_block_rules": false
+    },
+    "rule": {
+      "friendly": {
+        "Action": {
+          "present": true,
+          "is_null": false,
+          "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.Action",
+          "text": "Block",
+          "items": [
+            "Block"
+          ]
+        },
+        "Caption": {
+          "present": true,
+          "is_null": true,
+          "type": null,
+          "text": null,
+          "items": []
+        },
+        "CommonName": {
+          "present": true,
+          "is_null": true,
+          "type": null,
+          "text": null,
+          "items": []
+        },
+        "ConditionListType": {
+          "present": true,
+          "is_null": false,
+          "type": "System.UInt16",
+          "text": "3",
+          "items": [
+            "3"
+          ]
+        },
+        "CreationClassName": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+          "items": [
+            "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+          ]
+        },
+        "Description": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "UnifiedFW LAB 0.5.1;session=dddddddddddddddddddddddddddddddd;owner=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa;component=blacklist",
+          "items": [
+            "UnifiedFW LAB 0.5.1;session=dddddddddddddddddddddddddddddddd;owner=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa;component=blacklist"
+          ]
+        },
+        "Direction": {
+          "present": true,
+          "is_null": false,
+          "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.Direction",
+          "text": "Outbound",
+          "items": [
+            "Outbound"
+          ]
+        },
+        "DisplayGroup": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "UnifiedFW-LAB-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "items": [
+            "UnifiedFW-LAB-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          ]
+        },
+        "DisplayName": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+          "items": [
+            "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+          ]
+        },
+        "EdgeTraversalPolicy": {
+          "present": true,
+          "is_null": false,
+          "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.EdgeTraversal",
+          "text": "Block",
+          "items": [
+            "Block"
+          ]
+        },
+        "ElementName": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+          "items": [
+            "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+          ]
+        },
+        "Enabled": {
+          "present": true,
+          "is_null": false,
+          "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.Enabled",
+          "text": "False",
+          "items": [
+            "False"
+          ]
+        },
+        "EnforcementStatus": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "NotApplicable",
+          "items": [
+            "NotApplicable"
+          ]
+        },
+        "ExecutionStrategy": {
+          "present": true,
+          "is_null": false,
+          "type": "System.UInt16",
+          "text": "2",
+          "items": [
+            "2"
+          ]
+        },
+        "Group": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "UnifiedFW-LAB-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "items": [
+            "UnifiedFW-LAB-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          ]
+        },
+        "ID": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+          "items": [
+            "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+          ]
+        },
+        "InstanceID": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+          "items": [
+            "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+          ]
+        },
+        "LocalOnlyMapping": {
+          "present": true,
+          "is_null": false,
+          "type": "System.Boolean",
+          "text": "False",
+          "items": [
+            "False"
+          ]
+        },
+        "LooseSourceMapping": {
+          "present": true,
+          "is_null": false,
+          "type": "System.Boolean",
+          "text": "False",
+          "items": [
+            "False"
+          ]
+        },
+        "LSM": {
+          "present": true,
+          "is_null": false,
+          "type": "System.Boolean",
+          "text": "False",
+          "items": [
+            "False"
+          ]
+        },
+        "Mandatory": {
+          "present": true,
+          "is_null": true,
+          "type": null,
+          "text": null,
+          "items": []
+        },
+        "Name": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+          "items": [
+            "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+          ]
+        },
+        "Owner": {
+          "present": true,
+          "is_null": true,
+          "type": null,
+          "text": null,
+          "items": []
+        },
+        "PackageFamilyName": {
+          "present": true,
+          "is_null": true,
+          "type": null,
+          "text": null,
+          "items": []
+        },
+        "Platform": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String[]",
+          "text": "",
+          "items": []
+        },
+        "Platforms": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String[]",
+          "text": "",
+          "items": []
+        },
+        "PolicyAppId": {
+          "present": true,
+          "is_null": true,
+          "type": null,
+          "text": null,
+          "items": []
+        },
+        "PolicyDecisionStrategy": {
+          "present": true,
+          "is_null": false,
+          "type": "System.UInt16",
+          "text": "2",
+          "items": [
+            "2"
+          ]
+        },
+        "PolicyKeywords": {
+          "present": true,
+          "is_null": true,
+          "type": null,
+          "text": null,
+          "items": []
+        },
+        "PolicyRoles": {
+          "present": true,
+          "is_null": true,
+          "type": null,
+          "text": null,
+          "items": []
+        },
+        "PolicyRuleName": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "",
+          "items": [
+            ""
+          ]
+        },
+        "PolicyStoreSource": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "PersistentStore",
+          "items": [
+            "PersistentStore"
+          ]
+        },
+        "PolicyStoreSourceType": {
+          "present": true,
+          "is_null": false,
+          "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.PolicyStoreType",
+          "text": "Local",
+          "items": [
+            "Local"
+          ]
+        },
+        "PrimaryStatus": {
+          "present": true,
+          "is_null": false,
+          "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.PrimaryStatus",
+          "text": "OK",
+          "items": [
+            "OK"
+          ]
+        },
+        "Priority": {
+          "present": true,
+          "is_null": true,
+          "type": null,
+          "text": null,
+          "items": []
+        },
+        "Profile": {
+          "present": true,
+          "is_null": false,
+          "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.Profile",
+          "text": "Any",
+          "items": [
+            "Any"
+          ]
+        },
+        "Profiles": {
+          "present": true,
+          "is_null": false,
+          "type": "System.UInt16",
+          "text": "0",
+          "items": [
+            "0"
+          ]
+        },
+        "RemoteDynamicKeywordAddresses": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String[]",
+          "text": "",
+          "items": []
+        },
+        "RuleGroup": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "UnifiedFW-LAB-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "items": [
+            "UnifiedFW-LAB-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          ]
+        },
+        "RuleUsage": {
+          "present": true,
+          "is_null": true,
+          "type": null,
+          "text": null,
+          "items": []
+        },
+        "SequencedActions": {
+          "present": true,
+          "is_null": false,
+          "type": "System.UInt16",
+          "text": "3",
+          "items": [
+            "3"
+          ]
+        },
+        "Status": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "The rule was parsed successfully from the store. (65536)",
+          "items": [
+            "The rule was parsed successfully from the store. (65536)"
+          ]
+        },
+        "StatusCode": {
+          "present": true,
+          "is_null": false,
+          "type": "System.UInt32",
+          "text": "65536",
+          "items": [
+            "65536"
+          ]
+        },
+        "SystemCreationClassName": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "",
+          "items": [
+            ""
+          ]
+        },
+        "SystemName": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "",
+          "items": [
+            ""
+          ]
+        }
+      },
+      "raw": {
+        "Action": {
+          "is_null": false,
+          "type": "System.UInt16",
+          "items": [
+            "4"
+          ]
+        },
+        "Caption": {
+          "is_null": true,
+          "type": null,
+          "items": []
+        },
+        "CommonName": {
+          "is_null": true,
+          "type": null,
+          "items": []
+        },
+        "ConditionListType": {
+          "is_null": false,
+          "type": "System.UInt16",
+          "items": [
+            "3"
+          ]
+        },
+        "CreationClassName": {
+          "is_null": false,
+          "type": "System.String",
+          "items": [
+            "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+          ]
+        },
+        "Description": {
+          "is_null": false,
+          "type": "System.String",
+          "items": [
+            "UnifiedFW LAB 0.5.1;session=dddddddddddddddddddddddddddddddd;owner=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa;component=blacklist"
+          ]
+        },
+        "Direction": {
+          "is_null": false,
+          "type": "System.UInt16",
+          "items": [
+            "2"
+          ]
+        },
+        "DisplayGroup": {
+          "is_null": false,
+          "type": "System.String",
+          "items": [
+            "UnifiedFW-LAB-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          ]
+        },
+        "DisplayName": {
+          "is_null": false,
+          "type": "System.String",
+          "items": [
+            "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+          ]
+        },
+        "EdgeTraversalPolicy": {
+          "is_null": false,
+          "type": "System.UInt16",
+          "items": [
+            "0"
+          ]
+        },
+        "ElementName": {
+          "is_null": false,
+          "type": "System.String",
+          "items": [
+            "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+          ]
+        },
+        "Enabled": {
+          "is_null": false,
+          "type": "System.UInt16",
+          "items": [
+            "2"
+          ]
+        },
+        "EnforcementStatus": {
+          "is_null": false,
+          "type": "System.UInt16[]",
+          "items": [
+            "0"
+          ]
+        },
+        "ExecutionStrategy": {
+          "is_null": false,
+          "type": "System.UInt16",
+          "items": [
+            "2"
+          ]
+        },
+        "InstanceID": {
+          "is_null": false,
+          "type": "System.String",
+          "items": [
+            "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+          ]
+        },
+        "LocalOnlyMapping": {
+          "is_null": false,
+          "type": "System.Boolean",
+          "items": [
+            "False"
+          ]
+        },
+        "LooseSourceMapping": {
+          "is_null": false,
+          "type": "System.Boolean",
+          "items": [
+            "False"
+          ]
+        },
+        "Mandatory": {
+          "is_null": true,
+          "type": null,
+          "items": []
+        },
+        "Owner": {
+          "is_null": true,
+          "type": null,
+          "items": []
+        },
+        "PackageFamilyName": {
+          "is_null": true,
+          "type": null,
+          "items": []
+        },
+        "Platforms": {
+          "is_null": false,
+          "type": "System.String[]",
+          "items": []
+        },
+        "PolicyAppId": {
+          "is_null": true,
+          "type": null,
+          "items": []
+        },
+        "PolicyDecisionStrategy": {
+          "is_null": false,
+          "type": "System.UInt16",
+          "items": [
+            "2"
+          ]
+        },
+        "PolicyKeywords": {
+          "is_null": true,
+          "type": null,
+          "items": []
+        },
+        "PolicyRoles": {
+          "is_null": true,
+          "type": null,
+          "items": []
+        },
+        "PolicyRuleName": {
+          "is_null": false,
+          "type": "System.String",
+          "items": [
+            ""
+          ]
+        },
+        "PolicyStoreSource": {
+          "is_null": false,
+          "type": "System.String",
+          "items": [
+            "PersistentStore"
+          ]
+        },
+        "PolicyStoreSourceType": {
+          "is_null": false,
+          "type": "System.UInt16",
+          "items": [
+            "1"
+          ]
+        },
+        "PrimaryStatus": {
+          "is_null": false,
+          "type": "System.UInt16",
+          "items": [
+            "1"
+          ]
+        },
+        "Priority": {
+          "is_null": true,
+          "type": null,
+          "items": []
+        },
+        "Profiles": {
+          "is_null": false,
+          "type": "System.UInt16",
+          "items": [
+            "0"
+          ]
+        },
+        "RemoteDynamicKeywordAddresses": {
+          "is_null": false,
+          "type": "System.String[]",
+          "items": []
+        },
+        "RuleGroup": {
+          "is_null": false,
+          "type": "System.String",
+          "items": [
+            "UnifiedFW-LAB-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          ]
+        },
+        "RuleUsage": {
+          "is_null": true,
+          "type": null,
+          "items": []
+        },
+        "SequencedActions": {
+          "is_null": false,
+          "type": "System.UInt16",
+          "items": [
+            "3"
+          ]
+        },
+        "Status": {
+          "is_null": false,
+          "type": "System.String",
+          "items": [
+            "The rule was parsed successfully from the store."
+          ]
+        },
+        "StatusCode": {
+          "is_null": false,
+          "type": "System.UInt32",
+          "items": [
+            "65536"
+          ]
+        },
+        "SystemCreationClassName": {
+          "is_null": false,
+          "type": "System.String",
+          "items": [
+            ""
+          ]
+        },
+        "SystemName": {
+          "is_null": false,
+          "type": "System.String",
+          "items": [
+            ""
+          ]
+        }
+      }
+    },
+    "filters": {
+      "application": {
+        "friendly": {
+          "AppPath": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "C:\\Fixture\\Unified-Firewall\\runtime\\python.exe",
+            "items": [
+              "C:\\Fixture\\Unified-Firewall\\runtime\\python.exe"
+            ]
+          },
+          "Caption": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "ElementName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "HealthState": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "InstallDate": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "InstanceID": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "IsNegated": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "Name": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "Package": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "PrimaryStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "Program": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "C:\\Fixture\\Unified-Firewall\\runtime\\python.exe",
+            "items": [
+              "C:\\Fixture\\Unified-Firewall\\runtime\\python.exe"
+            ]
+          },
+          "Status": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          }
+        },
+        "raw": {
+          "AppPath": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "C:\\Fixture\\Unified-Firewall\\runtime\\python.exe"
+            ]
+          },
+          "Caption": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "ElementName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "HealthState": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstallDate": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstanceID": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "IsNegated": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Name": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Package": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "PrimaryStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Status": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          }
+        }
+      },
+      "port": {
+        "friendly": {
+          "Caption": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "DynamicTarget": {
+            "present": true,
+            "is_null": false,
+            "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.DynamicTransport",
+            "text": "Any",
+            "items": [
+              "Any"
+            ]
+          },
+          "DynamicTransport": {
+            "present": true,
+            "is_null": false,
+            "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.DynamicTransport",
+            "text": "Any",
+            "items": [
+              "Any"
+            ]
+          },
+          "ElementName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "HealthState": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "IcmpType": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "Any",
+            "items": [
+              "Any"
+            ]
+          },
+          "InstallDate": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "InstanceID": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "IsNegated": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "LocalPort": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "Any",
+            "items": [
+              "Any"
+            ]
+          },
+          "Name": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "PrimaryStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "Protocol": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "TCP",
+            "items": [
+              "TCP"
+            ]
+          },
+          "RemotePort": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "9",
+            "items": [
+              "9"
+            ]
+          },
+          "Status": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          }
+        },
+        "raw": {
+          "Caption": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "DynamicTransport": {
+            "is_null": false,
+            "type": "System.UInt32",
+            "items": [
+              "0"
+            ]
+          },
+          "ElementName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "HealthState": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "IcmpType": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstallDate": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstanceID": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "IsNegated": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "LocalPort": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Name": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "PrimaryStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Protocol": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "TCP"
+            ]
+          },
+          "RemotePort": {
+            "is_null": false,
+            "type": "System.String[]",
+            "items": [
+              "9"
+            ]
+          },
+          "Status": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          }
+        }
+      },
+      "address": {
+        "friendly": {
+          "Caption": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "ElementName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "HealthState": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "InstallDate": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "InstanceID": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "IsNegated": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "LocalAddress": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "Any",
+            "items": [
+              "Any"
+            ]
+          },
+          "LocalIP": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "Any",
+            "items": [
+              "Any"
+            ]
+          },
+          "Name": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "PrimaryStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "RemoteAddress": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "1.1.1.1",
+            "items": [
+              "1.1.1.1"
+            ]
+          },
+          "RemoteIP": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "1.1.1.1",
+            "items": [
+              "1.1.1.1"
+            ]
+          },
+          "Status": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          }
+        },
+        "raw": {
+          "Caption": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "ElementName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "HealthState": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstallDate": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstanceID": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "IsNegated": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "LocalAddress": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Name": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "PrimaryStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "RemoteAddress": {
+            "is_null": false,
+            "type": "System.String[]",
+            "items": [
+              "1.1.1.1"
+            ]
+          },
+          "Status": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          }
+        }
+      },
+      "interface_type": {
+        "friendly": {
+          "Caption": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "ElementName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "HealthState": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "InstallDate": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "InstanceID": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "InterfaceType": {
+            "present": true,
+            "is_null": false,
+            "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.InterfaceType",
+            "text": "Any",
+            "items": [
+              "Any"
+            ]
+          },
+          "IsNegated": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "Name": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "PrimaryStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "Status": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          }
+        },
+        "raw": {
+          "Caption": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "ElementName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "HealthState": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstallDate": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstanceID": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "InterfaceType": {
+            "is_null": false,
+            "type": "System.UInt32",
+            "items": [
+              "0"
+            ]
+          },
+          "IsNegated": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Name": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "PrimaryStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Status": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          }
+        }
+      },
+      "interface": {
+        "friendly": {
+          "Caption": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "ElementName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "HealthState": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "InstallDate": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "InstanceID": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "InterfaceAlias": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "Any",
+            "items": [
+              "Any"
+            ]
+          },
+          "IsNegated": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "Name": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "PrimaryStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "Status": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          }
+        },
+        "raw": {
+          "Caption": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "ElementName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "HealthState": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstallDate": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstanceID": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "InterfaceAlias": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "IsNegated": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Name": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "PrimaryStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Status": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          }
+        }
+      },
+      "security": {
+        "friendly": {
+          "Authentication": {
+            "present": true,
+            "is_null": false,
+            "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.Authentication",
+            "text": "NotRequired",
+            "items": [
+              "NotRequired"
+            ]
+          },
+          "Caption": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "ElementName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "Encryption": {
+            "present": true,
+            "is_null": false,
+            "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.Encryption",
+            "text": "NotRequired",
+            "items": [
+              "NotRequired"
+            ]
+          },
+          "HealthState": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "InstallDate": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "InstanceID": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "IsNegated": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "LocalUser": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "Any",
+            "items": [
+              "Any"
+            ]
+          },
+          "LocalUsers": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "Name": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "OverrideBlockRules": {
+            "present": true,
+            "is_null": false,
+            "type": "System.Boolean",
+            "text": "False",
+            "items": [
+              "False"
+            ]
+          },
+          "PrimaryStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "RemoteMachine": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "Any",
+            "items": [
+              "Any"
+            ]
+          },
+          "RemoteMachines": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "RemoteUser": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "Any",
+            "items": [
+              "Any"
+            ]
+          },
+          "RemoteUsers": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "Status": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          }
+        },
+        "raw": {
+          "Authentication": {
+            "is_null": false,
+            "type": "System.UInt16",
+            "items": [
+              "0"
+            ]
+          },
+          "Caption": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "ElementName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "Encryption": {
+            "is_null": false,
+            "type": "System.UInt16",
+            "items": [
+              "0"
+            ]
+          },
+          "HealthState": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstallDate": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstanceID": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "IsNegated": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "LocalUsers": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Name": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "OverrideBlockRules": {
+            "is_null": false,
+            "type": "System.Boolean",
+            "items": [
+              "False"
+            ]
+          },
+          "PrimaryStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "RemoteMachines": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "RemoteUsers": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Status": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          }
+        }
+      },
+      "service": {
+        "friendly": {
+          "Caption": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "ElementName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "HealthState": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "InstallDate": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "InstanceID": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "IsNegated": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "Name": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "PrimaryStatus": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "Service": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "Any",
+            "items": [
+              "Any"
+            ]
+          },
+          "ServiceName": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "Status": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "present": true,
+            "is_null": true,
+            "type": null,
+            "text": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "present": true,
+            "is_null": false,
+            "type": "System.String",
+            "text": "",
+            "items": [
+              ""
+            ]
+          }
+        },
+        "raw": {
+          "Caption": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CommunicationStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "CreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "MSFT|FW|FirewallRule|UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "Description": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "DetailedStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "ElementName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "HealthState": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstallDate": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "InstanceID": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb"
+            ]
+          },
+          "IsNegated": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Name": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "OperatingStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "OperationalStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "PrimaryStatus": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "ServiceName": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "Status": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "StatusDescriptions": {
+            "is_null": true,
+            "type": null,
+            "items": []
+          },
+          "SystemCreationClassName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          },
+          "SystemName": {
+            "is_null": false,
+            "type": "System.String",
+            "items": [
+              ""
+            ]
+          }
+        }
+      }
+    },
+    "filter_errors": [],
+    "original_validation_comparisons": [
+      {
+        "field": "application.Program",
+        "expected_text": "C:\\Fixture\\Unified-Firewall\\runtime\\python.exe",
+        "actual": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "C:\\Fixture\\Unified-Firewall\\runtime\\python.exe",
+          "items": [
+            "C:\\Fixture\\Unified-Firewall\\runtime\\python.exe"
+          ]
+        },
+        "original_string_check_matches": true,
+        "original_validation_accepts_text": true
+      },
+      {
+        "field": "application.Package",
+        "expected_text": "Any",
+        "actual": {
+          "present": true,
+          "is_null": true,
+          "type": null,
+          "text": null,
+          "items": []
+        },
+        "original_string_check_matches": false,
+        "original_validation_accepts_text": false
+      },
+      {
+        "field": "port.Protocol",
+        "expected_text": "TCP",
+        "actual": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "TCP",
+          "items": [
+            "TCP"
+          ]
+        },
+        "original_string_check_matches": true,
+        "original_validation_accepts_text": true
+      },
+      {
+        "field": "interface_type.InterfaceType",
+        "expected_text": "Any",
+        "actual": {
+          "present": true,
+          "is_null": false,
+          "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.InterfaceType",
+          "text": "Any",
+          "items": [
+            "Any"
+          ]
+        },
+        "original_string_check_matches": true,
+        "original_validation_accepts_text": true
+      },
+      {
+        "field": "security.Authentication",
+        "expected_text": "NotRequired",
+        "actual": {
+          "present": true,
+          "is_null": false,
+          "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.Authentication",
+          "text": "NotRequired",
+          "items": [
+            "NotRequired"
+          ]
+        },
+        "original_string_check_matches": true,
+        "original_validation_accepts_text": true
+      },
+      {
+        "field": "security.Encryption",
+        "expected_text": "NotRequired",
+        "actual": {
+          "present": true,
+          "is_null": false,
+          "type": "Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.Encryption",
+          "text": "NotRequired",
+          "items": [
+            "NotRequired"
+          ]
+        },
+        "original_string_check_matches": true,
+        "original_validation_accepts_text": true
+      },
+      {
+        "field": "security.OverrideBlockRules",
+        "expected_text": "False",
+        "actual": {
+          "present": true,
+          "is_null": false,
+          "type": "System.Boolean",
+          "text": "False",
+          "items": [
+            "False"
+          ]
+        },
+        "original_string_check_matches": true,
+        "original_validation_accepts_text": true
+      },
+      {
+        "field": "service.Service",
+        "expected_text": "Any",
+        "actual": {
+          "present": true,
+          "is_null": false,
+          "type": "System.String",
+          "text": "Any",
+          "items": [
+            "Any"
+          ]
+        },
+        "original_string_check_matches": true,
+        "original_validation_accepts_text": true
+      }
+    ],
+    "unchanged_during_capture": true
+  },
+  "expected_rule": {
+    "name": "UnifiedFW-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-blacklist-bbbbbbbbbbbbbbbbbbbbbbbb",
+    "owner": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "component": "blacklist",
+    "spec": {
+      "program_id": "0bc6e55d03c89832ddca39d7",
+      "program": "C:\\Fixture\\Unified-Firewall\\runtime\\python.exe",
+      "action": "Block",
+      "direction": "Outbound",
+      "interface_type": "Any",
+      "protocol": "TCP",
+      "port": 9,
+      "remote_addresses": [
+        "1.1.1.1/32"
+      ],
+      "profile": "Any",
+      "local_addresses": [
+        "Any"
+      ],
+      "local_port": "Any",
+      "interface_alias": "Any",
+      "service": "Any",
+      "edge_traversal": "Block",
+      "authentication": "NotRequired",
+      "encryption": "NotRequired",
+      "override_block_rules": false
+    }
+  },
+  "session_id": "dddddddddddddddddddddddddddddddd"
+}
