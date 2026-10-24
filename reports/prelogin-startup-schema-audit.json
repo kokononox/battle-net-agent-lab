@@ -1,0 +1,383 @@
+{
+  "schema": "prelogin-startup-schema-audit-1",
+  "run_id": "39167612892",
+  "source_commit": "ac62d58f9b61f190f4a8279e185366bd27d1c377",
+  "agent_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+  "descriptor": {
+    "file": "Startup.proto",
+    "package": "Blizzard.Telemetry.Distribution.Agent",
+    "offset": 5307144,
+    "bytes": 2774,
+    "sha256": "62dd014b30182602254cacc1d1a47b49e6a301b95963a107b1b3d1341ac936eb"
+  },
+  "event_labels_observed": [
+    {
+      "request_index": 1,
+      "part_index": 0,
+      "event_type": "Blizzard.Telemetry.App.Bootstrapper.SessionGenerate",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 2,
+      "part_index": 0,
+      "event_type": "Blizzard.Telemetry.App.Bootstrapper.SessionUpdate",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 26,
+      "part_index": 0,
+      "event_type": "Blizzard.Telemetry.App.Bootstrapper.SelfPatch",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 28,
+      "part_index": 0,
+      "event_type": "Blizzard.Telemetry.App.Bootstrapper.SessionUpdate",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 31,
+      "part_index": 0,
+      "event_type": "Blizzard.Telemetry.App.Bootstrapper.SessionUpdate",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 77,
+      "part_index": 0,
+      "event_type": "Blizzard.Telemetry.Distribution.Tact.DownloadPerformance",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 77,
+      "part_index": 1,
+      "event_type": "Blizzard.Telemetry.Distribution.Tact.DownloadPerformance",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 77,
+      "part_index": 2,
+      "event_type": "Blizzard.Telemetry.Standard.Process.Start",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 77,
+      "part_index": 3,
+      "event_type": "Blizzard.Telemetry.Distribution.Agent.VersionFetch",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 77,
+      "part_index": 4,
+      "event_type": "Blizzard.Telemetry.Distribution.Agent.StartAgent",
+      "payload_decoding": "schema_verified"
+    },
+    {
+      "request_index": 77,
+      "part_index": 5,
+      "event_type": "Blizzard.Telemetry.Standard.Metric.MetricSet",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 77,
+      "part_index": 6,
+      "event_type": "Blizzard.Telemetry.Distribution.Tact.DownloaderSummaryPerformance",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 77,
+      "part_index": 7,
+      "event_type": "Blizzard.Telemetry.Standard.Metric.MetricSet",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 77,
+      "part_index": 8,
+      "event_type": "Blizzard.Telemetry.Distribution.Tact.DownloadPerformance",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 77,
+      "part_index": 9,
+      "event_type": "Blizzard.Telemetry.Distribution.Tact.DownloadPerformance",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 78,
+      "part_index": 0,
+      "event_type": "Blizzard.Telemetry.App.Bootstrapper.InstallReport",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 79,
+      "part_index": 0,
+      "event_type": "Blizzard.Telemetry.Distribution.Agent.Update",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 79,
+      "part_index": 1,
+      "event_type": "Blizzard.Telemetry.Distribution.Agent.VersionFetch",
+      "payload_decoding": "not_attempted"
+    },
+    {
+      "request_index": 79,
+      "part_index": 2,
+      "event_type": "Blizzard.Telemetry.Distribution.Agent.RegisterGame",
+      "payload_decoding": "not_attempted"
+    }
+  ],
+  "decoded_startup_messages": [
+    {
+      "request_index": 77,
+      "part_index": 4,
+      "host": "telemetry-in.battle.net",
+      "method": "POST",
+      "target_path": "/data",
+      "event_type": "Blizzard.Telemetry.Distribution.Agent.StartAgent",
+      "agent_hash_matches": true,
+      "unknown_payload_fields_present": false,
+      "cpu_matches_vm_reference_after_trim": true,
+      "memory_equals_reference_total_physical_bytes": false,
+      "core_count_equals_reference_logical_processors": false,
+      "fields_present": [
+        {
+          "path": "region",
+          "field_number": 1002,
+          "type": "TYPE_STRING",
+          "present": true
+        },
+        {
+          "path": "igr",
+          "field_number": 1003,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "ipv6_support",
+          "field_number": 1004,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "wmi_enabled",
+          "field_number": 1005,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "database_type",
+          "field_number": 1006,
+          "type": "TYPE_STRING",
+          "present": true
+        },
+        {
+          "path": "real_os_version",
+          "field_number": 1007,
+          "type": "TYPE_STRING",
+          "present": true
+        },
+        {
+          "path": "download_limit",
+          "field_number": 1008,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "backfill_limit",
+          "field_number": 1009,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.cpu_arch",
+          "field_number": 1,
+          "type": "TYPE_ENUM",
+          "present": true
+        },
+        {
+          "path": "hardware.cpu_num_cores",
+          "field_number": 2,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "hardware.cpu_speed",
+          "field_number": 3,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.memory",
+          "field_number": 4,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.num_gpus",
+          "field_number": 5,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.vendor_id",
+          "field_number": 1,
+          "type": "TYPE_UINT32",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.device_id",
+          "field_number": 2,
+          "type": "TYPE_UINT32",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.shared_memory",
+          "field_number": 3,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.video_memory",
+          "field_number": 4,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.system_memory",
+          "field_number": 5,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.integrated",
+          "field_number": 7,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_1.name",
+          "field_number": 8,
+          "type": "TYPE_STRING",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_2.vendor_id",
+          "field_number": 1,
+          "type": "TYPE_UINT32",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_2.device_id",
+          "field_number": 2,
+          "type": "TYPE_UINT32",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_2.shared_memory",
+          "field_number": 3,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_2.video_memory",
+          "field_number": 4,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_2.system_memory",
+          "field_number": 5,
+          "type": "TYPE_INT64",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_2.integrated",
+          "field_number": 7,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "hardware.gpu_2.name",
+          "field_number": 8,
+          "type": "TYPE_STRING",
+          "present": true
+        },
+        {
+          "path": "hardware.cpu_vendor",
+          "field_number": 9,
+          "type": "TYPE_STRING",
+          "present": true
+        },
+        {
+          "path": "hardware.cpu_brand",
+          "field_number": 10,
+          "type": "TYPE_STRING",
+          "present": true
+        },
+        {
+          "path": "hardware.cpu_hypervisor_vendor",
+          "field_number": 11,
+          "type": "TYPE_STRING",
+          "present": true
+        },
+        {
+          "path": "os_arch",
+          "field_number": 1012,
+          "type": "TYPE_ENUM",
+          "present": true
+        },
+        {
+          "path": "crash_report_disabled",
+          "field_number": 1013,
+          "type": "TYPE_BOOL",
+          "present": true
+        },
+        {
+          "path": "running_agents.agent_count",
+          "field_number": 1,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "running_agents.phx_count",
+          "field_number": 2,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "running_agents.other_count",
+          "field_number": 3,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "running_agents.unknown_count",
+          "field_number": 4,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "running_agents.total_count",
+          "field_number": 5,
+          "type": "TYPE_INT32",
+          "present": true
+        },
+        {
+          "path": "running_agents.other_process_list",
+          "field_number": 10,
+          "type": "TYPE_STRING",
+          "present": true
+        }
+      ]
+    }
+  ],
+  "unresolved": [],
+  "limits": [
+    "Envelope field numbers are an observed framing convention; only StartAgent payload fields have schema-backed names in this decoder.",
+    "Presence is in a previously captured pre-TLS outgoing body; server acceptance is not proven.",
+    "Memory and core values differ from OS reference fields; do not equate the units or semantics without further evidence.",
+    "Other event payloads, context identifiers, alternate encrypted channels and other versions remain unverified.",
+    "An available schema field is not a transmitted field; output lists only fields present in the captured message."
+  ],
+  "report_sha256": "952396ccb15994570bc201f0cef59803fa41554607b2890699cd820a833fcafe"
+}
