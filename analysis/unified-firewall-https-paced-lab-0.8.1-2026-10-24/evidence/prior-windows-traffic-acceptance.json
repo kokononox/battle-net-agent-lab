@@ -1,0 +1,48 @@
+{
+  "build": "0.6.1",
+  "source": "user-submitted Windows traffic report; ZIP/report hashes verified",
+  "source_report_sha256": "901f30cbc12906bdfff25283e13e78bc55e61636c878d6d211ef3413cc46ab2e",
+  "completed": true,
+  "classification": "passed",
+  "scope": "fresh_direct_ipv4_tcp_connections_for_two_bundled_images_only",
+  "phases": [
+    {
+      "name": "baseline",
+      "restored": true,
+      "baseline_strict_equal": true,
+      "during_samples": 9,
+      "post_restore_samples": 9
+    },
+    {
+      "name": "only_A",
+      "restored": true,
+      "baseline_strict_equal": true,
+      "during_samples": 9,
+      "post_restore_samples": 9
+    },
+    {
+      "name": "only_B",
+      "restored": true,
+      "baseline_strict_equal": true,
+      "during_samples": 9,
+      "post_restore_samples": 9
+    },
+    {
+      "name": "both",
+      "restored": true,
+      "baseline_strict_equal": true,
+      "during_samples": 9,
+      "post_restore_samples": 9
+    }
+  ],
+  "blocked_samples": 12,
+  "all_blocked_errors": "Windows socket error 10013",
+  "independent_reference_and_allowed_probes_succeeded": true,
+  "final_restore_verified": true,
+  "global_whitelist_tested": false,
+  "vpn_route_verified": false,
+  "udp_tested": false,
+  "no_leak_certified": false,
+  "applies_to_current_coexistence_test": false,
+  "temporary_remote_service_and_key_removed": true
+}

@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "backend": "Linux PowerShell/.NET SslStream + real localhost TLS HTTP server",
+  "cases": [
+    {
+      "case": "valid",
+      "connected": true,
+      "tls_verified": true,
+      "handshake_ok": true
+    },
+    {
+      "case": "wrong_hostname",
+      "connected": true,
+      "tls_verified": false,
+      "handshake_ok": false
+    },
+    {
+      "case": "untrusted_CA",
+      "connected": true,
+      "tls_verified": false,
+      "handshake_ok": false
+    }
+  ],
+  "public_IP_gate_substituted_for_loopback": true,
+  "test_only_port_translation": false,
+  "system_trust_store_changed": false,
+  "private_CA_via_child_environment_only": true,
+  "windows_executed": false,
+  "php_responder_executed": false,
+  "external_network_used": false
+}

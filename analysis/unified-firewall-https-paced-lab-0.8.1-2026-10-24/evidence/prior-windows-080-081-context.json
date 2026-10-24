@@ -1,0 +1,30 @@
+{
+  "prior_080_https_endpoint_check_passed": true,
+  "prior_080_route_preflight_ready": true,
+  "prior_080_coexistence_runs": [
+    {
+      "classification": "inconclusive",
+      "owned_rules_restored_and_policy_baseline_equal": true,
+      "reason": "one_reference_connect_timeout"
+    },
+    {
+      "classification": "inconclusive",
+      "no_rule_mutation_attempted": true,
+      "policy_baseline_equal": true,
+      "reason": "post_restore_connectivity_timeouts_in_zero_rule_phase"
+    }
+  ],
+  "standalone_connectivity_diagnostic_010": {
+    "completed": true,
+    "all_18_attempts_succeeded": true,
+    "six_each_A_B_REF": true,
+    "gap_seconds": 4,
+    "retries": 0,
+    "firewall_mutation_attempted": false,
+    "VPN_or_route_changes_attempted": false,
+    "different_executable_directory_from_080": true
+  },
+  "prior_results_prove_timeout_root_cause": false,
+  "current_081_Windows_coexistence_tested": false,
+  "user_identifiers_IPs_paths_and_raw_reports_omitted": true
+}
