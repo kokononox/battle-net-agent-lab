@@ -1,0 +1,124 @@
+{
+  "audit_schema": "prelogin-destination-audit-1",
+  "source_commit": "ac62d58f9b61f190f4a8279e185366bd27d1c377",
+  "run_id": "39167612892",
+  "scope": "fresh_vm_root_child_gate_no_login_game_install_action",
+  "request_count": 80,
+  "by_host": [
+    {
+      "host": "level3.blizzard.com",
+      "request_count": 49,
+      "methods": {
+        "GET": 49
+      },
+      "nonempty_body_request_count": 0,
+      "reference_cpu_literal_request_indices": [],
+      "software_version_user_agent_observed": true,
+      "os_label_in_user_agent_observed": false
+    },
+    {
+      "host": "nydus.battle.net",
+      "request_count": 2,
+      "methods": {
+        "GET": 2
+      },
+      "nonempty_body_request_count": 0,
+      "reference_cpu_literal_request_indices": [],
+      "software_version_user_agent_observed": true,
+      "os_label_in_user_agent_observed": false
+    },
+    {
+      "host": "ocsp.digicert.com",
+      "request_count": 1,
+      "methods": {
+        "GET": 1
+      },
+      "nonempty_body_request_count": 0,
+      "reference_cpu_literal_request_indices": [],
+      "software_version_user_agent_observed": true,
+      "os_label_in_user_agent_observed": false
+    },
+    {
+      "host": "telemetry-in.battle.net",
+      "request_count": 9,
+      "methods": {
+        "POST": 8,
+        "GET": 1
+      },
+      "nonempty_body_request_count": 8,
+      "reference_cpu_literal_request_indices": [
+        77
+      ],
+      "software_version_user_agent_observed": true,
+      "os_label_in_user_agent_observed": true
+    },
+    {
+      "host": "us.cdn.blizzard.com",
+      "request_count": 6,
+      "methods": {
+        "GET": 6
+      },
+      "nonempty_body_request_count": 0,
+      "reference_cpu_literal_request_indices": [],
+      "software_version_user_agent_observed": false,
+      "os_label_in_user_agent_observed": false
+    },
+    {
+      "host": "us.version.battle.net",
+      "request_count": 13,
+      "methods": {
+        "GET": 13
+      },
+      "nonempty_body_request_count": 0,
+      "reference_cpu_literal_request_indices": [],
+      "software_version_user_agent_observed": true,
+      "os_label_in_user_agent_observed": false
+    }
+  ],
+  "cpu_literal_hits": [
+    {
+      "index": 77,
+      "host": "telemetry-in.battle.net",
+      "method": "POST",
+      "process_name": "agent.exe",
+      "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+      "body_observed_bytes": 5907,
+      "body_complete": true,
+      "body_sample_truncated": false,
+      "reference_cpu_literal_locations": [
+        "body_sample"
+      ],
+      "os_label_in_sample": true,
+      "user_agent_present": true,
+      "user_agent_os_label_present": true,
+      "user_agent_software_version_hint": true,
+      "query_keys": [],
+      "header_names": [
+        "accept",
+        "cache-control",
+        "connection",
+        "content-length",
+        "content-transfer-encoding",
+        "content-type",
+        "host",
+        "pragma",
+        "user-agent"
+      ]
+    }
+  ],
+  "verdict": {
+    "reference_cpu_observed_in_outgoing_pre_tls_request": true,
+    "telemetry_domain_is_exclusive_hardware_destination": "not_established",
+    "server_application_receipt_or_storage": "not_established",
+    "all_users_all_versions": "not_established"
+  },
+  "limits": [
+    "Literal search only: encoded/compressed/binary representations and different identifiers may be missed.",
+    "HTTP/1 plaintext and SSPI input coverage are not all-network coverage; OpenSSL/HTTP2/QUIC and unobserved processes are not covered.",
+    "A complete sampled body is not proof every request was captured.",
+    "Target/header search uses original redacted report; redacted secret values cannot be audited.",
+    "Matching software version User-Agent is metadata, not a hardware serial or unique device identity.",
+    "Local EncryptMessage success is not network-send completion or server acceptance."
+  ],
+  "input_sha256": "952396ccb15994570bc201f0cef59803fa41554607b2890699cd820a833fcafe"
+}
