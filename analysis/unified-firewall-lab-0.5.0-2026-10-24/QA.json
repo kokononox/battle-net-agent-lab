@@ -1,0 +1,43 @@
+{
+  "version": "0.5.0-windows-lab-acceptance",
+  "production_ready": false,
+  "production_activation_allowed": false,
+  "gui_live_mutation_enabled": false,
+  "explicit_lab_adapter_implemented": true,
+  "lab_modes": [
+    "blacklist_only",
+    "vpn_allowlist"
+  ],
+  "full_isolation_implemented": false,
+  "python_test_methods": 61,
+  "python_failures": 0,
+  "powershell_assertions": {
+    "observer-tests": 12,
+    "policy-transaction-tests": 12,
+    "live-session-tests": 123,
+    "native-adapter-tests": 160
+  },
+  "powershell_assertion_total": 307,
+  "independent_address_oracle_cases": 88,
+  "powershell_files_parsed": 14,
+  "apply_exception_checkpoints": 17,
+  "restore_exception_checkpoints": 8,
+  "disabled_orphan_requires_manual_inspection_cases": 4,
+  "windows_gui_tested": false,
+  "windows_powershell_5_1_tested": false,
+  "windows_acl_constructor_tested": false,
+  "windows_netsecurity_tested": false,
+  "windows_selftest_executed": false,
+  "windows_live_observation_tested": false,
+  "windows_apply_tested": false,
+  "windows_restore_tested": false,
+  "packet_enforcement_tested": false,
+  "no_leak_certified": false,
+  "outside_vpn_guard_installed": false,
+  "legacy_feature_migration_complete": false,
+  "native_single_executable_release": false,
+  "runtime_reused_files_verified": 34,
+  "runtime_publisher_signature_reverified": false,
+  "static_unsafe_command_scan_passed": true,
+  "static_check_is_not_runtime_proof": true
+}
