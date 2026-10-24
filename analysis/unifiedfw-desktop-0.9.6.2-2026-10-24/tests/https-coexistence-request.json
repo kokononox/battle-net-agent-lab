@@ -1,0 +1,483 @@
+{
+  "schema": "unifiedfw-coexistence-request-1",
+  "address": "9.9.9.9",
+  "port": 443,
+  "programs": [
+    {
+      "role": "A",
+      "id": "173027681369ff6ba58712bd",
+      "path": "C:\\Fixture\\runtime\\python.exe",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "enabled": true
+    },
+    {
+      "role": "B",
+      "id": "365747ff79ff7afa29f94054",
+      "path": "C:\\Fixture\\runtime\\pythonw.exe",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "enabled": true
+    }
+  ],
+  "scope": "two_bundled_images_one_ipv4_one_tcp_port_RemoteAccess_whitelist_projection",
+  "phases": [
+    {
+      "name": "wl_allows",
+      "request": {
+        "schema": "unified-lab-request-1",
+        "mode": "vpn_allowlist",
+        "legacy_imports": [],
+        "legacy_acknowledged": false,
+        "programs": [
+          {
+            "id": "173027681369ff6ba58712bd",
+            "path": "C:\\Fixture\\runtime\\python.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          },
+          {
+            "id": "365747ff79ff7afa29f94054",
+            "path": "C:\\Fixture\\runtime\\pythonw.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          }
+        ],
+        "plan": {
+          "schema": "unified-firewall-plan-1",
+          "owner": "382482056e6b45e1932848076e4fc1fc",
+          "rules": [],
+          "activation_allowed": false,
+          "lab_scope": "two_bundled_images_one_ipv4_one_tcp_port_RemoteAccess_whitelist_projection",
+          "source_config_digest": "b8bde17466c9df2300fb26c284c53f5cb42073aa2f340b0cb205f44ed29b2214",
+          "source_plan_digest": "4c5caebbcfa3bc92ec182c6b88314f2f3a5c7a02b3fdea160a99597b33be5938",
+          "no_leak_certified": false
+        }
+      }
+    },
+    {
+      "name": "wl_denies",
+      "request": {
+        "schema": "unified-lab-request-1",
+        "mode": "vpn_allowlist",
+        "legacy_imports": [],
+        "legacy_acknowledged": false,
+        "programs": [
+          {
+            "id": "173027681369ff6ba58712bd",
+            "path": "C:\\Fixture\\runtime\\python.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          },
+          {
+            "id": "365747ff79ff7afa29f94054",
+            "path": "C:\\Fixture\\runtime\\pythonw.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          }
+        ],
+        "plan": {
+          "schema": "unified-firewall-plan-1",
+          "owner": "382482056e6b45e1932848076e4fc1fc",
+          "rules": [
+            {
+              "name": "UnifiedFW-382482056e6b45e1932848076e4fc1fc-whitelist-0ce24e976338b7444acc287a",
+              "owner": "382482056e6b45e1932848076e4fc1fc",
+              "component": "whitelist",
+              "spec": {
+                "program_id": "173027681369ff6ba58712bd",
+                "program": "C:\\Fixture\\runtime\\python.exe",
+                "action": "Block",
+                "direction": "Outbound",
+                "interface_type": "RemoteAccess",
+                "protocol": "TCP",
+                "port": 443,
+                "remote_addresses": [
+                  "9.9.9.9/32"
+                ],
+                "profile": "Any",
+                "local_addresses": [
+                  "Any"
+                ],
+                "local_port": "Any",
+                "interface_alias": "Any",
+                "service": "Any",
+                "edge_traversal": "Block",
+                "authentication": "NotRequired",
+                "encryption": "NotRequired",
+                "override_block_rules": false
+              }
+            },
+            {
+              "name": "UnifiedFW-382482056e6b45e1932848076e4fc1fc-whitelist-ffd3cb3d2ee4ed203fa0d7da",
+              "owner": "382482056e6b45e1932848076e4fc1fc",
+              "component": "whitelist",
+              "spec": {
+                "program_id": "365747ff79ff7afa29f94054",
+                "program": "C:\\Fixture\\runtime\\pythonw.exe",
+                "action": "Block",
+                "direction": "Outbound",
+                "interface_type": "RemoteAccess",
+                "protocol": "TCP",
+                "port": 443,
+                "remote_addresses": [
+                  "9.9.9.9/32"
+                ],
+                "profile": "Any",
+                "local_addresses": [
+                  "Any"
+                ],
+                "local_port": "Any",
+                "interface_alias": "Any",
+                "service": "Any",
+                "edge_traversal": "Block",
+                "authentication": "NotRequired",
+                "encryption": "NotRequired",
+                "override_block_rules": false
+              }
+            }
+          ],
+          "activation_allowed": false,
+          "lab_scope": "two_bundled_images_one_ipv4_one_tcp_port_RemoteAccess_whitelist_projection",
+          "source_config_digest": "9e79e9c8f314102cc02321d870f44dbfeff720b976ef2e429db8c8a49592518d",
+          "source_plan_digest": "53c5f4620f12376d7dc123977208e8cb82d81811c429ee77d6c229cc1295aedc",
+          "no_leak_certified": false
+        }
+      }
+    },
+    {
+      "name": "wl_allows_bl_A",
+      "request": {
+        "schema": "unified-lab-request-1",
+        "mode": "vpn_allowlist",
+        "legacy_imports": [],
+        "legacy_acknowledged": false,
+        "programs": [
+          {
+            "id": "173027681369ff6ba58712bd",
+            "path": "C:\\Fixture\\runtime\\python.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          },
+          {
+            "id": "365747ff79ff7afa29f94054",
+            "path": "C:\\Fixture\\runtime\\pythonw.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          }
+        ],
+        "plan": {
+          "schema": "unified-firewall-plan-1",
+          "owner": "382482056e6b45e1932848076e4fc1fc",
+          "rules": [
+            {
+              "name": "UnifiedFW-382482056e6b45e1932848076e4fc1fc-blacklist-9c947c391fcdff27c18d9752",
+              "owner": "382482056e6b45e1932848076e4fc1fc",
+              "component": "blacklist",
+              "spec": {
+                "program_id": "173027681369ff6ba58712bd",
+                "program": "C:\\Fixture\\runtime\\python.exe",
+                "action": "Block",
+                "direction": "Outbound",
+                "interface_type": "Any",
+                "protocol": "TCP",
+                "port": 443,
+                "remote_addresses": [
+                  "9.9.9.9/32"
+                ],
+                "profile": "Any",
+                "local_addresses": [
+                  "Any"
+                ],
+                "local_port": "Any",
+                "interface_alias": "Any",
+                "service": "Any",
+                "edge_traversal": "Block",
+                "authentication": "NotRequired",
+                "encryption": "NotRequired",
+                "override_block_rules": false
+              }
+            }
+          ],
+          "activation_allowed": false,
+          "lab_scope": "two_bundled_images_one_ipv4_one_tcp_port_RemoteAccess_whitelist_projection",
+          "source_config_digest": "ad92a7d3ba480b585ddb7ff8cccf09b864c0e663def9b6dbc628f236237d03c4",
+          "source_plan_digest": "6934160654c6f9210f804207dcd58dd63f33d4974683be3c9a3fd89544031a6e",
+          "no_leak_certified": false
+        }
+      }
+    },
+    {
+      "name": "wl_allows_bl_B",
+      "request": {
+        "schema": "unified-lab-request-1",
+        "mode": "vpn_allowlist",
+        "legacy_imports": [],
+        "legacy_acknowledged": false,
+        "programs": [
+          {
+            "id": "173027681369ff6ba58712bd",
+            "path": "C:\\Fixture\\runtime\\python.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          },
+          {
+            "id": "365747ff79ff7afa29f94054",
+            "path": "C:\\Fixture\\runtime\\pythonw.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          }
+        ],
+        "plan": {
+          "schema": "unified-firewall-plan-1",
+          "owner": "382482056e6b45e1932848076e4fc1fc",
+          "rules": [
+            {
+              "name": "UnifiedFW-382482056e6b45e1932848076e4fc1fc-blacklist-b82bae349bd789a54bf11b30",
+              "owner": "382482056e6b45e1932848076e4fc1fc",
+              "component": "blacklist",
+              "spec": {
+                "program_id": "365747ff79ff7afa29f94054",
+                "program": "C:\\Fixture\\runtime\\pythonw.exe",
+                "action": "Block",
+                "direction": "Outbound",
+                "interface_type": "Any",
+                "protocol": "TCP",
+                "port": 443,
+                "remote_addresses": [
+                  "9.9.9.9/32"
+                ],
+                "profile": "Any",
+                "local_addresses": [
+                  "Any"
+                ],
+                "local_port": "Any",
+                "interface_alias": "Any",
+                "service": "Any",
+                "edge_traversal": "Block",
+                "authentication": "NotRequired",
+                "encryption": "NotRequired",
+                "override_block_rules": false
+              }
+            }
+          ],
+          "activation_allowed": false,
+          "lab_scope": "two_bundled_images_one_ipv4_one_tcp_port_RemoteAccess_whitelist_projection",
+          "source_config_digest": "ca58c4739d50088849b42dc4392d15cfee592cf18e033a12c311dfb5c45ddc8f",
+          "source_plan_digest": "0d0be0712e902bc3686970c134a7bd5fe6ec3d3a293f1966c7b435662847ca22",
+          "no_leak_certified": false
+        }
+      }
+    },
+    {
+      "name": "wl_allows_bl_both",
+      "request": {
+        "schema": "unified-lab-request-1",
+        "mode": "vpn_allowlist",
+        "legacy_imports": [],
+        "legacy_acknowledged": false,
+        "programs": [
+          {
+            "id": "173027681369ff6ba58712bd",
+            "path": "C:\\Fixture\\runtime\\python.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          },
+          {
+            "id": "365747ff79ff7afa29f94054",
+            "path": "C:\\Fixture\\runtime\\pythonw.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          }
+        ],
+        "plan": {
+          "schema": "unified-firewall-plan-1",
+          "owner": "382482056e6b45e1932848076e4fc1fc",
+          "rules": [
+            {
+              "name": "UnifiedFW-382482056e6b45e1932848076e4fc1fc-blacklist-9c947c391fcdff27c18d9752",
+              "owner": "382482056e6b45e1932848076e4fc1fc",
+              "component": "blacklist",
+              "spec": {
+                "program_id": "173027681369ff6ba58712bd",
+                "program": "C:\\Fixture\\runtime\\python.exe",
+                "action": "Block",
+                "direction": "Outbound",
+                "interface_type": "Any",
+                "protocol": "TCP",
+                "port": 443,
+                "remote_addresses": [
+                  "9.9.9.9/32"
+                ],
+                "profile": "Any",
+                "local_addresses": [
+                  "Any"
+                ],
+                "local_port": "Any",
+                "interface_alias": "Any",
+                "service": "Any",
+                "edge_traversal": "Block",
+                "authentication": "NotRequired",
+                "encryption": "NotRequired",
+                "override_block_rules": false
+              }
+            },
+            {
+              "name": "UnifiedFW-382482056e6b45e1932848076e4fc1fc-blacklist-b82bae349bd789a54bf11b30",
+              "owner": "382482056e6b45e1932848076e4fc1fc",
+              "component": "blacklist",
+              "spec": {
+                "program_id": "365747ff79ff7afa29f94054",
+                "program": "C:\\Fixture\\runtime\\pythonw.exe",
+                "action": "Block",
+                "direction": "Outbound",
+                "interface_type": "Any",
+                "protocol": "TCP",
+                "port": 443,
+                "remote_addresses": [
+                  "9.9.9.9/32"
+                ],
+                "profile": "Any",
+                "local_addresses": [
+                  "Any"
+                ],
+                "local_port": "Any",
+                "interface_alias": "Any",
+                "service": "Any",
+                "edge_traversal": "Block",
+                "authentication": "NotRequired",
+                "encryption": "NotRequired",
+                "override_block_rules": false
+              }
+            }
+          ],
+          "activation_allowed": false,
+          "lab_scope": "two_bundled_images_one_ipv4_one_tcp_port_RemoteAccess_whitelist_projection",
+          "source_config_digest": "f98eda671c8719b5d02ceeeda3e021424d2e8a34bde91ea49e2fe9ab0ab20bbb",
+          "source_plan_digest": "71994a6000bd4b4f10e66d9c3a8641bf7ca81e345ab39ed95c6bfca1eb897782",
+          "no_leak_certified": false
+        }
+      }
+    },
+    {
+      "name": "wl_denies_bl_A",
+      "request": {
+        "schema": "unified-lab-request-1",
+        "mode": "vpn_allowlist",
+        "legacy_imports": [],
+        "legacy_acknowledged": false,
+        "programs": [
+          {
+            "id": "173027681369ff6ba58712bd",
+            "path": "C:\\Fixture\\runtime\\python.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          },
+          {
+            "id": "365747ff79ff7afa29f94054",
+            "path": "C:\\Fixture\\runtime\\pythonw.exe",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "enabled": true
+          }
+        ],
+        "plan": {
+          "schema": "unified-firewall-plan-1",
+          "owner": "382482056e6b45e1932848076e4fc1fc",
+          "rules": [
+            {
+              "name": "UnifiedFW-382482056e6b45e1932848076e4fc1fc-blacklist-9c947c391fcdff27c18d9752",
+              "owner": "382482056e6b45e1932848076e4fc1fc",
+              "component": "blacklist",
+              "spec": {
+                "program_id": "173027681369ff6ba58712bd",
+                "program": "C:\\Fixture\\runtime\\python.exe",
+                "action": "Block",
+                "direction": "Outbound",
+                "interface_type": "Any",
+                "protocol": "TCP",
+                "port": 443,
+                "remote_addresses": [
+                  "9.9.9.9/32"
+                ],
+                "profile": "Any",
+                "local_addresses": [
+                  "Any"
+                ],
+                "local_port": "Any",
+                "interface_alias": "Any",
+                "service": "Any",
+                "edge_traversal": "Block",
+                "authentication": "NotRequired",
+                "encryption": "NotRequired",
+                "override_block_rules": false
+              }
+            },
+            {
+              "name": "UnifiedFW-382482056e6b45e1932848076e4fc1fc-whitelist-0ce24e976338b7444acc287a",
+              "owner": "382482056e6b45e1932848076e4fc1fc",
+              "component": "whitelist",
+              "spec": {
+                "program_id": "173027681369ff6ba58712bd",
+                "program": "C:\\Fixture\\runtime\\python.exe",
+                "action": "Block",
+                "direction": "Outbound",
+                "interface_type": "RemoteAccess",
+                "protocol": "TCP",
+                "port": 443,
+                "remote_addresses": [
+                  "9.9.9.9/32"
+                ],
+                "profile": "Any",
+                "local_addresses": [
+                  "Any"
+                ],
+                "local_port": "Any",
+                "interface_alias": "Any",
+                "service": "Any",
+                "edge_traversal": "Block",
+                "authentication": "NotRequired",
+                "encryption": "NotRequired",
+                "override_block_rules": false
+              }
+            },
+            {
+              "name": "UnifiedFW-382482056e6b45e1932848076e4fc1fc-whitelist-ffd3cb3d2ee4ed203fa0d7da",
+              "owner": "382482056e6b45e1932848076e4fc1fc",
+              "component": "whitelist",
+              "spec": {
+                "program_id": "365747ff79ff7afa29f94054",
+                "program": "C:\\Fixture\\runtime\\pythonw.exe",
+                "action": "Block",
+                "direction": "Outbound",
+                "interface_type": "RemoteAccess",
+                "protocol": "TCP",
+                "port": 443,
+                "remote_addresses": [
+                  "9.9.9.9/32"
+                ],
+                "profile": "Any",
+                "local_addresses": [
+                  "Any"
+                ],
+                "local_port": "Any",
+                "interface_alias": "Any",
+                "service": "Any",
+                "edge_traversal": "Block",
+                "authentication": "NotRequired",
+                "encryption": "NotRequired",
+                "override_block_rules": false
+              }
+            }
+          ],
+          "activation_allowed": false,
+          "lab_scope": "two_bundled_images_one_ipv4_one_tcp_port_RemoteAccess_whitelist_projection",
+          "source_config_digest": "5d27b30187d14eb9c51847e24a282addefc2d4b8fbdb2890247e5a01d5deea78",
+          "source_plan_digest": "7337a56ea4685ed2f18723f21a63754dcdec25eb2403e449369cc88e46ec87cf",
+          "no_leak_certified": false
+        }
+      }
+    }
+  ],
+  "transport": "https_php",
+  "https_url": "https://ufw-test.example/probe.php",
+  "https_host": "ufw-test.example",
+  "https_path": "/probe.php"
+}
