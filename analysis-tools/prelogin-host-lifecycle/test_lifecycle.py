@@ -19,7 +19,7 @@ def tracker(value=None):
 def phase():
     return dict(launched=True,completed=True,bootstrap_pin_match=True,instrumented_processes=3,collector_errors=0,dropped_events=0,collector_fatal=False,request_count=18,hardware_requests=1,wire_linked_hardware_requests=1,host_id_observations=1,host_id_unique=1,invalid_host_id_events=0,all_processes_instrumented=True,language_status='not_observed')
 def report():
-    return dict(schema='bnet-host-lifecycle-2',source_commit='a'*40,run_id='123',status='same_host_id_after_process_restart',error_code=None,first_native_gate_passed=True,same_machine=True,configuration_preserved=True,second_start_clean_processes=True,comparison=True,phases=[phase(),phase()],second_diagnostics=dict(stage='complete',error_type=None,refusal_reason=None,processes=[dict(name='agent.exe',phase='observing',status='resumed',error_type=None,instrumented_before_resume=True,script_errors=0) for _ in range(3)]),limits=dict(LIMITS))
+    return dict(schema='bnet-host-lifecycle-3',source_commit='a'*40,run_id='123',status='same_host_id_after_process_restart',error_code=None,first_native_gate_passed=True,same_machine=True,configuration_preserved=True,second_start_clean_processes=True,comparison=True,phases=[phase(),phase()],second_diagnostics=dict(stage='complete',error_type=None,refusal_reason=None,refused_image=None,processes=[dict(name='agent.exe',phase='observing',status='resumed',error_type=None,instrumented_before_resume=True,script_errors=0) for _ in range(3)]),limits=dict(LIMITS))
 class Tests(unittest.TestCase):
     def test_same(self):self.assertIs(compare(tracker(),tracker(),[phase(),phase()]),True)
     def test_different(self):self.assertIs(compare(tracker(),tracker(b'00000000-0000-4000-8000-000000000002'),[phase(),phase()]),False)

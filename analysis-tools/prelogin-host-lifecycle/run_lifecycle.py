@@ -49,7 +49,10 @@ def second_start(frida,env,setup,p,trackers,diag):
             if ids[pid]!=(info['creation'],str(path).lower()):raise RuntimeError('identity')
             return {}
         if path.name.lower() not in obs.NAMES:
-            diag['refusal_reason']='unexpected_image_name';raise RuntimeError('image')
+            from refused_image import inspect_refused
+            diag['refusal_reason']='unexpected_image_name'
+            diag['refused_image']=inspect_refused(path,env,obs.is_reparse)
+            raise RuntimeError('image')
         if obs.is_reparse(path):
             diag['refusal_reason']='reparse_or_missing_image';raise RuntimeError('image')
         if not 0<path.stat().st_size<=128*1024*1024:
@@ -106,8 +109,8 @@ def second_start(frida,env,setup,p,trackers,diag):
 
 
 def main():
-    if not (sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_HOST_LIFECYCLE')=='approved-host-lifecycle-20261024-a4'):raise SystemExit('fresh_hosted_once_required')
-    report=dict(schema='bnet-host-lifecycle-2',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],status='stopped',error_code=None,first_native_gate_passed=False,same_machine=True,configuration_preserved=True,second_start_clean_processes=False,comparison=None,phases=[],second_diagnostics=blank_debug(),limits=dict(LIMITS))
+    if not (sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_HOST_LIFECYCLE')=='approved-host-lifecycle-20261024-a5'):raise SystemExit('fresh_hosted_once_required')
+    report=dict(schema='bnet-host-lifecycle-3',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],status='stopped',error_code=None,first_native_gate_passed=False,same_machine=True,configuration_preserved=True,second_start_clean_processes=False,comparison=None,phases=[],second_diagnostics=blank_debug(),limits=dict(LIMITS))
     trackers=[];original_analyze=first.analyze;old_flag=os.environ.get('BNET_WIRE_H3')
     def observe_first(events,packets,classifier):
         tracker=Tracking(classifier);trackers.append(tracker)

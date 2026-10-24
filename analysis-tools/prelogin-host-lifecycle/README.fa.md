@@ -16,3 +16,7 @@
 آزمون‌ها: `python -m unittest discover -s analysis-tools/prelogin-host-lifecycle -p 'test_*.py' -v`.
 
 Workflow به branch تحقیق، commit message یکتا و run_attempt=1 محدود است؛ فقط JSON پس از اعتبارسنجی allowlist منتشر می‌شود. اجراهای گزارش یا تغییر docs هدف را دوباره راه نمی‌اندازند.
+
+## a5: شناسایی فقط‌خواندنی فرزند ردشده
+
+پیش از رد و بدون resume، فایل PE حداکثر ۱۲۸ MiB خوانده و هش می‌شود؛ WinVerifyTrust با همان سیاست trust/revocation اصلی و نام ناشر از signer تأییدشده اجرا می‌شود. خروجی ناشر فقط یکی از blizzard/microsoft/other_verified/unverified است. نام فایل تنها از فهرست ثابت عمومی و مسیر فقط به صورت طبقهٔ محل گزارش می‌شود؛ subject، مسیر، command line و شناسهٔ ماشین صادر نمی‌شوند. تغییر فایل حین بررسی موجب حذف ادعای metadata معتبر می‌شود. هش این قسمت، هش فایل اجرایی است نه هش host_id. حتی امضای معتبر هم خودکار اجازهٔ اجرا نمی‌دهد: `execution_authorized=false` و فهرست مجاز فرایندها بدون تغییر مانده است.
