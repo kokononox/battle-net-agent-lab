@@ -4,7 +4,7 @@ from pathlib import Path
 import re
 import sys
 BOOLS={'root_child_instrumented','bitness_confirmed','negative_encryption_observed','passed','collector_fatal'}
-COUNTS={'linked_probe_requests','http_responses_linked','collector_errors','dropped_events','completed_operations','pending_socket_events','packet_count'}
+COUNTS={'linked_probe_requests','http_responses_linked','collector_errors','dropped_events','completed_operations','pending_socket_events','unlinked_immediate_socket_events','packet_count'}
 APIS={'EncryptMessage','DecryptMessage','send','recv','WSASend','WSARecv','WSAGetOverlappedResult','connect','WSAConnect','closesocket','other'}
 REASONS={'bounded','buffer_count','data_layout','stream_layout','socket_limit','context_limit','accepted_bounds','pending_limit','overlapped_reuse','callback_unsupported','completion_unmatched','memory_access','missing_export','other'}
 WITNESS={'large_recv','multibuffer_recv','pending_recv','false_completion_checked','async_recv','async_send'}
@@ -14,7 +14,7 @@ def require(x):
 def count(x):require(type(x) is int and 0<=x<=10000000)
 def validate(r):
     require(type(r) is dict and set(r)=={'schema','source_commit','run_id','target_launched','game_download_requested','raw_values_exported','tls_validation_changed','scope','async_scope','iocp_supported','callback_supported','all_network_paths_covered','passed','fixtures'})
-    require(r['schema']=='bnet-h3-owned-fixtures-1' and type(r['source_commit']) is str and re.fullmatch('[0-9a-f]{40}',r['source_commit']) and type(r['run_id']) is str and re.fullmatch('[0-9]{1,20}',r['run_id']))
+    require(r['schema']=='bnet-h3-owned-fixtures-2' and type(r['source_commit']) is str and re.fullmatch('[0-9a-f]{40}',r['source_commit']) and type(r['run_id']) is str and re.fullmatch('[0-9]{1,20}',r['run_id']))
     for k in ('target_launched','game_download_requested','raw_values_exported','tls_validation_changed','iocp_supported','callback_supported','all_network_paths_covered'):require(r[k] is False)
     require(r['scope']=='owned_loopback_and_example_com_only' and r['async_scope']=='event_WSAGetOverlappedResult_success_only')
     require(type(r['passed']) is bool and type(r['fixtures']) is list and len(r['fixtures'])==2)

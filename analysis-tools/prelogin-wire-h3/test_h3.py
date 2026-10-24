@@ -16,7 +16,7 @@ class HookContract(unittest.TestCase):
     def test_actual_js_32_and_64_bit_contracts(self):
         p=Path(__file__).parent
         r=subprocess.run(['node',str(p/'contract.js'),str(p/'wire_hook.js')],capture_output=True,check=True,timeout=15)
-        self.assertEqual(json.loads(r.stdout)['actual_js_contract_checks'],34)
+        self.assertEqual(json.loads(r.stdout)['actual_js_contract_checks'],38)
 class ManagerTests(unittest.TestCase):
     def setUp(self):
         self.m=Manager.__new__(Manager);self.m.lock=threading.Lock();self.m.inputs=[];self.m.total_bytes=0;self.m.dropped=0
@@ -54,6 +54,9 @@ class ManagerTests(unittest.TestCase):
         self.msg({'kind':'ready','pointer_bits':32});self.assertEqual(self.row['pointer_bits'],32)
     def test_completion_budget_keeps_barrier(self):
         self.pending();self.m.total_bytes=16*1024*1024;self.complete();self.assertEqual(self.m.dropped,1);self.assertFalse(self.m.inputs[0]['completion_proven'])
+    def test_immediate_without_query_still_barrier(self):
+        self.pending();self.m.inputs[0]['immediate_completion']=True
+        self.assertEqual(socket_streams(self.m.inputs,'recv'),{(1,'s1'):[]})
     def test_no_normalization_without_completion(self):
         self.pending();self.m.inputs[0].update(accepted_bytes=4,raw=b'ABCD',return_code=0);self.assertEqual(socket_streams(self.m.inputs,'recv'),{(1,'s1'):[]})
 class StaticScope(unittest.TestCase):

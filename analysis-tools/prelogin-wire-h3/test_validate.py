@@ -7,7 +7,7 @@ def report():
     for arch in ('x64','x86'):
         f={k:False for k in BOOLS};f.update({k:0 for k in COUNTS})
         f.update(architecture=arch,stage='compile',error_type=None,fixture_exit_code=None,diagnostics={},capture_issues={},witness={k:False for k in WITNESS},hook_checks={k:False for k in CHECKS});rows.append(f)
-    return dict(schema='bnet-h3-owned-fixtures-1',source_commit='a'*40,run_id='123',target_launched=False,game_download_requested=False,raw_values_exported=False,tls_validation_changed=False,scope='owned_loopback_and_example_com_only',async_scope='event_WSAGetOverlappedResult_success_only',iocp_supported=False,callback_supported=False,all_network_paths_covered=False,passed=False,fixtures=rows)
+    return dict(schema='bnet-h3-owned-fixtures-2',source_commit='a'*40,run_id='123',target_launched=False,game_download_requested=False,raw_values_exported=False,tls_validation_changed=False,scope='owned_loopback_and_example_com_only',async_scope='event_WSAGetOverlappedResult_success_only',iocp_supported=False,callback_supported=False,all_network_paths_covered=False,passed=False,fixtures=rows)
 class Allowlist(unittest.TestCase):
     def test_failure_report_valid(self):validate(report())
     def test_raw_field_refused(self):
