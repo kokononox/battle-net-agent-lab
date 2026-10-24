@@ -1,0 +1,66 @@
+{
+  "schema": "bnet-h3-review-1",
+  "scope": "owned_fixtures_only_not_new_target_evidence",
+  "latest_source_commit": "0e51872972d9d5cadc954cfa4cd11bc7c3d8a56a",
+  "latest_run_id": "40079679985",
+  "local_python_tests_passed": 30,
+  "actual_js_contract_checks_included": 38,
+  "target_launched": false,
+  "q1_evidence_upgrade": false,
+  "gate_passed": false,
+  "remaining_failure": "x64_WSARecv_overlapped_reuse_with_unobserved_completion",
+  "historical_h2_errors_explained": false,
+  "next_required_work": "observe_and_qualify_missing_completion_paths_before_target_rerun",
+  "runs": [
+    {
+      "source_commit": "e3e66971aa96939fa6de6530abb5a53b863e106d",
+      "run_id": "40079447967",
+      "passed": false,
+      "architectures": [
+        {
+          "architecture": "x64",
+          "passed": false,
+          "collector_errors": 7,
+          "diagnostics": {
+            "WSARecv|enter|overlapped_reuse": 7
+          },
+          "linked_probe_requests": 2,
+          "http_responses_linked": 2
+        },
+        {
+          "architecture": "x86",
+          "passed": true,
+          "collector_errors": 0,
+          "diagnostics": {},
+          "linked_probe_requests": 2,
+          "http_responses_linked": 2
+        }
+      ]
+    },
+    {
+      "source_commit": "0e51872972d9d5cadc954cfa4cd11bc7c3d8a56a",
+      "run_id": "40079679985",
+      "passed": false,
+      "architectures": [
+        {
+          "architecture": "x64",
+          "passed": false,
+          "collector_errors": 3,
+          "diagnostics": {
+            "WSARecv|enter|overlapped_reuse": 3
+          },
+          "linked_probe_requests": 2,
+          "http_responses_linked": 2
+        },
+        {
+          "architecture": "x86",
+          "passed": true,
+          "collector_errors": 0,
+          "diagnostics": {},
+          "linked_probe_requests": 2,
+          "http_responses_linked": 2
+        }
+      ]
+    }
+  ]
+}
