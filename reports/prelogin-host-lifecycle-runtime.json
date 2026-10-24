@@ -1,7 +1,7 @@
 {
   "schema": "bnet-host-lifecycle-3",
-  "source_commit": "7753138fe5e225f85aec81ef688ae0d2d4b30ead",
-  "run_id": "40144180232",
+  "source_commit": "12b2f4610a4b2f2435988e4d20a48ff477760ab9",
+  "run_id": "40144632517",
   "status": "inconclusive",
   "error_code": "second_phase_ineligible",
   "first_native_gate_passed": true,
@@ -48,10 +48,10 @@
   "second_diagnostics": {
     "stage": "observe",
     "error_type": "RuntimeError",
-    "refusal_reason": "unexpected_image_name",
+    "refusal_reason": "helper_policy_refused",
     "refused_image": {
       "status": "metadata_complete",
-      "basename_class": "other",
+      "basename_class": "agenthelper.exe",
       "path_class": "battle_net_programdata",
       "image_bytes": 3642064,
       "image_file_sha256": "a3a444e6bd163732a648967c01a5fd509f7f33d6963b381c19bdffb604138651",
