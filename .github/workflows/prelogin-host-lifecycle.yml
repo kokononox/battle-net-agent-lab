@@ -12,7 +12,7 @@ concurrency:
 jobs:
   observe:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved host lifecycle 20261024-a2'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved host lifecycle 20261024-a3'
     runs-on: windows-2025
     timeout-minutes: 16
     permissions:
@@ -35,17 +35,20 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Native wire gate then two pinned signed pre-login startups
         env:
-          BNET_HOST_LIFECYCLE: approved-host-lifecycle-20261024-a2
+          BNET_HOST_LIFECYCLE: approved-host-lifecycle-20261024-a3
         run: python analysis-tools/prelogin-host-lifecycle/run_lifecycle.py
       - name: Strictly validate only the shareable summary
         if: always()
         run: python analysis-tools/prelogin-host-lifecycle/validate_lifecycle.py output/prelogin-host-lifecycle.json sanitized/prelogin-host-lifecycle.json
+      - name: Strictly validate first-phase qualification diagnostics
+        if: always()
+        run: python analysis-tools/prelogin-wire-h3/target_validate.py output/prelogin-wire-h3-target.json sanitized/prelogin-host-lifecycle-first-phase.json
       - name: Upload summary only, never ETL PCAP TLS buffers or binaries
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: prelogin-host-lifecycle-summary
-          path: sanitized/prelogin-host-lifecycle.json
+          path: sanitized/
           if-no-files-found: error
           retention-days: 3
   publish:
@@ -68,9 +71,10 @@ jobs:
         run: |
           set -euo pipefail
           python analysis-tools/prelogin-host-lifecycle/validate_lifecycle.py incoming/prelogin-host-lifecycle.json reports/prelogin-host-lifecycle-runtime.json
+          python analysis-tools/prelogin-wire-h3/target_validate.py incoming/prelogin-host-lifecycle-first-phase.json reports/prelogin-host-lifecycle-first-phase-runtime.json
           git config user.name prelogin-wire-report
           git config user.email prelogin-wire-report@users.noreply.github.com
-          git add -- reports/prelogin-host-lifecycle-runtime.json
+          git add -- reports/prelogin-host-lifecycle-runtime.json reports/prelogin-host-lifecycle-first-phase-runtime.json
           git diff --cached --quiet && exit 0
           git commit -m 'lab: publish sanitized host lifecycle runtime evidence'
           git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
