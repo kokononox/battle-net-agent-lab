@@ -42,7 +42,7 @@
 
 ## کنترل محلی انجام‌شده در 2026-10-24
 
-- 30 آزمون مصنوعی parser/correlation/sanitizer پاس شدند: ارسال ناقص/شکسته، failed/async، هم‌زمانی، چند تطبیق، فرایند نامرتبط، جهت پاسخ، ترتیب و retransmission، wrap شمارهٔ TCP، overlap متناقض، fragmentation، JSON با کلید تکراری، نشت دادهٔ خام و ادعای بدون gate.
+- 32 آزمون مصنوعی parser/correlation/sanitizer پاس شدند: ارسال ناقص/شکسته، failed/async، هم‌زمانی، چند تطبیق، فرایند نامرتبط، جهت پاسخ، ترتیب و retransmission، wrap شمارهٔ TCP، overlap متناقض، fragmentation، JSON با کلید تکراری، نشت دادهٔ خام و ادعای بدون gate.
 - `node --check` برای hook و `py_compile` برای ماژول‌ها پاس شدند؛ این‌ها اثبات اجرای Frida/ویندوز نیستند.
 - classifier جدید با پیام واقعی baseline تاریخی H1 و تصویر هم‌هش آزمایش شد؛ سخت‌افزار و تطبیق CPU را شناخت و تصویر نادرست را رد کرد. این کنترل استفادهٔ دوباره از شاهد قبلی است، نه runtime تازه.
 - اعتبارسنجی بومی و نتیجهٔ هدف باید جداگانه از JSON runtime خوانده شوند؛ این سند پیشاپیش موفقیت آن‌ها را اعلام نمی‌کند.
@@ -63,3 +63,7 @@ schema عمومی `bnet-prelogin-wire-h2-1` حاوی وضعیت gate، hash تص
 - [observer H1 نسخهٔ ثابت](https://github.com/kokononox/battle-net-agent-lab/blob/ac62d58f9b61f190f4a8279e185366bd27d1c377/privacy-ab-api/birth_hook.js)
 - [جمع‌بندی سؤال اول](../../docs/PRELOGIN-Q1-VERDICT.fa.md)
 - Manager و process identity بر اساس همان ابزار تاریخی، با بازبینی و تغییر دریافت رویدادها هستند؛ runner عمومی فعلی به اسکریپت‌های نسخهٔ حاضر مخزن متکی است.
+
+## اجرای بومی b1 و اصلاح b2
+
+run `40077820970` با source `62a8ab6c1b2437f247a9431eb663775b38abd437`: دو درخواست fixture تا شبکه پیوند خوردند، اما صفر پاسخ و دو خطای collector ثبت شد. gate رد شد و **نصاب اجرا نشد**. علت در بررسی کد: `DecryptMessage` descriptor را در آرگومان دوم می‌گیرد، نه سوم؛ اشتراک نادرست indexing با EncryptMessage اصلاح شد. دو آزمون تازه selector واقعی JavaScript را در VM بدون شبکه اجرا می‌کنند. نتیجهٔ b1 در `reports/prelogin-wire-h2-b1-runtime.json` حفظ شده است. b2 آزمایش تازهٔ صحت است و پیشاپیش موفق اعلام نمی‌شود.

@@ -33,6 +33,11 @@ function buffers(desc) {
   for(let i=0;i<n;i++){const b=p.add(i*width);out.push({type:b.add(4).readU32()&0xffff,n:b.readU32(),p:b.add(8).readPointer()});}
   return out;
 }
+function messageDescriptor(api,args) {
+  if(api==='EncryptMessage')return args[2];
+  if(api==='DecryptMessage')return args[1];
+  throw Error('unsupported_api');
+}
 function tls(mod) {
   if(!['secur32.dll','sspicli.dll'].includes(mod.name.toLowerCase()))return;
   for(const api of ['EncryptMessage','DecryptMessage']) {
@@ -42,7 +47,7 @@ function tls(mod) {
       onEnter(args){
         enter(this,'tls:'+api);this.item=null;if(!this.outer)return;
         try {
-          this.desc=args[2];this.tag=context(args[0]);
+          this.desc=messageDescriptor(api,args);this.tag=context(args[0]);
           const bs=buffers(this.desc),data=bs.filter(x=>x.type===1);
           if(!this.tag||data.length!==1)throw Error('data');
           this.item={before:joined(data.map(x=>[x.p,x.n])),order:++sequence};
