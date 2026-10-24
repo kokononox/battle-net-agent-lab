@@ -1,0 +1,362 @@
+{
+  "suite": "file-backed-mock-transaction",
+  "passed": true,
+  "assertions": 378,
+  "apply_fault_boundaries": 30,
+  "restore_fault_boundaries": 28,
+  "cases": [
+    {
+      "stage": "apply",
+      "cut": 1,
+      "checkpoint": "journal.before.prepare",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 2,
+      "checkpoint": "journal.after.prepare",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 3,
+      "checkpoint": "journal.before.apply-start",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 4,
+      "checkpoint": "journal.after.apply-start",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 5,
+      "checkpoint": "journal.before.intent-0",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 6,
+      "checkpoint": "journal.after.intent-0",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 7,
+      "checkpoint": "resource.before.apply-0",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 8,
+      "checkpoint": "resource.after.apply-0",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 9,
+      "checkpoint": "journal.before.intent-1",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 10,
+      "checkpoint": "journal.after.intent-1",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 11,
+      "checkpoint": "resource.before.apply-1",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 12,
+      "checkpoint": "resource.after.apply-1",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 13,
+      "checkpoint": "journal.before.intent-2",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 14,
+      "checkpoint": "journal.after.intent-2",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 15,
+      "checkpoint": "resource.before.apply-2",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 16,
+      "checkpoint": "resource.after.apply-2",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 17,
+      "checkpoint": "journal.before.intent-3",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 18,
+      "checkpoint": "journal.after.intent-3",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 19,
+      "checkpoint": "resource.before.apply-3",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 20,
+      "checkpoint": "resource.after.apply-3",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 21,
+      "checkpoint": "journal.before.intent-4",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 22,
+      "checkpoint": "journal.after.intent-4",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 23,
+      "checkpoint": "resource.before.apply-4",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 24,
+      "checkpoint": "resource.after.apply-4",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 25,
+      "checkpoint": "journal.before.intent-5",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 26,
+      "checkpoint": "journal.after.intent-5",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 27,
+      "checkpoint": "resource.before.apply-5",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 28,
+      "checkpoint": "resource.after.apply-5",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 29,
+      "checkpoint": "journal.before.applied",
+      "passed": true
+    },
+    {
+      "stage": "apply",
+      "cut": 30,
+      "checkpoint": "journal.after.applied",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 1,
+      "checkpoint": "journal.before.restore-start",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 2,
+      "checkpoint": "journal.after.restore-start",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 3,
+      "checkpoint": "resource.before.restore-5",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 4,
+      "checkpoint": "resource.after.restore-5",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 5,
+      "checkpoint": "journal.before.restored-5",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 6,
+      "checkpoint": "journal.after.restored-5",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 7,
+      "checkpoint": "resource.before.restore-4",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 8,
+      "checkpoint": "resource.after.restore-4",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 9,
+      "checkpoint": "journal.before.restored-4",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 10,
+      "checkpoint": "journal.after.restored-4",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 11,
+      "checkpoint": "resource.before.restore-3",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 12,
+      "checkpoint": "resource.after.restore-3",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 13,
+      "checkpoint": "journal.before.restored-3",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 14,
+      "checkpoint": "journal.after.restored-3",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 15,
+      "checkpoint": "resource.before.restore-2",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 16,
+      "checkpoint": "resource.after.restore-2",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 17,
+      "checkpoint": "journal.before.restored-2",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 18,
+      "checkpoint": "journal.after.restored-2",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 19,
+      "checkpoint": "resource.before.restore-1",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 20,
+      "checkpoint": "resource.after.restore-1",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 21,
+      "checkpoint": "journal.before.restored-1",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 22,
+      "checkpoint": "journal.after.restored-1",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 23,
+      "checkpoint": "resource.before.restore-0",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 24,
+      "checkpoint": "resource.after.restore-0",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 25,
+      "checkpoint": "journal.before.restored-0",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 26,
+      "checkpoint": "journal.after.restored-0",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 27,
+      "checkpoint": "journal.before.restored",
+      "passed": true
+    },
+    {
+      "stage": "restore",
+      "cut": 28,
+      "checkpoint": "journal.after.restored",
+      "passed": true
+    }
+  ],
+  "runtime": "7.4.6",
+  "backend": "local JSON mock; NOT Windows firewall",
+  "failure_method": "exceptions at checkpoint boundaries; NOT OS process termination or power loss",
+  "windows_apply_tested": false,
+  "windows_restore_tested": false
+}
