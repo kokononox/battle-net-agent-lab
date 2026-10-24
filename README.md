@@ -1,5 +1,13 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
+<!-- unifiedfw-session-20261024:start -->
+## ادامهٔ فعلی — Unified Firewall ۰.۸.۱؛ نتیجه نامشخص، بازیابی تأییدشده
+
+[تحویل کامل جلسه و قدم بعد](docs/SESSION-UNIFIED-FIREWALL-2026-10-24.fa.md) · [وضعیت ماشین‌خوان](docs/UNIFIED-FIREWALL-SESSION-2026-10-24.json) · [رسید پالایش‌شدهٔ Windows](reports/unifiedfw-session-20261024/windows-081-review.json) · [سورس ۰.۸.۱](analysis/unified-firewall-https-paced-lab-0.8.1-2026-10-24/README.fa.md).
+
+آزمون فاصله‌دار ۰.۸.۱ روی ویندوز ۱۲۶ probe ثبت کرد و بازیابی تمام phaseها/برابری خط مبنا را تأیید کرد، ولی یک timeout اتصال TCP مرجع در آخرین ماتریس پس از Restore مانع قبولی شد. نتیجه `inconclusive` است، نه `passed`؛ چهار ثانیه فاصله علت timeout را حل/اثبات نکرده است. فعلاً تست کامل تکرار نشود؛ قدم بعد طراحی اندازه‌گیری بدون mutation در همان مسیر EXEهای ۰.۸.۱ است. وایت‌لیست سراسری، kill-switch، نبود نشت و UI نهایی هنوز تأیید نشده‌اند. این sync فقط مستندات/رسید پالایش‌شده است؛ main، کد تحویلی، runtime و دادهٔ خصوصی تغییر/منتشر نشده‌اند. بخش‌های بعد سابقهٔ مسیرهای دیگرند، نه دستور اجرای فعلی این جلسه.
+<!-- unifiedfw-session-20261024:end -->
+
 ## قدم فعلی — بازبینی آفلاین و هویت نماد؛ هنوز مسیر رفتاری تازه نداریم
 
 [گزارش و مرز ادامه](analysis/offline-evidence-audit-2026-10-23/README.fa.md) · [هویت CodeView](analysis/offline-evidence-audit-2026-10-23/build-symbol-identity.json) · [کنترل مستقل](analysis/offline-evidence-audit-2026-10-23/verification.json) · [وضعیت](analysis/offline-evidence-audit-2026-10-23/SYNC-STATUS.json).

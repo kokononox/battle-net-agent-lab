@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-22T16:09:43.525962+00:00",
+  "as_of_utc": "2026-10-24T07:39:48.720124+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -55,7 +55,7 @@
     "in_world_network_metadata_user_confirmed_20261022": true,
     "in_world_network_metadata_evidence": "reports/session-20261022/wow-network-evidence.json"
   },
-  "user_action_now": "No new user test required. WLab 0.2.0 remains withdrawn; do not repeat game attach. Offline phase2 verified registration metadata but did not establish hardware population or transport. Continue only with new authorized evidence; do not infer a send from static literals.",
+  "user_action_now": "Do not repeat the full coexistence test yet. No restore/delete/rule change is indicated by this report; retain all journals and reports.",
   "sync_scope": "Sanitized source and derived evidence plus the user-authorized private three-file archive exception. All five archive parts uploaded and verified by Git blob identity and size against local verified bytes. No raw crash report, raw pcap, keys or private paths uploaded.",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
@@ -87,7 +87,7 @@
     "installation_ready": false,
     "historical_only_not_current_target": true
   },
-  "current_focus": "Offline reverse engineering of newly uploaded exact Retail 70448 EXE and DLLs; game CDB probe withdrawn after Security Crash in both dashboard and in-world.",
+  "current_focus": "Unified Firewall integration and scoped HTTPS coexistence qualification; latest 0.8.1 Windows run inconclusive after a final post-Restore reference TCP timeout, policy restoration verified.",
   "current_updater": {
     "release": "0.27",
     "source": "updater-core/",
@@ -421,5 +421,52 @@
       "tests_passed": 4,
       "blocked_at": "Unrecovered protected main-code semantics; metadata is not a verified collection/serialization/send call graph."
     }
+  },
+  "historical_focus_before_unified_firewall_sync": "Offline reverse engineering of newly uploaded exact Retail 70448 EXE and DLLs; game CDB probe withdrawn after Security Crash in both dashboard and in-world.",
+  "historical_user_action_before_unified_firewall_sync": "No new user test required. WLab 0.2.0 remains withdrawn; do not repeat game attach. Offline phase2 verified registration metadata but did not establish hardware population or transport. Continue only with new authorized evidence; do not infer a send from static literals.",
+  "unified_firewall_session_20261024": {
+    "schema": "unifiedfw-session-state-2026-10-24-1",
+    "branch": "analysis/entry-loader-startup-2026-10-23",
+    "latest_source_version": "0.8.1",
+    "latest_source_commit": "62c481fbd8f96f107e6f538cea257aeeb2da3809",
+    "source_directory": "analysis/unified-firewall-https-paced-lab-0.8.1-2026-10-24",
+    "handoff": "docs/SESSION-UNIFIED-FIREWALL-2026-10-24.fa.md",
+    "latest_Windows_receipt": "reports/unifiedfw-session-20261024/windows-081-review.json",
+    "latest_Windows_coexistence_outcome": "inconclusive",
+    "all_126_attempts_recorded": true,
+    "all_owned_phases_restored_and_baseline_equal": true,
+    "single_final_post_restore_REF_TCP_timeout": true,
+    "pacing_minimum_ms": 4000,
+    "pacing_verified_for_all_following_attempts": true,
+    "automatic_retries": 0,
+    "TCP_connect_timeout_seconds": 3,
+    "root_cause_proven": false,
+    "production_ready": false,
+    "global_whitelist_activated": false,
+    "kill_switch_implemented": false,
+    "no_leak_certified": false,
+    "multi_EXE_backend_limit": 32,
+    "UI_framework": "PowerShell Windows Forms",
+    "UI_rebuilt_or_DPI_qualified_this_session": false,
+    "preferred_future_UI_skill": "improve-powershell-winforms-ui",
+    "single_signed_EXE_complete": false,
+    "legacy_feature_migration_complete": false,
+    "protected_journal_compatibility": "%ProgramData%/UnifiedFirewallLab-050",
+    "native_marker_compatibility": "0.6.0",
+    "prior_061_blacklist_only_windows_passed": true,
+    "prior_080_HTTPS_endpoint_and_SSTP_route_snapshot_ready": true,
+    "prior_080_coexistence_fully_passed": false,
+    "standalone_diagnostic_010_all_18_paced_attempts_passed": true,
+    "standalone_diagnostic_runtime_paths_differed": true,
+    "temporary_SSH_key_and_raw_TCP_responder_cleaned_up_previously": true,
+    "ongoing_remote_access_available": false,
+    "PHP_absolute_expiry_utc": "2026-10-26T05:47:49Z",
+    "PHP_delete_after_testing_required": true,
+    "next_step": "Design bounded read-only connectivity measurements at the same 0.8.1 runtime paths and correlate TCP-stage failures before any further full rule test; preserve timeouts, zero retries, independent reference, and failed evidence.",
+    "user_action_now": "Do not repeat the full coexistence test yet. No restore/delete/rule change is indicated by this report; retain all journals and reports.",
+    "private_report_uploaded_to_repository": false,
+    "raw_transcript_uploaded_to_repository": false,
+    "runtime_binaries_uploaded_in_this_sync": false,
+    "main_modified": false
   }
 }

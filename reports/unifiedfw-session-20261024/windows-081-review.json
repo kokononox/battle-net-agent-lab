@@ -1,0 +1,166 @@
+{
+  "schema": "unifiedfw-sanitized-windows-081-review-1",
+  "observed_date_utc": "2026-10-24",
+  "source_archive_sha256": "a5e48d9c66eb8ca97af6e9c05e273f8695b00e2717f622b5b2cbfa6e0c0f2a14",
+  "source_archive_manifest_entries_verified": 3,
+  "source_commit": "62c481fbd8f96f107e6f538cea257aeeb2da3809",
+  "delivered_package_sha256": "ef052c7efaf8d4e3ff81ebbf87ed00982698ae7cfec5272f6d25a898e81b9f29",
+  "source_build_test_counts": {
+    "python_methods": 132,
+    "PowerShell_assertions": 713,
+    "PS_files_parsed": 28
+  },
+  "review_not_an_independent_packet_capture": true,
+  "source_report": {
+    "read_only": false,
+    "completed": false,
+    "progress": "stopped_with_error",
+    "classification": {
+      "outcome": "inconclusive",
+      "reason": "preflight_route_execution_or_restore_error"
+    },
+    "restore_verified": true,
+    "errors": [
+      "coexistence_post_restore_connectivity_check_failed; policy_restore_status_is_separate"
+    ],
+    "cleanup": "not_needed",
+    "route_checks_ok": false,
+    "route_check_count": 217,
+    "firewall_mutation_attempted": true,
+    "https_pacing": {
+      "minimum_gap_ms": 4000,
+      "automatic_retries": 0,
+      "tcp_connect_timeout_seconds": 3,
+      "applies_across_matrix_and_restore_boundaries": true
+    }
+  },
+  "phases": [
+    {
+      "name": "baseline",
+      "during_attempts": 9,
+      "after_restore_attempts": 9,
+      "restored": true,
+      "baseline_strict_equal": true,
+      "expected_during_pattern_observed": true,
+      "availability_mismatches": []
+    },
+    {
+      "name": "wl_allows",
+      "during_attempts": 9,
+      "after_restore_attempts": 9,
+      "restored": true,
+      "baseline_strict_equal": true,
+      "expected_during_pattern_observed": true,
+      "availability_mismatches": []
+    },
+    {
+      "name": "wl_denies",
+      "during_attempts": 9,
+      "after_restore_attempts": 9,
+      "restored": true,
+      "baseline_strict_equal": true,
+      "expected_during_pattern_observed": true,
+      "availability_mismatches": []
+    },
+    {
+      "name": "wl_allows_bl_A",
+      "during_attempts": 9,
+      "after_restore_attempts": 9,
+      "restored": true,
+      "baseline_strict_equal": true,
+      "expected_during_pattern_observed": true,
+      "availability_mismatches": []
+    },
+    {
+      "name": "wl_allows_bl_B",
+      "during_attempts": 9,
+      "after_restore_attempts": 9,
+      "restored": true,
+      "baseline_strict_equal": true,
+      "expected_during_pattern_observed": true,
+      "availability_mismatches": []
+    },
+    {
+      "name": "wl_allows_bl_both",
+      "during_attempts": 9,
+      "after_restore_attempts": 9,
+      "restored": true,
+      "baseline_strict_equal": true,
+      "expected_during_pattern_observed": true,
+      "availability_mismatches": []
+    },
+    {
+      "name": "wl_denies_bl_A",
+      "during_attempts": 9,
+      "after_restore_attempts": 9,
+      "restored": true,
+      "baseline_strict_equal": true,
+      "expected_during_pattern_observed": true,
+      "availability_mismatches": [
+        {
+          "role": "REF",
+          "round": 2,
+          "stage": "tcp_connect",
+          "connected": false,
+          "tls_verified": false,
+          "http_status": null,
+          "handshake_ok": false,
+          "error": "https_connect_timeout",
+          "error_code": null,
+          "pacing_sequence": 123,
+          "phase": "wl_denies_bl_A",
+          "matrix": "after_restore"
+        }
+      ]
+    }
+  ],
+  "total_attempt_records": 126,
+  "all_126_sequences_valid": true,
+  "all_125_following_gaps_at_least_4000_ms": true,
+  "automatic_retries": 0,
+  "expected_block_attempts": 24,
+  "all_expected_block_attempts_native_error_10013": true,
+  "all_during_phase_patterns_observed": true,
+  "allowed_connection_mismatches": [
+    {
+      "role": "REF",
+      "round": 2,
+      "stage": "tcp_connect",
+      "connected": false,
+      "tls_verified": false,
+      "http_status": null,
+      "handshake_ok": false,
+      "error": "https_connect_timeout",
+      "error_code": null,
+      "pacing_sequence": 123,
+      "phase": "wl_denies_bl_A",
+      "matrix": "after_restore"
+    }
+  ],
+  "all_phases_restored_and_strict_baseline_equal": true,
+  "failure_stage": "TCP connect of reference after final Restore; before TLS/HTTP",
+  "root_cause_proven": false,
+  "full_coexistence_acceptance_passed": false,
+  "global_whitelist_tested": false,
+  "no_leak_certified": false,
+  "VPN_disconnect_guard_installed": false,
+  "new_runtime_or_configuration_changes_in_this_sync": false,
+  "redactions": [
+    "raw_report",
+    "hostnames",
+    "IP_addresses",
+    "local_EXE_paths",
+    "VPN_profile_and_server_names",
+    "request_ids",
+    "nonces",
+    "exact_probe_timestamps"
+  ],
+  "interpretation_notes": [
+    "All 126 rows does not imply completed=true: final availability condition failed before success finalization.",
+    "restore_verified=true and all per-phase strict baseline comparisons distinguish policy recovery from reachability.",
+    "cleanup=not_needed is the default catch label with no remaining active session, not evidence that rules were never created.",
+    "route_checks_ok=false is set by generic catch; it does not itself prove a route change.",
+    "Four-second pacing did not eliminate intermittent TCP timeouts in this run.",
+    "Source build QA is not retroactively rewritten; this later Windows observation is a separate receipt."
+  ]
+}
