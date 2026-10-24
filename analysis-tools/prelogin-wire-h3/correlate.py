@@ -33,4 +33,9 @@ def normalized(events):
         result.append(x)
     return result
 def socket_streams(events,kind):return base.socket_streams(normalized(events),kind)
-def analyze(events,packets,classify=None):return base.analyze(normalized(events),packets,classify)
+def analyze(events,packets,classify=None):
+    from link_diagnostics import diagnose
+    events=normalized(events)
+    result=base.analyze(events,packets,classify)
+    result['link_diagnostics']=diagnose(events,packets,base,result['request_count'])
+    return result

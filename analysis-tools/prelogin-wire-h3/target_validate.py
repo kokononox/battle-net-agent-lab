@@ -5,7 +5,7 @@ import re
 import sys
 from validate import validate as validate_fixture, APIS, REASONS
 
-TOP=set('schema source_commit run_id status error_code selftest bootstrap_pin_match target_launched processes requests parse_states network_linked_hardware_requests request_count capture collector_errors dropped_events collector_fatal async_scope limits'.split())
+TOP=set('schema source_commit run_id status error_code selftest bootstrap_pin_match target_launched processes requests parse_states network_linked_hardware_requests request_count capture collector_errors dropped_events collector_fatal async_scope limits link_diagnostics capture_diagnostics'.split())
 STATES={'not_started','native_gate','native_gate_failed_no_installer','observation_complete','target_stopped','collector_incomplete','stopped'}
 PARSE={'incomplete_headers','unsupported_request_boundary','invalid_headers','invalid_host','transfer_encoding_unsupported','invalid_length','body_limit','incomplete_body','complete','request_limit','context_has_failed_or_incomplete_encryption','concurrent_context','context_limit'}
 ISSUES={'snapshot_truncated','short_ethernet','unsupported_link','short_ip','ip_bounds','ip_fragments_unsupported','short_ip6','ip6_bounds','ipv6_extension_unsupported','short_tcp','tcp_bounds','tcp_overlap_conflict'}
@@ -27,7 +27,7 @@ def counts(d,keys):
 
 
 def validate(r):
-    if type(r) is not dict or set(r)!=TOP or r['schema']!='bnet-prelogin-wire-h3-target-3':raise ValueError('schema')
+    if type(r) is not dict or set(r)!=TOP or r['schema']!='bnet-prelogin-wire-h3-target-4':raise ValueError('schema')
     if type(r['source_commit']) is not str or not re.fullmatch('[a-f0-9]{40}',r['source_commit']):raise ValueError('source')
     if type(r['run_id']) is not str or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('run')
     if r['async_scope']!='event_and_registered_win32_callbacks_only':raise ValueError('async_scope')
@@ -68,6 +68,22 @@ def validate(r):
         if row['packet_bytes_linked'] and not row['socket_send_linked']:raise ValueError('ladder')
         if code is not None and not row['packet_bytes_linked']:raise ValueError('response_ladder')
     if r['request_count']!=len(r['requests']) or r['network_linked_hardware_requests']!=sum(x['hardware_payload_verified'] and x['packet_bytes_linked'] for x in r['requests']):raise ValueError('crossfoot')
+    diagnostics=r['link_diagnostics']
+    if type(diagnostics) is not list or len(diagnostics)!=r['request_count']:raise ValueError('diagnostic_alignment')
+    for row, records in zip(r['requests'],diagnostics):
+        if type(records) is not list or len(records)!=row['tls_record_count']:raise ValueError('diagnostic_records')
+        for d in records:
+            if type(d) is not dict or set(d)!={'socket_matches','socket_pid_match','packet_matches','packet_prefix_matches','packet_suffix_matches'}:raise ValueError('diagnostic_keys')
+            boolean(d['socket_pid_match'])
+            for k in ('socket_matches','packet_matches','packet_prefix_matches','packet_suffix_matches'):number(d[k],2)
+            if d['socket_pid_match'] and d['socket_matches']!=1:raise ValueError('diagnostic_socket')
+        if row['socket_send_linked'] and not all(d['socket_pid_match'] for d in records):raise ValueError('diagnostic_ladder')
+        if row['packet_bytes_linked'] and not all(d['packet_matches']==1 for d in records):raise ValueError('diagnostic_wire')
+    cd=r['capture_diagnostics']
+    if cd is not None:
+        if type(cd) is not dict or set(cd)!={'etl_bytes','pcap_bytes','etl_at_configured_capacity'}:raise ValueError('capture_diagnostic_keys')
+        number(cd['etl_bytes'],80*1024*1024);number(cd['pcap_bytes'],128*1024*1024);boolean(cd['etl_at_configured_capacity'])
+        if cd['etl_at_configured_capacity']!=(cd['etl_bytes']>=64*1024*1024):raise ValueError('capture_capacity')
     c=r['capture']
     if c is not None:
         if type(c) is not dict or set(c)!=set('start_code stop_code convert_code packets issues'.split()):raise ValueError('capture')

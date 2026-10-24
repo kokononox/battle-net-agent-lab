@@ -17,7 +17,7 @@ sys.path.append(str(ROOT/'analysis-tools'/'prelogin-wire-h2'))
 from manager import Manager
 from native_identity import identity
 from process_handle import Process
-from capture import Capture
+from capture_diagnostics import Capture
 from correlate import analyze
 from target_validate import validate
 from fixture_only import fixture
@@ -39,16 +39,16 @@ def gate(frida,env):
 
 
 def main():
-    allowed=(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_WIRE_H3')=='approved-wire-h3-20261024-e3')
+    allowed=(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_WIRE_H3')=='approved-wire-h3-20261024-e4')
     if not allowed:raise SystemExit('fresh_hosted_once_required')
     source=os.environ.get('GITHUB_SHA','');run=os.environ.get('GITHUB_RUN_ID','')
     if not re.fullmatch('[0-9a-f]{40}',source) or not run.isdigit():raise SystemExit('run_identity')
     out=Path('output');out.mkdir(exist_ok=True)
-    report={'schema':'bnet-prelogin-wire-h3-target-3','source_commit':source,'run_id':run,
+    report={'schema':'bnet-prelogin-wire-h3-target-4','source_commit':source,'run_id':run,
             'status':'not_started','error_code':None,'selftest':None,'bootstrap_pin_match':None,
             'target_launched':False,'async_scope':'event_and_registered_win32_callbacks_only','processes':[],'requests':[],'parse_states':{},
             'network_linked_hardware_requests':0,'request_count':0,
-            'capture':None,'collector_errors':0,'dropped_events':0,'collector_fatal':False,
+            'capture':None,'capture_diagnostics':None,'link_diagnostics':[],'collector_errors':0,'dropped_events':0,'collector_fatal':False,
             'limits':{'server_storage_proven':False,'all_network_paths_covered':False,
                       'raw_values_exported':False,'login_performed':False,'game_download_requested':False,
                       'install_action_requested':False,'tls_validation_changed':False,
@@ -103,7 +103,7 @@ def main():
                 if base['error_code']=='bootstrap_pin_mismatch_refused':report['error_code']='bootstrap_pin_mismatch_refused'
             finally:
                 subprocess.Popen=original_popen;obs.fetch_setup=original_fetch
-                manager.close();packets=capture.finish();report['capture']=capture.meta
+                manager.close();packets=capture.finish();report['capture']=capture.meta;report['capture_diagnostics']=capture.diagnostics
             from classify import Classifier
             report.update(analyze(manager.inputs,packets,Classifier(images,cpu)))
             rows=list(manager.rows.values());report['collector_errors']=sum(x['script_errors'] for x in rows)
