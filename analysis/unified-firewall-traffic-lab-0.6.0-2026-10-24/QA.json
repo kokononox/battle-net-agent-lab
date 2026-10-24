@@ -1,0 +1,53 @@
+{
+  "version": "0.6.0-direct-ipv4-tcp-traffic-lab",
+  "production_ready": false,
+  "production_activation_allowed": false,
+  "traffic_requires_authorized_external_echo_endpoint": true,
+  "traffic_phases": [
+    "baseline",
+    "only_A",
+    "only_B",
+    "both"
+  ],
+  "rounds_per_role_per_stage": 3,
+  "max_total_connect_attempts": 72,
+  "reference_image": "powershell.exe .NET TcpClient",
+  "test_images": [
+    "runtime/python.exe",
+    "runtime/pythonw.exe"
+  ],
+  "gui_live_mutation_enabled": false,
+  "python_test_methods": 79,
+  "python_failures": 0,
+  "powershell_assertions": {
+    "observer-tests": 12,
+    "policy-transaction-tests": 12,
+    "live-session-tests": 139,
+    "native-adapter-tests": 169,
+    "windows-fixture-tests": 8,
+    "known-recovery-tests": 59,
+    "traffic-tools-tests": 67
+  },
+  "powershell_assertion_total": 466,
+  "independent_address_oracle_cases": 88,
+  "powershell_files_parsed": 20,
+  "local_echo_server_tested": true,
+  "local_dotnet_reference_handshake_tested": true,
+  "windows_traffic_controller_executed": false,
+  "current_build_windows_selftest_executed": false,
+  "windows_gui_verified": false,
+  "whitelist_traffic_tested": false,
+  "vpn_route_verified": false,
+  "outside_vpn_guard_installed": false,
+  "udp_tested": false,
+  "ipv6_tested": false,
+  "packet_capture_performed": false,
+  "no_leak_certified": false,
+  "full_isolation_implemented": false,
+  "legacy_feature_migration_complete": false,
+  "native_single_executable_release": false,
+  "runtime_reused_files_verified": 34,
+  "runtime_publisher_signature_reverified": false,
+  "static_unsafe_command_scan_passed": true,
+  "static_check_is_not_runtime_proof": true
+}
