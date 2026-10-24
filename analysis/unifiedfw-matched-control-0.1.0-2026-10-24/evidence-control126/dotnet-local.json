@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "connected": true,
+      "tls_verified": true,
+      "handshake_ok": true,
+      "stage": "complete",
+      "case": "valid"
+    },
+    {
+      "connected": true,
+      "tls_verified": false,
+      "handshake_ok": false,
+      "stage": "tls_handshake",
+      "case": "wrong_hostname"
+    },
+    {
+      "connected": true,
+      "tls_verified": false,
+      "handshake_ok": false,
+      "stage": "tls_handshake",
+      "case": "untrusted_CA"
+    },
+    {
+      "connected": true,
+      "tls_verified": true,
+      "handshake_ok": false,
+      "stage": "http_response_and_echo",
+      "case": "redirect"
+    },
+    {
+      "connected": true,
+      "tls_verified": true,
+      "handshake_ok": false,
+      "stage": "http_response_and_echo",
+      "case": "wrong_echo"
+    }
+  ],
+  "environment": "Linux PowerShell 7 .NET; real loopback TLS",
+  "Windows_tested": false,
+  "user_endpoint_contacted": false,
+  "system_trust_store_changed": false,
+  "certificate_accept_all_callback": false,
+  "temporary_CA_via_child_environment": true,
+  "public_IP_gate_substituted_for_loopback_in_temporary_test_script_only": true
+}

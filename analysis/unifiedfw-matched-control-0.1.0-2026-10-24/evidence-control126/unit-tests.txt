@@ -1,0 +1,42 @@
+test_binding (test_control.Admission.test_binding) ... ok
+test_hash (test_control.Admission.test_hash) ... ok
+test_newer_bad (test_control.Admission.test_newer_bad) ... ok
+test_other_endpoint (test_control.Admission.test_other_endpoint) ... ok
+test_request_outside (test_control.Admission.test_request_outside) ... ok
+test_strict (test_control.Admission.test_strict) ... ok
+test_symlink (test_control.Admission.test_symlink) ... ok
+test_unrestored (test_control.Admission.test_unrestored) ... ok
+test_verify_real_overlay (test_control.Admission.test_verify_real_overlay) ... ok
+test_bad_echo (test_control.Classification.test_bad_echo) ... ok
+test_error (test_control.Classification.test_error) ... ok
+test_gap (test_control.Classification.test_gap) ... ok
+test_gap_boolean (test_control.Classification.test_gap_boolean) ... ok
+test_gap_nan (test_control.Classification.test_gap_nan) ... ok
+test_good (test_control.Classification.test_good) ... ok
+test_http (test_control.Classification.test_http) ... ok
+test_incomplete (test_control.Classification.test_incomplete) ... ok
+test_invalid_child (test_control.Classification.test_invalid_child) ... ok
+test_order (test_control.Classification.test_order) ... ok
+test_pid (test_control.Classification.test_pid) ... ok
+test_role (test_control.Classification.test_role) ... ok
+test_schedule (test_control.Classification.test_schedule) ... ok
+test_sequence (test_control.Classification.test_sequence) ... ok
+test_short (test_control.Classification.test_short) ... ok
+test_timeout (test_control.Classification.test_timeout) ... ok
+test_tls (test_control.Classification.test_tls) ... ok
+test_no_policy_mutators (test_control.SourceSafety.test_no_policy_mutators) ... ok
+test_original_transport_identity (test_control.SourceSafety.test_original_transport_identity) ... ok
+test_all_126 (test_controller.ControllerTests.test_all_126) ... ok
+test_parser (test_controller.ControllerTests.test_parser) ... ok
+test_runtime_tamper_rejected_before_network (test_controller.ControllerTests.test_runtime_tamper_rejected_before_network) ... ok
+test_timeout_preserved_and_continued (test_controller.ControllerTests.test_timeout_preserved_and_continued) ... ok
+test_real_TLS_valid_hostname_SNI_Host_and_echo (test_tls.HTTPSLocalTLSTests.test_real_TLS_valid_hostname_SNI_Host_and_echo) ... ok
+test_redirect_not_followed (test_tls.HTTPSLocalTLSTests.test_redirect_not_followed) ... ok
+test_untrusted_CA_is_rejected_after_TCP_connect (test_tls.HTTPSLocalTLSTests.test_untrusted_CA_is_rejected_after_TCP_connect) ... ok
+test_wrong_certificate_hostname_rejected (test_tls.HTTPSLocalTLSTests.test_wrong_certificate_hostname_rejected) ... ok
+test_wrong_echo_not_accepted (test_tls.HTTPSLocalTLSTests.test_wrong_echo_not_accepted) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 5.365s
+
+OK
