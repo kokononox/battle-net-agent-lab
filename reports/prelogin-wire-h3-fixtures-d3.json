@@ -1,0 +1,119 @@
+{
+  "schema": "bnet-h3-owned-fixtures-3",
+  "source_commit": "51fe44a6ff1cb2c2cde6eaaff64150e38f268a6b",
+  "run_id": "40080140535",
+  "target_launched": false,
+  "game_download_requested": false,
+  "raw_values_exported": false,
+  "tls_validation_changed": false,
+  "scope": "owned_loopback_and_example_com_only",
+  "async_scope": "event_WSAGetOverlappedResult_success_only",
+  "iocp_supported": false,
+  "callback_supported": false,
+  "all_network_paths_covered": false,
+  "passed": false,
+  "fixtures": [
+    {
+      "architecture": "x64",
+      "passed": false,
+      "stage": "complete",
+      "error_type": null,
+      "fixture_exit_code": 0,
+      "root_child_instrumented": true,
+      "bitness_confirmed": true,
+      "negative_encryption_observed": true,
+      "linked_probe_requests": 2,
+      "http_responses_linked": 2,
+      "collector_errors": 1,
+      "dropped_events": 0,
+      "collector_fatal": false,
+      "completed_operations": 2,
+      "pending_socket_events": 8,
+      "unlinked_immediate_socket_events": 5,
+      "diagnostics": {
+        "WSARecv|enter|overlapped_reuse": 1
+      },
+      "observations": {
+        "send|submission|synchronous": 9,
+        "recv|submission|synchronous": 34,
+        "WSARecv|submission|synchronous": 1,
+        "WSARecv|submission|pending": 9,
+        "GetOverlappedResult|completion_call|false": 1,
+        "GetOverlappedResult|completion_call|true": 2,
+        "WSASend|submission|immediate": 5,
+        "NtRemoveIoCompletion|completion_call|true": 2,
+        "GetQueuedCompletionStatus|completion_call|true": 2,
+        "NtRemoveIoCompletion|completion_call|false": 2,
+        "GetQueuedCompletionStatus|completion_call|false": 2,
+        "WSARecv|submission|immediate": 1,
+        "WSARecv|reuse|pending": 1
+      },
+      "capture_issues": {},
+      "packet_count": 154,
+      "witness": {
+        "large_recv": true,
+        "multibuffer_recv": true,
+        "pending_recv": true,
+        "false_completion_checked": true,
+        "async_recv": true,
+        "async_send": true
+      },
+      "hook_checks": {
+        "large_recv": true,
+        "multibuffer_recv": true,
+        "async_recv": true,
+        "async_send": true
+      }
+    },
+    {
+      "architecture": "x86",
+      "passed": true,
+      "stage": "complete",
+      "error_type": null,
+      "fixture_exit_code": 0,
+      "root_child_instrumented": true,
+      "bitness_confirmed": true,
+      "negative_encryption_observed": true,
+      "linked_probe_requests": 2,
+      "http_responses_linked": 2,
+      "collector_errors": 0,
+      "dropped_events": 0,
+      "collector_fatal": false,
+      "completed_operations": 2,
+      "pending_socket_events": 0,
+      "unlinked_immediate_socket_events": 0,
+      "diagnostics": {},
+      "observations": {
+        "send|submission|synchronous": 9,
+        "recv|submission|synchronous": 34,
+        "WSARecv|submission|synchronous": 1,
+        "WSARecv|submission|pending": 1,
+        "GetOverlappedResultEx|completion_call|false": 1,
+        "GetOverlappedResult|completion_call|false": 1,
+        "GetOverlappedResultEx|completion_call|true": 2,
+        "GetOverlappedResult|completion_call|true": 2,
+        "WSASend|submission|immediate": 1,
+        "NtRemoveIoCompletion|completion_call|true": 2,
+        "GetQueuedCompletionStatus|completion_call|true": 2,
+        "NtRemoveIoCompletion|completion_call|false": 2,
+        "GetQueuedCompletionStatus|completion_call|false": 2
+      },
+      "capture_issues": {},
+      "packet_count": 156,
+      "witness": {
+        "large_recv": true,
+        "multibuffer_recv": true,
+        "pending_recv": true,
+        "false_completion_checked": true,
+        "async_recv": true,
+        "async_send": true
+      },
+      "hook_checks": {
+        "large_recv": true,
+        "multibuffer_recv": true,
+        "async_recv": true,
+        "async_send": true
+      }
+    }
+  ]
+}
