@@ -36,10 +36,25 @@
   "ongoing_remote_access_available": false,
   "PHP_absolute_expiry_utc": "2026-10-26T05:47:49Z",
   "PHP_delete_after_testing_required": true,
-  "next_step": "Design bounded read-only connectivity measurements at the same 0.8.1 runtime paths and correlate TCP-stage failures before any further full rule test; preserve timeouts, zero retries, independent reference, and failed evidence.",
-  "user_action_now": "Do not repeat the full coexistence test yet. No restore/delete/rule change is indicated by this report; retain all journals and reports.",
+  "next_step": "Run the 0.1.1 read-only same-path add-on inside the already tested 0.8.1 directory, with existing VPN state and endpoint. Review its report before further full-rule testing.",
+  "user_action_now": "Extract only add-on files into existing 0.8.1 directory, run Start-Connectivity-SamePath.cmd normally, and send its automatic result ZIP. Do not re-run the full rule test or delete/move original files or journals.",
   "private_report_uploaded_to_repository": false,
   "raw_transcript_uploaded_to_repository": false,
   "runtime_binaries_uploaded_in_this_sync": false,
-  "main_modified": false
+  "main_modified": false,
+  "next_step_artifact": {
+    "version": "0.1.1",
+    "type": "addon_into_existing_tested_081_folder",
+    "source": "analysis/unifiedfw-samepath-diagnostic-0.1.1-2026-10-24/",
+    "launcher": "Start-Connectivity-SamePath.cmd",
+    "output": "UnifiedFW-SamePath-Results-*.zip",
+    "Windows_tested": false,
+    "runtime_replacements": 0,
+    "original_files_replaced": 0,
+    "firewall_mutations": false,
+    "attempts": 18,
+    "retry_count": 0,
+    "same_runtime_paths_required": true,
+    "same_previous_endpoint_required": true
+  }
 }
