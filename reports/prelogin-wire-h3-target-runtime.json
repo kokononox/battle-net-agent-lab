@@ -1,13 +1,13 @@
 {
-  "schema": "bnet-prelogin-wire-h3-target-6",
-  "source_commit": "58a40612ae03a47d2a11e09f04c64934e44c7360",
-  "run_id": "40087112086",
+  "schema": "bnet-prelogin-wire-h3-target-7",
+  "source_commit": "9cb8bd01d793a1cbb0d1e10afc28d231ed3ea775",
+  "run_id": "40087394664",
   "status": "observation_complete",
   "error_code": null,
   "selftest": {
     "schema": "bnet-h3-owned-fixtures-6",
-    "source_commit": "58a40612ae03a47d2a11e09f04c64934e44c7360",
-    "run_id": "40087112086",
+    "source_commit": "9cb8bd01d793a1cbb0d1e10afc28d231ed3ea775",
+    "run_id": "40087394664",
     "target_launched": false,
     "game_download_requested": false,
     "raw_values_exported": false,
@@ -35,13 +35,13 @@
         "collector_errors": 0,
         "dropped_events": 0,
         "collector_fatal": false,
-        "completed_operations": 8,
+        "completed_operations": 10,
         "pending_socket_events": 3,
-        "unlinked_immediate_socket_events": 7,
+        "unlinked_immediate_socket_events": 4,
         "diagnostics": {},
         "observations": {},
         "capture_issues": {},
-        "packet_count": 151,
+        "packet_count": 231,
         "witness": {
           "large_recv": true,
           "multibuffer_recv": true,
@@ -97,7 +97,7 @@
           "CreateThreadpoolIo|completion_call|true": 1
         },
         "capture_issues": {},
-        "packet_count": 96,
+        "packet_count": 168,
         "witness": {
           "large_recv": true,
           "multibuffer_recv": true,
@@ -133,18 +133,18 @@
       "pointer_bits": 32,
       "diagnostics": {},
       "observations": {
-        "send|submission|synchronous": 182,
-        "recv|submission|synchronous": 288,
-        "NtRemoveIoCompletion|completion_call|false": 14,
+        "send|submission|synchronous": 175,
+        "recv|submission|synchronous": 191,
+        "NtRemoveIoCompletion|completion_call|false": 9,
         "NtRemoveIoCompletion|completion_call|true": 45,
-        "NtRemoveIoCompletionEx|completion_call|false": 5564,
-        "NtRemoveIoCompletionEx|completion_call|true": 2123,
-        "GetOverlappedResultEx|completion_call|true": 4146,
-        "GetOverlappedResult|completion_call|true": 4146,
+        "NtRemoveIoCompletionEx|completion_call|false": 5506,
+        "NtRemoveIoCompletionEx|completion_call|true": 2096,
+        "GetOverlappedResultEx|completion_call|true": 4534,
+        "GetOverlappedResult|completion_call|true": 4534,
         "GetOverlappedResultEx|completion_call|false": 4,
         "GetOverlappedResult|completion_call|false": 4,
-        "GetQueuedCompletionStatusEx|completion_call|false": 5555,
-        "GetQueuedCompletionStatusEx|completion_call|true": 2108,
+        "GetQueuedCompletionStatusEx|completion_call|false": 5498,
+        "GetQueuedCompletionStatusEx|completion_call|true": 2082,
         "CreateThreadpoolIo|registration|true": 1,
         "CreateThreadpoolIo|completion_call|true": 2,
         "WSARecv|submission|pending": 2,
@@ -175,16 +175,16 @@
       "pointer_bits": 32,
       "diagnostics": {},
       "observations": {
-        "send|submission|synchronous": 173,
-        "recv|submission|synchronous": 112,
-        "NtRemoveIoCompletion|completion_call|true": 10,
-        "NtRemoveIoCompletionEx|completion_call|false": 4267,
-        "GetQueuedCompletionStatusEx|completion_call|false": 4267,
+        "send|submission|synchronous": 182,
+        "recv|submission|synchronous": 105,
+        "NtRemoveIoCompletion|completion_call|true": 11,
+        "NtRemoveIoCompletion|completion_call|false": 2,
         "NtRemoveIoCompletionEx|completion_call|true": 2,
         "GetQueuedCompletionStatusEx|completion_call|true": 2,
         "GetOverlappedResultEx|completion_call|true": 1,
         "GetOverlappedResult|completion_call|true": 1,
-        "NtRemoveIoCompletion|completion_call|false": 1
+        "NtRemoveIoCompletionEx|completion_call|false": 4343,
+        "GetQueuedCompletionStatusEx|completion_call|false": 4343
       },
       "completed_operations": 0,
       "unresolved_async_events": 0,
@@ -380,7 +380,7 @@
       "hardware_field_count": 22,
       "cpu_reference_match": true,
       "socket_send_linked": true,
-      "packet_bytes_linked": false,
+      "packet_bytes_linked": true,
       "http_response_status": null,
       "server_storage_proven": false
     },
@@ -404,30 +404,35 @@
       "hardware_field_count": 0,
       "cpu_reference_match": false,
       "socket_send_linked": true,
-      "packet_bytes_linked": false,
-      "http_response_status": null,
+      "packet_bytes_linked": true,
+      "http_response_status": 202,
       "server_storage_proven": false
     }
   ],
   "parse_states": {
     "complete": 12
   },
-  "network_linked_hardware_requests": 0,
+  "network_linked_hardware_requests": 1,
   "request_count": 18,
   "capture": {
     "start_code": 0,
     "stop_code": 0,
     "convert_code": 0,
-    "packets": 7219,
+    "packets": 6875,
     "issues": {
-      "ip_bounds": 24,
       "tcp_overlap_conflict": 2
     }
   },
   "capture_diagnostics": {
-    "etl_bytes": 27130758,
-    "pcap_bytes": 26415920,
+    "etl_bytes": 27428927,
+    "pcap_bytes": 26396020,
     "etl_at_configured_capacity": false
+  },
+  "capture_policy": {
+    "method": "disable_netadapter_lso",
+    "adapter_count": 3,
+    "previously_enabled_count": 3,
+    "verified_disabled": true
   },
   "link_diagnostics": [
     [
@@ -556,6 +561,52 @@
         "conflicted_segment_prefix_matches": 0,
         "conflicted_segment_middle_matches": 0,
         "conflicted_segment_suffix_matches": 0,
+        "plaintext_bytes": 101,
+        "encrypted_bytes": 123,
+        "pcap_prefix_matches": 2,
+        "pcap_middle_matches": 2,
+        "pcap_suffix_matches": 2,
+        "socket_matches": 1,
+        "socket_pid_match": true,
+        "packet_matches": 1,
+        "packet_prefix_matches": 1,
+        "packet_suffix_matches": 1
+      }
+    ],
+    [
+      {
+        "rejected_ip_prefix_matches": 0,
+        "rejected_ip_middle_matches": 0,
+        "rejected_ip_suffix_matches": 0,
+        "valid_segment_prefix_matches": 2,
+        "valid_segment_middle_matches": 2,
+        "valid_segment_suffix_matches": 2,
+        "conflicted_segment_prefix_matches": 0,
+        "conflicted_segment_middle_matches": 0,
+        "conflicted_segment_suffix_matches": 0,
+        "plaintext_bytes": 117,
+        "encrypted_bytes": 139,
+        "pcap_prefix_matches": 2,
+        "pcap_middle_matches": 2,
+        "pcap_suffix_matches": 2,
+        "socket_matches": 1,
+        "socket_pid_match": true,
+        "packet_matches": 1,
+        "packet_prefix_matches": 1,
+        "packet_suffix_matches": 1
+      }
+    ],
+    [
+      {
+        "rejected_ip_prefix_matches": 0,
+        "rejected_ip_middle_matches": 0,
+        "rejected_ip_suffix_matches": 0,
+        "valid_segment_prefix_matches": 2,
+        "valid_segment_middle_matches": 2,
+        "valid_segment_suffix_matches": 2,
+        "conflicted_segment_prefix_matches": 0,
+        "conflicted_segment_middle_matches": 0,
+        "conflicted_segment_suffix_matches": 0,
         "plaintext_bytes": 96,
         "encrypted_bytes": 118,
         "pcap_prefix_matches": 2,
@@ -627,52 +678,6 @@
         "conflicted_segment_suffix_matches": 0,
         "plaintext_bytes": 115,
         "encrypted_bytes": 137,
-        "pcap_prefix_matches": 2,
-        "pcap_middle_matches": 2,
-        "pcap_suffix_matches": 2,
-        "socket_matches": 1,
-        "socket_pid_match": true,
-        "packet_matches": 1,
-        "packet_prefix_matches": 1,
-        "packet_suffix_matches": 1
-      }
-    ],
-    [
-      {
-        "rejected_ip_prefix_matches": 0,
-        "rejected_ip_middle_matches": 0,
-        "rejected_ip_suffix_matches": 0,
-        "valid_segment_prefix_matches": 2,
-        "valid_segment_middle_matches": 2,
-        "valid_segment_suffix_matches": 2,
-        "conflicted_segment_prefix_matches": 0,
-        "conflicted_segment_middle_matches": 0,
-        "conflicted_segment_suffix_matches": 0,
-        "plaintext_bytes": 101,
-        "encrypted_bytes": 123,
-        "pcap_prefix_matches": 2,
-        "pcap_middle_matches": 2,
-        "pcap_suffix_matches": 2,
-        "socket_matches": 1,
-        "socket_pid_match": true,
-        "packet_matches": 1,
-        "packet_prefix_matches": 1,
-        "packet_suffix_matches": 1
-      }
-    ],
-    [
-      {
-        "rejected_ip_prefix_matches": 0,
-        "rejected_ip_middle_matches": 0,
-        "rejected_ip_suffix_matches": 0,
-        "valid_segment_prefix_matches": 2,
-        "valid_segment_middle_matches": 2,
-        "valid_segment_suffix_matches": 2,
-        "conflicted_segment_prefix_matches": 0,
-        "conflicted_segment_middle_matches": 0,
-        "conflicted_segment_suffix_matches": 0,
-        "plaintext_bytes": 117,
-        "encrypted_bytes": 139,
         "pcap_prefix_matches": 2,
         "pcap_middle_matches": 2,
         "pcap_suffix_matches": 2,
@@ -798,12 +803,12 @@
         "packet_suffix_matches": 1
       },
       {
-        "rejected_ip_prefix_matches": 2,
-        "rejected_ip_middle_matches": 2,
-        "rejected_ip_suffix_matches": 2,
-        "valid_segment_prefix_matches": 0,
-        "valid_segment_middle_matches": 0,
-        "valid_segment_suffix_matches": 0,
+        "rejected_ip_prefix_matches": 0,
+        "rejected_ip_middle_matches": 0,
+        "rejected_ip_suffix_matches": 0,
+        "valid_segment_prefix_matches": 2,
+        "valid_segment_middle_matches": 2,
+        "valid_segment_suffix_matches": 2,
         "conflicted_segment_prefix_matches": 0,
         "conflicted_segment_middle_matches": 0,
         "conflicted_segment_suffix_matches": 0,
@@ -814,9 +819,9 @@
         "pcap_suffix_matches": 2,
         "socket_matches": 1,
         "socket_pid_match": true,
-        "packet_matches": 0,
-        "packet_prefix_matches": 0,
-        "packet_suffix_matches": 0
+        "packet_matches": 1,
+        "packet_prefix_matches": 1,
+        "packet_suffix_matches": 1
       }
     ],
     [
@@ -865,12 +870,12 @@
         "packet_suffix_matches": 1
       },
       {
-        "rejected_ip_prefix_matches": 2,
-        "rejected_ip_middle_matches": 2,
-        "rejected_ip_suffix_matches": 2,
-        "valid_segment_prefix_matches": 0,
-        "valid_segment_middle_matches": 0,
-        "valid_segment_suffix_matches": 0,
+        "rejected_ip_prefix_matches": 0,
+        "rejected_ip_middle_matches": 0,
+        "rejected_ip_suffix_matches": 0,
+        "valid_segment_prefix_matches": 2,
+        "valid_segment_middle_matches": 2,
+        "valid_segment_suffix_matches": 2,
         "conflicted_segment_prefix_matches": 0,
         "conflicted_segment_middle_matches": 0,
         "conflicted_segment_suffix_matches": 0,
@@ -881,9 +886,9 @@
         "pcap_suffix_matches": 2,
         "socket_matches": 1,
         "socket_pid_match": true,
-        "packet_matches": 0,
-        "packet_prefix_matches": 0,
-        "packet_suffix_matches": 0
+        "packet_matches": 1,
+        "packet_prefix_matches": 1,
+        "packet_suffix_matches": 1
       }
     ]
   ],
