@@ -1,0 +1,405 @@
+{
+  "initial": {
+    "schema": "unified-firewall-plan-1",
+    "config_digest": "2e1da917b75b4627d4665876fb0a3c3a136bf5f88c36b4438d7ae66457cf4eb8",
+    "owner": "cccccccccccccccccccccccccccccccc",
+    "rules": [
+      {
+        "name": "UnifiedFW-cccccccccccccccccccccccccccccccc-blacklist-4016d10a68d006891a2a45c7",
+        "owner": "cccccccccccccccccccccccccccccccc",
+        "component": "blacklist",
+        "spec": {
+          "program_id": "104264f4e8d96bc7860d5da9",
+          "program": "C:\\Example\\Game.exe",
+          "action": "Block",
+          "direction": "Outbound",
+          "interface_type": "Any",
+          "protocol": "TCP",
+          "port": 443,
+          "remote_addresses": [
+            "8.8.8.8/32"
+          ],
+          "profile": "Any",
+          "local_addresses": [
+            "Any"
+          ],
+          "local_port": "Any",
+          "interface_alias": "Any",
+          "service": "Any",
+          "edge_traversal": "Block",
+          "authentication": "NotRequired",
+          "encryption": "NotRequired",
+          "override_block_rules": false
+        }
+      },
+      {
+        "name": "UnifiedFW-cccccccccccccccccccccccccccccccc-blacklist-23c2fd050d0e477e6dd0f28e",
+        "owner": "cccccccccccccccccccccccccccccccc",
+        "component": "blacklist",
+        "spec": {
+          "program_id": "764af1f409d682596996048f",
+          "program": "C:\\Example\\Agent.exe",
+          "action": "Block",
+          "direction": "Outbound",
+          "interface_type": "Any",
+          "protocol": "TCP",
+          "port": 443,
+          "remote_addresses": [
+            "8.8.8.8/32"
+          ],
+          "profile": "Any",
+          "local_addresses": [
+            "Any"
+          ],
+          "local_port": "Any",
+          "interface_alias": "Any",
+          "service": "Any",
+          "edge_traversal": "Block",
+          "authentication": "NotRequired",
+          "encryption": "NotRequired",
+          "override_block_rules": false
+        }
+      },
+      {
+        "name": "UnifiedFW-cccccccccccccccccccccccccccccccc-whitelist-e6bd8a01ebfa325a76ecadd8",
+        "owner": "cccccccccccccccccccccccccccccccc",
+        "component": "whitelist",
+        "spec": {
+          "program_id": null,
+          "program": "Any",
+          "action": "Block",
+          "direction": "Outbound",
+          "interface_type": "RemoteAccess",
+          "protocol": "Any",
+          "port": "Any",
+          "remote_addresses": [
+            "0.0.0.0/5",
+            "8.0.0.0/13",
+            "8.8.0.0/21",
+            "8.8.9.0/24",
+            "8.8.10.0/23",
+            "8.8.12.0/22",
+            "8.8.16.0/20",
+            "8.8.32.0/19",
+            "8.8.64.0/18",
+            "8.8.128.0/17",
+            "8.9.0.0/16",
+            "8.10.0.0/15",
+            "8.12.0.0/14",
+            "8.16.0.0/12",
+            "8.32.0.0/11",
+            "8.64.0.0/10",
+            "8.128.0.0/9",
+            "9.0.0.0/8",
+            "10.0.0.0/7",
+            "12.0.0.0/6",
+            "16.0.0.0/4",
+            "32.0.0.0/3",
+            "64.0.0.0/2",
+            "128.0.0.0/1"
+          ],
+          "profile": "Any",
+          "local_addresses": [
+            "Any"
+          ],
+          "local_port": "Any",
+          "interface_alias": "Any",
+          "service": "Any",
+          "edge_traversal": "Block",
+          "authentication": "NotRequired",
+          "encryption": "NotRequired",
+          "override_block_rules": false
+        }
+      },
+      {
+        "name": "UnifiedFW-cccccccccccccccccccccccccccccccc-whitelist-83d1f52787ec6b635bf83241",
+        "owner": "cccccccccccccccccccccccccccccccc",
+        "component": "whitelist",
+        "spec": {
+          "program_id": null,
+          "program": "Any",
+          "action": "Block",
+          "direction": "Outbound",
+          "interface_type": "RemoteAccess",
+          "protocol": "Any",
+          "port": "Any",
+          "remote_addresses": [
+            "::/1",
+            "8000::/1"
+          ],
+          "profile": "Any",
+          "local_addresses": [
+            "Any"
+          ],
+          "local_port": "Any",
+          "interface_alias": "Any",
+          "service": "Any",
+          "edge_traversal": "Block",
+          "authentication": "NotRequired",
+          "encryption": "NotRequired",
+          "override_block_rules": false
+        }
+      }
+    ],
+    "overlaps": [
+      {
+        "kind": "blacklist_overrides_whitelist",
+        "severity": "notice",
+        "entry_id": "786e47871f5edf0593f4e82f",
+        "program_ids": [
+          "104264f4e8d96bc7860d5da9",
+          "764af1f409d682596996048f"
+        ],
+        "protocol": "TCP",
+        "port": 443,
+        "resolution": "block_on_matching_program_and_transport; no_silent_allow_override"
+      }
+    ],
+    "blockers": [
+      "production_firewall_activation_not_enabled",
+      "shared_restore_not_windows_tested",
+      "legacy_feature_migration_incomplete"
+    ],
+    "activation_allowed": false,
+    "policy_scope": "whitelist_global_on_RemoteAccess; blacklist_per_selected_executable",
+    "no_leak_certified": false,
+    "existing_rule_effects": "not_loaded_or_verified",
+    "hosts_changes": []
+  },
+  "one_program_removed": {
+    "schema": "unified-firewall-plan-1",
+    "config_digest": "357d4a71474cd386d6f22deeffcf49888b41e9b05395bb5880f86792ff548a73",
+    "owner": "cccccccccccccccccccccccccccccccc",
+    "rules": [
+      {
+        "name": "UnifiedFW-cccccccccccccccccccccccccccccccc-blacklist-23c2fd050d0e477e6dd0f28e",
+        "owner": "cccccccccccccccccccccccccccccccc",
+        "component": "blacklist",
+        "spec": {
+          "program_id": "764af1f409d682596996048f",
+          "program": "C:\\Example\\Agent.exe",
+          "action": "Block",
+          "direction": "Outbound",
+          "interface_type": "Any",
+          "protocol": "TCP",
+          "port": 443,
+          "remote_addresses": [
+            "8.8.8.8/32"
+          ],
+          "profile": "Any",
+          "local_addresses": [
+            "Any"
+          ],
+          "local_port": "Any",
+          "interface_alias": "Any",
+          "service": "Any",
+          "edge_traversal": "Block",
+          "authentication": "NotRequired",
+          "encryption": "NotRequired",
+          "override_block_rules": false
+        }
+      },
+      {
+        "name": "UnifiedFW-cccccccccccccccccccccccccccccccc-whitelist-e6bd8a01ebfa325a76ecadd8",
+        "owner": "cccccccccccccccccccccccccccccccc",
+        "component": "whitelist",
+        "spec": {
+          "program_id": null,
+          "program": "Any",
+          "action": "Block",
+          "direction": "Outbound",
+          "interface_type": "RemoteAccess",
+          "protocol": "Any",
+          "port": "Any",
+          "remote_addresses": [
+            "0.0.0.0/5",
+            "8.0.0.0/13",
+            "8.8.0.0/21",
+            "8.8.9.0/24",
+            "8.8.10.0/23",
+            "8.8.12.0/22",
+            "8.8.16.0/20",
+            "8.8.32.0/19",
+            "8.8.64.0/18",
+            "8.8.128.0/17",
+            "8.9.0.0/16",
+            "8.10.0.0/15",
+            "8.12.0.0/14",
+            "8.16.0.0/12",
+            "8.32.0.0/11",
+            "8.64.0.0/10",
+            "8.128.0.0/9",
+            "9.0.0.0/8",
+            "10.0.0.0/7",
+            "12.0.0.0/6",
+            "16.0.0.0/4",
+            "32.0.0.0/3",
+            "64.0.0.0/2",
+            "128.0.0.0/1"
+          ],
+          "profile": "Any",
+          "local_addresses": [
+            "Any"
+          ],
+          "local_port": "Any",
+          "interface_alias": "Any",
+          "service": "Any",
+          "edge_traversal": "Block",
+          "authentication": "NotRequired",
+          "encryption": "NotRequired",
+          "override_block_rules": false
+        }
+      },
+      {
+        "name": "UnifiedFW-cccccccccccccccccccccccccccccccc-whitelist-83d1f52787ec6b635bf83241",
+        "owner": "cccccccccccccccccccccccccccccccc",
+        "component": "whitelist",
+        "spec": {
+          "program_id": null,
+          "program": "Any",
+          "action": "Block",
+          "direction": "Outbound",
+          "interface_type": "RemoteAccess",
+          "protocol": "Any",
+          "port": "Any",
+          "remote_addresses": [
+            "::/1",
+            "8000::/1"
+          ],
+          "profile": "Any",
+          "local_addresses": [
+            "Any"
+          ],
+          "local_port": "Any",
+          "interface_alias": "Any",
+          "service": "Any",
+          "edge_traversal": "Block",
+          "authentication": "NotRequired",
+          "encryption": "NotRequired",
+          "override_block_rules": false
+        }
+      }
+    ],
+    "overlaps": [
+      {
+        "kind": "blacklist_overrides_whitelist",
+        "severity": "notice",
+        "entry_id": "679a327dd35dc3f1d5df94e8",
+        "program_ids": [
+          "764af1f409d682596996048f"
+        ],
+        "protocol": "TCP",
+        "port": 443,
+        "resolution": "block_on_matching_program_and_transport; no_silent_allow_override"
+      }
+    ],
+    "blockers": [
+      "production_firewall_activation_not_enabled",
+      "shared_restore_not_windows_tested",
+      "legacy_feature_migration_incomplete"
+    ],
+    "activation_allowed": false,
+    "policy_scope": "whitelist_global_on_RemoteAccess; blacklist_per_selected_executable",
+    "no_leak_certified": false,
+    "existing_rule_effects": "not_loaded_or_verified",
+    "hosts_changes": []
+  },
+  "blacklist_removed": {
+    "schema": "unified-firewall-plan-1",
+    "config_digest": "3e32aa00782c994966ebb702159893e334f50e0d86f8b97d083fdf55c21fbd78",
+    "owner": "cccccccccccccccccccccccccccccccc",
+    "rules": [
+      {
+        "name": "UnifiedFW-cccccccccccccccccccccccccccccccc-whitelist-e6bd8a01ebfa325a76ecadd8",
+        "owner": "cccccccccccccccccccccccccccccccc",
+        "component": "whitelist",
+        "spec": {
+          "program_id": null,
+          "program": "Any",
+          "action": "Block",
+          "direction": "Outbound",
+          "interface_type": "RemoteAccess",
+          "protocol": "Any",
+          "port": "Any",
+          "remote_addresses": [
+            "0.0.0.0/5",
+            "8.0.0.0/13",
+            "8.8.0.0/21",
+            "8.8.9.0/24",
+            "8.8.10.0/23",
+            "8.8.12.0/22",
+            "8.8.16.0/20",
+            "8.8.32.0/19",
+            "8.8.64.0/18",
+            "8.8.128.0/17",
+            "8.9.0.0/16",
+            "8.10.0.0/15",
+            "8.12.0.0/14",
+            "8.16.0.0/12",
+            "8.32.0.0/11",
+            "8.64.0.0/10",
+            "8.128.0.0/9",
+            "9.0.0.0/8",
+            "10.0.0.0/7",
+            "12.0.0.0/6",
+            "16.0.0.0/4",
+            "32.0.0.0/3",
+            "64.0.0.0/2",
+            "128.0.0.0/1"
+          ],
+          "profile": "Any",
+          "local_addresses": [
+            "Any"
+          ],
+          "local_port": "Any",
+          "interface_alias": "Any",
+          "service": "Any",
+          "edge_traversal": "Block",
+          "authentication": "NotRequired",
+          "encryption": "NotRequired",
+          "override_block_rules": false
+        }
+      },
+      {
+        "name": "UnifiedFW-cccccccccccccccccccccccccccccccc-whitelist-83d1f52787ec6b635bf83241",
+        "owner": "cccccccccccccccccccccccccccccccc",
+        "component": "whitelist",
+        "spec": {
+          "program_id": null,
+          "program": "Any",
+          "action": "Block",
+          "direction": "Outbound",
+          "interface_type": "RemoteAccess",
+          "protocol": "Any",
+          "port": "Any",
+          "remote_addresses": [
+            "::/1",
+            "8000::/1"
+          ],
+          "profile": "Any",
+          "local_addresses": [
+            "Any"
+          ],
+          "local_port": "Any",
+          "interface_alias": "Any",
+          "service": "Any",
+          "edge_traversal": "Block",
+          "authentication": "NotRequired",
+          "encryption": "NotRequired",
+          "override_block_rules": false
+        }
+      }
+    ],
+    "overlaps": [],
+    "blockers": [
+      "production_firewall_activation_not_enabled",
+      "shared_restore_not_windows_tested",
+      "legacy_feature_migration_incomplete"
+    ],
+    "activation_allowed": false,
+    "policy_scope": "whitelist_global_on_RemoteAccess; blacklist_per_selected_executable",
+    "no_leak_certified": false,
+    "existing_rule_effects": "not_loaded_or_verified",
+    "hosts_changes": []
+  }
+}
