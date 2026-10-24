@@ -1,0 +1,43 @@
+{
+  "schema": "unifiedfw-sanitized-samepath-011-windows-result-1",
+  "observed_date_utc": "2026-10-24",
+  "source_archive_sha256": "b7ce23f243042b120c03a430dcd52fbd4be14e88f21a3ec9f90e8cf8afbfb9f9",
+  "archive_manifest_members_verified": 3,
+  "tool_source_commit": "6af2d309e119daf910161123dd289077af9c1f4c",
+  "tool_version": "0.1.1",
+  "completed": true,
+  "outcome": "all_18_attempts_succeeded",
+  "attempts": 18,
+  "valid_echoes_by_role": {
+    "A": 6,
+    "B": 6,
+    "REF": 6
+  },
+  "failures_observed": 0,
+  "same_081_runtime_paths_and_endpoint_local_admission_passed": true,
+  "prior_policy_restoration_record_accepted": true,
+  "prior_record_is_not_live_policy_query": true,
+  "gap_seconds": 4,
+  "TCP_connect_timeout_seconds": 3,
+  "automatic_retries": 0,
+  "firewall_mutation_attempted": false,
+  "VPN_or_route_changes_attempted": false,
+  "new_user_site_or_credentials_in_repo": false,
+  "comparison_limits": [
+    "18 attempts is not load/duration matched to the 126-attempt coexistence run.",
+    "Standalone/same-path reference launches a fresh PowerShell process per REF; coexistence uses the controller process.",
+    "Success under these conditions does not determine intermittent timeout root cause or qualify global whitelist/coexistence/no-leak."
+  ],
+  "prior_081_coexistence_outcome_unchanged": "inconclusive",
+  "root_cause_proven": false,
+  "protection_verified": false,
+  "redactions": [
+    "hostnames",
+    "IP_addresses",
+    "EXE_paths",
+    "exact_timestamps",
+    "request_ids",
+    "nonces",
+    "raw_reports"
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-24T07:57:46.315387+00:00",
+  "as_of_utc": "2026-10-24T08:14:50.868621+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -55,7 +55,7 @@
     "in_world_network_metadata_user_confirmed_20261022": true,
     "in_world_network_metadata_evidence": "reports/session-20261022/wow-network-evidence.json"
   },
-  "user_action_now": "Extract only add-on files into existing 0.8.1 directory, run Start-Connectivity-SamePath.cmd normally, and send its automatic result ZIP. Do not re-run the full rule test or delete/move original files or journals.",
+  "user_action_now": "No repeat of either the full rule test or the 18-attempt diagnostic requested. Await a bounded matched-control design; keep original package, reports and journals.",
   "sync_scope": "Sanitized source and derived evidence plus the user-authorized private three-file archive exception. All five archive parts uploaded and verified by Git blob identity and size against local verified bytes. No raw crash report, raw pcap, keys or private paths uploaded.",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
@@ -462,8 +462,8 @@
     "ongoing_remote_access_available": false,
     "PHP_absolute_expiry_utc": "2026-10-26T05:47:49Z",
     "PHP_delete_after_testing_required": true,
-    "next_step": "Run the 0.1.1 read-only same-path add-on inside the already tested 0.8.1 directory, with existing VPN state and endpoint. Review its report before further full-rule testing.",
-    "user_action_now": "Extract only add-on files into existing 0.8.1 directory, run Start-Connectivity-SamePath.cmd normally, and send its automatic result ZIP. Do not re-run the full rule test or delete/move original files or journals.",
+    "next_step": "Design a no-mutation connectivity control matched to the 126 attempts and long-lived PowerShell reference of coexistence at the same runtime paths, before further rule tests. Keep failures and original timeouts; do not infer root cause from the 18-attempt pass.",
+    "user_action_now": "No repeat of either the full rule test or the 18-attempt diagnostic requested. Await a bounded matched-control design; keep original package, reports and journals.",
     "private_report_uploaded_to_repository": false,
     "raw_transcript_uploaded_to_repository": false,
     "runtime_binaries_uploaded_in_this_sync": false,
@@ -474,14 +474,17 @@
       "source": "analysis/unifiedfw-samepath-diagnostic-0.1.1-2026-10-24/",
       "launcher": "Start-Connectivity-SamePath.cmd",
       "output": "UnifiedFW-SamePath-Results-*.zip",
-      "Windows_tested": false,
+      "Windows_tested": true,
       "runtime_replacements": 0,
       "original_files_replaced": 0,
       "firewall_mutations": false,
       "attempts": 18,
       "retry_count": 0,
       "same_runtime_paths_required": true,
-      "same_previous_endpoint_required": true
-    }
+      "same_previous_endpoint_required": true,
+      "Windows_result": "all_18_attempts_succeeded"
+    },
+    "latest_samepath_diagnostic_receipt": "reports/unifiedfw-session-20261024/windows-samepath-011-review.json",
+    "latest_samepath_diagnostic_passed": true
   }
 }
