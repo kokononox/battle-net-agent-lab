@@ -1,0 +1,76 @@
+name: H3 owned x86 x64 collector qualification only
+on:
+  push:
+    branches: [research/prelogin-telemetry-wow-data-provenance]
+    paths:
+      - 'analysis-tools/prelogin-wire-h3/**'
+      - '.github/workflows/prelogin-wire-h3-fixtures.yml'
+permissions: {}
+concurrency:
+  group: prelogin-wire-h3-fixtures-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  qualify:
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned h3 fixtures 20261024-d1'
+    runs-on: windows-2025
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Existing safety and frozen H2 tests
+        run: |
+          python scripts/run_safety_tests.py --output output
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest discover -s analysis-tools/prelogin-wire-h2 -p 'test_*.py' -v
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: H3 observer contract and negative tests
+        run: |
+          python -m unittest discover -s analysis-tools/prelogin-wire-h3 -p 'test_*.py' -v
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Install pinned observer only
+        run: python -m pip install --disable-pip-version-check frida==17.24.2
+      - name: Owned x64 and x86 loopback plus trusted example.com only
+        env:
+          BNET_H3_FIXTURE: owned-only-20261024-d1
+        run: python analysis-tools/prelogin-wire-h3/fixture_only.py
+      - name: Strict allowlist summary only
+        if: always()
+        run: python analysis-tools/prelogin-wire-h3/validate.py output/prelogin-h3-fixtures.json sanitized/prelogin-h3-fixtures.json
+      - name: Upload no raw buffers packets binaries or exception messages
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: prelogin-h3-fixtures-summary
+          path: sanitized/prelogin-h3-fixtures.json
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: qualify
+    if: needs.qualify.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: research/prelogin-telemetry-wow-data-provenance
+          persist-credentials: true
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: prelogin-h3-fixtures-summary
+          path: incoming
+      - name: Revalidate and publish only safe owned-fixture evidence
+        run: |
+          set -euo pipefail
+          python analysis-tools/prelogin-wire-h3/validate.py incoming/prelogin-h3-fixtures.json reports/prelogin-wire-h3-fixtures-d1.json
+          git config user.name prelogin-wire-report
+          git config user.email prelogin-wire-report@users.noreply.github.com
+          git add -- reports/prelogin-wire-h3-fixtures-d1.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'lab: publish owned H3 d1 collector qualification summary'
+          git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
