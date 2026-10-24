@@ -1,0 +1,80 @@
+{
+  "assertions": 139,
+  "passed": true,
+  "apply_exception_checkpoints": 17,
+  "restore_exception_checkpoints": 8,
+  "capture_exception_checkpoints": 4,
+  "semantic_failure_after_capture_tested": true,
+  "windows_executed": false,
+  "disabled_orphan_manual_inspection_cases": 4,
+  "cases": [
+    {
+      "checkpoint": "before_create:UnifiedFW-0123456789abcdef0123456789abcdef-blacklist-000000000000000000000001",
+      "result": "restored"
+    },
+    {
+      "checkpoint": "after_create:UnifiedFW-0123456789abcdef0123456789abcdef-blacklist-000000000000000000000001",
+      "result": "disabled_orphan_requires_inspection"
+    },
+    {
+      "checkpoint": "sealed:UnifiedFW-0123456789abcdef0123456789abcdef-blacklist-000000000000000000000001",
+      "result": "restored"
+    },
+    {
+      "checkpoint": "after_enable:UnifiedFW-0123456789abcdef0123456789abcdef-blacklist-000000000000000000000001",
+      "result": "restored"
+    },
+    {
+      "checkpoint": "before_create:UnifiedFW-0123456789abcdef0123456789abcdef-blacklist-000000000000000000000002",
+      "result": "restored"
+    },
+    {
+      "checkpoint": "after_create:UnifiedFW-0123456789abcdef0123456789abcdef-blacklist-000000000000000000000002",
+      "result": "disabled_orphan_requires_inspection"
+    },
+    {
+      "checkpoint": "sealed:UnifiedFW-0123456789abcdef0123456789abcdef-blacklist-000000000000000000000002",
+      "result": "restored"
+    },
+    {
+      "checkpoint": "after_enable:UnifiedFW-0123456789abcdef0123456789abcdef-blacklist-000000000000000000000002",
+      "result": "restored"
+    },
+    {
+      "checkpoint": "before_create:UnifiedFW-0123456789abcdef0123456789abcdef-whitelist-000000000000000000000003",
+      "result": "restored"
+    },
+    {
+      "checkpoint": "after_create:UnifiedFW-0123456789abcdef0123456789abcdef-whitelist-000000000000000000000003",
+      "result": "disabled_orphan_requires_inspection"
+    },
+    {
+      "checkpoint": "sealed:UnifiedFW-0123456789abcdef0123456789abcdef-whitelist-000000000000000000000003",
+      "result": "restored"
+    },
+    {
+      "checkpoint": "after_enable:UnifiedFW-0123456789abcdef0123456789abcdef-whitelist-000000000000000000000003",
+      "result": "restored"
+    },
+    {
+      "checkpoint": "before_create:UnifiedFW-0123456789abcdef0123456789abcdef-whitelist-000000000000000000000004",
+      "result": "restored"
+    },
+    {
+      "checkpoint": "after_create:UnifiedFW-0123456789abcdef0123456789abcdef-whitelist-000000000000000000000004",
+      "result": "disabled_orphan_requires_inspection"
+    },
+    {
+      "checkpoint": "sealed:UnifiedFW-0123456789abcdef0123456789abcdef-whitelist-000000000000000000000004",
+      "result": "restored"
+    },
+    {
+      "checkpoint": "after_enable:UnifiedFW-0123456789abcdef0123456789abcdef-whitelist-000000000000000000000004",
+      "result": "restored"
+    },
+    {
+      "checkpoint": "applied",
+      "result": "restored"
+    }
+  ]
+}
