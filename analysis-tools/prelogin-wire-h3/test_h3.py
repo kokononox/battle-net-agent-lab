@@ -20,7 +20,7 @@ class HookContract(unittest.TestCase):
 class ManagerTests(unittest.TestCase):
     def setUp(self):
         self.m=Manager.__new__(Manager);self.m.lock=threading.Lock();self.m.inputs=[];self.m.total_bytes=0;self.m.dropped=0
-        self.row={'pid':1,'sha256':'a'*64,'script_errors':0,'diagnostics':{},'completed_operations':0,'input_events':0,'installed_hooks':[]}
+        self.row={'pid':1,'sha256':'a'*64,'script_errors':0,'diagnostics':{},'observations':{},'completed_operations':0,'input_events':0,'installed_hooks':[]}
     def msg(self,e,raw=b''):self.m.message(self.row,{'type':'send','payload':e},raw)
     def pending(self,kind='recv'):
         self.msg({'kind':kind,'api':'WSARecv' if kind=='recv' else 'WSASend','order':1,'socket':'s1','operation':'o1','asynchronous':True,'completion_proven':False,'return_code':-1,'accepted_bytes':None,'declared_bytes':1000000,'complete':True,'ambiguous':False},b'ABCD' if kind=='send' else b'')
@@ -50,6 +50,10 @@ class ManagerTests(unittest.TestCase):
         self.msg({'kind':'read_error','api':'recv','phase':'leave','reason':'bounded'});self.assertEqual(self.row['diagnostics'],{'recv|leave|bounded':1})
     def test_private_exception_not_exported(self):
         self.msg({'kind':'read_error','api':'PRIVATE','phase':'SECRET','reason':'ADDRESS'});self.assertEqual(self.row['diagnostics'],{'other|other|other':1})
+    def test_census_is_not_completion(self):
+        self.pending();self.msg({'kind':'probe','api':'GetQueuedCompletionStatus','phase':'completion_call','state':'true'})
+        self.assertFalse(self.m.inputs[0]['completion_proven'])
+        self.assertEqual(self.row['observations'],{'GetQueuedCompletionStatus|completion_call|true':1})
     def test_ready_bitness(self):
         self.msg({'kind':'ready','pointer_bits':32});self.assertEqual(self.row['pointer_bits'],32)
     def test_completion_budget_keeps_barrier(self):

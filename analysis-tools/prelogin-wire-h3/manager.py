@@ -80,6 +80,15 @@ class Manager:
                 reasons = {'bounded','buffer_count','data_layout','stream_layout','socket_limit','context_limit','accepted_bounds','pending_limit','overlapped_reuse','callback_unsupported','completion_unmatched','memory_access','missing_export'}
                 key = '|'.join((event.get('api') if event.get('api') in apis else 'other', event.get('phase') if event.get('phase') in phases else 'other', event.get('reason') if event.get('reason') in reasons else 'other'))
                 row['diagnostics'][key] = row['diagnostics'].get(key, 0) + 1
+            elif kind == 'probe':
+                apis={'send','recv','WSASend','WSARecv','GetQueuedCompletionStatus','GetQueuedCompletionStatusEx','GetOverlappedResult','GetOverlappedResultEx','NtRemoveIoCompletion','NtRemoveIoCompletionEx'}
+                phases={'submission','reuse','completion_call'}
+                states={'pending','non_pending_error','unknown_error','immediate','synchronous','true','false'}
+                if event.get('api') not in apis or event.get('phase') not in phases or event.get('state') not in states:
+                    row['script_errors'] += 1
+                    return
+                key='|'.join((event['api'],event['phase'],event['state']))
+                row['observations'][key]=row['observations'].get(key,0)+1
             elif kind == 'socket_complete':
                 op = event.get('operation')
                 matches = [x for x in self.inputs if x.get('pid') == row['pid'] and x.get('operation') == op and x.get('asynchronous') is True]
@@ -130,7 +139,7 @@ class Manager:
             "status": "paused", "phase": "verify", "error_kind": None,
             "hook_ready": False, "child_gating_enabled": False,
             "instrumented_before_resume": False, "installed_hooks": [],
-            "input_events": 0, "script_errors": 0, "pointer_bits": None, "diagnostics": {}, "completed_operations": 0,
+            "input_events": 0, "script_errors": 0, "pointer_bits": None, "diagnostics": {}, "observations": {}, "completed_operations": 0,
         }
         self.rows[pid] = row
         session = None

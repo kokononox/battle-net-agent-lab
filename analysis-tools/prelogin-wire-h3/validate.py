@@ -14,13 +14,13 @@ def require(x):
 def count(x):require(type(x) is int and 0<=x<=10000000)
 def validate(r):
     require(type(r) is dict and set(r)=={'schema','source_commit','run_id','target_launched','game_download_requested','raw_values_exported','tls_validation_changed','scope','async_scope','iocp_supported','callback_supported','all_network_paths_covered','passed','fixtures'})
-    require(r['schema']=='bnet-h3-owned-fixtures-2' and type(r['source_commit']) is str and re.fullmatch('[0-9a-f]{40}',r['source_commit']) and type(r['run_id']) is str and re.fullmatch('[0-9]{1,20}',r['run_id']))
+    require(r['schema']=='bnet-h3-owned-fixtures-3' and type(r['source_commit']) is str and re.fullmatch('[0-9a-f]{40}',r['source_commit']) and type(r['run_id']) is str and re.fullmatch('[0-9]{1,20}',r['run_id']))
     for k in ('target_launched','game_download_requested','raw_values_exported','tls_validation_changed','iocp_supported','callback_supported','all_network_paths_covered'):require(r[k] is False)
     require(r['scope']=='owned_loopback_and_example_com_only' and r['async_scope']=='event_WSAGetOverlappedResult_success_only')
     require(type(r['passed']) is bool and type(r['fixtures']) is list and len(r['fixtures'])==2)
     require([x['architecture'] for x in r['fixtures']]==['x64','x86'])
     for f in r['fixtures']:
-        require(set(f)==BOOLS|COUNTS|{'architecture','stage','error_type','fixture_exit_code','diagnostics','capture_issues','witness','hook_checks'})
+        require(set(f)==BOOLS|COUNTS|{'architecture','stage','error_type','fixture_exit_code','diagnostics','observations','capture_issues','witness','hook_checks'})
         for k in BOOLS:require(type(f[k]) is bool)
         for k in COUNTS:count(f[k])
         require(f['stage'] in ('compile','capture','spawn','wait','analyze','complete'))
@@ -32,6 +32,10 @@ def validate(r):
         for k,v in f['diagnostics'].items():
             parts=k.split('|');require(len(parts)==3 and parts[0] in APIS and parts[1] in ('enter','leave','install','completion','other') and parts[2] in REASONS);count(v)
         require(sum(f['diagnostics'].values())<=f['collector_errors'])
+        require(type(f['observations']) is dict and len(f['observations'])<=100)
+        for k,v in f['observations'].items():
+            parts=k.split('|');require(len(parts)==3 and parts[0] in {'send','recv','WSASend','WSARecv','GetQueuedCompletionStatus','GetQueuedCompletionStatusEx','GetOverlappedResult','GetOverlappedResultEx','NtRemoveIoCompletion','NtRemoveIoCompletionEx'} and parts[1] in {'submission','reuse','completion_call'} and parts[2] in {'pending','non_pending_error','unknown_error','immediate','synchronous','true','false'});count(v)
+
         require(type(f['capture_issues']) is dict and len(f['capture_issues'])<=32)
         for k,v in f['capture_issues'].items():
             require(k in {'snapshot_truncated','short_ethernet','unsupported_link','short_ip','ip_bounds','ip_fragments_unsupported','short_ip6','ip6_bounds','ipv6_extension_unsupported','short_tcp','tcp_bounds','tcp_overlap_conflict'});count(v)

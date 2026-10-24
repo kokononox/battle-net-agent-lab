@@ -12,7 +12,7 @@ concurrency:
 jobs:
   qualify:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned h3 fixtures 20261024-d2'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned h3 fixtures 20261024-d3'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -35,7 +35,7 @@ jobs:
         run: python -m pip install --disable-pip-version-check frida==17.24.2
       - name: Owned x64 and x86 loopback plus trusted example.com only
         env:
-          BNET_H3_FIXTURE: owned-only-20261024-d2
+          BNET_H3_FIXTURE: owned-only-20261024-d3
         run: python analysis-tools/prelogin-wire-h3/fixture_only.py
       - name: Strict allowlist summary only
         if: always()
@@ -67,10 +67,10 @@ jobs:
       - name: Revalidate and publish only safe owned-fixture evidence
         run: |
           set -euo pipefail
-          python analysis-tools/prelogin-wire-h3/validate.py incoming/prelogin-h3-fixtures.json reports/prelogin-wire-h3-fixtures-d2.json
+          python analysis-tools/prelogin-wire-h3/validate.py incoming/prelogin-h3-fixtures.json reports/prelogin-wire-h3-fixtures-d3.json
           git config user.name prelogin-wire-report
           git config user.email prelogin-wire-report@users.noreply.github.com
-          git add -- reports/prelogin-wire-h3-fixtures-d2.json
+          git add -- reports/prelogin-wire-h3-fixtures-d3.json
           git diff --cached --quiet && exit 0
-          git commit -m 'lab: publish owned H3 d2 collector qualification summary'
+          git commit -m 'lab: publish owned H3 d3 collector qualification summary'
           git push origin HEAD:research/prelogin-telemetry-wow-data-provenance

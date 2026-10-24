@@ -43,17 +43,26 @@ function network(mod){
       const s=socket(args[0]);if(!s)fault('socket_limit');const field=sending?'activeSend':'activeRecv',pf=sending?'pendingSend':'pendingRecv';s[field]++;if(s[field]>1||s[pf])s.ambiguous=true;this.state=s;this.field=field;
       let arrays=[],declared=0,async=false,out=null,key=null;
       if(api==='send'||api==='recv'){declared=args[2].toInt32();arrays=[[args[1],declared]];}
-      else{const n=args[2].toUInt32(),width=Process.pointerSize===8?16:8;if(n>16)fault('buffer_count');for(let i=0;i<n;i++){const b=args[1].add(i*width),len=b.readU32();declared+=len;arrays.push([b.add(Process.pointerSize===8?8:4).readPointer(),len]);}out=args[3];async=!args[5].isNull();if(async){key=s.id+':'+args[5].toString();if(!args[6].isNull())fault('callback_unsupported');if(pending.has(key)){if(pending.get(key).immediate)pending.delete(key);else fault('overlapped_reuse');}if(pending.size>=64)fault('pending_limit');}}
+      else{const n=args[2].toUInt32(),width=Process.pointerSize===8?16:8;if(n>16)fault('buffer_count');for(let i=0;i<n;i++){const b=args[1].add(i*width),len=b.readU32();declared+=len;arrays.push([b.add(Process.pointerSize===8?8:4).readPointer(),len]);}out=args[3];async=!args[5].isNull();if(async){key=s.id+':'+args[5].toString();if(!args[6].isNull())fault('callback_unsupported');if(pending.has(key)){if(pending.get(key).immediate)pending.delete(key);else {emit({kind:'probe',api:api,phase:'reuse',state:pending.get(key).return_class||'unknown_error'});fault('overlapped_reuse');}}if(pending.size>=64)fault('pending_limit');}}
       if(declared<0||declared>CAPACITY)fault('bounded');
       const x={arrays:arrays,declared:declared,async:async,out:out,order:++sequence,before:sending?joined(arrays):null,sending:sending,operation:async?'o'+(++nextOperation):null,state:s,pf:pf,api:api,immediate:false,counted:async};this.item=x;
       if(async){pending.set(key,x);s[pf]++;}
     }catch(e){diagnostic(api,'enter',e);}},
-    onLeave(ret){try{const x=this.item,s=this.state;if(x&&s){const code=ret.toInt32();if(x.async&&code===0){x.immediate=true;if(x.counted){s[x.pf]--;x.counted=false;}}let accepted=null;if(!x.async){if(api==='send'||api==='recv'){if(code>=0)accepted=code;}else if(code===0&&!x.out.isNull())accepted=x.out.readU32();}if(accepted!==null&&(accepted<0||accepted>x.declared))fault('accepted_bounds');const raw=x.sending?x.before:(accepted!==null?joined(x.arrays,accepted):new Uint8Array(0));emit({kind:x.sending?'send':'recv',api:api,socket:s.id,order:x.order,return_code:code,accepted_bytes:accepted,declared_bytes:x.declared,asynchronous:x.async,completion_proven:false,immediate_completion:x.immediate,operation:x.operation,ambiguous:s.ambiguous,complete:true},raw.buffer);}}catch(e){diagnostic(api,'leave',e);}finally{if(this.state)this.state[this.field]--;leave(this);}}
+    onLeave(ret){try{const x=this.item,s=this.state;if(x&&s){const code=ret.toInt32();x.return_class=x.async?(code===0?'immediate':(Number.isInteger(this.lastError)?(this.lastError===997?'pending':'non_pending_error'):'unknown_error')):'synchronous';emit({kind:'probe',api:api,phase:'submission',state:x.return_class});if(x.async&&code===0){x.immediate=true;if(x.counted){s[x.pf]--;x.counted=false;}}let accepted=null;if(!x.async){if(api==='send'||api==='recv'){if(code>=0)accepted=code;}else if(code===0&&!x.out.isNull())accepted=x.out.readU32();}if(accepted!==null&&(accepted<0||accepted>x.declared))fault('accepted_bounds');const raw=x.sending?x.before:(accepted!==null?joined(x.arrays,accepted):new Uint8Array(0));emit({kind:x.sending?'send':'recv',api:api,socket:s.id,order:x.order,return_code:code,accepted_bytes:accepted,declared_bytes:x.declared,asynchronous:x.async,completion_proven:false,immediate_completion:x.immediate,operation:x.operation,ambiguous:s.ambiguous,complete:true},raw.buffer);}}catch(e){diagnostic(api,'leave',e);}finally{if(this.state)this.state[this.field]--;leave(this);}}
   });
   attach('WSAGetOverlappedResult',{
     onEnter(args){this.s=sockets.get(args[0].toString());this.key=this.s?this.s.id+':'+args[1].toString():null;this.out=args[2];},
     onLeave(ret){if(ret.toInt32()===0)return;try{const x=pending.get(this.key);if(!x)fault('completion_unmatched');const n=this.out.readU32();if(n>x.declared)fault('accepted_bounds');const raw=x.sending?x.before.slice(0,n):joined(x.arrays,n);pending.delete(this.key);if(x.counted)x.state[x.pf]--;emit({kind:'socket_complete',api:'WSAGetOverlappedResult',socket:x.state.id,operation:x.operation,accepted_bytes:n,ambiguous:x.state.ambiguous,complete:true},raw.buffer);}catch(e){diagnostic('WSAGetOverlappedResult','completion',e);}}
   });
 }
-const observer=Process.attachModuleObserver({onAdded(mod){network(mod);tls(mod);}});
+// Census only. These callbacks do not promote any bytes or completion evidence.
+function completionCensus(mod){
+ const name=mod.name.toLowerCase();let apis=[];
+ if(['kernelbase.dll','kernel32.dll'].includes(name))apis=['GetQueuedCompletionStatus','GetQueuedCompletionStatusEx','GetOverlappedResult','GetOverlappedResultEx'];
+ if(name==='ntdll.dll')apis=['NtRemoveIoCompletion','NtRemoveIoCompletionEx'];
+ for(const api of apis){let a;try{a=mod.getExportByName(api);}catch(_){continue;}if(hooked.has(a.toString()))continue;hooked.add(a.toString());
+  Interceptor.attach(a,{onEnter(){enter(this,'census:'+api);},onLeave(ret){try{if(this.outer)emit({kind:'probe',api:api,phase:'completion_call',state:(api.startsWith('Nt')?ret.toInt32()===0:ret.toInt32()!==0)?'true':'false'});}finally{leave(this);}}});
+ }
+}
+const observer=Process.attachModuleObserver({onAdded(mod){network(mod);tls(mod);completionCensus(mod);}});
 emit({kind:'ready',pointer_bits:Process.pointerSize*8});

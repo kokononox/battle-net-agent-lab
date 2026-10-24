@@ -23,7 +23,7 @@ def fixture(frida,arch,env):
     result={'architecture':arch,'passed':False,'stage':'compile','error_type':None,'fixture_exit_code':None,
             'root_child_instrumented':False,'bitness_confirmed':False,'negative_encryption_observed':False,
             'linked_probe_requests':0,'http_responses_linked':0,'collector_errors':0,'dropped_events':0,'collector_fatal':False,
-            'completed_operations':0,'pending_socket_events':0,'unlinked_immediate_socket_events':0,'diagnostics':{},'capture_issues':{},'packet_count':0,
+            'completed_operations':0,'pending_socket_events':0,'unlinked_immediate_socket_events':0,'diagnostics':{},'observations':{},'capture_issues':{},'packet_count':0,
             'witness':{k:False for k in ['large_recv','multibuffer_recv','pending_recv','false_completion_checked','async_recv','async_send']},
             'hook_checks':{k:False for k in MARKERS}}
     manager=None;capture=None;code=None
@@ -77,6 +77,9 @@ def fixture(frida,arch,env):
             rows=list(manager.rows.values());result['collector_errors']=sum(r['script_errors'] for r in rows)
             d=collections.Counter()
             for r in rows:d.update(r['diagnostics'])
+            o=collections.Counter()
+            for r in rows:o.update(r['observations'])
+            result['observations']=dict(o)
             result['diagnostics']=dict(d);result['dropped_events']=manager.dropped;result['collector_fatal']=manager.fatal
             result['completed_operations']=sum(r['completed_operations'] for r in rows)
             result['pending_socket_events']=sum(e.get('asynchronous') is True and not e.get('completion_proven') and not e.get('immediate_completion') for e in manager.inputs)
@@ -86,14 +89,14 @@ def fixture(frida,arch,env):
     return result
 
 def main():
-    allowed=(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_H3_FIXTURE')=='owned-only-20261024-d2')
+    allowed=(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_H3_FIXTURE')=='owned-only-20261024-d3')
     if not allowed:raise SystemExit('hosted_once_fixture_only_required')
     import frida
     if frida.__version__!='17.24.2':raise SystemExit('pinned_frida_required')
     # Small environment, no GitHub credentials inherited by fixture processes.
     names={'SYSTEMROOT','WINDIR','PATH','TEMP','TMP','COMSPEC','PATHEXT','PROGRAMFILES','PROGRAMFILES(X86)','PROGRAMDATA','USERPROFILE','LOCALAPPDATA','APPDATA','ALLUSERSPROFILE','HOMEDRIVE','HOMEPATH','NUMBER_OF_PROCESSORS','PROCESSOR_ARCHITECTURE','PROCESSOR_IDENTIFIER'}
     env={k:v for k,v in os.environ.items() if k.upper() in names}
-    report={'schema':'bnet-h3-owned-fixtures-2','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
+    report={'schema':'bnet-h3-owned-fixtures-3','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
             'target_launched':False,'game_download_requested':False,'raw_values_exported':False,'tls_validation_changed':False,
             'scope':'owned_loopback_and_example_com_only','async_scope':'event_WSAGetOverlappedResult_success_only',
             'iocp_supported':False,'callback_supported':False,'all_network_paths_covered':False,'passed':False,'fixtures':[]}
