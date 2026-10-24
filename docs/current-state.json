@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-10-24T09:37:15.030024+00:00",
+  "as_of_utc": "2026-10-24T10:19:23.765773+00:00",
   "original_objective": "WoW hardware/system telemetry: field -> request -> destination; pre-login/login/in-world separately",
   "github_experiment": {
     "previous_report_commit": "b926c46b5fd3dccaf31ab7428b30bf61cd18032d",
@@ -55,7 +55,7 @@
     "in_world_network_metadata_user_confirmed_20261022": true,
     "in_world_network_metadata_evidence": "reports/session-20261022/wow-network-evidence.json"
   },
-  "user_action_now": "Extract Unified-Firewall-Desktop-0.9.0-RC.zip into a NEW local folder, keep previous package/journal, open Start.cmd; explicit Administrator access is required only for native status/apply/restore. Read the Persian guide and exact blacklist LAB scope. No new endpoint/SSH/site test setup is required.",
+  "user_action_now": "No additional optional diagnostics or corrected-package installation requested. Desktop 0.9.0 remains an incomplete legacy-feature replacement. Complete the audited restoration before distributing the next package.",
   "sync_scope": "Sanitized source and derived evidence plus the user-authorized private three-file archive exception. All five archive parts uploaded and verified by Git blob identity and size against local verified bytes. No raw crash report, raw pcap, keys or private paths uploaded.",
   "historical_downloader_snapshot": {
     "release": "WoW-Update-Scope-Preview-TagFix",
@@ -428,7 +428,7 @@
     "schema": "unifiedfw-session-state-2026-10-24-1",
     "branch": "analysis/entry-loader-startup-2026-10-23",
     "latest_source_version": "0.9.0-desktop-rc",
-    "latest_source_commit": null,
+    "latest_source_commit": "60e50089310e427ab17c2bbacc829ac15ea1a090",
     "source_directory": "analysis/unifiedfw-desktop-0.9.0-2026-10-24",
     "handoff": "docs/UNIFIEDFW-DESKTOP-0.9.0.fa.md",
     "latest_Windows_receipt": "reports/unifiedfw-session-20261024/windows-trace082-review.json",
@@ -460,8 +460,8 @@
     "ongoing_remote_access_available": false,
     "PHP_absolute_expiry_utc": "2026-10-26T05:47:49Z",
     "PHP_delete_after_testing_required": true,
-    "next_step": "Use the packaged desktop only within its documented RC/LAB scope. No further optional diagnostic package is requested; global whitelist and kill-switch remain gated/unimplemented. Do not label the incomplete trace result passed.",
-    "user_action_now": "Extract Unified-Firewall-Desktop-0.9.0-RC.zip into a NEW local folder, keep previous package/journal, open Start.cmd; explicit Administrator access is required only for native status/apply/restore. Read the Persian guide and exact blacklist LAB scope. No new endpoint/SSH/site test setup is required.",
+    "next_step": "Complete feature restoration against the full parity audit: live recorder, signals, stages, DNS/WFP evidence, PTR, capture history/export/comparison, system-wide hosts editor, TXT/range tools and missing additional risk confirmations. Preserve multi-EXE identity and journal-native safety gates. Do not ship an incomplete draft as a final replacement.",
+    "user_action_now": "No additional optional diagnostics or corrected-package installation requested. Desktop 0.9.0 remains an incomplete legacy-feature replacement. Complete the audited restoration before distributing the next package.",
     "private_report_uploaded_to_repository": false,
     "raw_transcript_uploaded_to_repository": false,
     "runtime_binaries_uploaded_in_this_sync": false,
@@ -537,7 +537,7 @@
       "commit": "62c481fbd8f96f107e6f538cea257aeeb2da3809",
       "directory": "analysis/unified-firewall-https-paced-lab-0.8.1-2026-10-24"
     },
-    "latest_source_commit_locator": "Commit containing analysis/unifiedfw-desktop-0.9.0-2026-10-24/BUILD-INFO.json and this state; no self-referential commit hash embedded.",
+    "latest_source_commit_locator": "Exact commit containing delivered Desktop 0.9.0 RC source.",
     "latest_Windows_trace082": {
       "completed": false,
       "phases_recorded": 6,
@@ -618,8 +618,28 @@
       "runtime_files_byte_identical": 34,
       "zip_sha256": "61cec42cb2dd09a9f1e07b2eadbe7e5d67f5c123a9e072168ee52cca538d0a5b",
       "zip_bytes": 11094602,
-      "artifact_receipt": "reports/unifiedfw-session-20261024/desktop090-artifact.json"
+      "artifact_receipt": "reports/unifiedfw-session-20261024/desktop090-artifact.json",
+      "full_legacy_feature_replacement": false
     },
-    "user_requested_no_more_optional_tests": true
+    "user_requested_no_more_optional_tests": true,
+    "full_legacy_feature_parity_verified": false,
+    "feature_parity_audit": "docs/UNIFIEDFW-BLACKLIST-FEATURE-PARITY-AUDIT.fa.md",
+    "feature_parity_audit_receipt": "reports/unifiedfw-session-20261024/blacklist-feature-parity-audit.json",
+    "user_reported_missing_features": [
+      "live recorder popup and sample pulses",
+      "professional visible monitoring instead of JSON-only output",
+      "system-wide hosts domain blocking",
+      "full audit of every legacy capability before replacement release"
+    ],
+    "restoration_status": {
+      "audit_complete": true,
+      "all_29_original_app_sources_structurally_reviewed": true,
+      "implementation_complete": false,
+      "corrected_package_released": false,
+      "local_091_draft_unverified": true,
+      "local_091_draft_uploaded": false,
+      "hosts_feature_explicitly_requested_by_user": true,
+      "hosts_write_scope": "system_wide_not_per_EXE; separate explicit consent and verified backup required"
+    }
   }
 }

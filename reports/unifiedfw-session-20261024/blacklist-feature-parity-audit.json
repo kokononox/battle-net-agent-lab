@@ -1,0 +1,472 @@
+{
+  "schema": "unifiedfw-blacklist-feature-parity-audit-1",
+  "created_utc": "2026-10-24T10:18:26.072260+00:00",
+  "baseline_archive": "WoW-Blacklist-0.1.0.zip",
+  "baseline_internal_UI_version": "0.1.8",
+  "baseline_scope": "all_29_app_source_files_static_review_no_private_output_or_credentials_read",
+  "baseline_source_sha256": {
+    "analysis_export.py": "2bec6677474bbb855d5ebfff4ee0cf6172ae1a40a2ab495f4ed100eb187502ef",
+    "backend.py": "320947f45e83b1299efe94b08ccd26ff66cc35b8ce7edd5d4b848cbf196d0594",
+    "capture_compare.py": "383f8d725350ceb291b453db199e04450978a282fc61cac870473c282055cba3",
+    "capture_store.py": "9cd59d8ababbb6a93ed830ae1bedf438b4aa80e06771bac7a4918414d5980f5d",
+    "defaults.json": "a624a43ba247e66903b01fc64973ece9d8c5e46cba5c95117431a1ae119e5bbb",
+    "dns_lookup.py": "c2e6b7d2dfc2411ae65196e65cfd9f507cbf856eafd3dea1bcb49c9d811d5a1c",
+    "event_evidence.py": "2126733b40319778a18909aad04d60717f53f02dc2f4aefa31b136209defed5c",
+    "firewall.ps1": "6400c593a58b66d6bf4a29c4b020e5fcdc1b90359af74ffbf71e4763d7c77a69",
+    "hosts_edit.py": "14ec83484c6f0f97f6b89c88e48ac7a031cd914b60c88cbf1624a32809928ae9",
+    "hosts_view.py": "e678f0b68d15b08a87362c16c62a784b7a8d0f0e0d4cc2d4a020999cb0bb24ba",
+    "live_recording.py": "b7417f855dfd1ef7cc0e22647a1f259de6b2e2582d779ed944e19afe9b56ac10",
+    "main.py": "c3ee1461947d862782c027c605ceb434494b6e45d5853e2decb8b8b1eaf59155",
+    "observation_model.py": "00d5fba73cd009c706f62fd3c4d10ff7a9a7357a64408fd6af13226b6db97ff6",
+    "observe-events.ps1": "3d80f1527be309c28093cd2f26c22f89c1251013a423dd8a97a8ff3e6cf1c454",
+    "observe-live.ps1": "fbdc0de4f40a7c771d73706c9705c11e0fd16e18a2273c6002e2b378a23f1c71",
+    "observe-phase.ps1": "2ce525660cd6e259601bc2c8448170c75256ca38c1645715041e3ab9b2ed546d",
+    "observe.ps1": "492480097e950c59a5efea262d484ce7b5e3abc2d34e75d48430ca88627835e1",
+    "phase_context.py": "530e310db517e75420ca79fadb69dd35ab37e9e4cd0516150bc23cf27c1f992f",
+    "range_builder.py": "de3f03693117ae0f6484ea717400071d8eb9918c352ccc21170a06b3ff4fa0bc",
+    "resolve.ps1": "51cb5863b6cbc18657edff3dea05e95ccc0300ffa32e157e0bf78ce3604d8895",
+    "ui-analysis.ps1": "136e9c2512c281210e72626da81dd40b20e4e9deb06e379f51bd66d16ffe8749",
+    "ui-live-model.ps1": "365ac071e388746eeb6ebd5b7f45382e5c1d6ef87bbc355ffda05494807a7343",
+    "ui-live.ps1": "8b2a12f7687a82457e683d79baa064df19b6409a58b486c7627c62d3856c308b",
+    "ui-model.ps1": "a62533e68d8956e1159bb6bee3e648f3d0e69f43319b8816d12c09c4ea16ae1c",
+    "ui-observation.ps1": "a43b6b3c94811c24391973dd0986843f2d23764fcb4723b401e66c0ec2c44f09",
+    "ui-range.ps1": "87a436183cc20881d2f6a23dac8f806fcb6791cd36f14340b61ebb6045d9193b",
+    "ui-session.ps1": "af399ee832cbe9b26278d075c3dfd5d13191802bae5ca3595dbcd176b60cdb2e",
+    "ui-tools.ps1": "816059ad42dfae5dc02c26ac96c9c1b6380519bc8cf54e2a568a648a78d73150",
+    "ui.ps1": "9647b0567b031ca7ce666297d615eca800318b759677c5b6153f9f09ce627f4b"
+  },
+  "compared_release": "Unified Firewall Desktop 0.9.0 RC",
+  "method": "source/API/UI/collector/persistence and safety-gate inspection; no Windows runtime execution",
+  "features": [
+    {
+      "group": "monitor",
+      "feature": "پنجرهٔ مانیتور زندهٔ مستقل / پاپ‌آپ",
+      "status_in_090": "missing",
+      "original_evidence": "ui-live.ps1: New-LiveWindow/Open-LiveWindow",
+      "current_evidence": "ui.ps1: only completed observe JSON is shown",
+      "restoration_requirement": "Restore docked live view plus independent non-modal popup sharing one recorder, not two captures."
+    },
+    {
+      "group": "monitor",
+      "feature": "پالس کشف، نمونهٔ جدید و دیده‌شدن دوباره",
+      "status_in_090": "missing",
+      "original_evidence": "ui-live-model.ps1: Live-PulseKind; ui-live.ps1: Paint-LivePulses",
+      "current_evidence": "ui.ps1: no live frame polling or pulse state",
+      "restoration_requirement": "Restore distinct textual and optional subtle color signals; pulses mean sampled TCP state, never packets/HTTP."
+    },
+    {
+      "group": "monitor",
+      "feature": "نمایش حضور در آخرین نمونه / رکورد تاریخی",
+      "status_in_090": "missing",
+      "original_evidence": "ui-live.ps1: Render-LiveSnapshot/Paint-LivePulses",
+      "current_evidence": "observe-core.ps1 retains cumulative samples only",
+      "restoration_requirement": "Reset presence only after a successful sample; failure must mean unknown, not absent."
+    },
+    {
+      "group": "monitor",
+      "feature": "همیشه روی پنجره‌ها / پنهان و بازکردن مانیتور",
+      "status_in_090": "missing",
+      "original_evidence": "ui-live.ps1: liveTop/liveHide/Open-LiveWindow",
+      "current_evidence": "ui.ps1: no independent monitor",
+      "restoration_requirement": "Restore user-controlled topmost/hide/show; hiding must not stop recording."
+    },
+    {
+      "group": "monitor",
+      "feature": "مکث نمایش بدون توقف ضبط",
+      "status_in_090": "missing",
+      "original_evidence": "ui-live.ps1: livePause/Render-LiveSnapshot",
+      "current_evidence": "ui.ps1: no display pause",
+      "restoration_requirement": "Pause rendering only; recording and storage continue, with a persistent paused label."
+    },
+    {
+      "group": "monitor",
+      "feature": "دنبال‌کردن ردیف تازه و خاموش‌کردن پالس",
+      "status_in_090": "missing",
+      "original_evidence": "ui-live.ps1: liveFollow/liveFlash",
+      "current_evidence": "ui.ps1: no live options",
+      "restoration_requirement": "Restore configurable follow and reduced-motion/pulse-off options."
+    },
+    {
+      "group": "monitor",
+      "feature": "مدت ۶۰، ۱۲۰، ۳۰۰ ثانیه و تا توقف",
+      "status_in_090": "partial",
+      "original_evidence": "ui.ps1 duration; backend.py observe accepts 0,60,120,300",
+      "current_evidence": "cli.py observe limits 1..120; ui.ps1 numeric duration",
+      "restoration_requirement": "Restore original recording choices only in a separately reviewed read-only recorder path; never extend native mutation timeouts."
+    },
+    {
+      "group": "monitor",
+      "feature": "پیام آمادگی ضبط پیش از اجرای برنامه",
+      "status_in_090": "missing",
+      "original_evidence": "observe.ps1 ready_path; ui.ps1 ready message",
+      "current_evidence": "observe.ps1: no ready/live path",
+      "restoration_requirement": "Readiness must follow successful setup; selecting an EXE must never launch it."
+    },
+    {
+      "group": "monitor",
+      "feature": "سلامت ضبط، فریم مانده، خطای خواندن و انتشار",
+      "status_in_090": "partial",
+      "original_evidence": "ui-session.ps1: Recorder-HealthText; ui-live.ps1 Poll-LiveCapture",
+      "current_evidence": "ui.ps1 reports final query errors only",
+      "restoration_requirement": "Live heartbeat, frame age, query/publication errors, caps and finalization must be visible separately."
+    },
+    {
+      "group": "monitor",
+      "feature": "توقف، انتظار نهایی‌سازی و نتیجهٔ نهایی معتبر",
+      "status_in_090": "partial",
+      "original_evidence": "ui-tools.ps1 Request-RecordingStop/Accept-CaptureReport",
+      "current_evidence": "ui.ps1 stop.txt and close waits for worker",
+      "restoration_requirement": "Keep existing stop semantics; distinguish stopping, finalized and failed; do not treat latest live frame as saved final capture."
+    },
+    {
+      "group": "observation",
+      "feature": "جدول دیداری مقصدهای رصدشده",
+      "status_in_090": "missing",
+      "original_evidence": "ui.ps1 found/covered grids",
+      "current_evidence": "ui.ps1 output TextBox holds JSON",
+      "restoration_requirement": "Restore IP, port, protocol, EXE path, PID, process start, TCP states, samples and first/last UTC columns."
+    },
+    {
+      "group": "observation",
+      "feature": "تفکیک فرایند تازه از قدیمی",
+      "status_in_090": "missing",
+      "original_evidence": "observation_model.py fresh_process_seen; ui.ps1 onlyFresh",
+      "current_evidence": "observe-core.ps1 retains ticks but not process-freshness UX",
+      "restoration_requirement": "Use process birth vs capture start, exact path and PID+birth; unknown remains unknown."
+    },
+    {
+      "group": "observation",
+      "feature": "تفکیک مقصد تازه، قدیمی و سابقهٔ نامطمئن",
+      "status_in_090": "missing",
+      "original_evidence": "live_recording.py history_baseline; Live-DestinationLabel",
+      "current_evidence": "no capture history backend in 090",
+      "restoration_requirement": "Keep destination freshness independent of process age and scoped per exact EXE identity in multi-EXE version."
+    },
+    {
+      "group": "observation",
+      "feature": "تطابق با Block تأییدشده و تب زیر پوشش Block",
+      "status_in_090": "missing",
+      "original_evidence": "backend.py block_snapshot/classify_observation; observation_model.py classify_rows",
+      "current_evidence": "preview/decision are desired-policy model, not active-rule readback",
+      "restoration_requirement": "Restore read-only exact native readback with timestamp and unknown status; stored configuration is not proof of active Block or packet drops."
+    },
+    {
+      "group": "observation",
+      "feature": "بازبینی تفکیک Block و فیلتر موارد تحت پوشش",
+      "status_in_090": "missing",
+      "original_evidence": "ui-observation.ps1 Show-ObservedRows; backend.py classify_observation",
+      "current_evidence": "no classify action in cli.py",
+      "restoration_requirement": "Read-only reclassification; stale/unknown matches remain visible, never silently hide them."
+    },
+    {
+      "group": "observation",
+      "feature": "انتخاب مقصد و افزودن مستقیم آن به بلک‌لیست",
+      "status_in_090": "missing",
+      "original_evidence": "ui.ps1 Add observed rows handler",
+      "current_evidence": "add_blacklist accepts manual target only in UI",
+      "restoration_requirement": "Restore checked observed rows mapped to their actual EXE IDs; add to config only, never automatic Apply."
+    },
+    {
+      "group": "observation",
+      "feature": "دیدن حالت‌ها، PID، زمان‌ها و دفعات نمونه",
+      "status_in_090": "partial",
+      "original_evidence": "ui-observation.ps1 Observed-Detail; ui-live.ps1 grid",
+      "current_evidence": "observe-core.ps1 stores raw values; UI only JSON",
+      "restoration_requirement": "Restore readable table/details; samples are not bytes, packets or successful requests."
+    },
+    {
+      "group": "phase",
+      "feature": "مرحلهٔ جاری اجرای برنامه / ورود / داشبورد / بازی",
+      "status_in_090": "missing",
+      "original_evidence": "ui-session.ps1; observe-phase.ps1",
+      "current_evidence": "no phase timeline",
+      "restoration_requirement": "Restore explicit user selection, append-only UTC journal and recorder acknowledgment; not automatic game-state detection."
+    },
+    {
+      "group": "phase",
+      "feature": "مرحله‌ها و برچسب چندانتخابی هر ردیف",
+      "status_in_090": "missing",
+      "original_evidence": "ui-tools.ps1 Pick-Stages/Edit-LiveStages; ui-analysis.ps1",
+      "current_evidence": "no annotations API",
+      "restoration_requirement": "Restore independent row annotations, bulk edit and durable saves with error/unsaved indicators."
+    },
+    {
+      "group": "phase",
+      "feature": "تفکیک مرحلهٔ همین ضبط و سابقهٔ ضبط‌های دیگر",
+      "status_in_090": "missing",
+      "original_evidence": "capture_store.py with_annotations/stage_history; phase_context.py",
+      "current_evidence": "no persistent capture context",
+      "restoration_requirement": "Never project previous-capture labels as actual current-stage observations."
+    },
+    {
+      "group": "phase",
+      "feature": "حفظ برچسب‌های زنده و بازیابی هنگام نهایی‌سازی",
+      "status_in_090": "missing",
+      "original_evidence": "live_recording.py recover_live_labels; ui-tools.ps1 Finalize-LiveEdits",
+      "current_evidence": "no live label journal",
+      "restoration_requirement": "Persist labels separately from immutable raw recordings, preserve journals on failure."
+    },
+    {
+      "group": "evidence",
+      "feature": "شواهد DNS واقعی از لاگ موجود Sysmon 22",
+      "status_in_090": "missing",
+      "original_evidence": "observe-events.ps1; event_evidence.py",
+      "current_evidence": "observe.ps1 DNS_events_collected=false",
+      "restoration_requirement": "Read existing enabled logs only; do not install Sysmon or change audit/log configuration."
+    },
+    {
+      "group": "evidence",
+      "feature": "رویداد منع اتصال WFP / Security 5157",
+      "status_in_090": "missing",
+      "original_evidence": "observe-events.ps1; Live-EvidenceLabel",
+      "current_evidence": "no event collector",
+      "restoration_requirement": "Show exact logged application attribution, protocol and timestamp; do not claim the event belongs to this firewall rule."
+    },
+    {
+      "group": "evidence",
+      "feature": "نمایش نگاشت hosts مرتبط با DNS ثبت‌شده",
+      "status_in_090": "missing",
+      "original_evidence": "event_evidence.py hosts_baseline; observe-events.ps1",
+      "current_evidence": "no hosts reader",
+      "restoration_requirement": "Keep hosts config, DNS observation and actual blocking distinct; do not infer connection-domain identity from PTR."
+    },
+    {
+      "group": "evidence",
+      "feature": "وضعیت دسترسی و کامل‌بودن منابع رویداد",
+      "status_in_090": "missing",
+      "original_evidence": "Live-StreamLabel; Event-Evidence",
+      "current_evidence": "no streams metadata",
+      "restoration_requirement": "Unreadable/disabled/partial logs are unknown coverage, not evidence of no traffic."
+    },
+    {
+      "group": "ptr",
+      "feature": "PTR انتخاب‌ها، همهٔ قابل‌بررسی و استعلام تازه",
+      "status_in_090": "missing",
+      "original_evidence": "dns_lookup.py Resolver; ui-tools.ps1 Start-LivePtr; ui.ps1 LookupNames",
+      "current_evidence": "no lookup action",
+      "restoration_requirement": "Restore explicit public-literal-IP lookups, cache freshness, per-query bounds and no actual-domain claim."
+    },
+    {
+      "group": "ptr",
+      "feature": "پیشرفت PTR، توقف و ادامهٔ مستقل ضبط",
+      "status_in_090": "missing",
+      "original_evidence": "dns_lookup.py progress/stop; ui-tools.ps1 Stop-LivePtr",
+      "current_evidence": "no separate PTR worker",
+      "restoration_requirement": "One bounded read-only resolver worker can coexist with recording; no native mutation parallelism."
+    },
+    {
+      "group": "history",
+      "feature": "ذخیرهٔ ضبط، خواندن فهرست و بازکردن ضبط قدیمی",
+      "status_in_090": "missing",
+      "original_evidence": "capture_store.py history/read; ui-analysis.ps1",
+      "current_evidence": "jobs response files exist, but no capture browser/API",
+      "restoration_requirement": "Restore validated capture storage and history UI, separate from transient job outputs."
+    },
+    {
+      "group": "history",
+      "feature": "مقایسهٔ دقیق دو ضبط",
+      "status_in_090": "missing",
+      "original_evidence": "capture_compare.py; ui-session.ps1 Show-CaptureComparison",
+      "current_evidence": "no comparison action",
+      "restoration_requirement": "Compare EXE identity + destination/protocol; different durations/quality/stages must be warned, absence is not blocking success."
+    },
+    {
+      "group": "history",
+      "feature": "خروجی تحلیلی ZIP و گزارش خواندنی",
+      "status_in_090": "missing",
+      "original_evidence": "analysis_export.py; ui-analysis.ps1",
+      "current_evidence": "only raw per-job JSON",
+      "restoration_requirement": "Restore explicit export of selected captures, annotations, source limits and privacy disclosure; never auto-upload."
+    },
+    {
+      "group": "history",
+      "feature": "حذف رکورد با حفظ خام محلی",
+      "status_in_090": "missing",
+      "original_evidence": "capture_store.py delete_records; ui-tools.ps1",
+      "current_evidence": "no capture record deletion API",
+      "restoration_requirement": "Keep logical deletions separate from raw recordings; excluded rows must remain excluded from later exports."
+    },
+    {
+      "group": "history",
+      "feature": "حذف ضبط با سطل محلی",
+      "status_in_090": "missing",
+      "original_evidence": "capture_store.py delete_captures",
+      "current_evidence": "no capture trash/history",
+      "restoration_requirement": "Validate selection before moving raw capture and sidecars, retain recovery in local trash."
+    },
+    {
+      "group": "hosts",
+      "feature": "نمایش و خواندن استاندارد فایل hosts",
+      "status_in_090": "missing",
+      "original_evidence": "hosts_view.py; backend.py hosts; hosts tab",
+      "current_evidence": "no hosts tab/read action",
+      "restoration_requirement": "Restore full-domain view, address list, mapping type, invalid/truncated warning and source hash."
+    },
+    {
+      "group": "hosts",
+      "feature": "افزودن دامنه برای انسداد با نگاشت محلی",
+      "status_in_090": "missing",
+      "original_evidence": "hosts_edit.py prepare/apply_hosts; ui-tools.ps1 Edit-HostsMapping",
+      "current_evidence": "cli.py explicitly rejects hosts_apply",
+      "restoration_requirement": "Restore separate explicit system-wide consent; show IPv4/IPv6 mappings and no per-EXE scope promise."
+    },
+    {
+      "group": "hosts",
+      "feature": "ویرایش و حذف نگاشت انتخابی دامنه",
+      "status_in_090": "missing",
+      "original_evidence": "ui-tools.ps1 Edit-HostsMapping/Apply-HostsChanges",
+      "current_evidence": "no hosts editor",
+      "restoration_requirement": "Preserve unrelated aliases, comments, encoding/newlines and protected system names."
+    },
+    {
+      "group": "hosts",
+      "feature": "پشتیبان، کنترل hash، قفل انحصاری و بازخوانی",
+      "status_in_090": "missing",
+      "original_evidence": "hosts_edit.py apply_hosts/locked_file",
+      "current_evidence": "no hosts write backend",
+      "restoration_requirement": "Restore verified backup before change, stale-read rejection, readback, hardlink/reparse refusal and truthful partial-failure status."
+    },
+    {
+      "group": "hosts",
+      "feature": "بازگردانی داخل همان عملیات در صورت شکست نوشتن",
+      "status_in_090": "missing",
+      "original_evidence": "hosts_edit.py apply_hosts exception rollback",
+      "current_evidence": "no hosts mutation path",
+      "restoration_requirement": "Restore existing same-handle rollback safeguards; never promise rollback after power loss or report success if rollback fails."
+    },
+    {
+      "group": "hosts",
+      "feature": "دکمهٔ مستقل Restore hosts از پشتیبان",
+      "status_in_090": "not_present_in_old",
+      "original_evidence": "hosts_edit.py has backup+in-operation rollback, no standalone restore UI",
+      "current_evidence": "no hosts restore action",
+      "restoration_requirement": "Potential new improvement, not a dropped old feature; needs separate safe stale-hash/backup/ownership design."
+    },
+    {
+      "group": "blacklist",
+      "feature": "IP/CIDR، TCP/UDP و پورت",
+      "status_in_090": "preserved",
+      "original_evidence": "backend.py parse_list/spec",
+      "current_evidence": "state.py add_blacklist; policy.py",
+      "restoration_requirement": "Keep new exact program IDs and stricter shared policy validation."
+    },
+    {
+      "group": "blacklist",
+      "feature": "ورود TXT، خروجی TXT و ذخیرهٔ مستقل فهرست",
+      "status_in_090": "partial",
+      "original_evidence": "ui.ps1 load/export/save; backend.py persist",
+      "current_evidence": "JSON config save/import exists; no equivalent TXT buttons",
+      "restoration_requirement": "Restore TXT import/export with preview and atomic config staging, not Apply; make per-EXE assignment explicit."
+    },
+    {
+      "group": "blacklist",
+      "feature": "فرم آسان رنج: الگو، ابتدا/انتها و CIDR با پوشش دقیق",
+      "status_in_090": "partial",
+      "original_evidence": "range_builder.py; ui-range.ps1",
+      "current_evidence": "manual IP/CIDR/range target exists; no wizard",
+      "restoration_requirement": "Restore pure preview with first/last/address count and explicit assignment to selected EXEs; no automatic broadening."
+    },
+    {
+      "group": "blacklist",
+      "feature": "وضعیت واقعی هر ردیف قانون و دلیل انتخاب",
+      "status_in_090": "partial",
+      "original_evidence": "ui.ps1 State/Reason; firewall.ps1 status",
+      "current_evidence": "native_status raw summary; blacklist grid lacks per-row readback",
+      "restoration_requirement": "Show desired vs journal-owned vs ActiveStore-verified status; do not equate config with active protection."
+    },
+    {
+      "group": "blacklist",
+      "feature": "حذف تکی، حذف و اعمال، اعمال و بستن",
+      "status_in_090": "partial",
+      "original_evidence": "ui.ps1 RemoveKeys/ApplyList",
+      "current_evidence": "delete selected config; explicit Restore/Apply separate",
+      "restoration_requirement": "Retain convenience only through unchanged native ownership/readback/confirm gates; do not silently replace an active journal session."
+    },
+    {
+      "group": "safety",
+      "feature": "تأیید اضافی برای پوشش شبکه/رنج",
+      "status_in_090": "missing",
+      "original_evidence": "backend.py apply range_consent; ui.ps1 ApplyList",
+      "current_evidence": "whole-plan LAB confirmation exists, no separate range consent",
+      "restoration_requirement": "Restore additional risk acknowledgment before any broad-range Apply without weakening current LAB confirmation."
+    },
+    {
+      "group": "safety",
+      "feature": "هشدار ویژهٔ مقصد حساس ورود",
+      "status_in_090": "missing",
+      "original_evidence": "backend.py apply critical_consent; ui.ps1 ApplyList",
+      "current_evidence": "no equivalent specific risk acknowledgment",
+      "restoration_requirement": "Reinstate reviewed risk warning and explicit acknowledgment; never add a bypass or infer exemption from whitelist."
+    },
+    {
+      "group": "safety",
+      "feature": "دو-store readback و بازیابی قواعد خودی",
+      "status_in_090": "preserved_with_different_engine",
+      "original_evidence": "firewall.ps1 apply/restore",
+      "current_evidence": "lab/session-core.ps1 native.ps1 request.ps1",
+      "restoration_requirement": "Keep new journal-exact, drift-refusing Restore; never reintroduce broad group deletion or rule adoption."
+    },
+    {
+      "group": "safety",
+      "feature": "حفظ قواعد پس از بسته‌شدن برنامه",
+      "status_in_090": "preserved",
+      "original_evidence": "ui.ps1 warning; backend.py persist",
+      "current_evidence": "ui.ps1 warning; native PersistentStore rules",
+      "restoration_requirement": "State clearly that closing/config deletion is not Restore; changing hosts also persists system-wide."
+    },
+    {
+      "group": "safety",
+      "feature": "کنترل هویت مسیر/هش EXE و تغییر فایل",
+      "status_in_090": "preserved",
+      "original_evidence": "verify_program/digest and reselect guards",
+      "current_evidence": "state.py inspector; desktop_ops snapshot",
+      "restoration_requirement": "Keep per-EXE SHA256, immutable plan digest/generation and native gate checks."
+    },
+    {
+      "group": "safety",
+      "feature": "ارتقای خودکار UAC در شروع",
+      "status_in_090": "intentional_difference",
+      "original_evidence": "main.py ShellExecute runas",
+      "current_evidence": "launch.py no auto elevation; explicit Run as administrator",
+      "restoration_requirement": "Do not restore auto-elevation silently; keep explicit user launch unless separately requested."
+    },
+    {
+      "group": "multi_exe",
+      "feature": "انتخاب حداکثر ۳۲ EXE و شناسهٔ مسیر مستقل",
+      "status_in_090": "new_in_unified",
+      "original_evidence": "old backend restricts selected Wow executable",
+      "current_evidence": "state.py register; ui.ps1 program grid",
+      "restoration_requirement": "All restored monitors, evidence, histories and actions must retain per-EXE identity; no collapse by filename or PID alone."
+    },
+    {
+      "group": "selection",
+      "feature": "تیک پایدار، فیلتر و شمارش انتخاب‌های پنهان",
+      "status_in_090": "new_in_unified",
+      "original_evidence": "old observed checks use record identity",
+      "current_evidence": "ui.ps1 checks keyed by stable program ID",
+      "restoration_requirement": "Preserve current checked-set contract and extend to observed records; highlight is not an execution set."
+    },
+    {
+      "group": "whitelist",
+      "feature": "وایت‌لیست سراسری و kill-switch",
+      "status_in_090": "not_a_blacklist_feature",
+      "original_evidence": "not implemented by standalone blacklist app",
+      "current_evidence": "shared compiler preview; native global whitelist gated; full isolation unimplemented",
+      "restoration_requirement": "Do not label these as restored/working; preserve gates until qualified. hosts blocking is not a per-EXE whitelist feature."
+    }
+  ],
+  "restoration_completed": false,
+  "corrected_package_released": false,
+  "unpublished_local_draft_is_not_a_release": true,
+  "existing_090_is_not_full_legacy_feature_replacement": true,
+  "no_optional_user_diagnostic_tests_requested": true,
+  "hosts_changes_performed": false,
+  "firewall_changes_performed": false,
+  "source_structure_coverage": {
+    "python_sources_ast_parsed": 13,
+    "powershell_sources_ast_parsed": 15,
+    "json_sources_parsed": 1,
+    "total_app_files": 29,
+    "Windows_app_executed": false
+  }
+}
