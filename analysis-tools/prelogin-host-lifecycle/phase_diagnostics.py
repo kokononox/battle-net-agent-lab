@@ -1,10 +1,10 @@
 """Fixed diagnostic labels only. Even failed child verification cannot export a path."""
 STAGES={'not_started','pin','capture','spawn','observe','complete'}
 ERRORS={None,'RuntimeError','OSError','ValueError','TimeoutExpired','ProcessNotFoundError','InvalidOperationError','TimedOutError','TransportError','PermissionDeniedError','LabError','other'}
-NAMES={'agent.exe','battle.net.exe','battle.net launcher.exe','battle.net-setup.exe','battle.net helper.exe','blizzarderror.exe','other'}
+NAMES={'agent.exe','battle.net.exe','battle.net launcher.exe','battle.net-setup.exe','battle.net helper.exe','blizzarderror.exe','agenthelper.exe','other'}
 PHASES={'verify','attach','child_gating','script_load','resume','observing','other'}
 STATES={'paused','refused_or_failed','resumed','other'}
-REFUSALS={None,'unexpected_image_name','reparse_or_missing_image','image_size','image_signature'}
+REFUSALS={None,'unexpected_image_name','reparse_or_missing_image','image_size','image_signature','helper_policy_refused'}
 def error_kind(name):return name if name in ERRORS else 'other'
 def blank_debug():return dict(stage='not_started',error_type=None,refusal_reason=None,refused_image=None,processes=[])
 def collect_diagnostics(p,d,manager):

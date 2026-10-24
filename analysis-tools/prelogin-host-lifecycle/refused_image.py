@@ -1,7 +1,7 @@
 """Read-only metadata of a suspended refused child; never permission to resume it."""
 import hashlib,json,os,re,subprocess,tempfile
 from pathlib import Path
-NAMES=set('cmd.exe conhost.exe dllhost.exe rundll32.exe reg.exe sc.exe net.exe net1.exe powershell.exe pwsh.exe schtasks.exe taskkill.exe msiexec.exe wermgr.exe werfault.exe unsecapp.exe cscript.exe wscript.exe explorer.exe certutil.exe ctfmon.exe consent.exe backgroundtaskhost.exe runtimebroker.exe csc.exe update.exe uninstall.exe bnetinstaller.exe battle.net.exe battle.net-setup.exe agent.exe'.split())|{'battle.net setup.exe','blizzard update agent.exe'}
+NAMES=set('agenthelper.exe cmd.exe conhost.exe dllhost.exe rundll32.exe reg.exe sc.exe net.exe net1.exe powershell.exe pwsh.exe schtasks.exe taskkill.exe msiexec.exe wermgr.exe werfault.exe unsecapp.exe cscript.exe wscript.exe explorer.exe certutil.exe ctfmon.exe consent.exe backgroundtaskhost.exe runtimebroker.exe csc.exe update.exe uninstall.exe bnetinstaller.exe battle.net.exe battle.net-setup.exe agent.exe'.split())|{'battle.net setup.exe','blizzard update agent.exe'}
 PUBLISHERS={'blizzard','microsoft','other_verified','unverified'}
 REGIONS={'windows_system32','windows_syswow64','windows_other','runner_temp','battle_net_programdata','other'}
 KEYS={'status','basename_class','path_class','image_bytes','image_file_sha256','authenticode_valid','publisher_class','winverifytrust_status','blocked_before_resume','execution_authorized'}

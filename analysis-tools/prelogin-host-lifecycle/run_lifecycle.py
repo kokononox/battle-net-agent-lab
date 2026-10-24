@@ -48,7 +48,8 @@ def second_start(frida,env,setup,p,trackers,diag):
         if recheck:
             if ids[pid]!=(info['creation'],str(path).lower()):raise RuntimeError('identity')
             return {}
-        if path.name.lower() not in obs.NAMES:
+        helper=path.name.lower()=='agenthelper.exe'
+        if path.name.lower() not in obs.NAMES and not helper:
             from refused_image import inspect_refused
             diag['refusal_reason']='unexpected_image_name'
             diag['refused_image']=inspect_refused(path,env,obs.is_reparse)
@@ -57,9 +58,19 @@ def second_start(frida,env,setup,p,trackers,diag):
             diag['refusal_reason']='reparse_or_missing_image';raise RuntimeError('image')
         if not 0<path.stat().st_size<=128*1024*1024:
             diag['refusal_reason']='image_size';raise RuntimeError('image')
-        if not obs.signature(path,env)['accepted_for_execution']:
+        sig=obs.signature(path,env)
+        if not sig['accepted_for_execution']:
             diag['refusal_reason']='image_signature';raise RuntimeError('signature')
         data=path.read_bytes();digest=hashlib.sha256(data).hexdigest()
+        if helper:
+            from approved_helper import allowed
+            parent_id=manager.rows[pid]['parent_pid'];parent_row=manager.rows.get(parent_id,{})
+            parent_info=identity(parent_id);parent_path=Path(parent_info['path'])
+            parent_matches=ids.get(parent_id)==(parent_info['creation'],str(parent_path).lower())
+            if not allowed(path,parent_path,parent_row,digest,sig,env,parent_matches,obs.is_reparse):
+                from refused_image import inspect_refused
+                diag['refusal_reason']='helper_policy_refused';diag['refused_image']=inspect_refused(path,env,obs.is_reparse)
+                raise RuntimeError('helper_policy')
         if sum(map(len,images.values()))+len(data)>256*1024*1024:raise RuntimeError('budget')
         images[digest]=data;ids[pid]=(info['creation'],str(path).lower())
         return dict(process_name=path.name.lower(),sha256=digest,image_bytes=len(data),authenticode_valid=True,expected_blizzard_publisher=True)
@@ -109,7 +120,7 @@ def second_start(frida,env,setup,p,trackers,diag):
 
 
 def main():
-    if not (sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_HOST_LIFECYCLE')=='approved-host-lifecycle-20261024-a5'):raise SystemExit('fresh_hosted_once_required')
+    if not (sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_HOST_LIFECYCLE')=='approved-host-lifecycle-20261024-a6'):raise SystemExit('fresh_hosted_once_required')
     report=dict(schema='bnet-host-lifecycle-3',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],status='stopped',error_code=None,first_native_gate_passed=False,same_machine=True,configuration_preserved=True,second_start_clean_processes=False,comparison=None,phases=[],second_diagnostics=blank_debug(),limits=dict(LIMITS))
     trackers=[];original_analyze=first.analyze;old_flag=os.environ.get('BNET_WIRE_H3')
     def observe_first(events,packets,classifier):

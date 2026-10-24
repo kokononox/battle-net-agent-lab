@@ -12,7 +12,7 @@ concurrency:
 jobs:
   observe:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved host lifecycle 20261024-a5'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved host lifecycle 20261024-a6'
     runs-on: windows-2025
     timeout-minutes: 16
     permissions:
@@ -35,7 +35,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Native wire gate then two pinned signed pre-login startups
         env:
-          BNET_HOST_LIFECYCLE: approved-host-lifecycle-20261024-a5
+          BNET_HOST_LIFECYCLE: approved-host-lifecycle-20261024-a6
         run: python analysis-tools/prelogin-host-lifecycle/run_lifecycle.py
       - name: Strictly validate only the shareable summary
         if: always()

@@ -20,3 +20,7 @@ Workflow به branch تحقیق، commit message یکتا و run_attempt=1 مح�
 ## a5: شناسایی فقط‌خواندنی فرزند ردشده
 
 پیش از رد و بدون resume، فایل PE حداکثر ۱۲۸ MiB خوانده و هش می‌شود؛ WinVerifyTrust با همان سیاست trust/revocation اصلی و نام ناشر از signer تأییدشده اجرا می‌شود. خروجی ناشر فقط یکی از blizzard/microsoft/other_verified/unverified است. نام فایل تنها از فهرست ثابت عمومی و مسیر فقط به صورت طبقهٔ محل گزارش می‌شود؛ subject، مسیر، command line و شناسهٔ ماشین صادر نمی‌شوند. تغییر فایل حین بررسی موجب حذف ادعای metadata معتبر می‌شود. هش این قسمت، هش فایل اجرایی است نه هش host_id. حتی امضای معتبر هم خودکار اجازهٔ اجرا نمی‌دهد: `execution_authorized=false` و فهرست مجاز فرایندها بدون تغییر مانده است.
+
+## a6: مجوز محتوایی محدود AgentHelper.exe
+
+فرزند a5 به‌صورت معلق بررسی شد: WinVerifyTrust=0، ناشر Blizzard، فایل 3,642,064 بایتی با SHA-256 `a3a444e6bd163732a648967c01a5fd509f7f33d6963b381c19bdffb604138651`. مقایسهٔ فقط‌خواندنی ZIP خصوصی کاربر دو فایل هم‌هش با basename برابر AgentHelper.exe یافت. مجوز جدید فقط همین basename+hash، امضای معتبر Blizzard، فرزند مستقیم Agent تأییدشده با یکی از دو hash از قبل دیده‌شده، هویت زندهٔ والد ثابت، پوشهٔ مشترک نسخه زیر ProgramData/Battle.net/Agent و مسیر فاقد reparse را می‌پذیرد. helper نیز قبل از resume ابزارگذاری می‌شود. این مجوز شامل cmd، سایر ناشران یا سایر نسخه‌های helper نیست.
