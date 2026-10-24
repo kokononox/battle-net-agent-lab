@@ -36,8 +36,8 @@
   "ongoing_remote_access_available": false,
   "PHP_absolute_expiry_utc": "2026-10-26T05:47:49Z",
   "PHP_delete_after_testing_required": true,
-  "next_step": "Run the bounded 126-attempt no-policy control once from the same tested 0.8.1 folder. Preserve failures and original timeouts. Review its report before any further rule activation; source 0.8.1 coexistence remains inconclusive.",
-  "user_action_now": "Overlay the matched-control add-on without replacing original files, keep VPN unchanged and other labs closed, run Start-Control-126.cmd normally, type START after reviewing owned endpoint, then send UnifiedFW-Control126-Results-*.zip. Do not repeat the full rule test.",
+  "next_step": "Review differences introduced by native Apply/Restore, policy inventories and route observations before designing one bounded instrumented coexistence follow-up. This all-pass control does not prove the cause of the prior intermittent timeout; keep 0.8.1 policy outcome inconclusive.",
+  "user_action_now": "No immediate repeat of either control or full policy test requested. Keep original files, reports and journals; next work is instrumentation/design review before another Windows test.",
   "private_report_uploaded_to_repository": false,
   "raw_transcript_uploaded_to_repository": false,
   "runtime_binaries_uploaded_in_this_sync": false,
@@ -48,7 +48,7 @@
     "source": "analysis/unifiedfw-matched-control-0.1.0-2026-10-24/",
     "launcher": "Start-Control-126.cmd",
     "output": "UnifiedFW-Control126-Results-*.zip",
-    "Windows_tested": false,
+    "Windows_tested": true,
     "firewall_mutations": false,
     "actual_apply_or_restore": false,
     "live_policy_or_route_query": false,
@@ -68,7 +68,10 @@
     "effective_controller_elevation_recorded": true,
     "local_unittest_methods_passed": 37,
     "local_real_TLS_cases_per_transport": 5,
-    "zip_sha256": "7c3a9c0b616db77dd9b2be9f70c02bf319c5ed151066eb6de94ab5d0c8b4e84c"
+    "zip_sha256": "7c3a9c0b616db77dd9b2be9f70c02bf319c5ed151066eb6de94ab5d0c8b4e84c",
+    "Windows_result": "all_126_attempts_succeeded",
+    "Windows_reference_version": "5.1.26100.6899",
+    "Windows_controller_is_elevated": true
   },
   "latest_samepath_diagnostic_receipt": "reports/unifiedfw-session-20261024/windows-samepath-011-review.json",
   "latest_samepath_diagnostic_passed": true,
@@ -91,7 +94,10 @@
   "matched_control_causal_limits": [
     "No native Apply/Restore or policy inventory delays",
     "No live route snapshot or packet trace",
-    "Normal launch does not request elevation; effective elevation recorded, may differ from original admin lab",
+    "This control actually ran elevated under Windows PowerShell 5.1; no per-probe reference restart. Native-operation/route-observation differences and intermittent network variation remain.",
     "All control connections expected allowed; not protection or no-leak qualification"
-  ]
+  ],
+  "latest_matched_control_receipt": "reports/unifiedfw-session-20261024/windows-control126-010-review.json",
+  "latest_matched_control_passed": true,
+  "matched_control_observed_elevation": true
 }

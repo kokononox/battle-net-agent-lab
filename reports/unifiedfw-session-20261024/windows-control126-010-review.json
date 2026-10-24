@@ -1,0 +1,55 @@
+{
+  "schema": "unifiedfw-windows-control126-review-1",
+  "input_zip_sha256": "983036b68e07ae0206c4075b287760385cee8c3e2010fa0a56d558b185eb5a74",
+  "input_report_sha256": "1da13872dd08be0e2b7350e4d0826217a3c26cb4ccae366dcc5d6fb70185afb4",
+  "report_manifest_verified": true,
+  "Windows_tested": true,
+  "Windows_PowerShell_version": "5.1.26100.6899",
+  "controller_is_elevated": true,
+  "completed": true,
+  "outcome": "all_126_attempts_succeeded",
+  "attempts": 126,
+  "successful_attempts": 126,
+  "attempts_by_role": {
+    "REF": 42,
+    "A": 42,
+    "B": 42
+  },
+  "observed_failures": 0,
+  "all_sequence_order_identity_checks_passed": true,
+  "distinct_request_ids": 126,
+  "same_single_controller_for_all_rows": true,
+  "minimum_observed_following_gap_ms": 4001.207800000906,
+  "following_gaps_checked": 125,
+  "all_following_gaps_at_least_4000ms": true,
+  "automatic_retries": 0,
+  "firewall_mutation_attempted": false,
+  "vpn_or_route_changes_attempted": false,
+  "actual_apply_or_restore_performed": false,
+  "live_policy_or_route_queried": false,
+  "same_runtime_paths_as_latest_081_test": true,
+  "same_endpoint_as_latest_081_test": true,
+  "prior_policy_restoration_check": "historical_record_not_live_inventory",
+  "coexistence_081_outcome_remains": "inconclusive",
+  "root_cause_proven": false,
+  "protection_verified": false,
+  "no_leak_or_kill_switch_certified": false,
+  "raw_report_or_private_endpoint_published": false,
+  "interpretation": "126 allowed connections passed at original runtime paths, including long-lived elevated Windows PowerShell 5.1 reference. Does not establish root cause of prior single timeout or qualify policy enforcement.",
+  "next_step": "Review native operation/inventory and route-observation differences before selecting a single bounded follow-up; no immediate repeat of control or full policy lab requested.",
+  "comparison_plan": [
+    {
+      "grain": "attempt",
+      "population": "126 expected-allowed control connections",
+      "unit": "pass/fail",
+      "finding": "All expected-allowed attempts succeeded",
+      "disposition": "prose",
+      "reason": "Diagnostic acceptance verdict; no latency trend or comparative visualization requested or needed"
+    }
+  ],
+  "profile_notes": [
+    "Nested report JSON is one run with an embedded rows array; generic profiler cannot frame unequal arrays. Flattened all 126 attempts for profiling without dropping records.",
+    "Constant success/TLS/status/stage fields are expected for this all-pass run. Null error and error_code represent no recorded failure, not missing attempts.",
+    "The first pacing gap is intentionally null; all subsequent 125 gaps were independently checked. No duplicate attempts."
+  ]
+}
