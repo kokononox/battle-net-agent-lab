@@ -1,0 +1,23 @@
+{
+  "version": "0.9.8 RC / LAB",
+  "passed": true,
+  "python_tests": 494,
+  "powershell_suites": 37,
+  "powershell_parse_files": 87,
+  "Windows_GUI_executed": false,
+  "Windows_native_API_executed": false,
+  "Windows_TaskScheduler_executed": false,
+  "Windows_ACL_executed": false,
+  "packet_leak_tested": false,
+  "no_leak_certified": false,
+  "all_34_runtime_files_unchanged_since_0_9_7_1": true,
+  "private_state_included": false,
+  "base_release_for_hotfix": "0.9.7.1 RC",
+  "new_isolation_suites": [
+    "isolation-core-tests.json",
+    "isolation-native-model-tests.json",
+    "isolation-sstp-detection-tests.json",
+    "isolation-ui-tests.json"
+  ],
+  "old_native_write_engine_unchanged": true
+}
