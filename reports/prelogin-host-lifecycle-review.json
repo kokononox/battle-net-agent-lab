@@ -1,0 +1,54 @@
+{
+  "schema": "bnet-host-lifecycle-review-1",
+  "source_commit": "8432d4cdaa8bf260958e65dd6e5af757a1b87165",
+  "run_id": "40090018452",
+  "evidence_commit": "37bac487b7840ae27099735c40c9686811b6ca03",
+  "local_python_tests_passed": 29,
+  "verdict": "process_restart_comparison_attempted_but_inconclusive",
+  "same_or_different_host_id": null,
+  "first_phase_valid_host_id_observed": true,
+  "second_phase_valid_host_id_observed": false,
+  "blocking_reason": "unexpected_image_name",
+  "second_phase_failed_verification_processes": 1,
+  "second_phase_collector_incomplete": true,
+  "configuration_deleted_or_rewritten_by_harness": false,
+  "identifier_values_or_hashes_exported": false,
+  "universal_install_id_proven": false,
+  "persistent_hardware_id_proven": false,
+  "game_file_marking_proven": false,
+  "next_action": "obtain_allowlisted_basename_class_publisher_signature_and_image_hash_of_refused_child_without_resuming_it_then_review_scope",
+  "runs": [
+    {
+      "stage": "a1",
+      "source_commit": "1340edeb372b54b765fc953c4140b74d4b524837",
+      "run_id": "40088494910",
+      "status": "inconclusive",
+      "error_code": "first_phase_ineligible",
+      "comparison": null
+    },
+    {
+      "stage": "a2",
+      "source_commit": "178c04208e5b99561b5eda38db2149b9ed925c3a",
+      "run_id": "40089112247",
+      "status": "inconclusive",
+      "error_code": "first_phase_ineligible",
+      "comparison": null
+    },
+    {
+      "stage": "a3",
+      "source_commit": "f3c72106d86cbec171796d7193d27bdb57f2135a",
+      "run_id": "40089538604",
+      "status": "stopped",
+      "error_code": "bounded_lifecycle_failed",
+      "comparison": null
+    },
+    {
+      "stage": "a4",
+      "source_commit": "8432d4cdaa8bf260958e65dd6e5af757a1b87165",
+      "run_id": "40090018452",
+      "status": "inconclusive",
+      "error_code": "second_phase_ineligible",
+      "comparison": null
+    }
+  ]
+}

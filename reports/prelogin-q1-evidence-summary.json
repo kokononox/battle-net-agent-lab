@@ -11,7 +11,7 @@
     "all_users_all_versions": "not_established",
     "exclusive_hardware_destination": "not_established",
     "host_id_agent_wire_mapping": "/1/4/1",
-    "host_id_restart_persistence": "not_tested",
+    "host_id_restart_persistence": "process_restart_attempted_inconclusive; OS_reboot_not_tested",
     "host_id_hardware_derived": "not_established",
     "wow_data_marking_question": "queued_not_tested",
     "same_hardware_payload_ciphertext_in_local_network_capture": "established_in_h3_e7"
@@ -71,6 +71,14 @@
         "previously_enabled_count": 3,
         "verified_disabled": true
       }
+    },
+    "host_id_lifecycle_a4": {
+      "source_commit": "8432d4cdaa8bf260958e65dd6e5af757a1b87165",
+      "run_id": "40090018452",
+      "evidence_commit": "37bac487b7840ae27099735c40c9686811b6ca03",
+      "verdict": "process_restart_comparison_attempted_but_inconclusive",
+      "blocking_reason": "unexpected_image_name",
+      "report": "reports/prelogin-host-lifecycle-a4.json"
     }
   },
   "decoding": {
@@ -109,6 +117,13 @@
       "login_performed": false,
       "install_action_requested": false,
       "game_download_requested": false
+    },
+    "host_id_lifecycle_a4": {
+      "local_python_tests_passed": 29,
+      "first_native_gate_passed": true,
+      "second_phase_collector_incomplete": true,
+      "raw_identifiers_exported": false,
+      "comparison": null
     }
   }
 }
