@@ -1,0 +1,37 @@
+{
+  "schema": "bnet-nested-preflight-1",
+  "source_commit": "d72f4c472d6b00b9d71e62e86e102c14825ace30",
+  "run_id": "40153160310",
+  "platform": "windows",
+  "access": "runner",
+  "status": "probe_failed",
+  "facts": {
+    "vm_definition_created": null,
+    "hypervisor_present": null,
+    "slat": null,
+    "vmms_running": null,
+    "admin": null,
+    "diagnostic": "probe_failed",
+    "vmms_present": null,
+    "new_vm_command": null,
+    "vm_monitor_extensions": null,
+    "firmware_virtualization": null,
+    "vm_definition_removed": null,
+    "hyperv_feature_installed": null
+  },
+  "resources": {
+    "cpu_count": 2,
+    "ram_gib": 7,
+    "disk_free_gib": 72
+  },
+  "limits": {
+    "guest_os_downloaded": false,
+    "guest_os_booted": false,
+    "guest_reboot_tested": false,
+    "host_rebooted": false,
+    "target_launched": false,
+    "hypervisor_feature_enabled_by_probe": false,
+    "device_permissions_changed": false,
+    "raw_identifiers_exported": false
+  }
+}

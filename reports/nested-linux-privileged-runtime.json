@@ -1,0 +1,33 @@
+{
+  "schema": "bnet-nested-preflight-1",
+  "source_commit": "d72f4c472d6b00b9d71e62e86e102c14825ace30",
+  "run_id": "40153160310",
+  "platform": "linux",
+  "access": "privileged_probe",
+  "status": "kvm_vm_creation_verified_not_guest_boot",
+  "facts": {
+    "kvm_device_present": true,
+    "diagnostic": "none",
+    "kvm_vm_created": true,
+    "cpu_virtualization_flag": true,
+    "qemu_binary_present": false,
+    "kvm_api_version": 12,
+    "kvm_user_memory_capable": true,
+    "kvm_open_succeeded": true
+  },
+  "resources": {
+    "cpu_count": 2,
+    "ram_gib": 7,
+    "disk_free_gib": 12
+  },
+  "limits": {
+    "guest_os_downloaded": false,
+    "guest_os_booted": false,
+    "guest_reboot_tested": false,
+    "host_rebooted": false,
+    "target_launched": false,
+    "hypervisor_feature_enabled_by_probe": false,
+    "device_permissions_changed": false,
+    "raw_identifiers_exported": false
+  }
+}
