@@ -1,0 +1,106 @@
+{
+  "schema": "bnet-registry-stack-trace-2",
+  "source_commit": "a0a9e4cbfedf32d999da99e40fa8ec7e967cd4cc",
+  "run_id": "40195322260",
+  "status": "inconclusive",
+  "native_gate": [
+    {
+      "architecture": "x64",
+      "passed": true,
+      "exit_code": 0,
+      "instrumented": true,
+      "bitness_confirmed": true,
+      "read_a": true,
+      "read_w": true,
+      "get_w": true,
+      "write_w": true,
+      "size_only_not_uuid": true,
+      "read_w_main_frame": true,
+      "write_w_main_frame": true,
+      "accurate_stack_captured": true,
+      "scope_diagnostics": {
+        "verified_image_found": true,
+        "process_main_matches_verified_image": false,
+        "direct_caller_found": true
+      },
+      "errors": 0,
+      "limits": 0
+    },
+    {
+      "architecture": "x86",
+      "passed": true,
+      "exit_code": 0,
+      "instrumented": true,
+      "bitness_confirmed": true,
+      "read_a": true,
+      "read_w": true,
+      "get_w": true,
+      "write_w": true,
+      "size_only_not_uuid": true,
+      "read_w_main_frame": true,
+      "write_w_main_frame": true,
+      "accurate_stack_captured": true,
+      "scope_diagnostics": {
+        "verified_image_found": true,
+        "process_main_matches_verified_image": false,
+        "direct_caller_found": true
+      },
+      "errors": 0,
+      "limits": 0
+    }
+  ],
+  "baseline_before_target": {
+    "status": "absent",
+    "value_present": false,
+    "valid_uuid": false
+  },
+  "baseline_after_target": {
+    "status": "absent",
+    "value_present": false,
+    "valid_uuid": false
+  },
+  "target_launched": true,
+  "lifecycle_comparison": null,
+  "phases": [
+    {
+      "ready_processes": 1,
+      "installed_apis": [
+        "RegCloseKey",
+        "RegCreateKeyExA",
+        "RegCreateKeyExW",
+        "RegGetValueA",
+        "RegGetValueW",
+        "RegOpenKeyExA",
+        "RegOpenKeyExW",
+        "RegQueryValueExA",
+        "RegQueryValueExW",
+        "RegSetValueExA",
+        "RegSetValueExW"
+      ],
+      "errors": 0,
+      "limits": 0,
+      "records": [],
+      "phase": "first",
+      "wire_linked_hardware_requests": 0,
+      "all_processes_registry_ready": true,
+      "wire_collector_clean": true
+    }
+  ],
+  "registry_read_equals_wire_host_id": false,
+  "successful_matching_write_observed": false,
+  "matching_agent_read_stack_observed": false,
+  "limits": {
+    "raw_values_exported": false,
+    "identifier_hashes_exported": false,
+    "target_registry_modified_by_observer": false,
+    "login_performed": false,
+    "install_action_requested": false,
+    "game_download_requested": false,
+    "tls_validation_changed": false,
+    "provider_assignment_causality_proven": false,
+    "reboot_tested": false,
+    "reinstall_tested": false,
+    "global_install_uniqueness_proven": false,
+    "server_storage_proven": false
+  }
+}

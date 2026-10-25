@@ -1,0 +1,56 @@
+{
+  "schema": "bnet-host-lifecycle-7",
+  "source_commit": "a0a9e4cbfedf32d999da99e40fa8ec7e967cd4cc",
+  "run_id": "40195322260",
+  "status": "inconclusive",
+  "error_code": "first_phase_ineligible",
+  "first_native_gate_passed": true,
+  "same_machine": true,
+  "configuration_preserved": true,
+  "second_start_clean_processes": false,
+  "comparison": null,
+  "phases": [
+    {
+      "launched": true,
+      "completed": true,
+      "bootstrap_pin_match": true,
+      "instrumented_processes": 1,
+      "collector_errors": 0,
+      "dropped_events": 0,
+      "collector_fatal": false,
+      "request_count": 0,
+      "hardware_requests": 0,
+      "wire_linked_hardware_requests": 0,
+      "host_id_observations": 0,
+      "host_id_unique": 0,
+      "invalid_host_id_events": 0,
+      "all_processes_instrumented": true,
+      "language_status": "not_observed"
+    }
+  ],
+  "storage_scans": [],
+  "second_diagnostics": {
+    "stage": "not_started",
+    "error_type": null,
+    "refusal_reason": null,
+    "refused_image": null,
+    "helper_decisions": [],
+    "processes": []
+  },
+  "limits": {
+    "raw_values_exported": false,
+    "identifier_hashes_exported": false,
+    "login_performed": false,
+    "game_download_requested": false,
+    "install_action_requested": false,
+    "tls_validation_changed": false,
+    "reboot_tested": false,
+    "reinstall_tested": false,
+    "clean_machine_comparison_tested": false,
+    "account_linkage_proven": false,
+    "game_file_marking_proven": false,
+    "server_storage_proven": false,
+    "configuration_storage_location_proven": false,
+    "persistent_hardware_id_proven": false
+  }
+}

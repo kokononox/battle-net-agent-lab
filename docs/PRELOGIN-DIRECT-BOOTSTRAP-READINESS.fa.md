@@ -24,3 +24,15 @@ a12c: source ac914db9e53d8733322877f108f755c024c7fc8c، run 40194509544، eviden
 ## مرز نتیجه
 
 provider assignment، یکتایی هر نصب، reboot، reinstall، انتساب به شخص/حساب و ذخیره‌سازی سرور هنوز اثبات نشده‌اند. مسیر nested-VM متوقف و سؤال دوم همچنان در صف است. هیچ دسترسی از راه دوری ایجاد نشده است.
+
+## نتیجهٔ واقعی a12d
+
+source a0a9e4cbfedf32d999da99e40fa8ec7e967cd4cc، run 40195322260، evidence 44a631e98aeb3df98bbe181cadeee7d054508693. Dependencies، آزمون‌ها، observation و sanitization همگی success شدند؛ این وضعیت CI را نباید با موفقیت فرضیهٔ پژوهش یکی گرفت.
+
+گیت‌های بومی هر دو معماری دوباره موفق بودند. اما گزارش readiness وضعیت bootstrapper_observed_agent_not_observed و language_status=no_targets دارد؛ ۳۰ sample و سه snapshot نگه‌داشته‌شده، فقط نام battle.net-setup.exe را نشان می‌دهند. helper_started و تمام پرچم‌های اقدام/ابهام false هستند. از این داده نمی‌توان نتیجه گرفت هیچ پنجره‌ای در هیچ desktop/session دیگری وجود نداشته است؛ فقط هدف قابل‌مشاهده‌ای برای helper موجود نبود.
+
+افزایش انتظار به ۱۵۰ ثانیه و polling محدود مشکل را در این اجرا حل نکرد. رجیستری هدف absent ماند؛ پیام hardware یا frame متعلق به Agent ثبت نشد و مرحلهٔ دوم شروع نشد. نتیجه inconclusive و provider_assignment_causality_proven=false باقی است. شواهد مثبت پیشین a11 حذف یا نقض نشده‌اند.
+
+علاوه بر ۶۰ آزمون و ۶۲ کنترل JS، سه سناریوی یکپارچهٔ مصنوعی روی تابع واقعی observe محلی پاس شدند: مسیر پیش‌فرض فقط در ثانیهٔ ۵؛ مسیر opt-in در ۵/۱۵/۲۵ با توقف پس از شروع helper؛ و توقف پس از page mismatch، با سقف سه snapshot و بدون اجرای واقعی برنامه. این آزمون‌ها جای مشاهدهٔ ویندوز نیستند.
+
+گام تشخیصی بعدی، مقایسهٔ baseline بدون Frida با وضعیت desktop/session و زنده‌بودن بوت‌استرپ در همان چارچوب محدود است؛ هنوز اجرا نشده و علت به Frida یا GitHub نسبت داده نمی‌شود. در زمان ثبت این نتیجه، اجرای a12d تمام شده است و اجرای دیگری برای این گام راه نیفتاده است.
