@@ -1,0 +1,98 @@
+name: Owned nested virtualization preflight - no guest OS or reboot
+on:
+  push:
+    branches: [research/prelogin-telemetry-wow-data-provenance]
+    paths:
+      - 'analysis-tools/prelogin-nested/**'
+      - '.github/workflows/prelogin-nested-preflight.yml'
+permissions: {}
+concurrency:
+  group: nested-preflight-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  linux:
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned nested preflight c1'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    env:
+      BNET_NESTED_PREFLIGHT: owned-nested-c1
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Contract tests
+        run: python3 -m unittest discover -s analysis-tools/prelogin-nested -p 'test_*.py' -v
+      - name: KVM current runner access - empty VM FD only
+        run: python3 analysis-tools/prelogin-nested/preflight.py --platform linux --access runner --out output/nested-linux-runner.json
+      - name: KVM privileged diagnostic - no device permission change
+        run: >-
+          sudo -n --preserve-env=GITHUB_ACTIONS,RUNNER_ENVIRONMENT,GITHUB_RUN_ATTEMPT,GITHUB_EVENT_NAME,GITHUB_REF,GITHUB_SHA,GITHUB_RUN_ID,BNET_NESTED_PREFLIGHT
+          python3 analysis-tools/prelogin-nested/preflight.py --platform linux --access privileged_probe --out output/nested-linux-privileged.json
+      - name: Validate only fixed capability facts
+        run: |
+          set -euo pipefail
+          python3 analysis-tools/prelogin-nested/preflight.py validate output/nested-linux-runner.json sanitized/nested-linux-runner.json
+          python3 analysis-tools/prelogin-nested/preflight.py validate output/nested-linux-privileged.json sanitized/nested-linux-privileged.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: nested-preflight-linux
+          path: sanitized/
+          if-no-files-found: error
+          retention-days: 3
+  windows:
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned nested preflight c1'
+    runs-on: windows-2025
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    env:
+      BNET_NESTED_PREFLIGHT: owned-nested-c1
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Contract tests
+        run: python -m unittest discover -s analysis-tools/prelogin-nested -p 'test_*.py' -v
+      - name: Query Hyper-V and create-remove empty definition only if ready
+        run: python analysis-tools/prelogin-nested/preflight.py --platform windows --access runner --out output/nested-windows.json
+      - name: Validate only fixed capability facts
+        run: python analysis-tools/prelogin-nested/preflight.py validate output/nested-windows.json sanitized/nested-windows.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: nested-preflight-windows
+          path: sanitized/nested-windows.json
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: [linux, windows]
+    if: needs.linux.result == 'success' && needs.windows.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: research/prelogin-telemetry-wow-data-provenance
+          persist-credentials: true
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          pattern: nested-preflight-*
+          merge-multiple: true
+          path: incoming
+      - name: Publish fixed-path validated capability reports
+        run: |
+          set -euo pipefail
+          for name in nested-linux-runner nested-linux-privileged nested-windows; do
+            python3 analysis-tools/prelogin-nested/preflight.py validate "incoming/$name.json" "reports/$name-runtime.json"
+          done
+          git config user.name prelogin-wire-report
+          git config user.email prelogin-wire-report@users.noreply.github.com
+          git add -- reports/nested-linux-runner-runtime.json reports/nested-linux-privileged-runtime.json reports/nested-windows-runtime.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'lab: publish sanitized nested virtualization preflight'
+          git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
