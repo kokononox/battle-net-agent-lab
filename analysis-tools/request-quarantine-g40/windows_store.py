@@ -16,7 +16,7 @@ class WindowsStore:
    args.append(capture_id)
   data=b'' if record is None else json.dumps(record,ensure_ascii=True,separators=(',',':')).encode('ascii')
   if len(data)>MAX_RECORD_BYTES:raise Rejected('private_store_quota')
-  env={k:v for k,v in os.environ.items() if k.upper() in {'SYSTEMROOT','WINDIR','PROGRAMDATA','TEMP','TMP'}}
+  env={k:v for k,v in os.environ.items() if k.upper() in {'SYSTEMROOT','WINDIR','SYSTEMDRIVE','ALLUSERSPROFILE','PROGRAMDATA','TEMP','TMP'}}
   try:
    r=subprocess.run(args,input=data,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=15,env=env,check=False)
    if len(r.stdout)>MAX_RECORD_BYTES+65536:raise ValueError()
