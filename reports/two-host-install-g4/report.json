@@ -1,0 +1,59 @@
+{
+    "schema":  "bnet-two-hosts-listener-g4-1",
+    "source_commit":  "9426a9e7dd33999123c6179a42ec44bfc645f120",
+    "run_id":  "40162050772",
+    "installer_launched":  false,
+    "policy_changed":  false,
+    "services_changed":  false,
+    "listeners":  [
+                      {
+                          "port":  80,
+                          "address_family":  "ipv6",
+                          "owner_kind":  "system_http_sys_candidate",
+                          "loopback":  false
+                      }
+                  ],
+    "service_states":  [
+                           {
+                               "state":  "Running",
+                               "name":  "W3SVC"
+                           },
+                           {
+                               "state":  "Running",
+                               "name":  "WAS"
+                           },
+                           {
+                               "state":  "Running",
+                               "name":  "WinRM"
+                           },
+                           {
+                               "state":  "Running",
+                               "name":  "HTTP"
+                           },
+                           {
+                               "state":  "absent",
+                               "name":  "MsDepSvc"
+                           },
+                           {
+                               "state":  "absent",
+                               "name":  "WMSVC"
+                           }
+                       ],
+    "excluded_ranges":  [
+                            {
+                                "port":  80,
+                                "family":  "ipv4",
+                                "end":  80,
+                                "start":  80
+                            },
+                            {
+                                "port":  80,
+                                "family":  "ipv6",
+                                "end":  80,
+                                "start":  80
+                            }
+                        ],
+    "probe_errors":  [
+
+                     ]
+}

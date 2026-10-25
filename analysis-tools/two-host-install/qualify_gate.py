@@ -6,7 +6,7 @@ import hashlib,ipaddress,json,os,re,socket,ssl,subprocess,sys,tempfile,time
 from pathlib import Path
 from domain_proxy import HOSTS,validated_config
 from redirect_hosts import Redirect
-APPROVAL='lab: approved two-host egress qualification G3 20261025'
+APPROVAL='lab: approved two-host egress qualification G5 20261025'
 BRANCH='research/battlenet-minimal-install-isolation-2026-10-25'
 
 def authorized(e,p):
@@ -36,13 +36,13 @@ def main():
  if not authorized(os.environ,sys.platform):raise SystemExit('approved_fresh_hosted_qualification_required')
  base=Path(__file__).resolve().parent;repo=base.parents[1];sys.path.insert(0,str(repo/'scripts'));import observe_agent as obs
  env=obs.clean_environment(os.environ);ps=Path(os.environ['SystemRoot'])/'System32/WindowsPowerShell/v1.0/powershell.exe'
- r=dict(schema='bnet-two-hosts-g3-1',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],allowed_hosts=sorted(HOSTS),installer_launched=False,status='stopped',stage='prepare',firewall_prepared=False,firewall_applied=False,firewall_verified=False,firewall_restored=False,management_exception_scope='runner_listener_worker_only_not_target_installers',proxy_binary_sha256=None,baseline_direct={},direct_denied={},http_allowed={},other_authority_denied=False,wrong_sni_denied=False,proxy_log_counts={},tls_certificates_changed=False,raw_state_exported=False,all_traffic_blocked_proven=False,error_code=None)
- r.update(hosts_steered=False,hosts_restored=False,proxy_before_firewall={},http_probe_kinds={},ipv6_loopback_http={},tls_end_to_end_verified=False,listener_bind_probes={},proxy_exit_code=None)
+ r=dict(schema='bnet-two-hosts-g5-1',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],allowed_hosts=sorted(HOSTS),installer_launched=False,status='stopped',stage='prepare',firewall_prepared=False,firewall_applied=False,firewall_verified=False,firewall_restored=False,management_exception_scope='runner_listener_worker_only_not_target_installers',proxy_binary_sha256=None,baseline_direct={},direct_denied={},http_allowed={},other_authority_denied=False,wrong_sni_denied=False,proxy_log_counts={},tls_certificates_changed=False,raw_state_exported=False,all_traffic_blocked_proven=False,error_code=None)
+ r.update(hosts_steered=False,hosts_restored=False,proxy_before_firewall={},http_probe_kinds={},ipv6_loopback_http={},tls_end_to_end_verified=False,listener_bind_probes={},proxy_exit_code=None,proxy_start_error_kind=None)
  def write():
-  out=Path('output/two-hosts-g3.json');out.parent.mkdir(exist_ok=True);out.write_text(json.dumps(r,indent=2)+'\n',encoding='utf-8')
- with tempfile.TemporaryDirectory(prefix='bnet-two-hosts-g3-',dir=os.environ['RUNNER_TEMP'],ignore_cleanup_errors=True) as tmp:
+  out=Path('output/two-hosts-g5.json');out.parent.mkdir(exist_ok=True);out.write_text(json.dumps(r,indent=2)+'\n',encoding='utf-8')
+ with tempfile.TemporaryDirectory(prefix='bnet-two-hosts-g5-',dir=os.environ['RUNNER_TEMP'],ignore_cleanup_errors=True) as tmp:
   work=Path(tmp);config=work/'proxy.json';log=work/'proxy-private.jsonl';proxy=None;prepared=False;redirect=Redirect(work,env)
-  exe=base/'dist/TwoHostProxy.exe'
+  exe=base/'dist/TwoHostProxy.exe';startup_error=work/'proxy-stderr.private.txt';error_stream=None
   def gate(action):
    p=subprocess.run([str(ps),'-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-File',str(base/'firewall_gate.ps1'),'-Action',action,'-Work',str(work),'-ProxyExe',str(exe),'-Config',str(config)],env=env,stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=60,check=False)
    if len(p.stdout)>8192:raise ValueError('firewall_helper_output_limit')
@@ -67,7 +67,8 @@ def main():
    if not all(r['baseline_direct'].values()):raise ValueError('network_baseline_not_healthy')
    # A fixed loopback port is tested before any firewall change.
    port=80;cfg=validated_config(dict(hosts=pins,port=18731,seconds=150,log=str(log),transparent=True));config.write_text(json.dumps(cfg),encoding='utf-8')
-   proxy=subprocess.Popen([str(exe),str(config)],cwd=work,env=env,stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+   error_stream=startup_error.open('wb')
+   proxy=subprocess.Popen([str(exe),str(config)],cwd=work,env=env,stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=error_stream)
    for _ in range(60):
     if log.exists() and 'proxy_ready' in log.read_text():break
     if proxy.poll() is not None:
@@ -117,6 +118,11 @@ def main():
     proxy.terminate()
     try:proxy.wait(timeout=5)
     except subprocess.TimeoutExpired:proxy.kill()
+   if error_stream is not None:error_stream.close()
+   if startup_error.exists():
+    error_bytes=startup_error.read_bytes()[:16384]
+    for label in ['PermissionError','OSError','ValueError','ModuleNotFoundError','ImportError','FileNotFoundError','UnicodeDecodeError']:
+     if label.encode() in error_bytes:r['proxy_start_error_kind']=label;break
    if log.exists():
     counts={}
     for line in log.read_text(encoding='utf-8').splitlines():
