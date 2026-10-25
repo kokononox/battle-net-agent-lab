@@ -35,10 +35,24 @@ if root:
    except Exception:pass
  for item in read(root/'outside-candidates.json').get('items',[])[:32]:identities.append(dict(item,evidence='post_job_unattributed'))
  # Count changed registrations by kind; names, commands and task XML remain private.
- before=read(root/'registrations-before.json');after=read(root/'registrations-after.json');r['registration_changes_by_kind']={}
+ before=read(root/'registrations-before.json');after=read(root/'registrations-after.json');r['registration_changes_by_kind']={};r['registration_differences']=[]
  for kind in ['services','tasks']:
   a=before.get(kind,{});b=after.get(kind,{})
   r['registration_changes_by_kind'][kind]=sum(a.get(k)!=b.get(k) for k in set(a)|set(b)) if a and b else None
+  for key in sorted(set(a)|set(b)):
+   if a.get(key)==b.get(key):continue
+   label=key.split('\\')[-1]
+   if not re.fullmatch('[A-Za-z][A-Za-z0-9_. ()-]{0,89}',label):label='redacted_identifier'
+   def image_names(snapshot):
+    value=snapshot.get('service_commands' if kind=='services' else 'task_images',{}).get(key,[])
+    if isinstance(value,str):value=[value]
+    result=[]
+    for text in value[:8]:
+     matches=re.findall(r'(?i)([a-z0-9_.-]+[.]exe)',text)
+     result.extend(matches[:3])
+    return sorted(set(result))
+   r['registration_differences'].append({'kind':kind,'identifier':label,'identity_sha256':hashlib.sha256(key.encode()).hexdigest(),'change':'added' if key not in a else 'removed' if key not in b else 'modified','image_names_before':image_names(before),'image_names_after':image_names(after),'command_or_action_images_changed':before.get('service_commands' if kind=='services' else 'task_images',{}).get(key)!=after.get('service_commands' if kind=='services' else 'task_images',{}).get(key)})
+
  seen=set();hashed=0
  names={'battle.net-setup.exe':'Battle.net-Setup.exe','agent.exe':'Agent.exe','battle.net.exe':'Battle.net.exe','battle.net launcher.exe':'Battle.net Launcher.exe','blizzarderror.exe':'BlizzardError.exe','conhost.exe':'conhost.exe','msiexec.exe':'msiexec.exe'}
  def category(p):
@@ -66,5 +80,5 @@ if root:
  if good:r['status']='offline_bootstrap_observed_and_restored'
  elif rec.get('restore_refused'):r['status']='quarantined_restore_refused'
  elif pre.get('error_code'):r['status']='preflight_stopped'
-(OUT/'offline-g17.json').write_text(json.dumps(r,indent=2));print(json.dumps(r))
+(OUT/'offline-g17.json').write_text(json.dumps(r,indent=2));print(json.dumps(r,indent=2))
 sys.exit(0 if r['status']=='offline_bootstrap_observed_and_restored' else 1)
