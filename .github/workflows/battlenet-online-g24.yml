@@ -1,0 +1,136 @@
+name: Battle.net G24 prepared certificate cache then isolated Setup
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/two-destination-g24/**', '.github/workflows/battlenet-online-g24.yml']
+permissions: {}
+jobs:
+  observe:
+    if: >-
+      github.event.head_commit.message == 'lab: approved certificate cache preparation and Setup G24 20261025' && github.run_attempt == 1
+    strategy:
+      fail-fast: false
+      matrix:
+        scenario: [real_setup]
+    runs-on: windows-2025
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    env:
+      BNET_G24_SCENARIO: '${{ matrix.scenario }}'
+      BNET_ONLINE_G24: 'lab: approved certificate cache preparation and Setup G24 20261025'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse sources before any mutation
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          foreach($file in Get-ChildItem analysis-tools/two-destination-g24/*.ps1){
+            $tokens=$null;$errors=$null
+            $null=[Management.Automation.Language.Parser]::ParseFile($file.FullName,[ref]$tokens,[ref]$errors)
+            if($errors.Count -gt 0){$errors | ForEach-Object {Write-Output ($_.ErrorId+':'+$_.Extent.StartLineNumber)};throw 'powershell_parse_failed'}
+          }
+          python -m compileall -q analysis-tools/two-destination-g24
+          if($LASTEXITCODE -ne 0){throw 'python_parse_failed'}
+      - name: Negative classifier and recovery-decision tests without OS mutation
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          python analysis-tools/two-destination-g24/TestClassifier.py --synthetic output
+          if($LASTEXITCODE -ne 0){throw 'classifier_unit_tests_failed'}
+          & ./analysis-tools/two-destination-g24/TestGate.ps1
+          python analysis-tools/two-destination-g24/TestProxy.py
+          if($LASTEXITCODE -ne 0){throw 'proxy_protocol_tests_failed'}
+          python analysis-tools/two-destination-g24/TestDiagnostics.py
+          if($LASTEXITCODE -ne 0){throw 'proxy_diagnostic_tests_failed'}
+          python analysis-tools/two-destination-g24/TestCollectReport.py
+          if($LASTEXITCODE -ne 0){throw 'report_collector_tests_failed'}
+          python analysis-tools/two-destination-g24/TestUISchedule.py
+          if($LASTEXITCODE -ne 0){throw 'ui_timing_tests_failed'}
+          python analysis-tools/two-destination-g24/TestTLSRecords.py
+          if($LASTEXITCODE -ne 0){throw 'tls_metadata_tests_failed'}
+          python analysis-tools/two-destination-g24/TestLogErrors.py
+          if($LASTEXITCODE -ne 0){throw 'log_code_tests_failed'}
+          python analysis-tools/two-destination-g24/TestPeerLive.py
+          if($LASTEXITCODE -ne 0){throw 'native_peer_table_tests_failed'}
+      - name: Compile bounded Job launcher and native signature verifier
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          New-Item -ItemType Directory -Force output, "$env:RUNNER_TEMP\bnet-g24-bin" | Out-Null
+          $source=(Resolve-Path 'analysis-tools/two-destination-g24/OfflineLauncher.cs').Path
+          $signature=(Resolve-Path 'scripts/authenticode_native.cs').Path
+          $csc="$env:SystemRoot\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+          & $csc @('/nologo','/target:exe','/platform:x64','/r:System.Web.Extensions.dll',('/out:'+(Join-Path "$env:RUNNER_TEMP\bnet-g24-bin" 'OfflineLauncher.exe')),$source,$signature)
+          if($LASTEXITCODE -ne 0){throw 'launcher_build_failed'}
+          $prep=(Resolve-Path 'analysis-tools/two-destination-g24/CertificatePrep.cs').Path
+          & $csc @('/nologo','/target:exe','/platform:x64','/r:System.Web.Extensions.dll',('/out:'+(Join-Path "$env:RUNNER_TEMP\bnet-g24-bin" 'CertificatePrep.exe')),$prep)
+          if($LASTEXITCODE -ne 0){throw 'certificate_prep_build_failed'}
+          & (Join-Path "$env:RUNNER_TEMP\bnet-g24-bin" 'CertificatePrep.exe') selftest
+          if($LASTEXITCODE -ne 0){throw 'certificate_policy_tests_failed'}
+          Push-Location analysis-tools/two-destination-g24
+          try {
+            python -m pip install --disable-pip-version-check pyinstaller==6.16.0
+            if($LASTEXITCODE -ne 0){throw 'proxy_dependency_failed'}
+            python -m PyInstaller --clean --noconfirm --onedir --name TwoHostProxy domain_proxy.py
+            if($LASTEXITCODE -ne 0){throw 'proxy_build_failed'}
+          } finally {Pop-Location}
+      - name: Prepare certificate cache then observe isolated real Setup
+        timeout-minutes: 8
+        shell: powershell
+        run: '& ./analysis-tools/two-destination-g24/Driver.ps1'
+      - name: Bounded component-first fallback, never unconditional policy release
+        if: always()
+        timeout-minutes: 1
+        shell: powershell
+        run: |
+          if(Test-Path output/g24-private-pointer.json){
+            $p=Get-Content -Raw output/g24-private-pointer.json | ConvertFrom-Json
+            if(Test-Path (Join-Path $p.root 'before.wfw')){
+              & {
+                . (Join-Path $p.root 'Common.ps1')
+                $c=Read-Context (Join-Path $p.root 'config.json')
+                if((Get-Content -Raw (Join-Path $p.root 'lease.json') | ConvertFrom-Json).phase -ne 'released'){
+                  Start-ScheduledTask $c.cleanup_task_name
+                  Wait-File (Join-Path $p.root 'recovery-result.json') 40
+                }
+              }
+            }
+          }
+      - name: Build only allowlisted evidence
+        if: always()
+        shell: powershell
+        run: 'python analysis-tools/two-destination-g24/Reporter.py'
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: 'battlenet-online-g24-${{ matrix.scenario }}-sanitized'
+          path: output/online-g24.json
+          if-no-files-found: error
+          retention-days: 3
+
+  collect:
+    needs: observe
+    if: >-
+      always() && github.event.head_commit.message == 'lab: approved certificate cache preparation and Setup G24 20261025' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Recover verified sanitized evidence from finished Windows job
+        env:
+          GH_REPORT_TOKEN: ${{ github.token }}
+        run: python analysis-tools/two-destination-g24/CollectReport.py
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: battlenet-online-g24-recovered-sanitized
+          path: collected/*.json
+          if-no-files-found: error
+          retention-days: 14
