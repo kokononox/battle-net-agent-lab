@@ -52,6 +52,11 @@ class Tests(unittest.TestCase):
   r=ready();r['qemu']['kvm_enabled']=False;self.assertRaises(ValueError,validate,r)
  def test_no_unselected_image(self):
   r=ready();r['image']['selected_index']=1;self.assertRaises(ValueError,validate,r)
+ def test_preparation_budget(self):
+  self.assertEqual(MIN_FREE,32*1024**3)
+  self.assertGreater(MIN_FREE,3*ISO_BYTES)
+ def test_below_capacity_boundary(self):
+  r=ready();r['disk_free_after_cleanup_bytes']=MIN_FREE-1;self.assertRaises(ValueError,validate,r)
  def test_cleanup_headroom_required(self):
   r=ready();r['disk_free_after_cleanup_bytes']=1;self.assertRaises(ValueError,validate,r)
  def test_no_actual_state_artifacts(self):

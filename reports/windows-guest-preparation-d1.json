@@ -1,0 +1,55 @@
+{
+  "schema": "bnet-windows-guest-preparation-1",
+  "source_commit": "cc6dd0f6ba6c4580dc93cf98b6bfdf6117b49162",
+  "run_id": "40154687803",
+  "status": "stopped",
+  "error_code": "capacity_insufficient",
+  "cleanup_labels": [
+    "android",
+    "dotnet",
+    "ghcup",
+    "swift",
+    "codeql",
+    "powershell"
+  ],
+  "disk_free_before_bytes": 13499822080,
+  "disk_free_after_cleanup_bytes": 41996992512,
+  "disk_free_final_bytes": 41996992512,
+  "apt_tools_installed": false,
+  "qemu_version": null,
+  "image": {
+    "url": "https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.32230.260111-0550.lt_release_svc_refresh_SERVER_EVAL_x64FRE_en-us.iso",
+    "expected_bytes": 8152356864,
+    "downloaded_bytes": 0,
+    "sha256": null,
+    "download_complete": false,
+    "source_authentication": "verified_https_microsoft_published_url_not_published_checksum",
+    "images": [],
+    "selected_index": null
+  },
+  "disk": {
+    "format": "qcow2",
+    "virtual_bytes": 68719476736,
+    "created": false,
+    "actual_bytes": null,
+    "temporary_only": true
+  },
+  "qemu": {
+    "qmp_responded": false,
+    "kvm_enabled": false,
+    "paused": false,
+    "disk_attached": false,
+    "iso_attached": false,
+    "clean_shutdown": false
+  },
+  "limits": {
+    "windows_guest_booted": false,
+    "windows_guest_reboot_tested": false,
+    "target_launched": false,
+    "host_rebooted": false,
+    "tls_validation_changed": false,
+    "device_permissions_changed": false,
+    "raw_identifiers_exported": false,
+    "private_logs_or_disks_exported": false
+  }
+}

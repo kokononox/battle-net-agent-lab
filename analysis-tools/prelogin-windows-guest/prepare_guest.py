@@ -7,7 +7,8 @@ from pathlib import Path
 ISO_URL='https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.32230.260111-0550.lt_release_svc_refresh_SERVER_EVAL_x64FRE_en-us.iso'
 ISO_BYTES=8152356864
 DISK_BYTES=64*1024**3
-MIN_FREE=40*1024**3
+# Preparation only: ISO + extracted WIM + tools; no OS installation here.
+MIN_FREE=32*1024**3
 CLEANUP={'android':Path('/usr/local/lib/android'),'dotnet':Path('/usr/share/dotnet'),'ghcup':Path('/usr/local/.ghcup'),'ghc':Path('/opt/ghc'),'swift':Path('/usr/share/swift'),'codeql':Path('/opt/hostedtoolcache/CodeQL'),'powershell':Path('/usr/local/share/powershell')}
 ERRORS={None,'capacity_insufficient','apt_failed','tool_missing','download_failed','media_size_mismatch','media_xml_failed','image_not_unique','qemu_failed','bounded_preparation_failed','guard_failed'}
 LIMITS=dict(windows_guest_booted=False,windows_guest_reboot_tested=False,target_launched=False,host_rebooted=False,tls_validation_changed=False,device_permissions_changed=False,raw_identifiers_exported=False,private_logs_or_disks_exported=False)
@@ -57,7 +58,7 @@ def validate(r):
 class ProbeError(Exception):pass
 
 def guard():
- return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_WINDOWS_PREP')=='owned-windows-prep-d1'
+ return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_WINDOWS_PREP')=='owned-windows-prep-d2'
 
 def safe_cleanup_path(label,path,workspace):
  return label in CLEANUP and path==CLEANUP[label] and path.is_dir() and not path.is_symlink() and path.resolve()==path and workspace!=path and path not in workspace.parents and workspace not in path.parents
