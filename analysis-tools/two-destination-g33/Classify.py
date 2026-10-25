@@ -3,6 +3,7 @@ import hashlib,json,re,sys,datetime,copy
 from pathlib import Path
 import xml.etree.ElementTree as E
 PIN='4023f1322db1c44e9afe47a715033f592132e209dd8511b71be83c290ae8c7a2'
+sys.path.insert(0,str(Path(__file__).resolve().parent))
 from TaskXml import NS,Q,parse,canon
 from NarrowTimeRules import PINS as TIME_PINS,reschedule_decision,time_guard_problem
 PATH='./'+Q+'Triggers/'+Q+'CalendarTrigger/'+Q+'StartBoundary'

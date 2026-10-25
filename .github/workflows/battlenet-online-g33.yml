@@ -51,7 +51,7 @@ jobs:
           if($LASTEXITCODE -ne 0){throw 'proxy_protocol_tests_failed'}
           python analysis-tools/two-destination-g33/TestDiagnostics.py
           if($LASTEXITCODE -ne 0){throw 'proxy_diagnostic_tests_failed'}
-          python analysis-tools/two-destination-g33/TestEnforcedTimeRules.py --unit output
+          python -I analysis-tools/two-destination-g33/TestEnforcedTimeRules.py --unit output
           if($LASTEXITCODE -ne 0){throw 'enforced_time_rules_unit_tests_failed'}
           python analysis-tools/two-destination-g33/TestShadowSchedule.py
           if($LASTEXITCODE -ne 0){throw 'shadow_schedule_tests_failed'}

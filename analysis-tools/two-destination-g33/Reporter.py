@@ -16,7 +16,7 @@ r['classifier_unit_tests']=read(OUT/'classifier-unit-tests.json');r['recovery_ga
 pointer=read(OUT/'g33-private-pointer.json');root=Path(pointer['root']) if pointer.get('root') else None
 if root:
  pre=read(root/'preflight.json');d=read(root/'driver-result.json');o=read(root/'owner-result.json');u=read(root/'ui-result.json');rec=read(root/'recovery-result.json');launch=read(root/'launch-state.json')
- r['system_baseline']=subset(read(root/'system-baseline-receipt.json'),'system_identity captured');r['system_prelaunch']=subset(read(root/'system-prelaunch-receipt.json'),'system_identity captured registration_changes raw_registration_changes classified_reschedules bits_added bits_modified')
+ r['system_baseline']=subset(read(root/'system-baseline-receipt.json'),'system_identity captured error_code');r['system_prelaunch']=subset(read(root/'system-prelaunch-receipt.json'),'system_identity captured registration_changes raw_registration_changes classified_reschedules bits_added bits_modified')
  r['preflight']=subset(pre,'matches_pin signature_accepted trust_status ui_helper_ready error_code bytes');sha=pre.get('sha256','');
  if re.fullmatch('[a-f0-9]{64}',sha):r['preflight']['sha256']=sha
  r['driver']=subset(d,'scenario observation_seconds stage failure_stage error_code gate_verified_before_launch gate_verified_after_observation baseline_canary_connected blocked_canary_connected post_restore_canary_connected target_launch_attempted target_launched owner_exit_confirmed')
