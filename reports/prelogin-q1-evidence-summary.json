@@ -1,7 +1,7 @@
 {
   "schema": "bnet-prelogin-q1-verdict-2",
   "review_date": "2026-10-24",
-  "scope": "Historical pre-account H1 and separate private user attachments, plus fresh bounded hosted Windows H3/e7 pre-account startup with native qualification and verified disabled LSO. Separate lifecycle a8 compares two preaccount process startups on one runner, no OS reboot or reinstall. Separate a9/a10 read-only bounded post-exit scans establish matching UserUUID registry presence, not provider read/creation.",
+  "scope": "Historical pre-account H1 and separate private user attachments, plus fresh bounded hosted Windows H3/e7 pre-account startup with native qualification and verified disabled LSO. Separate lifecycle a8 compares two preaccount process startups on one runner, no OS reboot or reinstall. Separate a9/a10 read-only bounded post-exit scans establish matching UserUUID registry presence, not provider read/creation. Separate a11 establishes baseline absence, matching Setup API write, and pinned Agent API reads in both preaccount startups; full provider assignment causality remains unproven.",
   "verdict": {
     "hardware_in_observed_preaccount_outbound_request": "established",
     "observation_point": "H3/e7: decoded hardware request -> successful local socket write -> full exact ciphertext match in unique local NIC TCP capture; no paired hardware HTTP response or server storage proof",
@@ -16,7 +16,8 @@
     "wow_data_marking_question": "queued_not_tested",
     "same_hardware_payload_ciphertext_in_local_network_capture": "established_in_h3_e7",
     "host_id_registry_presence": "established_in_a10_after_both_process_startups_at_HKCU_Blizzard_Entertainment_Blizzard_Error_UserUUID",
-    "host_id_provider_read_source": "not_established"
+    "host_id_provider_read_source": "matching_UserUUID_API_read_established_in_pinned_Agent_a11; full_provider_assignment_causality_not_established",
+    "host_id_creation_in_observed_startup": "established_in_a11_observation_window_from_baseline_absence_and_matching_successful_Setup_write; not_first_ever_creation_or_install_uniqueness"
   },
   "sources": {
     "h1_baseline": {
@@ -100,6 +101,17 @@
       "registry_value_name": "UserUUID",
       "same_uuid_after_both_phases": true,
       "provider_read_source_proven": false
+    },
+    "host_id_registry_trace_a11": {
+      "source_commit": "471445e6841af3b2b2d38aff3a10d7c5383ce502",
+      "run_id": "40149875793",
+      "evidence_commit": "1e89ca1db5daaadd06afd4cf2169b7993c903b52",
+      "report": "reports/prelogin-registry-a11.json",
+      "lifecycle_report": "reports/prelogin-host-lifecycle-a11.json",
+      "review": "reports/prelogin-registry-review.json",
+      "baseline_absent": true,
+      "matching_setup_write": true,
+      "matching_agent_reads_both_phases": true
     }
   },
   "decoding": {
@@ -114,7 +126,7 @@
   "static_host_id": {
     "pinned_instruction_anchors": 25,
     "runtime_branch_selected": "not_established",
-    "storage_location": "matching_UUID_present_in_a10_registry_UserUUID; provider_origin_not_established",
+    "storage_location": "UserUUID_registry_presence_a10_and_successful_matching_Setup_write_Agent_reads_a11; internal_provider_assignment_path_not_established",
     "uuid_v4_fallback_present": true
   },
   "validation": {
@@ -162,6 +174,17 @@
       "dropped_events_both_phases": 0,
       "collector_fatal_both_phases": false,
       "raw_identifiers_exported": false
+    },
+    "host_id_registry_trace_a11": {
+      "python_tests_passed": 28,
+      "actual_hook_js_checks_passed": 34,
+      "native_registry_x64_passed": true,
+      "native_registry_x86_passed": true,
+      "native_wire_gate_passed": true,
+      "registry_errors": 0,
+      "registry_limits": 0,
+      "wire_collector_errors": 0,
+      "wire_dropped_events": 0
     }
   }
 }

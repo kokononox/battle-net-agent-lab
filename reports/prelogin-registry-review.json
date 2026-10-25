@@ -1,0 +1,62 @@
+{
+  "schema": "bnet-registry-trace-review-1",
+  "source_commit": "471445e6841af3b2b2d38aff3a10d7c5383ce502",
+  "run_id": "40149875793",
+  "evidence_commit": "1e89ca1db5daaadd06afd4cf2169b7993c903b52",
+  "registry_key": "HKEY_CURRENT_USER\\Software\\Blizzard Entertainment\\Blizzard Error",
+  "registry_value": "UserUUID",
+  "before_target_value_present": false,
+  "after_target_value_present": true,
+  "matching_setup_write_in_first_startup": true,
+  "matching_agent_read_in_both_startups": true,
+  "same_host_id_between_startups": true,
+  "hardware_messages_linked_to_local_nic_capture": 2,
+  "provider_assignment_causality_proven": false,
+  "callback_counts_not_deduplicated": true,
+  "phase_counters": [
+    {
+      "phase": "first",
+      "successful_setup_write_callbacks": 2,
+      "successful_setup_value_read_callbacks": 6,
+      "successful_agent_value_read_callbacks": 2,
+      "caller_rva_available": false
+    },
+    {
+      "phase": "second",
+      "successful_setup_write_callbacks": 0,
+      "successful_setup_value_read_callbacks": 8,
+      "successful_agent_value_read_callbacks": 2,
+      "caller_rva_available": false
+    }
+  ],
+  "validation": {
+    "python_tests_passed": 28,
+    "actual_hook_js_checks_passed": 34,
+    "native_registry_x64_passed": true,
+    "native_registry_x86_passed": true,
+    "native_wire_gate_passed": true,
+    "registry_errors": 0,
+    "registry_limits": 0,
+    "wire_collector_errors": 0,
+    "wire_dropped_events": 0
+  },
+  "limits": {
+    "raw_identifiers_or_hashes_exported": false,
+    "login_performed": false,
+    "install_action_requested": false,
+    "game_download_requested": false,
+    "reboot_tested": false,
+    "reinstall_tested": false,
+    "global_install_uniqueness_proven": false,
+    "hardware_derivation_proven": false,
+    "server_storage_proven": false,
+    "game_file_marking_proven": false
+  },
+  "interpretation": [
+    "The value was absent at the pre-target snapshot and matching successful Setup writes were observed in first startup; creation in this observation window is supported, not first-ever global creation.",
+    "Pinned Agent processes successfully read a REG_SZ UUID equal to that phase hardware-message host_id in both phases.",
+    "Some APIs can wrap other hooked APIs; callback counts are not distinct logical read/write counts.",
+    "All target caller RVAs are null: exact provider assignment and complete call chain are not proven.",
+    "No cross-channel timestamp/order claim beyond observed startup phase; equality alone is not full causal data-flow tracing."
+  ]
+}

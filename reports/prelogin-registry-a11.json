@@ -1,0 +1,354 @@
+{
+  "schema": "bnet-registry-trace-1",
+  "source_commit": "471445e6841af3b2b2d38aff3a10d7c5383ce502",
+  "run_id": "40149875793",
+  "status": "observation_complete",
+  "native_gate": [
+    {
+      "architecture": "x64",
+      "passed": true,
+      "exit_code": 0,
+      "instrumented": true,
+      "bitness_confirmed": true,
+      "read_a": true,
+      "read_w": true,
+      "get_w": true,
+      "write_w": true,
+      "size_only_not_uuid": true,
+      "errors": 0,
+      "limits": 0
+    },
+    {
+      "architecture": "x86",
+      "passed": true,
+      "exit_code": 0,
+      "instrumented": true,
+      "bitness_confirmed": true,
+      "read_a": true,
+      "read_w": true,
+      "get_w": true,
+      "write_w": true,
+      "size_only_not_uuid": true,
+      "errors": 0,
+      "limits": 0
+    }
+  ],
+  "baseline_before_target": {
+    "status": "absent",
+    "value_present": false,
+    "valid_uuid": false
+  },
+  "baseline_after_target": {
+    "status": "present",
+    "value_present": true,
+    "valid_uuid": true
+  },
+  "target_launched": true,
+  "lifecycle_comparison": true,
+  "phases": [
+    {
+      "ready_processes": 3,
+      "installed_apis": [
+        "RegCloseKey",
+        "RegCreateKeyExA",
+        "RegCreateKeyExW",
+        "RegGetValueA",
+        "RegGetValueW",
+        "RegOpenKeyExA",
+        "RegOpenKeyExW",
+        "RegQueryValueExA",
+        "RegQueryValueExW",
+        "RegSetValueExA",
+        "RegSetValueExW"
+      ],
+      "errors": 0,
+      "limits": 0,
+      "records": [
+        {
+          "api": "RegSetValueExW",
+          "operation": "write",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegSetValueExW",
+          "operation": "write",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+          "valid_uuid": false,
+          "equals_wire_host_id": false
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+          "valid_uuid": false,
+          "equals_wire_host_id": false
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        }
+      ],
+      "phase": "first",
+      "wire_linked_hardware_requests": 1,
+      "all_processes_registry_ready": true,
+      "wire_collector_clean": true
+    },
+    {
+      "ready_processes": 4,
+      "installed_apis": [
+        "RegCloseKey",
+        "RegCreateKeyExA",
+        "RegCreateKeyExW",
+        "RegGetValueA",
+        "RegGetValueW",
+        "RegOpenKeyExA",
+        "RegOpenKeyExW",
+        "RegQueryValueExA",
+        "RegQueryValueExW",
+        "RegSetValueExA",
+        "RegSetValueExW"
+      ],
+      "errors": 0,
+      "limits": 0,
+      "records": [
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+          "valid_uuid": false,
+          "equals_wire_host_id": false
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+          "valid_uuid": false,
+          "equals_wire_host_id": false
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        },
+        {
+          "api": "RegQueryValueExW",
+          "operation": "read",
+          "status": 0,
+          "value_type": 1,
+          "caller_rva": null,
+          "process_sha256": "b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5",
+          "valid_uuid": true,
+          "equals_wire_host_id": true
+        }
+      ],
+      "phase": "second",
+      "wire_linked_hardware_requests": 1,
+      "all_processes_registry_ready": true,
+      "wire_collector_clean": true
+    }
+  ],
+  "registry_read_equals_wire_host_id": true,
+  "successful_matching_write_observed": true,
+  "limits": {
+    "raw_values_exported": false,
+    "identifier_hashes_exported": false,
+    "target_registry_modified_by_observer": false,
+    "login_performed": false,
+    "install_action_requested": false,
+    "game_download_requested": false,
+    "tls_validation_changed": false,
+    "provider_assignment_causality_proven": false,
+    "reboot_tested": false,
+    "reinstall_tested": false,
+    "global_install_uniqueness_proven": false,
+    "server_storage_proven": false
+  }
+}
