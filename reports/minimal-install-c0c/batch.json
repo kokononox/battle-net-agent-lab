@@ -1,0 +1,143 @@
+{
+  "schema": "bnet-minimal-install-c0c-batch-1",
+  "case": "C0c-parallel-baseline",
+  "source_commit": "6d128597381af424894338b25f414e3136b1e807",
+  "run_id": "40153988606",
+  "expected_replicas": [
+    "r1",
+    "r2",
+    "r3"
+  ],
+  "received_replicas": [
+    "r1",
+    "r2",
+    "r3"
+  ],
+  "missing_replicas": [],
+  "rejected_replicas": [],
+  "status_counts": {
+    "stopped": 1,
+    "bounded_install_not_verified": 2,
+    "installed_by_defined_gate": 0
+  },
+  "all_three_target_windows_overlap": true,
+  "common_overlap_seconds": 47,
+  "same_signed_client_hash_across_three": false,
+  "intervention": "none",
+  "necessity_tested": false,
+  "telemetry_blocked": false,
+  "replicas": [
+    {
+      "replica": "r1",
+      "status": "bounded_install_not_verified",
+      "started_at": "2026-10-25T02:19:29Z",
+      "ended_at": "2026-10-25T02:26:30Z",
+      "registry_version_state": "missing",
+      "install_checks": {
+        "registry_key_found": true,
+        "registry_location_match": true,
+        "registry_version_present": false,
+        "signed_launcher": true,
+        "signed_client": true,
+        "setup_absent": true,
+        "stable_layout_20_seconds": true
+      },
+      "client_binaries": [
+        {
+          "kind": "launcher",
+          "sha256": "b8bd3943b01749c841e4058db9e9e224536279c6707f31469913ecd2b6cd65a8",
+          "bytes": 216784,
+          "signature_accepted": true,
+          "file_version": "2.53.6.17952",
+          "version_status": "accepted"
+        },
+        {
+          "kind": "client",
+          "sha256": "54cd2f928dd4947d4ab33aae48c47b112ee851c29745bf1da1a54fbfc67525c7",
+          "bytes": 995024,
+          "signature_accepted": true,
+          "file_version": "2.53.6.17952",
+          "version_status": "accepted"
+        }
+      ],
+      "ui_signal_seen": {
+        "account": true,
+        "error": false,
+        "installation_options": false,
+        "language": true,
+        "legal": false,
+        "progress": true
+      },
+      "error_code": null
+    },
+    {
+      "replica": "r2",
+      "status": "stopped",
+      "started_at": "2026-10-25T02:19:30Z",
+      "ended_at": "2026-10-25T02:20:18Z",
+      "registry_version_state": "unobserved",
+      "install_checks": {
+        "registry_key_found": false,
+        "registry_location_match": false,
+        "registry_version_present": false,
+        "signed_launcher": false,
+        "signed_client": false,
+        "setup_absent": false,
+        "stable_layout_20_seconds": false
+      },
+      "client_binaries": [],
+      "ui_signal_seen": {
+        "account": false,
+        "error": false,
+        "installation_options": false,
+        "language": true,
+        "legal": false,
+        "progress": true
+      },
+      "error_code": "native_signature_helper_failed"
+    },
+    {
+      "replica": "r3",
+      "status": "bounded_install_not_verified",
+      "started_at": "2026-10-25T02:19:31Z",
+      "ended_at": "2026-10-25T02:26:32Z",
+      "registry_version_state": "missing",
+      "install_checks": {
+        "registry_key_found": true,
+        "registry_location_match": true,
+        "registry_version_present": false,
+        "signed_launcher": true,
+        "signed_client": true,
+        "setup_absent": true,
+        "stable_layout_20_seconds": true
+      },
+      "client_binaries": [
+        {
+          "kind": "launcher",
+          "sha256": "b8bd3943b01749c841e4058db9e9e224536279c6707f31469913ecd2b6cd65a8",
+          "bytes": 216784,
+          "signature_accepted": true,
+          "file_version": "2.53.6.17952",
+          "version_status": "accepted"
+        },
+        {
+          "kind": "client",
+          "sha256": "54cd2f928dd4947d4ab33aae48c47b112ee851c29745bf1da1a54fbfc67525c7",
+          "bytes": 995024,
+          "signature_accepted": true,
+          "file_version": "2.53.6.17952",
+          "version_status": "accepted"
+        }
+      ],
+      "ui_signal_seen": {
+        "account": true,
+        "error": false,
+        "installation_options": false,
+        "language": true,
+        "legal": false,
+        "progress": true
+      },
+      "error_code": null
+    }
+  ]
+}

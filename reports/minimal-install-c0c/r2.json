@@ -1,0 +1,187 @@
+{
+  "schema": "bnet-minimal-install-c0c-1",
+  "case": "C0c-parallel-baseline",
+  "replica": "r2",
+  "started_at": "2026-10-25T02:19:30Z",
+  "ended_at": "2026-10-25T02:20:18Z",
+  "registry_version_state": "unobserved",
+  "source_commit": "6d128597381af424894338b25f414e3136b1e807",
+  "run_id": "40153988606",
+  "status": "stopped",
+  "phase": "observe",
+  "error_code": "native_signature_helper_failed",
+  "target_launched": true,
+  "installer": {
+    "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+    "bytes": 4700880,
+    "signature_accepted": true,
+    "matches_pin": true
+  },
+  "native_ui_gate": true,
+  "language_attempted": true,
+  "install_attempted": true,
+  "language_status": "continued",
+  "install_status": "continued",
+  "samples": 16,
+  "snapshot_errors": 0,
+  "gui_errors": 1,
+  "known_process_counts": {
+    "battle.net-setup.exe": 1,
+    "agent.exe": 1
+  },
+  "public_endpoints": [
+    {
+      "process_name": "agent.exe",
+      "ip": "136.110.153.89",
+      "port": 443,
+      "samples": 5
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "23.62.226.136",
+      "port": 80,
+      "samples": 5
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "23.62.226.138",
+      "port": 80,
+      "samples": 12
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "23.62.226.92",
+      "port": 80,
+      "samples": 16
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "8.232.70.12",
+      "port": 443,
+      "samples": 18
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 0,
+      "samples": 8
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 55749,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 55750,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 55769,
+      "samples": 3
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 55770,
+      "samples": 3
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 55777,
+      "samples": 3
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 55778,
+      "samples": 3
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "137.221.64.4",
+      "port": 80,
+      "samples": 33
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "162.159.142.9",
+      "port": 80,
+      "samples": 9
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "23.62.226.136",
+      "port": 80,
+      "samples": 33
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "23.62.226.138",
+      "port": 80,
+      "samples": 33
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "nonpublic",
+      "port": 1120,
+      "samples": 4
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "nonpublic",
+      "port": 50041,
+      "samples": 11
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "nonpublic",
+      "port": 50042,
+      "samples": 11
+    }
+  ],
+  "endpoints_truncated": false,
+  "install_checks": {
+    "registry_key_found": false,
+    "registry_location_match": false,
+    "registry_version_present": false,
+    "signed_launcher": false,
+    "signed_client": false,
+    "setup_absent": false,
+    "stable_layout_20_seconds": false
+  },
+  "client_binaries": [],
+  "cleanup_attempted": true,
+  "observer_seconds": 47,
+  "native_options_probes": 3,
+  "native_options_last_status": "continued",
+  "ui_signal_seen": {
+    "account": false,
+    "error": false,
+    "installation_options": false,
+    "language": true,
+    "legal": false,
+    "progress": true
+  },
+  "ui_signal_last": {
+    "language": false,
+    "legal": false,
+    "account": false,
+    "installation_options": false,
+    "progress": false,
+    "error": false
+  },
+  "intervention": "none",
+  "login_attempted": false,
+  "game_download_requested": false,
+  "raw_payloads_exported": false,
+  "all_processes_observed": false,
+  "all_network_observed": false,
+  "necessity_tested": false,
+  "telemetry_blocked": false
+}
