@@ -1,0 +1,39 @@
+name: G30 read-only task security diagnosis
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/task-security-g30/**', '.github/workflows/task-security-g30.yml']
+permissions: {}
+jobs:
+  inspect:
+    if: >-
+      github.event.head_commit.message == 'lab: approved read only task security G30 20261025' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 9
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse read-only observer
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          foreach($file in Get-ChildItem analysis-tools/task-security-g30/*.ps1){
+            $tokens=$null;$errors=$null
+            $null=[Management.Automation.Language.Parser]::ParseFile($file.FullName,[ref]$tokens,[ref]$errors)
+            if($errors.Count){throw 'parse_failed'}
+          }
+          python -m compileall -q analysis-tools/task-security-g30
+          if($LASTEXITCODE -ne 0){throw 'python_parse_failed'}
+      - name: Read task identity permissions bindings and signatures only
+        shell: powershell
+        run: '& ./analysis-tools/task-security-g30/Run.ps1'
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: task-security-g30-sanitized
+          path: output/task-security-g30.json
+          if-no-files-found: error
+          retention-days: 14
