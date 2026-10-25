@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved official windows preparation d4'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved official windows preparation d5'
     runs-on: ubuntu-24.04
     timeout-minutes: 4
     permissions:
@@ -40,7 +40,7 @@ jobs:
     permissions:
       contents: read
     env:
-      BNET_WINDOWS_PREP: owned-windows-prep-d4
+      BNET_WINDOWS_PREP: owned-windows-prep-d5
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -53,11 +53,13 @@ jobs:
         timeout-minutes: 22
         run: >-
           sudo -n --preserve-env=GITHUB_ACTIONS,RUNNER_ENVIRONMENT,GITHUB_RUN_ATTEMPT,GITHUB_EVENT_NAME,GITHUB_REF,GITHUB_SHA,GITHUB_RUN_ID,GITHUB_WORKSPACE,RUNNER_TEMP,BNET_WINDOWS_PREP
-          /usr/bin/python3 analysis-tools/prelogin-windows-guest/prepare_guest.py
+          /usr/bin/python3 analysis-tools/prelogin-windows-guest/diagnostic_entry.py
       - name: Strict summary
         id: sanitize
         if: always()
-        run: /usr/bin/python3 analysis-tools/prelogin-windows-guest/prepare_guest.py validate output/windows-guest-preparation.json sanitized/windows-guest-preparation.json
+        run: |
+          python3 analysis-tools/prelogin-windows-guest/diagnostic_entry.py validate output/windows-guest-preparation-diagnostic.json sanitized/windows-guest-preparation-diagnostic.json
+          python3 analysis-tools/prelogin-windows-guest/prepare_guest.py validate output/windows-guest-preparation.json sanitized/windows-guest-preparation.json
       - name: Record public step outcomes even when preparation fails
         if: always()
         env:
@@ -101,10 +103,14 @@ jobs:
           sys.path.insert(0,'analysis-tools/prelogin-windows-guest')
           from ci_status import status
           from prepare_guest import validate
+          from diagnostic_entry import validate as validate_diag
           r=json.loads(Path('incoming/windows-guest-preparation-ci.json').read_text())
           expected=status(os.environ['SOURCE'],os.environ['RUN'],'completed',r['tests'],r['preparation'],r['sanitization'])
           if r!=expected:raise SystemExit('invalid_typed_outcome')
           Path('reports/windows-guest-preparation-ci.json').write_text(json.dumps(r,indent=2)+'\n')
+          diag=validate_diag(json.loads(Path('incoming/windows-guest-preparation-diagnostic.json').read_text()))
+          if diag['source_commit']!=os.environ['SOURCE'] or diag['run_id']!=os.environ['RUN']:raise SystemExit('diagnostic_source_mismatch')
+          Path('reports/windows-guest-preparation-diagnostic.json').write_text(json.dumps(diag,indent=2)+'\n')
           p=Path('incoming/windows-guest-preparation.json')
           if p.exists():
            facts=validate(json.loads(p.read_text()))
@@ -113,7 +119,7 @@ jobs:
           PY
           git config user.name prelogin-wire-report
           git config user.email prelogin-wire-report@users.noreply.github.com
-          git add -- reports/windows-guest-preparation-ci.json reports/windows-guest-preparation-runtime.json
+          git add -- reports/windows-guest-preparation-ci.json reports/windows-guest-preparation-runtime.json reports/windows-guest-preparation-diagnostic.json
           git diff --cached --quiet && exit 0
           git commit -m 'lab: publish sanitized preparation outcome including failures'
           git push origin HEAD:research/prelogin-telemetry-wow-data-provenance

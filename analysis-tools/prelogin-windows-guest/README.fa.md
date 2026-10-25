@@ -53,3 +53,6 @@ ISO، WIM، qcow2، socket و log خام در پوشهٔ موقت همان job �
 
 ### d4: تشخیص شکست مسیر CI
 نبود گزارش متناظر d3 نتیجهٔ اجرای آن نیست. d4 یک رسید آغاز با source/run، outcome محدود آزمون/prepare/sanitize و انتشار حتی در صورت failure اضافه می‌کند. timeout مرحلهٔ prepare برابر 22 دقیقه و کمتر از timeout job است تا فرصت ثبت نتیجه بماند. هیچ محیط، exception متن‌آزاد یا لاگ خصوصی منتشر نمی‌شود. مجوز write فقط در jobهای انتشار با checkout معتبر و guard commit است؛ prepare همچنان read-only و بدون credential باقی می‌ماند.
+
+### d5: تشخیص استثنای خارج از خروجی معتبر
+d4، run 40158164765، source debea6e3d644a0fc169810bea3d9f74c5be22dfe: tests success، preparation failure، sanitization failure. در نتیجه وجود خروجی معتبر آماده‌سازی تأیید نشد و علت دقیق هنوز معلوم نیست. wrapper جدید فقط stage/type/reason از enum ثابت و شمارهٔ خط کد را گزارش می‌کند؛ متن exception، traceback و محیط منتشر نمی‌شوند. در استثنا، خروجی ناقص دور ریخته و fallback صریح stopped ساخته می‌شود، نه موفقیت مصنوعی.

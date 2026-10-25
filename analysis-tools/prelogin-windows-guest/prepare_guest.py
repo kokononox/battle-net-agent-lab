@@ -59,7 +59,7 @@ def validate(r):
 class ProbeError(Exception):pass
 
 def guard():
- return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_WINDOWS_PREP')=='owned-windows-prep-d4'
+ return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_WINDOWS_PREP')=='owned-windows-prep-d5'
 
 def safe_cleanup_path(label,path,workspace):
  return label in CLEANUP and path==CLEANUP[label] and path.is_dir() and not path.is_symlink() and path.resolve()==path and workspace!=path and path not in workspace.parents and workspace not in path.parents
@@ -158,52 +158,58 @@ def paused_qemu(work,iso,disk,r,log):
    try:p.wait(timeout=5)
    except subprocess.TimeoutExpired:p.kill();p.wait(timeout=5)
 
+STAGE='entry'
 def main():
+ global STAGE
+ STAGE='guard'
  if not guard():raise SystemExit('owned_ephemeral_host_once_required')
  r=blank(os.environ['GITHUB_SHA'],os.environ['GITHUB_RUN_ID']);out=Path('output');out.mkdir(exist_ok=True);workspace=Path(os.environ['GITHUB_WORKSPACE']).resolve()
  try:
-  cleanup(r,workspace)
+  STAGE='cleanup';cleanup(r,workspace)
   with tempfile.TemporaryDirectory(prefix='owned-windows-prep-',dir=os.environ['RUNNER_TEMP']) as tmp:
    work=Path(tmp);iso=work/'official-eval.iso';disk=work/'guest.qcow2';wim=work/'install.wim';xml=work/'images.xml'
    with (work/'private-preparation.log').open('wb') as log:
-    env=dict(os.environ,DEBIAN_FRONTEND='noninteractive')
+    STAGE='apt';env=dict(os.environ,DEBIAN_FRONTEND='noninteractive')
     try:
      command(['apt-get','update','-qq'],log,timeout=180,env=env)
      command(['apt-get','install','-y','--no-install-recommends','qemu-system-x86','qemu-utils','ovmf','p7zip-full','wimtools'],log,timeout=300,env=env)
     except ProbeError:raise ProbeError('apt_failed')
     r['apt_tools_installed']=True
     try:
-     v=subprocess.check_output(['qemu-system-x86_64','--version'],timeout=10).decode();m=re.search(r'version ([0-9]+(?:\.[0-9]+){1,3})',v)
+     STAGE='tool_version';v=subprocess.check_output(['qemu-system-x86_64','--version'],timeout=10).decode();m=re.search(r'version ([0-9]+(?:\.[0-9]+){1,3})',v)
      if not m:raise ValueError('version')
      r['qemu_version']=m[1]
     except (OSError,ValueError,subprocess.SubprocessError):raise ProbeError('tool_missing')
-    download(iso,r)
+    STAGE='download';download(iso,r)
     try:
      try:
+      STAGE='extract_wim'
       with wim.open('xb') as out:
        subprocess.run(['7z','e','-so','-y','-ssc-',str(iso),'sources/install.wim'],stdin=subprocess.DEVNULL,stdout=out,stderr=log,timeout=300,check=True)
       if not 1024**3<wim.stat().st_size<=ISO_BYTES:raise ProbeError('media_extract_failed')
      except (OSError,subprocess.SubprocessError):raise ProbeError('media_extract_failed')
+     STAGE='xml_command'
      try:command(['wimlib-imagex','info',str(wim),'--extract-xml='+str(xml)],log,timeout=60)
      except ProbeError:raise ProbeError('xml_command_failed')
      if xml.stat().st_size>1048576:raise ValueError('size')
-     images,index=image_metadata(xml.read_bytes());r['image'].update(images=images,selected_index=index)
+     STAGE='xml_parse';images,index=image_metadata(xml.read_bytes());r['image'].update(images=images,selected_index=index)
     except (OSError,ValueError,ProbeError) as exc:
      if isinstance(exc,ProbeError) and str(exc) in ('image_not_unique','media_extract_failed','xml_command_failed'):raise
      raise ProbeError('media_xml_failed')
     wim.unlink();xml.unlink()
+    STAGE='disk_create'
     command(['qemu-img','create','-f','qcow2',str(disk),str(DISK_BYTES)],log,timeout=30)
     info=json.loads(subprocess.check_output(['qemu-img','info','--output=json',str(disk)],timeout=10))
     if info.get('format')!='qcow2' or info.get('virtual-size')!=DISK_BYTES:raise ProbeError('qemu_failed')
     r['disk'].update(created=True,actual_bytes=info['actual-size'])
-    paused_qemu(work,iso,disk,r,log)
+    STAGE='qmp';paused_qemu(work,iso,disk,r,log)
     r['status']='prepared_paused_no_windows_boot'
  except ProbeError as exc:r['error_code']=str(exc) if str(exc) in ERRORS else 'bounded_preparation_failed'
  except Exception:r['error_code']='bounded_preparation_failed'
  finally:
   r['disk_free_final_bytes']=shutil.disk_usage(workspace).free
   if r['status']!='prepared_paused_no_windows_boot' and r['error_code'] is None:r['error_code']='bounded_preparation_failed'
-  validate(r);(out/'windows-guest-preparation.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps({'status':r['status'],'error_code':r['error_code'],'windows_booted':False}))
+  STAGE='validate';validate(r);(out/'windows-guest-preparation.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps({'status':r['status'],'error_code':r['error_code'],'windows_booted':False}))
 if __name__=='__main__':
  if len(sys.argv)==4 and sys.argv[1]=='validate':
   r=validate(json.loads(Path(sys.argv[2]).read_text()));p=Path(sys.argv[3]);p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(r,indent=2)+'\n')
