@@ -1,0 +1,42 @@
+name: Windows G40 private quarantine synthetic integration
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/request-quarantine-g40/**', '.github/workflows/battlenet-quarantine-g40.yml']
+permissions: {}
+jobs:
+  test:
+    if: github.event.head_commit.message == 'lab: approved Windows quarantine synthetic G40' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 8
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Compile private local store without installer or firewall changes
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          python -m compileall -q analysis-tools/request-quarantine-g40
+          if($LASTEXITCODE -ne 0){throw 'python_parse_failed'}
+          $bin=Join-Path $env:RUNNER_TEMP 'bnet-g40-private-bin'
+          New-Item -ItemType Directory -Force $bin,output | Out-Null
+          $csc="$env:SystemRoot\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+          & $csc /nologo /target:exe /platform:x64 /r:System.Web.Extensions.dll ('/out:'+(Join-Path $bin 'PrivateStore.exe')) analysis-tools/request-quarantine-g40/PrivateStore.cs
+          if($LASTEXITCODE -ne 0){throw 'private_store_build_failed'}
+          ('G40_STORE_HELPER='+(Join-Path $bin 'PrivateStore.exe')) | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: Native storage, owner and Job tests with synthetic loopback requests only
+        shell: powershell
+        run: |
+          python -I analysis-tools/request-quarantine-g40/run_windows_tests.py --report output/g40-evidence.json
+          if($LASTEXITCODE -ne 0){throw 'windows_quarantine_tests_failed'}
+      - name: Publish sanitized evidence only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: windows-quarantine-g40-evidence
+          path: output/g40-evidence.json
+          if-no-files-found: warn
+          retention-days: 7
