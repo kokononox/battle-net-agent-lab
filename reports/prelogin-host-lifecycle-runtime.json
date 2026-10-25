@@ -1,7 +1,7 @@
 {
-  "schema": "bnet-host-lifecycle-3",
-  "source_commit": "12b2f4610a4b2f2435988e4d20a48ff477760ab9",
-  "run_id": "40144632517",
+  "schema": "bnet-host-lifecycle-4",
+  "source_commit": "e4346372bc0e097f8a4d3d6a0ce85ff31bb3d77c",
+  "run_id": "40145069834",
   "status": "inconclusive",
   "error_code": "second_phase_ineligible",
   "first_native_gate_passed": true,
@@ -61,6 +61,21 @@
       "blocked_before_resume": true,
       "execution_authorized": false
     },
+    "helper_decisions": [
+      {
+        "checks": {
+          "basename_pinned": true,
+          "content_pinned": true,
+          "parent_process_pinned": true,
+          "live_parent_identity_matches": false,
+          "signature_trusted_blizzard": true,
+          "helper_under_agent_root": true,
+          "path_not_reparse": true,
+          "same_version_directory": false
+        },
+        "approved": false
+      }
+    ],
     "processes": [
       {
         "name": "battle.net-setup.exe",
