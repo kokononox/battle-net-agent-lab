@@ -1,7 +1,7 @@
 {
   "schema": "bnet-prelogin-q1-verdict-2",
   "review_date": "2026-10-24",
-  "scope": "Historical pre-account H1 and separate private user attachments, plus fresh bounded hosted Windows H3/e7 pre-account startup with native qualification and verified disabled LSO. Separate lifecycle a8 compares two preaccount process startups on one runner, no OS reboot or reinstall.",
+  "scope": "Historical pre-account H1 and separate private user attachments, plus fresh bounded hosted Windows H3/e7 pre-account startup with native qualification and verified disabled LSO. Separate lifecycle a8 compares two preaccount process startups on one runner, no OS reboot or reinstall. Separate a9/a10 read-only bounded post-exit scans establish matching UserUUID registry presence, not provider read/creation.",
   "verdict": {
     "hardware_in_observed_preaccount_outbound_request": "established",
     "observation_point": "H3/e7: decoded hardware request -> successful local socket write -> full exact ciphertext match in unique local NIC TCP capture; no paired hardware HTTP response or server storage proof",
@@ -11,10 +11,12 @@
     "all_users_all_versions": "not_established",
     "exclusive_hardware_destination": "not_established",
     "host_id_agent_wire_mapping": "/1/4/1",
-    "host_id_restart_persistence": "same_exact_host_id_across_two_process_startups_in_a8_with_configuration_preserved; OS_reboot_and_reinstall_not_tested",
+    "host_id_restart_persistence": "same_exact_host_id_across_two_process_startups_in_a8_and_a10_with_configuration_preserved; OS_reboot_and_reinstall_not_tested",
     "host_id_hardware_derived": "not_established",
     "wow_data_marking_question": "queued_not_tested",
-    "same_hardware_payload_ciphertext_in_local_network_capture": "established_in_h3_e7"
+    "same_hardware_payload_ciphertext_in_local_network_capture": "established_in_h3_e7",
+    "host_id_registry_presence": "established_in_a10_after_both_process_startups_at_HKCU_Blizzard_Entertainment_Blizzard_Error_UserUUID",
+    "host_id_provider_read_source": "not_established"
   },
   "sources": {
     "h1_baseline": {
@@ -88,6 +90,16 @@
       "comparison": true,
       "hardware_messages_linked_to_local_network_capture": 2,
       "helper_identification_report": "reports/prelogin-helper-identification.json"
+    },
+    "host_id_storage_a10": {
+      "source_commit": "f10f0e1a5e48a1838dbda1f41b883b5dea20faf2",
+      "run_id": "40148315329",
+      "evidence_commit": "96603fd2ddd2437e953df46122f28367a89d4c47",
+      "report": "reports/prelogin-host-lifecycle-a10.json",
+      "review": "reports/prelogin-host-storage-review.json",
+      "registry_value_name": "UserUUID",
+      "same_uuid_after_both_phases": true,
+      "provider_read_source_proven": false
     }
   },
   "decoding": {
@@ -102,7 +114,7 @@
   "static_host_id": {
     "pinned_instruction_anchors": 25,
     "runtime_branch_selected": "not_established",
-    "storage_location": "not_established",
+    "storage_location": "matching_UUID_present_in_a10_registry_UserUUID; provider_origin_not_established",
     "uuid_v4_fallback_present": true
   },
   "validation": {
@@ -141,6 +153,14 @@
       "dropped_events_both_phases": 0,
       "collector_fatal_both_phases": false,
       "comparison": true,
+      "raw_identifiers_exported": false
+    },
+    "host_id_storage_a10": {
+      "runtime_schema_passed": true,
+      "local_python_tests_passed": 80,
+      "collector_errors_both_phases": 0,
+      "dropped_events_both_phases": 0,
+      "collector_fatal_both_phases": false,
       "raw_identifiers_exported": false
     }
   }

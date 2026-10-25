@@ -1,0 +1,67 @@
+{
+  "schema": "bnet-host-storage-review-1",
+  "scope": "bounded preaccount process restarts on one Windows runner; read-only post-exit storage scans",
+  "source_commit": "f10f0e1a5e48a1838dbda1f41b883b5dea20faf2",
+  "run_id": "40148315329",
+  "evidence_commit": "96603fd2ddd2437e953df46122f28367a89d4c47",
+  "runtime_report": "reports/prelogin-host-lifecycle-a10.json",
+  "findings": {
+    "same_exact_host_id_across_process_restart": true,
+    "hardware_messages_linked_to_local_nic_capture": 2,
+    "registry_presence_established": true,
+    "registry_key": "HKEY_CURRENT_USER\\Software\\Blizzard Entertainment\\Blizzard Error",
+    "registry_value_name": "UserUUID",
+    "equals_hardware_message_host_id_after_both_phases": true,
+    "provider_read_source_proven": false,
+    "creation_time_or_creator_proven": false,
+    "source_id_key_observed": false,
+    "raw_identifiers_or_hashes_exported": false
+  },
+  "scan_counters": [
+    {
+      "phase": "after_first",
+      "files_visited": 130,
+      "files_read": 47,
+      "bytes_read": 579513,
+      "skipped_large": 1,
+      "file_errors": 0,
+      "registry_keys_read": 3,
+      "registry_values_read": 2,
+      "registry_errors": 0,
+      "budget_reached": false
+    },
+    {
+      "phase": "after_second",
+      "files_visited": 119,
+      "files_read": 58,
+      "bytes_read": 612546,
+      "skipped_large": 1,
+      "file_errors": 0,
+      "registry_keys_read": 3,
+      "registry_values_read": 2,
+      "registry_errors": 0,
+      "budget_reached": false
+    }
+  ],
+  "validation": {
+    "runtime_schema_passed": true,
+    "local_python_tests_passed": 80,
+    "collector_errors_both_phases": 0,
+    "dropped_events_both_phases": 0,
+    "collector_fatal_both_phases": false
+  },
+  "limitations": [
+    "Presence after execution is not proof the application read this value or created it during this install.",
+    "HKCU is Windows user-profile scope; not proof of per-install or hardware-derived uniqueness.",
+    "One oversized file skipped per phase; bounded roots and budgets, not exhaustive absence proof.",
+    "No pre-first-start registry baseline, Windows reboot, reinstall, second-machine comparison, account linkage, game-file marking, or server-storage proof.",
+    "Blizzard Error is a key name, not proof that identifier use is restricted to crash reports."
+  ],
+  "history": {
+    "a9_run_id": "40147826620",
+    "a9_source_commit": "af7b670e48b15987fba518f1be7da48908780ea0",
+    "a9_evidence_commit": "7af3597b2e03aa3bac72bc0effe5f14e4a8e4da2",
+    "a9_report": "reports/prelogin-host-lifecycle-a9.json",
+    "a9_registry_components_masked": true
+  }
+}
