@@ -1,4 +1,4 @@
-name: Battle.net G15 peer admission before forward (local fixtures only)
+name: Battle.net G15a peer admission before forward (local fixtures only)
 on:
   push:
     branches: [research/battlenet-minimal-install-isolation-2026-10-25]
@@ -7,7 +7,7 @@ permissions: {}
 jobs:
   qualify:
     if: >-
-      github.event.head_commit.message == 'lab: approved peer admission G15 20261025' && github.run_attempt == 1
+      github.event.head_commit.message == 'lab: approved peer admission G15a 20261025' && github.run_attempt == 1
     strategy:
       fail-fast: false
       matrix:
@@ -17,7 +17,7 @@ jobs:
     permissions:
       contents: read
     env:
-      BNET_PEER_G15: 'lab: approved peer admission G15 20261025'
+      BNET_PEER_G15: 'lab: approved peer admission G15a 20261025'
       PYTHONDONTWRITEBYTECODE: '1'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -53,7 +53,7 @@ jobs:
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:
-          name: 'battlenet-peer-g15-${{ matrix.architecture }}-sanitized'
+          name: 'battlenet-peer-g15a-${{ matrix.architecture }}-sanitized'
           path: output/peer-g15-${{ matrix.architecture }}.json
           if-no-files-found: error
           retention-days: 3
