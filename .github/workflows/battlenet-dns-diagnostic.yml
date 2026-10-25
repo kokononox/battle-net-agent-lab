@@ -1,0 +1,36 @@
+name: Battle.net D1 resolver diagnosis (no installer)
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/minimal-install/resolver_diagnostic.py', 'analysis-tools/minimal-install/tests/test_resolver_diagnostic.py', '.github/workflows/battlenet-dns-diagnostic.yml']
+permissions: {}
+concurrency:
+  group: battlenet-dns-diagnostic-d1
+  cancel-in-progress: false
+jobs:
+  diagnose:
+    if: >-
+      github.event.head_commit.message == 'lab: approved DNS resolver diagnosis D1 20261025' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    env:
+      BNET_DNS_DIAG: 'lab: approved DNS resolver diagnosis D1 20261025'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Verify diagnostic guards and sanitization
+        run: python -m unittest discover -s analysis-tools/minimal-install/tests -v
+      - name: Compare resolver before override and after restoration without running Setup
+        run: python analysis-tools/minimal-install/resolver_diagnostic.py
+      - name: Validate bounded sanitized diagnostic
+        if: always()
+        run: python analysis-tools/minimal-install/resolver_diagnostic.py --validate output/dns-diagnostic-d1.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: battlenet-dns-diagnostic-d1-sanitized
+          path: output/dns-diagnostic-d1.json
+          if-no-files-found: error
+          retention-days: 3
