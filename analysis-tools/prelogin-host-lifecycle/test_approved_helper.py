@@ -26,7 +26,15 @@ class HelperTests(unittest.TestCase):
         def bad_parent(k):k['parent_row'].update(process_name='battle.net-setup.exe',sha256='0'*64)
         self.assertFalse(self.call(bad_parent))
     def test_decision_cannot_lie_about_hash(self):
-        from approved_helper import CRITICAL
-        d=dict(checks={k:True for k in CRITICAL|{'same_version_directory'}},approved=True);d['checks']['content_pinned']=False
+        from approved_helper import CRITICAL,DIAGNOSTIC
+        d=dict(checks={k:True for k in CRITICAL|DIAGNOSTIC},approved=True);d['checks']['content_pinned']=False
         self.assertRaises(ValueError,validate_decision,d)
+    def test_creation_mismatch_cannot_be_promoted(self):
+        from approved_helper import CRITICAL,DIAGNOSTIC
+        d=dict(checks={k:True for k in CRITICAL|DIAGNOSTIC},approved=True);d['checks']['parent_creation_matches']=False
+        self.assertRaises(ValueError,validate_decision,d)
+    def test_parent_path_change_alone_does_not_break_revalidated_identity(self):
+        from approved_helper import CRITICAL,DIAGNOSTIC
+        d=dict(checks={k:True for k in CRITICAL|DIAGNOSTIC},approved=True);d['checks']['parent_path_matches']=False
+        validate_decision(d)
 if __name__=='__main__':unittest.main()
