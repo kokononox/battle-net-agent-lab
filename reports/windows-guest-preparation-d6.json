@@ -1,0 +1,77 @@
+{
+  "schema": "bnet-windows-guest-preparation-1",
+  "source_commit": "4661e44a6966755ec7c42765bb79c6fcfedfa25a",
+  "run_id": "40159938156",
+  "status": "prepared_paused_no_windows_boot",
+  "error_code": null,
+  "cleanup_labels": [],
+  "disk_free_before_bytes": 91511316480,
+  "disk_free_after_cleanup_bytes": 91511316480,
+  "disk_free_final_bytes": 91368030208,
+  "apt_tools_installed": true,
+  "qemu_version": "8.2.2",
+  "image": {
+    "url": "https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.32230.260111-0550.lt_release_svc_refresh_SERVER_EVAL_x64FRE_en-us.iso",
+    "expected_bytes": 8152356864,
+    "downloaded_bytes": 8152356864,
+    "sha256": "7b052573ba7894c9924e3e87ba732ccd354d18cb75a883efa9b900ea125bfd51",
+    "download_complete": true,
+    "source_authentication": "verified_https_microsoft_published_url_not_published_checksum",
+    "images": [
+      {
+        "index": 1,
+        "architecture": 9,
+        "edition": "ServerStandardEval",
+        "installation_type": "Server Core",
+        "build": 26100
+      },
+      {
+        "index": 2,
+        "architecture": 9,
+        "edition": "ServerStandardEval",
+        "installation_type": "Server",
+        "build": 26100
+      },
+      {
+        "index": 3,
+        "architecture": 9,
+        "edition": "ServerDatacenterEval",
+        "installation_type": "Server Core",
+        "build": 26100
+      },
+      {
+        "index": 4,
+        "architecture": 9,
+        "edition": "ServerDatacenterEval",
+        "installation_type": "Server",
+        "build": 26100
+      }
+    ],
+    "selected_index": 2
+  },
+  "disk": {
+    "format": "qcow2",
+    "virtual_bytes": 68719476736,
+    "created": true,
+    "actual_bytes": 200704,
+    "temporary_only": true
+  },
+  "qemu": {
+    "qmp_responded": true,
+    "kvm_enabled": true,
+    "paused": true,
+    "disk_attached": true,
+    "iso_attached": true,
+    "clean_shutdown": true
+  },
+  "limits": {
+    "windows_guest_booted": false,
+    "windows_guest_reboot_tested": false,
+    "target_launched": false,
+    "host_rebooted": false,
+    "tls_validation_changed": false,
+    "device_permissions_changed": false,
+    "raw_identifiers_exported": false,
+    "private_logs_or_disks_exported": false
+  }
+}

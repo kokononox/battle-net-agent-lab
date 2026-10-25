@@ -2,7 +2,7 @@
   "schema": "bnet-reboot-test-status-2",
   "real_os_reboot_comparison": "not_performed",
   "result": "pending_windows_guest_provisioning_on_verified_KVM_route",
-  "blocker": "KVM guest CPU execution is verified. d2 downloaded the complete official Windows ISO and installed QEMU 8.2.2, then stopped at media_xml_failed before disk creation. d3 extraction correction is committed but no matching runtime report has been observed; its Actions state is unknown. No Windows boot or same-guest reboot is verified.",
+  "blocker": "d6 verified Microsoft ISO integrity against the prior lab sample, WIM index 2 metadata, qcow2 creation and paused QEMU/KVM attachments. Windows guest boot, installation, target compatibility and same-guest reboot remain untested. Ephemeral media and disk were removed, not persisted.",
   "tool": "analysis-tools/prelogin-reboot/reboot_probe.py",
   "registry_only": true,
   "public_value_or_identifier_hash_exported": false,
@@ -14,8 +14,12 @@
   "native_control_run_id": "40152098346",
   "native_control_source_commit": "2533962409cf5bf3bb21d09589d3e3c67b8cae0d",
   "native_control_evidence_commit": "38d1c2878a73aff92e886523b5c876a0ede8f788",
-  "next_required": "First obtain and validate runtime facts matching d3 source 288588091e6e8156641f516db0799b2296f2b4db. Then provision Windows within one long-lived GitHub job with adequate physical capacity and lawful evaluation use; preserve the guest disk and user profile across its own reboot and run before/after. Preparation disks are temporary, not persisted between jobs.",
-  "scope_exclusions": ["reinstall", "WoW_file_provenance", "new_target_network_capture"],
+  "next_required": "Reproduce pinned media preparation inside one long-lived host job, install and boot the Windows evaluation guest lawfully with independently checked physical capacity, preserve its disk and user profile across guest reboot, then run the same-profile registry before/after comparison. No new target network capture is claimed.",
+  "scope_exclusions": [
+    "reinstall",
+    "WoW_file_provenance",
+    "new_target_network_capture"
+  ],
   "github_nested_route": {
     "report": "reports/prelogin-nested-kvm-review.json",
     "run_id": "40153443222",
@@ -26,19 +30,24 @@
     "windows_guest_reboot_tested": false
   },
   "windows_media_preparation": {
-    "report": "reports/windows-guest-preparation-d2.json",
-    "run_id": "40155189664",
-    "source_commit": "1832083e90894d3e505674b5fee874ff85b9fe9d",
-    "evidence_commit": "93fcb6dc0b95840870430546926d3bd787101a48",
+    "report": "reports/windows-guest-preparation-d6.json",
+    "run_id": "40159938156",
+    "source_commit": "4661e44a6966755ec7c42765bb79c6fcfedfa25a",
+    "evidence_commit": "b0438407ebc62b52e171d89869345952e6d7d6ee",
     "complete_official_iso_download_verified": true,
     "iso_sha256": "7b052573ba7894c9924e3e87ba732ccd354d18cb75a883efa9b900ea125bfd51",
     "iso_hash_is_microsoft_published_checksum": false,
     "qemu_version": "8.2.2",
-    "status": "stopped",
-    "error_code": "media_xml_failed",
+    "status": "prepared_paused_no_windows_boot",
+    "error_code": null,
     "d3_source_commit": "288588091e6e8156641f516db0799b2296f2b4db",
     "d3_runtime_observed": false,
-    "preparation_local_tests_passed": 32,
-    "disk_persisted_for_next_job": false
+    "preparation_local_tests_passed": 45,
+    "disk_persisted_for_next_job": false,
+    "selected_image_index": 2,
+    "selected_image_build": 26100,
+    "paused_qemu_kvm_verified": true,
+    "disk_virtual_bytes": 68719476736,
+    "disk_actual_bytes": 200704
   }
 }

@@ -1,0 +1,20 @@
+{
+  "schema": "bnet-windows-preparation-review-1",
+  "run_id": "40159938156",
+  "source_commit": "4661e44a6966755ec7c42765bb79c6fcfedfa25a",
+  "evidence_commit": "b0438407ebc62b52e171d89869345952e6d7d6ee",
+  "result": "paused_guest_preparation_verified_only",
+  "runtime_report": "reports/windows-guest-preparation-d6.json",
+  "local_tests_passed": 45,
+  "windows_boot_verified": false,
+  "windows_reboot_verified": false,
+  "registry_after_reboot_verified": false,
+  "network_after_reboot_verified": false,
+  "private_disk_persisted": false,
+  "remaining": [
+    "lawful evaluation guest installation",
+    "real Windows boot",
+    "same-guest reboot with same user profile",
+    "registry before/after comparison"
+  ]
+}
