@@ -1,209 +1,41 @@
 {
   "schema": "bnet-host-lifecycle-7",
-  "source_commit": "471445e6841af3b2b2d38aff3a10d7c5383ce502",
-  "run_id": "40149875793",
-  "status": "same_host_id_after_process_restart",
-  "error_code": null,
+  "source_commit": "ac914db9e53d8733322877f108f755c024c7fc8c",
+  "run_id": "40194509544",
+  "status": "inconclusive",
+  "error_code": "first_phase_ineligible",
   "first_native_gate_passed": true,
   "same_machine": true,
   "configuration_preserved": true,
-  "second_start_clean_processes": true,
-  "comparison": true,
+  "second_start_clean_processes": false,
+  "comparison": null,
   "phases": [
     {
       "launched": true,
       "completed": true,
       "bootstrap_pin_match": true,
-      "instrumented_processes": 3,
+      "instrumented_processes": 1,
       "collector_errors": 0,
       "dropped_events": 0,
       "collector_fatal": false,
-      "request_count": 18,
-      "hardware_requests": 1,
-      "wire_linked_hardware_requests": 1,
-      "host_id_observations": 1,
-      "host_id_unique": 1,
+      "request_count": 0,
+      "hardware_requests": 0,
+      "wire_linked_hardware_requests": 0,
+      "host_id_observations": 0,
+      "host_id_unique": 0,
       "invalid_host_id_events": 0,
       "all_processes_instrumented": true,
       "language_status": "not_observed"
-    },
-    {
-      "launched": true,
-      "completed": true,
-      "bootstrap_pin_match": true,
-      "instrumented_processes": 4,
-      "collector_errors": 0,
-      "dropped_events": 0,
-      "collector_fatal": false,
-      "request_count": 11,
-      "hardware_requests": 1,
-      "wire_linked_hardware_requests": 1,
-      "host_id_observations": 1,
-      "host_id_unique": 1,
-      "invalid_host_id_events": 0,
-      "all_processes_instrumented": true,
-      "language_status": "other"
     }
   ],
-  "storage_scans": [
-    {
-      "schema": "bnet-host-storage-scan-2",
-      "phase": "after_first",
-      "status": "scan_complete",
-      "files_visited": 130,
-      "files_read": 47,
-      "bytes_read": 579499,
-      "skipped_reparse": 0,
-      "skipped_large": 1,
-      "file_errors": 0,
-      "registry_keys_read": 3,
-      "registry_values_read": 2,
-      "registry_bytes_read": 40,
-      "registry_errors": 0,
-      "budget_reached": false,
-      "matches": [
-        {
-          "kind": "registry",
-          "root": "hkcu_blizzard",
-          "locator": "Blizzard Error/UserUUID",
-          "category": "registry_value",
-          "uuid_exact": true,
-          "uuid_casefold": true,
-          "source_id_key_exact": false,
-          "source_id_key_casefold": false,
-          "source_id_literal_present": false
-        }
-      ],
-      "registry_literal_names": [
-        {
-          "name": "Blizzard Error",
-          "image_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
-          "encoding": "ascii"
-        },
-        {
-          "name": "UserUUID",
-          "image_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
-          "encoding": "ascii"
-        },
-        {
-          "name": "Locale",
-          "image_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
-          "encoding": "ascii"
-        }
-      ],
-      "observed_uuid_count": 1,
-      "read_only": true,
-      "provider_read_source_proven": false,
-      "raw_values_or_hashes_exported": false
-    },
-    {
-      "schema": "bnet-host-storage-scan-2",
-      "phase": "after_second",
-      "status": "scan_complete",
-      "files_visited": 119,
-      "files_read": 58,
-      "bytes_read": 612554,
-      "skipped_reparse": 0,
-      "skipped_large": 1,
-      "file_errors": 0,
-      "registry_keys_read": 3,
-      "registry_values_read": 2,
-      "registry_bytes_read": 40,
-      "registry_errors": 0,
-      "budget_reached": false,
-      "matches": [
-        {
-          "kind": "registry",
-          "root": "hkcu_blizzard",
-          "locator": "Blizzard Error/UserUUID",
-          "category": "registry_value",
-          "uuid_exact": true,
-          "uuid_casefold": true,
-          "source_id_key_exact": false,
-          "source_id_key_casefold": false,
-          "source_id_literal_present": false
-        }
-      ],
-      "registry_literal_names": [
-        {
-          "name": "Blizzard Error",
-          "image_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
-          "encoding": "ascii"
-        },
-        {
-          "name": "UserUUID",
-          "image_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
-          "encoding": "ascii"
-        },
-        {
-          "name": "Locale",
-          "image_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
-          "encoding": "ascii"
-        }
-      ],
-      "observed_uuid_count": 1,
-      "read_only": true,
-      "provider_read_source_proven": false,
-      "raw_values_or_hashes_exported": false
-    }
-  ],
+  "storage_scans": [],
   "second_diagnostics": {
-    "stage": "complete",
+    "stage": "not_started",
     "error_type": null,
     "refusal_reason": null,
     "refused_image": null,
-    "helper_decisions": [
-      {
-        "checks": {
-          "basename_pinned": true,
-          "content_pinned": true,
-          "parent_process_pinned": true,
-          "live_parent_identity_matches": true,
-          "signature_trusted_blizzard": true,
-          "helper_under_agent_root": true,
-          "path_not_reparse": true,
-          "same_version_directory": false,
-          "parent_creation_matches": true,
-          "parent_path_matches": false,
-          "parent_live_image_pinned": true
-        },
-        "approved": true
-      }
-    ],
-    "processes": [
-      {
-        "name": "battle.net-setup.exe",
-        "phase": "observing",
-        "status": "resumed",
-        "error_type": null,
-        "instrumented_before_resume": true,
-        "script_errors": 0
-      },
-      {
-        "name": "agent.exe",
-        "phase": "observing",
-        "status": "resumed",
-        "error_type": null,
-        "instrumented_before_resume": true,
-        "script_errors": 0
-      },
-      {
-        "name": "agent.exe",
-        "phase": "observing",
-        "status": "resumed",
-        "error_type": null,
-        "instrumented_before_resume": true,
-        "script_errors": 0
-      },
-      {
-        "name": "agenthelper.exe",
-        "phase": "observing",
-        "status": "resumed",
-        "error_type": null,
-        "instrumented_before_resume": true,
-        "script_errors": 0
-      }
-    ]
+    "helper_decisions": [],
+    "processes": []
   },
   "limits": {
     "raw_values_exported": false,

@@ -1,12 +1,12 @@
 {
-  "schema": "bnet-registry-stack-trace-1",
-  "source_commit": "10f9be2a33251e73f323542e5b5c9a01f237fd12",
-  "run_id": "40193800070",
-  "status": "native_gate_failed_no_target",
+  "schema": "bnet-registry-stack-trace-2",
+  "source_commit": "ac914db9e53d8733322877f108f755c024c7fc8c",
+  "run_id": "40194509544",
+  "status": "inconclusive",
   "native_gate": [
     {
       "architecture": "x64",
-      "passed": false,
+      "passed": true,
       "exit_code": 0,
       "instrumented": true,
       "bitness_confirmed": true,
@@ -15,15 +15,20 @@
       "get_w": true,
       "write_w": true,
       "size_only_not_uuid": true,
-      "read_w_main_frame": false,
-      "write_w_main_frame": false,
+      "read_w_main_frame": true,
+      "write_w_main_frame": true,
       "accurate_stack_captured": true,
+      "scope_diagnostics": {
+        "verified_image_found": true,
+        "process_main_matches_verified_image": false,
+        "direct_caller_found": true
+      },
       "errors": 0,
       "limits": 0
     },
     {
       "architecture": "x86",
-      "passed": false,
+      "passed": true,
       "exit_code": 0,
       "instrumented": true,
       "bitness_confirmed": true,
@@ -32,18 +37,55 @@
       "get_w": true,
       "write_w": true,
       "size_only_not_uuid": true,
-      "read_w_main_frame": false,
-      "write_w_main_frame": false,
+      "read_w_main_frame": true,
+      "write_w_main_frame": true,
       "accurate_stack_captured": true,
+      "scope_diagnostics": {
+        "verified_image_found": true,
+        "process_main_matches_verified_image": false,
+        "direct_caller_found": true
+      },
       "errors": 0,
       "limits": 0
     }
   ],
-  "baseline_before_target": null,
-  "baseline_after_target": null,
-  "target_launched": false,
+  "baseline_before_target": {
+    "status": "absent",
+    "value_present": false,
+    "valid_uuid": false
+  },
+  "baseline_after_target": {
+    "status": "absent",
+    "value_present": false,
+    "valid_uuid": false
+  },
+  "target_launched": true,
   "lifecycle_comparison": null,
-  "phases": [],
+  "phases": [
+    {
+      "ready_processes": 1,
+      "installed_apis": [
+        "RegCloseKey",
+        "RegCreateKeyExA",
+        "RegCreateKeyExW",
+        "RegGetValueA",
+        "RegGetValueW",
+        "RegOpenKeyExA",
+        "RegOpenKeyExW",
+        "RegQueryValueExA",
+        "RegQueryValueExW",
+        "RegSetValueExA",
+        "RegSetValueExW"
+      ],
+      "errors": 0,
+      "limits": 0,
+      "records": [],
+      "phase": "first",
+      "wire_linked_hardware_requests": 0,
+      "all_processes_registry_ready": true,
+      "wire_collector_clean": true
+    }
+  ],
   "registry_read_equals_wire_host_id": false,
   "successful_matching_write_observed": false,
   "matching_agent_read_stack_observed": false,
