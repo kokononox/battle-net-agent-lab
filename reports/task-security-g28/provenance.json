@@ -1,0 +1,90 @@
+{
+  "source_commit": "873de2f9f53d4d7161820fe545690d9de8882c77",
+  "run_id": "40192100371",
+  "job_id": 121165070373,
+  "workflow_conclusion": "success",
+  "manifest": {
+    "parts": 35,
+    "raw_bytes": 15321,
+    "sha256": "860d5112186cb18452d9a911957cddeca33752e863b3817813c3c6f0d214f994"
+  },
+  "retrieval_method": "authenticated_GitHub_View_raw_logs_DOM",
+  "raw_log_published": false,
+  "signed_urls_published": false,
+  "read_only_target_tasks": true,
+  "temporary_lab_task_created_and_unregistered": true,
+  "no_installer_or_firewall_changes": true,
+  "analysis": {
+    "schema": "task_security_analysis_g28_v1",
+    "source_commit": "873de2f9f53d4d7161820fe545690d9de8882c77",
+    "run_id": "40192100371",
+    "workflow_conclusion": "success",
+    "task_count": 4,
+    "sample_count": 2,
+    "observation_count": 8,
+    "rows": [
+      {
+        "task": "RefreshCache",
+        "image": "wosc.dll",
+        "signature": "Valid_Microsoft",
+        "permissions_binding_image_stable_between_samples": true,
+        "root_failure_reproduced": "get_folder_8007007b",
+        "normalized_read_succeeded": true
+      },
+      {
+        "task": "PrintJobCleanupTask",
+        "image": "printercleanuptask.dll",
+        "signature": "Valid_Microsoft",
+        "permissions_binding_image_stable_between_samples": true,
+        "root_failure_reproduced": "get_folder_8007007b",
+        "normalized_read_succeeded": true
+      },
+      {
+        "task": "Registration",
+        "image": "sc.exe",
+        "signature": "Valid_Microsoft",
+        "permissions_binding_image_stable_between_samples": true,
+        "root_failure_reproduced": "get_folder_8007007b",
+        "normalized_read_succeeded": true
+      },
+      {
+        "task": "SvcRestartTask",
+        "image": "sppcext.dll",
+        "signature": "Valid_Microsoft",
+        "permissions_binding_image_stable_between_samples": true,
+        "root_failure_reproduced": "get_folder_8007007b",
+        "normalized_read_succeeded": true
+      }
+    ],
+    "independent_validation": {
+      "normalized_permission_successes": 8,
+      "original_argument_failures": 8,
+      "valid_microsoft_signature_observations": 8
+    },
+    "claims_not_made": [
+      "safe_to_exempt",
+      "mutation_actor_identified",
+      "G26_or_G27_permissions_reconstructed",
+      "semantic_ACL_safety_audited",
+      "continuous_event_coverage",
+      "revocation_policy_independently_audited",
+      "successful_full_installation_or_recovery"
+    ],
+    "comparison_plan": [
+      {
+        "grain": "task identity in two read-only snapshots",
+        "finding": "original folder argument fails; normalized succeeds",
+        "disposition": "prose",
+        "reason": "categorical diagnostic result, no quantitative chart appropriate"
+      }
+    ],
+    "profile_caveats": [
+      "constant public run metadata expected, not observations or metrics",
+      "profiler treats run_id as number; preserved and verified as identifier string",
+      "nested task observations analyzed explicitly, eight observations not independent machines"
+    ]
+  },
+  "integration_fix_not_yet_retested_under_gate": true,
+  "initial_invalid_workflow_run_id": "40192055513",
+  "initial_invalid_workflow_executed_jobs": 0
+}

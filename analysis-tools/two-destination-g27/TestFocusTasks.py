@@ -17,4 +17,14 @@ class Tests(unittest.TestCase):
  def test_binding_change(self):
   a=snap(A);b=snap(A);a['tasks'][ID]['binding']={'capture_complete':True,'file_sha256':'a'*64,'binding_hash':'b'*64};b['tasks'][ID]['binding']={'capture_complete':True,'file_sha256':'c'*64,'binding_hash':'b'*64};self.assertFalse(summarize(a,[],b)['tasks'][0]['baseline_final_binding_equal'])
  def test_no_signature_claim(self):self.assertFalse(summarize(snap(A),[],{})['image_signatures_newly_verified'])
+ def test_missing_permissions_not_equal(self):
+  a=snap(A);b=snap(B);del a['tasks'][ID]['permissions_sha256'];del b['tasks'][ID]['permissions_sha256'];r=summarize(a,[b],b)['tasks'][0];self.assertIsNone(r['observed_changes'][0]['permissions_changed']);self.assertIsNone(r['baseline_final_permissions_equal'])
+ def test_one_missing_permissions_unknown(self):
+  a=snap(A);b=snap(B);del b['tasks'][ID]['permissions_sha256'];self.assertIsNone(summarize(a,[b],b)['tasks'][0]['observed_changes'][0]['permissions_changed'])
+ def test_final_nominal_time_not_event_time(self):
+  r=summarize(snap(A),[],snap(B,phase='final',elapsed=270))['tasks'][0]['observed_changes'][0];self.assertIsNone(r['elapsed_seconds']);self.assertEqual(r['timing_basis'],'phase_only_nominal_final')
+ def test_poll_time_is_watch_relative(self):
+  r=summarize(snap(A),[snap(B)],snap(B))['tasks'][0]['observed_changes'][0];self.assertEqual(r['timing_basis'],'snapshot_watch_relative')
+ def test_failure_shape_allowlisted(self):
+  a=snap(A);a['tasks'][ID].update(failure_stage='task_permissions',failure_hresult='8007007b');r=summarize(a,[],a)['tasks'][0];self.assertEqual(r['baseline_failure_hresult'],'8007007b');self.assertEqual(r['baseline_failure_stage'],'task_permissions')
 if __name__=='__main__':unittest.main()

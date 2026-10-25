@@ -14,13 +14,17 @@ function Get-FocusTasks($Context,[string]$Phase,[int]$Elapsed,[switch]$Deep){
   foreach($t in @(Get-ScheduledTask)){
    $key=[string]$t.TaskPath+[string]$t.TaskName;$id=Focus-Hash $key;if(-not $script:FocusIds.ContainsKey($id)){continue}
    $row=@{identifier=$script:FocusIds[$id];identity_sha256=$id;capture_complete=$false;permissions_read=$false;binding_checked=$false}
+   $captureStage='task_xml'
    try{
     $xml=[string](Export-ScheduledTask -TaskName $t.TaskName -TaskPath $t.TaskPath);if($xml.Length -gt 65536){throw 'focus_xml_bound'};$doc=[xml]$xml
     $ns=[Xml.XmlNamespaceManager]::new($doc.NameTable);$ns.AddNamespace('t','http://schemas.microsoft.com/windows/2004/02/mit/task')
     $row.xml=$xml;$row.xml_sha256=Focus-Hash $xml
     foreach($section in @('Actions','Principals','Settings','Triggers')){$node=$doc.SelectSingleNode('/t:Task/t:'+$section,$ns);$row[$section.ToLowerInvariant()+'_sha256']=Focus-Hash $(if($node){$node.OuterXml}else{'absent'})}
-    $folder=$scheduler.GetFolder([string]$t.TaskPath);$registered=$folder.GetTask([string]$t.TaskName)
+    $captureStage='task_permissions'
+    $folderPath=([string]$t.TaskPath).TrimEnd([char]'\');if(-not $folderPath){$folderPath='\'}
+    $folder=$scheduler.GetFolder($folderPath);$registered=$folder.GetTask([string]$t.TaskName)
     try{$sddl=[string]$registered.GetSecurityDescriptor(7);$row.permissions_sha256=Focus-Hash $sddl;$row.permissions_read=$true}finally{if($registered){$null=[Runtime.InteropServices.Marshal]::FinalReleaseComObject($registered)};if($folder){$null=[Runtime.InteropServices.Marshal]::FinalReleaseComObject($folder)}}
+    $captureStage='task_binding'
     if($Deep){
      $com=@($doc.SelectNodes('/t:Task/t:Actions/t:ComHandler',$ns));$exec=@($doc.SelectNodes('/t:Task/t:Actions/t:Exec',$ns))
      if($com.Count -eq 1 -and $exec.Count -eq 0){$row.binding=Get-SvcBinding $xml;$row.binding_checked=$true}
@@ -33,7 +37,7 @@ function Get-FocusTasks($Context,[string]$Phase,[int]$Elapsed,[switch]$Deep){
      }
     }
     $row.capture_complete=$true
-   }catch{$row.error_code='focus_task_capture_incomplete';$r.query_errors++}
+   }catch{$row.error_code='focus_task_capture_incomplete';$row.failure_stage=$captureStage;$row.failure_hresult=('{0:x8}' -f ($_.Exception.HResult -band 0xffffffffL));$r.query_errors++}
    $r.tasks[$id]=$row
   }
   $r.lookup_complete=$true
