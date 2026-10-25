@@ -1,7 +1,7 @@
 """Separate clean Linux job: recover sanitized report; never publish raw VM logs."""
 import base64,hashlib,io,json,os,re,sys,time,urllib.request,urllib.error,zipfile,zlib
 from pathlib import Path
-MAX_LOG=8*1024*1024;MAX_REPORT=131072
+MAX_LOG=8*1024*1024;MAX_REPORT=262144
 FIELDS={'certificate_preparation','all_processes_observed','all_target_egress_blocked_proven','ambient_drift_did_not_waive_recovery','bits','classification','classifier_live_tests','classifier_unit_tests','components','driver','external_brokers_auto_enrolled','files_evidence','full_chain_discovered','game_download_requested','https_payload_classified','install_options_action_requested','installation_verified','installer_launched','login_attempted','minimum_two_destinations_tested','online_preflight','owner','owner_error_code','owner_failure_diagnostic','owner_failure_proof','preflight','proxy_event_counts','proxy_drain','installer_error_codes','windows_tls_events','recovery','recovery_error_shape','recovery_gate_tests','registration_changes_by_kind','registration_diff_complete','registration_differences','request_metadata','run_id','scenario','schema','source_commit','status','svc_trust','system_baseline','system_prelaunch','tls_scope','ui'}
 def unique(pairs):
  d={}
@@ -13,17 +13,17 @@ def unique(pairs):
 def validate(d,sha,run):
  if type(d)!=dict or not set(d)<=FIELDS or d.get('schema')!='two_destination_setup_g24_v1' or d.get('source_commit')!=sha or d.get('run_id')!=run or d.get('scenario')!='real_setup':raise ValueError('report_identity_or_fields')
  if d.get('installation_verified') is not False or d.get('https_payload_classified') is not False:raise ValueError('unsupported_report_claim')
- def walk(v,depth=0):
+ def walk(v,depth=0,path=()):
   if depth>12:raise ValueError('report_depth')
   if v is None or type(v) in (bool,int):return
   if type(v)==str:
    if len(v)>180 or not re.fullmatch(r'[A-Za-z0-9_.:/\[\] ,+()=-]*',v):raise ValueError('report_string')
   elif type(v)==list:
-   if len(v)>256:raise ValueError('report_array')
-   for x in v:walk(x,depth+1)
+   if len(v)>(512 if path==('files_evidence','files') else 256):raise ValueError('report_array')
+   for x in v:walk(x,depth+1,path+('*',))
   elif type(v)==dict:
    if len(v)>256:raise ValueError('report_object')
-   for k,x in v.items():walk(k,depth+1);walk(x,depth+1)
+   for k,x in v.items():walk(k,depth+1,path+('key',));walk(x,depth+1,path+(k,))
   else:raise ValueError('report_value')
  walk(d);return d
 

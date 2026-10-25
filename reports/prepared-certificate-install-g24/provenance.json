@@ -1,0 +1,63 @@
+{
+  "run_id": "40186131031",
+  "source_commit": "706ae38a45739dff2cbc3e2c497d237590d5b98b",
+  "verified_manifest": {
+    "parts": 115,
+    "raw_bytes": 212799,
+    "sha256": "263814fd9f79495ab45a58255b1c8d0090af6558cdaf3afeb048093f5f4b2543"
+  },
+  "jobs": [
+    {
+      "id": 121147175847,
+      "name": "observe (real_setup)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 121148017071,
+      "name": "collect",
+      "status": "completed",
+      "conclusion": "failure"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 12596303019,
+      "name": "battlenet-online-g24-real_setup-sanitized",
+      "size_in_bytes": 49861,
+      "expired": false
+    }
+  ],
+  "recovery_method": "authenticated_raw_job_logs_manifest_size_hash_identity_and_shape_checked",
+  "original_collector_failure": {
+    "raw_report_limit": 131072,
+    "actual_raw_bytes": 212799,
+    "default_array_limit": 256,
+    "actual_bounded_file_inventory_rows": 512
+  },
+  "recovery_validator": {
+    "raw_report_limit": 262144,
+    "file_inventory_only_array_limit": 512,
+    "all_other_array_limits": 256,
+    "protocol_tests_passed": 14
+  },
+  "installer_rerun_for_collection_fix": false,
+  "profiling": {
+    "tabular_profiler": "not_applicable_heterogeneous_nested_document",
+    "targeted_schema_and_headline_assertions": "passed"
+  },
+  "finding": {
+    "preparation_chain_validated_online": true,
+    "install_button_continued": true,
+    "agent_observed": true,
+    "client_observed_instances": 9,
+    "complete_installation_verified": false
+  },
+  "comparison_plan": {
+    "question": "Did the same restricted installer progress after explicit certificate preparation",
+    "grain": "one bounded Windows experiment, not a matched paired causal trial",
+    "disposition": "prose",
+    "reason": "categorical process and validation outcomes; no numeric chart is informative",
+    "caveat": "different VM, unknown preexisting cache, bounded metadata and inventory"
+  }
+}

@@ -28,4 +28,14 @@ class Tests(unittest.TestCase):
  def test_duplicate_parts(self):
   t=pack(report());t+='\n'+t.splitlines()[-1]
   with self.assertRaises(ValueError):c.extract(t,SHA,RUN)
+ def test_file_inventory_512(self):
+  r=report();r['files_evidence']={'files':[{'sha256':'a'*64,'bytes':12} for _ in range(512)]};self.assertEqual(c.extract(pack(r),SHA,RUN)[1],r)
+ def test_file_inventory_513_rejected(self):
+  r=report();r['files_evidence']={'files':[{} for _ in range(513)]}
+  with self.assertRaises(ValueError):c.extract(pack(r),SHA,RUN)
+ def test_other_array_257_rejected(self):
+  r=report();r['request_metadata']=[{} for _ in range(257)]
+  with self.assertRaises(ValueError):c.extract(pack(r),SHA,RUN)
+ def test_report_size_ceiling(self):
+  self.assertEqual(c.MAX_REPORT,262144)
 if __name__=='__main__':unittest.main()
