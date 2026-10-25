@@ -6,7 +6,8 @@ on:
 permissions: {}
 jobs:
   inspect:
-    if: github.event.head_commit.message == 'lab: approved read only task security G28 20261025' && github.run_attempt == 1
+    if: >-
+      github.event.head_commit.message == 'lab: approved read only task security G28 20261025' && github.run_attempt == 1
     runs-on: windows-2025
     timeout-minutes: 8
     permissions:
