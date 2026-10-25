@@ -1,7 +1,7 @@
 {
-  "schema": "bnet-host-lifecycle-5",
-  "source_commit": "2040c935f020598cc1d7453a31567fdb6f4472f3",
-  "run_id": "40145528838",
+  "schema": "bnet-host-lifecycle-6",
+  "source_commit": "af7b670e48b15987fba518f1be7da48908780ea0",
+  "run_id": "40147826620",
   "status": "same_host_id_after_process_restart",
   "error_code": null,
   "first_native_gate_passed": true,
@@ -43,6 +43,74 @@
       "invalid_host_id_events": 0,
       "all_processes_instrumented": true,
       "language_status": "other"
+    }
+  ],
+  "storage_scans": [
+    {
+      "schema": "bnet-host-storage-scan-1",
+      "phase": "after_first",
+      "status": "scan_complete",
+      "files_visited": 130,
+      "files_read": 47,
+      "bytes_read": 579577,
+      "skipped_reparse": 0,
+      "skipped_large": 1,
+      "file_errors": 0,
+      "registry_keys_read": 3,
+      "registry_values_read": 2,
+      "registry_bytes_read": 40,
+      "registry_errors": 0,
+      "budget_reached": false,
+      "matches": [
+        {
+          "kind": "registry",
+          "root": "hkcu_blizzard",
+          "locator": "*/*",
+          "category": "registry_value",
+          "uuid_exact": true,
+          "uuid_casefold": true,
+          "source_id_key_exact": false,
+          "source_id_key_casefold": false,
+          "source_id_literal_present": false
+        }
+      ],
+      "observed_uuid_count": 1,
+      "read_only": true,
+      "provider_read_source_proven": false,
+      "raw_values_or_hashes_exported": false
+    },
+    {
+      "schema": "bnet-host-storage-scan-1",
+      "phase": "after_second",
+      "status": "scan_complete",
+      "files_visited": 119,
+      "files_read": 58,
+      "bytes_read": 612746,
+      "skipped_reparse": 0,
+      "skipped_large": 1,
+      "file_errors": 0,
+      "registry_keys_read": 3,
+      "registry_values_read": 2,
+      "registry_bytes_read": 40,
+      "registry_errors": 0,
+      "budget_reached": false,
+      "matches": [
+        {
+          "kind": "registry",
+          "root": "hkcu_blizzard",
+          "locator": "*/*",
+          "category": "registry_value",
+          "uuid_exact": true,
+          "uuid_casefold": true,
+          "source_id_key_exact": false,
+          "source_id_key_casefold": false,
+          "source_id_literal_present": false
+        }
+      ],
+      "observed_uuid_count": 1,
+      "read_only": true,
+      "provider_read_source_proven": false,
+      "raw_values_or_hashes_exported": false
     }
   ],
   "second_diagnostics": {
