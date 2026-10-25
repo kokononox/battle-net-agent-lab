@@ -1,0 +1,27 @@
+{
+  "schema": "bnet-dns-d1-interpretation-1",
+  "run_url": "https://github.com/kokononox/battle-net-agent-lab/actions/runs/40158305889",
+  "source_commit": "90bc0727855ca8c0da7720b3efdb6ef50c89f837",
+  "artifact_id": "12585048918",
+  "artifact_sha256": "3c408fd92429a2a9e55c2f18bceecfcb6669575b2c5af17b4eebc08fb3e470df",
+  "report_sha256": "af9f51d121faca7526ed189a8d365a305e5da30daf8f3d575975afa7c1c6452f",
+  "reports_received": 1,
+  "reports_excluded": 0,
+  "domains_examined": 3,
+  "diagnosis": "null_address_hosts_override_correlated_with_getaddrinfo_11004_not_zero_address_answer_on_this_runner",
+  "baseline_and_restored_ipv4_public_for_all": true,
+  "override_any_ipv4_ipv6_11004_for_all": true,
+  "all_original_hosts_restored": true,
+  "old_gate_acceptance": false,
+  "old_gate_reason": "null_answers_requires_nonempty_address_results_while_gaierror_exits_child_nonzero",
+  "prior_C1_intervention_trials_reclassified_as_installations": false,
+  "installation_guard_changed": false,
+  "all_communication_blocked_proven": false,
+  "domain_necessity_tested": false,
+  "limits": [
+    "single_fresh_windows_runner_three_domains_sequential",
+    "no_installer_execution",
+    "no_packet_capture_or_private_dns_or_direct_IP_test",
+    "IPv6_11004_also_existed_at_baseline_for_level3_so_error_code_alone_is_not_proof"
+  ]
+}
