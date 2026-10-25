@@ -82,6 +82,7 @@ try {
  }
 } catch {
  # Enum only: never export command errors, private paths, rule inventories or IPs.
- @{ok=$false;error='firewall_gate_operation_failed';action=$Action} | ConvertTo-Json -Compress
+ $detail=$_.Exception.Message;if($detail -notmatch '^[a-z_]{1,65}$'){$detail='operation_failed'}
+ @{ok=$false;error='firewall_gate_operation_failed';action=$Action;detail=$detail} | ConvertTo-Json -Compress
  exit 1
 }

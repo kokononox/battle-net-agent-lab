@@ -73,7 +73,11 @@ try{
 }catch{
  $message=$_.Exception.Message;$r.error_code=if($message -match '^[a-z_]{1,80}$'){$message}else{'independent_recovery_operation_failed'}
  $r.error_shape=Error-Shape $_
- Save-Private (Join-Path $c.root 'recovery-result.json') $r
+ $priorPath=Join-Path $c.root 'recovery-result.json'
+ if(Test-Path $priorPath){$prior=Get-Content -Raw $priorPath | ConvertFrom-Json}else{$prior=$null}
+ if($prior -and $prior.origin -eq 'deadline' -and $prior.status -eq 'recovered_after_verified_component_exit'){
+  Save-Private (Join-Path $c.root 'fallback-error.json') $r
+ }else{Save-Private $priorPath $r}
  throw 'independent_recovery_stopped_no_unconditional_import'
 }finally{
  foreach($proc in $handles){$proc.Dispose()};if($job -ne [IntPtr]::Zero){[ExternalProbe]::CloseOwnedJob($job)}

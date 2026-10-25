@@ -44,7 +44,7 @@ public class ExternalProbe {
  static bool WaitFile(string path){var watch=Stopwatch.StartNew();while(!File.Exists(path)&&watch.ElapsedMilliseconds<15000)Thread.Sleep(50);return File.Exists(path);}
  static readonly JavaScriptSerializer Json=new JavaScriptSerializer();
  static string Env(string n){return Environment.GetEnvironmentVariable(n)??"";}
- static bool Hosted(){return Environment.OSVersion.Platform==PlatformID.Win32NT&&Env("GITHUB_ACTIONS")=="true"&&Env("RUNNER_ENVIRONMENT")=="github-hosted"&&Env("RUNNER_OS")=="Windows"&&Env("GITHUB_REF")=="refs/heads/research/battlenet-minimal-install-isolation-2026-10-25"&&Env("GITHUB_EVENT_NAME")=="push"&&Env("GITHUB_RUN_ATTEMPT")=="1"&&Env("BNET_INTEGRATED_G12")=="lab: approved integrated-recovery qualification G12a 20261025";}
+ static bool Hosted(){return Environment.OSVersion.Platform==PlatformID.Win32NT&&Env("GITHUB_ACTIONS")=="true"&&Env("RUNNER_ENVIRONMENT")=="github-hosted"&&Env("RUNNER_OS")=="Windows"&&Env("GITHUB_REF")=="refs/heads/research/battlenet-minimal-install-isolation-2026-10-25"&&Env("GITHUB_EVENT_NAME")=="push"&&Env("GITHUB_RUN_ATTEMPT")=="1"&&Env("BNET_INTEGRATED_G12")=="lab: approved integrated-recovery qualification G12b 20261025";}
  static Config Load(string path,string token){
   string prefix=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),"BNetIntegratedG12")+"\\";path=Path.GetFullPath(path);
   if(!path.StartsWith(prefix,StringComparison.OrdinalIgnoreCase)||Path.GetFileName(path)!="config.json"||new FileInfo(path).Length>16384)throw new Exception();

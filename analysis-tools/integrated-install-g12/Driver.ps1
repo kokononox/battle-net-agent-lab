@@ -1,15 +1,15 @@
 $ErrorActionPreference='Stop'
-if($env:GITHUB_ACTIONS -ne 'true' -or $env:RUNNER_ENVIRONMENT -ne 'github-hosted' -or $env:RUNNER_OS -ne 'Windows' -or $env:GITHUB_REF -ne 'refs/heads/research/battlenet-minimal-install-isolation-2026-10-25' -or $env:GITHUB_EVENT_NAME -ne 'push' -or $env:GITHUB_RUN_ATTEMPT -ne '1' -or $env:BNET_INTEGRATED_G12 -ne 'lab: approved integrated-recovery qualification G12a 20261025' -or $env:BNET_G12_SCENARIO -notin @('supervisor_crash','supervisor_timeout')){throw 'fresh_hosted_integration_required'}
+if($env:GITHUB_ACTIONS -ne 'true' -or $env:RUNNER_ENVIRONMENT -ne 'github-hosted' -or $env:RUNNER_OS -ne 'Windows' -or $env:GITHUB_REF -ne 'refs/heads/research/battlenet-minimal-install-isolation-2026-10-25' -or $env:GITHUB_EVENT_NAME -ne 'push' -or $env:GITHUB_RUN_ATTEMPT -ne '1' -or $env:BNET_INTEGRATED_G12 -ne 'lab: approved integrated-recovery qualification G12b 20261025' -or $env:BNET_G12_SCENARIO -notin @('supervisor_crash','supervisor_timeout')){throw 'fresh_hosted_integration_required'}
 . (Join-Path $PSScriptRoot 'Common.ps1')
 New-Item -ItemType Directory -Force output | Out-Null
-$r=[ordered]@{schema='bnet-integrated-g12-1';source_commit=$env:GITHUB_SHA;run_id=$env:GITHUB_RUN_ID;scenario=$env:BNET_G12_SCENARIO;status='stopped';installer_launched=$false;baseline_direct_ok=$false;gate_ready=$false;root_and_leaf_in_job=$false;external_service_task_outside=$false;supervisor_crashed_as_requested=$false;supervisor_alive_for_timeout=$false;fixtures_alive_at_failure=$false;fixtures_alive_after_failure=$false;post_scenario_direct_denied=$false;no_observed_direct_release_before_recovery=$true;independent_deadline_system_recovery=$false;components_exited_before_restore=$false;hosts_restored=$false;firewall_restored=$false;iis_restored=$false;post_restore_direct_ok=$false;full_install_boundary_proven=$false;arbitrary_service_discovery_proven=$false;mid_startup_crash_tested=$false;stage='prepare';error_code=$null;failure_stage=$null;supervisor_diagnostic=$null;recovery_error_code=$null;recovery_error_shape=$null}
+$r=[ordered]@{schema='bnet-integrated-g12-1';source_commit=$env:GITHUB_SHA;run_id=$env:GITHUB_RUN_ID;scenario=$env:BNET_G12_SCENARIO;status='stopped';installer_launched=$false;baseline_direct_ok=$false;cross_identity_mutex_preflight=$false;gate_ready=$false;root_and_leaf_in_job=$false;external_service_task_outside=$false;supervisor_crashed_as_requested=$false;supervisor_alive_for_timeout=$false;fixtures_alive_at_failure=$false;fixtures_alive_after_failure=$false;post_scenario_direct_denied=$false;no_observed_direct_release_before_recovery=$true;independent_deadline_system_recovery=$false;components_exited_before_restore=$false;hosts_restored=$false;firewall_restored=$false;iis_restored=$false;post_restore_direct_ok=$false;full_install_boundary_proven=$false;arbitrary_service_discovery_proven=$false;mid_startup_crash_tested=$false;stage='prepare';error_code=$null;failure_stage=$null;supervisor_diagnostic=$null;recovery_error_code=$null;recovery_error_shape=$null}
 $guid=[guid]::NewGuid().ToString('N');$root=Join-Path (Join-Path $env:ProgramData 'BNetIntegratedG12') $guid;$config=Join-Path $root 'config.json';$c=$null;$supervisor=$null
 function Save-Report{$r | ConvertTo-Json -Depth 8 | Set-Content ('output/integrated-g12-'+$env:BNET_G12_SCENARIO+'.json') -Encoding UTF8;Write-Output ($r | ConvertTo-Json -Depth 8 -Compress)}
 try{
  $null=New-Item -ItemType Directory -Force $root;$acl=[Security.AccessControl.DirectorySecurity]::new();$acl.SetAccessRuleProtection($true,$false)
  foreach($sid in @('S-1-5-18','S-1-5-32-544')){$identity=[Security.Principal.SecurityIdentifier]::new($sid);$acl.AddAccessRule([Security.AccessControl.FileSystemAccessRule]::new($identity,[Security.AccessControl.FileSystemRights]::FullControl,([Security.AccessControl.InheritanceFlags]::ContainerInherit -bor [Security.AccessControl.InheritanceFlags]::ObjectInherit),[Security.AccessControl.PropagationFlags]::None,[Security.AccessControl.AccessControlType]::Allow))}
  Set-Acl $root $acl
- foreach($name in @('Common.ps1','Supervisor.ps1','Recover.ps1','FirewallGate.ps1')){Copy-Item (Join-Path $PSScriptRoot $name) (Join-Path $root $name)}
+ foreach($name in @('Common.ps1','Supervisor.ps1','Recover.ps1','FirewallGate.ps1','LeaseProbe.ps1')){Copy-Item (Join-Path $PSScriptRoot $name) (Join-Path $root $name)}
  Copy-Item "$env:RUNNER_TEMP\bnet-g12-bin\ExternalProbe.exe" (Join-Path $root 'ExternalProbe.exe')
  Copy-Item (Join-Path $PSScriptRoot 'dist\TwoHostProxy.exe') (Join-Path $root 'TwoHostProxy.exe')
  $pinsText=& python -c "import socket,ipaddress,json; h=('level3.blizzard.com','us.version.battle.net'); d={n:sorted({x[4][0] for x in socket.getaddrinfo(n,80,type=socket.SOCK_STREAM) if ipaddress.ip_address(x[4][0]).is_global},key=lambda a:(':' in a,a)) for n in h}; assert all(1<=len(v)<=32 for v in d.values()); print(json.dumps(d))"
@@ -22,6 +22,24 @@ try{
  Save-Private (Join-Path $root 'proxy.json') @{hosts=$pins;port=18731;seconds=600;log=(Join-Path $root 'proxy-private.jsonl');transparent=$true}
  Save-Private output/g12-private-recovery-pointer.json @{config=$config}
  $before=Invoke-Canary $c 'canary';$r.baseline_direct_ok=($before.connected -and $before.http200);if(-not $r.baseline_direct_ok){throw 'baseline_not_healthy'}
+ # Verify both creators before changing firewall or hosts: runner -> SYSTEM, SYSTEM -> runner.
+ foreach($mode in @('runner_created','system_created')){
+  $probeName=$c.watchdog_name+'_leaseprobe';$held=$null;$probeMutex=$null
+  try{
+   $probeContext=@{mutex_name=($c.mutex_name+'_'+$mode)}
+   if($mode -eq 'runner_created'){$held=Enter-Lease $probeContext;$held.ReleaseMutex()}
+   $probeAction=New-ScheduledTaskAction -Execute $ps -Argument ('-NoProfile -NonInteractive -ExecutionPolicy Bypass -File "'+(Join-Path $root 'LeaseProbe.ps1')+'" -Config "'+$config+'" -Mode '+$mode)
+   $probePrincipal=New-ScheduledTaskPrincipal -UserId 'SYSTEM' -LogonType ServiceAccount -RunLevel Highest
+   $null=Register-ScheduledTask -TaskName $probeName -Action $probeAction -Principal $probePrincipal
+   Start-ScheduledTask $probeName;$receipt=Join-Path $root ('lease-probe-'+$mode+'.json');Wait-File $receipt 20
+   $proof=Get-Content -Raw $receipt | ConvertFrom-Json;if($proof.system_identity -ne $true -or $proof.acquired -ne $true){throw 'system_lease_probe_failed'}
+   $probeMutex=Enter-Lease $probeContext;$probeMutex.ReleaseMutex();$probeMutex.Dispose();$probeMutex=$null
+  }finally{
+   if($held){$held.Dispose()};if($probeMutex){$probeMutex.Dispose()}
+   Stop-ScheduledTask $probeName -ErrorAction SilentlyContinue;Unregister-ScheduledTask $probeName -Confirm:$false -ErrorAction SilentlyContinue
+  }
+ }
+ $r.cross_identity_mutex_preflight=$true
  $action=New-ScheduledTaskAction -Execute $ps -Argument ('-NoProfile -NonInteractive -ExecutionPolicy Bypass -File "'+$c.watchdog_script+'" -Config "'+$config+'" -Origin deadline')
  $trigger=New-ScheduledTaskTrigger -Once -At (Get-Date).AddSeconds(180);$principal=New-ScheduledTaskPrincipal -UserId 'SYSTEM' -LogonType ServiceAccount -RunLevel Highest
  $null=Register-ScheduledTask -TaskName $c.watchdog_name -Action $action -Trigger $trigger -Principal $principal
@@ -67,7 +85,7 @@ try{
  $r.hosts_restored=$recovery.hosts_restored;$r.firewall_restored=$recovery.firewall_restored;$r.iis_restored=$recovery.iis_restored
  if($r.independent_deadline_system_recovery){$after=Invoke-Canary $c 'canary';$r.post_restore_direct_ok=($after.connected -and $after.http200)}
  $expected=if($env:BNET_G12_SCENARIO -eq 'supervisor_crash'){$r.supervisor_crashed_as_requested}else{$r.supervisor_alive_for_timeout}
- if($r.gate_ready -and $r.fixtures_alive_after_failure -and $r.root_and_leaf_in_job -and $r.external_service_task_outside -and $expected -and $r.post_scenario_direct_denied -and $r.no_observed_direct_release_before_recovery -and $r.independent_deadline_system_recovery -and $r.components_exited_before_restore -and $r.hosts_restored -and $r.firewall_restored -and $r.iis_restored -and $r.post_restore_direct_ok){$r.status='qualified_post_ready_integrated_deadline_recovery'}else{$r.error_code='integrated_recovery_probes_failed'}
+ if($r.gate_ready -and $r.cross_identity_mutex_preflight -and $r.fixtures_alive_after_failure -and $r.root_and_leaf_in_job -and $r.external_service_task_outside -and $expected -and $r.post_scenario_direct_denied -and $r.no_observed_direct_release_before_recovery -and $r.independent_deadline_system_recovery -and $r.components_exited_before_restore -and $r.hosts_restored -and $r.firewall_restored -and $r.iis_restored -and $r.post_restore_direct_ok){$r.status='qualified_post_ready_integrated_deadline_recovery'}else{$r.error_code='integrated_recovery_probes_failed'}
 }catch{$r.failure_stage=$r.stage;$message=$_.Exception.Message;$r.error_code=if($message -match '^[a-z_]{1,80}$'){$message}else{'integration_operation_failed'}}
 finally{
  if($supervisor){$supervisor.Dispose()};$r.stage='complete';Save-Report

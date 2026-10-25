@@ -11,14 +11,20 @@ function Save-Private([string]$Path,$Value){
  if(Test-Path $Path){$prior=$Path+'.prior';if(Test-Path $prior){[IO.File]::Delete($prior)};[IO.File]::Replace($temp,$Path,$prior)}else{[IO.File]::Move($temp,$Path)}
 }
 function Enter-Lease($Context){
- $mutex=[Threading.Mutex]::new($false,$Context.mutex_name)
+ $security=[Security.AccessControl.MutexSecurity]::new()
+ foreach($sid in @('S-1-5-18','S-1-5-32-544')){
+  $identity=[Security.Principal.SecurityIdentifier]::new($sid)
+  $security.AddAccessRule([Security.AccessControl.MutexAccessRule]::new($identity,[Security.AccessControl.MutexRights]::FullControl,[Security.AccessControl.AccessControlType]::Allow))
+ }
+ $created=$false;$mutex=[Threading.Mutex]::new($false,$Context.mutex_name,[ref]$created,$security)
  try{try{$held=$mutex.WaitOne(120000)}catch [Threading.AbandonedMutexException]{$held=$true};if(-not $held){throw 'lease_wait_timeout'};return $mutex}catch{$mutex.Dispose();throw}
 }
 function Invoke-Gate($Context,[string]$Action){
  $ps="$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe"
  $text=& $ps -NoProfile -NonInteractive -ExecutionPolicy Bypass -File (Join-Path $Context.root 'FirewallGate.ps1') -Action $Action -Work $Context.root -ProxyExe $Context.proxy_exe -Config (Join-Path $Context.root 'proxy.json') 2>$null
- if($LASTEXITCODE -ne 0){throw ('gate_'+$Action.ToLowerInvariant()+'_failed')}
- $joined=$text -join "`n";if($joined.Length -gt 16384){throw 'gate_protocol_limit'};return ($joined | ConvertFrom-Json)
+ $code=$LASTEXITCODE;$joined=$text -join "`n";if($joined.Length -gt 16384){throw 'gate_protocol_limit'};$parsed=$joined | ConvertFrom-Json
+ if($code -ne 0){$detail=[string]$parsed.detail;if($detail -notmatch '^[a-z_]{1,65}$'){$detail='failed'};throw ('gate_'+$Action.ToLowerInvariant()+'_'+$detail)}
+ return $parsed
 }
 function Record-Process($Process,[string]$Path){$null=$Process.Handle;Save-Private $Path @{pid=$Process.Id;created=$Process.StartTime.ToFileTimeUtc();image=$Process.MainModule.FileName}}
 function Open-Verified($Identity){
