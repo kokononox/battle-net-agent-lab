@@ -1,0 +1,70 @@
+{
+  "schema": "bnet-peer-firewall-g16a-1",
+  "source_commit": "d710f63dd8065bb6f8bc63b56ca863ebfe82ae87",
+  "run_id": "40170195394",
+  "scenario": "supervisor_crash",
+  "status": "qualified_peer_firewall_system_recovery_integration",
+  "installer_launched": false,
+  "baseline_direct_ok": true,
+  "cross_identity_mutex_preflight": true,
+  "gate_ready": true,
+  "component_probes": [
+    {
+      "via_http200": true,
+      "direct_denied": true,
+      "system_identity": false,
+      "kind": "root"
+    },
+    {
+      "via_http200": true,
+      "direct_denied": true,
+      "system_identity": false,
+      "kind": "leaf"
+    },
+    {
+      "via_http200": true,
+      "direct_denied": true,
+      "system_identity": true,
+      "kind": "service"
+    },
+    {
+      "via_http200": true,
+      "direct_denied": true,
+      "system_identity": true,
+      "kind": "task"
+    }
+  ],
+  "system_service_verified": true,
+  "system_task_verified": true,
+  "unknown_same_exe_no_dial": true,
+  "service_revoked_no_dial": true,
+  "forged_service_creation_no_dial": true,
+  "service_reenrolled_ok": true,
+  "forged_controller_no_dial": true,
+  "controller_restored_ok": true,
+  "supervisor_crashed": true,
+  "controller_death_no_dial": true,
+  "fixtures_alive_after_crash": true,
+  "direct_still_denied_after_crash": true,
+  "recovery_system": true,
+  "recovery_origin": "deadline",
+  "peer_ledger_revoked_before_restore": true,
+  "proxy_closed_before_restore": true,
+  "components_exited_before_restore": true,
+  "hosts_restored": true,
+  "firewall_restored": true,
+  "iis_restored": true,
+  "post_restore_direct_ok": true,
+  "full_install_boundary_proven": false,
+  "socket_duplication_proven_safe": false,
+  "https_payload_classified": false,
+  "live_inventory_monitor_tested": false,
+  "stage": "complete",
+  "error_code": null,
+  "failure_stage": null,
+  "supervisor_diagnostic": null,
+  "recovery_error_code": null,
+  "recovery_error_shape": null,
+  "root_and_leaf_in_job": true,
+  "external_service_task_outside": true
+}
