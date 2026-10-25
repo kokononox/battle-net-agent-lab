@@ -1,8 +1,8 @@
 {
   "schema": "bnet-reboot-test-status-2",
   "real_os_reboot_comparison": "not_performed",
-  "result": "pending_windows_guest_provisioning_on_verified_KVM_route",
-  "blocker": "d6 verified Microsoft ISO integrity against the prior lab sample, WIM index 2 metadata, qcow2 creation and paused QEMU/KVM attachments. Windows guest boot, installation, target compatibility and same-guest reboot remain untested. Ephemeral media and disk were removed, not persisted.",
+  "result": "nested_guest_route_paused_direct_trace_prioritized",
+  "blocker": "No verified Windows guest reboot. e1 timed out, e2/e3 remained in UEFI Shell; e4 terminal status has not been verified. User requested a route change; nested-guest retries are paused.",
   "tool": "analysis-tools/prelogin-reboot/reboot_probe.py",
   "registry_only": true,
   "public_value_or_identifier_hash_exported": false,
@@ -14,7 +14,7 @@
   "native_control_run_id": "40152098346",
   "native_control_source_commit": "2533962409cf5bf3bb21d09589d3e3c67b8cae0d",
   "native_control_evidence_commit": "38d1c2878a73aff92e886523b5c876a0ede8f788",
-  "next_required": "Reproduce pinned media preparation inside one long-lived host job, install and boot the Windows evaluation guest lawfully with independently checked physical capacity, preserve its disk and user profile across guest reboot, then run the same-profile registry before/after comparison. No new target network capture is claimed.",
+  "next_required": "Prioritize direct, bounded Setup/Agent provider/caller tracing on the already-working Windows GitHub runner. Validate native x86/x64 caller controls before a new target startup; keep provider causality false until data flow is linked. Real Windows reboot remains a separate deferred test.",
   "scope_exclusions": [
     "reinstall",
     "WoW_file_provenance",
@@ -49,5 +49,13 @@
     "paused_qemu_kvm_verified": true,
     "disk_virtual_bytes": 68719476736,
     "disk_actual_bytes": 200704
+  },
+  "route_change": {
+    "current_route": "direct_windows_setup_agent_trace",
+    "plan": "docs/PRELOGIN-DIRECT-TRACE-ROUTE.fa.md",
+    "nested_guest_new_runs_paused": true,
+    "prior_guest_run_id": "40169407184",
+    "prior_guest_terminal_status_verified": false,
+    "actual_new_target_trace_performed": false
   }
 }
