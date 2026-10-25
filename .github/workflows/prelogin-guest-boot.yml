@@ -1,0 +1,119 @@
+name: Isolated owned Windows guest install and reboot control
+on:
+  push:
+    branches: [research/prelogin-telemetry-wow-data-provenance]
+    paths:
+      - 'analysis-tools/prelogin-guest-boot/**'
+      - '.github/workflows/prelogin-guest-boot.yml'
+permissions: {}
+concurrency:
+  group: owned-guest-boot-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  dispatch:
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved isolated windows guest boot e1'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: research/prelogin-telemetry-wow-data-provenance
+      - name: Publish typed start receipt only
+        env:
+          SOURCE: ${{ github.sha }}
+          RUN: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          python3 analysis-tools/prelogin-guest-boot/guest_boot.py receipt reports/guest-boot-ci.json "$SOURCE" "$RUN" dispatched
+          git config user.name prelogin-wire-report
+          git config user.email prelogin-wire-report@users.noreply.github.com
+          git add -- reports/guest-boot-ci.json
+          git commit -m 'lab: publish owned guest boot dispatch receipt'
+          git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
+  prepare:
+    needs: dispatch
+    runs-on: ubuntu-24.04
+    timeout-minutes: 85
+    permissions:
+      contents: read
+    env:
+      BNET_GUEST_BOOT: owned-guest-boot-e1
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Unit contracts
+        id: contracts
+        run: /usr/bin/python3 -m unittest discover -s analysis-tools/prelogin-guest-boot -p 'test_*.py' -v
+      - name: Install offline Windows evaluation and owned reboot control
+        id: prepare
+        timeout-minutes: 78
+        run: >-
+          sudo -n --preserve-env=GITHUB_ACTIONS,RUNNER_ENVIRONMENT,GITHUB_RUN_ATTEMPT,GITHUB_EVENT_NAME,GITHUB_REF,GITHUB_SHA,GITHUB_RUN_ID,GITHUB_WORKSPACE,RUNNER_TEMP,BNET_GUEST_BOOT
+          /usr/bin/python3 analysis-tools/prelogin-guest-boot/guest_boot.py
+      - name: Strict summary
+        id: sanitize
+        if: always()
+        run: python3 analysis-tools/prelogin-guest-boot/guest_boot.py validate output/guest-boot.json sanitized/guest-boot.json
+      - name: Record public step outcomes even when preparation fails
+        if: always()
+        env:
+          SOURCE: ${{ github.sha }}
+          RUN: ${{ github.run_id }}
+          CONTRACTS: ${{ steps.contracts.outcome }}
+          PREPARE: ${{ steps.prepare.outcome }}
+          SANITIZE: ${{ steps.sanitize.outcome }}
+        run: python3 analysis-tools/prelogin-guest-boot/guest_boot.py receipt sanitized/guest-boot-ci.json "$SOURCE" "$RUN" completed "$CONTRACTS" "$PREPARE" "$SANITIZE"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: owned-guest-boot-summary
+          path: sanitized/*.json
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: [dispatch, prepare]
+    if: always() && needs.dispatch.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: research/prelogin-telemetry-wow-data-provenance
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: owned-guest-boot-summary
+          path: incoming
+      - name: Validate and publish only matching public outcomes
+        env:
+          SOURCE: ${{ github.sha }}
+          RUN: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,os,sys
+          from pathlib import Path
+          sys.path.insert(0,'analysis-tools/prelogin-guest-boot')
+          from guest_boot import receipt,validate
+          r=json.loads(Path('incoming/guest-boot-ci.json').read_text())
+          expected=receipt(os.environ['SOURCE'],os.environ['RUN'],'completed',r['tests'],r['preparation'],r['sanitization'])
+          if r!=expected:raise SystemExit('invalid_typed_outcome')
+          Path('reports/guest-boot-ci.json').write_text(json.dumps(r,indent=2)+'\n')
+          p=Path('incoming/guest-boot.json')
+          if p.exists():
+           facts=validate(json.loads(p.read_text()))
+           if facts['source_commit']!=os.environ['SOURCE'] or facts['run_id']!=os.environ['RUN']:raise SystemExit('source_mismatch')
+           Path('reports/guest-boot-runtime.json').write_text(json.dumps(facts,indent=2)+'\n')
+          PY
+          git config user.name prelogin-wire-report
+          git config user.email prelogin-wire-report@users.noreply.github.com
+          git add -- reports/guest-boot-ci.json
+          if test -f reports/guest-boot-runtime.json; then git add -- reports/guest-boot-runtime.json; fi
+          git diff --cached --quiet && exit 0
+          git commit -m 'lab: publish sanitized owned guest boot outcome'
+          git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
