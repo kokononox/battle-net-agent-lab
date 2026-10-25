@@ -59,7 +59,7 @@ def validate(r):
 class ProbeError(Exception):pass
 
 def guard():
- return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_WINDOWS_PREP')=='owned-windows-prep-d3'
+ return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_WINDOWS_PREP')=='owned-windows-prep-d4'
 
 def safe_cleanup_path(label,path,workspace):
  return label in CLEANUP and path==CLEANUP[label] and path.is_dir() and not path.is_symlink() and path.resolve()==path and workspace!=path and path not in workspace.parents and workspace not in path.parents
