@@ -1,0 +1,41 @@
+{
+  "run_id": "40185569760",
+  "source_commit": "de3407356e602cd71978945ce4502fb890dc863d",
+  "verified_manifest": {
+    "parts": 7,
+    "raw_bytes": 14119,
+    "sha256": "b8c01b17f787884ec3f51ac27aaf7f0612343d84011f7265395be62559596ea4"
+  },
+  "jobs": [
+    {
+      "id": 121145517180,
+      "name": "observe (tls_control)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 121146033747,
+      "name": "collect",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 12596296944,
+      "name": "battlenet-online-g23-recovered-sanitized",
+      "size_in_bytes": 3588,
+      "expired": false
+    },
+    {
+      "id": 12596257024,
+      "name": "battlenet-online-g23-tls_control-sanitized",
+      "size_in_bytes": 3473,
+      "expired": false
+    }
+  ],
+  "attribution": "direct_native_client_certificate_callback",
+  "installer_launched": false,
+  "cache_warming_performed": false,
+  "certificate_validation_bypassed": false
+}
