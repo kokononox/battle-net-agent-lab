@@ -55,3 +55,8 @@ py -3 .\reboot_probe.py after
 ## کنترل‌ها
 
 ۲۶ آزمون Python شامل تغییر marker محیط، بوت یکسان، ترتیب زمان، دادهٔ نامعتبر، منع نشت مقدار و منع ادعای شبکه است. نمونه‌های مثبت در unit test کاملاً مصنوعی‌اند. `native_control.py` روی runner ویندوز فقط DPAPI واقعی، رد دادهٔ رمز‌شدهٔ دستکاری‌شده، ACL خصوصی و ردکردن بوت یکسان را با شناسهٔ مصنوعی بررسی می‌کند؛ کلید Blizzard را نمی‌خواند/نمی‌نویسد. خروجی آن هرگز گزارش reboot واقعی نیست.
+
+
+### نتیجهٔ کنترل بومی b1
+
+در run `40152098346`، کنترل DPAPI، رد state دستکاری‌شده، ACL خصوصی و رد بوت یکسان پاس شدند. `os_reboot_performed=false` و `target_launched=false`؛ هنوز مقایسهٔ reboot واقعی انجام نشده است. [شاهد ثابت](../../reports/prelogin-reboot-control-b1.json)، [وضعیت اجرا](../../docs/PRELOGIN-HOST-ID-REBOOT.fa.md).

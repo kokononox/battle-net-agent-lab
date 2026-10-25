@@ -1,0 +1,23 @@
+{
+  "schema": "bnet-reboot-test-status-1",
+  "real_os_reboot_comparison": "not_performed",
+  "result": "pending_persistent_windows_host",
+  "blocker": "Current experiments use ephemeral GitHub-hosted Windows jobs; a new job is not a reboot of the same persistent OS/profile/disk.",
+  "tool": "analysis-tools/prelogin-reboot/reboot_probe.py",
+  "registry_only": true,
+  "public_value_or_identifier_hash_exported": false,
+  "network_payload_after_reboot_verified": false,
+  "reboot_performed": false,
+  "target_launched_by_this_step": false,
+  "local_python_tests_passed": 26,
+  "native_control_report": "reports/prelogin-reboot-control-b1.json",
+  "native_control_run_id": "40152098346",
+  "native_control_source_commit": "2533962409cf5bf3bb21d09589d3e3c67b8cae0d",
+  "native_control_evidence_commit": "38d1c2878a73aff92e886523b5c876a0ede8f788",
+  "next_required": "Run before and after on the same persistent Windows user profile, with an actual manual Windows Restart between phases.",
+  "scope_exclusions": [
+    "reinstall",
+    "WoW_file_provenance",
+    "new_target_network_capture"
+  ]
+}
