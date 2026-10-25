@@ -1,0 +1,38 @@
+{
+  "source_commit": "0eff24fd917c797a5500bc88adf4bd219cfc9543",
+  "run_id": "40155104804",
+  "replica_count": 3,
+  "received_replicas": [
+    "r1",
+    "r2",
+    "r3"
+  ],
+  "gate_names": [
+    "signed_binary_version_v1"
+  ],
+  "gate_pass_count": 3,
+  "common_overlap_seconds": 122,
+  "registry_version_missing": 3,
+  "signed_client_versions": [
+    "2.53.6.17952",
+    "2.53.6.17952",
+    "2.53.6.17952"
+  ],
+  "same_signed_client_hash_across_all": true,
+  "binary_probe_failures": 0,
+  "snapshot_errors": 0,
+  "gui_errors_by_replica": {
+    "r1": 2,
+    "r2": 2,
+    "r3": 2
+  },
+  "comparison_plan": [
+    {
+      "grain": "one fresh Windows installation replica",
+      "population": "all 3 replicas, without excluding failures",
+      "finding": "Installation gate outcomes and signing-tool observation are checked independently.",
+      "disposition": "prose",
+      "reason": "One diagnostic pass count with supporting categorical evidence; no timing performance comparison or trend. Different gate definitions are not compared as improvement rates."
+    }
+  ]
+}
