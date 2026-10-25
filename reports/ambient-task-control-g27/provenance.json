@@ -1,0 +1,91 @@
+{
+  "source_commit": "75b16a75b47ecca7e4e3390359a155f178498782",
+  "run_id": "40191140852",
+  "job_id": 121162216619,
+  "source_url": "https://github.com/kokononox/battle-net-agent-lab/actions/runs/40191140852/job/121162216619",
+  "retrieval_method": "authenticated_job_step_live_backscroll",
+  "retrieved_utc": "2026-10-25T12:07:28.829949+00:00",
+  "verified_final_report": true,
+  "manifest": {
+    "parts": 9,
+    "raw_bytes": 19000,
+    "sha256": "e1249d8e5e71601cb1cf04e26420220eda20fecd3d57b1acf7cbd4c86265def7"
+  },
+  "critical_manifest": {
+    "parts": 3,
+    "raw_bytes": 2996,
+    "sha256": "702b9868c9e91aedd4cd14c2d98ab81a48cbf5f2d9743189066d52c0cf4a8874"
+  },
+  "critical_bound_to_full_report": true,
+  "run_status_at_retrieval": "in_progress",
+  "run_conclusion_at_retrieval": null,
+  "job_status_at_retrieval": "in_progress",
+  "job_conclusion_at_retrieval": null,
+  "workflow_success_claimed": false,
+  "raw_logs_published": false,
+  "g26_reference_commit": "494752c2d647f5c83ac87b502b1e1c535cc7d468",
+  "analysis": {
+    "source_commit": "75b16a75b47ecca7e4e3390359a155f178498782",
+    "run_id": "40191140852",
+    "control_seconds": 270,
+    "installer_executed": false,
+    "recurring_blockers": [
+      {
+        "task": "RefreshCache",
+        "identity_match_g26": true,
+        "xml_fields_match_g26": true,
+        "changed_fields": [
+          "Task/Triggers[1]/TimeTrigger[1]/StartBoundary[1]"
+        ],
+        "automatic_exemption_granted": false
+      },
+      {
+        "task": "PrintJobCleanupTask",
+        "identity_match_g26": true,
+        "xml_fields_match_g26": true,
+        "changed_fields": [
+          "Task/Settings[1]/Enabled[1]"
+        ],
+        "automatic_exemption_granted": false
+      },
+      {
+        "task": "Registration",
+        "identity_match_g26": true,
+        "xml_fields_match_g26": true,
+        "changed_fields": [
+          "Task/Triggers[1]/TimeTrigger[1]/StartBoundary[1]"
+        ],
+        "automatic_exemption_granted": false
+      }
+    ],
+    "recurring_blocker_count": 3,
+    "focus_query_errors": 120,
+    "task_security_capture_complete": false,
+    "restore_refused": true,
+    "independent_checks": [
+      "full_manifest_size_hash_identity",
+      "critical_receipt_bound_to_full_report",
+      "registration_inventory_vs_focus_xml_diffs",
+      "g26_task_identity_and_changed_xml_paths"
+    ],
+    "comparison_plan": [
+      {
+        "grain": "one scheduled-task identity per VM run",
+        "population": "three previously unclassified blockers",
+        "finding": "same XML field changes in no-Setup control",
+        "disposition": "prose",
+        "reason": "categorical diagnostic evidence, no meaningful numeric chart"
+      }
+    ],
+    "limitations": [
+      "separate hosted VMs, not paired causal identification",
+      "same changed field is not same mutation actor or proven benign",
+      "permissions and bindings unknown, never interpret equal missing hashes as unchanged",
+      "120 repeated capture errors are not 120 distinct task faults",
+      "poll times relative to watch; nominal final 270 is not measured exact mutation time",
+      "no continuous event coverage; no newly verified task-image signatures",
+      "CI job pending at retrieval, not a successful workflow",
+      "nested diagnostic JSON incompatible with tabular profiler; bounded schema and direct assertions used instead"
+    ]
+  }
+}
