@@ -40,3 +40,8 @@ jobs:
         run: |
           & analysis-tools/quarantine-system-g41/export-diagnostic.ps1
           if($LASTEXITCODE -ne 0){throw 'export_probe_failed'}
+      - name: Actual Prepare under stripped controller environment
+        shell: powershell
+        run: |
+          python -I analysis-tools/quarantine-system-g41/prepare-diagnostic.py
+          if($LASTEXITCODE -ne 0){throw 'prepare_probe_failed'}

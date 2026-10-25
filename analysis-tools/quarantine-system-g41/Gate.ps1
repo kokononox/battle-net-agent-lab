@@ -34,6 +34,8 @@ try{
   $paths=@(Get-Process -Name 'Runner.Listener','Runner.Worker' -ErrorAction SilentlyContinue|ForEach-Object {$_.Path}|Sort-Object -Unique)
   if($paths.Count -lt 1 -or $paths.Count -gt 4 -or @($paths|Where-Object {$_ -notmatch '(?i)\\bin\\Runner\.(Listener|Worker)\.exe$'}).Count){throw 'management_identity_rejected'}
   $script:Stage='prepare_fingerprint';$before=Fingerprint;$script:Stage='prepare_export';$null=& "$env:SystemRoot\System32\netsh.exe" advfirewall export $backup
+  $script:ExportCode=$LASTEXITCODE;$script:BackupExists=Test-Path -LiteralPath $backup;$script:BackupLength=0
+  if($script:BackupExists){$script:BackupLength=(Get-Item -LiteralPath $backup).Length}
   if($LASTEXITCODE -ne 0 -or -not (Test-Path $backup) -or (Get-Item $backup).Length -lt 100){throw 'backup_failed'}
   Save $state @{fingerprint=$before;management_paths=$paths};@{prepared=$true}|ConvertTo-Json -Compress
  }elseif($Action -eq 'Apply'){
@@ -57,5 +59,7 @@ try{
  }
 }catch{
  $m=$_.Exception.Message;if($m -notmatch '^[a-z_]{1,80}$'){$m='gate_operation_failed'}
- @{error_code=$m}|ConvertTo-Json -Compress;exit 2
+ $failure=@{error_code=$m;failure_stage=$script:Stage;error_type=$_.Exception.GetType().Name}
+ if($script:Stage -eq 'prepare_export'){$failure.export_exit_code=$script:ExportCode;$failure.backup_exists=$script:BackupExists;$failure.backup_length=$script:BackupLength}
+ $failure|ConvertTo-Json -Compress;exit 2
 }
