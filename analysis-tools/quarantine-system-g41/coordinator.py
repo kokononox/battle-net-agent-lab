@@ -30,16 +30,19 @@ class Channel:
 def run(root):
  c=context(root);root=Path(root);job=n.create_job(c['job_name']);watchdog=None
  r={'mode':c['mode'],'baseline_connected':False,'blocked_connected':None,'gate_before':False,'gate_after':False,'capture_blocked':False,'private_capture_stored':False,'private_marker_retained':False,'public_marker_absent':False,'credential_redacted':False,'fixture_alive_during_gate':False,'error_code':None}
+ def checkpoint(stage):
+  r['stage']=stage;save(root/'case-result.json',r)
  try:
+  checkpoint('start_server')
   c['controller']=n.identity();save(root/'config.json',c)
   save(root/'peers.json',{'expires_unix':time.time()+300,'job_name':c['job_name'],'controller':c['controller']});save(root/'lease.json',{'phase':'active'})
-  server=start_component(c,'server',job);wait_file(root/'endpoint.json')
-  client=start_component(c,'client',job);channel=Channel(client)
+  server=start_component(c,'server',job);checkpoint('wait_server_endpoint');wait_file(root/'endpoint.json')
+  checkpoint('start_client');client=start_component(c,'client',job);channel=Channel(client)
   if channel.response().get('ready') is not True:raise RuntimeError('client_not_ready')
-  r['baseline_connected']=channel.send('probe')['connected']
+  checkpoint('baseline_probe');r['baseline_connected']=channel.send('probe')['connected']
   if not r['baseline_connected']:raise RuntimeError('baseline_not_healthy')
-  gate(c,'Prepare')
-  watchdog=subprocess.Popen([sys.executable,'-I',str(ROOT/'recovery.py'),'watchdog',str(root)],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,env=clean_env())
+  checkpoint('prepare_gate');gate(c,'Prepare')
+  checkpoint('start_watchdog');watchdog=subprocess.Popen([sys.executable,'-I',str(ROOT/'recovery.py'),'watchdog',str(root)],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,env=clean_env())
   # Store native identity, not only PID, for parent proof of watchdog exit.
   h=n.K.OpenProcess(0x1000|0x100000,False,watchdog.pid)
   if not h:raise RuntimeError('watchdog_identity_failed')
@@ -51,16 +54,17 @@ def run(root):
    c['watchdog_identity']={'pid':watchdog.pid,'created':(ft.dwHighDateTime<<32)|ft.dwLowDateTime}
   finally:n.K.CloseHandle(h)
   save(root/'config.json',c);wait_file(root/'watchdog-ready.json')
-  before=gate(c,'Apply');r['gate_before']=before['verified'];r['management_exceptions']=before['management_exceptions']
-  r['blocked_connected']=channel.send('probe')['connected'];r['fixture_alive_during_gate']=client.poll() is None and n.active(job)>=2
+  checkpoint('apply_gate');before=gate(c,'Apply');r['gate_before']=before['verified'];r['management_exceptions']=before['management_exceptions']
+  checkpoint('blocked_probe');r['blocked_connected']=channel.send('probe')['connected'];r['fixture_alive_during_gate']=client.poll() is None and n.active(job)>=2
   if r['blocked_connected'] or not r['fixture_alive_during_gate']:raise RuntimeError('direct_egress_not_blocked')
-  r['capture_blocked']=channel.send('capture')['blocked'];receipt=wait_file(root/'capture-receipt.json')
+  checkpoint('capture');r['capture_blocked']=channel.send('capture')['blocked'];receipt=wait_file(root/'capture-receipt.json')
   r['private_capture_stored']=receipt['private_stored'];r['public_marker_absent']='SYNTHETIC-G41-DEVICE' not in json.dumps(receipt)
   from windows_store import WindowsStore
   record=WindowsStore(root/'quarantine',c['helper']).read_for_local_review(receipt['capture_id'])
   r['private_marker_retained']='SYNTHETIC-G41-DEVICE' in record['query'];r['credential_redacted']='SYNTHETIC-SECRET' not in json.dumps(record)
   if not all(r[k] for k in ('capture_blocked','private_capture_stored','public_marker_absent','private_marker_retained','credential_redacted')):raise RuntimeError('quarantine_failed')
-  r['gate_after']=gate(c,'Verify')['verified'];save(root/'case-result.json',r)
+  checkpoint('verify_gate_after');r['gate_after']=gate(c,'Verify')['verified'];save(root/'case-result.json',r)
+  checkpoint('recovery_action')
   if c['mode']=='error':os._exit(23) # No release request or Python finally cleanup.
   if c['mode']=='finish':
    client.stdin.write(b'{"op":"exit"}\n');client.stdin.flush();client.wait(timeout=10)
@@ -70,10 +74,17 @@ def run(root):
  except Exception as exc:
   reason=str(exc);r['error_code']=reason if reason.replace('_','').isalpha() and len(reason)<80 else 'coordinator_failed'
   save(root/'case-result.json',r)
-  if watchdog is not None:save(root/'release-request.json',{'reason':'fallback'});wait_file(root/'recovery-result.json',100)
+  if not (root/'gate-armed.json').exists():
+   # Prove fixture exit; no import/restore is needed when no mutation was armed.
+   n.end_job(job);proof={'job_terminated':True,'job_active_zero':n.active(job)==0}
+   save(root/'component-proof.json',proof)
+   save(root/'recovery-result.json',dict(proof,no_firewall_mutation=True,firewall_restored=False,fingerprint_match=None,reason='pre_gate_stop'))
+   if watchdog is not None:save(root/'release-request.json',{'reason':'fallback'})
+  elif watchdog is not None and watchdog.poll() is None:
+   save(root/'release-request.json',{'reason':'fallback'});wait_file(root/'recovery-result.json',100)
   else:
-   # No mutation occurs before watchdog exists. Still stop known owned fixture.
-   n.end_job(job)
+   from recovery import recover
+   recover(c,'fallback',job)
   return 2
  finally:
   n.K.CloseHandle(job)

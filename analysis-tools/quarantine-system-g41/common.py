@@ -25,5 +25,8 @@ def gate(c,action):
  p=subprocess.run([ps,'-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-File',str(ROOT/'Gate.ps1'),'-Action',action,'-Config',str(Path(c['root'])/'config.json')],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=60)
  try:v=json.loads(p.stdout.decode('utf-8-sig'))
  except ValueError:raise Stopped('gate_output_invalid') from None
- if p.returncode or v.get('error_code'):raise Stopped(v.get('error_code','gate_failed'))
+ if p.returncode or v.get('error_code'):
+  safe={k:value for k,value in v.items() if k in {'error_code','failure_stage','error_type'} and type(value) is str and re.fullmatch('[A-Za-z_]{1,80}',value)}
+  save(Path(c['root'])/'gate-error.json',safe)
+  raise Stopped(v.get('error_code','gate_failed'))
  return v

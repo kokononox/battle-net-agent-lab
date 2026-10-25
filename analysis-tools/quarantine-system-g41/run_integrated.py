@@ -32,7 +32,7 @@ def fallback(pointer):
   try:
    c=context(root)
    from recovery import recover
-   result=recover(c,'fallback');okay=okay and result['firewall_restored'] and result['job_active_zero']
+   result=recover(c,'fallback');okay=okay and (result['firewall_restored'] or result.get('no_firewall_mutation',False)) and result['job_active_zero']
   except Exception:okay=False
  return okay
 
@@ -51,11 +51,14 @@ def run(report,pointer):
    save(root/'config.json',c);roots.append(str(root));save(pointer,{'roots':roots})
    child=subprocess.Popen([sys.executable,'-I',str(ROOT/'coordinator.py'),str(root)],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,env=clean_env())
    code=child.wait(timeout=240)
-   case=wait_file(root/'case-result.json',5);recovered=wait_file(root/'recovery-result.json',170)
-   watchdog_exit=ensure_watchdog_exit(context(root));post=probe(ip)
-   row={'mode':mode,'coordinator_exit_code':code,'case':case,'recovery':recovered,'watchdog_exited':watchdog_exit,'post_restore_connected':post}
-   row['passed']=(code==(23 if mode=='error' else 0) and case['error_code'] is None and case['baseline_connected'] and case['blocked_connected'] is False and case['gate_before'] and case['gate_after'] and case['fixture_alive_during_gate'] and case['capture_blocked'] and case['private_capture_stored'] and case['private_marker_retained'] and case['public_marker_absent'] and case['credential_redacted'] and recovered['job_active_zero'] and recovered['firewall_restored'] and recovered['fingerprint_match'] and recovered['active_before_termination']>0 and recovered['reason']==('controller_exit' if mode=='error' else mode) and watchdog_exit and post)
+   case=wait_file(root/'case-result.json',5)
+   row={'mode':mode,'coordinator_exit_code':code,'case':case,'gate_armed':(root/'gate-armed.json').exists(),'passed':False}
+   if (root/'gate-error.json').exists():row['gate_error']=read(root/'gate-error.json')
    evidence['scenarios'].append(row)
+   recovered=wait_file(root/'recovery-result.json',170)
+   watchdog_exit=ensure_watchdog_exit(context(root));post=probe(ip)
+   row.update(recovery=recovered,watchdog_exited=watchdog_exit,post_restore_connected=post)
+   row['passed']=(code==(23 if mode=='error' else 0) and case['error_code'] is None and case['baseline_connected'] and case['blocked_connected'] is False and case['gate_before'] and case['gate_after'] and case['fixture_alive_during_gate'] and case['capture_blocked'] and case['private_capture_stored'] and case['private_marker_retained'] and case['public_marker_absent'] and case['credential_redacted'] and recovered['job_active_zero'] and recovered['firewall_restored'] and recovered['fingerprint_match'] and recovered['active_before_termination']>0 and recovered['reason']==('controller_exit' if mode=='error' else mode) and watchdog_exit and post)
    if not row['passed']:raise RuntimeError('integration_case_failed')
   evidence['status']='three_synthetic_scenarios_verified'
  except Exception as exc:
