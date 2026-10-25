@@ -9,6 +9,7 @@ try{
  $job=[OfflineLauncher]::OpenOwnedJob($c.job_name)
  if($job -ne [IntPtr]::Zero){$r.owned_job_ended=[OfflineLauncher]::EndJob($job)}
  elseif(Test-Path (Join-Path $c.root 'owner-result.json')){$proof=Get-Content -Raw (Join-Path $c.root 'owner-result.json') | ConvertFrom-Json;$r.owned_job_ended=($proof.job_active_zero_before_close -and $proof.root_exited)}
+ elseif(Test-Path (Join-Path $c.root 'owner-failure.json')){$proof=Get-Content -Raw (Join-Path $c.root 'owner-failure.json') | ConvertFrom-Json;$r.owned_job_ended=($proof.job_active_zero_before_close -and $proof.root_exited)}
  elseif(-not (Test-Path (Join-Path $c.root 'launch-attempted.json'))){$r.owned_job_ended=$true}
  if(-not $r.owned_job_ended){throw 'owned_exit_not_verified'}
  $r.registration_changes=Registration-Changes $c

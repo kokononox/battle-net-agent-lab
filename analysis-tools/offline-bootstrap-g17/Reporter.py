@@ -22,7 +22,7 @@ if root:
  r['installer_launched']=True if launch.get('target_launched') is True else d.get('target_launched')
  # Owner failure message is emitted as a restricted enum, never raw stdout/stderr.
  err=read(root/'owner-stdout.private.txt')
- if err.get('error_code'):r['owner_error_code']=enum(err['error_code'])
+ if err.get('error_code'):r['owner_error_code']=enum(err['error_code']);r['owner_failure_diagnostic']=subset(err,'failure_stage error_type error_hresult');r['owner_failure_proof']=subset(read(root/'owner-failure.json'),'target_launched assigned_before_resume root_created job_active_zero_before_close root_exited failure_stage')
  identities=[]
  if isinstance(launch.get('root'),dict):identities.append(launch['root'])
  ep=root/'private-events.jsonl'
