@@ -6,11 +6,12 @@ import argparse,hashlib,json,os,re,shutil,socket,subprocess,sys,tempfile,time,ur
 from pathlib import Path
 ISO_URL='https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.32230.260111-0550.lt_release_svc_refresh_SERVER_EVAL_x64FRE_en-us.iso'
 ISO_BYTES=8152356864
+ISO_SHA256='7b052573ba7894c9924e3e87ba732ccd354d18cb75a883efa9b900ea125bfd51'
 DISK_BYTES=64*1024**3
 # Preparation only: ISO + extracted WIM + tools; no OS installation here.
 MIN_FREE=32*1024**3
 CLEANUP={'android':Path('/usr/local/lib/android'),'dotnet':Path('/usr/share/dotnet'),'ghcup':Path('/usr/local/.ghcup'),'ghc':Path('/opt/ghc'),'swift':Path('/usr/share/swift'),'codeql':Path('/opt/hostedtoolcache/CodeQL'),'powershell':Path('/usr/local/share/powershell')}
-ERRORS={None,'capacity_insufficient','apt_failed','tool_missing','download_failed','media_size_mismatch','media_xml_failed','image_not_unique','qemu_failed','bounded_preparation_failed','guard_failed'}
+ERRORS={None,'capacity_insufficient','apt_failed','tool_missing','download_failed','media_size_mismatch','media_xml_failed','media_extract_failed','xml_command_failed','media_hash_mismatch','image_not_unique','qemu_failed','bounded_preparation_failed','guard_failed'}
 LIMITS=dict(windows_guest_booted=False,windows_guest_reboot_tested=False,target_launched=False,host_rebooted=False,tls_validation_changed=False,device_permissions_changed=False,raw_identifiers_exported=False,private_logs_or_disks_exported=False)
 def blank(source,run):
  return dict(schema='bnet-windows-guest-preparation-1',source_commit=source,run_id=run,status='stopped',error_code=None,cleanup_labels=[],disk_free_before_bytes=0,disk_free_after_cleanup_bytes=0,disk_free_final_bytes=0,apt_tools_installed=False,qemu_version=None,image=dict(url=ISO_URL,expected_bytes=ISO_BYTES,downloaded_bytes=0,sha256=None,download_complete=False,source_authentication='verified_https_microsoft_published_url_not_published_checksum',images=[],selected_index=None),disk=dict(format='qcow2',virtual_bytes=DISK_BYTES,created=False,actual_bytes=None,temporary_only=True),qemu=dict(qmp_responded=False,kvm_enabled=False,paused=False,disk_attached=False,iso_attached=False,clean_shutdown=False),limits=dict(LIMITS))
@@ -58,7 +59,7 @@ def validate(r):
 class ProbeError(Exception):pass
 
 def guard():
- return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_WINDOWS_PREP')=='owned-windows-prep-d2'
+ return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_WINDOWS_PREP')=='owned-windows-prep-d3'
 
 def safe_cleanup_path(label,path,workspace):
  return label in CLEANUP and path==CLEANUP[label] and path.is_dir() and not path.is_symlink() and path.resolve()==path and workspace!=path and path not in workspace.parents and workspace not in path.parents
@@ -96,6 +97,7 @@ def download(dest,r):
     if total>ISO_BYTES or time.monotonic()-started>720:raise ProbeError('download_failed')
     out.write(chunk);digest.update(chunk);r['image']['downloaded_bytes']=total
   if total!=ISO_BYTES:raise ProbeError('media_size_mismatch')
+  if digest.hexdigest()!=ISO_SHA256:raise ProbeError('media_hash_mismatch')
   r['image'].update(downloaded_bytes=total,sha256=digest.hexdigest(),download_complete=True)
  except ProbeError:raise
  except (OSError,ValueError):raise ProbeError('download_failed')
@@ -167,7 +169,7 @@ def main():
     env=dict(os.environ,DEBIAN_FRONTEND='noninteractive')
     try:
      command(['apt-get','update','-qq'],log,timeout=180,env=env)
-     command(['apt-get','install','-y','--no-install-recommends','qemu-system-x86','qemu-utils','ovmf','xorriso','wimtools'],log,timeout=300,env=env)
+     command(['apt-get','install','-y','--no-install-recommends','qemu-system-x86','qemu-utils','ovmf','p7zip-full','wimtools'],log,timeout=300,env=env)
     except ProbeError:raise ProbeError('apt_failed')
     r['apt_tools_installed']=True
     try:
@@ -177,12 +179,17 @@ def main():
     except (OSError,ValueError,subprocess.SubprocessError):raise ProbeError('tool_missing')
     download(iso,r)
     try:
-     command(['xorriso','-osirrox','on','-indev',str(iso),'-extract','/sources/install.wim',str(wim)],log,timeout=240)
-     command(['wimlib-imagex','info',str(wim),'--extract-xml='+str(xml)],log,timeout=60)
+     try:
+      with wim.open('xb') as out:
+       subprocess.run(['7z','e','-so','-y','-ssc-',str(iso),'sources/install.wim'],stdin=subprocess.DEVNULL,stdout=out,stderr=log,timeout=300,check=True)
+      if not 1024**3<wim.stat().st_size<=ISO_BYTES:raise ProbeError('media_extract_failed')
+     except (OSError,subprocess.SubprocessError):raise ProbeError('media_extract_failed')
+     try:command(['wimlib-imagex','info',str(wim),'--extract-xml='+str(xml)],log,timeout=60)
+     except ProbeError:raise ProbeError('xml_command_failed')
      if xml.stat().st_size>1048576:raise ValueError('size')
      images,index=image_metadata(xml.read_bytes());r['image'].update(images=images,selected_index=index)
     except (OSError,ValueError,ProbeError) as exc:
-     if isinstance(exc,ProbeError) and str(exc) in ('image_not_unique',):raise
+     if isinstance(exc,ProbeError) and str(exc) in ('image_not_unique','media_extract_failed','xml_command_failed'):raise
      raise ProbeError('media_xml_failed')
     wim.unlink();xml.unlink()
     command(['qemu-img','create','-f','qcow2',str(disk),str(DISK_BYTES)],log,timeout=30)
