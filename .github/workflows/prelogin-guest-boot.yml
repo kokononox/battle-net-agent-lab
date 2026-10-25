@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved isolated windows guest boot e1'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved isolated windows guest boot e2'
     runs-on: ubuntu-24.04
     timeout-minutes: 4
     permissions:
@@ -36,11 +36,11 @@ jobs:
   prepare:
     needs: dispatch
     runs-on: ubuntu-24.04
-    timeout-minutes: 85
+    timeout-minutes: 55
     permissions:
       contents: read
     env:
-      BNET_GUEST_BOOT: owned-guest-boot-e1
+      BNET_GUEST_BOOT: owned-guest-boot-e2
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -50,7 +50,7 @@ jobs:
         run: /usr/bin/python3 -m unittest discover -s analysis-tools/prelogin-guest-boot -p 'test_*.py' -v
       - name: Install offline Windows evaluation and owned reboot control
         id: prepare
-        timeout-minutes: 78
+        timeout-minutes: 48
         run: >-
           sudo -n --preserve-env=GITHUB_ACTIONS,RUNNER_ENVIRONMENT,GITHUB_RUN_ATTEMPT,GITHUB_EVENT_NAME,GITHUB_REF,GITHUB_SHA,GITHUB_RUN_ID,GITHUB_WORKSPACE,RUNNER_TEMP,BNET_GUEST_BOOT
           /usr/bin/python3 analysis-tools/prelogin-guest-boot/guest_boot.py

@@ -55,3 +55,16 @@ class Tests(unittest.TestCase):
  def test_send_space_error(self):
   q=MagicMock();q.read.return_value={'error':{}};self.assertRaises(g.media.ProbeError,g.send_space,q)
 if __name__=='__main__':unittest.main()
+class VisualTests(unittest.TestCase):
+ def test_prompt(self):self.assertEqual(g.classify('Press any key to boot from CD or DVD'),'boot_prompt')
+ def test_shell(self):self.assertEqual(g.classify('UEFI Interactive Shell v2.2'),'uefi_shell')
+ def test_install(self):self.assertEqual(g.classify('Installing Windows Getting files ready'),'install_progress')
+ def test_error(self):self.assertEqual(g.classify('Windows could not apply the unattend answer file'),'setup_error')
+ def test_unknown_not_bootproof(self):self.assertEqual(g.classify('nothing recognized'),'blank_or_unknown')
+ def test_no_raw_visual(self):
+  r=g.blank('a'*40,'1');r['visual_checks']=[{'second':30,'state':'private OCR text'}];self.assertRaises(ValueError,g.validate,r)
+ def test_no_oversized_checks(self):
+  r=g.blank('a'*40,'1');r['visual_checks']=[{'second':30,'state':'blank_or_unknown'}]*9;self.assertRaises(ValueError,g.validate,r)
+ def test_winpe_device_path(self):
+  ns={'u':'urn:schemas-microsoft-com:unattend'};r=ET.fromstring(g.answer('DummyTestOnlyAa9!','b'*64));path=r.find('.//u:RunSynchronousCommand/u:Path',ns).text;self.assertIn('LABPE:'+'b'*64,path);self.assertIn(r'\\.\COM1',path)
+ def test_disk_unmeasured_is_null(self):self.assertIsNone(g.blank('a'*40,'1')['disk_actual_bytes'])

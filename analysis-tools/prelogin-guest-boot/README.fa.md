@@ -22,3 +22,9 @@ RunOnce همان پروفایل، بعد از `Restart-Computer`، baseline را
 `reports/guest-boot-ci.json` وضعیت CI و `reports/guest-boot-runtime.json` شواهد محدود آزمایش هستند. source/run باید با e1 تطبیق داشته باشد. status=stopped با stage/error صریح هرگز موفقیت نیست. سقف پایش مهمان 60 دقیقه، step برابر 78 و job برابر 85 دقیقه است؛ download و ابزارها هم زمان می‌برند. برای طولانی‌ترکردن سرویس دائمی طراحی نشده است.
 
 29 آزمون محلی شامل دروازهٔ اثبات، XML، challenge و عدم صدور اطلاعات خصوصی است؛ این آزمون‌ها نصب واقعی ویندوز را ثابت نمی‌کنند. مهمان باید خروجی واقعی خودش را بفرستد.
+
+## نتیجهٔ e1 و تشخیص e2
+
+e1، run `40161082563`، source `337e4b70532b4291cb020c90bfbdda1438fbc730`، evidence `650a75c3109a7f947d9de4b3f14996309cb913ab`: CI tests/preparation/sanitization همگی success، اما نتیجهٔ آزمایش `stopped/monitor/guest_timeout` بود. KVM و رسانهٔ پین‌شده تأیید شدند؛ هیچ first/second signal دریافت نشد. پس بوت Windows، reboot، DPAPI یا marker تأیید نشده‌اند. مقدار disk_actual_bytes=0 در e1 مقدار اولیهٔ اندازه‌گیری‌نشده است و نباید «هیچ نوشتنی انجام نشد» تعبیر شود.
+
+e2 مشخصاً اجرای تشخیصی است: سقف monitor به 20 دقیقه، step به 48 و job به 55 دقیقه محدود شده است. این مهلت کوتاه‌تر را نباید اثبات عدم امکان نصب تعبیر کرد. WinPE تنها یک پیام دارای challenge از COM1 می‌فرستد؛ این پیام به‌تنهایی اثبات Windows نصب‌شده نیست. در چند نقطه screenshot خصوصی گرفته و با tesseract فقط به enum ثابت دسته‌بندی می‌شود؛ هیچ screenshot، متن OCR، شناسه یا لاگ خامی منتشر نمی‌شود. OCR ممکن است اشتباه کند و فقط قرینهٔ UI است، نه اثبات بوت/reboot. دیسک actual بعد از توقف QEMU حتی روی failure اندازه‌گیری می‌شود؛ مقدار نامعلوم null است. schema خروجی e2 نسخهٔ 2 است.
