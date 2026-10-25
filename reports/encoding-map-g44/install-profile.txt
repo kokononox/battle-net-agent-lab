@@ -1,0 +1,13 @@
+## /data/raw/g44/install-entries.jsonl
+
+- Shape: 1,157 rows x 4 columns
+- Duplicate rows: 0
+- Candidate key columns (distinct == rows): index, name
+
+| column | type | non-null | distinct | values |
+| --- | --- | --- | --- | --- |
+| index | number | 100% | 1,157 | 0 → 1,156, mean 578 |
+| name | text | 100% | 1,157 | top: Battle.net.17952/battle.net-core.framewo (739), Battle.net.17952/bdk/BlizzardBrowser/Cef (233), Battle.net.app/Contents/MacOS/Blizzard E (38), Battle.net.17952/api-ms-win-core-process (3), Battle.net.app/Contents/Resources/zh-Han (2) |
+| ckey | text | 100% | 953 | top: 65f69bd2d8b6458d3ecf77d84d70dc1c (165), 3f453d777de0fc178d604d44884337fa (16), f311d9772243ee97ea223328c79ac142 (13), 5435f060331a523b9e5db9c9957756aa (3), e6dd3db4f8a582e30f07b77e801428f0 (3) |
+| decoded_bytes | number | 100% | 894 | 8 → 247,812,304, mean 1.135e+06 |
+

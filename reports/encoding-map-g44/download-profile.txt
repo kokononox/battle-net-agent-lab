@@ -1,0 +1,17 @@
+## /data/raw/g44/download-entries.jsonl
+
+- Shape: 954 rows x 4 columns
+- Duplicate rows: 0
+- Candidate key columns (distinct == rows): index, ekey
+
+| column | type | non-null | distinct | values |
+| --- | --- | --- | --- | --- |
+| index | number | 100% | 954 | 0 → 953, mean 476.5 |
+| ekey | text | 100% | 954 | top: 57952dfbed4d3f59bc9e47639281f2e5 (1), 55dbe02697cabba89a1f159ee1b11bcc (1), 16df05cc213b62035b896f7d46db43f9 (1), 4ec47f46ddb7040315909a7e30f9e7d4 (1), 64ff3d5286b6f630015014ab24f77406 (1) |
+| encoded_bytes | number | 100% | 831 | 23 → 140,734,421, mean 6.108e+05 |
+| priority | number | 100% | 1 | 0 → 0, mean 0 |
+
+**Warnings:**
+
+- ⚠️ `priority` is constant
+
