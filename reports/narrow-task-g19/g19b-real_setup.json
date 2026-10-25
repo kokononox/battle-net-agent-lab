@@ -1,0 +1,622 @@
+{
+  "all_processes_observed": false,
+  "all_target_egress_blocked_proven": false,
+  "bits": {
+    "after_complete": true,
+    "after_job_count": 0,
+    "baseline_complete": true,
+    "baseline_job_count": 0,
+    "continuous_event_coverage_proven": false,
+    "distinct_observed_jobs": 0,
+    "ever_added_max_concurrent": 0,
+    "ever_modified_max_concurrent": 0,
+    "observed_transfer_types": [],
+    "polling_gap_seconds": 2,
+    "prelaunch_complete": true,
+    "prelaunch_job_count": 0,
+    "scope": "all_users_vm_not_installer_attribution",
+    "watch_complete": true,
+    "watch_samples": 47
+  },
+  "classification": {
+    "binding_change_blockers": 0,
+    "blocked_changes": 2,
+    "classified_reschedules": 1,
+    "details": [
+      {
+        "allowed": true,
+        "classification": "pinned_svc_calendar_start_only",
+        "identity_sha256": "4023f1322db1c44e9afe47a715033f592132e209dd8511b71be83c290ae8c7a2",
+        "kind": "tasks"
+      },
+      {
+        "allowed": false,
+        "classification": "task_identity_not_pinned",
+        "identity_sha256": "404332cecd04dc875aab6b8c36688f5d86374eb03390d9e33179990b3a8dd3f8",
+        "kind": "tasks"
+      },
+      {
+        "allowed": false,
+        "classification": "task_identity_not_pinned",
+        "identity_sha256": "e896a3aeac484c18d26c0161c7a4baf558b2a1491dda21d884b95a62c9ed45f4",
+        "kind": "tasks"
+      }
+    ],
+    "raw_changes": 3,
+    "schema": "narrow_task_g19_v1"
+  },
+  "classifier_live_tests": {
+    "all_passed": true,
+    "basis": "live_pre_target_baseline_with_com_measurement",
+    "case_count": 25,
+    "cases": [
+      {
+        "actual_allowed": true,
+        "expected_allowed": true,
+        "name": "exact_calendar_reschedule",
+        "passed": true,
+        "reason": "pinned_svc_calendar_start_only"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "com_class_id_changed",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "com_data_added",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "exec_action_added",
+        "passed": true,
+        "reason": "baseline_shape_unsupported"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "arguments_added",
+        "passed": true,
+        "reason": "baseline_shape_unsupported"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "principal_changed",
+        "passed": true,
+        "reason": "baseline_shape_unsupported"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "principal_attribute_changed",
+        "passed": true,
+        "reason": "baseline_shape_unsupported"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "enabled_toggled",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "trigger_added",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "boundary_attribute_added",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "invalid_boundary",
+        "passed": true,
+        "reason": "invalid_boundary"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "wrong_task_path",
+        "passed": true,
+        "reason": "task_identity_not_pinned"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "namespace_changed",
+        "passed": true,
+        "reason": "classification_failed_closed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "dtd_rejected",
+        "passed": true,
+        "reason": "classification_failed_closed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "missing_trust",
+        "passed": true,
+        "reason": "baseline_trust_missing"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "untrusted_publisher",
+        "passed": true,
+        "reason": "baseline_trust_missing"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "file_sha256_changed",
+        "passed": true,
+        "reason": "com_binding_or_image_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "binding_hash_changed",
+        "passed": true,
+        "reason": "com_binding_or_image_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "class_id_changed",
+        "passed": true,
+        "reason": "com_binding_or_image_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "image_path_changed",
+        "passed": true,
+        "reason": "com_binding_or_image_changed"
+      },
+      {
+        "actual_blocked": 1,
+        "expected_blocked": 1,
+        "name": "new_task",
+        "passed": true
+      },
+      {
+        "actual_blocked": 1,
+        "expected_blocked": 1,
+        "name": "service_change",
+        "passed": true
+      },
+      {
+        "actual_blocked": 1,
+        "expected_blocked": 1,
+        "name": "deleted_pinned_task",
+        "passed": true
+      },
+      {
+        "name": "binding_change_without_xml_change",
+        "passed": true
+      },
+      {
+        "name": "unchanged_inventory",
+        "passed": true
+      }
+    ],
+    "level": "in_memory_xml_and_inventory_not_live_task_mutation",
+    "live_shape": {
+      "baseline_shape_supported": true,
+      "calendar_boundaries": 1,
+      "enabled_explicit": false
+    },
+    "schema": "classifier_g19_tests_v1"
+  },
+  "classifier_unit_tests": {
+    "all_passed": true,
+    "basis": "synthetic_fixture",
+    "case_count": 25,
+    "cases": [
+      {
+        "actual_allowed": true,
+        "expected_allowed": true,
+        "name": "exact_calendar_reschedule",
+        "passed": true,
+        "reason": "pinned_svc_calendar_start_only"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "com_class_id_changed",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "com_data_added",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "exec_action_added",
+        "passed": true,
+        "reason": "baseline_shape_unsupported"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "arguments_added",
+        "passed": true,
+        "reason": "baseline_shape_unsupported"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "principal_changed",
+        "passed": true,
+        "reason": "baseline_shape_unsupported"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "principal_attribute_changed",
+        "passed": true,
+        "reason": "baseline_shape_unsupported"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "enabled_toggled",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "trigger_added",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "boundary_attribute_added",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "invalid_boundary",
+        "passed": true,
+        "reason": "invalid_boundary"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "wrong_task_path",
+        "passed": true,
+        "reason": "task_identity_not_pinned"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "namespace_changed",
+        "passed": true,
+        "reason": "classification_failed_closed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "dtd_rejected",
+        "passed": true,
+        "reason": "classification_failed_closed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "missing_trust",
+        "passed": true,
+        "reason": "baseline_trust_missing"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "untrusted_publisher",
+        "passed": true,
+        "reason": "baseline_trust_missing"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "file_sha256_changed",
+        "passed": true,
+        "reason": "com_binding_or_image_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "binding_hash_changed",
+        "passed": true,
+        "reason": "com_binding_or_image_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "class_id_changed",
+        "passed": true,
+        "reason": "com_binding_or_image_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "image_path_changed",
+        "passed": true,
+        "reason": "com_binding_or_image_changed"
+      },
+      {
+        "actual_blocked": 1,
+        "expected_blocked": 1,
+        "name": "new_task",
+        "passed": true
+      },
+      {
+        "actual_blocked": 1,
+        "expected_blocked": 1,
+        "name": "service_change",
+        "passed": true
+      },
+      {
+        "actual_blocked": 1,
+        "expected_blocked": 1,
+        "name": "deleted_pinned_task",
+        "passed": true
+      },
+      {
+        "name": "binding_change_without_xml_change",
+        "passed": true
+      },
+      {
+        "name": "unchanged_inventory",
+        "passed": true
+      }
+    ],
+    "level": "in_memory_xml_and_inventory_not_live_task_mutation",
+    "live_shape": {
+      "baseline_shape_supported": true,
+      "calendar_boundaries": 1,
+      "enabled_explicit": true
+    },
+    "schema": "classifier_g19_tests_v1"
+  },
+  "components": [
+    {
+      "evidence": "job_observed",
+      "name": "Battle.net-Setup.exe",
+      "observed_instances": 1,
+      "path_category": "setup_exact",
+      "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "signature": "verified_before_gate"
+    }
+  ],
+  "driver": {
+    "baseline_canary_connected": true,
+    "blocked_canary_connected": false,
+    "error_code": "cleanup_not_verified",
+    "failure_stage": "scoped_cleanup",
+    "gate_verified_after_observation": true,
+    "gate_verified_before_launch": true,
+    "observation_seconds": 90,
+    "owner_exit_confirmed": true,
+    "post_restore_canary_connected": null,
+    "scenario": "real_setup",
+    "stage": "complete",
+    "target_launch_attempted": true,
+    "target_launched": true
+  },
+  "full_chain_discovered": false,
+  "game_download_requested": false,
+  "install_options_action_requested": false,
+  "installation_verified": false,
+  "installer_launched": true,
+  "login_attempted": false,
+  "minimum_two_destinations_tested": false,
+  "owner": {
+    "assigned_before_resume": true,
+    "job_active_zero_before_close": true,
+    "new_process_events": 1,
+    "observation_seconds": 90,
+    "process_exit_events": 0,
+    "root_exited": true,
+    "target_launched": true,
+    "unique_observed_identities": 1,
+    "unresolved_event_count": 0
+  },
+  "preflight": {
+    "bytes": 4700880,
+    "error_code": null,
+    "matches_pin": true,
+    "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+    "signature_accepted": true,
+    "trust_status": 0,
+    "ui_helper_ready": true
+  },
+  "recovery": {
+    "bits_new_or_modified": 0,
+    "bits_snapshot_complete": true,
+    "classified_reschedules": 1,
+    "error_code": "unclassified_external_component_blocks_restore",
+    "firewall_restored": false,
+    "iis_restored": false,
+    "origin": "explicit",
+    "outside_job_target_candidates": 0,
+    "owned_job_ended": true,
+    "raw_registration_changes": 3,
+    "registration_changes": 2,
+    "restore_refused": true,
+    "stage": "external_component_check",
+    "status": "stopped",
+    "system_identity": true
+  },
+  "recovery_error_shape": {
+    "id": "unclassified_external_component_blocks_restore",
+    "line": 30,
+    "type": "RuntimeException"
+  },
+  "recovery_gate_tests": {
+    "all_passed": true,
+    "case_count": 7,
+    "cases": [
+      {
+        "actual_refused": false,
+        "expected_refused": false,
+        "name": "clear_components",
+        "passed": true
+      },
+      {
+        "actual_refused": true,
+        "expected_refused": true,
+        "name": "unclassified_task",
+        "passed": true
+      },
+      {
+        "actual_refused": true,
+        "expected_refused": true,
+        "name": "external_target",
+        "passed": true
+      },
+      {
+        "actual_refused": true,
+        "expected_refused": true,
+        "name": "new_bits_definition",
+        "passed": true
+      },
+      {
+        "actual_refused": true,
+        "expected_refused": true,
+        "name": "modified_bits_definition",
+        "passed": true
+      },
+      {
+        "actual_refused": true,
+        "expected_refused": true,
+        "name": "incomplete_bits_history",
+        "passed": true
+      },
+      {
+        "actual_refused": true,
+        "expected_refused": true,
+        "name": "invalid_negative_count",
+        "passed": true
+      }
+    ],
+    "level": "in_memory_same_decision_function_used_by_recovery"
+  },
+  "registration_changes_by_kind": {
+    "services": 0,
+    "tasks": 3
+  },
+  "registration_diff_complete": true,
+  "registration_differences": [
+    {
+      "change": "modified",
+      "changed_xml_fields": [
+        "Task/Triggers[1]/CalendarTrigger[1]/StartBoundary[1]"
+      ],
+      "command_or_action_images_changed": false,
+      "identifier": "SvcRestartTask",
+      "identity_sha256": "4023f1322db1c44e9afe47a715033f592132e209dd8511b71be83c290ae8c7a2",
+      "image_names_after": [],
+      "image_names_before": [],
+      "kind": "tasks",
+      "raw_xml_only_difference": false
+    },
+    {
+      "change": "modified",
+      "changed_xml_fields": [
+        "Task/Triggers[1]/TimeTrigger[1]/RandomDelay[1]",
+        "Task/Triggers[1]/TimeTrigger[1]/Repetition[1]/Interval[1]"
+      ],
+      "command_or_action_images_changed": false,
+      "identifier": "Schedule Scan",
+      "identity_sha256": "404332cecd04dc875aab6b8c36688f5d86374eb03390d9e33179990b3a8dd3f8",
+      "image_names_after": [
+        "usoclient.exe"
+      ],
+      "image_names_before": [
+        "usoclient.exe"
+      ],
+      "kind": "tasks",
+      "raw_xml_only_difference": false
+    },
+    {
+      "change": "modified",
+      "changed_xml_fields": [
+        "Task/Settings[1]/Enabled[1]"
+      ],
+      "command_or_action_images_changed": false,
+      "identifier": "Schedule Wake To Work",
+      "identity_sha256": "e896a3aeac484c18d26c0161c7a4baf558b2a1491dda21d884b95a62c9ed45f4",
+      "image_names_after": [
+        "usoclient.exe"
+      ],
+      "image_names_before": [
+        "usoclient.exe"
+      ],
+      "kind": "tasks",
+      "raw_xml_only_difference": false
+    }
+  ],
+  "run_id": "40177877397",
+  "scenario": "real_setup",
+  "schema": "offline_bootstrap_g19_v1",
+  "source_commit": "974d9f44b283b3c82754034b8f8f613b23990900",
+  "status": "quarantined_restore_refused",
+  "svc_trust": {
+    "binding": {
+      "capture_complete": true,
+      "file_sha256": "c40fb8181e428b7faab64f8aae26961ce6f07e5a180770429d278681ad8f6416"
+    },
+    "captured_before_target": true,
+    "signature_valid_microsoft": true,
+    "system_identity": true
+  },
+  "system_baseline": {
+    "captured": true,
+    "system_identity": true
+  },
+  "system_prelaunch": {
+    "bits_added": 0,
+    "bits_modified": 0,
+    "captured": true,
+    "classified_reschedules": 0,
+    "raw_registration_changes": 0,
+    "registration_changes": 0,
+    "system_identity": true
+  },
+  "ui": {
+    "install_action_requested": false,
+    "language_attempted": true,
+    "language_continue_returned": true,
+    "language_probes": 1,
+    "language_status": "continued",
+    "outcome_uncertain": false,
+    "ui_probe_errors": 0
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "schema": "offline_bootstrap_g19_v1",
+  "run_id": "40177205940",
+  "source_commit": "fee49e03ba57d49ba0eaa5e15116762c0ce848e9",
+  "scenario": "real_setup",
+  "status": "not_qualified",
+  "driver": {
+    "baseline_canary_connected": true,
+    "blocked_canary_connected": null,
+    "error_code": "system_baseline_not_verified",
+    "failure_stage": "identity",
+    "gate_verified_after_observation": false,
+    "gate_verified_before_launch": false,
+    "observation_seconds": 90,
+    "owner_exit_confirmed": false,
+    "post_restore_canary_connected": null,
+    "scenario": "real_setup",
+    "stage": "complete",
+    "target_launch_attempted": false,
+    "target_launched": null
+  },
+  "system_baseline": {
+    "captured": false,
+    "system_identity": true
+  },
+  "classifier_unit_tests": {
+    "all_passed": true,
+    "basis": "synthetic_fixture",
+    "case_count": 25,
+    "cases": [
+      {
+        "actual_allowed": true,
+        "expected_allowed": true,
+        "name": "exact_calendar_reschedule",
+        "passed": true,
+        "reason": "pinned_svc_calendar_start_only"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "com_class_id_changed",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "com_data_added",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "exec_action_added",
+        "passed": true,
+        "reason": "baseline_shape_unsupported"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "arguments_added",
+        "passed": true,
+        "reason": "baseline_shape_unsupported"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "principal_changed",
+        "passed": true,
+        "reason": "baseline_shape_unsupported"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "principal_attribute_changed",
+        "passed": true,
+        "reason": "baseline_shape_unsupported"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "enabled_toggled",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "trigger_added",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "boundary_attribute_added",
+        "passed": true,
+        "reason": "other_task_definition_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "invalid_boundary",
+        "passed": true,
+        "reason": "invalid_boundary"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "wrong_task_path",
+        "passed": true,
+        "reason": "task_identity_not_pinned"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "namespace_changed",
+        "passed": true,
+        "reason": "classification_failed_closed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "dtd_rejected",
+        "passed": true,
+        "reason": "classification_failed_closed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "missing_trust",
+        "passed": true,
+        "reason": "baseline_trust_missing"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "untrusted_publisher",
+        "passed": true,
+        "reason": "baseline_trust_missing"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "file_sha256_changed",
+        "passed": true,
+        "reason": "com_binding_or_image_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "binding_hash_changed",
+        "passed": true,
+        "reason": "com_binding_or_image_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "class_id_changed",
+        "passed": true,
+        "reason": "com_binding_or_image_changed"
+      },
+      {
+        "actual_allowed": false,
+        "expected_allowed": false,
+        "name": "image_path_changed",
+        "passed": true,
+        "reason": "com_binding_or_image_changed"
+      },
+      {
+        "actual_blocked": 1,
+        "expected_blocked": 1,
+        "name": "new_task",
+        "passed": true
+      },
+      {
+        "actual_blocked": 1,
+        "expected_blocked": 1,
+        "name": "service_change",
+        "passed": true
+      },
+      {
+        "actual_blocked": 1,
+        "expected_blocked": 1,
+        "name": "deleted_pinned_task",
+        "passed": true
+      },
+      {
+        "name": "binding_change_without_xml_change",
+        "passed": true
+      },
+      {
+        "name": "unchanged_inventory",
+        "passed": true
+      }
+    ],
+    "level": "in_memory_xml_and_inventory_not_live_task_mutation",
+    "schema": "classifier_g19_tests_v1"
+  },
+  "classifier_live_tests": {
+    "all_passed": false,
+    "case_count": 0,
+    "error_code": "classifier_tests_unsupported_baseline",
+    "schema": "classifier_g19_tests_v1"
+  },
+  "recovery_gate_tests": {
+    "all_passed": true,
+    "case_count": 7,
+    "cases": [
+      {
+        "actual_refused": false,
+        "expected_refused": false,
+        "name": "clear_components",
+        "passed": true
+      },
+      {
+        "actual_refused": true,
+        "expected_refused": true,
+        "name": "unclassified_task",
+        "passed": true
+      },
+      {
+        "actual_refused": true,
+        "expected_refused": true,
+        "name": "external_target",
+        "passed": true
+      },
+      {
+        "actual_refused": true,
+        "expected_refused": true,
+        "name": "new_bits_definition",
+        "passed": true
+      },
+      {
+        "actual_refused": true,
+        "expected_refused": true,
+        "name": "modified_bits_definition",
+        "passed": true
+      },
+      {
+        "actual_refused": true,
+        "expected_refused": true,
+        "name": "incomplete_bits_history",
+        "passed": true
+      },
+      {
+        "actual_refused": true,
+        "expected_refused": true,
+        "name": "invalid_negative_count",
+        "passed": true
+      }
+    ],
+    "level": "in_memory_same_decision_function_used_by_recovery"
+  },
+  "svc_trust": {
+    "binding": {
+      "capture_complete": true,
+      "file_sha256": "c40fb8181e428b7faab64f8aae26961ce6f07e5a180770429d278681ad8f6416"
+    },
+    "captured_before_target": true,
+    "signature_valid_microsoft": true,
+    "system_identity": true
+  },
+  "excluded_fields_reason": "Initial reporter lacked after snapshot: registration differences/counts are invalid and intentionally omitted."
+}
