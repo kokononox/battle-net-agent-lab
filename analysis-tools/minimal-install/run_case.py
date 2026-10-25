@@ -3,10 +3,11 @@ from pathlib import Path
 import hashlib,json,os,re,subprocess,sys,tempfile,time
 from model import *
 import native_version
+from binary_observer import BinaryObserver
 from datetime import datetime,timezone
 def utc_now():return datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 BASE=Path(__file__).resolve().parents[2]
-OUT=Path('output')/('minimal-install-c0c-'+(os.environ.get('BNET_REPLICA') if os.environ.get('BNET_REPLICA') in REPLICAS else 'invalid')+'.json')
+OUT=Path('output')/('minimal-install-c0d-'+(os.environ.get('BNET_REPLICA') if os.environ.get('BNET_REPLICA') in REPLICAS else 'invalid')+'.json')
 def write(r):
  validate(r);OUT.parent.mkdir(exist_ok=True);data=json.dumps(r,ensure_ascii=False,indent=2).encode();assert len(data)<=1048576
  tmp=OUT.with_suffix('.tmp');tmp.write_bytes(data);os.replace(tmp,OUT)
@@ -30,8 +31,8 @@ def registry_checks(root):
    except OSError:pass
  return result,state
 
-def footprint(root,obs,env):
- result,version_state=registry_checks(root);result.update(signed_launcher=False,signed_client=False);binaries=[];paths={}
+def footprint(root,obs,env,observer,r,elapsed):
+ result,version_state=registry_checks(root);result.pop('registry_version_present');result.update(signed_launcher=False,signed_client=False);binaries=[];paths={};result['version_evidence_verified']=False
  if not root.exists() or obs.is_reparse(root):return result,binaries,'',version_state
  count=0;started=time.monotonic()
  for folder,dirs,files in os.walk(root,followlinks=False):
@@ -42,12 +43,18 @@ def footprint(root,obs,env):
    kind={'battle.net launcher.exe':'launcher','battle.net.exe':'client'}.get(name.lower())
    if not kind or kind in paths:continue
    path=Path(folder)/name
-   if obs.is_reparse(path) or not 0<path.stat().st_size<=128*1024**2:continue
-   data=path.read_bytes();digest=hashlib.sha256(data).hexdigest();sig=obs.signature(path,env);accepted=sig['accepted_for_execution'];version,vstate=native_version.query(path)
-   if hashlib.sha256(path.read_bytes()).hexdigest()!=digest:accepted=False;version='';vstate='unstable_file'
-   binaries.append(dict(kind=kind,sha256=digest,bytes=len(data),signature_accepted=accepted,file_version=version,version_status=vstate));paths[kind]=True
-   result['signed_'+kind]=accepted
+   if obs.is_reparse(path):continue
+   binary,probe=observer.sample(path,kind,obs,env,time.monotonic());status=probe['status']
+   r['binary_probe_counts'][status]=r['binary_probe_counts'].get(status,0)+1
+   if status not in ('accepted','waiting_stability') and len(r['binary_probe_failures'])<12:
+    r['binary_probe_failures'].append(dict(kind=kind,**probe,elapsed_seconds=min(700,elapsed)))
+   if status in ('output_limit','output_rejected','native_error'):raise obs.LabError('binary_signature_protocol_failed')
+   if status in ('trust_rejected','publisher_rejected'):raise obs.LabError('installed_binary_signature_refused')
+   if sum(r['binary_probe_counts'].get(k,0) for k in ('helper_failed','helper_timeout'))>=6:raise obs.LabError('binary_signature_observation_retry_budget_exhausted')
+   if binary is None:continue
+   binaries.append(binary);paths[kind]=True;result['signed_'+kind]=binary['signature_accepted']
   if count>2500 or time.monotonic()-started>10:break
+ result['version_evidence_verified']=all(len([b for b in binaries if b['kind']==kind and b['signature_accepted'] and b['version_status']=='accepted'])==1 for kind in ('launcher','client'))
  return result,binaries,hashlib.sha256(json.dumps(binaries,sort_keys=True).encode()).hexdigest(),version_state
 
 def main():
@@ -61,18 +68,18 @@ def main():
   roots=[root,Path(os.environ['ProgramData'])/'Battle.net',Path(os.environ['LOCALAPPDATA'])/'Battle.net']
   if obs.snapshot(env).get('processes') or any(p.exists() for p in roots):raise obs.LabError('preexisting_battlenet_state_refused')
   r['phase']='native_gate';ui_accessibility.smoke_check();r['native_ui_gate']=True;write(r)
-  with tempfile.TemporaryDirectory(prefix='bnet-minimal-c0c-',dir=os.environ['RUNNER_TEMP'],ignore_cleanup_errors=True) as tmp:
+  with tempfile.TemporaryDirectory(prefix='bnet-minimal-c0d-',dir=os.environ['RUNNER_TEMP'],ignore_cleanup_errors=True) as tmp:
    work=Path(tmp);setup=work/'Battle.net-Setup.exe';r['phase']='download';download=obs.fetch_setup(setup);r['phase']='identity';sig=obs.signature(setup,env)
    r['installer']=dict(sha256=download['sha256'],bytes=download['bytes'],signature_accepted=sig['accepted_for_execution'],matches_pin=download['sha256']==SETUP_SHA and download['bytes']==SETUP_BYTES);write(r)
    if not sig['accepted_for_execution']:raise obs.LabError('installer_signature_refused')
    if not r['installer']['matches_pin']:raise obs.LabError('approved_installer_changed_no_execution')
    r['phase']='launch';process=subprocess.Popen([str(setup)],cwd=work,env=env,stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL);r['target_launched']=True;r['started_at']=utc_now();started=time.monotonic();r['phase']='observe';write(r)
-   endpoints={};seen_processes=set();last_gui=-20;last_foot=-20;layout_since=None;last_hash='';raw={'processes':[]};gui_signals={};last_setup_absent=False
+   endpoints={};seen_processes=set();last_gui=-20;last_foot=-20;layout_since=None;last_hash='';raw={'processes':[]};gui_signals={};last_setup_absent=False;observer=BinaryObserver()
    while time.monotonic()-started<420 and r['samples']<240:
     elapsed=int(time.monotonic()-started);r['observer_seconds']=elapsed
     try:raw=obs.snapshot(env);sample=obs.safe_snapshot(raw,elapsed)
     except Exception:r['snapshot_errors']+=1;time.sleep(3);continue
-    r['samples']+=1;by_pid={x['pid']:x['name'] for x in sample['processes']};setup_rows=[x for x in sample['processes'] if x['name']=='battle.net-setup.exe'];last_setup_absent=not setup_rows
+    r['samples']+=1;r['last_sample_process_names']=sorted(set(x['name'] for x in sample['processes']));by_pid={x['pid']:x['name'] for x in sample['processes']};setup_rows=[x for x in sample['processes'] if x['name']=='battle.net-setup.exe'];last_setup_absent=not setup_rows
     for p in sample['processes']:
      key=(p['pid'],p['name'])
      if key not in seen_processes:seen_processes.add(key);r['known_process_counts'][p['name']]=r['known_process_counts'].get(p['name'],0)+1
@@ -107,12 +114,12 @@ def main():
      except obs.LabError:raise
      except Exception:r['gui_errors']+=1
     if elapsed-last_foot>=15:
-     last_foot=elapsed;checks,binaries,layout_hash,version_state=footprint(root,obs,env);r['client_binaries']=binaries;r['registry_version_state']=version_state
+     last_foot=elapsed;checks,binaries,layout_hash,version_state=footprint(root,obs,env,observer,r,elapsed);r['client_binaries']=binaries;r['registry_version_state']=version_state
      ready=layout_ready(checks)
      if ready and layout_hash==last_hash:
       if layout_since is None:layout_since=elapsed
      else:layout_since=elapsed if ready else None
-     last_hash=layout_hash;checks['setup_absent']=last_setup_absent;checks['stable_layout_20_seconds']=layout_since is not None and elapsed-layout_since>=20;r['install_checks']=checks
+     last_hash=layout_hash;checks['setup_absent']=last_setup_absent;checks['client_running']='battle.net.exe' in r['last_sample_process_names'];checks['account_signal_seen']=r['ui_signal_seen']['account'];checks['stable_layout_20_seconds']=layout_since is not None and elapsed-layout_since>=20;r['install_checks']=checks
      if installed(checks,r['target_launched']) and not r['snapshot_errors']:
       r['status']='installed_by_defined_gate';break
     write(r);time.sleep(3)
