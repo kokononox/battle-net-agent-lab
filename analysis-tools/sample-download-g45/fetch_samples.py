@@ -1,0 +1,92 @@
+"""Three fixed small research samples, never installer/payload execution.
+No arbitrary URL input, cookies, credentials, redirect, retry or runtime approval.
+"""
+import hashlib,json,os,re,ssl,stat,urllib.request,urllib.error
+from pathlib import Path
+from codec import decode_blte
+from pins import PLAN_SHA256,SOURCE_CANDIDATES_SHA256
+BASE=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
+PRIVATE=BASE/'private';REPORT=BASE/'reports/sample-download-g45'
+class Rejected(ValueError):pass
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+ def redirect_request(self,*a,**k):return None
+
+def load_plan(raw):
+ if len(raw)>32768 or hashlib.sha256(raw).hexdigest()!=PLAN_SHA256:raise Rejected('plan_pin_mismatch')
+ p=json.loads(raw)
+ if type(p) is not dict or set(p)!={'schema','source_commit','source_candidates_sha256','max_requests','max_encoded_bytes','runtime_approved_entries','entries'}:raise Rejected('plan_shape')
+ if p['source_commit']!='1503ae7c842058a580cbb9e31143e666eb5af589':raise Rejected('source_commit')
+ if p['schema']!='research_small_sample_plan_g45_v1' or p['source_candidates_sha256']!=SOURCE_CANDIDATES_SHA256 or p['runtime_approved_entries']!=0:raise Rejected('plan_context')
+ if type(p['max_requests']) is not int or p['max_requests']!=3 or type(p['entries']) is not list or len(p['entries'])!=3:raise Rejected('request_budget')
+ if any(type(e) is not dict for e in p['entries']):raise Rejected('sample_shape')
+ if len({e.get('ekey') for e in p['entries']})!=3:raise Rejected('duplicate_sample')
+ for i,e in enumerate(p['entries']):
+  if type(e) is not dict or set(e)!={'sample_id','url','ckey','ekey','encoded_bytes','decoded_bytes','source_install_indices'}:raise Rejected('sample_shape')
+  if e['sample_id']!='sample_'+str(i+1) or not re.fullmatch('[a-f0-9]{32}',e['ekey']) or not re.fullmatch('[a-f0-9]{32}',e['ckey']):raise Rejected('sample_context')
+  expected='https://us.cdn.blizzard.com/tpr/bnt002/data/'+e['ekey'][:2]+'/'+e['ekey'][2:4]+'/'+e['ekey']
+  if e['url']!=expected or type(e['encoded_bytes']) is not int or not 0<e['encoded_bytes']<=16384 or type(e['decoded_bytes']) is not int or not 0<e['decoded_bytes']<=65536:raise Rejected('sample_bounds')
+ if type(p['max_encoded_bytes']) is not int or p['max_encoded_bytes']!=sum(e['encoded_bytes'] for e in p['entries']):raise Rejected('byte_budget')
+ return p
+
+def request(e):
+ return urllib.request.Request(e['url'],method='GET',headers={'User-Agent':'BattleNetFixedSampleReview/0.1','Accept':'application/octet-stream','Accept-Encoding':'identity','Connection':'close'})
+def read_response(response,expected):
+ status=response.code
+ if status!=200:raise Rejected('http_status_'+str(status))
+ h=response.headers
+ if h.get('Content-Encoding','identity').lower()!='identity' or h.get('Content-Range') is not None:raise Rejected('response_encoding_or_range')
+ length=h.get('Content-Length');transfer=h.get('Transfer-Encoding')
+ if transfer and (transfer.lower()!='chunked' or length is not None):raise Rejected('response_transfer_ambiguous')
+ if length is not None and (not length.isdigit() or int(length)!=expected):raise Rejected('response_length')
+ out=bytearray()
+ while len(out)<=expected:
+  chunk=response.read(min(4096,expected+1-len(out)))
+  if not chunk:break
+  out.extend(chunk)
+ if len(out)!=expected:raise Rejected('response_size')
+ return bytes(out)
+def verify(e,encoded):
+ if len(encoded)!=e['encoded_bytes']:raise Rejected('encoded_size')
+ decoded=decode_blte(encoded,e['decoded_bytes'],e['ekey'])
+ if len(decoded)!=e['decoded_bytes'] or hashlib.md5(decoded).hexdigest()!=e['ckey']:raise Rejected('decoded_content_key')
+ return {'encoded_sha256':hashlib.sha256(encoded).hexdigest(),'decoded_sha256':hashlib.sha256(decoded).hexdigest(),'encoded_bytes':len(encoded),'decoded_bytes':len(decoded),'blte_ekey_verified':True,'decoded_ckey_verified':True,'decoded_starts_with_mz':decoded.startswith(b'MZ')},decoded
+
+def private_setup():
+ if os.name!='posix':raise Rejected('posix_research_only')
+ PRIVATE.mkdir(mode=0o700,parents=True,exist_ok=True);s=PRIVATE.lstat()
+ if not stat.S_ISDIR(s.st_mode) or stat.S_ISLNK(s.st_mode) or s.st_uid!=os.getuid() or stat.S_IMODE(s.st_mode)!=0o700:raise Rejected('private_directory')
+def save_private(name,data):
+ if not re.fullmatch(r'sample_[123]\.(encoded|decoded)\.bin',name):raise Rejected('private_name')
+ fd=os.open(PRIVATE/name,os.O_WRONLY|os.O_CREAT|os.O_EXCL|getattr(os,'O_NOFOLLOW',0),0o600)
+ with os.fdopen(fd,'wb') as f:f.write(data);f.flush();os.fsync(f.fileno())
+
+def main():
+ plan=load_plan((HERE/'plan.review-only.json').read_bytes());private_setup()
+ try:fd=os.open(PRIVATE/'session.started',os.O_WRONLY|os.O_CREAT|os.O_EXCL|getattr(os,'O_NOFOLLOW',0),0o600)
+ except FileExistsError:raise Rejected('one_shot_session_already_started') from None
+ with os.fdopen(fd,'w') as f:f.write('reserved_before_network\n')
+ context=ssl.create_default_context()
+ opener=urllib.request.build_opener(urllib.request.ProxyHandler({}),NoRedirect(),urllib.request.HTTPSHandler(context=context))
+ report={'schema':'bounded_sample_fetch_g45_v1','source_commit':plan['source_commit'],'plan_sha256':PLAN_SHA256,'max_requests':plan['max_requests'],'max_encoded_bytes':plan['max_encoded_bytes'],'max_application_body_read_bytes_including_oversize_detection':plan['max_encoded_bytes']+plan['max_requests'],'limits_are_not_total_tls_or_wire_bytes':True,'application_body_read_for_404':False,'attempts_reserved':0,'encoded_budget_reserved':0,'results':[],'installer_executed':False,'payload_files_executed':False,'installation_performed':False,'runtime_approved_entries':0,'production_catalog_modified':False,'redirects_followed':False,'automatic_retries':0,'request_application_body_sent':False,'cookie_or_authorization_sent':False,'publisher_signature_verified_for_samples':False,'anti_fingerprinting_proven':False}
+ for e in plan['entries']:
+  # Each attempt is reserved even if denied or failed; no refund or fallback target.
+  report['attempts_reserved']+=1;report['encoded_budget_reserved']+=e['encoded_bytes']
+  if report['attempts_reserved']>plan['max_requests'] or report['encoded_budget_reserved']>plan['max_encoded_bytes']:raise Rejected('reserved_budget_exceeded')
+  r={'sample_id':e['sample_id'],'url':e['url'],'expected_encoded_bytes':e['encoded_bytes'],'expected_decoded_bytes':e['decoded_bytes'],'ekey':e['ekey'],'ckey':e['ckey'],'verified':False,'error_code':None,'http_status':None,'runtime_approved':False}
+  try:
+   try:response=opener.open(request(e),timeout=20)
+   except urllib.error.HTTPError as error:response=error
+   with response:
+    r['http_status']=response.code;encoded=read_response(response,e['encoded_bytes'])
+   hashes,decoded=verify(e,encoded)
+   save_private(e['sample_id']+'.encoded.bin',encoded);save_private(e['sample_id']+'.decoded.bin',decoded)
+   r.update(hashes,verified=True,stored_private_non_executable=True)
+  except urllib.error.URLError:r['error_code']='tls_or_transport_failed'
+  except (ValueError,OSError) as error:
+   code=str(error);r['error_code']=code if re.fullmatch('[a-z_0-9]{1,80}',code) else 'sample_verification_or_storage_failed'
+  report['results'].append(r)
+ report['verified_payload_count']=sum(r['verified'] for r in report['results'])
+ report['status']='three_small_samples_verified' if all(r['verified'] for r in report['results']) else 'sample_plan_incomplete'
+ (REPORT/'fetch-evidence.local.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
+ return report['status']=='three_small_samples_verified'
+if __name__=='__main__':raise SystemExit(0 if main() else 2)

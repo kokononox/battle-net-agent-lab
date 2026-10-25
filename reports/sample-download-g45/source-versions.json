@@ -1,0 +1,16 @@
+{
+  "observed_network_execution": "initial source, before offline-only contract hardening",
+  "initial_source_snapshot": "fetch_samples.initial-source.py.txt",
+  "initial_source_sha256": "d07ed3310a025973835aa2cd573cc727340615412429050820a589073694b527",
+  "current_source_sha256": "b1a286953ba672c8ce0fac88b6d9f7a107cda18857be04352e28d31c45610403",
+  "network_execution_repeated_after_hardening": false,
+  "annotation_fields_added_after_observation": [
+    "max_application_body_read_bytes_including_oversize_detection",
+    "verified_payload_count",
+    "application_body_read_for_404",
+    "limits_are_not_total_tls_or_wire_bytes"
+  ],
+  "observed_report_reconstruction": "deterministic removal of the four annotation fields; HTTP status, errors and request facts unchanged",
+  "original_output_was_local_not_ci_attestation": true,
+  "original_snapshot_note": "Initial source text restored from the recorded creation command and tracked offline edits; not a runtime-measured source hash."
+}

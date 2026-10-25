@@ -1,0 +1,59 @@
+{
+  "schema": "bounded_sample_fetch_g45_v1",
+  "source_commit": "1503ae7c842058a580cbb9e31143e666eb5af589",
+  "plan_sha256": "7c29f72b27d00e8f82304c2a6b528811ebd54d40a3f06c78cabfdaaeaab7da47",
+  "max_requests": 3,
+  "max_encoded_bytes": 11771,
+  "attempts_reserved": 3,
+  "encoded_budget_reserved": 11771,
+  "results": [
+    {
+      "sample_id": "sample_1",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/ce/42/ce429ae91fc7868cdeae3158bac493ce",
+      "expected_encoded_bytes": 27,
+      "expected_decoded_bytes": 18,
+      "ekey": "ce429ae91fc7868cdeae3158bac493ce",
+      "ckey": "65f69bd2d8b6458d3ecf77d84d70dc1c",
+      "verified": false,
+      "error_code": "http_status_404",
+      "http_status": 404,
+      "runtime_approved": false
+    },
+    {
+      "sample_id": "sample_2",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/92/9f/929f7207500e376c596eccbe3f501ba6",
+      "expected_encoded_bytes": 4283,
+      "expected_decoded_bytes": 11264,
+      "ekey": "929f7207500e376c596eccbe3f501ba6",
+      "ckey": "8faacd0a5d9da72963aa835ce01471ed",
+      "verified": false,
+      "error_code": "http_status_404",
+      "http_status": 404,
+      "runtime_approved": false
+    },
+    {
+      "sample_id": "sample_3",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/2f/49/2f49790cbe4824363b14d37c9cb889d4",
+      "expected_encoded_bytes": 7461,
+      "expected_decoded_bytes": 12840,
+      "ekey": "2f49790cbe4824363b14d37c9cb889d4",
+      "ckey": "47af4d1649e32238b956e6c1ea9c722c",
+      "verified": false,
+      "error_code": "http_status_404",
+      "http_status": 404,
+      "runtime_approved": false
+    }
+  ],
+  "installer_executed": false,
+  "payload_files_executed": false,
+  "installation_performed": false,
+  "runtime_approved_entries": 0,
+  "production_catalog_modified": false,
+  "redirects_followed": false,
+  "automatic_retries": 0,
+  "request_application_body_sent": false,
+  "cookie_or_authorization_sent": false,
+  "publisher_signature_verified_for_samples": false,
+  "anti_fingerprinting_proven": false,
+  "status": "sample_plan_incomplete"
+}
