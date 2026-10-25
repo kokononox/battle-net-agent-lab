@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent.parent/'prelogin-windows-guest'))
 import prepare_guest as media
 STAGES={'guard','capacity','tools','media','seed','qemu','monitor','completed'}
-ERRORS={None,'guard_failed','capacity_insufficient','apt_failed','download_failed','media_hash_mismatch','media_size_mismatch','firmware_missing','guest_timeout','qemu_failed','guest_control_failed','bounded_guest_failed'}
+ERRORS={None,'guard_failed','capacity_insufficient','apt_failed','download_failed','media_hash_mismatch','media_size_mismatch','firmware_missing','guest_timeout','qemu_failed','guest_control_failed','firmware_boot_failed','bounded_guest_failed'}
 BOOLEANS={'full_windows','baseline_saved','boot_changed','same_profile','dpapi_ok','marker_equal','error'}
 MIN_FREE=50*1024**3
 
@@ -23,7 +23,7 @@ def validate(r):
  if r['disk_actual_bytes'] is not None:media.number(r['disk_actual_bytes'])
  if type(r['visual_checks']) is not list or len(r['visual_checks'])>8:raise ValueError('visual_checks')
  for v in r['visual_checks']:
-  if type(v) is not dict or set(v)!={'second','state'} or type(v['second']) is not int or not 0<=v['second']<=1500 or v['state'] not in VISUAL_STATES:raise ValueError('visual_state')
+  if type(v) is not dict or set(v)!={'second','state'} or type(v['second']) is not int or not 0<=v['second']<=2600 or v['state'] not in VISUAL_STATES:raise ValueError('visual_state')
  if r['disk_virtual_bytes']!=media.DISK_BYTES or type(r['cleanup_labels']) is not list or len(r['cleanup_labels'])!=len(set(r['cleanup_labels'])) or not set(r['cleanup_labels'])<=set(media.CLEANUP):raise ValueError('capacity')
  for key in ('target_launched','battle_net_uuid_reboot_tested','network_after_reboot_verified','guest_nic_present','remote_access_enabled','private_disks_exported','private_identifiers_exported','disk_persisted'):
   if r[key] is not False:raise ValueError('scope')
@@ -55,7 +55,7 @@ def answer(password,challenge="a"*64):
 <settings pass="oobeSystem"><component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS"><InputLocale>en-US</InputLocale><SystemLocale>en-US</SystemLocale><UILanguage>en-US</UILanguage><UserLocale>en-US</UserLocale></component><component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS"><OOBE><HideEULAPage>true</HideEULAPage><HideOnlineAccountScreens>true</HideOnlineAccountScreens><HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE><ProtectYourPC>1</ProtectYourPC></OOBE><UserAccounts><AdministratorPassword><Value>'''+escape(password)+'''</Value><PlainText>true</PlainText></AdministratorPassword></UserAccounts><AutoLogon><Password><Value>'''+escape(password)+'''</Value><PlainText>true</PlainText></Password><Username>Administrator</Username><Enabled>true</Enabled><LogonCount>3</LogonCount></AutoLogon><FirstLogonCommands><SynchronousCommand wcm:action="add"><Order>1</Order><Description>Owned guest reboot control</Description><CommandLine>'''+escape(first)+'''</CommandLine></SynchronousCommand></FirstLogonCommands></component></settings></unattend>'''
 
 def guard():
- return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_GUEST_BOOT')=='owned-guest-boot-e2'
+ return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_GUEST_BOOT')=='owned-guest-boot-e3'
 
 VISUAL_STATES={'blank_or_unknown','boot_prompt','uefi_shell','boot_failure','setup_error','edition_picker','license_page','disk_picker','setup_start','install_progress','oobe_or_logon','desktop','capture_failed'}
 def classify(text):
@@ -89,13 +89,21 @@ def send_space(q):
   if 'return' in reply:return
  raise media.ProbeError('qemu_failed')
 
+def qemu_args(code,vars,disk,iso,seed,serial,qmp):
+ return ['qemu-system-x86_64','-accel','kvm','-machine','q35','-cpu','host','-smp','2','-m','4096','-display','none','-nic','none',
+ '-drive',f'if=pflash,format=raw,readonly=on,file={code}','-drive',f'if=pflash,format=raw,file={vars}',
+ '-drive',f'file={disk},format=qcow2,if=none,id=owned_disk','-device','ide-hd,drive=owned_disk,bus=ide.0,bootindex=2',
+ '-drive',f'file={iso},format=raw,media=cdrom,readonly=on,if=none,id=owned_setup','-device','ide-cd,drive=owned_setup,bus=ide.1,bootindex=1',
+ '-drive',f'file={seed},format=raw,media=cdrom,readonly=on,if=none,id=owned_seed','-device','ide-cd,drive=owned_seed,bus=ide.2',
+ '-serial',f'file:{serial}','-qmp',f'unix:{qmp},server=on,wait=off']
+
 def guest(work,iso,seed,disk,challenge,r,log):
  code=Path('/usr/share/OVMF/OVMF_CODE_4M.fd');template=Path('/usr/share/OVMF/OVMF_VARS_4M.fd')
  if not code.is_file() or not template.is_file():raise media.ProbeError('firmware_missing')
  vars=work/'vars.fd';shutil.copyfile(template,vars)
  qmp=work/'qmp.sock';serial=work/'serial.private';p=None;q=None
  try:
-  args=['qemu-system-x86_64','-accel','kvm','-machine','q35','-cpu','host','-smp','2','-m','4096','-display','none','-nic','none','-boot','order=c,once=d,menu=off','-drive',f'if=pflash,format=raw,readonly=on,file={code}','-drive',f'if=pflash,format=raw,file={vars}','-drive',f'file={disk},format=qcow2,if=ide,index=0','-drive',f'file={iso},format=raw,media=cdrom,readonly=on,if=ide,index=2','-drive',f'file={seed},format=raw,media=cdrom,readonly=on,if=ide,index=3','-serial',f'file:{serial}','-qmp',f'unix:{qmp},server=on,wait=off']
+  args=qemu_args(code,vars,disk,iso,seed,serial,qmp)
   p=subprocess.Popen(args,stdin=subprocess.DEVNULL,stdout=log,stderr=log)
   for _ in range(200):
    if qmp.exists():break
@@ -104,15 +112,16 @@ def guest(work,iso,seed,disk,challenge,r,log):
   q=media.QMP(qmp);r['kvm_enabled']=q.execute('query-kvm').get('enabled') is True
   if not r['kvm_enabled']:raise media.ProbeError('qemu_failed')
   r['stage']='monitor';started=time.monotonic();offset=0;buffer='';first=None;second=None;keys_sent=set();views_done=set()
-  while time.monotonic()-started<1200:
+  while time.monotonic()-started<2400:
    elapsed=time.monotonic()-started
    # Only early firmware "press a key to boot DVD"; no subsequent UI automation.
    for moment in (5,10,15):
     if elapsed>=moment and moment not in keys_sent:
      send_space(q);keys_sent.add(moment)
-   for moment in (30,120,300,600,900,1150):
+   for moment in (30,120,300,600,900,1150,1800,2300):
     if elapsed>=moment and moment not in views_done:
      r['visual_checks'].append({'second':int(elapsed),'state':visual(q,work,log)});views_done.add(moment)
+     if len(r['visual_checks'])>=2 and all(x['state']=='uefi_shell' for x in r['visual_checks'][-2:]) and not r['winpe_signal']:raise media.ProbeError('firmware_boot_failed')
    if serial.exists():
     if serial.stat().st_size>1048576:raise media.ProbeError('guest_control_failed')
     with serial.open('rb') as incoming:incoming.seek(offset);chunk=incoming.read(65536);offset=incoming.tell()

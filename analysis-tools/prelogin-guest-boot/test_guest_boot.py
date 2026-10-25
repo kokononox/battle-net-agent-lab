@@ -68,3 +68,14 @@ class VisualTests(unittest.TestCase):
  def test_winpe_device_path(self):
   ns={'u':'urn:schemas-microsoft-com:unattend'};r=ET.fromstring(g.answer('DummyTestOnlyAa9!','b'*64));path=r.find('.//u:RunSynchronousCommand/u:Path',ns).text;self.assertIn('LABPE:'+'b'*64,path);self.assertIn(r'\\.\COM1',path)
  def test_disk_unmeasured_is_null(self):self.assertIsNone(g.blank('a'*40,'1')['disk_actual_bytes'])
+class BootOrderTests(unittest.TestCase):
+ def args(self):return g.qemu_args(*map(Path,['code','vars','disk','iso','seed','serial','qmp']))
+ def test_explicit_bootindex(self):
+  a=self.args();self.assertIn('ide-cd,drive=owned_setup,bus=ide.1,bootindex=1',a);self.assertIn('ide-hd,drive=owned_disk,bus=ide.0,bootindex=2',a)
+ def test_no_conflicting_legacy_boot(self):self.assertNotIn('-boot',self.args())
+ def test_seed_not_bootable(self):
+  seed=next(x for x in self.args() if x.startswith('ide-cd,drive=owned_seed'));self.assertNotIn('bootindex',seed)
+ def test_no_nic(self):
+  a=self.args();self.assertEqual(a[a.index('-nic')+1],'none')
+ def test_no_remote_display(self):
+  a=self.args();self.assertEqual(a[a.index('-display')+1],'none');self.assertNotIn('-vnc',a)

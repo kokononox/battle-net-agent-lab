@@ -1,0 +1,59 @@
+{
+  "schema": "bnet-owned-guest-boot-2",
+  "source_commit": "e92a798e26bd8199c5db20ca015bbbb2444dd482",
+  "run_id": "40165111430",
+  "status": "stopped",
+  "stage": "monitor",
+  "error_code": "guest_timeout",
+  "official_media_pinned": true,
+  "kvm_enabled": true,
+  "first_signal": false,
+  "second_signal": false,
+  "full_windows_boot_verified": false,
+  "same_guest_reboot_verified": false,
+  "same_profile_verified": false,
+  "dpapi_roundtrip_verified": false,
+  "owned_marker_preserved": false,
+  "serial_challenge_verified": false,
+  "disk_free_before_bytes": 91506528256,
+  "disk_free_after_cleanup_bytes": 91506528256,
+  "disk_free_final_bytes": 91333267456,
+  "disk_virtual_bytes": 68719476736,
+  "disk_actual_bytes": 200704,
+  "winpe_signal": false,
+  "visual_checks": [
+    {
+      "second": 30,
+      "state": "uefi_shell"
+    },
+    {
+      "second": 120,
+      "state": "uefi_shell"
+    },
+    {
+      "second": 301,
+      "state": "uefi_shell"
+    },
+    {
+      "second": 601,
+      "state": "uefi_shell"
+    },
+    {
+      "second": 900,
+      "state": "uefi_shell"
+    },
+    {
+      "second": 1150,
+      "state": "uefi_shell"
+    }
+  ],
+  "cleanup_labels": [],
+  "target_launched": false,
+  "battle_net_uuid_reboot_tested": false,
+  "network_after_reboot_verified": false,
+  "guest_nic_present": false,
+  "remote_access_enabled": false,
+  "private_disks_exported": false,
+  "private_identifiers_exported": false,
+  "disk_persisted": false
+}
