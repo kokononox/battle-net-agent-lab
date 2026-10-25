@@ -1,0 +1,58 @@
+name: Windows G41 synthetic system gate quarantine recovery
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/quarantine-system-g41/**', '.github/workflows/battlenet-system-g41.yml']
+permissions: {}
+jobs:
+  integration:
+    if: >-
+      github.event.head_commit.message == 'lab: approved synthetic system isolation G41' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    env:
+      BNET_G41: 'lab: approved synthetic system isolation G41'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse and compile before changing any firewall state
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $file=(Resolve-Path 'analysis-tools/quarantine-system-g41/Gate.ps1').Path
+          $tokens=$null;$errors=$null
+          $null=[Management.Automation.Language.Parser]::ParseFile($file,[ref]$tokens,[ref]$errors)
+          if($errors.Count -ne 0){throw 'powershell_parse_failed'}
+          python -m compileall -q analysis-tools/quarantine-system-g41
+          if($LASTEXITCODE -ne 0){throw 'python_parse_failed'}
+          $bin=Join-Path $env:RUNNER_TEMP 'bnet-g41-private-bin'
+          New-Item -ItemType Directory -Force $bin,output | Out-Null
+          $source=(Resolve-Path 'analysis-tools/quarantine-system-g41/PrivateStore.cs').Path
+          $csc="$env:SystemRoot\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+          & $csc @('/nologo','/target:exe','/platform:x64','/r:System.Web.Extensions.dll',('/out:'+(Join-Path $bin 'PrivateStore.exe')),$source)
+          if($LASTEXITCODE -ne 0){throw 'private_store_build_failed'}
+          ('G41_STORE_HELPER='+(Join-Path $bin 'PrivateStore.exe')) | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: Integrate synthetic finish cancel and abrupt controller exit
+        timeout-minutes: 9
+        shell: powershell
+        run: |
+          python -I analysis-tools/quarantine-system-g41/run_integrated.py
+          if($LASTEXITCODE -ne 0){throw 'synthetic_integration_failed'}
+      - name: Conditional component-first fallback only
+        if: always()
+        timeout-minutes: 2
+        shell: powershell
+        run: |
+          python -I analysis-tools/quarantine-system-g41/run_integrated.py --fallback-only
+          if($LASTEXITCODE -ne 0){throw 'scoped_fallback_failed_no_unconditional_restore'}
+      - name: Publish only fixed sanitized evidence file
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: synthetic-system-g41-evidence
+          path: output/g41-evidence.json
+          if-no-files-found: warn
+          retention-days: 7
