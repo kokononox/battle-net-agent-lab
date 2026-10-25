@@ -1,0 +1,33 @@
+{
+  "schema": "bnet-integrated-recovery-g14-1",
+  "origin": "monitor",
+  "system_identity": true,
+  "status": "stopped",
+  "lease_closed": true,
+  "abandoned_mutex_reclaimed": false,
+  "unknown_task_detected": false,
+  "unknown_service_detected": false,
+  "unknown_process_detected": true,
+  "restore_refused_for_unknown": true,
+  "gate_proxy_closed": true,
+  "global_service_change_count": 0,
+  "global_task_change_count": 0,
+  "foreign_job_member": true,
+  "unclassified_process_count": 1,
+  "supervisor_exited": true,
+  "service_removed": false,
+  "task_removed": false,
+  "job_active_zero": false,
+  "all_observed_members_exited": false,
+  "fixture_images_gone": false,
+  "hosts_restored": false,
+  "firewall_restored": false,
+  "iis_restored": false,
+  "error_code": "unclassified_fixture_component_blocks_restore",
+  "error_shape": {
+    "source": "Recover.ps1",
+    "id": "unclassified_fixture_component_blocks_restore",
+    "type": "RuntimeException",
+    "line": 54
+  }
+}
