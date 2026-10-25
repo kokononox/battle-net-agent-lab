@@ -2,6 +2,7 @@
 import hashlib,json,os,re,sys,base64,zlib
 from pathlib import Path
 from tls_records import validate_summary
+from CriticalEvidence import lines as critical_lines
 OUT=Path('output');OUT.mkdir(exist_ok=True)
 def read(p):
  try:
@@ -153,10 +154,15 @@ if root and r.get('installer_launched') is True and r.get('driver',{}).get('gate
  r['status']='two_host_bootstrap_observed_restore_refused' if r.get('recovery',{}).get('restore_refused') else 'two_host_bootstrap_observed_cleanup_unverified'
  if r.get('recovery',{}).get('status')=='restored_after_scoped_exit_checks':r['status']='two_host_bootstrap_observed_and_restored'
  r['minimum_two_destinations_tested']=True # Bounded restricted experiment, never proof of sufficiency/minimality.
+critical_record,critical_receipt_lines=critical_lines(r)
+(OUT/'core-g26.json').write_text(json.dumps(critical_record,indent=2))
 (OUT/'online-g26.json').write_text(json.dumps(r,indent=2))
 raw=json.dumps(r,sort_keys=True,separators=(',',':')).encode();packed=base64.b64encode(zlib.compress(raw)).decode();parts=[packed[i:i+600] for i in range(0,len(packed),600)]
+for line in critical_receipt_lines:print(line,flush=True)
 print('G26_STATE '+json.dumps({'scenario':r['scenario'],'status':r['status'],'installer_launched':r['installer_launched'],'registration_changes':r.get('recovery',{}).get('registration_changes'),'bits_watch_complete':r.get('bits',{}).get('watch_complete')}))
 print('G26_REPORT_MANIFEST '+json.dumps({'parts':len(parts),'raw_bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}))
 for i,part in enumerate(parts,1):print('G26_REPORT_PART '+str(i)+'/'+str(len(parts))+' '+part)
+
+for line in critical_receipt_lines:print(line,flush=True)
 
 sys.exit(0 if r['status']=='two_host_bootstrap_observed_and_restored' else 1)

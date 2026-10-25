@@ -45,6 +45,8 @@ jobs:
           if($LASTEXITCODE -ne 0){throw 'proxy_protocol_tests_failed'}
           python analysis-tools/two-destination-g26/TestDiagnostics.py
           if($LASTEXITCODE -ne 0){throw 'proxy_diagnostic_tests_failed'}
+          python analysis-tools/two-destination-g26/TestCriticalEvidence.py
+          if($LASTEXITCODE -ne 0){throw 'critical_receipt_tests_failed'}
           python analysis-tools/two-destination-g26/TestCollectReport.py
           if($LASTEXITCODE -ne 0){throw 'report_collector_tests_failed'}
           python analysis-tools/two-destination-g26/TestUISchedule.py
@@ -112,7 +114,9 @@ jobs:
         if: always()
         with:
           name: 'battlenet-online-g26-${{ matrix.scenario }}-sanitized'
-          path: output/online-g26.json
+          path: |
+            output/online-g26.json
+            output/core-g26.json
           if-no-files-found: error
           retention-days: 3
 
