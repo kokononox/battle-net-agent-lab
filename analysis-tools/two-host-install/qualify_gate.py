@@ -6,7 +6,7 @@ import hashlib,ipaddress,json,os,re,socket,ssl,subprocess,sys,tempfile,time
 from pathlib import Path
 from domain_proxy import HOSTS,validated_config
 from redirect_hosts import Redirect
-APPROVAL='lab: approved two-host egress qualification G2 20261025'
+APPROVAL='lab: approved two-host egress qualification G3 20261025'
 BRANCH='research/battlenet-minimal-install-isolation-2026-10-25'
 
 def authorized(e,p):
@@ -36,11 +36,11 @@ def main():
  if not authorized(os.environ,sys.platform):raise SystemExit('approved_fresh_hosted_qualification_required')
  base=Path(__file__).resolve().parent;repo=base.parents[1];sys.path.insert(0,str(repo/'scripts'));import observe_agent as obs
  env=obs.clean_environment(os.environ);ps=Path(os.environ['SystemRoot'])/'System32/WindowsPowerShell/v1.0/powershell.exe'
- r=dict(schema='bnet-two-hosts-g2-1',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],allowed_hosts=sorted(HOSTS),installer_launched=False,status='stopped',stage='prepare',firewall_prepared=False,firewall_applied=False,firewall_verified=False,firewall_restored=False,management_exception_scope='runner_listener_worker_only_not_target_installers',proxy_binary_sha256=None,baseline_direct={},direct_denied={},http_allowed={},other_authority_denied=False,wrong_sni_denied=False,proxy_log_counts={},tls_certificates_changed=False,raw_state_exported=False,all_traffic_blocked_proven=False,error_code=None)
- r.update(hosts_steered=False,hosts_restored=False,proxy_before_firewall={},http_probe_kinds={},ipv6_loopback_http={},tls_end_to_end_verified=False)
+ r=dict(schema='bnet-two-hosts-g3-1',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],allowed_hosts=sorted(HOSTS),installer_launched=False,status='stopped',stage='prepare',firewall_prepared=False,firewall_applied=False,firewall_verified=False,firewall_restored=False,management_exception_scope='runner_listener_worker_only_not_target_installers',proxy_binary_sha256=None,baseline_direct={},direct_denied={},http_allowed={},other_authority_denied=False,wrong_sni_denied=False,proxy_log_counts={},tls_certificates_changed=False,raw_state_exported=False,all_traffic_blocked_proven=False,error_code=None)
+ r.update(hosts_steered=False,hosts_restored=False,proxy_before_firewall={},http_probe_kinds={},ipv6_loopback_http={},tls_end_to_end_verified=False,listener_bind_probes={},proxy_exit_code=None)
  def write():
-  out=Path('output/two-hosts-g2.json');out.parent.mkdir(exist_ok=True);out.write_text(json.dumps(r,indent=2)+'\n',encoding='utf-8')
- with tempfile.TemporaryDirectory(prefix='bnet-two-hosts-g2-',dir=os.environ['RUNNER_TEMP'],ignore_cleanup_errors=True) as tmp:
+  out=Path('output/two-hosts-g3.json');out.parent.mkdir(exist_ok=True);out.write_text(json.dumps(r,indent=2)+'\n',encoding='utf-8')
+ with tempfile.TemporaryDirectory(prefix='bnet-two-hosts-g3-',dir=os.environ['RUNNER_TEMP'],ignore_cleanup_errors=True) as tmp:
   work=Path(tmp);config=work/'proxy.json';log=work/'proxy-private.jsonl';proxy=None;prepared=False;redirect=Redirect(work,env)
   exe=base/'dist/TwoHostProxy.exe'
   def gate(action):
@@ -51,6 +51,14 @@ def main():
    if p.returncode!=0:raise ValueError('firewall_helper_failed')
    return v
   try:
+   for ip,family in [('127.0.0.1',socket.AF_INET),('::1',socket.AF_INET6)]:
+    for port_probe in [80,443]:
+     probe_socket=socket.socket(family,socket.SOCK_STREAM)
+     try:
+      probe_socket.bind((ip,port_probe));code=None
+     except OSError as exc:code=getattr(exc,'winerror',None) or exc.errno
+     finally:probe_socket.close()
+     r['listener_bind_probes'][('ipv4_' if family==socket.AF_INET else 'ipv6_')+str(port_probe)]=code
    if not exe.is_file():raise ValueError('proxy_binary_missing')
    r['proxy_binary_sha256']=hashlib.sha256(exe.read_bytes()).hexdigest()
    pins={host:public_ips(host) for host in HOSTS};negative=public_ips('example.com')[0]
@@ -62,7 +70,8 @@ def main():
    proxy=subprocess.Popen([str(exe),str(config)],cwd=work,env=env,stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
    for _ in range(60):
     if log.exists() and 'proxy_ready' in log.read_text():break
-    if proxy.poll() is not None:raise ValueError('proxy_start_failed')
+    if proxy.poll() is not None:
+     r['proxy_exit_code']=proxy.returncode;raise ValueError('proxy_start_failed')
     time.sleep(.5)
    else:raise ValueError('proxy_ready_timeout')
    for host in sorted(HOSTS):

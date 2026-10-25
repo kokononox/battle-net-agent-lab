@@ -1,0 +1,38 @@
+{
+  "schema": "bnet-two-hosts-g2-1",
+  "source_commit": "a937bb684e142d2c1d2bcd282e505b2563be55f8",
+  "run_id": "40161629542",
+  "allowed_hosts": [
+    "level3.blizzard.com",
+    "us.version.battle.net"
+  ],
+  "installer_launched": false,
+  "status": "stopped",
+  "stage": "complete",
+  "firewall_prepared": false,
+  "firewall_applied": false,
+  "firewall_verified": false,
+  "firewall_restored": false,
+  "management_exception_scope": "runner_listener_worker_only_not_target_installers",
+  "proxy_binary_sha256": "b16e49a7c0c5a77e57e0fe1a86647ecef7a3926785636c35f7dabc06298a5d57",
+  "baseline_direct": {
+    "level3.blizzard.com": true,
+    "us.version.battle.net": true,
+    "negative_fixture": true
+  },
+  "direct_denied": {},
+  "http_allowed": {},
+  "other_authority_denied": false,
+  "wrong_sni_denied": false,
+  "proxy_log_counts": {},
+  "tls_certificates_changed": false,
+  "raw_state_exported": false,
+  "all_traffic_blocked_proven": false,
+  "error_code": "proxy_start_failed",
+  "hosts_steered": false,
+  "hosts_restored": true,
+  "proxy_before_firewall": {},
+  "http_probe_kinds": {},
+  "ipv6_loopback_http": {},
+  "tls_end_to_end_verified": false
+}

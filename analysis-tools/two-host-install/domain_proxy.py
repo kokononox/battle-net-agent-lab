@@ -206,7 +206,13 @@ def main():
   if config.get('transparent',False):
    bindings=[(cls,ip,port,handler,port==80) for cls,ip in [(Server,'127.0.0.1'),(IPv6Server,'::1')] for port,handler in [(80,Handler),(443,TransparentTLSHandler)]]
   for cls,ip,port,handler,transparent_http in bindings:
-   server=cls((ip,port),handler);server.config=config;server.transparent_http=transparent_http;servers.append(server)
+   try:server=cls((ip,port),handler)
+   except OSError as exc:
+    code=getattr(exc,'winerror',None) or exc.errno
+    kind='in_use' if code in {10048,98} else 'access_denied' if code in {10013,13} else 'unavailable' if code in {10049,99} else 'os_error'
+    log(config,'proxy_start_failed',reason=('ipv6_' if cls is IPv6Server else 'ipv4_')+('http_' if port==80 else 'tls_' if port==443 else 'explicit_')+kind)
+    raise
+   server.config=config;server.transparent_http=transparent_http;servers.append(server)
    threading.Thread(target=server.serve_forever,daemon=True).start()
   log(config,'proxy_ready');time.sleep(config['seconds'])
  finally:
