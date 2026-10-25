@@ -1,10 +1,13 @@
 """C0: qualify repeatable client installation before testing removal of any activity."""
 import re
 BRANCH='research/battlenet-minimal-install-isolation-2026-10-25'
-APPROVAL='lab: approved minimal Battle.net install C0 20261025-a2'
+APPROVAL='lab: approved minimal Battle.net install C0 20261025-p1'
 SETUP_SHA='f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6'
 SETUP_BYTES=4700880
-CASE='C0b-native-install-page-diagnostic'
+CASE='C0c-parallel-baseline'
+REPLICAS={'r1','r2','r3'}
+VERSION_STATES={'unobserved','missing','wrong_type','format_rejected','accepted'}
+BINARY_VERSION_STATES={'accepted','no_resource','native_error','invalid_fixed_info','unstable_file'}
 STATUSES={'not_started','stopped','bounded_install_not_verified','installed_by_defined_gate'}
 PHASES={'guard','baseline','download','identity','native_gate','launch','observe','cleanup','complete'}
 KNOWN_NAMES={'agent.exe','battle.net.exe','battle.net launcher.exe','battle.net-setup.exe','battle.net helper.exe','blizzarderror.exe'}
@@ -12,18 +15,27 @@ ACTION_STATUSES=set('not_attempted not_requested pending no_targets ambiguous_wi
 UI_KEYS={'language','legal','account','installation_options','progress','error'}
 CHECKS={'registry_key_found','registry_location_match','registry_version_present','signed_launcher','signed_client','setup_absent','stable_layout_20_seconds'}
 def authorized(env,platform):
- return (platform=='win32' and env.get('GITHUB_ACTIONS')=='true' and env.get('RUNNER_ENVIRONMENT')=='github-hosted' and env.get('RUNNER_OS')=='Windows' and env.get('GITHUB_REF')=='refs/heads/'+BRANCH and env.get('GITHUB_EVENT_NAME')=='push' and env.get('GITHUB_RUN_ATTEMPT')=='1' and env.get('BNET_MINIMAL_INSTALL')==APPROVAL and env.get('BNET_CASE')==CASE)
+ return (platform=='win32' and env.get('GITHUB_ACTIONS')=='true' and env.get('RUNNER_ENVIRONMENT')=='github-hosted' and env.get('RUNNER_OS')=='Windows' and env.get('GITHUB_REF')=='refs/heads/'+BRANCH and env.get('GITHUB_EVENT_NAME')=='push' and env.get('GITHUB_RUN_ATTEMPT')=='1' and env.get('BNET_MINIMAL_INSTALL')==APPROVAL and env.get('BNET_CASE')==CASE and env.get('BNET_REPLICA') in REPLICAS)
 def installed(checks,launched):
  return launched is True and set(checks)==CHECKS and all(checks[k] is True for k in CHECKS)
 def layout_ready(checks):
  # File-layout stability must not depend on an unrelated registry version field.
  return all(checks.get(k) is True for k in ('signed_launcher','signed_client'))
 def blank(env):
- return dict(schema='bnet-minimal-install-c0b-1',case=CASE,source_commit=env.get('GITHUB_SHA',''),run_id=env.get('GITHUB_RUN_ID',''),status='not_started',phase='guard',error_code=None,target_launched=False,installer={},native_ui_gate=False,language_attempted=False,install_attempted=False,language_status='not_attempted',install_status='not_attempted',samples=0,snapshot_errors=0,gui_errors=0,known_process_counts={},public_endpoints=[],endpoints_truncated=False,install_checks={k:False for k in sorted(CHECKS)},client_binaries=[],cleanup_attempted=False,observer_seconds=0,native_options_probes=0,native_options_last_status='not_attempted',ui_signal_seen={k:False for k in sorted(UI_KEYS)},ui_signal_last={k:False for k in sorted(UI_KEYS)},intervention='none',login_attempted=False,game_download_requested=False,raw_payloads_exported=False,all_processes_observed=False,all_network_observed=False,necessity_tested=False,telemetry_blocked=False)
+ return dict(schema='bnet-minimal-install-c0c-1',case=CASE,replica=env.get('BNET_REPLICA',''),started_at=None,ended_at=None,registry_version_state='unobserved',source_commit=env.get('GITHUB_SHA',''),run_id=env.get('GITHUB_RUN_ID',''),status='not_started',phase='guard',error_code=None,target_launched=False,installer={},native_ui_gate=False,language_attempted=False,install_attempted=False,language_status='not_attempted',install_status='not_attempted',samples=0,snapshot_errors=0,gui_errors=0,known_process_counts={},public_endpoints=[],endpoints_truncated=False,install_checks={k:False for k in sorted(CHECKS)},client_binaries=[],cleanup_attempted=False,observer_seconds=0,native_options_probes=0,native_options_last_status='not_attempted',ui_signal_seen={k:False for k in sorted(UI_KEYS)},ui_signal_last={k:False for k in sorted(UI_KEYS)},intervention='none',login_attempted=False,game_download_requested=False,raw_payloads_exported=False,all_processes_observed=False,all_network_observed=False,necessity_tested=False,telemetry_blocked=False)
 def validate(v):
  expected=set(blank({}))
- if type(v) is not dict or set(v)!=expected or v['schema']!='bnet-minimal-install-c0b-1' or v['case']!=CASE:raise ValueError('report_schema')
+ if type(v) is not dict or set(v)!=expected or v['schema']!='bnet-minimal-install-c0c-1' or v['case']!=CASE:raise ValueError('report_schema')
  if not re.fullmatch('[a-f0-9]{40}',v['source_commit']) or not re.fullmatch('[0-9]{1,30}',v['run_id']):raise ValueError('report_identity')
+ if v['replica'] not in REPLICAS or v['registry_version_state'] not in VERSION_STATES:raise ValueError('replica_or_version_state')
+ from datetime import datetime
+ for k in ('started_at','ended_at'):
+  if v[k] is not None:
+   if type(v[k]) is not str or not re.fullmatch(r'[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z',v[k]):raise ValueError('timestamp')
+   datetime.strptime(v[k],'%Y-%m-%dT%H:%M:%SZ')
+ if v['ended_at'] is not None and (v['started_at'] is None or v['ended_at']<v['started_at']):raise ValueError('timestamp_order')
+ if v['target_launched'] and v['started_at'] is None:raise ValueError('launch_timestamp')
+ if v['registry_version_state']=='accepted' and not v['install_checks']['registry_version_present']:raise ValueError('registry_version_crossfoot')
  if v['status'] not in STATUSES or v['phase'] not in PHASES:raise ValueError('report_status')
  if v['error_code'] is not None and not re.fullmatch('[a-z0-9_]{1,100}',v['error_code']):raise ValueError('error_code')
  flags=('target_launched','native_ui_gate','language_attempted','install_attempted','endpoints_truncated','cleanup_attempted','login_attempted','game_download_requested','raw_payloads_exported','all_processes_observed','all_network_observed','necessity_tested','telemetry_blocked')
@@ -54,8 +66,14 @@ def validate(v):
   if not isinstance(v[key],str) or v[key] not in ACTION_STATUSES:raise ValueError('action_status')
  if type(v['client_binaries']) is not list or len(v['client_binaries'])>8:raise ValueError('binaries')
  for b in v['client_binaries']:
-  if type(b) is not dict or set(b)!={'kind','sha256','bytes','signature_accepted'} or b['kind'] not in ('launcher','client'):raise ValueError('binary_schema')
+  if type(b) is not dict or set(b)!={'kind','sha256','bytes','signature_accepted','file_version','version_status'} or b['kind'] not in ('launcher','client'):raise ValueError('binary_schema')
   if not re.fullmatch('[a-f0-9]{64}',b['sha256']) or type(b['bytes']) is not int or not 0<b['bytes']<=128*1024**2 or type(b['signature_accepted']) is not bool:raise ValueError('binary_values')
+  if b['version_status'] not in BINARY_VERSION_STATES:raise ValueError('binary_version_status')
+  if b['version_status']=='accepted':
+   if type(b['file_version']) is not str or not re.fullmatch(r'[0-9]{1,5}(?:\.[0-9]{1,5}){3}',b['file_version']):raise ValueError('binary_version')
+   parts=list(map(int,b['file_version'].split('.')))
+   if max(parts)>65535 or not any(parts):raise ValueError('binary_version')
+  elif b['file_version']!='':raise ValueError('binary_version')
  for kind in ('launcher','client'):
   if v['install_checks']['signed_'+kind] and not any(b['kind']==kind and b['signature_accepted'] for b in v['client_binaries']):raise ValueError('binary_check_not_backed')
  if (v['language_attempted'] or v['install_attempted']) and not v['target_launched']:raise ValueError('action_without_launch')
