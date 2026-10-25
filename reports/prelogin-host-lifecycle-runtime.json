@@ -1,14 +1,14 @@
 {
-  "schema": "bnet-host-lifecycle-4",
-  "source_commit": "e4346372bc0e097f8a4d3d6a0ce85ff31bb3d77c",
-  "run_id": "40145069834",
-  "status": "inconclusive",
-  "error_code": "second_phase_ineligible",
+  "schema": "bnet-host-lifecycle-5",
+  "source_commit": "2040c935f020598cc1d7453a31567fdb6f4472f3",
+  "run_id": "40145528838",
+  "status": "same_host_id_after_process_restart",
+  "error_code": null,
   "first_native_gate_passed": true,
   "same_machine": true,
   "configuration_preserved": true,
   "second_start_clean_processes": true,
-  "comparison": null,
+  "comparison": true,
   "phases": [
     {
       "launched": true,
@@ -29,51 +29,43 @@
     },
     {
       "launched": true,
-      "completed": false,
+      "completed": true,
       "bootstrap_pin_match": true,
       "instrumented_processes": 4,
       "collector_errors": 0,
       "dropped_events": 0,
-      "collector_fatal": true,
-      "request_count": 6,
-      "hardware_requests": 0,
-      "wire_linked_hardware_requests": 0,
-      "host_id_observations": 0,
-      "host_id_unique": 0,
+      "collector_fatal": false,
+      "request_count": 11,
+      "hardware_requests": 1,
+      "wire_linked_hardware_requests": 1,
+      "host_id_observations": 1,
+      "host_id_unique": 1,
       "invalid_host_id_events": 0,
-      "all_processes_instrumented": false,
+      "all_processes_instrumented": true,
       "language_status": "other"
     }
   ],
   "second_diagnostics": {
-    "stage": "observe",
-    "error_type": "RuntimeError",
-    "refusal_reason": "helper_policy_refused",
-    "refused_image": {
-      "status": "metadata_complete",
-      "basename_class": "agenthelper.exe",
-      "path_class": "battle_net_programdata",
-      "image_bytes": 3642064,
-      "image_file_sha256": "a3a444e6bd163732a648967c01a5fd509f7f33d6963b381c19bdffb604138651",
-      "authenticode_valid": true,
-      "publisher_class": "blizzard",
-      "winverifytrust_status": 0,
-      "blocked_before_resume": true,
-      "execution_authorized": false
-    },
+    "stage": "complete",
+    "error_type": null,
+    "refusal_reason": null,
+    "refused_image": null,
     "helper_decisions": [
       {
         "checks": {
           "basename_pinned": true,
           "content_pinned": true,
           "parent_process_pinned": true,
-          "live_parent_identity_matches": false,
+          "live_parent_identity_matches": true,
           "signature_trusted_blizzard": true,
           "helper_under_agent_root": true,
           "path_not_reparse": true,
-          "same_version_directory": false
+          "same_version_directory": false,
+          "parent_creation_matches": true,
+          "parent_path_matches": false,
+          "parent_live_image_pinned": true
         },
-        "approved": false
+        "approved": true
       }
     ],
     "processes": [
@@ -102,11 +94,11 @@
         "script_errors": 0
       },
       {
-        "name": "other",
-        "phase": "verify",
-        "status": "refused_or_failed",
-        "error_type": "RuntimeError",
-        "instrumented_before_resume": false,
+        "name": "agenthelper.exe",
+        "phase": "observing",
+        "status": "resumed",
+        "error_type": null,
+        "instrumented_before_resume": true,
         "script_errors": 0
       }
     ]
