@@ -18,20 +18,27 @@ if root:
  r['driver']=subset(d,'stage failure_stage error_code gate_verified_before_launch gate_verified_after_observation baseline_canary_connected blocked_canary_connected post_restore_canary_connected target_launch_attempted target_launched owner_exit_confirmed')
  r['owner']=subset(o,'target_launched assigned_before_resume job_active_zero_before_close root_exited new_process_events process_exit_events unresolved_event_count unique_observed_identities observation_seconds')
  r['ui']=subset(u,'language_attempted language_status language_continue_returned outcome_uncertain install_action_requested ui_probe_errors language_probes')
- r['recovery']=subset(rec,'status origin system_identity owned_job_ended registration_changes outside_job_target_candidates restore_refused firewall_restored iis_restored error_code')
+ r['recovery']=subset(rec,'status origin system_identity owned_job_ended registration_changes outside_job_target_candidates restore_refused firewall_restored iis_restored error_code stage')
+ r['recovery_error_shape']=subset(rec.get('error_shape',{}),'type id line source')
  r['installer_launched']=True if launch.get('target_launched') is True else d.get('target_launched')
  # Owner failure message is emitted as a restricted enum, never raw stdout/stderr.
  err=read(root/'owner-stdout.private.txt')
  if err.get('error_code'):r['owner_error_code']=enum(err['error_code']);r['owner_failure_diagnostic']=subset(err,'failure_stage error_type error_hresult');r['owner_failure_proof']=subset(read(root/'owner-failure.json'),'target_launched assigned_before_resume root_created job_active_zero_before_close root_exited failure_stage')
  identities=[]
- if isinstance(launch.get('root'),dict):identities.append(launch['root'])
+ if isinstance(launch.get('root'),dict):identities.append(dict(launch['root'],evidence='job_observed'))
  ep=root/'private-events.jsonl'
  if ep.exists() and ep.stat().st_size<=1048576:
   for line in ep.read_text(encoding='utf-8-sig').splitlines()[:512]:
    try:
     ev=json.loads(line)
-    if ev.get('kind')=='new_process' and isinstance(ev.get('identity'),dict):identities.append(ev['identity'])
+    if ev.get('kind')=='new_process' and isinstance(ev.get('identity'),dict):identities.append(dict(ev['identity'],evidence='job_observed'))
    except Exception:pass
+ for item in read(root/'outside-candidates.json').get('items',[])[:32]:identities.append(dict(item,evidence='post_job_unattributed'))
+ # Count changed registrations by kind; names, commands and task XML remain private.
+ before=read(root/'registrations-before.json');after=read(root/'registrations-after.json');r['registration_changes_by_kind']={}
+ for kind in ['services','tasks']:
+  a=before.get(kind,{});b=after.get(kind,{})
+  r['registration_changes_by_kind'][kind]=sum(a.get(k)!=b.get(k) for k in set(a)|set(b)) if a and b else None
  seen=set();hashed=0
  names={'battle.net-setup.exe':'Battle.net-Setup.exe','agent.exe':'Agent.exe','battle.net.exe':'Battle.net.exe','battle.net launcher.exe':'Battle.net Launcher.exe','blizzarderror.exe':'BlizzardError.exe','conhost.exe':'conhost.exe','msiexec.exe':'msiexec.exe'}
  def category(p):
@@ -51,8 +58,8 @@ if root:
    if not any(x.is_symlink() or bool(getattr(x.lstat(),'st_file_attributes',0)&0x400) for x in parents) and size<=67108864 and hashed+size<=268435456:
     digest=hashlib.sha256(p.read_bytes()).hexdigest();hashed+=size
   except Exception:pass
-  item={'name':names.get(p.name.lower(),'other_executable'),'path_category':category(p),'sha256':digest,'signature':'verified_before_gate' if category(p)=='setup_exact' and pre.get('signature_accepted') else 'not_verified','observed_instances':1}
-  matching=next((x for x in r['components'] if all(x[k]==item[k] for k in ['name','path_category','sha256'])),None)
+  item={'name':names.get(p.name.lower(),'other_executable'),'path_category':category(p),'sha256':digest,'signature':'verified_before_gate' if category(p)=='setup_exact' and pre.get('signature_accepted') else 'not_verified','observed_instances':1,'evidence':identity.get('evidence','unavailable')}
+  matching=next((x for x in r['components'] if all(x[k]==item[k] for k in ['name','path_category','sha256','evidence'])),None)
   if matching:matching['observed_instances']+=1
   elif len(r['components'])<32:r['components'].append(item)
  good=(pre.get('matches_pin') is True and pre.get('signature_accepted') is True and pre.get('ui_helper_ready') is True and r['installer_launched'] is True and all(d.get(k) is True for k in ['gate_verified_before_launch','gate_verified_after_observation','baseline_canary_connected','post_restore_canary_connected','owner_exit_confirmed']) and d.get('blocked_canary_connected') is False and not d.get('error_code') and all(o.get(k) is True for k in ['assigned_before_resume','job_active_zero_before_close','root_exited']) and rec.get('status')=='restored_after_scoped_exit_checks' and rec.get('system_identity') is True and rec.get('firewall_restored') is True and not rec.get('registration_changes') and not rec.get('outside_job_target_candidates'))

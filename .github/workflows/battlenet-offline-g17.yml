@@ -40,6 +40,7 @@ jobs:
           & $csc @('/nologo','/target:exe','/platform:x64','/r:System.Web.Extensions.dll',('/out:'+(Join-Path "$env:RUNNER_TEMP\bnet-g17-bin" 'OfflineLauncher.exe')),$source,$signature)
           if($LASTEXITCODE -ne 0){throw 'launcher_build_failed'}
       - name: Observe pinned real Setup with target outbound closed
+        timeout-minutes: 4
         shell: powershell
         run: '& ./analysis-tools/offline-bootstrap-g17/Driver.ps1'
       - name: Bounded component-first fallback, never unconditional policy release

@@ -55,5 +55,5 @@ try{
  $post=(& $c.helper canary $config | ConvertFrom-Json);$r.post_restore_canary_connected=$post.connected
  Unregister-ScheduledTask $c.cleanup_task_name -Confirm:$false
 }catch{$r.failure_stage=$r.stage;$m=$_.Exception.Message;$r.error_code=if($m -match '^[a-z_]{1,100}$'){$m}else{'offline_observation_operation_failed'}}
-finally{if($owner){$owner.Dispose()};if($ui){$ui.Dispose()};$r.stage='complete';if(Test-Path $root){Save-Private (Join-Path $root 'driver-result.json') $r};Write-Output ($r | ConvertTo-Json -Compress -Depth 5)}
+finally{if($owner){$owner.Dispose()};if($ui){$ui.Dispose()};$r.stage='complete';if(Test-Path $root){Save-Private (Join-Path $root 'driver-result.json') $r};Write-Output ($r | ConvertTo-Json -Compress -Depth 5);& python (Join-Path $PSScriptRoot 'Reporter.py')}
 if($r.error_code){throw 'offline_real_setup_observation_stopped'}

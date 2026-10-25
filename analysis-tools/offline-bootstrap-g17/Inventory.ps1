@@ -15,7 +15,7 @@ function Get-RegistrationSnapshot {
  return @{services=$services;tasks=$tasks;service_commands=$serviceCommands;task_images=$taskImages}
 }
 function Registration-Changes($Context){
- $before=Get-Content -Raw (Join-Path $Context.root 'registrations-before.json') | ConvertFrom-Json;$after=Get-RegistrationSnapshot;$changed=0
+ $before=Get-Content -Raw (Join-Path $Context.root 'registrations-before.json') | ConvertFrom-Json;$after=Get-RegistrationSnapshot;Save-Private (Join-Path $Context.root 'registrations-after.json') $after;$changed=0
  foreach($kind in @('services','tasks')){
   $prior=@{};foreach($entry in $before.$kind.PSObject.Properties){$prior[$entry.Name]=[string]$entry.Value}
   foreach($key in $after[$kind].Keys){if(-not $prior.ContainsKey($key) -or $prior[$key] -ne $after[$kind][$key]){$changed++}}
