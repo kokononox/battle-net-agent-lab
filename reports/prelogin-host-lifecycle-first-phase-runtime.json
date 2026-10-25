@@ -1,13 +1,13 @@
 {
   "schema": "bnet-prelogin-wire-h3-target-7",
-  "source_commit": "ac914db9e53d8733322877f108f755c024c7fc8c",
-  "run_id": "40194509544",
+  "source_commit": "a0a9e4cbfedf32d999da99e40fa8ec7e967cd4cc",
+  "run_id": "40195322260",
   "status": "observation_complete",
   "error_code": null,
   "selftest": {
     "schema": "bnet-h3-owned-fixtures-6",
-    "source_commit": "ac914db9e53d8733322877f108f755c024c7fc8c",
-    "run_id": "40194509544",
+    "source_commit": "a0a9e4cbfedf32d999da99e40fa8ec7e967cd4cc",
+    "run_id": "40195322260",
     "target_launched": false,
     "game_download_requested": false,
     "raw_values_exported": false,
@@ -35,13 +35,13 @@
         "collector_errors": 0,
         "dropped_events": 0,
         "collector_fatal": false,
-        "completed_operations": 9,
+        "completed_operations": 8,
         "pending_socket_events": 3,
-        "unlinked_immediate_socket_events": 6,
+        "unlinked_immediate_socket_events": 7,
         "diagnostics": {},
         "observations": {},
         "capture_issues": {},
-        "packet_count": 148,
+        "packet_count": 221,
         "witness": {
           "large_recv": true,
           "multibuffer_recv": true,
@@ -82,26 +82,18 @@
         "unlinked_immediate_socket_events": 0,
         "diagnostics": {},
         "observations": {
-          "send|submission|synchronous": 12,
-          "recv|submission|synchronous": 17,
+          "send|submission|synchronous": 8,
+          "recv|submission|synchronous": 3,
           "WSARecv|submission|synchronous": 1,
-          "WSARecv|submission|pending": 3,
+          "WSARecv|submission|pending": 1,
           "GetOverlappedResultEx|completion_call|false": 1,
           "GetOverlappedResult|completion_call|false": 1,
           "GetOverlappedResultEx|completion_call|true": 2,
           "GetOverlappedResult|completion_call|true": 2,
-          "WSASend|submission|immediate": 1,
-          "BindIoCompletionCallback|registration|true": 1,
-          "BindIoCompletionCallback|completion_call|true": 1,
-          "CreateThreadpoolIo|registration|true": 1,
-          "CreateThreadpoolIo|completion_call|true": 1,
-          "NtRemoveIoCompletion|completion_call|true": 1,
-          "GetQueuedCompletionStatus|completion_call|true": 1,
-          "NtRemoveIoCompletion|completion_call|false": 1,
-          "GetQueuedCompletionStatus|completion_call|false": 1
+          "WSASend|submission|immediate": 1
         },
         "capture_issues": {},
-        "packet_count": 121,
+        "packet_count": 142,
         "witness": {
           "large_recv": true,
           "multibuffer_recv": true,
@@ -150,18 +142,20 @@
     "start_code": 0,
     "stop_code": 0,
     "convert_code": 0,
-    "packets": 7099,
-    "issues": {}
+    "packets": 5269,
+    "issues": {
+      "tcp_overlap_conflict": 2
+    }
   },
   "capture_diagnostics": {
-    "etl_bytes": 8085475,
-    "pcap_bytes": 10423140,
+    "etl_bytes": 11464757,
+    "pcap_bytes": 11150032,
     "etl_at_configured_capacity": false
   },
   "capture_policy": {
     "method": "disable_netadapter_lso",
-    "adapter_count": 2,
-    "previously_enabled_count": 2,
+    "adapter_count": 3,
+    "previously_enabled_count": 3,
     "verified_disabled": true
   },
   "link_diagnostics": [],
