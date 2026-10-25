@@ -2,7 +2,7 @@ param([Parameter(Mandatory=$true)][string]$Config)
 . (Join-Path $PSScriptRoot 'Common.ps1')
 $c=Read-Context $Config;$mutex=$null;$phase='lease'
 try{
- if($env:BNET_INTEGRATED_G16 -ne 'lab: approved peer firewall integration G16 20261025' -or $env:RUNNER_ENVIRONMENT -ne 'github-hosted' -or $env:GITHUB_ACTIONS -ne 'true' -or $env:GITHUB_RUN_ATTEMPT -ne '1'){throw 'fresh_hosted_supervisor_required'}
+ if($env:BNET_INTEGRATED_G16 -ne 'lab: approved peer firewall integration G16a 20261025' -or $env:RUNNER_ENVIRONMENT -ne 'github-hosted' -or $env:GITHUB_ACTIONS -ne 'true' -or $env:GITHUB_RUN_ATTEMPT -ne '1'){throw 'fresh_hosted_supervisor_required'}
  $mutex=Enter-Lease $c;$lease=Get-Content -Raw (Join-Path $c.root 'lease.json') | ConvertFrom-Json
  if($lease.phase -ne 'prepared'){throw 'launch_lease_not_prepared'}
  $phase='lease_write';Save-Private (Join-Path $c.root 'lease.json') @{phase='active'}

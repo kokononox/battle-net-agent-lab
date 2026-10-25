@@ -3,22 +3,29 @@ param([Parameter(Mandatory=$true)][string]$Config,[ValidateSet('deadline','fallb
 . (Join-Path $PSScriptRoot 'Inventory.ps1')
 $c=Read-Context $Config;$mutex=$null;$job=[IntPtr]::Zero;$handles=New-Object Collections.Generic.List[Diagnostics.Process]
 $r=[ordered]@{schema='bnet-integrated-recovery-g16-1';origin=$Origin;system_identity=([Security.Principal.WindowsIdentity]::GetCurrent().User.Value -eq 'S-1-5-18');status='stopped';lease_closed=$false;abandoned_mutex_reclaimed=$false;unknown_task_detected=$false;unknown_service_detected=$false;unknown_process_detected=$false;restore_refused_for_unknown=$false;gate_proxy_closed=$false;global_service_change_count=0;global_task_change_count=0;peer_ledger_revoked=$false;foreign_job_member=$false;unclassified_process_count=0;supervisor_exited=$false;service_removed=$false;task_removed=$false;job_active_zero=$false;all_observed_members_exited=$false;fixture_images_gone=$false;hosts_restored=$false;firewall_restored=$false;iis_restored=$false;error_code=$null;error_shape=$null}
+function Recovery-Stage([string]$Stage){Save-Private (Join-Path $c.root 'recovery-progress.json') @{stage=$Stage;origin=$Origin;system_identity=$r.system_identity}}
 try{
+ Recovery-Stage 'await_lease'
  $mutex=Enter-Lease $c;$r.abandoned_mutex_reclaimed=$script:LastLeaseAbandoned
  $lease=Get-Content -Raw (Join-Path $c.root 'lease.json') | ConvertFrom-Json
  if($lease.phase -eq 'released'){
   # Do not replace a prior deadline receipt during always-step cleanup.
   exit 0
  }
+ Recovery-Stage 'close_lease'
  Save-Private (Join-Path $c.root 'lease.json') @{phase='releasing'};$r.lease_closed=$true
+ Recovery-Stage 'revoke_peers'
  Write-Peers $c @();$r.peer_ledger_revoked=$true
+ Recovery-Stage 'close_proxy'
  Close-ProxyForQuarantine $c;$r.gate_proxy_closed=$true
+ Recovery-Stage 'stop_supervisor'
  if(Test-Path (Join-Path $c.root 'supervisor-process.json')){
   $id=Get-Content -Raw (Join-Path $c.root 'supervisor-process.json') | ConvertFrom-Json;$proc=Open-Verified $id
   if($proc){try{$proc.Kill();if(-not $proc.WaitForExit(5000)){throw 'supervisor_survived'}}finally{$proc.Dispose()}}
  }
  $r.supervisor_exited=$true
  $null=[Reflection.Assembly]::LoadFrom($c.exe)
+ Recovery-Stage 'inventory_check'
  $delta=Get-InventoryDelta $c
  $r.global_service_change_count=@($delta.service_names).Count;$r.global_task_change_count=@($delta.task_keys).Count;$r.foreign_job_member=$delta.foreign_job_member;$r.unclassified_process_count=$delta.unclassified_process_count
  if($r.global_service_change_count -gt 0){$r.unknown_service_detected=$true}
@@ -55,6 +62,7 @@ try{
  }
  if($r.unknown_task_detected -or $r.unknown_service_detected -or $r.unknown_process_detected){Close-ProxyForQuarantine $c;$r.gate_proxy_closed=$true;$r.restore_refused_for_unknown=$true;throw 'unclassified_fixture_component_blocks_restore'}
  $null=[Reflection.Assembly]::LoadFrom($c.exe)
+ Recovery-Stage 'job_inspection'
  $job=[ExternalProbe]::OpenOwnedJob($c.job_name)
  if($job -ne [IntPtr]::Zero){
   foreach($member in [ExternalProbe]::JobMembers($job,$c.exe)){$proc=Open-Verified $member;if($proc){$handles.Add($proc)}}
@@ -62,11 +70,13 @@ try{
   $owner=Get-Content -Raw (Join-Path $c.root 'owner.json') | ConvertFrom-Json
   foreach($member in $owner.members){$proc=Open-Verified $member;if($proc){$handles.Add($proc)}}
  }
+ Recovery-Stage 'stop_task'
  $task=Get-ScheduledTask -TaskName $c.task_name -ErrorAction SilentlyContinue
  if($task){
   if(@($task.Actions).Count -ne 1 -or $task.Actions[0].Execute -ne $c.exe -or $task.Actions[0].Arguments -ne $c.task_arguments){throw 'task_identity_changed'}
   $null=Disable-ScheduledTask $c.task_name;$null=New-Item -ItemType File -Force (Join-Path $c.root 'stop-task');Stop-ScheduledTask $c.task_name -ErrorAction SilentlyContinue;Unregister-ScheduledTask $c.task_name -Confirm:$false
  }
+ Recovery-Stage 'stop_service'
  $service=Get-CimInstance Win32_Service -Filter ("Name='"+$c.service_name+"'")
  if($service){
   if($service.PathName -ne $c.service_command){throw 'service_identity_changed'}
@@ -74,6 +84,7 @@ try{
   $ctl=Get-Service $c.service_name;try{$ctl.WaitForStatus('Stopped',[TimeSpan]::FromSeconds(10))}finally{$ctl.Dispose()}
   $null=& "$env:SystemRoot\System32\sc.exe" delete $c.service_name;if($LASTEXITCODE -ne 0){throw 'service_delete_failed'}
  }
+ Recovery-Stage 'terminate_job'
  if($job -ne [IntPtr]::Zero){$r.job_active_zero=[ExternalProbe]::EndOwnedJob($job)}else{$r.job_active_zero=$true}
  if(-not $r.job_active_zero){throw 'job_not_empty'}
  foreach($row in @(Get-CimInstance Win32_Process -Filter "Name='ExternalProbe.exe'")){
@@ -96,16 +107,19 @@ try{
  foreach($row in @(Get-CimInstance Win32_Process -Filter "Name='TwoHostProxy.exe'")){
   if([string]::Equals($row.ExecutablePath,$c.proxy_exe,[StringComparison]::OrdinalIgnoreCase)){$proc=Get-Process -Id $row.ProcessId -ErrorAction SilentlyContinue;if($proc){try{$null=$proc.Handle;if(-not [string]::Equals($proc.MainModule.FileName,$c.proxy_exe,[StringComparison]::OrdinalIgnoreCase)){throw 'proxy_identity_changed'};if(-not $proc.HasExited){try{$proc.Kill()}catch{if(-not $proc.HasExited){throw}}};if(-not $proc.WaitForExit(5000)){throw 'proxy_survived'}}finally{$proc.Dispose()}}}
  }
+ Recovery-Stage 'restore_hosts'
  $hosts="$env:SystemRoot\System32\drivers\etc\hosts";$old=[IO.File]::ReadAllBytes((Join-Path $c.root 'hosts-before.bak'));$expected=[IO.File]::ReadAllBytes((Join-Path $c.root 'hosts-after.expected'));$current=[IO.File]::ReadAllBytes($hosts)
  if((Hash-Bytes $current) -ne (Hash-Bytes $old) -and (Hash-Bytes $current) -ne (Hash-Bytes $expected)){throw 'hosts_restore_conflict'}
  [IO.File]::WriteAllBytes($hosts,$old);$null=& "$env:SystemRoot\System32\ipconfig.exe" /flushdns
  $r.hosts_restored=($LASTEXITCODE -eq 0 -and (Hash-Bytes ([IO.File]::ReadAllBytes($hosts))) -eq (Hash-Bytes $old))
  if(-not $r.hosts_restored){throw 'hosts_restore_not_verified'}
+ Recovery-Stage 'restore_firewall'
  $restored=Invoke-Gate $c 'Restore';$r.firewall_restored=($restored.restored_modified_fields -eq $true)
  if(-not $r.firewall_restored){throw 'firewall_restore_not_verified'}
  if($c.iis_original -eq 'Running'){Start-Service W3SVC;$ctl=Get-Service W3SVC;try{$ctl.WaitForStatus('Running',[TimeSpan]::FromSeconds(15))}finally{$ctl.Dispose()}}
  $r.iis_restored=([string](Get-Service W3SVC).Status -eq $c.iis_original)
  if(-not $r.iis_restored){throw 'iis_restore_not_verified'}
+ Recovery-Stage 'release_verified'
  Save-Private (Join-Path $c.root 'lease.json') @{phase='released'};$r.status='recovered_after_verified_component_exit'
  Save-Private (Join-Path $c.root 'recovery-result.json') $r
  Unregister-ScheduledTask $c.watchdog_name -Confirm:$false -ErrorAction SilentlyContinue
