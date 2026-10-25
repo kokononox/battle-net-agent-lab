@@ -1,0 +1,34 @@
+{
+  "source_commit": "0994a4d9a0f3a97428d22bcdf8ab104ff98867a3",
+  "run_id": "40240686811",
+  "results": [
+    {
+      "environment": "stripped",
+      "exit_code": 2,
+      "reply": {
+        "failure_stage": "prepare_export",
+        "error_code": "backup_failed",
+        "export_exit_code": null,
+        "error_type": "RuntimeException",
+        "backup_exists": false,
+        "backup_length": 0
+      },
+      "backup_exists": false,
+      "backup_length": 0,
+      "state_exists": false,
+      "stderr_nonempty": false
+    },
+    {
+      "environment": "stripped_with_pathext",
+      "exit_code": 0,
+      "reply": {
+        "prepared": true
+      },
+      "backup_exists": true,
+      "backup_length": 208896,
+      "state_exists": true,
+      "stderr_nonempty": false
+    }
+  ],
+  "firewall_mutation_attempted": false
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "quarantine_system_g41_v1",
+  "source_commit": "f1c732b7040e149b73ff925de4c664a95c9ac2ba",
+  "run_id": "40239544410",
+  "status": "incomplete",
+  "scenarios": [
+    {
+      "mode": "finish",
+      "coordinator_exit_code": 2,
+      "case": {
+        "mode": "finish",
+        "baseline_connected": true,
+        "blocked_connected": null,
+        "gate_before": false,
+        "gate_after": false,
+        "capture_blocked": false,
+        "private_capture_stored": false,
+        "private_marker_retained": false,
+        "public_marker_absent": false,
+        "credential_redacted": false,
+        "fixture_alive_during_gate": false,
+        "error_code": "backup_failed",
+        "stage": "prepare_gate"
+      },
+      "gate_armed": false,
+      "passed": false,
+      "gate_error": {
+        "error_code": "backup_failed"
+      },
+      "recovery": {
+        "job_terminated": true,
+        "job_active_zero": true,
+        "no_firewall_mutation": true,
+        "firewall_restored": false,
+        "fingerprint_match": null,
+        "reason": "pre_gate_stop"
+      },
+      "watchdog_exited": false,
+      "post_restore_connected": true
+    }
+  ],
+  "canary_host": "us.version.battle.net",
+  "canary_port": 443,
+  "canary_application_payload_sent": false,
+  "installer_executed": false,
+  "battlenet_payload_downloaded": false,
+  "private_captures_published": false,
+  "management_exceptions_are_ci_only": true,
+  "original_production_recovery_changed": false,
+  "error_code": "integration_case_failed",
+  "fallback_scoped_recovery_ok": true,
+  "source_sha256": {
+    "common.py": "a41044de1266f73743b14e3403f207366306e98cb8496eb32f73571ed96d515e",
+    "component.py": "595d29c0f2186eda9c097e12d0095f1abbb170de9c693b08d9743e2f34854ed1",
+    "coordinator.py": "e36caa5502b668fd2dd2d8e73af5f83950899ced5383fd652aab19de749aba87",
+    "domain_proxy.py": "7dfcbce436a8bd49d2e2c90502d193d404dea0d5aa7e37276d738db4a69b79e2",
+    "Gate.ps1": "3a555ed7a5fee8f87f266942d76fbac8b353bb91f8a8494396e5102a55d89c2c",
+    "native.py": "82aa7d4456ba9e2ac91e727f55f2ce10a85a45ff36e3be1e97347cae62b73720",
+    "peer_guard.py": "7aeda6fad7bfcd1655c5124317dc4e8c540c8356a8e20dce102c2ca10d8f8eb5",
+    "PrivateStore.cs": "16049de09baf71ed4271ee01c3b0150dc5ef6a4055ca05b6635468ae7066a1dc",
+    "quarantine.py": "e0de16ce6e9b699f8f5c240b8035a55903b19b91327a6bc35c350e8fff0b16df",
+    "quarantine_handler.py": "616d6ac709d33683197eec8b7158240d395252180a69610238cb878914728531",
+    "recovery.py": "81aeab03f4a2b1315ab09ba040e5fc879e068f4fd916e8f74ce92576c7cf9bb9",
+    "run_integrated.py": "6defca808eaa9fe922a4ee0812bcb33c6519d9fe479b9c749e6ae052b3c60931",
+    "tls_records.py": "58c67bd55eaf7a87cc41f546bb4ca67a3185a622cfce282f7b1d1b2e84971d3f",
+    "windows_store.py": "467a3832a848b967181144b21f75a54ce50332fff6c8fd2e9a282a04c09caef6"
+  }
+}

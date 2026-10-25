@@ -1,0 +1,33 @@
+{
+  "schema": "quarantine_system_g41_v1",
+  "source_commit": "e51c0eca69788a36d34e378b3fa4b8b656aefb73",
+  "run_id": "40238935411",
+  "status": "incomplete",
+  "scenarios": [],
+  "canary_host": "us.version.battle.net",
+  "canary_port": 443,
+  "canary_application_payload_sent": false,
+  "installer_executed": false,
+  "battlenet_payload_downloaded": false,
+  "private_captures_published": false,
+  "management_exceptions_are_ci_only": true,
+  "original_production_recovery_changed": false,
+  "error_code": "receipt_timeout",
+  "fallback_scoped_recovery_ok": false,
+  "source_sha256": {
+    "common.py": "e35f8eec426cfc6893b22aa5292a5de631e57e8cdf10f4e45077b26121136c84",
+    "component.py": "595d29c0f2186eda9c097e12d0095f1abbb170de9c693b08d9743e2f34854ed1",
+    "coordinator.py": "9e1eeab312a021c38cbf750b6e1c80c68fcdddc40ff919a340afdbb46cdcc24e",
+    "domain_proxy.py": "7dfcbce436a8bd49d2e2c90502d193d404dea0d5aa7e37276d738db4a69b79e2",
+    "Gate.ps1": "e6b9f82d0531a7dfb3b875027c4af6e6b9747777f8e51c97c60c6e7e8d5e3cd2",
+    "native.py": "82aa7d4456ba9e2ac91e727f55f2ce10a85a45ff36e3be1e97347cae62b73720",
+    "peer_guard.py": "7aeda6fad7bfcd1655c5124317dc4e8c540c8356a8e20dce102c2ca10d8f8eb5",
+    "PrivateStore.cs": "16049de09baf71ed4271ee01c3b0150dc5ef6a4055ca05b6635468ae7066a1dc",
+    "quarantine.py": "e0de16ce6e9b699f8f5c240b8035a55903b19b91327a6bc35c350e8fff0b16df",
+    "quarantine_handler.py": "616d6ac709d33683197eec8b7158240d395252180a69610238cb878914728531",
+    "recovery.py": "81aeab03f4a2b1315ab09ba040e5fc879e068f4fd916e8f74ce92576c7cf9bb9",
+    "run_integrated.py": "713f11af565e1eea910ae49fefca2bfb454f8dba60a64aae7defa03424edc04e",
+    "tls_records.py": "58c67bd55eaf7a87cc41f546bb4ca67a3185a622cfce282f7b1d1b2e84971d3f",
+    "windows_store.py": "467a3832a848b967181144b21f75a54ce50332fff6c8fd2e9a282a04c09caef6"
+  }
+}
