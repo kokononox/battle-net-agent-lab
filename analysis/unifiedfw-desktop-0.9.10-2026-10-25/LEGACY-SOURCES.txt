@@ -1,0 +1,7 @@
+Official Microsoft references for event meaning (no executable downloads are run):
+Sysmon Event ID 22: per-process DNS queries, successful/failed, cached/not cached; requires existing Sysmon/configuration.
+https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
+Security 5157: Windows Filtering Platform blocked a connection; Audit Filtering Platform Connection subcategory. Not an attribution to this app's specific blacklist rule.
+https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-5157
+
+0.9.1 scoped restoration reuses hosts_view.py and hosts_edit.py from the user-provided WoW-Blacklist-0.1.0.zip app source (embedded UI 0.1.8); hosts_edit rollback readback verification added. No private captures/output were copied. New monitor uses unchanged multi-EXE observe-core.ps1. Native engine and protected journal untouched.
