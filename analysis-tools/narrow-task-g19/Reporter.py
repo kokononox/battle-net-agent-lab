@@ -44,8 +44,9 @@ if root:
  for item in read(root/'outside-candidates.json').get('items',[])[:32]:identities.append(dict(item,evidence='post_job_unattributed'))
  # Count changed registrations by kind; names, commands and task XML remain private.
  before=read(root/'registrations-before.json');after=read(root/'registrations-after.json');r['registration_changes_by_kind']={};r['registration_differences']=[]
+ r['registration_diff_complete']=all(k in before and k in after for k in ['services','tasks'])
  for kind in ['services','tasks']:
-  a=before.get(kind,{});b=after.get(kind,{})
+  a=before.get(kind,{}) if r['registration_diff_complete'] else {};b=after.get(kind,{}) if r['registration_diff_complete'] else {}
   r['registration_changes_by_kind'][kind]=sum(a.get(k)!=b.get(k) for k in set(a)|set(b)) if a and b else None
   for key in sorted(set(a)|set(b)):
    if a.get(key)==b.get(key):continue
