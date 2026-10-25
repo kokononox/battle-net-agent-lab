@@ -1,0 +1,98 @@
+{
+  "schema": "static_resource_candidates_g42_v1",
+  "bootstrap_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+  "production_catalog_modified": false,
+  "runtime_approved_entries": 0,
+  "candidates": [
+    {
+      "kind": "bootstrap_acquisition_only",
+      "url": "https://downloader.battle.net/download/installer/win/1.0.68/Battle.net-Setup.exe",
+      "expected_bytes": 4700880,
+      "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "status": "research_acquired_not_runtime_approved",
+      "note": "Manual installation remains user-owned; bootstrap is not a complete payload manifest."
+    },
+    {
+      "kind": "download_discovery_components",
+      "product_code": "bna",
+      "client_product_code": "Bna",
+      "patch_product_code": "BBNR",
+      "version_domain_fragment": ".version.battle.net",
+      "version_path_fragment": "/versions",
+      "status": "pending_full_request_and_manifest_review",
+      "note": "Separate static facts, not a verified complete request template. No resource URL fetched."
+    },
+    {
+      "kind": "static_endpoint_string",
+      "string": ".version.battlenet.com.cn/",
+      "offset": 3423904,
+      "status": "not_approved",
+      "review_class": "unknown_purpose_or_dynamic_template",
+      "executed_or_requested": false
+    },
+    {
+      "kind": "static_endpoint_string",
+      "string": ".version.battle.net/",
+      "offset": 3423932,
+      "status": "not_approved",
+      "review_class": "unknown_purpose_or_dynamic_template",
+      "executed_or_requested": false
+    },
+    {
+      "kind": "static_endpoint_string",
+      "string": "https://nydus.battle.net/App/%s/setup/app",
+      "offset": 3562172,
+      "status": "not_approved",
+      "review_class": "unknown_purpose_or_dynamic_template",
+      "executed_or_requested": false
+    },
+    {
+      "kind": "static_endpoint_string",
+      "string": "http://nydus.battle.net/App/%s/setup/error/%s",
+      "offset": 3563204,
+      "status": "not_approved",
+      "review_class": "unknown_purpose_or_dynamic_template",
+      "executed_or_requested": false
+    },
+    {
+      "kind": "static_endpoint_string",
+      "string": "https://cn.version.battlenet.com.cn",
+      "offset": 3570528,
+      "status": "not_approved",
+      "review_class": "unknown_purpose_or_dynamic_template",
+      "executed_or_requested": false
+    },
+    {
+      "kind": "static_endpoint_string",
+      "string": ".version.battle.net",
+      "offset": 3570564,
+      "status": "not_approved",
+      "review_class": "unknown_purpose_or_dynamic_template",
+      "executed_or_requested": false
+    },
+    {
+      "kind": "static_endpoint_string",
+      "string": "http://nydus.battle.net/geoip",
+      "offset": 3574056,
+      "status": "not_approved",
+      "review_class": "unknown_purpose_or_dynamic_template",
+      "executed_or_requested": false
+    },
+    {
+      "kind": "static_endpoint_string",
+      "string": "https://telemetry-in.battle.net/data",
+      "offset": 3708964,
+      "status": "not_approved",
+      "review_class": "telemetry_review_required",
+      "executed_or_requested": false
+    },
+    {
+      "kind": "static_endpoint_string",
+      "string": "https://telemetry-in.battlenet.com.cn/data",
+      "offset": 3709020,
+      "status": "not_approved",
+      "review_class": "telemetry_review_required",
+      "executed_or_requested": false
+    }
+  ]
+}

@@ -1,0 +1,2347 @@
+{
+  "input_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+  "pe_machine": 332,
+  "pe_format": "PE32",
+  "sections": [
+    {
+      "name": ".text",
+      "virtual_size": 3090764,
+      "rva": 4096,
+      "raw_size": 3090944,
+      "raw_offset": 1024
+    },
+    {
+      "name": ".rdata",
+      "virtual_size": 869638,
+      "rva": 3096576,
+      "raw_size": 869888,
+      "raw_offset": 3091968
+    },
+    {
+      "name": ".data",
+      "virtual_size": 89841,
+      "rva": 3969024,
+      "raw_size": 58368,
+      "raw_offset": 3961856
+    },
+    {
+      "name": ".rsrc",
+      "virtual_size": 538192,
+      "rva": 4059136,
+      "raw_size": 538624,
+      "raw_offset": 4020224
+    },
+    {
+      "name": ".reloc",
+      "virtual_size": 131520,
+      "rva": 4599808,
+      "raw_size": 131584,
+      "raw_offset": 4558848
+    }
+  ],
+  "resources": [
+    {
+      "path": [
+        "FONT",
+        "NOTOSANS-BOLD-MINIMAL.TTF",
+        0
+      ],
+      "offset": 4024864,
+      "bytes": 81420,
+      "sha256": "3a25e1bc77a569e68890dc2a57bcc65c2d52edf7ea87504347fdee999fa55a1f",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "FONT",
+        "NOTOSANS-REGULAR-MINIMAL.TTF",
+        0
+      ],
+      "offset": 4106284,
+      "bytes": 81896,
+      "sha256": "b9d440fc5251ace21fce7577ea2bc7fe2814ec3909d313556a82a78ababa349f",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "FONT",
+        "OBJECTSANS-BOLD-MINIMAL.TTF",
+        0
+      ],
+      "offset": 4188180,
+      "bytes": 94632,
+      "sha256": "98a449b099107dd189e281c71c6f9f71baaa32d4bb4e0ff64fd64756fcc6476c",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "JSON",
+        "SCREEN.BOOTSTRAP.JSON",
+        0
+      ],
+      "offset": 4282812,
+      "bytes": 902,
+      "sha256": "5d258af4b1f5f1a06932c995821aecead18050c297957cd3d87df910533b774d",
+      "codepage": 1252,
+      "json": {
+        "screen": [
+          {
+            "frame": {
+              "action": "drag",
+              "asset": "bg_small_window.png",
+              "bounds": [
+                0,
+                0,
+                408,
+                108
+              ],
+              "box": [
+                0,
+                0,
+                408,
+                81
+              ]
+            }
+          },
+          {
+            "button": {
+              "action": "exit",
+              "bounds": [
+                374,
+                6,
+                21,
+                19
+              ],
+              "image_disabled": "btn_win_close_normal.png",
+              "image_down": "btn_win_close_hover.png",
+              "image_hover": "btn_win_close_hover.png",
+              "image_up": "btn_win_close_normal.png",
+              "state": 2
+            }
+          },
+          {
+            "button": {
+              "action": "minimize",
+              "bounds": [
+                343,
+                6,
+                21,
+                19
+              ],
+              "image_disabled": "btn_win_minimize_normal.png",
+              "image_down": "btn_win_minimize_hover.png",
+              "image_hover": "btn_win_minimize_hover.png",
+              "image_up": "btn_win_minimize_normal.png",
+              "state": 2
+            }
+          },
+          {
+            "progress": {
+              "bar_range": [
+                6,
+                6,
+                350,
+                10
+              ],
+              "bounds": [
+                23,
+                48,
+                362,
+                22
+              ],
+              "id": "bootstrap_progress",
+              "image_progress_empty": "progressbar_small_empty.png",
+              "image_progress_full": "progressbar_small_full.png",
+              "percent": 0
+            }
+          },
+          {
+            "label": {
+              "bounds": [
+                31,
+                29,
+                350,
+                100
+              ],
+              "color": [
+                1,
+                1,
+                1,
+                0.72
+              ],
+              "face": "Noto Sans",
+              "id": "bootstrap_text",
+              "size": 14,
+              "weight": 400
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": [
+        "JSON",
+        "SCREEN.ERROR.JSON",
+        0
+      ],
+      "offset": 4283716,
+      "bytes": 2046,
+      "sha256": "c9096cb3e3029d15f674fc1a21d177452a8903a2f6d5cd7f2d89ec330213fa24",
+      "codepage": 1252,
+      "json": {
+        "screen": [
+          {
+            "frame": {
+              "action": "drag",
+              "asset": "install_back.png",
+              "bounds": [
+                0,
+                0,
+                738,
+                468
+              ],
+              "box": [
+                0,
+                0,
+                738,
+                81
+              ]
+            }
+          },
+          {
+            "image": {
+              "asset": "{PRODUCT_ART}",
+              "bounds": [
+                9,
+                4,
+                220,
+                449
+              ]
+            }
+          },
+          {
+            "button": {
+              "action": "exit",
+              "bounds": [
+                703,
+                6,
+                21,
+                19
+              ],
+              "image_disabled": "btn_win_close_normal.png",
+              "image_down": "btn_win_close_hover.png",
+              "image_hover": "btn_win_close_hover.png",
+              "image_up": "btn_win_close_normal.png",
+              "state": 2
+            }
+          },
+          {
+            "button": {
+              "action": "minimize",
+              "bounds": [
+                672,
+                6,
+                21,
+                19
+              ],
+              "image_disabled": "btn_win_minimize_normal.png",
+              "image_down": "btn_win_minimize_hover.png",
+              "image_hover": "btn_win_minimize_hover.png",
+              "image_up": "btn_win_minimize_normal.png",
+              "state": 2
+            }
+          },
+          {
+            "label": {
+              "bounds": [
+                262,
+                36,
+                440,
+                100
+              ],
+              "color": [
+                1,
+                1,
+                1,
+                1
+              ],
+              "face": "Object Sans",
+              "id": "install_header",
+              "size": 20,
+              "text": "{Install_Header}",
+              "weight": 700
+            }
+          },
+          {
+            "label": {
+              "bounds": [
+                262,
+                142,
+                440,
+                120
+              ],
+              "color": [
+                1,
+                1,
+                1,
+                0.72
+              ],
+              "face": "Noto Sans",
+              "id": "error_text",
+              "size": 14,
+              "weight": 400
+            }
+          },
+          {
+            "link": {
+              "action": "click_error_link",
+              "border_color": [
+                0.278,
+                0.651,
+                1,
+                0.4
+              ],
+              "bounds": [
+                262,
+                226,
+                440,
+                24
+              ],
+              "color": [
+                0.078,
+                0.557,
+                1,
+                1
+              ],
+              "down_color": [
+                0,
+                0.455,
+                0.878,
+                1
+              ],
+              "face": "Noto Sans",
+              "hilight_color": [
+                0.278,
+                0.651,
+                1,
+                1
+              ],
+              "id": "error_link",
+              "image": "img_link.png",
+              "image_box": [
+                6,
+                4,
+                11,
+                10
+              ],
+              "layout": [
+                true
+              ],
+              "size": 14,
+              "state": 1,
+              "tab_order": 2,
+              "visited": false,
+              "visited_color": [
+                0.078,
+                0.557,
+                1,
+                1
+              ],
+              "weight": 400
+            }
+          },
+          {
+            "label": {
+              "bounds": [
+                262,
+                250,
+                440,
+                45
+              ],
+              "color": [
+                1.0,
+                1.0,
+                1.0,
+                0.6
+              ],
+              "face": "Noto Sans",
+              "size": 12,
+              "text": "{Error_Footer}",
+              "weight": 400
+            }
+          },
+          {
+            "button": {
+              "action": "exit",
+              "bounds": [
+                254,
+                403,
+                165,
+                36
+              ],
+              "face": "Object Sans",
+              "image_disabled": "btn_primary_disabled.png",
+              "image_disabled_focused": "btn_primary_disabled_focused.png",
+              "image_down": "btn_primary_down.png",
+              "image_focused": "btn_primary_over.png",
+              "image_hover": "btn_primary_over.png",
+              "image_up": "btn_primary_normal.png",
+              "size": 14,
+              "state": 2,
+              "tab_order": 1,
+              "text": "{Btn_Close}",
+              "text_color_disabled": [
+                1.0,
+                1.0,
+                1.0,
+                0.6
+              ],
+              "text_color_disabled_focused": [
+                1.0,
+                1.0,
+                1.0,
+                0.6
+              ],
+              "text_color_down": [
+                1.0,
+                1.0,
+                1.0,
+                0.6
+              ],
+              "text_color_focused": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "text_color_hover": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "text_color_up": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "weight": 700
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": [
+        "JSON",
+        "SCREEN.INSTALL.JSON",
+        0
+      ],
+      "offset": 4285764,
+      "bytes": 1778,
+      "sha256": "9e2d2618bf4a431ea3dbb1acdc6153dda7aeeaa9e014f86d72080e0fe1af03b1",
+      "codepage": 1252,
+      "json": {
+        "screen": [
+          {
+            "frame": {
+              "action": "drag",
+              "asset": "install_back.png",
+              "bounds": [
+                0,
+                0,
+                738,
+                468
+              ],
+              "box": [
+                0,
+                0,
+                738,
+                81
+              ]
+            }
+          },
+          {
+            "image": {
+              "asset": "{PRODUCT_ART}",
+              "bounds": [
+                9,
+                4,
+                220,
+                449
+              ]
+            }
+          },
+          {
+            "button": {
+              "action": "exit",
+              "bounds": [
+                703,
+                6,
+                21,
+                19
+              ],
+              "image_disabled": "btn_win_close_normal.png",
+              "image_down": "btn_win_close_hover.png",
+              "image_hover": "btn_win_close_hover.png",
+              "image_up": "btn_win_close_normal.png",
+              "state": 2
+            }
+          },
+          {
+            "button": {
+              "action": "minimize",
+              "bounds": [
+                672,
+                6,
+                21,
+                19
+              ],
+              "image_disabled": "btn_win_minimize_normal.png",
+              "image_down": "btn_win_minimize_hover.png",
+              "image_hover": "btn_win_minimize_hover.png",
+              "image_up": "btn_win_minimize_normal.png",
+              "state": 2
+            }
+          },
+          {
+            "label": {
+              "bounds": [
+                260,
+                35,
+                425,
+                100
+              ],
+              "color": [
+                1,
+                1,
+                1,
+                1
+              ],
+              "face": "Object Sans",
+              "id": "install_header",
+              "size": 20,
+              "text": "{Install_Header}",
+              "weight": 700
+            }
+          },
+          {
+            "label": {
+              "bounds": [
+                261,
+                181,
+                450,
+                20
+              ],
+              "color": [
+                1,
+                1,
+                1,
+                0.72
+              ],
+              "face": "Noto Sans",
+              "id": "install_zone_text",
+              "size": 14,
+              "weight": 400
+            }
+          },
+          {
+            "progress": {
+              "bar_range": [
+                6,
+                6,
+                439,
+                10
+              ],
+              "bounds": [
+                255,
+                202,
+                451,
+                22
+              ],
+              "id": "install_progress",
+              "image_progress_empty": "progressbar_large_empty.png",
+              "image_progress_full": "progressbar_large_full.png"
+            }
+          },
+          {
+            "button": {
+              "action": "exit",
+              "bounds": [
+                254,
+                403,
+                92,
+                36
+              ],
+              "face": "Object Sans",
+              "image_disabled": "btn_secondary_small_disabled.png",
+              "image_disabled_focused": "btn_secondary_small_disabled_focused.png",
+              "image_down": "btn_secondary_small_down.png",
+              "image_focused": "btn_secondary_small_over.png",
+              "image_hover": "btn_secondary_small_over.png",
+              "image_up": "btn_secondary_small_normal.png",
+              "size": 14,
+              "state": 2,
+              "tab_order": 1,
+              "text": "{Btn_Cancel}",
+              "text_color_disabled": [
+                1.0,
+                1.0,
+                1.0,
+                0.48
+              ],
+              "text_color_disabled_focused": [
+                1.0,
+                1.0,
+                1.0,
+                0.48
+              ],
+              "text_color_down": [
+                1.0,
+                1.0,
+                1.0,
+                0.6
+              ],
+              "text_color_focused": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "text_color_hover": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "text_color_up": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "weight": 700
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": [
+        "JSON",
+        "SCREEN.LANGUAGE.JSON",
+        0
+      ],
+      "offset": 4287544,
+      "bytes": 1853,
+      "sha256": "6762ce5b2ecf5993c00844f030ef49c07f70f3c7ff2085fd5e73b4b4500832a8",
+      "codepage": 1252,
+      "json": {
+        "screen": [
+          {
+            "frame": {
+              "action": "drag",
+              "asset": "bg_language_select.png",
+              "bounds": [
+                0,
+                0,
+                428,
+                343
+              ],
+              "box": [
+                0,
+                0,
+                428,
+                81
+              ]
+            }
+          },
+          {
+            "button": {
+              "action": "exit",
+              "bounds": [
+                394,
+                6,
+                21,
+                19
+              ],
+              "image_disabled": "btn_win_close_normal.png",
+              "image_down": "btn_win_close_hover.png",
+              "image_hover": "btn_win_close_hover.png",
+              "image_up": "btn_win_close_normal.png",
+              "state": 2
+            }
+          },
+          {
+            "button": {
+              "action": "minimize",
+              "bounds": [
+                363,
+                6,
+                21,
+                19
+              ],
+              "image_disabled": "btn_win_minimize_normal.png",
+              "image_down": "btn_win_minimize_hover.png",
+              "image_hover": "btn_win_minimize_hover.png",
+              "image_up": "btn_win_minimize_normal.png",
+              "state": 2
+            }
+          },
+          {
+            "radiobuttonpanel": {
+              "accessible_name": "Select a Language",
+              "bounds": [
+                37,
+                75,
+                378,
+                100
+              ],
+              "id": "panel",
+              "label": {
+                "bounds": [
+                  37,
+                  31,
+                  385,
+                  60
+                ],
+                "color": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "face": "Object Sans",
+                "size": 18,
+                "text": "{Select_Language}",
+                "weight": 700
+              },
+              "padding": [
+                2,
+                13
+              ],
+              "radiobutton": {
+                "image_bg": "radiobutton_bg.png",
+                "image_bg_focused": "radiobutton_bg_hover.png",
+                "image_bg_hover": "radiobutton_bg_hover.png",
+                "image_bounds": [
+                  0,
+                  0,
+                  20,
+                  20
+                ],
+                "image_selected": "radiobutton_selection.png",
+                "label": {
+                  "bounds": [
+                    27,
+                    0,
+                    95,
+                    20
+                  ],
+                  "color": [
+                    1,
+                    1,
+                    1,
+                    0.72
+                  ],
+                  "layout": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "size": 14,
+                  "weight": 400
+                }
+              },
+              "tab_order": 2
+            }
+          },
+          {
+            "button": {
+              "accessible_name": "Continue",
+              "action": "selected_language",
+              "bounds": [
+                33,
+                280,
+                165,
+                36
+              ],
+              "face": "Object Sans",
+              "id": "select_language_button",
+              "image_disabled": "btn_primary_disabled.png",
+              "image_disabled_focused": "btn_primary_disabled_focused.png",
+              "image_down": "btn_primary_down.png",
+              "image_focused": "btn_primary_over.png",
+              "image_hover": "btn_primary_over.png",
+              "image_up": "btn_primary_normal.png",
+              "size": 14,
+              "state": 2,
+              "tab_order": 1,
+              "text": "{Btn_Continue}",
+              "text_color_disabled": [
+                1.0,
+                1.0,
+                1.0,
+                0.6
+              ],
+              "text_color_disabled_focused": [
+                1.0,
+                1.0,
+                1.0,
+                0.6
+              ],
+              "text_color_down": [
+                1.0,
+                1.0,
+                1.0,
+                0.6
+              ],
+              "text_color_focused": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "text_color_hover": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "text_color_up": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "weight": 700
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": [
+        "JSON",
+        "SCREEN.SPLASH.JSON",
+        0
+      ],
+      "offset": 4289400,
+      "bytes": 3451,
+      "sha256": "72f12d9d1567cbe0c85165d47bebb6a56708f3367cdeff891d1aa9416315ff50",
+      "codepage": 1252,
+      "json": {
+        "screen": [
+          {
+            "frame": {
+              "action": "drag",
+              "asset": "install_back.png",
+              "bounds": [
+                0,
+                0,
+                738,
+                468
+              ],
+              "box": [
+                0,
+                0,
+                738,
+                81
+              ]
+            }
+          },
+          {
+            "image": {
+              "asset": "{PRODUCT_ART}",
+              "bounds": [
+                9,
+                4,
+                220,
+                449
+              ]
+            }
+          },
+          {
+            "button": {
+              "action": "exit",
+              "bounds": [
+                703,
+                6,
+                21,
+                19
+              ],
+              "image_disabled": "btn_win_close_normal.png",
+              "image_down": "btn_win_close_hover.png",
+              "image_hover": "btn_win_close_hover.png",
+              "image_up": "btn_win_close_normal.png",
+              "state": 2
+            }
+          },
+          {
+            "button": {
+              "action": "minimize",
+              "bounds": [
+                672,
+                6,
+                21,
+                19
+              ],
+              "image_disabled": "btn_win_minimize_normal.png",
+              "image_down": "btn_win_minimize_hover.png",
+              "image_hover": "btn_win_minimize_hover.png",
+              "image_up": "btn_win_minimize_normal.png",
+              "state": 2
+            }
+          },
+          {
+            "label": {
+              "bounds": [
+                260,
+                211,
+                440,
+                20
+              ],
+              "color": [
+                1,
+                0.706,
+                0,
+                1
+              ],
+              "face": "Noto Sans",
+              "id": "install_form_error",
+              "size": 12,
+              "visible": false,
+              "weight": 400
+            }
+          },
+          {
+            "label": {
+              "bounds": [
+                260,
+                35,
+                440,
+                100
+              ],
+              "color": [
+                1,
+                1,
+                1,
+                1
+              ],
+              "face": "Object Sans",
+              "id": "install_header",
+              "size": 20,
+              "text": "{Install_Header}",
+              "weight": 700
+            }
+          },
+          {
+            "label": {
+              "bounds": [
+                260,
+                142,
+                440,
+                30
+              ],
+              "color": [
+                1,
+                1,
+                1,
+                1
+              ],
+              "face": "Noto Sans",
+              "size": 14,
+              "text": "{Options_Location_Header}",
+              "weight": 700
+            }
+          },
+          {
+            "status": {
+              "alt_color": [
+                1,
+                0.706,
+                0,
+                1
+              ],
+              "bounds": [
+                260,
+                170,
+                370,
+                30
+              ],
+              "color": [
+                1,
+                1,
+                1,
+                0.72
+              ],
+              "face": "Noto Sans",
+              "id": "bnet_install_location",
+              "image": "img_deny.png",
+              "image_box": [
+                5,
+                4,
+                11,
+                11
+              ],
+              "layout": [
+                true,
+                false,
+                false,
+                true
+              ],
+              "size": 14,
+              "weight": 400
+            }
+          },
+          {
+            "status": {
+              "alt_color": [
+                1,
+                0.706,
+                0,
+                1
+              ],
+              "bounds": [
+                260,
+                190,
+                440,
+                30
+              ],
+              "color": [
+                1,
+                1,
+                1,
+                0.72
+              ],
+              "face": "Noto Sans",
+              "id": "bnet_install_space",
+              "image": "img_deny.png",
+              "image_box": [
+                5,
+                4,
+                11,
+                11
+              ],
+              "size": 14,
+              "weight": 400
+            }
+          },
+          {
+            "label": {
+              "bounds": [
+                260,
+                211,
+                440,
+                20
+              ],
+              "color": [
+                1,
+                1,
+                1,
+                0.48
+              ],
+              "face": "Noto Sans",
+              "id": "game_required_space_description",
+              "size": 12,
+              "text": "{Game_Required_Space_Description}",
+              "weight": 400
+            }
+          },
+          {
+            "link": {
+              "action": "change_bnet",
+              "border_color": [
+                0.278,
+                0.651,
+                1,
+                0.4
+              ],
+              "bounds": [
+                645,
+                170,
+                80,
+                24
+              ],
+              "color": [
+                0.078,
+                0.557,
+                1,
+                1
+              ],
+              "down_color": [
+                0,
+                0.455,
+                0.878,
+                1
+              ],
+              "face": "Noto Sans",
+              "hilight_color": [
+                0.278,
+                0.651,
+                1,
+                1
+              ],
+              "size": 14,
+              "state": 1,
+              "tab_order": 2,
+              "text": "{Options_Link_Change}",
+              "visited": false,
+              "visited_color": [
+                0.078,
+                0.557,
+                1,
+                1
+              ],
+              "weight": 700
+            }
+          },
+          {
+            "checkbox": {
+              "bounds": [
+                260,
+                244,
+                0,
+                0
+              ],
+              "checked": true,
+              "id": "bnet_runonstartup_checkbox",
+              "image_bg": "btn_chk_box.png",
+              "image_bg_focused": "btn_chk_box_hover.png",
+              "image_bg_hover": "btn_chk_box_hover.png",
+              "image_bounds": [
+                0,
+                0,
+                20,
+                20
+              ],
+              "image_selected": "btn_chk_mark.png",
+              "label": {
+                "bounds": [
+                  33,
+                  0,
+                  440,
+                  20
+                ],
+                "color": [
+                  1,
+                  1,
+                  1,
+                  0.72
+                ],
+                "face": "Noto Sans",
+                "layout": [
+                  true,
+                  false,
+                  true,
+                  false
+                ],
+                "size": 14,
+                "text": "{Options_RunOnStartup_Header}",
+                "weight": 400
+              },
+              "tab_order": 3
+            }
+          },
+          {
+            "label": {
+              "bounds": [
+                260,
+                292,
+                440,
+                20
+              ],
+              "color": [
+                1,
+                1,
+                1,
+                1.0
+              ],
+              "face": "Noto Sans",
+              "id": "uninstall_instructions_header",
+              "size": 14,
+              "text": "{Uninstall_Header}",
+              "visible": false,
+              "weight": 700
+            }
+          },
+          {
+            "label": {
+              "bounds": [
+                260,
+                324,
+                430,
+                50
+              ],
+              "color": [
+                1,
+                1,
+                1,
+                0.72
+              ],
+              "face": "Noto Sans",
+              "id": "uninstall_instructions_description",
+              "size": 14,
+              "visible": false,
+              "weight": 400
+            }
+          },
+          {
+            "button": {
+              "action": "install",
+              "bounds": [
+                540,
+                403,
+                165,
+                36
+              ],
+              "face": "Object Sans",
+              "id": "install_button",
+              "image_disabled": "btn_primary_disabled.png",
+              "image_disabled_focused": "btn_primary_disabled_focused.png",
+              "image_down": "btn_primary_down.png",
+              "image_focused": "btn_primary_over.png",
+              "image_hover": "btn_primary_over.png",
+              "image_up": "btn_primary_normal.png",
+              "size": 14,
+              "state": 2,
+              "tab_order": 1,
+              "text": "{Btn_Continue}",
+              "text_color_disabled": [
+                1.0,
+                1.0,
+                1.0,
+                0.6
+              ],
+              "text_color_disabled_focused": [
+                1.0,
+                1.0,
+                1.0,
+                0.6
+              ],
+              "text_color_down": [
+                1.0,
+                1.0,
+                1.0,
+                0.6
+              ],
+              "text_color_focused": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "text_color_hover": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "text_color_up": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "weight": 700
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": [
+        "JSON",
+        "SETTINGS.JSON",
+        0
+      ],
+      "offset": 4292852,
+      "bytes": 410,
+      "sha256": "bbd1e8adfc2b5df294ed74065285ab25fa31a7777c8936f2a2baf1d62730135b",
+      "codepage": 1252,
+      "json": {
+        "BaseSetupName": "Battle.net-Setup",
+        "ClientProductCode": "Bna",
+        "IsPhoenixTool": true,
+        "PatchProductCode": "BBNR",
+        "ProductCode": "bna",
+        "ProductUid": "battle.net",
+        "resource_map": {
+          "Game_Required_Space_Description": "{Install_Header_Bnet}",
+          "Install_Header": "{Install_Header_Bnet}",
+          "PRODUCT_ART": "{PRODUCT_ART_BNET}",
+          "WindowTitle_Launcher": "{WindowTitle_PhoenixLauncher}",
+          "WindowTitle_Setup": "{WindowTitle_PhoenixSetup}"
+        }
+      }
+    },
+    {
+      "path": [
+        "PNG",
+        "BG_LANGUAGE_SELECT.PNG",
+        0
+      ],
+      "offset": 4293264,
+      "bytes": 2380,
+      "sha256": "f361121af36e41ea6b1a4fb189dd0fce2df4a7fa1a45231885f47eaff1419c57",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BG_SMALL_WINDOW.PNG",
+        0
+      ],
+      "offset": 4295644,
+      "bytes": 1513,
+      "sha256": "568de58b462d8265a2faeb4c9c2ea93d42ae704e41a7b5fbe16e05a4571ab14a",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BNET_BACKGROUND.PNG",
+        0
+      ],
+      "offset": 4297160,
+      "bytes": 55330,
+      "sha256": "e9d8013c639d989c4e5a16741f14b1edc03883883df784893b900f5ebc1c21f7",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BNET_BACKGROUND_ZHCN.PNG",
+        0
+      ],
+      "offset": 4352492,
+      "bytes": 55492,
+      "sha256": "99e9019acd366c6126f2f49b8d4aedfe43f629afdff0fb6f97412c69f65df8bb",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_CHK_BOX.PNG",
+        0
+      ],
+      "offset": 4407984,
+      "bytes": 372,
+      "sha256": "b3f07973d4a0dc5652ec8c0d60a1e1674ff36382dea1bc1730eea928b8d451ca",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_CHK_BOX_HOVER.PNG",
+        0
+      ],
+      "offset": 4408356,
+      "bytes": 340,
+      "sha256": "f9a31c593b6cdb920aeaefa1e7bb727af3c9c03e2c88fa9f6619048370763e6f",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_CHK_MARK.PNG",
+        0
+      ],
+      "offset": 4408696,
+      "bytes": 242,
+      "sha256": "7c039f150f42b0dac9d0f58f6568cce7257baf007bc07a2b4a712a76a3c095fc",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_PRIMARY_DISABLED.PNG",
+        0
+      ],
+      "offset": 4408940,
+      "bytes": 319,
+      "sha256": "c7bb577781d582e47aa72460cf00d8ca1831df3d4fdd9d070d3b3f639209d764",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_PRIMARY_DISABLED_FOCUSED.PNG",
+        0
+      ],
+      "offset": 4409260,
+      "bytes": 357,
+      "sha256": "9fc819897bfd8ca3bc5ac7f7cacb3d87dea79161075581d0a97b165397ea7440",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_PRIMARY_DOWN.PNG",
+        0
+      ],
+      "offset": 4409620,
+      "bytes": 357,
+      "sha256": "9fc819897bfd8ca3bc5ac7f7cacb3d87dea79161075581d0a97b165397ea7440",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_PRIMARY_NORMAL.PNG",
+        0
+      ],
+      "offset": 4409980,
+      "bytes": 310,
+      "sha256": "6cee46066a8d651921bc1b302bfb8c281b2ebab24cd7242c3742811f93d8745d",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_PRIMARY_OVER.PNG",
+        0
+      ],
+      "offset": 4410292,
+      "bytes": 368,
+      "sha256": "1540e3eac4f3b0fc789befa19798a0fc3c0fc8fd2b003410f206598ae17497d6",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_SECONDARY_SMALL_DISABLED.PNG",
+        0
+      ],
+      "offset": 4410660,
+      "bytes": 281,
+      "sha256": "6192b64187c65de6acb25e5d6a7f957fc25a257c3c6bc6de97ea4013dd58e102",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_SECONDARY_SMALL_DISABLED_FOCUSED.PNG",
+        0
+      ],
+      "offset": 4410944,
+      "bytes": 329,
+      "sha256": "c5539de923301512fce43fda5442e54f239608b1d3a895e27109e87bc0a8a642",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_SECONDARY_SMALL_DOWN.PNG",
+        0
+      ],
+      "offset": 4411276,
+      "bytes": 329,
+      "sha256": "c5539de923301512fce43fda5442e54f239608b1d3a895e27109e87bc0a8a642",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_SECONDARY_SMALL_NORMAL.PNG",
+        0
+      ],
+      "offset": 4411608,
+      "bytes": 285,
+      "sha256": "140272479e9f1e72ccb4943605649b9ce2f32d06d6935326ad470be250e26070",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_SECONDARY_SMALL_OVER.PNG",
+        0
+      ],
+      "offset": 4411896,
+      "bytes": 335,
+      "sha256": "1fe5dee3d0762e50639c127da8db07fcc15e0a58a3a2d99391da22ed54cc9e78",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_WIN_CLOSE_HOVER.PNG",
+        0
+      ],
+      "offset": 4412232,
+      "bytes": 179,
+      "sha256": "c3e773e60dce1b42750e9a46fe14b45c83fa5912e5edcb8b82b077f6deb65902",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_WIN_CLOSE_NORMAL.PNG",
+        0
+      ],
+      "offset": 4412412,
+      "bytes": 210,
+      "sha256": "6cd638648fc14d98e081c1b2db5f7abacf48834bb8abd6463c4c8f65e9be5854",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_WIN_MINIMIZE_HOVER.PNG",
+        0
+      ],
+      "offset": 4412624,
+      "bytes": 144,
+      "sha256": "dfad908c48bd1dc5db8b0aa417290897aba54c3690b341c1dc998604bde11bc5",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "BTN_WIN_MINIMIZE_NORMAL.PNG",
+        0
+      ],
+      "offset": 4412768,
+      "bytes": 147,
+      "sha256": "83628babfd6878ca8cfe99090bcaf15cc20c4b66c5c73e98c78f32cf9e061899",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "IMG_DENY.PNG",
+        0
+      ],
+      "offset": 4412916,
+      "bytes": 284,
+      "sha256": "7219c7491b6ca6ecef8c06a97f5d82ee5ed6c03999d3652acf51e1da27caf9ae",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "IMG_LINK.PNG",
+        0
+      ],
+      "offset": 4413200,
+      "bytes": 208,
+      "sha256": "f200d4ddeea241e8ef91189b1ecdb0535b53c8aab50847cacd6e652f9dc868dd",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "INSTALL_BACK.PNG",
+        0
+      ],
+      "offset": 4413408,
+      "bytes": 9173,
+      "sha256": "714301920b248973da1dd8faf5f2655fcf7c7be5cca9686e720e9075f0581ec3",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "PROGRESSBAR_LARGE_EMPTY.PNG",
+        0
+      ],
+      "offset": 4422584,
+      "bytes": 313,
+      "sha256": "5fc9c216bb87925ef4268c34e9fe64d46d42004ff652defb9f9477cba6ea2f8e",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "PROGRESSBAR_LARGE_FULL.PNG",
+        0
+      ],
+      "offset": 4422900,
+      "bytes": 361,
+      "sha256": "2cbd80ce82861b47b9a70b1f5c41911ee1eb199bc16ae849563e2ac7671baac6",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "PROGRESSBAR_SMALL_EMPTY.PNG",
+        0
+      ],
+      "offset": 4423264,
+      "bytes": 307,
+      "sha256": "022a923c94679f6f63ec76416ed5d83b66b7a8a2efc05e8e5466ea93ae0702d1",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "PROGRESSBAR_SMALL_FULL.PNG",
+        0
+      ],
+      "offset": 4423572,
+      "bytes": 362,
+      "sha256": "96dad9e76856e05692eb939b701e164cac8e57e64a0b29e2f709c5378ecc0924",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "RADIOBUTTON_BG.PNG",
+        0
+      ],
+      "offset": 4423936,
+      "bytes": 635,
+      "sha256": "ba83a0728ea962cdb0e535a1fc71de5f9765c348f54f0c4cf31352157de73701",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "RADIOBUTTON_BG_HOVER.PNG",
+        0
+      ],
+      "offset": 4424572,
+      "bytes": 638,
+      "sha256": "b67e408300cdb3c798c23799fae7d5bc3df6dbdfbef007f918993ff90aa0ddae",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "PNG",
+        "RADIOBUTTON_SELECTION.PNG",
+        0
+      ],
+      "offset": 4425212,
+      "bytes": 854,
+      "sha256": "c84676d9d3648042e3a71a37cdb6eadac7c800fc56a1958ec28313cc225967e3",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        "STRINGS",
+        "STRINGS.BIN",
+        0
+      ],
+      "offset": 4426068,
+      "bytes": 17953,
+      "sha256": "2e425e5033ef12acd0c719e0a2adccb7e8e8ef11ac9c4894018eee2a40e5192c",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        3,
+        1,
+        0
+      ],
+      "offset": 4444024,
+      "bytes": 67624,
+      "sha256": "c7754f4f421cb79e50ec4781d417c15db1af7196d2c3e7f76f43079ccbc3299c",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        3,
+        2,
+        0
+      ],
+      "offset": 4511648,
+      "bytes": 1128,
+      "sha256": "8df1e13ef6f884828658886b39d3efe4e6c9db204033a4de6067838e00239a04",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        3,
+        3,
+        0
+      ],
+      "offset": 4512776,
+      "bytes": 2440,
+      "sha256": "7a6e5ace5d8698f47617ce4115914f8cb5b6aedd35d4d6b775ca85c8b2b9b47d",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        3,
+        4,
+        0
+      ],
+      "offset": 4515216,
+      "bytes": 10068,
+      "sha256": "a904b117aa214a821446b600a16259ce3a8997064c510df2ed48b3fbd59755ef",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        3,
+        5,
+        0
+      ],
+      "offset": 4525284,
+      "bytes": 4264,
+      "sha256": "bf2858aa648113865d7d7c14e61f6cb99d4ef31385f2315dc1127d7a564609b2",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        3,
+        6,
+        0
+      ],
+      "offset": 4529548,
+      "bytes": 9640,
+      "sha256": "afb991079fc125e3f030eaa80715af5808bf74a34ede72a4d1e0e04f59993267",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        3,
+        7,
+        0
+      ],
+      "offset": 4539188,
+      "bytes": 16936,
+      "sha256": "e8fa5964d76b6a6c524838fc084b3e3650a8936c23b012144a7859cbfee590fa",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        14,
+        "ICON",
+        0
+      ],
+      "offset": 4556124,
+      "bytes": 104,
+      "sha256": "f0a24c26d88e6b13ace5046ab09098375a13d5e8107526e299aa7e15da12a597",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        16,
+        1,
+        0
+      ],
+      "offset": 4556228,
+      "bytes": 828,
+      "sha256": "df2e3cb137f7e0d46f1977e1a56f954fd46b1377c189ab0142f29c4fd2cac653",
+      "codepage": 1252
+    },
+    {
+      "path": [
+        24,
+        1,
+        1033
+      ],
+      "offset": 4557056,
+      "bytes": 1360,
+      "sha256": "476c581e20a45055ac2da6dfa1d0bfc660e793295dc7b10b7a7b202c2882b73d",
+      "codepage": 1252,
+      "xml_text": "<assembly xmlns=\"urn:schemas-microsoft-com:asm.v1\" manifestVersion=\"1.0\">\r\n  <assemblyIdentity version=\"3.0.0.0\" processorArchitecture=\"x86\" name=\"Blizzard Setup\" type=\"win32\"></assemblyIdentity>\r\n  <trustInfo xmlns=\"urn:schemas-microsoft-com:asm.v3\">\r\n    <security>\r\n      <requestedPrivileges>\r\n        <requestedExecutionLevel level=\"asInvoker\" uiAccess=\"false\"></requestedExecutionLevel>\r\n      </requestedPrivileges>\r\n    </security>\r\n  </trustInfo>\r\n  <description>Blizzard Bootstrapper</description>\r\n  <dependency>\r\n    <dependentAssembly>\r\n      <assemblyIdentity type=\"win32\" name=\"Microsoft.Windows.Common-Controls\" version=\"6.0.0.0\" publicKeyToken=\"6595b64144ccf1df\" language=\"*\" processorArchitecture=\"x86\"></assemblyIdentity>\r\n    </dependentAssembly>\r\n  </dependency>\r\n  <compatibility xmlns=\"urn:schemas-microsoft-com:compatibility.v1\">\r\n    <application>\r\n      \r\n      <supportedOS Id=\"{e2011457-1546-43c5-a5fe-008deee3d3f0}\"></supportedOS>\r\n      \r\n      <supportedOS Id=\"{35138b9a-5d96-4fbd-8e2d-a2440225f93a}\"></supportedOS>\r\n      \r\n      <supportedOS Id=\"{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}\"></supportedOS>\r\n      \r\n      <supportedOS Id=\"{1f676c76-80e1-4239-95bb-83d0f6d0da78}\"></supportedOS>\r\n      \r\n      <supportedOS Id=\"{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}\"></supportedOS>\r\n    </application>\r\n  </compatibility>\r\n</assembly>"
+    }
+  ],
+  "settings_resources": [
+    {
+      "path": [
+        "JSON",
+        "SETTINGS.JSON",
+        0
+      ],
+      "offset": 4292852,
+      "bytes": 410,
+      "sha256": "bbd1e8adfc2b5df294ed74065285ab25fa31a7777c8936f2a2baf1d62730135b",
+      "codepage": 1252,
+      "json": {
+        "BaseSetupName": "Battle.net-Setup",
+        "ClientProductCode": "Bna",
+        "IsPhoenixTool": true,
+        "PatchProductCode": "BBNR",
+        "ProductCode": "bna",
+        "ProductUid": "battle.net",
+        "resource_map": {
+          "Game_Required_Space_Description": "{Install_Header_Bnet}",
+          "Install_Header": "{Install_Header_Bnet}",
+          "PRODUCT_ART": "{PRODUCT_ART_BNET}",
+          "WindowTitle_Launcher": "{WindowTitle_PhoenixLauncher}",
+          "WindowTitle_Setup": "{WindowTitle_PhoenixSetup}"
+        }
+      }
+    }
+  ],
+  "endpoint_strings": [
+    {
+      "offset": 3423904,
+      "encoding": "ascii",
+      "text": ".version.battlenet.com.cn/",
+      "status": "static_string_not_observed_request",
+      "runtime_approved": false
+    },
+    {
+      "offset": 3423932,
+      "encoding": "ascii",
+      "text": ".version.battle.net/",
+      "status": "static_string_not_observed_request",
+      "runtime_approved": false
+    },
+    {
+      "offset": 3562172,
+      "encoding": "ascii",
+      "text": "https://nydus.battle.net/App/%s/setup/app",
+      "status": "static_string_not_observed_request",
+      "runtime_approved": false
+    },
+    {
+      "offset": 3563204,
+      "encoding": "ascii",
+      "text": "http://nydus.battle.net/App/%s/setup/error/%s",
+      "status": "static_string_not_observed_request",
+      "runtime_approved": false
+    },
+    {
+      "offset": 3570528,
+      "encoding": "ascii",
+      "text": "https://cn.version.battlenet.com.cn",
+      "status": "static_string_not_observed_request",
+      "runtime_approved": false
+    },
+    {
+      "offset": 3570564,
+      "encoding": "ascii",
+      "text": ".version.battle.net",
+      "status": "static_string_not_observed_request",
+      "runtime_approved": false
+    },
+    {
+      "offset": 3574056,
+      "encoding": "ascii",
+      "text": "http://nydus.battle.net/geoip",
+      "status": "static_string_not_observed_request",
+      "runtime_approved": false
+    },
+    {
+      "offset": 3708964,
+      "encoding": "ascii",
+      "text": "https://telemetry-in.battle.net/data",
+      "status": "static_string_not_observed_request",
+      "runtime_approved": false
+    },
+    {
+      "offset": 3709020,
+      "encoding": "ascii",
+      "text": "https://telemetry-in.battlenet.com.cn/data",
+      "status": "static_string_not_observed_request",
+      "runtime_approved": false
+    }
+  ],
+  "download_discovery_strings": [
+    {
+      "offset": 3572136,
+      "encoding": "ascii",
+      "text": "Failed to download versions file",
+      "runtime_approved": false,
+      "status": "static_component_not_complete_request"
+    },
+    {
+      "offset": 3572172,
+      "encoding": "ascii",
+      "text": "fetch_version",
+      "runtime_approved": false,
+      "status": "static_component_not_complete_request"
+    },
+    {
+      "offset": 3572284,
+      "encoding": "ascii",
+      "text": "Failed to download cdns file",
+      "runtime_approved": false,
+      "status": "static_component_not_complete_request"
+    },
+    {
+      "offset": 3572316,
+      "encoding": "ascii",
+      "text": "cdns_file",
+      "runtime_approved": false,
+      "status": "static_component_not_complete_request"
+    },
+    {
+      "offset": 3572328,
+      "encoding": "ascii",
+      "text": "Failed to obtain product config blob file",
+      "runtime_approved": false,
+      "status": "static_component_not_complete_request"
+    },
+    {
+      "offset": 3572384,
+      "encoding": "ascii",
+      "text": "containerless_ngdp",
+      "runtime_approved": false,
+      "status": "static_component_not_complete_request"
+    },
+    {
+      "offset": 3572576,
+      "encoding": "ascii",
+      "text": "/versions",
+      "runtime_approved": false,
+      "status": "static_component_not_complete_request"
+    },
+    {
+      "offset": 3598900,
+      "encoding": "ascii",
+      "text": "CDNConfig",
+      "runtime_approved": false,
+      "status": "static_component_not_complete_request"
+    },
+    {
+      "offset": 3598912,
+      "encoding": "ascii",
+      "text": "BuildConfig",
+      "runtime_approved": false,
+      "status": "static_component_not_complete_request"
+    },
+    {
+      "offset": 3598940,
+      "encoding": "ascii",
+      "text": "ProductConfig",
+      "runtime_approved": false,
+      "status": "static_component_not_complete_request"
+    }
+  ],
+  "imported_system_capabilities": [
+    {
+      "dll": "RPCRT4.dll",
+      "apis": [
+        "UuidToStringA",
+        "UuidCreate"
+      ]
+    },
+    {
+      "dll": "KERNEL32.dll",
+      "apis": [
+        "GetSystemInfo",
+        "GetComputerNameW",
+        "GetVolumeInformationW"
+      ]
+    },
+    {
+      "dll": "ADVAPI32.dll",
+      "apis": [
+        "RegQueryValueExW",
+        "RegQueryValueExA"
+      ]
+    }
+  ],
+  "imported_network_libraries": [
+    "WS2_32.dll",
+    "WININET.dll",
+    "WINHTTP.dll"
+  ],
+  "win_certificates": [
+    {
+      "offset": 4690432,
+      "length": 10448,
+      "revision": 512,
+      "type": 2,
+      "zero_padding_bytes": 4
+    }
+  ],
+  "embedded_certificates": [
+    {
+      "subject": "CN=DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1,O=DigiCert\\, Inc.,C=US",
+      "issuer": "CN=DigiCert Trusted Root G4,OU=www.digicert.com,O=DigiCert Inc,C=US",
+      "sha256": "46011ede1c147eb2bc731a539b7c047b7ee93e48b9d3c3ba710ce132bbdfac6b",
+      "not_before": "2021-04-29T00:00:00+00:00",
+      "not_after": "2036-04-28T23:59:59+00:00"
+    },
+    {
+      "subject": "CN=Blizzard Entertainment\\, Inc.,O=Blizzard Entertainment\\, Inc.,L=Irvine,ST=California,C=US,2.5.4.5=3876899,2.5.4.15=Private Organization,1.3.6.1.4.1.311.60.2.1.2=Delaware,1.3.6.1.4.1.311.60.2.1.3=US",
+      "issuer": "CN=DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1,O=DigiCert\\, Inc.,C=US",
+      "sha256": "9925079a1f314000f9ae53abfb8565218c9ca89ff4996a34230a81ae498577a9",
+      "not_before": "2026-09-30T00:00:00+00:00",
+      "not_after": "2028-01-01T23:59:59+00:00"
+    }
+  ],
+  "embedded_certificates_are_not_trust_verification": true,
+  "protobuf_descriptors": [
+    {
+      "offset": 3709608,
+      "bytes": 234,
+      "sha256": "375bdc71be14fdd90bcfe4b1da56689e2b30b3d75934d22286e18dceef3fc6d8",
+      "name": "telemetry_client_run_on_startup.proto",
+      "package": "Blizzard.Telemetry.App.Bootstrapper",
+      "messages": [
+        {
+          "name": "Blizzard.Telemetry.App.Bootstrapper.ClientRunOnStartup",
+          "fields": [
+            {
+              "number": 1,
+              "name": "checked_value",
+              "type": 8,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 2,
+              "name": "default_checked_value",
+              "type": 8,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 3,
+              "name": "client_id",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            }
+          ]
+        }
+      ],
+      "evidence": "decoded_embedded_schema_not_runtime_value"
+    },
+    {
+      "offset": 3710392,
+      "bytes": 294,
+      "sha256": "9db6d6d429d0c0c321dc85a5d869ad85deb4f60e19faf1d5a8edaacfb14fe145",
+      "name": "telemetry_session_update.proto",
+      "package": "Blizzard.Telemetry.App.Bootstrapper",
+      "messages": [
+        {
+          "name": "Blizzard.Telemetry.App.Bootstrapper.SessionUpdate",
+          "fields": [
+            {
+              "number": 1,
+              "name": "step",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 2,
+              "name": "uuid",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 3,
+              "name": "game_uid",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 4,
+              "name": "game_locale",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 5,
+              "name": "bootstrapper_version",
+              "type": 5,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 6,
+              "name": "is_bootstrapper_setup",
+              "type": 8,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 7,
+              "name": "is_igr_mode",
+              "type": 8,
+              "label": 1,
+              "type_name": ""
+            }
+          ]
+        }
+      ],
+      "evidence": "decoded_embedded_schema_not_runtime_value"
+    },
+    {
+      "offset": 3710936,
+      "bytes": 247,
+      "sha256": "efef78c8d687d47545144e87ccf6b70b917a575c3d00bdae45f6529965f57068",
+      "name": "telemetry_install_report.proto",
+      "package": "Blizzard.Telemetry.App.Bootstrapper",
+      "messages": [
+        {
+          "name": "Blizzard.Telemetry.App.Bootstrapper.InstallReport",
+          "fields": [
+            {
+              "number": 1,
+              "name": "step",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 2,
+              "name": "retail_agent_version",
+              "type": 5,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 3,
+              "name": "beta_agent_version",
+              "type": 5,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 4,
+              "name": "is_bootstrapper_setup",
+              "type": 8,
+              "label": 1,
+              "type_name": ""
+            }
+          ]
+        }
+      ],
+      "evidence": "decoded_embedded_schema_not_runtime_value"
+    },
+    {
+      "offset": 3711456,
+      "bytes": 164,
+      "sha256": "a9364ab86b91b1313850528b3adf7e37cb22529a3ef3340c0e37e41f7e5c764c",
+      "name": "telemetry_session_generate.proto",
+      "package": "Blizzard.Telemetry.App.Bootstrapper",
+      "messages": [
+        {
+          "name": "Blizzard.Telemetry.App.Bootstrapper.SessionGenerate",
+          "fields": [
+            {
+              "number": 1,
+              "name": "uuid",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            }
+          ]
+        }
+      ],
+      "evidence": "decoded_embedded_schema_not_runtime_value"
+    },
+    {
+      "offset": 3711824,
+      "bytes": 252,
+      "sha256": "d9913cae0f4a664394f39bd628429772fc775f0fbced55725556e1127111edde",
+      "name": "telemetry_error.proto",
+      "package": "Blizzard.Telemetry.App.Bootstrapper",
+      "messages": [
+        {
+          "name": "Blizzard.Telemetry.App.Bootstrapper.Error",
+          "fields": [
+            {
+              "number": 1,
+              "name": "step",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 2,
+              "name": "error_type",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 3,
+              "name": "error_message",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 4,
+              "name": "context",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 5,
+              "name": "bootstrapper_version",
+              "type": 5,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 6,
+              "name": "bootstrapper_state",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            }
+          ]
+        }
+      ],
+      "evidence": "decoded_embedded_schema_not_runtime_value"
+    },
+    {
+      "offset": 3712312,
+      "bytes": 174,
+      "sha256": "e45bce650865a4929f393e23eb6db57cd6b6448fd8da31f7bdae58fce4394e27",
+      "name": "telemetry_self_patch.proto",
+      "package": "Blizzard.Telemetry.App.Bootstrapper",
+      "messages": [
+        {
+          "name": "Blizzard.Telemetry.App.Bootstrapper.SelfPatch",
+          "fields": [
+            {
+              "number": 1,
+              "name": "old_version",
+              "type": 5,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 2,
+              "name": "new_version",
+              "type": 5,
+              "label": 1,
+              "type_name": ""
+            }
+          ]
+        }
+      ],
+      "evidence": "decoded_embedded_schema_not_runtime_value"
+    },
+    {
+      "offset": 3713960,
+      "bytes": 993,
+      "sha256": "4108155dcf0c1a14f958e0ed72af8c4a43cf8e90e8172868d81d9368006c80d0",
+      "name": "telemetry_extensions.proto",
+      "package": "Blizzard.Telemetry",
+      "messages": [
+        {
+          "name": "Blizzard.Telemetry.FileOptions",
+          "fields": [
+            {
+              "number": 1,
+              "name": "telemetry_message",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            }
+          ]
+        },
+        {
+          "name": "Blizzard.Telemetry.MessageOptions",
+          "fields": [
+            {
+              "number": 100,
+              "name": "realtime",
+              "type": 8,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 200,
+              "name": "metric_set",
+              "type": 8,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 201,
+              "name": "metric",
+              "type": 8,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 301,
+              "name": "entity_time_series",
+              "type": 8,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 401,
+              "name": "logging",
+              "type": 8,
+              "label": 1,
+              "type_name": ""
+            }
+          ]
+        },
+        {
+          "name": "Blizzard.Telemetry.LogMessageOptions",
+          "fields": [
+            {
+              "number": 1,
+              "name": "grok",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 2,
+              "name": "is_json",
+              "type": 8,
+              "label": 1,
+              "type_name": ""
+            }
+          ]
+        },
+        {
+          "name": "Blizzard.Telemetry.FieldOptions",
+          "fields": [
+            {
+              "number": 1,
+              "name": "mapped_type",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 100,
+              "name": "elastic_analyzer",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 200,
+              "name": "realtime",
+              "type": 8,
+              "label": 1,
+              "type_name": ""
+            },
+            {
+              "number": 300,
+              "name": "elastic_path_move",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            }
+          ]
+        },
+        {
+          "name": "Blizzard.Telemetry.LogFieldOptions",
+          "fields": [
+            {
+              "number": 1,
+              "name": "syslog_field",
+              "type": 9,
+              "label": 1,
+              "type_name": ""
+            }
+          ]
+        }
+      ],
+      "evidence": "decoded_embedded_schema_not_runtime_value"
+    }
+  ],
+  "installer_executed": false,
+  "resource_urls_requested": false,
+  "complete_payload_manifest_recovered": false,
+  "catalog_entries_approved": 0
+}
