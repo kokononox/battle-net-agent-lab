@@ -1,0 +1,35 @@
+{
+  "schema": "bnet-nested-kvm-review-1",
+  "source_commit": "8cda46c6558ec0451f26dded23e5a859855fae50",
+  "run_id": "40153443222",
+  "evidence_commit": "85a020390a98f191445acc3b1b22ca222b9545ab",
+  "route": "ubuntu_24_04_hosted_KVM_with_privileged_owned_probe",
+  "kvm_empty_vm_created": true,
+  "kvm_vcpu_created": true,
+  "owned_guest_marker_received": true,
+  "owned_guest_halt_received": true,
+  "guest_program_bytes": 7,
+  "guest_memory_bytes": 4096,
+  "windows_guest_booted": false,
+  "windows_guest_reboot_tested": false,
+  "target_launched": false,
+  "host_rebooted": false,
+  "device_permissions_changed": false,
+  "windows_hyperv_probe": "inconclusive_powershell_timeout",
+  "windows_hyperv_absence_proven": false,
+  "runner_resources": {
+    "cpu_count": 2,
+    "ram_gib": 7,
+    "disk_free_gib": 12
+  },
+  "local_contract_tests_passed": 28,
+  "c_compiler_warnings_as_errors": true,
+  "local_without_kvm_negative_control_passed": true,
+  "windows_image_downloaded": false,
+  "next_requirements": [
+    "Provision a valid authorized Windows image; Microsoft evaluation page requires registration.",
+    "Provide safe storage headroom beyond currently observed 12 GiB before image download and guest disk growth; sparse virtual capacity alone is not free physical storage.",
+    "Install QEMU from approved distro source and validate guest boot, same disk/profile and real boot change.",
+    "Only then run the prelogin UUID before/after reboot comparison without exporting private state."
+  ]
+}

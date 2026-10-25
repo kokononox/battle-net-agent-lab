@@ -1,8 +1,8 @@
 {
-  "schema": "bnet-reboot-test-status-1",
+  "schema": "bnet-reboot-test-status-2",
   "real_os_reboot_comparison": "not_performed",
-  "result": "pending_persistent_windows_host",
-  "blocker": "Current experiments use ephemeral GitHub-hosted Windows jobs; a new job is not a reboot of the same persistent OS/profile/disk.",
+  "result": "pending_windows_guest_provisioning_on_verified_KVM_route",
+  "blocker": "KVM guest CPU execution on a GitHub Linux host is verified; a Windows guest image, adequate storage, real Windows boot and same-guest reboot are not yet provisioned/tested. Separate hosted jobs still do not prove same-OS reboot.",
   "tool": "analysis-tools/prelogin-reboot/reboot_probe.py",
   "registry_only": true,
   "public_value_or_identifier_hash_exported": false,
@@ -14,10 +14,19 @@
   "native_control_run_id": "40152098346",
   "native_control_source_commit": "2533962409cf5bf3bb21d09589d3e3c67b8cae0d",
   "native_control_evidence_commit": "38d1c2878a73aff92e886523b5c876a0ede8f788",
-  "next_required": "Run before and after on the same persistent Windows user profile, with an actual manual Windows Restart between phases.",
+  "next_required": "Provision Windows in a guest within one long-lived GitHub job, preserve that guest disk/profile across its own reboot, then run before/after probe. External persistent Windows remains an alternative, not the only route.",
   "scope_exclusions": [
     "reinstall",
     "WoW_file_provenance",
     "new_target_network_capture"
-  ]
+  ],
+  "github_nested_route": {
+    "report": "reports/prelogin-nested-kvm-review.json",
+    "run_id": "40153443222",
+    "source_commit": "8cda46c6558ec0451f26dded23e5a859855fae50",
+    "evidence_commit": "85a020390a98f191445acc3b1b22ca222b9545ab",
+    "owned_guest_cpu_execution_verified": true,
+    "windows_guest_booted": false,
+    "windows_guest_reboot_tested": false
+  }
 }
