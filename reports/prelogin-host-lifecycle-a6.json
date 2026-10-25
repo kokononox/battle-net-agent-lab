@@ -1,0 +1,115 @@
+{
+  "schema": "bnet-host-lifecycle-3",
+  "source_commit": "12b2f4610a4b2f2435988e4d20a48ff477760ab9",
+  "run_id": "40144632517",
+  "status": "inconclusive",
+  "error_code": "second_phase_ineligible",
+  "first_native_gate_passed": true,
+  "same_machine": true,
+  "configuration_preserved": true,
+  "second_start_clean_processes": true,
+  "comparison": null,
+  "phases": [
+    {
+      "launched": true,
+      "completed": true,
+      "bootstrap_pin_match": true,
+      "instrumented_processes": 3,
+      "collector_errors": 0,
+      "dropped_events": 0,
+      "collector_fatal": false,
+      "request_count": 18,
+      "hardware_requests": 1,
+      "wire_linked_hardware_requests": 1,
+      "host_id_observations": 1,
+      "host_id_unique": 1,
+      "invalid_host_id_events": 0,
+      "all_processes_instrumented": true,
+      "language_status": "not_observed"
+    },
+    {
+      "launched": true,
+      "completed": false,
+      "bootstrap_pin_match": true,
+      "instrumented_processes": 4,
+      "collector_errors": 0,
+      "dropped_events": 0,
+      "collector_fatal": true,
+      "request_count": 6,
+      "hardware_requests": 0,
+      "wire_linked_hardware_requests": 0,
+      "host_id_observations": 0,
+      "host_id_unique": 0,
+      "invalid_host_id_events": 0,
+      "all_processes_instrumented": false,
+      "language_status": "other"
+    }
+  ],
+  "second_diagnostics": {
+    "stage": "observe",
+    "error_type": "RuntimeError",
+    "refusal_reason": "helper_policy_refused",
+    "refused_image": {
+      "status": "metadata_complete",
+      "basename_class": "agenthelper.exe",
+      "path_class": "battle_net_programdata",
+      "image_bytes": 3642064,
+      "image_file_sha256": "a3a444e6bd163732a648967c01a5fd509f7f33d6963b381c19bdffb604138651",
+      "authenticode_valid": true,
+      "publisher_class": "blizzard",
+      "winverifytrust_status": 0,
+      "blocked_before_resume": true,
+      "execution_authorized": false
+    },
+    "processes": [
+      {
+        "name": "battle.net-setup.exe",
+        "phase": "observing",
+        "status": "resumed",
+        "error_type": null,
+        "instrumented_before_resume": true,
+        "script_errors": 0
+      },
+      {
+        "name": "agent.exe",
+        "phase": "observing",
+        "status": "resumed",
+        "error_type": null,
+        "instrumented_before_resume": true,
+        "script_errors": 0
+      },
+      {
+        "name": "agent.exe",
+        "phase": "observing",
+        "status": "resumed",
+        "error_type": null,
+        "instrumented_before_resume": true,
+        "script_errors": 0
+      },
+      {
+        "name": "other",
+        "phase": "verify",
+        "status": "refused_or_failed",
+        "error_type": "RuntimeError",
+        "instrumented_before_resume": false,
+        "script_errors": 0
+      }
+    ]
+  },
+  "limits": {
+    "raw_values_exported": false,
+    "identifier_hashes_exported": false,
+    "login_performed": false,
+    "game_download_requested": false,
+    "install_action_requested": false,
+    "tls_validation_changed": false,
+    "reboot_tested": false,
+    "reinstall_tested": false,
+    "clean_machine_comparison_tested": false,
+    "account_linkage_proven": false,
+    "game_file_marking_proven": false,
+    "server_storage_proven": false,
+    "configuration_storage_location_proven": false,
+    "persistent_hardware_id_proven": false
+  }
+}

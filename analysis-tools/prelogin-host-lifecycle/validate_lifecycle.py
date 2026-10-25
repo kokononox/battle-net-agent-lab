@@ -6,7 +6,7 @@ PHASE={'launched','completed','bootstrap_pin_match','instrumented_processes','co
 LIMITS={'raw_values_exported':False,'identifier_hashes_exported':False,'login_performed':False,'game_download_requested':False,'install_action_requested':False,'tls_validation_changed':False,'reboot_tested':False,'reinstall_tested':False,'clean_machine_comparison_tested':False,'account_linkage_proven':False,'game_file_marking_proven':False,'server_storage_proven':False,'configuration_storage_location_proven':False,'persistent_hardware_id_proven':False}
 BOOL={'launched','completed','bootstrap_pin_match','collector_fatal','all_processes_instrumented'}
 def validate(r):
-    if type(r) is not dict or set(r)!=TOP or r['schema']!='bnet-host-lifecycle-3':raise ValueError('schema')
+    if type(r) is not dict or set(r)!=TOP or r['schema']!='bnet-host-lifecycle-4':raise ValueError('schema')
     if type(r['source_commit']) is not str or not re.fullmatch('[a-f0-9]{40}',r['source_commit']):raise ValueError('source')
     if type(r['run_id']) is not str or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('run')
     if r['status'] not in ('stopped','inconclusive','same_host_id_after_process_restart','changed_host_id_after_process_restart'):raise ValueError('status')
@@ -36,6 +36,7 @@ def validate(r):
         if p['all_processes_instrumented']!=(bool(ds) and all(x['instrumented_before_resume'] for x in ds)):raise ValueError('debug_instrumentation')
     elif ds:raise ValueError('debug_without_second_phase')
     if r['comparison'] is not None:
+        if any(not p['approved'] for p in r['second_diagnostics']['helper_decisions']):raise ValueError('failed_helper_policy')
         if r['second_diagnostics']['refused_image'] is not None or r['second_diagnostics']['refusal_reason'] is not None:raise ValueError('refused_child_comparison')
         if r['second_diagnostics']['stage']!='complete' or r['second_diagnostics']['error_type'] is not None:raise ValueError('second_diagnostic_gate')
         from identity_compare import eligible

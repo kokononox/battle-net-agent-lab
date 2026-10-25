@@ -63,11 +63,13 @@ def second_start(frida,env,setup,p,trackers,diag):
             diag['refusal_reason']='image_signature';raise RuntimeError('signature')
         data=path.read_bytes();digest=hashlib.sha256(data).hexdigest()
         if helper:
-            from approved_helper import allowed
+            from approved_helper import decision
             parent_id=manager.rows[pid]['parent_pid'];parent_row=manager.rows.get(parent_id,{})
             parent_info=identity(parent_id);parent_path=Path(parent_info['path'])
             parent_matches=ids.get(parent_id)==(parent_info['creation'],str(parent_path).lower())
-            if not allowed(path,parent_path,parent_row,digest,sig,env,parent_matches,obs.is_reparse):
+            policy=decision(path,parent_path,parent_row,digest,sig,env,parent_matches,obs.is_reparse)
+            diag['helper_decisions'].append(policy)
+            if not policy['approved']:
                 from refused_image import inspect_refused
                 diag['refusal_reason']='helper_policy_refused';diag['refused_image']=inspect_refused(path,env,obs.is_reparse)
                 raise RuntimeError('helper_policy')
@@ -120,8 +122,8 @@ def second_start(frida,env,setup,p,trackers,diag):
 
 
 def main():
-    if not (sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_HOST_LIFECYCLE')=='approved-host-lifecycle-20261024-a6'):raise SystemExit('fresh_hosted_once_required')
-    report=dict(schema='bnet-host-lifecycle-3',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],status='stopped',error_code=None,first_native_gate_passed=False,same_machine=True,configuration_preserved=True,second_start_clean_processes=False,comparison=None,phases=[],second_diagnostics=blank_debug(),limits=dict(LIMITS))
+    if not (sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_HOST_LIFECYCLE')=='approved-host-lifecycle-20261024-a7'):raise SystemExit('fresh_hosted_once_required')
+    report=dict(schema='bnet-host-lifecycle-4',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],status='stopped',error_code=None,first_native_gate_passed=False,same_machine=True,configuration_preserved=True,second_start_clean_processes=False,comparison=None,phases=[],second_diagnostics=blank_debug(),limits=dict(LIMITS))
     trackers=[];original_analyze=first.analyze;old_flag=os.environ.get('BNET_WIRE_H3')
     def observe_first(events,packets,classifier):
         tracker=Tracking(classifier);trackers.append(tracker)

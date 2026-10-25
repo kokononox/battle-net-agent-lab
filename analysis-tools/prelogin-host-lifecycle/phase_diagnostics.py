@@ -6,14 +6,17 @@ PHASES={'verify','attach','child_gating','script_load','resume','observing','oth
 STATES={'paused','refused_or_failed','resumed','other'}
 REFUSALS={None,'unexpected_image_name','reparse_or_missing_image','image_size','image_signature','helper_policy_refused'}
 def error_kind(name):return name if name in ERRORS else 'other'
-def blank_debug():return dict(stage='not_started',error_type=None,refusal_reason=None,refused_image=None,processes=[])
+def blank_debug():return dict(stage='not_started',error_type=None,refusal_reason=None,refused_image=None,helper_decisions=[],processes=[])
 def collect_diagnostics(p,d,manager):
     rows=list(manager.rows.values())
     p.update(instrumented_processes=len(rows),all_processes_instrumented=bool(rows) and all(x['instrumented_before_resume'] for x in rows),collector_errors=sum(x['script_errors'] for x in rows),dropped_events=manager.dropped,collector_fatal=manager.fatal)
     d['processes']=[dict(name=x['process_name'] if x['process_name'] in NAMES else 'other',phase=x['phase'] if x['phase'] in PHASES else 'other',status=x['status'] if x['status'] in STATES else 'other',error_type=error_kind(x['error_kind']),instrumented_before_resume=x['instrumented_before_resume'],script_errors=x['script_errors']) for x in rows]
 def validate_debug(d):
-    if type(d) is not dict or set(d)!={'stage','error_type','refusal_reason','refused_image','processes'}:raise ValueError('debug_schema')
+    if type(d) is not dict or set(d)!={'stage','error_type','refusal_reason','refused_image','helper_decisions','processes'}:raise ValueError('debug_schema')
     if d['stage'] not in STAGES or d['error_type'] not in ERRORS or d['refusal_reason'] not in REFUSALS:raise ValueError('debug_label')
+    from approved_helper import validate_decision
+    if type(d['helper_decisions']) is not list or len(d['helper_decisions'])>8:raise ValueError('helper_decisions')
+    for policy in d['helper_decisions']:validate_decision(policy)
     if d['refused_image'] is not None:
         from refused_image import validate
         validate(d['refused_image'])

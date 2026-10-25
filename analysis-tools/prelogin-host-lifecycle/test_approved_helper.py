@@ -1,6 +1,6 @@
 from pathlib import Path
 import tempfile,unittest
-from approved_helper import allowed,HASH,PARENTS
+from approved_helper import allowed,HASH,PARENTS,SETUP,decision,validate_decision
 class HelperTests(unittest.TestCase):
     def call(self,change=None):
         with tempfile.TemporaryDirectory() as tmp:
@@ -16,7 +16,17 @@ class HelperTests(unittest.TestCase):
     def test_non_agent_parent_fails(self):self.assertFalse(self.call(lambda k:k['parent_row'].update(process_name='battle.net-setup.exe')))
     def test_wrong_parent_hash_fails(self):self.assertFalse(self.call(lambda k:k['parent_row'].update(sha256='0'*64)))
     def test_reused_parent_pid_fails(self):self.assertFalse(self.call(lambda k:k.update(parent_identity_matches=False)))
-    def test_other_folder_fails(self):self.assertFalse(self.call(lambda k:k.update(parent_path=k['parent_path'].parent.parent/'Agent.exe')))
+    def test_different_version_directory_can_have_pinned_parent(self):self.assertTrue(self.call(lambda k:k.update(parent_path=k['parent_path'].parent.parent/'Agent.exe')))
     def test_reparse_fails(self):self.assertFalse(self.call(lambda k:k.update(is_reparse=lambda p:True)))
     def test_uninstrumented_parent_fails(self):self.assertFalse(self.call(lambda k:k['parent_row'].update(instrumented_before_resume=False)))
+    def test_pinned_original_setup_parent_passes(self):
+        def root_parent(k):k['parent_row'].update(process_name='battle.net-setup.exe',sha256=SETUP)
+        self.assertTrue(self.call(root_parent))
+    def test_other_setup_digest_fails(self):
+        def bad_parent(k):k['parent_row'].update(process_name='battle.net-setup.exe',sha256='0'*64)
+        self.assertFalse(self.call(bad_parent))
+    def test_decision_cannot_lie_about_hash(self):
+        from approved_helper import CRITICAL
+        d=dict(checks={k:True for k in CRITICAL|{'same_version_directory'}},approved=True);d['checks']['content_pinned']=False
+        self.assertRaises(ValueError,validate_decision,d)
 if __name__=='__main__':unittest.main()
