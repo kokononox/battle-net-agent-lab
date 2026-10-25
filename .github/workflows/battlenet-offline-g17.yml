@@ -1,0 +1,66 @@
+name: Battle.net G17 real Setup offline bootstrap observation
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/offline-bootstrap-g17/**', '.github/workflows/battlenet-offline-g17.yml']
+permissions: {}
+jobs:
+  observe:
+    if: >-
+      github.event.head_commit.message == 'lab: approved offline real Setup G17 20261025' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 8
+    permissions:
+      contents: read
+    env:
+      BNET_OFFLINE_G17: 'lab: approved offline real Setup G17 20261025'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse sources before any mutation
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          foreach($file in Get-ChildItem analysis-tools/offline-bootstrap-g17/*.ps1){
+            $tokens=$null;$errors=$null
+            $null=[Management.Automation.Language.Parser]::ParseFile($file.FullName,[ref]$tokens,[ref]$errors)
+            if($errors.Count -gt 0){$errors | ForEach-Object {Write-Output ($_.ErrorId+':'+$_.Extent.StartLineNumber)};throw 'powershell_parse_failed'}
+          }
+          python -m compileall -q analysis-tools/offline-bootstrap-g17
+          if($LASTEXITCODE -ne 0){throw 'python_parse_failed'}
+      - name: Compile bounded Job launcher and native signature verifier
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          New-Item -ItemType Directory -Force output, "$env:RUNNER_TEMP\bnet-g17-bin" | Out-Null
+          $source=(Resolve-Path 'analysis-tools/offline-bootstrap-g17/OfflineLauncher.cs').Path
+          $signature=(Resolve-Path 'scripts/authenticode_native.cs').Path
+          $csc="$env:SystemRoot\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+          & $csc @('/nologo','/target:exe','/platform:x64','/r:System.Web.Extensions.dll',('/out:'+(Join-Path "$env:RUNNER_TEMP\bnet-g17-bin" 'OfflineLauncher.exe')),$source,$signature)
+          if($LASTEXITCODE -ne 0){throw 'launcher_build_failed'}
+      - name: Observe pinned real Setup with target outbound closed
+        shell: powershell
+        run: '& ./analysis-tools/offline-bootstrap-g17/Driver.ps1'
+      - name: Bounded component-first fallback, never unconditional policy release
+        if: always()
+        timeout-minutes: 1
+        shell: powershell
+        run: |
+          if(Test-Path output/g17-private-pointer.json){
+            $p=Get-Content -Raw output/g17-private-pointer.json | ConvertFrom-Json
+            if(Test-Path (Join-Path $p.root 'before.wfw')){
+              & (Join-Path $p.root 'Recover.ps1') -Config (Join-Path $p.root 'config.json') -Origin fallback
+            }
+          }
+      - name: Build only allowlisted evidence
+        if: always()
+        shell: powershell
+        run: 'python analysis-tools/offline-bootstrap-g17/Reporter.py'
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: battlenet-offline-g17-sanitized
+          path: output/offline-g17.json
+          if-no-files-found: error
+          retention-days: 3
