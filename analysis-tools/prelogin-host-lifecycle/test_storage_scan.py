@@ -43,3 +43,28 @@ class StorageTests(unittest.TestCase):
     def test_presence_cannot_be_promoted_to_provider_read(self):
         r=blank('after_first');r['provider_read_source_proven']=True;self.assertRaises(ValueError,validate,r)
 if __name__=='__main__':unittest.main()
+
+class LiteralNameTests(unittest.TestCase):
+    def test_ascii_literal(self):
+        from storage_scan import find_literal
+        self.assertEqual(find_literal('PublicSetting',b'\0PublicSetting\0'),'ascii')
+    def test_utf16_literal(self):
+        from storage_scan import find_literal
+        self.assertEqual(find_literal('PublicSetting','\0PublicSetting\0'.encode('utf-16-le')),'utf-16-le')
+    def test_registry_case_insensitive_literal(self):
+        from storage_scan import find_literal
+        self.assertEqual(find_literal('publicsetting',b'\0PublicSetting\0'),'ascii')
+    def test_embedded_substring_not_proof(self):
+        from storage_scan import find_literal
+        self.assertIsNone(find_literal('PublicSetting',b'\0NotPublicSettingX\0'))
+    def test_uuid_name_not_exported(self):
+        from storage_scan import find_literal
+        self.assertIsNone(find_literal(ID.decode(),b'\0'+ID+b'\0'))
+    def test_unproven_registry_name_masked(self):
+        from storage_scan import registry_locator
+        r=blank('after_first');self.assertEqual(registry_locator(['PrivateMachineLabel'],r,{}),'*')
+    def test_proven_registry_name_exported_with_image_proof(self):
+        from storage_scan import registry_locator,PINNED_IMAGES
+        r=blank('after_first');sha=next(iter(PINNED_IMAGES));self.assertEqual(registry_locator(['PublicSetting'],r,{sha:b'\0PublicSetting\0'}),'PublicSetting');validate(r);self.assertEqual(r['registry_literal_names'][0]['image_sha256'],sha)
+    def test_unpinned_image_not_accepted_as_proof(self):
+        r=blank('after_first');r['registry_literal_names']=[dict(name='PublicSetting',image_sha256='0'*64,encoding='ascii')];self.assertRaises(ValueError,validate,r)

@@ -132,8 +132,8 @@ def second_start(frida,env,setup,p,trackers,diag):
 
 
 def main():
-    if not (sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_HOST_LIFECYCLE')=='approved-host-lifecycle-20261024-a9'):raise SystemExit('fresh_hosted_once_required')
-    report=dict(schema='bnet-host-lifecycle-6',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],status='stopped',error_code=None,first_native_gate_passed=False,same_machine=True,configuration_preserved=True,second_start_clean_processes=False,comparison=None,phases=[],storage_scans=[],second_diagnostics=blank_debug(),limits=dict(LIMITS))
+    if not (sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_OS')=='Windows' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')==BRANCH and os.environ.get('BNET_HOST_LIFECYCLE')=='approved-host-lifecycle-20261024-a10'):raise SystemExit('fresh_hosted_once_required')
+    report=dict(schema='bnet-host-lifecycle-7',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],status='stopped',error_code=None,first_native_gate_passed=False,same_machine=True,configuration_preserved=True,second_start_clean_processes=False,comparison=None,phases=[],storage_scans=[],second_diagnostics=blank_debug(),limits=dict(LIMITS))
     trackers=[];original_analyze=first.analyze;old_flag=os.environ.get('BNET_WIRE_H3')
     def observe_first(events,packets,classifier):
         tracker=Tracking(classifier);trackers.append(tracker)
@@ -154,7 +154,7 @@ def main():
         if not eligible(p):report.update(status='inconclusive',error_code='first_phase_ineligible');return
         env=obs.clean_environment(os.environ)
         from storage_scan import scan
-        report['storage_scans'].append(scan(trackers[0].values,env,'after_first'))
+        report['storage_scans'].append(scan(trackers[0].values,env,'after_first',trackers[0].delegate.images))
         for _ in range(20):
             if not obs.snapshot(env).get('processes'):break
             time.sleep(.5)
@@ -163,7 +163,7 @@ def main():
         # Same bootstrapper, exact original location and untouched machine/config.
         setup=Path(os.environ['RUNNER_TEMP'])/('bnet-observe-'+os.environ['GITHUB_RUN_ID']+'-1')/'Battle.net-Setup.exe'
         p=blank();report['phases'].append(p);second_start(frida,env,setup,p,trackers,report['second_diagnostics'])
-        if len(trackers)==2 and eligible(p):report['storage_scans'].append(scan(trackers[1].values,env,'after_second'))
+        if len(trackers)==2 and eligible(p):report['storage_scans'].append(scan(trackers[1].values,env,'after_second',trackers[1].delegate.images))
         result=compare(trackers[0],trackers[1],report['phases']) if len(trackers)==2 else None
         report['comparison']=result
         report['status']=('same_host_id_after_process_restart' if result else 'changed_host_id_after_process_restart') if result is not None else 'inconclusive'
