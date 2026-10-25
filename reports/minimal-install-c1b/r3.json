@@ -1,0 +1,1376 @@
+{
+  "schema": "bnet-minimal-install-c1b-1",
+  "case": "C1b-six-calibrated-hosts",
+  "experiment_label": "telemetry-hosts-1",
+  "hosts": {
+    "domain": "telemetry-in.battle.net",
+    "scope": "exact-hosts-os-resolver-only",
+    "backup_created": true,
+    "override_written": true,
+    "resolver_verified": true,
+    "verification_checks": 10,
+    "verification_failures": 0,
+    "flush_exit_code": 0,
+    "restore_flush_exit_code": 0,
+    "restore_attempted": true,
+    "restored": true,
+    "calibration": {
+      "domain": "telemetry-in.battle.net",
+      "control_domain": "downloader.battle.net",
+      "policy": "calibrated_os_resolver_v2",
+      "backup_created": true,
+      "override_written": true,
+      "baseline": {
+        "target": {
+          "any": {
+            "status": "answers",
+            "error_code": null,
+            "answer_classes": {
+              "invalid": 0,
+              "loopback": 0,
+              "other_nonpublic": 0,
+              "public": 1,
+              "unspecified": 0
+            }
+          },
+          "ipv4": {
+            "status": "answers",
+            "error_code": null,
+            "answer_classes": {
+              "invalid": 0,
+              "loopback": 0,
+              "other_nonpublic": 0,
+              "public": 1,
+              "unspecified": 0
+            }
+          },
+          "ipv6": {
+            "status": "dns_error",
+            "error_code": 11001,
+            "answer_classes": {
+              "invalid": 0,
+              "loopback": 0,
+              "other_nonpublic": 0,
+              "public": 0,
+              "unspecified": 0
+            }
+          }
+        },
+        "control": {
+          "any": {
+            "status": "answers",
+            "error_code": null,
+            "answer_classes": {
+              "invalid": 0,
+              "loopback": 0,
+              "other_nonpublic": 0,
+              "public": 2,
+              "unspecified": 0
+            }
+          },
+          "ipv4": {
+            "status": "answers",
+            "error_code": null,
+            "answer_classes": {
+              "invalid": 0,
+              "loopback": 0,
+              "other_nonpublic": 0,
+              "public": 2,
+              "unspecified": 0
+            }
+          },
+          "ipv6": {
+            "status": "dns_error",
+            "error_code": 11004,
+            "answer_classes": {
+              "invalid": 0,
+              "loopback": 0,
+              "other_nonpublic": 0,
+              "public": 0,
+              "unspecified": 0
+            }
+          }
+        }
+      },
+      "checks": [
+        {
+          "observations": {
+            "target": {
+              "any": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            },
+            "control": {
+              "any": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            }
+          },
+          "readback_verified": true,
+          "resolver_state": "accepted_no_data",
+          "accepted": true
+        },
+        {
+          "observations": {
+            "target": {
+              "any": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            },
+            "control": {
+              "any": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            }
+          },
+          "readback_verified": true,
+          "resolver_state": "accepted_no_data",
+          "accepted": true
+        },
+        {
+          "observations": {
+            "target": {
+              "any": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            },
+            "control": {
+              "any": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            }
+          },
+          "readback_verified": true,
+          "resolver_state": "accepted_no_data",
+          "accepted": true
+        },
+        {
+          "observations": {
+            "target": {
+              "any": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            },
+            "control": {
+              "any": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            }
+          },
+          "readback_verified": true,
+          "resolver_state": "accepted_no_data",
+          "accepted": true
+        },
+        {
+          "observations": {
+            "target": {
+              "any": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            },
+            "control": {
+              "any": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            }
+          },
+          "readback_verified": true,
+          "resolver_state": "accepted_no_data",
+          "accepted": true
+        },
+        {
+          "observations": {
+            "target": {
+              "any": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            },
+            "control": {
+              "any": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            }
+          },
+          "readback_verified": true,
+          "resolver_state": "accepted_no_data",
+          "accepted": true
+        },
+        {
+          "observations": {
+            "target": {
+              "any": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            },
+            "control": {
+              "any": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            }
+          },
+          "readback_verified": true,
+          "resolver_state": "accepted_no_data",
+          "accepted": true
+        },
+        {
+          "observations": {
+            "target": {
+              "any": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            },
+            "control": {
+              "any": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            }
+          },
+          "readback_verified": true,
+          "resolver_state": "accepted_no_data",
+          "accepted": true
+        },
+        {
+          "observations": {
+            "target": {
+              "any": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            },
+            "control": {
+              "any": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            }
+          },
+          "readback_verified": true,
+          "resolver_state": "accepted_no_data",
+          "accepted": true
+        },
+        {
+          "observations": {
+            "target": {
+              "any": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            },
+            "control": {
+              "any": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv4": {
+                "status": "answers",
+                "error_code": null,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 2,
+                  "unspecified": 0
+                }
+              },
+              "ipv6": {
+                "status": "dns_error",
+                "error_code": 11004,
+                "answer_classes": {
+                  "invalid": 0,
+                  "loopback": 0,
+                  "other_nonpublic": 0,
+                  "public": 0,
+                  "unspecified": 0
+                }
+              }
+            }
+          },
+          "readback_verified": true,
+          "resolver_state": "accepted_no_data",
+          "accepted": true
+        }
+      ],
+      "verification_failures": 0,
+      "flush_exit_code": 0,
+      "restore_attempted": true,
+      "file_restored": true,
+      "restore_flush_exit_code": 0,
+      "restoration": {
+        "target": {
+          "any": {
+            "status": "answers",
+            "error_code": null,
+            "answer_classes": {
+              "invalid": 0,
+              "loopback": 0,
+              "other_nonpublic": 0,
+              "public": 1,
+              "unspecified": 0
+            }
+          },
+          "ipv4": {
+            "status": "answers",
+            "error_code": null,
+            "answer_classes": {
+              "invalid": 0,
+              "loopback": 0,
+              "other_nonpublic": 0,
+              "public": 1,
+              "unspecified": 0
+            }
+          },
+          "ipv6": {
+            "status": "dns_error",
+            "error_code": 11001,
+            "answer_classes": {
+              "invalid": 0,
+              "loopback": 0,
+              "other_nonpublic": 0,
+              "public": 0,
+              "unspecified": 0
+            }
+          }
+        },
+        "control": {
+          "any": {
+            "status": "answers",
+            "error_code": null,
+            "answer_classes": {
+              "invalid": 0,
+              "loopback": 0,
+              "other_nonpublic": 0,
+              "public": 2,
+              "unspecified": 0
+            }
+          },
+          "ipv4": {
+            "status": "answers",
+            "error_code": null,
+            "answer_classes": {
+              "invalid": 0,
+              "loopback": 0,
+              "other_nonpublic": 0,
+              "public": 2,
+              "unspecified": 0
+            }
+          },
+          "ipv6": {
+            "status": "dns_error",
+            "error_code": 11004,
+            "answer_classes": {
+              "invalid": 0,
+              "loopback": 0,
+              "other_nonpublic": 0,
+              "public": 0,
+              "unspecified": 0
+            }
+          }
+        }
+      },
+      "restored": true
+    }
+  },
+  "installation_gate": "signed_binary_version_v1",
+  "binary_probe_counts": {
+    "waiting_stability": 4,
+    "accepted": 6
+  },
+  "binary_probe_failures": [],
+  "last_sample_process_names": [
+    "agent.exe",
+    "battle.net.exe"
+  ],
+  "replica": "r3",
+  "started_at": "2026-10-25T03:45:34Z",
+  "ended_at": "2026-10-25T03:47:29Z",
+  "registry_version_state": "missing",
+  "source_commit": "f461252538fe73853589747ff12169faff74d113",
+  "run_id": "40159371269",
+  "status": "installed_by_defined_gate",
+  "phase": "complete",
+  "error_code": null,
+  "target_launched": true,
+  "installer": {
+    "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+    "bytes": 4700880,
+    "signature_accepted": true,
+    "matches_pin": true
+  },
+  "native_ui_gate": true,
+  "language_attempted": true,
+  "install_attempted": true,
+  "language_status": "continued",
+  "install_status": "continued",
+  "samples": 36,
+  "snapshot_errors": 0,
+  "gui_errors": 2,
+  "known_process_counts": {
+    "battle.net-setup.exe": 1,
+    "agent.exe": 1,
+    "battle.net.exe": 5
+  },
+  "public_endpoints": [
+    {
+      "process_name": "agent.exe",
+      "ip": "137.221.64.8",
+      "port": 80,
+      "samples": 4
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "23.1.254.200",
+      "port": 80,
+      "samples": 20
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "23.1.254.207",
+      "port": 80,
+      "samples": 16
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "23.1.254.209",
+      "port": 80,
+      "samples": 3
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "23.1.254.216",
+      "port": 80,
+      "samples": 56
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "23.1.254.223",
+      "port": 80,
+      "samples": 2
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "8.232.70.12",
+      "port": 443,
+      "samples": 58
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 0,
+      "samples": 28
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49719,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49720,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49746,
+      "samples": 2
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49747,
+      "samples": 2
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49755,
+      "samples": 8
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49756,
+      "samples": 8
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49880,
+      "samples": 2
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49881,
+      "samples": 2
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49882,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49883,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49906,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49907,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49983,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49984,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49985,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 49986,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 50002,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 50003,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 50004,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 50005,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "23.1.254.202",
+      "port": 80,
+      "samples": 51
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "23.1.254.206",
+      "port": 80,
+      "samples": 51
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "23.1.254.223",
+      "port": 80,
+      "samples": 51
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "23.11.33.159",
+      "port": 80,
+      "samples": 15
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "nonpublic",
+      "port": 1120,
+      "samples": 4
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "nonpublic",
+      "port": 49676,
+      "samples": 17
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "nonpublic",
+      "port": 49677,
+      "samples": 17
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "13.226.53.29",
+      "port": 443,
+      "samples": 12
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "192.178.129.100",
+      "port": 443,
+      "samples": 12
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "23.1.254.206",
+      "port": 443,
+      "samples": 24
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "23.33.22.135",
+      "port": 80,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "23.33.22.135",
+      "port": 443,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "23.53.127.205",
+      "port": 80,
+      "samples": 48
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "34.110.236.123",
+      "port": 443,
+      "samples": 2
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "35.201.91.89",
+      "port": 443,
+      "samples": 26
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "44.245.143.7",
+      "port": 443,
+      "samples": 12
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "74.125.69.97",
+      "port": 443,
+      "samples": 12
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "8.232.70.12",
+      "port": 443,
+      "samples": 2
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 0,
+      "samples": 13
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 49922,
+      "samples": 13
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 49923,
+      "samples": 13
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 49932,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 49933,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 49939,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 49940,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 49943,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 49944,
+      "samples": 1
+    }
+  ],
+  "endpoints_truncated": false,
+  "install_checks": {
+    "registry_key_found": true,
+    "registry_location_match": true,
+    "signed_launcher": true,
+    "signed_client": true,
+    "version_evidence_verified": true,
+    "setup_absent": true,
+    "client_running": true,
+    "account_signal_seen": true,
+    "stable_layout_20_seconds": true
+  },
+  "client_binaries": [
+    {
+      "kind": "launcher",
+      "sha256": "b8bd3943b01749c841e4058db9e9e224536279c6707f31469913ecd2b6cd65a8",
+      "bytes": 216784,
+      "signature_accepted": true,
+      "file_version": "2.53.6.17952",
+      "version_status": "accepted"
+    },
+    {
+      "kind": "client",
+      "sha256": "54cd2f928dd4947d4ab33aae48c47b112ee851c29745bf1da1a54fbfc67525c7",
+      "bytes": 995024,
+      "signature_accepted": true,
+      "file_version": "2.53.6.17952",
+      "version_status": "accepted"
+    }
+  ],
+  "cleanup_attempted": true,
+  "observer_seconds": 114,
+  "native_options_probes": 3,
+  "native_options_last_status": "continued",
+  "ui_signal_seen": {
+    "account": true,
+    "error": false,
+    "installation_options": false,
+    "language": true,
+    "legal": false,
+    "progress": true
+  },
+  "ui_signal_last": {
+    "language": false,
+    "legal": false,
+    "account": true,
+    "installation_options": false,
+    "progress": false,
+    "error": false
+  },
+  "intervention": "hosts_exact_domain_override",
+  "login_attempted": false,
+  "game_download_requested": false,
+  "raw_payloads_exported": false,
+  "all_processes_observed": false,
+  "all_network_observed": false,
+  "necessity_tested": false,
+  "telemetry_blocked": false
+}
