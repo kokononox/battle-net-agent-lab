@@ -1,7 +1,7 @@
 {
-  "schema": "bnet-host-lifecycle-6",
-  "source_commit": "af7b670e48b15987fba518f1be7da48908780ea0",
-  "run_id": "40147826620",
+  "schema": "bnet-host-lifecycle-7",
+  "source_commit": "f10f0e1a5e48a1838dbda1f41b883b5dea20faf2",
+  "run_id": "40148315329",
   "status": "same_host_id_after_process_restart",
   "error_code": null,
   "first_native_gate_passed": true,
@@ -47,12 +47,12 @@
   ],
   "storage_scans": [
     {
-      "schema": "bnet-host-storage-scan-1",
+      "schema": "bnet-host-storage-scan-2",
       "phase": "after_first",
       "status": "scan_complete",
       "files_visited": 130,
       "files_read": 47,
-      "bytes_read": 579577,
+      "bytes_read": 579513,
       "skipped_reparse": 0,
       "skipped_large": 1,
       "file_errors": 0,
@@ -65,7 +65,7 @@
         {
           "kind": "registry",
           "root": "hkcu_blizzard",
-          "locator": "*/*",
+          "locator": "Blizzard Error/UserUUID",
           "category": "registry_value",
           "uuid_exact": true,
           "uuid_casefold": true,
@@ -74,18 +74,35 @@
           "source_id_literal_present": false
         }
       ],
+      "registry_literal_names": [
+        {
+          "name": "Blizzard Error",
+          "image_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "encoding": "ascii"
+        },
+        {
+          "name": "UserUUID",
+          "image_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "encoding": "ascii"
+        },
+        {
+          "name": "Locale",
+          "image_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "encoding": "ascii"
+        }
+      ],
       "observed_uuid_count": 1,
       "read_only": true,
       "provider_read_source_proven": false,
       "raw_values_or_hashes_exported": false
     },
     {
-      "schema": "bnet-host-storage-scan-1",
+      "schema": "bnet-host-storage-scan-2",
       "phase": "after_second",
       "status": "scan_complete",
       "files_visited": 119,
       "files_read": 58,
-      "bytes_read": 612746,
+      "bytes_read": 612546,
       "skipped_reparse": 0,
       "skipped_large": 1,
       "file_errors": 0,
@@ -98,13 +115,30 @@
         {
           "kind": "registry",
           "root": "hkcu_blizzard",
-          "locator": "*/*",
+          "locator": "Blizzard Error/UserUUID",
           "category": "registry_value",
           "uuid_exact": true,
           "uuid_casefold": true,
           "source_id_key_exact": false,
           "source_id_key_casefold": false,
           "source_id_literal_present": false
+        }
+      ],
+      "registry_literal_names": [
+        {
+          "name": "Blizzard Error",
+          "image_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "encoding": "ascii"
+        },
+        {
+          "name": "UserUUID",
+          "image_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "encoding": "ascii"
+        },
+        {
+          "name": "Locale",
+          "image_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+          "encoding": "ascii"
         }
       ],
       "observed_uuid_count": 1,
