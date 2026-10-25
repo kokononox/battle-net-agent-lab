@@ -1,0 +1,152 @@
+{
+  "grain": "one fresh hosted VM attempt per row",
+  "source_scope": "same G18 harness; repetition changes only workflow matrix, not executable harness source",
+  "rows": [
+    {
+      "arm": "control",
+      "scenario": "no_setup",
+      "run_id": "40174258949",
+      "source_commit": "d80b1853f26401097bf5e0c2413dca41be4053a4",
+      "installer_launched": false,
+      "observation_complete": true,
+      "service_deltas": 0,
+      "task_deltas": 4,
+      "bits_watch_complete": true,
+      "bits_observed_jobs": 0,
+      "bits_samples": 46,
+      "restoration_qualified": false,
+      "status": "quarantined_restore_refused",
+      "error_code": "cleanup_not_verified"
+    },
+    {
+      "arm": "aborted_real",
+      "scenario": "real_setup",
+      "run_id": "40174258949",
+      "source_commit": "d80b1853f26401097bf5e0c2413dca41be4053a4",
+      "installer_launched": false,
+      "observation_complete": false,
+      "service_deltas": 0,
+      "task_deltas": 2,
+      "bits_watch_complete": false,
+      "bits_observed_jobs": 0,
+      "bits_samples": 1,
+      "restoration_qualified": false,
+      "status": "not_qualified",
+      "error_code": "registration_drift_before_target"
+    },
+    {
+      "arm": "repeat_real",
+      "scenario": "real_setup",
+      "run_id": "40174490360",
+      "source_commit": "7a952daa4d8eebed40f6ecda4b6d39f528e21c1d",
+      "installer_launched": true,
+      "observation_complete": true,
+      "service_deltas": 0,
+      "task_deltas": 1,
+      "bits_watch_complete": true,
+      "bits_observed_jobs": 0,
+      "bits_samples": 47,
+      "restoration_qualified": false,
+      "status": "quarantined_restore_refused",
+      "error_code": "cleanup_not_verified"
+    }
+  ],
+  "validation": [
+    {
+      "arm": "control",
+      "report_sha256": "79c9abdda76a805b60f5215bb9a77d76793ac466821120314a13a6758cda0d4c",
+      "source": "sanitized_live_log_zlib_parts_not_artifact",
+      "manifest_verified": true,
+      "registration_totals_cross_checked": true
+    },
+    {
+      "arm": "aborted_real",
+      "report_sha256": "a49a825d141e3eba458aec8ce92968cc53b29443bcad42fe71e47da43e760ee5",
+      "source": "sanitized_live_log_zlib_parts_not_artifact",
+      "manifest_verified": true,
+      "registration_totals_cross_checked": true
+    },
+    {
+      "arm": "repeat_real",
+      "report_sha256": "b24185ea82fc5ee593230200344396152c63b446197e63cdab331ba3b822ae1c",
+      "source": "sanitized_live_log_zlib_parts_not_artifact",
+      "manifest_verified": true,
+      "registration_totals_cross_checked": true
+    }
+  ],
+  "findings": {
+    "without_setup_task_changes": [
+      {
+        "id_sha256": "6137a887b08bde613f10c2469a266d09ae1a4771d17512f64acba2c4d4d1e883",
+        "identifier": "RefreshCache",
+        "fields": [
+          "Task/Triggers[1]/TimeTrigger[1]/StartBoundary[1]"
+        ]
+      },
+      {
+        "id_sha256": "21475573fddc2e641b67691a5d4d3096ea5135278dae645a8fd4a2e0bc4c613a",
+        "identifier": "PrintJobCleanupTask",
+        "fields": [
+          "Task/Settings[1]/Enabled[1]"
+        ]
+      },
+      {
+        "id_sha256": "2b11947a6c63d26c27256985033a4d1d7e97e56883cf36ed29a8beb6f79a4559",
+        "identifier": "Registration",
+        "fields": [
+          "Task/Triggers[1]/TimeTrigger[1]/StartBoundary[1]"
+        ]
+      },
+      {
+        "id_sha256": "4023f1322db1c44e9afe47a715033f592132e209dd8511b71be83c290ae8c7a2",
+        "identifier": "SvcRestartTask",
+        "fields": [
+          "Task/Triggers[1]/CalendarTrigger[1]/StartBoundary[1]"
+        ]
+      }
+    ],
+    "control_observed_without_setup": true,
+    "before_setup_task_changes": [
+      {
+        "id_sha256": "404332cecd04dc875aab6b8c36688f5d86374eb03390d9e33179990b3a8dd3f8",
+        "identifier": "Schedule Scan",
+        "fields": [
+          "Task/Triggers[1]/TimeTrigger[1]/RandomDelay[1]",
+          "Task/Triggers[1]/TimeTrigger[1]/Repetition[1]/Interval[1]"
+        ]
+      },
+      {
+        "id_sha256": "e896a3aeac484c18d26c0161c7a4baf558b2a1491dda21d884b95a62c9ed45f4",
+        "identifier": "Schedule Wake To Work",
+        "fields": [
+          "Task/Settings[1]/Enabled[1]"
+        ]
+      }
+    ],
+    "aborted_arm_not_install_observation": true,
+    "shared_exact_task_identity_and_fields": [
+      {
+        "identifier": "SvcRestartTask",
+        "id_sha256": "4023f1322db1c44e9afe47a715033f592132e209dd8511b71be83c290ae8c7a2",
+        "fields": [
+          "Task/Triggers[1]/CalendarTrigger[1]/StartBoundary[1]"
+        ]
+      }
+    ],
+    "no_bits_jobs_observed_in_completed_arms": true,
+    "absence_is_sampled_not_continuous": true,
+    "prior_g17_bits_config_change_cause_still_unknown": true
+  },
+  "comparison_plan": [
+    {
+      "finding": "Windows task definition drift can occur without Setup execution",
+      "disposition": "prose",
+      "reason": "categorical engineering counterexample, not a quantitative trend or comparable population rate"
+    },
+    {
+      "finding": "BITS inventory completeness and observed job absence",
+      "disposition": "prose",
+      "reason": "sampled absence requires a coverage caveat; a count chart could imply comprehensive transfer coverage"
+    }
+  ]
+}
