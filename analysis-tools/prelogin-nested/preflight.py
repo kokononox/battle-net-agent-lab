@@ -7,7 +7,7 @@ LINUX={'cpu_virtualization_flag','kvm_device_present','kvm_open_succeeded','kvm_
 WINDOWS={'admin','hypervisor_present','firmware_virtualization','slat','vm_monitor_extensions','hyperv_feature_installed','new_vm_command','vmms_present','vmms_running','vm_definition_created','vm_definition_removed','diagnostic'}
 BOOL_LINUX=LINUX-{'kvm_api_version','diagnostic'}
 BOOL_WINDOWS=WINDOWS-{'diagnostic'}
-DIAGNOSTICS={'none','missing_device','permission_denied','unsupported_api','ioctl_failed','probe_failed','feature_or_service_unavailable','vm_definition_failed','vm_cleanup_failed'}
+DIAGNOSTICS={'none','missing_device','permission_denied','unsupported_api','ioctl_failed','probe_failed','feature_or_service_unavailable','vm_definition_failed','vm_cleanup_failed','powershell_failed','powershell_timeout','invalid_json'}
 def blank(source,run,platform,access):return dict(schema=SCHEMA,source_commit=source,run_id=run,platform=platform,access=access,status='probe_failed',facts={},resources=dict(cpu_count=0,ram_gib=None,disk_free_gib=None),limits=dict(LIMITS))
 def validate(r):
  if type(r) is not dict or set(r)!=set(blank('','','','')) or r['schema']!=SCHEMA:raise ValueError('schema')
@@ -62,9 +62,17 @@ def linux_probe():
  return f
 
 def windows_probe():
- p=subprocess.run(['powershell.exe','-NoProfile','-NonInteractive','-File',str(Path(__file__).with_name('windows_probe.ps1'))],stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=90,check=True)
- if len(p.stdout)>8192:raise ValueError('size')
- return json.loads(p.stdout.decode('utf-8-sig'))
+ f={k:None for k in WINDOWS};f['diagnostic']='probe_failed'
+ try:
+  script=Path(__file__).with_name('windows_probe.ps1').read_text()
+  p=subprocess.run(['powershell.exe','-NoProfile','-NonInteractive','-Command','& {\n'+script+'\n}'],stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=90,check=True)
+ except subprocess.TimeoutExpired:f['diagnostic']='powershell_timeout';return f
+ except (OSError,subprocess.SubprocessError):f['diagnostic']='powershell_failed';return f
+ try:
+  if len(p.stdout)>8192:raise ValueError('size')
+  return json.loads(p.stdout.decode('utf-8-sig'))
+ except (ValueError,UnicodeError):f['diagnostic']='invalid_json';return f
+
 
 def resources(platform):
  x=dict(cpu_count=os.cpu_count() or 0,ram_gib=None,disk_free_gib=shutil.disk_usage(Path.cwd()).free//(1024**3))
@@ -83,13 +91,14 @@ def resources(platform):
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--platform',choices=('linux','windows'),required=True);p.add_argument('--access',choices=('runner','privileged_probe'),default='runner');p.add_argument('--out',required=True);a=p.parse_args()
- if not(os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_NESTED_PREFLIGHT')=='owned-nested-c1' and ((a.platform=='windows' and sys.platform=='win32') or (a.platform=='linux' and sys.platform.startswith('linux')))):raise SystemExit('guard')
+ if not(os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_NESTED_PREFLIGHT')=='owned-nested-c2' and ((a.platform=='windows' and sys.platform=='win32') or (a.platform=='linux' and sys.platform.startswith('linux')))):raise SystemExit('guard')
  if a.access=='privileged_probe' and (a.platform!='linux' or os.geteuid()!=0):raise SystemExit('privilege_guard')
  r=blank(os.environ['GITHUB_SHA'],os.environ['GITHUB_RUN_ID'],a.platform,a.access)
  r['facts']={k:None for k in (LINUX if a.platform=='linux' else WINDOWS)};r['facts']['diagnostic']='probe_failed'
  try:
   r['resources']=resources(a.platform);r['facts']=linux_probe() if a.platform=='linux' else windows_probe()
   if a.platform=='linux':r['status']='kvm_vm_creation_verified_not_guest_boot' if r['facts']['kvm_vm_created'] else 'kvm_not_verified'
+  elif r['facts']['diagnostic'] in ('powershell_failed','powershell_timeout','invalid_json','probe_failed'):r['status']='probe_failed'
   else:r['status']='vm_definition_created_not_guest_boot' if r['facts']['vm_definition_created'] and r['facts']['vm_definition_removed'] else 'vm_cleanup_failed' if r['facts']['vm_definition_created'] else 'hyperv_not_verified'
  except Exception:pass
  validate(r);out=Path(a.out);out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(r,indent=2)+'\n');print(json.dumps({'platform':a.platform,'access':a.access,'status':r['status']}))

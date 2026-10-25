@@ -12,8 +12,9 @@ try{
  }
 }catch{}
 try{$r.hyperv_feature_installed=[bool](Get-WindowsFeature -Name Hyper-V).Installed}catch{}
-$r.new_vm_command=[bool](Get-Command New-VM -ErrorAction SilentlyContinue)
-$svc=Get-Service -Name vmms -ErrorAction SilentlyContinue
+try{$r.new_vm_command=[bool](Get-Command New-VM -ErrorAction Stop)}catch{}
+$svc=$null
+try{$svc=Get-Service -Name vmms -ErrorAction Stop}catch{}
 $r.vmms_present=($null -ne $svc)
 $r.vmms_running=($null -ne $svc -and $svc.Status -eq 'Running')
 $name=$null;$folder=$null
