@@ -79,3 +79,12 @@ class BootOrderTests(unittest.TestCase):
   a=self.args();self.assertEqual(a[a.index('-nic')+1],'none')
  def test_no_remote_display(self):
   a=self.args();self.assertEqual(a[a.index('-display')+1],'none');self.assertNotIn('-vnc',a)
+class FirmwareTests(unittest.TestCase):
+ def test_no_raw_observation(self):
+  r=g.blank('a'*40,'1');r['firmware_observations']=['private OCR'];self.assertRaises(ValueError,g.validate,r)
+ def test_observation_enum_only(self):self.assertEqual(g.observe_firmware('FS0: Alias hardware hidden Security Violation'),{'fs_mapping_seen','security_violation'})
+ def test_fixed_index(self):self.assertRaises(ValueError,g.launch_efi,MagicMock(),4)
+ def test_no_dynamic_command_alphabet(self):self.assertRaises(ValueError,g.shell_command,MagicMock(),'$')
+ def test_no_more_than_four_attempts(self):
+  r=g.blank('a'*40,'1');r['efi_launch_attempts']=5;self.assertRaises(ValueError,g.validate,r)
+ def test_blank_no_catalog_claim(self):self.assertFalse(g.blank('a'*40,'1')['uefi_catalog_entry_seen'])

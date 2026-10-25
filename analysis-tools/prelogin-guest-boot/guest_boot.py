@@ -6,21 +6,23 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent.parent/'prelogin-windows-guest'))
 import prepare_guest as media
 STAGES={'guard','capacity','tools','media','seed','qemu','monitor','completed'}
-ERRORS={None,'guard_failed','capacity_insufficient','apt_failed','download_failed','media_hash_mismatch','media_size_mismatch','firmware_missing','guest_timeout','qemu_failed','guest_control_failed','firmware_boot_failed','bounded_guest_failed'}
+ERRORS={None,'guard_failed','capacity_insufficient','apt_failed','download_failed','media_hash_mismatch','media_size_mismatch','firmware_missing','guest_timeout','qemu_failed','guest_control_failed','media_boot_catalog_failed','firmware_boot_failed','bounded_guest_failed'}
 BOOLEANS={'full_windows','baseline_saved','boot_changed','same_profile','dpapi_ok','marker_equal','error'}
 MIN_FREE=50*1024**3
 
 def blank(source,run):
- return dict(schema='bnet-owned-guest-boot-2',source_commit=source,run_id=run,status='stopped',stage='guard',error_code=None,official_media_pinned=False,kvm_enabled=False,first_signal=False,second_signal=False,full_windows_boot_verified=False,same_guest_reboot_verified=False,same_profile_verified=False,dpapi_roundtrip_verified=False,owned_marker_preserved=False,serial_challenge_verified=False,disk_free_before_bytes=0,disk_free_after_cleanup_bytes=0,disk_free_final_bytes=0,disk_virtual_bytes=media.DISK_BYTES,disk_actual_bytes=None,winpe_signal=False,visual_checks=[],cleanup_labels=[],target_launched=False,battle_net_uuid_reboot_tested=False,network_after_reboot_verified=False,guest_nic_present=False,remote_access_enabled=False,private_disks_exported=False,private_identifiers_exported=False,disk_persisted=False)
+ return dict(schema='bnet-owned-guest-boot-3',source_commit=source,run_id=run,status='stopped',stage='guard',error_code=None,official_media_pinned=False,kvm_enabled=False,first_signal=False,second_signal=False,full_windows_boot_verified=False,same_guest_reboot_verified=False,same_profile_verified=False,dpapi_roundtrip_verified=False,owned_marker_preserved=False,serial_challenge_verified=False,disk_free_before_bytes=0,disk_free_after_cleanup_bytes=0,disk_free_final_bytes=0,disk_virtual_bytes=media.DISK_BYTES,disk_actual_bytes=None,winpe_signal=False,boot_catalog_checked=False,uefi_catalog_entry_seen=False,bios_catalog_entry_seen=False,efi_launch_attempts=0,firmware_observations=[],visual_checks=[],cleanup_labels=[],target_launched=False,battle_net_uuid_reboot_tested=False,network_after_reboot_verified=False,guest_nic_present=False,remote_access_enabled=False,private_disks_exported=False,private_identifiers_exported=False,disk_persisted=False)
 
 def validate(r):
- if type(r) is not dict or set(r)!=set(blank('','')) or r['schema']!='bnet-owned-guest-boot-2':raise ValueError('schema')
+ if type(r) is not dict or set(r)!=set(blank('','')) or r['schema']!='bnet-owned-guest-boot-3':raise ValueError('schema')
  if not re.fullmatch('[a-f0-9]{40}',r['source_commit']) or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('identity')
  if r['stage'] not in STAGES or r['error_code'] not in ERRORS or r['status'] not in {'stopped','owned_windows_reboot_verified'}:raise ValueError('enums')
  for key,value in blank('','').items():
   if type(value) is bool and type(r[key]) is not bool:raise ValueError('boolean')
  for key in ('disk_free_before_bytes','disk_free_after_cleanup_bytes','disk_free_final_bytes','disk_virtual_bytes'):media.number(r[key])
  if r['disk_actual_bytes'] is not None:media.number(r['disk_actual_bytes'])
+ media.number(r['efi_launch_attempts'],4)
+ if type(r['firmware_observations']) is not list or len(r['firmware_observations'])>len(FIRMWARE_OBSERVATIONS) or len(r['firmware_observations'])!=len(set(r['firmware_observations'])) or not set(r['firmware_observations'])<=FIRMWARE_OBSERVATIONS:raise ValueError('firmware_observations')
  if type(r['visual_checks']) is not list or len(r['visual_checks'])>8:raise ValueError('visual_checks')
  for v in r['visual_checks']:
   if type(v) is not dict or set(v)!={'second','state'} or type(v['second']) is not int or not 0<=v['second']<=2600 or v['state'] not in VISUAL_STATES:raise ValueError('visual_state')
@@ -55,7 +57,7 @@ def answer(password,challenge="a"*64):
 <settings pass="oobeSystem"><component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS"><InputLocale>en-US</InputLocale><SystemLocale>en-US</SystemLocale><UILanguage>en-US</UILanguage><UserLocale>en-US</UserLocale></component><component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS"><OOBE><HideEULAPage>true</HideEULAPage><HideOnlineAccountScreens>true</HideOnlineAccountScreens><HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE><ProtectYourPC>1</ProtectYourPC></OOBE><UserAccounts><AdministratorPassword><Value>'''+escape(password)+'''</Value><PlainText>true</PlainText></AdministratorPassword></UserAccounts><AutoLogon><Password><Value>'''+escape(password)+'''</Value><PlainText>true</PlainText></Password><Username>Administrator</Username><Enabled>true</Enabled><LogonCount>3</LogonCount></AutoLogon><FirstLogonCommands><SynchronousCommand wcm:action="add"><Order>1</Order><Description>Owned guest reboot control</Description><CommandLine>'''+escape(first)+'''</CommandLine></SynchronousCommand></FirstLogonCommands></component></settings></unattend>'''
 
 def guard():
- return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_GUEST_BOOT')=='owned-guest-boot-e3'
+ return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_GUEST_BOOT')=='owned-guest-boot-e4'
 
 VISUAL_STATES={'blank_or_unknown','boot_prompt','uefi_shell','boot_failure','setup_error','edition_picker','license_page','disk_picker','setup_start','install_progress','oobe_or_logon','desktop','capture_failed'}
 def classify(text):
@@ -64,7 +66,46 @@ def classify(text):
  for state,terms in rules:
   if any(term in t for term in terms):return state
  return 'blank_or_unknown'
-def visual(q,work,log):
+FIRMWARE_OBSERVATIONS={'security_violation','unsupported','not_found','no_mapping','fs_mapping_seen'}
+def observe_firmware(text):
+ t=' '.join(text.lower().split());result=set()
+ for label,phrase in [('security_violation','security violation'),('unsupported','unsupported'),('not_found','not found'),('no_mapping','no mapping')]:
+  if phrase in t:result.add(label)
+ if re.search(r'\bfs[0-7]\s*:',t):result.add('fs_mapping_seen')
+ return result
+
+def check_catalog(iso,r):
+ try:
+  raw=subprocess.check_output(['xorriso','-indev',str(iso),'-report_el_torito','plain'],stderr=subprocess.STDOUT,timeout=60)
+  if len(raw)>65536:raise ValueError('large')
+  text=raw.decode('utf-8',errors='replace');platforms=set(re.findall(r'El Torito boot img\s*:\s*\d+\s+(BIOS|UEFI)\s+y\b',text))
+  r['boot_catalog_checked']=True;r['uefi_catalog_entry_seen']='UEFI' in platforms;r['bios_catalog_entry_seen']='BIOS' in platforms
+ except Exception:raise media.ProbeError('media_boot_catalog_failed')
+
+def send_codes(q,codes):
+ q.stream.write((json.dumps({'execute':'send-key','arguments':{'keys':[{'type':'qcode','data':x} for x in codes],'hold-time':10}})+'\n').encode())
+ for _ in range(32):
+  reply=q.read()
+  if 'error' in reply:raise media.ProbeError('qemu_failed')
+  if 'return' in reply:time.sleep(.04);return
+ raise media.ProbeError('qemu_failed')
+def shell_command(q,text):
+ # Internal fixed commands only; no user or OCR input is executed.
+ for char in text:
+  if char==':':codes=['shift','semicolon']
+  elif char in {'\\','.', ' ', '-'}:codes=[{'\\':'backslash','.':'dot',' ':'spc','-':'minus'}[char]]
+  elif char in 'abcdefghijklmnopqrstuvwxyz0123456789':codes=[char]
+  else:raise ValueError('fixed_shell_alphabet')
+  send_codes(q,codes)
+ send_codes(q,['ret'])
+def launch_efi(q,index):
+ if type(index) is not int or not 0<=index<=3:raise ValueError('fixed_efi_index')
+ send_codes(q,['ret'])
+ if index==0:shell_command(q,'map -r');time.sleep(1)
+ shell_command(q,'fs'+str(index)+r':\efi\boot\bootx64.efi')
+ for _ in range(3):time.sleep(1);send_space(q)
+
+def visual(q,work,log,r=None):
  # Never publish the screenshot or OCR text; fixed, conservative UI labels only.
  image=work/'screen.private.ppm'
  try:
@@ -76,7 +117,9 @@ def visual(q,work,log):
   else:raise ValueError('capture')
   raw=subprocess.check_output(['tesseract',str(image),'stdout','-l','eng'],stderr=log,timeout=30)
   if len(raw)>65536:return 'capture_failed'
-  return classify(raw.decode('utf-8',errors='replace'))
+  text=raw.decode('utf-8',errors='replace')
+  if r is not None:r['firmware_observations']=sorted(set(r['firmware_observations'])|observe_firmware(text))
+  return classify(text)
  except Exception:return 'capture_failed'
  finally:
   if image.exists():image.unlink()
@@ -118,10 +161,12 @@ def guest(work,iso,seed,disk,challenge,r,log):
    for moment in (5,10,15):
     if elapsed>=moment and moment not in keys_sent:
      send_space(q);keys_sent.add(moment)
-   for moment in (30,120,300,600,900,1150,1800,2300):
+   for moment in (30,60,90,120,300,600,1200,2300):
     if elapsed>=moment and moment not in views_done:
-     r['visual_checks'].append({'second':int(elapsed),'state':visual(q,work,log)});views_done.add(moment)
-     if len(r['visual_checks'])>=2 and all(x['state']=='uefi_shell' for x in r['visual_checks'][-2:]) and not r['winpe_signal']:raise media.ProbeError('firmware_boot_failed')
+     state=visual(q,work,log,r);r['visual_checks'].append({'second':int(elapsed),'state':state});views_done.add(moment)
+     if state=='uefi_shell' and r['efi_launch_attempts']<4 and not r['winpe_signal']:
+      launch_efi(q,r['efi_launch_attempts']);r['efi_launch_attempts']+=1
+     if elapsed>=180 and r['efi_launch_attempts']==4 and len(r['visual_checks'])>=2 and all(x['state']=='uefi_shell' for x in r['visual_checks'][-2:]) and not r['winpe_signal']:raise media.ProbeError('firmware_boot_failed')
    if serial.exists():
     if serial.stat().st_size>1048576:raise media.ProbeError('guest_control_failed')
     with serial.open('rb') as incoming:incoming.seek(offset);chunk=incoming.read(65536);offset=incoming.tell()
@@ -165,7 +210,7 @@ def main():
      media.command(['apt-get','update','-qq'],log,timeout=180)
      media.command(['apt-get','install','-y','--no-install-recommends','qemu-system-x86','qemu-utils','ovmf','xorriso','tesseract-ocr'],log,timeout=300,env=dict(os.environ,DEBIAN_FRONTEND='noninteractive'))
     except media.ProbeError:raise media.ProbeError('apt_failed')
-    iso=work/'official.iso';r['stage']='media';download=media.blank(r['source_commit'],r['run_id']);media.download(iso,download);r['official_media_pinned']=download['image']['download_complete'] and download['image']['sha256']==media.ISO_SHA256
+    iso=work/'official.iso';r['stage']='media';download=media.blank(r['source_commit'],r['run_id']);media.download(iso,download);r['official_media_pinned']=download['image']['download_complete'] and download['image']['sha256']==media.ISO_SHA256;check_catalog(iso,r)
     r['stage']='seed';seed_dir=work/'seed';seed_dir.mkdir();password='Aa9!'+secrets.token_hex(16);challenge=secrets.token_hex(32)
     (seed_dir/'autounattend.xml').write_text(answer(password,challenge));(seed_dir/'config.json').write_text(json.dumps({'challenge':challenge}));shutil.copyfile(Path(__file__).with_name('probe.ps1'),seed_dir/'probe.ps1')
     seed=work/'seed.iso';media.command(['xorriso','-as','mkisofs','-J','-r','-V','LABSEED','-o',str(seed),str(seed_dir)],log,timeout=60)

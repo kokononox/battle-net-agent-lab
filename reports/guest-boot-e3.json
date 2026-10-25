@@ -1,0 +1,43 @@
+{
+  "schema": "bnet-owned-guest-boot-2",
+  "source_commit": "9fab011781f220af6c24e193982646d5a9440787",
+  "run_id": "40167690239",
+  "status": "stopped",
+  "stage": "monitor",
+  "error_code": "firmware_boot_failed",
+  "official_media_pinned": true,
+  "kvm_enabled": true,
+  "first_signal": false,
+  "second_signal": false,
+  "full_windows_boot_verified": false,
+  "same_guest_reboot_verified": false,
+  "same_profile_verified": false,
+  "dpapi_roundtrip_verified": false,
+  "owned_marker_preserved": false,
+  "serial_challenge_verified": false,
+  "disk_free_before_bytes": 91506577408,
+  "disk_free_after_cleanup_bytes": 91506577408,
+  "disk_free_final_bytes": 91331694592,
+  "disk_virtual_bytes": 68719476736,
+  "disk_actual_bytes": 200704,
+  "winpe_signal": false,
+  "visual_checks": [
+    {
+      "second": 30,
+      "state": "uefi_shell"
+    },
+    {
+      "second": 120,
+      "state": "uefi_shell"
+    }
+  ],
+  "cleanup_labels": [],
+  "target_launched": false,
+  "battle_net_uuid_reboot_tested": false,
+  "network_after_reboot_verified": false,
+  "guest_nic_present": false,
+  "remote_access_enabled": false,
+  "private_disks_exported": false,
+  "private_identifiers_exported": false,
+  "disk_persisted": false
+}
