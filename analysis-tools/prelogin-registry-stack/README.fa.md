@@ -12,10 +12,13 @@ caller_rva همچنان فقط returnAddress مستقیم داخل mainModule ا
 
 یک fixture C++ بدون شبکه با MSVC برای x64/x86 کامپایل می‌شود؛ /Od و /Oy- برای کنترل frameها. تصویر fixture و هویت فرایند کنترل می‌شود؛ پس از instrument-before-resume، خواندن/نوشتن W و A، RegGetValueW و منفی size-only آزمایش می‌شوند. frame mainModule در read/write و capture دقیق باید در هر دو معماری موفق باشد؛ وگرنه هدف اجرا نمی‌شود. fixture فقط کلید مخصوص پروژه با UUID مصنوعی را می‌سازد و پاک می‌کند، نه کلید Blizzard. PDB، exe و فایل‌های کامپایل موقت‌اند و artifact عمومی نیستند.
 
-36 آزمون Python و 50 کنترل اجرای واقعی hook با حافظهٔ mock برای x86/x64، از جمله direct-return خارجی با frame داخلی، empty stack و failure پاس شده‌اند. این‌ها جای گیت بومی یا رفتار هدف نیستند.
+40 آزمون Python و 50 کنترل اجرای واقعی hook با حافظهٔ mock برای x86/x64، از جمله direct-return خارجی با frame داخلی، empty stack و failure پاس شده‌اند. این‌ها جای گیت بومی یا رفتار هدف نیستند.
 
 ## نتیجه و ادعا
 
 matching_agent_read_stack_observed فقط وقتی true است که در هر دو startup، خواندن موفق Agent دارای SHA pin، مقدار برابر با پیام wire-linked همان مرحله و stack دقیقِ دارای frame mainModule داشته باشد. این پرچم فقط حضور frame است؛ assignment provider یا جریان دادهٔ کامل را ثابت نمی‌کند. provider_assignment_causality_proven=false، reboot_tested=false و global_install_uniqueness_proven=false اجباری‌اند.
 
 گزارش محدود: reports/prelogin-registry-stack-runtime.json. شواهد a11 حفظ می‌شوند. status=observation_complete یعنی مشاهده و کانال‌های پیشین clean بوده‌اند، نه اینکه لزوماً stack موفق یا causality اثبات شده باشد؛ پرچم‌های نتیجه جدا خوانده شوند.
+
+## اصلاح a12b
+پس از نبود گزارش نهایی a12، payload ثبت‌شدهٔ آن به‌صورت محلی بازتولید و شکست contract.js تأیید شد: helper محلی با نام tests_a12_update.py زیر الگوی پیش‌فرض unittest اجرا می‌شد و قرارداد JS را تکرار می‌کرد. helper از الگوی کشف آزمون خارج و قرارداد dedup شد. هر دو الگوی کشف اکنون 40 آزمون را پاس می‌کنند و checksum خود قرارداد قبل/بعد ثابت می‌ماند؛ 50 کنترل JS هم پاس است. a12b رسید شروع و outcomeهای محدود dependencies/tests/observation/sanitization را حتی در نبود گزارش هدف منتشر می‌کند. تشخیص شکست بازتولید‌شده، معادل خواندن log یا وضعیت terminal واقعی a12 نیست. هدف همچنان پشت گیت بومی و بدون نصب/لاگین است.

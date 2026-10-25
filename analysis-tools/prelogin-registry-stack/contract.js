@@ -44,13 +44,6 @@ for(const bits of [32,64]){
  x=events.filter(x=>x.e.kind==='reg_value').at(-1);assert.equal(x.e.caller_rva,null);assert.equal(x.e.stack_status,'captured');assert.equal(x.e.main_module_stack_rvas.length,0);checks+=3;
  stackMode='failed';call('RegQueryValueExW',[h,str('UserUUID',true),p(0),u32(1),put(Buffer.from(syn+'\0','utf16le')),u32(74)]);
  x=events.filter(x=>x.e.kind==='reg_value').at(-1);assert.equal(x.e.stack_status,'failed');assert.equal(x.e.main_module_stack_rvas.length,0);checks+=2;
- call('RegOpenKeyExW',[root,str('Software\\Blizzard Entertainment\\Blizzard Error',true),p(0),p(0),hp(55)]);
- call('RegQueryValueExW',[h,str('UserUUID',true),p(0),u32(1),put(Buffer.from(syn+'\0','utf16le')),u32(74)],0,0x700000);
- x=events.filter(x=>x.e.kind==='reg_value').at(-1);assert.equal(x.e.caller_rva,null);assert.equal(x.e.stack_status,'captured');assert.deepEqual(Array.from(x.e.main_module_stack_rvas),[0x1234,0x1255]);checks+=3;
- stackMode='external';call('RegQueryValueExW',[h,str('UserUUID',true),p(0),u32(1),put(Buffer.from(syn+'\0','utf16le')),u32(74)],0,0x700000);
- x=events.filter(x=>x.e.kind==='reg_value').at(-1);assert.equal(x.e.caller_rva,null);assert.equal(x.e.stack_status,'captured');assert.equal(x.e.main_module_stack_rvas.length,0);checks+=3;
- stackMode='failed';call('RegQueryValueExW',[h,str('UserUUID',true),p(0),u32(1),put(Buffer.from(syn+'\0','utf16le')),u32(74)]);
- x=events.filter(x=>x.e.kind==='reg_value').at(-1);assert.equal(x.e.stack_status,'failed');assert.equal(x.e.main_module_stack_rvas.length,0);checks+=2;
  assert.equal(events.filter(x=>x.e.kind==='reg_error').length,0);assert.equal(events.filter(x=>x.e.kind==='reg_ready').length,1);checks+=2;
 }
 console.log(JSON.stringify({actual_hook_checks:checks,passed:true,architectures:[32,64]}));

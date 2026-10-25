@@ -17,7 +17,7 @@ def baseline():
     return r
 
 def main():
-    if not(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_REGISTRY_TRACE')=='approved-registry-stack-a12'):raise SystemExit('fresh_hosted_once_required')
+    if not(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_REGISTRY_TRACE')=='approved-registry-stack-a12b'):raise SystemExit('fresh_hosted_once_required')
     r=blank(os.environ['GITHUB_SHA'],os.environ['GITHUB_RUN_ID']);out=Path('output');out.mkdir(exist_ok=True)
     import run_lifecycle as lifecycle,trace_manager
     old_first=lifecycle.first.Manager;old_second=lifecycle.Manager;old_tracking=lifecycle.Tracking;old_flag=os.environ.get('BNET_HOST_LIFECYCLE');trackers=[]
