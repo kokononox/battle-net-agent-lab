@@ -1,0 +1,31 @@
+{
+  "schema": "windows_quarantine_g40_v1",
+  "run_id": "40236707506",
+  "source_commit": "b12967aa92157f48b6f16f1cf1b76d8c06aa91e2",
+  "platform": "nt",
+  "tests_run": 17,
+  "passed": true,
+  "failure_count": 0,
+  "error_count": 0,
+  "failed_test_ids": [],
+  "private_records_published": false,
+  "fixtures_only": true,
+  "loopback_only_application_connections": true,
+  "firewall_changed": false,
+  "windows_tasks_changed": false,
+  "installer_executed": false,
+  "new_network_destinations_authorized": false,
+  "live_original_proxy_replaced": false,
+  "source_sha256": {
+    "domain_proxy.py": "7dfcbce436a8bd49d2e2c90502d193d404dea0d5aa7e37276d738db4a69b79e2",
+    "peer_guard.py": "1407a225f2995402ebc2ea9889aa7e5123506fa94684ad72196cbe8c030ef2e2",
+    "PrivateStore.cs": "981861a5a7043ccab1507c397bb9d2d4d5b5f67b0ce6bfcc06dde20218374903",
+    "quarantine.py": "1c17836246990bbbafefc88e27373e78f6d43c5b7c610b00848a2bf1f4faba78",
+    "quarantine_handler.py": "616d6ac709d33683197eec8b7158240d395252180a69610238cb878914728531",
+    "run_windows_tests.py": "f1801ab3f212d97fc57bc8b214d9598c7461322aba6bb0e1e3206d980c6d4043",
+    "test_posix.py": "5f8dc0172e28a3690f63abf391162de45ab8794a044b98be2d64d0d79f5722f3",
+    "test_windows.py": "0c19185021888f63ea36006e7a3597e1573fb24416f1bcd3ee3d3245947be941",
+    "tls_records.py": "58c67bd55eaf7a87cc41f546bb4ca67a3185a622cfce282f7b1d1b2e84971d3f",
+    "windows_store.py": "467a3832a848b967181144b21f75a54ce50332fff6c8fd2e9a282a04c09caef6"
+  }
+}

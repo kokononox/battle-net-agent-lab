@@ -1,0 +1,22 @@
+{
+  "derived_from_pinned_test_source": true,
+  "test_ids": [
+    "test_native_owned_job_captured_before_any_dial",
+    "test_outside_job_blocked_without_capture",
+    "test_expired_policy_blocked_without_capture",
+    "test_controller_identity_mismatch_blocked",
+    "test_closed_lease_blocked",
+    "test_lease_revoked_after_admission_blocks_capture",
+    "test_storage_acl_drift_after_admission_blocks_capture",
+    "test_private_write_and_read_roundtrip",
+    "test_directory_acl_drift_refused",
+    "test_file_acl_drift_refused",
+    "test_hardlinked_capture_refused",
+    "test_junction_root_refused",
+    "test_quota_survives_reopening",
+    "test_concurrent_quota_and_no_overwrite",
+    "test_read_path_traversal_refused",
+    "test_native_reverse_tuple_ipv4",
+    "test_native_reverse_tuple_ipv6"
+  ]
+}

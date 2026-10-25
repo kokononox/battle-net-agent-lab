@@ -1,0 +1,35 @@
+test_body_not_persisted (__main__.Tests.test_body_not_persisted) ... ok
+test_byte_quota_blocks (__main__.Tests.test_byte_quota_blocks) ... ok
+test_concurrent_capture_bounded (__main__.Tests.test_concurrent_capture_bounded) ... ok
+test_credential_redaction_is_case_insensitive (__main__.Tests.test_credential_redaction_is_case_insensitive) ... ok
+test_duplicate_host_or_length_rejected (__main__.Tests.test_duplicate_host_or_length_rejected) ... ok
+test_existing_hardlink_file_blocks (__main__.Tests.test_existing_hardlink_file_blocks) ... ok
+test_existing_symlink_file_blocks (__main__.Tests.test_existing_symlink_file_blocks) ... ok
+test_failed_write_leaves_no_partial_capture (__main__.Tests.test_failed_write_leaves_no_partial_capture) ... ok
+test_file_mode_drift_blocks (__main__.Tests.test_file_mode_drift_blocks) ... ok
+test_files_owner_only (__main__.Tests.test_files_owner_only) ... ok
+test_header_values_retained_privately (__main__.Tests.test_header_values_retained_privately) ... ok
+test_incomplete_and_pipelined_requests_rejected (__main__.Tests.test_incomplete_and_pipelined_requests_rejected) ... ok
+test_known_credentials_redacted (__main__.Tests.test_known_credentials_redacted) ... ok
+test_limits (__main__.Tests.test_limits) ... ok
+test_no_automatic_catalog_entry (__main__.Tests.test_no_automatic_catalog_entry) ... ok
+test_permission_drift_blocks_without_capture (__main__.Tests.test_permission_drift_blocks_without_capture) ... ok
+test_public_receipt_contains_no_request_details_or_hashes (__main__.Tests.test_public_receipt_contains_no_request_details_or_hashes) ... ok
+test_query_and_path_retained_privately (__main__.Tests.test_query_and_path_retained_privately) ... ok
+test_quota_survives_reopening (__main__.Tests.test_quota_survives_reopening) ... ok
+test_record_count_quota_no_overwrite (__main__.Tests.test_record_count_quota_no_overwrite) ... ok
+test_request_duplicates_preserved_not_deduplicated (__main__.Tests.test_request_duplicates_preserved_not_deduplicated) ... ok
+test_review_path_traversal_rejected (__main__.Tests.test_review_path_traversal_rejected) ... ok
+test_storage_error_never_exposes_error_value (__main__.Tests.test_storage_error_never_exposes_error_value) ... ok
+test_symlink_directory_refused (__main__.Tests.test_symlink_directory_refused) ... ok
+test_target_and_header_smuggling_rejected (__main__.Tests.test_target_and_header_smuggling_rejected) ... ok
+test_tls_and_connect_not_treated_as_http_capture (__main__.Tests.test_tls_and_connect_not_treated_as_http_capture) ... ok
+test_unknown_and_conflicting_host_rejected (__main__.Tests.test_unknown_and_conflicting_host_rejected) ... ok
+test_unknown_rejection_reason_not_exported (__main__.Tests.test_unknown_rejection_reason_not_exported) ... ok
+test_unsafe_directory_refused (__main__.Tests.test_unsafe_directory_refused) ... ok
+test_windows_storage_fails_closed (__main__.Tests.test_windows_storage_fails_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.039s
+
+OK
