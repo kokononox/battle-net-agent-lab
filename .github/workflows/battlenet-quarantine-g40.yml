@@ -25,7 +25,8 @@ jobs:
           $bin=Join-Path $env:RUNNER_TEMP 'bnet-g40-private-bin'
           New-Item -ItemType Directory -Force $bin,output | Out-Null
           $csc="$env:SystemRoot\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
-          & $csc /nologo /target:exe /platform:x64 /r:System.Web.Extensions.dll ('/out:'+(Join-Path $bin 'PrivateStore.exe')) analysis-tools/request-quarantine-g40/PrivateStore.cs
+          $source=(Resolve-Path 'analysis-tools/request-quarantine-g40/PrivateStore.cs').Path
+          & $csc @('/nologo','/target:exe','/platform:x64','/r:System.Web.Extensions.dll',('/out:'+(Join-Path $bin 'PrivateStore.exe')),$source)
           if($LASTEXITCODE -ne 0){throw 'private_store_build_failed'}
           ('G40_STORE_HELPER='+(Join-Path $bin 'PrivateStore.exe')) | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
       - name: Native storage, owner and Job tests with synthetic loopback requests only
