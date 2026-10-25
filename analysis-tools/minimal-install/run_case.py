@@ -102,7 +102,7 @@ def main():
      except Exception:r['gui_errors']+=1
     if elapsed-last_foot>=15:
      last_foot=elapsed;checks,binaries,layout_hash=footprint(root,obs,env);r['client_binaries']=binaries
-     ready=all(checks.values())
+     ready=layout_ready(checks)
      if ready and layout_hash==last_hash:
       if layout_since is None:layout_since=elapsed
      else:layout_since=elapsed if ready else None

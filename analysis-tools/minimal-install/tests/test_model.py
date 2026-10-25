@@ -42,6 +42,10 @@ class Gates(unittest.TestCase):
  def test_probe_cap(self):
   r=self.report();r['native_options_probes']=31
   with self.assertRaises(ValueError):validate(r)
+ def test_layout_independent_of_registry_version(self):
+  checks={k:True for k in CHECKS};checks['registry_version_present']=False
+  self.assertTrue(layout_ready(checks));self.assertFalse(installed(checks,True))
+  checks['signed_client']=False;self.assertFalse(layout_ready(checks))
  def test_extra_raw_field(self):
   r=self.report();r['UserUUID']='not allowed'
   with self.assertRaises(ValueError):validate(r)

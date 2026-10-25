@@ -15,6 +15,9 @@ def authorized(env,platform):
  return (platform=='win32' and env.get('GITHUB_ACTIONS')=='true' and env.get('RUNNER_ENVIRONMENT')=='github-hosted' and env.get('RUNNER_OS')=='Windows' and env.get('GITHUB_REF')=='refs/heads/'+BRANCH and env.get('GITHUB_EVENT_NAME')=='push' and env.get('GITHUB_RUN_ATTEMPT')=='1' and env.get('BNET_MINIMAL_INSTALL')==APPROVAL and env.get('BNET_CASE')==CASE)
 def installed(checks,launched):
  return launched is True and set(checks)==CHECKS and all(checks[k] is True for k in CHECKS)
+def layout_ready(checks):
+ # File-layout stability must not depend on an unrelated registry version field.
+ return all(checks.get(k) is True for k in ('signed_launcher','signed_client'))
 def blank(env):
  return dict(schema='bnet-minimal-install-c0b-1',case=CASE,source_commit=env.get('GITHUB_SHA',''),run_id=env.get('GITHUB_RUN_ID',''),status='not_started',phase='guard',error_code=None,target_launched=False,installer={},native_ui_gate=False,language_attempted=False,install_attempted=False,language_status='not_attempted',install_status='not_attempted',samples=0,snapshot_errors=0,gui_errors=0,known_process_counts={},public_endpoints=[],endpoints_truncated=False,install_checks={k:False for k in sorted(CHECKS)},client_binaries=[],cleanup_attempted=False,observer_seconds=0,native_options_probes=0,native_options_last_status='not_attempted',ui_signal_seen={k:False for k in sorted(UI_KEYS)},ui_signal_last={k:False for k in sorted(UI_KEYS)},intervention='none',login_attempted=False,game_download_requested=False,raw_payloads_exported=False,all_processes_observed=False,all_network_observed=False,necessity_tested=False,telemetry_blocked=False)
 def validate(v):
