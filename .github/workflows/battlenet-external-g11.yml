@@ -1,0 +1,49 @@
+name: Battle.net external-components G11 (synthetic only)
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/external-install-g11/**', '.github/workflows/battlenet-external-g11.yml']
+permissions: {}
+jobs:
+  qualify:
+    if: >-
+      github.event.head_commit.message == 'lab: approved external-components qualification G11 20261025' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 6
+    permissions:
+      contents: read
+    env:
+      BNET_EXTERNAL_G11: 'lab: approved external-components qualification G11 20261025'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Compile the bounded service task and fixed canary fixture
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          New-Item -ItemType Directory -Force output, "$env:RUNNER_TEMP\bnet-g11-bin" | Out-Null
+          $source=(Resolve-Path 'analysis-tools\external-install-g11\ExternalProbe.cs').Path
+          $csc="$env:SystemRoot\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+          $destination=Join-Path "$env:RUNNER_TEMP\bnet-g11-bin" 'ExternalProbe.exe'
+          & $csc @('/nologo','/target:exe','/platform:x64','/r:System.Web.Extensions.dll','/r:System.ServiceProcess.dll',('/out:'+$destination),$source)
+          if($LASTEXITCODE -ne 0){throw 'fixture_build_failed'}
+      - name: Test scoped block survival and release after known SCM task teardown
+        shell: powershell
+        run: '& ./analysis-tools/external-install-g11/qualify.ps1'
+      - name: Always remove only the exact lab fixtures
+        if: always()
+        shell: powershell
+        run: |
+          if(Test-Path output/g11-private-recovery-pointer.json){
+            $p=Get-Content -Raw output/g11-private-recovery-pointer.json | ConvertFrom-Json
+            $root=Split-Path $p.config
+            & (Join-Path $root 'cleanup.ps1') -Config $p.config
+          }
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: battlenet-external-components-g11-sanitized
+          path: output/external-components-g11.json
+          if-no-files-found: error
+          retention-days: 3
