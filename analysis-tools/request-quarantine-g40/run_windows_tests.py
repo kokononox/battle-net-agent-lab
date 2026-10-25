@@ -1,8 +1,17 @@
-import argparse,base64,hashlib,io,json,os,sys,unittest
+import argparse,base64,hashlib,io,json,os,sys,unittest,subprocess,uuid,shutil,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent;sys.path.insert(0,str(ROOT))
 p=argparse.ArgumentParser();p.add_argument('--report',type=Path,required=True);args=p.parse_args()
 if os.name!='nt':raise SystemExit('windows_required')
+# Fixed-enum helper probe only; no private capture input or output.
+probe_root=Path(os.environ['ProgramData'])/'BNetOnlineG40'/uuid.uuid4().hex/'quarantine'
+probe=subprocess.run([os.environ['G40_STORE_HELPER'],'init',str(probe_root)],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=20)
+try:probe_value=json.loads(probe.stdout.decode('utf-8-sig'))
+except ValueError:probe_value={}
+probe_stage=probe_value.get('stage','not_available')
+if type(probe_stage) is not str or re.fullmatch('[a-z_]{1,48}',probe_stage) is None:probe_stage='invalid_stage'
+print('G40_HELPER_PROBE='+json.dumps({'ok':probe.returncode==0,'stage':probe_stage}))
+shutil.rmtree(probe_root.parent,ignore_errors=True)
 import test_windows
 stream=io.StringIO();suite=unittest.defaultTestLoader.loadTestsFromModule(test_windows)
 r=unittest.TextTestRunner(stream=stream,verbosity=2).run(suite)

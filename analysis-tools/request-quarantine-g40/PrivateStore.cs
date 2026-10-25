@@ -1,7 +1,7 @@
 using System;using System.IO;using System.Text;using System.Linq;using System.Collections.Generic;using System.Threading;using System.Security.AccessControl;using System.Security.Principal;using System.Runtime.InteropServices;using System.Web.Script.Serialization;using Microsoft.Win32.SafeHandles;
 // Local private capture helper only. No network, installer, firewall or task API.
 public static class PrivateCaptureStore {
- static readonly JavaScriptSerializer J=new JavaScriptSerializer();
+ static readonly JavaScriptSerializer J=new JavaScriptSerializer();static string Stage="entry";
  static readonly SecurityIdentifier Admin=new SecurityIdentifier("S-1-5-32-544"),SystemSid=new SecurityIdentifier("S-1-5-18");
  const int MaxRecord=262144,MaxStore=1048576,MaxRecords=16;
  const uint ReadControl=0x20000,ReadAttributes=0x80,ReadData=1,OpenExisting=3,OpenReparse=0x200000,BackupSemantics=0x2000000;
@@ -15,15 +15,15 @@ public static class PrivateCaptureStore {
  static void Demand(bool ok){if(!ok)throw new InvalidOperationException("private_store_rejected");}
  static bool Id(string s){return s!=null&&System.Text.RegularExpressions.Regex.IsMatch(s,"^[0-9a-f]{32}$");}
  static void VerifyDescriptor(RawSecurityDescriptor sd,bool dir,int mask){
-  Demand(sd.Owner!=null&&(sd.Owner.Equals(Admin)||sd.Owner.Equals(SystemSid)));
-  Demand((sd.ControlFlags&ControlFlags.DiscretionaryAclProtected)!=0&&sd.DiscretionaryAcl!=null&&sd.DiscretionaryAcl.Count==2);
+  Stage="acl_owner";Demand(sd.Owner!=null&&(sd.Owner.Equals(Admin)||sd.Owner.Equals(SystemSid)));
+  Stage="acl_protection_or_count";Demand((sd.ControlFlags&ControlFlags.DiscretionaryAclProtected)!=0&&sd.DiscretionaryAcl!=null&&sd.DiscretionaryAcl.Count==2);
   var seen=new HashSet<string>();
-  foreach(GenericAce ga in sd.DiscretionaryAcl){var ace=ga as CommonAce;Demand(ace!=null&&ace.AceQualifier==AceQualifier.AccessAllowed&&!ace.IsCallback&&ace.AccessMask==mask);Demand(ace.AceFlags==(dir?(AceFlags.ContainerInherit|AceFlags.ObjectInherit):AceFlags.None));string sid=ace.SecurityIdentifier.Value;Demand((sid==Admin.Value||sid==SystemSid.Value)&&seen.Add(sid));}
+  foreach(GenericAce ga in sd.DiscretionaryAcl){var ace=ga as CommonAce;Stage="acl_ace_mask";Demand(ace!=null&&ace.AceQualifier==AceQualifier.AccessAllowed&&!ace.IsCallback&&ace.AccessMask==mask);Stage="acl_ace_flags";Demand(ace.AceFlags==(dir?(AceFlags.ContainerInherit|AceFlags.ObjectInherit):AceFlags.None));string sid=ace.SecurityIdentifier.Value;Stage="acl_sid";Demand((sid==Admin.Value||sid==SystemSid.Value)&&seen.Add(sid));}
  }
  static Info VerifyHandle(SafeFileHandle h,string expected,bool dir){
-  Demand(!h.IsInvalid);Info i;Demand(GetFileInformationByHandle(h,out i));Demand((i.Attributes&0x400)==0&&((i.Attributes&0x10)!=0)==dir);if(!dir)Demand(i.Links==1&&i.SizeHigh==0&&i.SizeLow<=MaxRecord);
-  var path=new StringBuilder(32768);uint n=GetFinalPathNameByHandleW(h,path,(uint)path.Capacity,0);Demand(n>0&&n<path.Capacity);string full=path.ToString();if(full.StartsWith(@"\\?\"))full=full.Substring(4);Demand(String.Equals(full,expected,StringComparison.OrdinalIgnoreCase));
-  IntPtr owner,group,dacl,sacl,sd;Demand(GetSecurityInfo(h,1,1|4,out owner,out group,out dacl,out sacl,out sd)==0);
+  Stage="handle_open";Demand(!h.IsInvalid);Info i;Stage="handle_info";Demand(GetFileInformationByHandle(h,out i));Stage="handle_type";Demand((i.Attributes&0x400)==0&&((i.Attributes&0x10)!=0)==dir);if(!dir)Demand(i.Links==1&&i.SizeHigh==0&&i.SizeLow<=MaxRecord);
+  Stage="handle_final_path";var path=new StringBuilder(32768);uint n=GetFinalPathNameByHandleW(h,path,(uint)path.Capacity,0);Demand(n>0&&n<path.Capacity);string full=path.ToString();if(full.StartsWith(@"\\?\"))full=full.Substring(4);Demand(String.Equals(full,expected,StringComparison.OrdinalIgnoreCase));
+  Stage="get_security_info";IntPtr owner,group,dacl,sacl,sd;Demand(GetSecurityInfo(h,1,1|4,out owner,out group,out dacl,out sacl,out sd)==0);
   try{uint len=GetSecurityDescriptorLength(sd);Demand(len>0&&len<65536);var bytes=new byte[len];Marshal.Copy(sd,bytes,0,(int)len);VerifyDescriptor(new RawSecurityDescriptor(bytes,0),dir,0x1f01ff);}finally{LocalFree(sd);}return i;
  }
  static DirectorySecurity DirectoryAcl(){var s=new DirectorySecurity();s.SetOwner(Admin);s.SetAccessRuleProtection(true,false);foreach(var sid in new[]{Admin,SystemSid})s.AddAccessRule(new FileSystemAccessRule(sid,FileSystemRights.FullControl,InheritanceFlags.ContainerInherit|InheritanceFlags.ObjectInherit,PropagationFlags.None,AccessControlType.Allow));return s;}
@@ -38,9 +38,10 @@ public static class PrivateCaptureStore {
  static string Input(){var b=new StringBuilder();char[] c=new char[4096];int n;while((n=Console.In.Read(c,0,c.Length))>0){b.Append(c,0,n);Demand(b.Length<=MaxRecord);}return b.ToString();}
  static int Main(string[] args){
   try{
+   Console.OutputEncoding=new UTF8Encoding(false);Console.InputEncoding=new UTF8Encoding(false,true);
    Demand(args.Length==2||args.Length==3);string action=args[0],root=Path.GetFullPath(args[1]);Demand(action=="init"||action=="write"||action=="read");Demand(args.Length==(action=="read"?3:2));
    var holds=Roots(root,action=="init");try{
-    bool created;string mutexName="Global\\BNetPrivateG40_"+Path.GetFileName(Path.GetDirectoryName(root));using(var mutex=new Mutex(false,mutexName,out created,MutexAcl())){
+    Stage="mutex_create";bool created;string mutexName="Global\\BNetPrivateG40_"+Path.GetFileName(Path.GetDirectoryName(root));using(var mutex=new Mutex(false,mutexName,out created,MutexAcl())){
      VerifyDescriptor(new RawSecurityDescriptor(mutex.GetAccessControl().GetSecurityDescriptorBinaryForm(),0),false,0x1f0001);bool held=false;
      try{held=mutex.WaitOne(10000);Demand(held);var inventory=Inventory(root);
       if(action=="init"){Console.WriteLine(J.Serialize(new{ok=true}));return 0;}
@@ -58,6 +59,6 @@ public static class PrivateCaptureStore {
      }finally{if(held)mutex.ReleaseMutex();}
     }
    }finally{foreach(var h in holds)h.Dispose();}
-  }catch{Console.WriteLine("{\"ok\":false,\"error\":\"private_store_rejected\"}");return 2;}
+  }catch{Console.WriteLine(J.Serialize(new{ok=false,error="private_store_rejected",stage=Stage}));return 2;}
  }
 }
