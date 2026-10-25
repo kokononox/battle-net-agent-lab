@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib,json,os,re,subprocess,sys,tempfile,time
 from model import *
 BASE=Path(__file__).resolve().parents[2]
-OUT=Path('output/minimal-install-c0.json')
+OUT=Path('output/minimal-install-c0b.json')
 def write(r):
  validate(r);OUT.parent.mkdir(exist_ok=True);data=json.dumps(r,ensure_ascii=False,indent=2).encode();assert len(data)<=1048576
  tmp=OUT.with_suffix('.tmp');tmp.write_bytes(data);os.replace(tmp,OUT)
@@ -55,14 +55,14 @@ def main():
   roots=[root,Path(os.environ['ProgramData'])/'Battle.net',Path(os.environ['LOCALAPPDATA'])/'Battle.net']
   if obs.snapshot(env).get('processes') or any(p.exists() for p in roots):raise obs.LabError('preexisting_battlenet_state_refused')
   r['phase']='native_gate';ui_accessibility.smoke_check();r['native_ui_gate']=True;write(r)
-  with tempfile.TemporaryDirectory(prefix='bnet-minimal-c0-',dir=os.environ['RUNNER_TEMP'],ignore_cleanup_errors=True) as tmp:
+  with tempfile.TemporaryDirectory(prefix='bnet-minimal-c0b-',dir=os.environ['RUNNER_TEMP'],ignore_cleanup_errors=True) as tmp:
    work=Path(tmp);setup=work/'Battle.net-Setup.exe';r['phase']='download';download=obs.fetch_setup(setup);r['phase']='identity';sig=obs.signature(setup,env)
    r['installer']=dict(sha256=download['sha256'],bytes=download['bytes'],signature_accepted=sig['accepted_for_execution'],matches_pin=download['sha256']==SETUP_SHA and download['bytes']==SETUP_BYTES);write(r)
    if not sig['accepted_for_execution']:raise obs.LabError('installer_signature_refused')
    if not r['installer']['matches_pin']:raise obs.LabError('approved_installer_changed_no_execution')
    r['phase']='launch';process=subprocess.Popen([str(setup)],cwd=work,env=env,stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL);r['target_launched']=True;started=time.monotonic();r['phase']='observe';write(r)
    endpoints={};seen_processes=set();last_gui=-20;last_foot=-20;layout_since=None;last_hash='';raw={'processes':[]};gui_signals={};last_setup_absent=False
-   while time.monotonic()-started<600 and r['samples']<240:
+   while time.monotonic()-started<300 and r['samples']<240:
     elapsed=int(time.monotonic()-started);r['observer_seconds']=elapsed
     try:raw=obs.snapshot(env);sample=obs.safe_snapshot(raw,elapsed)
     except Exception:r['snapshot_errors']+=1;time.sleep(3);continue
@@ -80,13 +80,23 @@ def main():
      last_gui=elapsed;targets=[]
      try:
       gui=native_gui.inspect(set(by_pid),elapsed,on_visible_targets=lambda x:targets.extend(x));gui_signals=agent_state.ui_signals(gui)
+      r['ui_signal_last']=gui_signals.copy()
+      for k,value in gui_signals.items():r['ui_signal_seen'][k]|=value
       if gui.get('accessibility',{}).get('status')!='ok' or gui.get('probe_errors'):r['gui_errors']+=1
       pid=install_step.setup_pid(sample['processes'],process.pid)
       if pid and gui_signals['language'] and not r['language_attempted'] and not r['install_attempted']:
        r['language_attempted']=True;r['language_status']='pending';write(r);out=language_step.run(targets,pid,setup,authorized=True);r['language_status']=out['status']
        if out['outcome_uncertain']:raise obs.LabError('language_action_uncertain_no_retry')
-      elif pid and gui_signals['installation_options'] and not r['install_attempted']:
-       r['install_attempted']=True;r['install_status']='pending';write(r);out=install_step.run(targets,pid,setup,authorized=True);r['install_status']=out['status']
+      elif pid and not gui_signals['language'] and not gui_signals['legal'] and not gui_signals['account'] and not r['install_attempted'] and r['native_options_probes']<30:
+       # Do not depend on loose UI marker heuristics to find the options page.
+       # The existing native helper verifies the exact six-control page, image and
+       # Blizzard signature before a single Continue; mismatch has no action.
+       r['native_options_probes']+=1;r['native_options_last_status']='pending';write(r)
+       try:out=install_step.run(targets,pid,setup,authorized=True)
+       except Exception:raise obs.LabError('native_options_probe_exception_no_retry')
+       r['native_options_last_status']=out['status']
+       r['install_attempted']=out['continue_attempted'] or out['outcome_uncertain']
+       if r['install_attempted']:r['install_status']=out['status']
        if out['outcome_uncertain']:raise obs.LabError('install_action_uncertain_no_retry')
      except obs.LabError:raise
      except Exception:r['gui_errors']+=1

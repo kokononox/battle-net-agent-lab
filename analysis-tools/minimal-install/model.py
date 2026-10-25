@@ -1,24 +1,25 @@
 """C0: qualify repeatable client installation before testing removal of any activity."""
 import re
 BRANCH='research/battlenet-minimal-install-isolation-2026-10-25'
-APPROVAL='lab: approved minimal Battle.net install C0 20261025-a1'
+APPROVAL='lab: approved minimal Battle.net install C0 20261025-a2'
 SETUP_SHA='f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6'
 SETUP_BYTES=4700880
-CASE='C0-install-baseline'
+CASE='C0b-native-install-page-diagnostic'
 STATUSES={'not_started','stopped','bounded_install_not_verified','installed_by_defined_gate'}
 PHASES={'guard','baseline','download','identity','native_gate','launch','observe','cleanup','complete'}
 KNOWN_NAMES={'agent.exe','battle.net.exe','battle.net launcher.exe','battle.net-setup.exe','battle.net helper.exe','blizzarderror.exe'}
 ACTION_STATUSES=set('not_attempted not_requested pending no_targets ambiguous_window process_mismatch page_mismatch forbidden_text signature_refused executable_identity_refused pattern_unavailable page_changed page_confirmed continue_attempted continued timeout helper_failed output_rejected native_exception journal_failed window_mismatch page_not_language control_ambiguous selection_failed selection_attempted selection_confirmed forbidden_control name_too_long unsafe_name language_group_missing continue_ambiguous continue_missing language_group_ambiguous'.split())
+UI_KEYS={'language','legal','account','installation_options','progress','error'}
 CHECKS={'registry_key_found','registry_location_match','registry_version_present','signed_launcher','signed_client','setup_absent','stable_layout_20_seconds'}
 def authorized(env,platform):
  return (platform=='win32' and env.get('GITHUB_ACTIONS')=='true' and env.get('RUNNER_ENVIRONMENT')=='github-hosted' and env.get('RUNNER_OS')=='Windows' and env.get('GITHUB_REF')=='refs/heads/'+BRANCH and env.get('GITHUB_EVENT_NAME')=='push' and env.get('GITHUB_RUN_ATTEMPT')=='1' and env.get('BNET_MINIMAL_INSTALL')==APPROVAL and env.get('BNET_CASE')==CASE)
 def installed(checks,launched):
  return launched is True and set(checks)==CHECKS and all(checks[k] is True for k in CHECKS)
 def blank(env):
- return dict(schema='bnet-minimal-install-c0-1',case=CASE,source_commit=env.get('GITHUB_SHA',''),run_id=env.get('GITHUB_RUN_ID',''),status='not_started',phase='guard',error_code=None,target_launched=False,installer={},native_ui_gate=False,language_attempted=False,install_attempted=False,language_status='not_attempted',install_status='not_attempted',samples=0,snapshot_errors=0,gui_errors=0,known_process_counts={},public_endpoints=[],endpoints_truncated=False,install_checks={k:False for k in sorted(CHECKS)},client_binaries=[],cleanup_attempted=False,observer_seconds=0,intervention='none',login_attempted=False,game_download_requested=False,raw_payloads_exported=False,all_processes_observed=False,all_network_observed=False,necessity_tested=False,telemetry_blocked=False)
+ return dict(schema='bnet-minimal-install-c0b-1',case=CASE,source_commit=env.get('GITHUB_SHA',''),run_id=env.get('GITHUB_RUN_ID',''),status='not_started',phase='guard',error_code=None,target_launched=False,installer={},native_ui_gate=False,language_attempted=False,install_attempted=False,language_status='not_attempted',install_status='not_attempted',samples=0,snapshot_errors=0,gui_errors=0,known_process_counts={},public_endpoints=[],endpoints_truncated=False,install_checks={k:False for k in sorted(CHECKS)},client_binaries=[],cleanup_attempted=False,observer_seconds=0,native_options_probes=0,native_options_last_status='not_attempted',ui_signal_seen={k:False for k in sorted(UI_KEYS)},ui_signal_last={k:False for k in sorted(UI_KEYS)},intervention='none',login_attempted=False,game_download_requested=False,raw_payloads_exported=False,all_processes_observed=False,all_network_observed=False,necessity_tested=False,telemetry_blocked=False)
 def validate(v):
  expected=set(blank({}))
- if type(v) is not dict or set(v)!=expected or v['schema']!='bnet-minimal-install-c0-1' or v['case']!=CASE:raise ValueError('report_schema')
+ if type(v) is not dict or set(v)!=expected or v['schema']!='bnet-minimal-install-c0b-1' or v['case']!=CASE:raise ValueError('report_schema')
  if not re.fullmatch('[a-f0-9]{40}',v['source_commit']) or not re.fullmatch('[0-9]{1,30}',v['run_id']):raise ValueError('report_identity')
  if v['status'] not in STATUSES or v['phase'] not in PHASES:raise ValueError('report_status')
  if v['error_code'] is not None and not re.fullmatch('[a-z0-9_]{1,100}',v['error_code']):raise ValueError('error_code')
@@ -27,7 +28,7 @@ def validate(v):
  for k in flags[-7:]:
   if v[k] is not False:raise ValueError('scope_or_claim')
  if v['intervention']!='none':raise ValueError('baseline_has_no_intervention')
- for k,cap in [('samples',240),('snapshot_errors',240),('gui_errors',240),('observer_seconds',700)]:
+ for k,cap in [('samples',240),('snapshot_errors',240),('gui_errors',240),('observer_seconds',700),('native_options_probes',30)]:
   if type(v[k]) is not int or not 0<=v[k]<=cap:raise ValueError('report_count')
  if set(v['install_checks'])!=CHECKS or any(type(x) is not bool for x in v['install_checks'].values()):raise ValueError('checks')
  if type(v['known_process_counts']) is not dict or not set(v['known_process_counts'])<=KNOWN_NAMES or any(type(x) is not int or not 0<=x<=10000 for x in v['known_process_counts'].values()):raise ValueError('process_counts')
@@ -44,7 +45,9 @@ def validate(v):
   if not re.fullmatch('[a-f0-9]{64}',i['sha256']) or type(i['bytes']) is not int or not 0<i['bytes']<=128*1024**2 or any(type(i[k]) is not bool for k in ('signature_accepted','matches_pin')):raise ValueError('installer_values')
   if i['matches_pin']!=(i['sha256']==SETUP_SHA and i['bytes']==SETUP_BYTES):raise ValueError('pin_crossfoot')
  if v['target_launched'] and (not v['installer'] or not v['installer']['matches_pin'] or not v['installer']['signature_accepted'] or not v['native_ui_gate']):raise ValueError('launch_gate')
- for key in ('language_status','install_status'):
+ for key in ('ui_signal_seen','ui_signal_last'):
+  if type(v[key]) is not dict or set(v[key])!=UI_KEYS or any(type(x) is not bool for x in v[key].values()):raise ValueError('ui_signals')
+ for key in ('language_status','install_status','native_options_last_status'):
   if not isinstance(v[key],str) or v[key] not in ACTION_STATUSES:raise ValueError('action_status')
  if type(v['client_binaries']) is not list or len(v['client_binaries'])>8:raise ValueError('binaries')
  for b in v['client_binaries']:

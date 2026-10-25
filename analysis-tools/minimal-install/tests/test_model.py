@@ -36,6 +36,12 @@ class Gates(unittest.TestCase):
   for k in ('login_attempted','game_download_requested','raw_payloads_exported','all_processes_observed','all_network_observed','necessity_tested','telemetry_blocked'):
    r=self.report();r[k]=True
    with self.assertRaises(ValueError):validate(r)
+ def test_ui_signal_scope(self):
+  r=self.report();r['ui_signal_seen']['raw_text']='forbidden'
+  with self.assertRaises(ValueError):validate(r)
+ def test_probe_cap(self):
+  r=self.report();r['native_options_probes']=31
+  with self.assertRaises(ValueError):validate(r)
  def test_extra_raw_field(self):
   r=self.report();r['UserUUID']='not allowed'
   with self.assertRaises(ValueError):validate(r)
