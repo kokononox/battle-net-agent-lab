@@ -1,0 +1,141 @@
+{
+  "schema": "task_security_review_v1",
+  "source_commit": "5b4e6b32fbcc31b92e8baaadea516f54325b40da",
+  "run_id": "40192875844",
+  "automatic_exemptions_added": false,
+  "recovery_policy_changed": false,
+  "signature_alone_authorizes_exception": false,
+  "mutation_actor_proven": false,
+  "samples": [
+    {
+      "captured_utc": "2026-10-25T12:23:35.0303766Z",
+      "tasks": [
+        {
+          "identifier": "RefreshCache",
+          "identity_sha256": "6137a887b08bde613f10c2469a266d09ae1a4771d17512f64acba2c4d4d1e883",
+          "permissions_review": {
+            "status": "no_non_admin_control_ace_in_supported_shape",
+            "effective_token_access_proven": false,
+            "authorizes_exception": false
+          },
+          "settings_enabled": null
+        },
+        {
+          "identifier": "PrintJobCleanupTask",
+          "identity_sha256": "21475573fddc2e641b67691a5d4d3096ea5135278dae645a8fd4a2e0bc4c613a",
+          "permissions_review": {
+            "status": "blocked_for_automatic_exception",
+            "reason": "non_admin_control_ace",
+            "control_aces": [
+              {
+                "identity_category": "authenticated_users",
+                "write_dac": true,
+                "write_owner": true,
+                "generic_all": false,
+                "generic_write": false,
+                "mask_hex": "001f01ff"
+              }
+            ],
+            "effective_token_access_proven": false
+          },
+          "settings_enabled": false
+        },
+        {
+          "identifier": "Registration",
+          "identity_sha256": "2b11947a6c63d26c27256985033a4d1d7e97e56883cf36ed29a8beb6f79a4559",
+          "permissions_review": {
+            "status": "no_non_admin_control_ace_in_supported_shape",
+            "effective_token_access_proven": false,
+            "authorizes_exception": false
+          },
+          "settings_enabled": null
+        },
+        {
+          "identifier": "SvcRestartTask",
+          "identity_sha256": "4023f1322db1c44e9afe47a715033f592132e209dd8511b71be83c290ae8c7a2",
+          "permissions_review": {
+            "status": "blocked_for_automatic_exception",
+            "reason": "non_admin_control_ace",
+            "control_aces": [
+              {
+                "identity_category": "other_identity",
+                "write_dac": true,
+                "write_owner": true,
+                "generic_all": false,
+                "generic_write": false,
+                "mask_hex": "001f01ff"
+              }
+            ],
+            "effective_token_access_proven": false
+          },
+          "settings_enabled": null
+        }
+      ]
+    },
+    {
+      "captured_utc": "2026-10-25T12:25:07.7586337Z",
+      "tasks": [
+        {
+          "identifier": "RefreshCache",
+          "identity_sha256": "6137a887b08bde613f10c2469a266d09ae1a4771d17512f64acba2c4d4d1e883",
+          "permissions_review": {
+            "status": "no_non_admin_control_ace_in_supported_shape",
+            "effective_token_access_proven": false,
+            "authorizes_exception": false
+          },
+          "settings_enabled": null
+        },
+        {
+          "identifier": "PrintJobCleanupTask",
+          "identity_sha256": "21475573fddc2e641b67691a5d4d3096ea5135278dae645a8fd4a2e0bc4c613a",
+          "permissions_review": {
+            "status": "blocked_for_automatic_exception",
+            "reason": "non_admin_control_ace",
+            "control_aces": [
+              {
+                "identity_category": "authenticated_users",
+                "write_dac": true,
+                "write_owner": true,
+                "generic_all": false,
+                "generic_write": false,
+                "mask_hex": "001f01ff"
+              }
+            ],
+            "effective_token_access_proven": false
+          },
+          "settings_enabled": false
+        },
+        {
+          "identifier": "Registration",
+          "identity_sha256": "2b11947a6c63d26c27256985033a4d1d7e97e56883cf36ed29a8beb6f79a4559",
+          "permissions_review": {
+            "status": "no_non_admin_control_ace_in_supported_shape",
+            "effective_token_access_proven": false,
+            "authorizes_exception": false
+          },
+          "settings_enabled": null
+        },
+        {
+          "identifier": "SvcRestartTask",
+          "identity_sha256": "4023f1322db1c44e9afe47a715033f592132e209dd8511b71be83c290ae8c7a2",
+          "permissions_review": {
+            "status": "blocked_for_automatic_exception",
+            "reason": "non_admin_control_ace",
+            "control_aces": [
+              {
+                "identity_category": "other_identity",
+                "write_dac": true,
+                "write_owner": true,
+                "generic_all": false,
+                "generic_write": false,
+                "mask_hex": "001f01ff"
+              }
+            ],
+            "effective_token_access_proven": false
+          },
+          "settings_enabled": null
+        }
+      ]
+    }
+  ]
+}
