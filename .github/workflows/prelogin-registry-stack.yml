@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved registry stack a12b'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved registry stack a12c'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved registry stack a12b'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved registry stack a12c'
     runs-on: windows-2025
     timeout-minutes: 22
     permissions:
@@ -67,7 +67,7 @@ jobs:
         id: observation
         timeout-minutes: 14
         env:
-          BNET_REGISTRY_TRACE: approved-registry-stack-a12b
+          BNET_REGISTRY_TRACE: approved-registry-stack-a12c
         run: python analysis-tools/prelogin-registry-stack/run_registry.py
       - name: Strictly validate fixed-key registry summary
         id: sanitize

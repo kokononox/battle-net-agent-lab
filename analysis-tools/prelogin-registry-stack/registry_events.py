@@ -23,13 +23,15 @@ class Events:
             elif k=='reg_error':self.errors+=1
             elif k=='reg_limit':self.limits+=1
             elif k=='reg_value':
-                if set(e)!={'kind','api','operation','label','status','value_type','caller_rva','stack_status','main_module_stack_rvas'}:raise ValueError()
+                if set(e)!={'kind','api','operation','label','status','value_type','caller_rva','stack_status','verified_image_stack_rvas','image_scope','process_main_matches_verified_image'}:raise ValueError()
                 if e['api'] not in APIS or e['operation'] not in ('read','write') or e['label'] not in ('target','probe'):raise ValueError()
                 if type(e['status']) is not int or not 0<=e['status']<=65535:raise ValueError()
                 for x in ('value_type','caller_rva'):
                     if e[x] is not None and (type(e[x]) is not int or not 0<=e[x]<=0xffffffff):raise ValueError()
-                if e['stack_status'] not in ('captured','failed') or type(e['main_module_stack_rvas']) is not list or len(e['main_module_stack_rvas'])>16:raise ValueError()
-                if any(type(v) is not int or not 0<=v<=0xffffffff for v in e['main_module_stack_rvas']) or len(set(e['main_module_stack_rvas']))!=len(e['main_module_stack_rvas']) or (e['stack_status']=='failed' and e['main_module_stack_rvas']):raise ValueError()
+                if e['stack_status'] not in ('captured','failed') or type(e['verified_image_stack_rvas']) is not list or len(e['verified_image_stack_rvas'])>16:raise ValueError()
+                if any(type(v) is not int or not 0<=v<=0xffffffff for v in e['verified_image_stack_rvas']) or len(set(e['verified_image_stack_rvas']))!=len(e['verified_image_stack_rvas']) or (e['stack_status']=='failed' and e['verified_image_stack_rvas']):raise ValueError()
+                if e['image_scope'] not in ('verified','unresolved') or type(e['process_main_matches_verified_image']) is not bool:raise ValueError()
+                if e['image_scope']=='unresolved' and (e['caller_rva'] is not None or e['verified_image_stack_rvas']):raise ValueError()
                 raw=bytes(raw or b'')
                 if len(raw)>256 or (e['status']!=0 and raw) or len(self.values)>=256:raise ValueError()
                 self.values.append(dict(e,pid=pid,process_sha256=row['sha256'],value=decode(raw) if e['status']==0 and e['value_type']==1 else None))
@@ -39,5 +41,5 @@ class Events:
         records=[]
         for x in self.values:
             if x['label']!='target':continue
-            records.append({k:x[k] for k in ('api','operation','status','value_type','caller_rva','process_sha256','stack_status','main_module_stack_rvas')}|{'valid_uuid':x['value'] is not None,'equals_wire_host_id':len(values)==1 and x['value'] in values})
+            records.append({k:x[k] for k in ('api','operation','status','value_type','caller_rva','process_sha256','stack_status','verified_image_stack_rvas','image_scope','process_main_matches_verified_image')}|{'valid_uuid':x['value'] is not None,'equals_wire_host_id':len(values)==1 and x['value'] in values})
         return dict(ready_processes=len(self.ready),installed_apis=sorted(set.union(set(),*self.installed.values())),errors=self.errors,limits=self.limits,records=records)

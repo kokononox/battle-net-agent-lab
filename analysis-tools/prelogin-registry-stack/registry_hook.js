@@ -11,9 +11,11 @@ function join(p,s){return p===null?null:(p+(s?'\\'+s:'' )).toLowerCase().replace
 function relevant(p){return p!==null&&[target,probe].some(x=>x===p||x.startsWith(p+'\\'));}
 function label(p){return p===target?'target':p===probe?'probe':null;}
 function fault(){emit({kind:'reg_error'});}
-function caller(c){try{const m=Process.mainModule;if(c.returnAddress.compare(m.base)>=0&&c.returnAddress.compare(m.base.add(m.size))<0)return c.returnAddress.sub(m.base).toUInt32();}catch(_){}return null;}
-function stack(c){try{const m=Process.mainModule,rvas=[];for(const a of Thread.backtrace(c.context,Backtracer.ACCURATE).slice(0,16)){if(a.compare(m.base)>=0&&a.compare(m.base.add(m.size))<0){const r=a.sub(m.base).toUInt32();if(!rvas.includes(r))rvas.push(r);}}return {status:'captured',rvas:rvas};}catch(_){return {status:'failed',rvas:[]};}}
-function event(c,status,raw,type){emit({kind:'reg_value',api:c.api,operation:c.operation,label:c.label,status:status,value_type:type,caller_rva:c.rva,stack_status:c.stackInfo.status,main_module_stack_rvas:c.stackInfo.rvas},raw);}
+function image(){try{const expected=globalThis.__LAB_IMAGE_PATH.toLowerCase();const matches=Process.enumerateModules().filter(m=>m.path.toLowerCase()===expected);return matches.length===1?matches[0]:null;}catch(_){return null;}}
+function mainMatches(m){try{return m!==null&&Process.mainModule.path.toLowerCase()===m.path.toLowerCase();}catch(_){return false;}}
+function caller(c,m){try{if(m!==null&&c.returnAddress.compare(m.base)>=0&&c.returnAddress.compare(m.base.add(m.size))<0)return c.returnAddress.sub(m.base).toUInt32();}catch(_){}return null;}
+function stack(c,m){try{if(m===null)return {status:'failed',rvas:[]};const rvas=[];for(const a of Thread.backtrace(c.context,Backtracer.ACCURATE).slice(0,16)){if(a.compare(m.base)>=0&&a.compare(m.base.add(m.size))<0){const r=a.sub(m.base).toUInt32();if(!rvas.includes(r))rvas.push(r);}}return {status:'captured',rvas:rvas};}catch(_){return {status:'failed',rvas:[]};}}
+function event(c,status,raw,type){emit({kind:'reg_value',api:c.api,operation:c.operation,label:c.label,status:status,value_type:type,caller_rva:c.rva,stack_status:c.stackInfo.status,verified_image_stack_rvas:c.stackInfo.rvas,image_scope:c.image?'verified':'unresolved',process_main_matches_verified_image:c.mainMatch},raw);}
 function hook(mod,api){let a;try{a=mod.getExportByName(api);}catch(_){return;}if(installed.has(a.toString()))return;installed.add(a.toString());const wide=api.endsWith('W');
 try{Interceptor.attach(a,{
  onEnter(args){this.api=api;this.active=false;try{
@@ -24,7 +26,7 @@ try{Interceptor.attach(a,{
  else {name=text(args[1],wide);if(api.startsWith('RegQueryValueEx')){this.type=args[3];this.buf=args[4];this.len=args[5];this.operation='read';}
  else {this.settype=args[3].toUInt32();this.buf=args[4];this.setlen=args[5].toUInt32();this.operation='write';}}
  this.label=label(p);if(!this.label||name.toLowerCase()!=='useruuid')return;
- this.active=true;this.rva=caller(this);this.stackInfo=stack(this);this.capacity=this.operation==='read'&&!this.len.isNull()?this.len.readU32():this.setlen;
+ this.active=true;this.image=image();this.mainMatch=mainMatches(this.image);this.rva=caller(this,this.image);this.stackInfo=stack(this,this.image);this.capacity=this.operation==='read'&&!this.len.isNull()?this.len.readU32():this.setlen;
  if(this.operation==='write'&&this.capacity<=256&&!this.buf.isNull())this.raw=this.buf.readByteArray(this.capacity);
  }catch(_){fault();this.active=false;}},
  onLeave(ret){try{const status=ret.toInt32();if(api==='RegCloseKey'){if(status===0)handles.delete(this.h);return;}

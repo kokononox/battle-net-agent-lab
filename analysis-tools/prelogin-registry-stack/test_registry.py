@@ -5,7 +5,7 @@ from registry_events import Events,decode
 from validate_registry import blank,validate,load
 SYN=b'abcdefab-abcd-4abc-abcd-abcdefabcdef'
 def row():return dict(pid=1,sha256='a'*64)
-def event():return dict(kind='reg_value',api='RegQueryValueExW',operation='read',label='target',status=0,value_type=1,caller_rva=0x123,stack_status='captured',main_module_stack_rvas=[0x123])
+def event():return dict(kind='reg_value',api='RegQueryValueExW',operation='read',label='target',status=0,value_type=1,caller_rva=0x123,stack_status='captured',verified_image_stack_rvas=[0x123],image_scope='verified',process_main_matches_verified_image=True)
 class Tests(unittest.TestCase):
  def test_ascii(self):self.assertEqual(decode(SYN+b'\0'),SYN)
  def test_utf16(self):self.assertEqual(decode((SYN.decode()+'\0').encode('utf-16-le')),SYN)
@@ -46,8 +46,8 @@ class ClaimTests(unittest.TestCase):
  def good(self):
   from validate_registry import PIN
   r=blank('a'*40,'123');r.update(status='observation_complete',target_launched=True,lifecycle_comparison=True,registry_read_equals_wire_host_id=True,baseline_before_target=dict(status='absent',value_present=False,valid_uuid=False),baseline_after_target=dict(status='present',value_present=True,valid_uuid=True))
-  for arch in ('x64','x86'):r['native_gate'].append(dict(architecture=arch,passed=True,exit_code=0,instrumented=True,bitness_confirmed=True,read_a=True,read_w=True,get_w=True,write_w=True,size_only_not_uuid=True,read_w_main_frame=True,write_w_main_frame=True,accurate_stack_captured=True,errors=0,limits=0))
-  for phase in ('first','second'):r['phases'].append(dict(phase=phase,ready_processes=1,installed_apis=['RegQueryValueExW'],errors=0,limits=0,wire_linked_hardware_requests=1,all_processes_registry_ready=True,wire_collector_clean=True,records=[dict(api='RegQueryValueExW',operation='read',status=0,value_type=1,caller_rva=123,stack_status='captured',main_module_stack_rvas=[],process_sha256=PIN,valid_uuid=True,equals_wire_host_id=True)]))
+  for arch in ('x64','x86'):r['native_gate'].append(dict(architecture=arch,passed=True,exit_code=0,instrumented=True,bitness_confirmed=True,read_a=True,read_w=True,get_w=True,write_w=True,size_only_not_uuid=True,read_w_main_frame=True,write_w_main_frame=True,accurate_stack_captured=True,scope_diagnostics=dict(verified_image_found=True,process_main_matches_verified_image=True,direct_caller_found=True),errors=0,limits=0))
+  for phase in ('first','second'):r['phases'].append(dict(phase=phase,ready_processes=1,installed_apis=['RegQueryValueExW'],errors=0,limits=0,wire_linked_hardware_requests=1,all_processes_registry_ready=True,wire_collector_clean=True,records=[dict(api='RegQueryValueExW',operation='read',status=0,value_type=1,caller_rva=123,stack_status='captured',verified_image_stack_rvas=[],image_scope='verified',process_main_matches_verified_image=True,process_sha256=PIN,valid_uuid=True,equals_wire_host_id=True)]))
   return r
  def test_good(self):validate(self.good())
  def test_missing_phase_refused(self):
@@ -69,20 +69,29 @@ class ClaimTests(unittest.TestCase):
 
 class StackTests(unittest.TestCase):
  def test_exact_stack(self):
-  e=Events();e.accept(row(),event(),SYN);self.assertEqual(e.summary({SYN})['records'][0]['main_module_stack_rvas'],[0x123])
+  e=Events();e.accept(row(),event(),SYN);self.assertEqual(e.summary({SYN})['records'][0]['verified_image_stack_rvas'],[0x123])
  def test_no_absolute_stack_strings(self):
-  e=Events();v=event();v['main_module_stack_rvas']=['0x123'];e.accept(row(),v,SYN);self.assertEqual(e.errors,1)
+  e=Events();v=event();v['verified_image_stack_rvas']=['0x123'];e.accept(row(),v,SYN);self.assertEqual(e.errors,1)
  def test_failed_stack_cannot_have_frames(self):
   e=Events();v=event();v['stack_status']='failed';e.accept(row(),v,SYN);self.assertEqual(e.errors,1)
  def test_no_duplicate_frames(self):
-  e=Events();v=event();v['main_module_stack_rvas']=[123,123];e.accept(row(),v,SYN);self.assertEqual(e.errors,1)
+  e=Events();v=event();v['verified_image_stack_rvas']=[123,123];e.accept(row(),v,SYN);self.assertEqual(e.errors,1)
  def test_bounded_stack(self):
-  e=Events();v=event();v['main_module_stack_rvas']=list(range(17));e.accept(row(),v,SYN);self.assertEqual(e.errors,1)
+  e=Events();v=event();v['verified_image_stack_rvas']=list(range(17));e.accept(row(),v,SYN);self.assertEqual(e.errors,1)
  def test_stack_claim_requires_frames(self):
   r=ClaimTests().good();r['matching_agent_read_stack_observed']=True;self.assertRaises(ValueError,validate,r)
  def test_stack_claim_both_phases(self):
   r=ClaimTests().good();r['matching_agent_read_stack_observed']=True
-  for p in r['phases']:p['records'][0]['main_module_stack_rvas']=[123]
+  for p in r['phases']:p['records'][0]['verified_image_stack_rvas']=[123]
   validate(r)
  def test_stack_not_causality(self):
   r=ClaimTests().good();r['limits']['provider_assignment_causality_proven']=True;self.assertRaises(ValueError,validate,r)
+class ImageScopeTests(unittest.TestCase):
+ def test_unresolved_cannot_have_frame(self):
+  e=Events();v=event();v['image_scope']='unresolved';e.accept(row(),v,SYN);self.assertEqual(e.errors,1)
+ def test_unresolved_without_frames_is_valid(self):
+  e=Events();v=event();v.update(image_scope='unresolved',caller_rva=None,verified_image_stack_rvas=[],stack_status='failed',process_main_matches_verified_image=False);e.accept(row(),v,SYN);self.assertEqual(e.errors,0)
+ def test_scope_diag_not_proof_of_read(self):
+  r=ClaimTests().good();r['native_gate'][0]['scope_diagnostics']['process_main_matches_verified_image']=False;validate(r)
+ def test_unknown_diag_key_rejected(self):
+  r=ClaimTests().good();r['native_gate'][0]['scope_diagnostics']['path']='secret';self.assertRaises(ValueError,validate,r)

@@ -170,7 +170,10 @@ class Manager:
             bounded(self.frida, session.enable_child_gating)
             row["child_gating_enabled"] = True
             row["phase"] = "script_load"
-            script = bounded(self.frida, lambda: session.create_script((Path(__file__).resolve().parent.parent/"prelogin-wire-h3"/"wire_hook.js").read_text()+"\n"+Path(__file__).with_name("registry_hook.js").read_text()))
+            from native_identity import identity
+            verified_path = identity(pid)['path']
+            prefix = 'globalThis.__LAB_IMAGE_PATH=' + json.dumps(verified_path) + ';\n'
+            script = bounded(self.frida, lambda: session.create_script(prefix+(Path(__file__).resolve().parent.parent/"prelogin-wire-h3"/"wire_hook.js").read_text()+"\n"+Path(__file__).with_name("registry_hook.js").read_text()))
             self.scripts.append(script)
             script.on("message", lambda msg, data: self.message(row, msg, data))
             bounded(self.frida, script.load)

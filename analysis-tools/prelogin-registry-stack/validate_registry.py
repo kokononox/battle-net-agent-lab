@@ -3,17 +3,17 @@ import json,re,sys
 from pathlib import Path
 from registry_events import APIS
 PIN='b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5'
-PROBE={'architecture','passed','exit_code','instrumented','bitness_confirmed','read_a','read_w','get_w','write_w','size_only_not_uuid','read_w_main_frame','write_w_main_frame','accurate_stack_captured','errors','limits'}
+PROBE={'architecture','passed','exit_code','instrumented','bitness_confirmed','read_a','read_w','get_w','write_w','size_only_not_uuid','read_w_main_frame','write_w_main_frame','accurate_stack_captured','scope_diagnostics','errors','limits'}
 PHASE={'ready_processes','installed_apis','errors','limits','records','phase','wire_linked_hardware_requests','all_processes_registry_ready','wire_collector_clean'}
-RECORD={'api','operation','status','value_type','caller_rva','process_sha256','valid_uuid','equals_wire_host_id','stack_status','main_module_stack_rvas'}
+RECORD={'api','operation','status','value_type','caller_rva','process_sha256','valid_uuid','equals_wire_host_id','stack_status','verified_image_stack_rvas','image_scope','process_main_matches_verified_image'}
 LIMITS=dict(raw_values_exported=False,identifier_hashes_exported=False,target_registry_modified_by_observer=False,login_performed=False,install_action_requested=False,game_download_requested=False,tls_validation_changed=False,provider_assignment_causality_proven=False,reboot_tested=False,reinstall_tested=False,global_install_uniqueness_proven=False,server_storage_proven=False)
-def blank(source,run):return dict(schema='bnet-registry-stack-trace-1',source_commit=source,run_id=run,status='stopped',native_gate=[],baseline_before_target=None,baseline_after_target=None,target_launched=False,lifecycle_comparison=None,phases=[],registry_read_equals_wire_host_id=False,successful_matching_write_observed=False,matching_agent_read_stack_observed=False,limits=dict(LIMITS))
+def blank(source,run):return dict(schema='bnet-registry-stack-trace-2',source_commit=source,run_id=run,status='stopped',native_gate=[],baseline_before_target=None,baseline_after_target=None,target_launched=False,lifecycle_comparison=None,phases=[],registry_read_equals_wire_host_id=False,successful_matching_write_observed=False,matching_agent_read_stack_observed=False,limits=dict(LIMITS))
 def boolean(x):
     if type(x) is not bool:raise ValueError('boolean')
 def number(x,maximum=100000):
     if type(x) is not int or not 0<=x<=maximum:raise ValueError('number')
 def validate(r):
-    if type(r) is not dict or set(r)!=set(blank('','')) or r['schema']!='bnet-registry-stack-trace-1':raise ValueError('schema')
+    if type(r) is not dict or set(r)!=set(blank('','')) or r['schema']!='bnet-registry-stack-trace-2':raise ValueError('schema')
     if not isinstance(r['source_commit'],str) or not re.fullmatch('[a-f0-9]{40}',r['source_commit']):raise ValueError('source')
     if not isinstance(r['run_id'],str) or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('run')
     if r['status'] not in ('stopped','native_gate_failed_no_target','baseline_failed_no_target','inconclusive','observation_complete'):raise ValueError('status')
@@ -29,10 +29,13 @@ def validate(r):
     if type(r['native_gate']) is not list or len(r['native_gate'])>2:raise ValueError('gate')
     for i,x in enumerate(r['native_gate']):
         if type(x) is not dict or set(x)!=PROBE or x['architecture']!=('x64','x86')[i]:raise ValueError('probe')
-        for k in PROBE-{'architecture','exit_code','errors','limits'}:boolean(x[k])
+        for k in PROBE-{'architecture','exit_code','errors','limits','scope_diagnostics'}:boolean(x[k])
+        d=x['scope_diagnostics']
+        if type(d) is not dict or set(d)!={'verified_image_found','process_main_matches_verified_image','direct_caller_found'}:raise ValueError('scope_diag')
+        for v in d.values():boolean(v)
         for k in ('errors','limits'):number(x[k])
         if x['exit_code'] is not None:number(x['exit_code'],0xffffffff)
-        if x['passed'] and not(x['exit_code']==0 and x['errors']==x['limits']==0 and all(x[k] for k in PROBE-{'architecture','exit_code','errors','limits'})):raise ValueError('probe_gate')
+        if x['passed'] and not(x['scope_diagnostics']['verified_image_found'] and x['exit_code']==0 and x['errors']==x['limits']==0 and all(x[k] for k in PROBE-{'architecture','exit_code','errors','limits','scope_diagnostics'})):raise ValueError('probe_gate')
     if type(r['phases']) is not list or len(r['phases'])>2:raise ValueError('phases')
     for i,p in enumerate(r['phases']):
         if type(p) is not dict or set(p)!=PHASE or p['phase']!=('first','second')[i]:raise ValueError('phase')
@@ -47,9 +50,12 @@ def validate(r):
             number(x['status'],65535)
             for k in ('value_type','caller_rva'):
                 if x[k] is not None:number(x[k],0xffffffff)
-            if x['stack_status'] not in ('captured','failed') or type(x['main_module_stack_rvas']) is not list or len(x['main_module_stack_rvas'])>16:raise ValueError('stack')
-            for v in x['main_module_stack_rvas']:number(v,0xffffffff)
-            if len(set(x['main_module_stack_rvas']))!=len(x['main_module_stack_rvas']) or (x['stack_status']=='failed' and x['main_module_stack_rvas']):raise ValueError('stack_status')
+            if x['stack_status'] not in ('captured','failed') or type(x['verified_image_stack_rvas']) is not list or len(x['verified_image_stack_rvas'])>16:raise ValueError('stack')
+            for v in x['verified_image_stack_rvas']:number(v,0xffffffff)
+            if len(set(x['verified_image_stack_rvas']))!=len(x['verified_image_stack_rvas']) or (x['stack_status']=='failed' and x['verified_image_stack_rvas']):raise ValueError('stack_status')
+            if x['image_scope'] not in ('verified','unresolved'):raise ValueError('image_scope')
+            boolean(x['process_main_matches_verified_image'])
+            if x['image_scope']=='unresolved' and (x['caller_rva'] is not None or x['verified_image_stack_rvas']):raise ValueError('unresolved_scope')
             if not isinstance(x['process_sha256'],str) or not re.fullmatch('[a-f0-9]{64}',x['process_sha256']):raise ValueError('image_hash')
             for k in ('valid_uuid','equals_wire_host_id'):boolean(x[k])
             if x['valid_uuid'] and not(x['status']==0 and x['value_type']==1):raise ValueError('uuid')
@@ -61,7 +67,7 @@ def validate(r):
         if not all(p['errors']==p['limits']==0 and p['ready_processes']>0 and p['all_processes_registry_ready'] and p['wire_collector_clean'] and p['wire_linked_hardware_requests']>0 for p in r['phases']):raise ValueError('collector')
         eq=all(any(x['operation']=='read' and x['status']==0 and x['equals_wire_host_id'] and x['process_sha256']==PIN for x in p['records']) for p in r['phases'])
         wr=any(x['operation']=='write' and x['status']==0 and x['equals_wire_host_id'] for p in r['phases'] for x in p['records'])
-        stack=all(any(x['operation']=='read' and x['status']==0 and x['equals_wire_host_id'] and x['process_sha256']==PIN and x['stack_status']=='captured' and x['main_module_stack_rvas'] for x in p['records']) for p in r['phases'])
+        stack=all(any(x['operation']=='read' and x['status']==0 and x['equals_wire_host_id'] and x['process_sha256']==PIN and x['stack_status']=='captured' and x['verified_image_stack_rvas'] for x in p['records']) for p in r['phases'])
         if r['matching_agent_read_stack_observed']!=stack:raise ValueError('stack_claim')
         if r['registry_read_equals_wire_host_id']!=eq or r['successful_matching_write_observed']!=wr:raise ValueError('claims')
     elif r['registry_read_equals_wire_host_id'] or r['successful_matching_write_observed'] or r['matching_agent_read_stack_observed']:raise ValueError('partial_claim')

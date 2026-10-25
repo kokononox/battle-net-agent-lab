@@ -17,7 +17,7 @@ def baseline():
     return r
 
 def main():
-    if not(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_REGISTRY_TRACE')=='approved-registry-stack-a12b'):raise SystemExit('fresh_hosted_once_required')
+    if not(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_REGISTRY_TRACE')=='approved-registry-stack-a12c'):raise SystemExit('fresh_hosted_once_required')
     r=blank(os.environ['GITHUB_SHA'],os.environ['GITHUB_RUN_ID']);out=Path('output');out.mkdir(exist_ok=True)
     import run_lifecycle as lifecycle,trace_manager
     old_first=lifecycle.first.Manager;old_second=lifecycle.Manager;old_tracking=lifecycle.Tracking;old_flag=os.environ.get('BNET_HOST_LIFECYCLE');trackers=[]
@@ -49,7 +49,7 @@ def main():
         if clean:
             r['registry_read_equals_wire_host_id']=all(any(x['operation']=='read' and x['status']==0 and x['equals_wire_host_id'] and x['process_sha256']=='b422e8d4f0fe0cbcb2d106b455aa44d78eb3a4e173340f05e6cadac5091571b5' for x in p['records']) for p in r['phases'])
             from validate_registry import PIN
-            r['matching_agent_read_stack_observed']=all(any(x['operation']=='read' and x['status']==0 and x['equals_wire_host_id'] and x['process_sha256']==PIN and x['stack_status']=='captured' and x['main_module_stack_rvas'] for x in p['records']) for p in r['phases'])
+            r['matching_agent_read_stack_observed']=all(any(x['operation']=='read' and x['status']==0 and x['equals_wire_host_id'] and x['process_sha256']==PIN and x['stack_status']=='captured' and x['verified_image_stack_rvas'] for x in p['records']) for p in r['phases'])
             r['successful_matching_write_observed']=any(x['operation']=='write' and x['status']==0 and x['equals_wire_host_id'] for p in r['phases'] for x in p['records'])
     except Exception:r['status']='stopped'
     finally:
