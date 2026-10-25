@@ -29,6 +29,7 @@ try{
  $r.iis_restored=([string](Get-Service W3SVC).Status -eq $c.iis_original);if(-not $r.iis_restored){throw 'iis_restore_failed'}
  Save-Private (Join-Path $c.root 'lease.json') @{phase='released'};$r.status='restored_after_scoped_exit_checks';Save-Private (Join-Path $c.root 'recovery-result.json') $r
  Unregister-ScheduledTask $c.watchdog_name -Confirm:$false -ErrorAction SilentlyContinue
+ Unregister-ScheduledTask $c.snapshot_task_name -Confirm:$false -ErrorAction SilentlyContinue
 }catch{
  $r.error_shape=Error-Shape $_;$m=$_.Exception.Message;$r.error_code=if($m -match '^[a-z_]{1,100}$'){$m}else{'recovery_operation_failed'}
  $priorPath=Join-Path $c.root 'recovery-result.json'

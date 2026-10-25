@@ -1,6 +1,6 @@
 # Global registration snapshot + observed named Job members, not a kernel process-creation barrier.
 function Get-RegistrationSnapshot {
- $services=@{};$tasks=@{};$serviceCommands=@{};$taskImages=@{}
+ $services=@{};$tasks=@{};$serviceCommands=@{};$taskImages=@{};$taskXml=@{}
  foreach($s in @(Get-CimInstance Win32_Service)){
   $value=ConvertTo-Json -Compress -InputObject @([string]$s.PathName,[string]$s.StartMode,[string]$s.StartName)
   $serviceCommands[[string]$s.Name]=[string]$s.PathName
@@ -10,9 +10,9 @@ function Get-RegistrationSnapshot {
   $key=[string]$t.TaskPath+[string]$t.TaskName
   $xml=[string](Export-ScheduledTask -TaskName $t.TaskName -TaskPath $t.TaskPath)
   $taskImages[$key]=@($t.Actions | ForEach-Object {[string]$_.Execute})
-  $tasks[$key]=Hash-Bytes ([Text.Encoding]::UTF8.GetBytes($xml))
+  $taskXml[$key]=$xml;$tasks[$key]=Hash-Bytes ([Text.Encoding]::UTF8.GetBytes($xml))
  }
- return @{services=$services;tasks=$tasks;service_commands=$serviceCommands;task_images=$taskImages}
+ return @{services=$services;tasks=$tasks;service_commands=$serviceCommands;task_images=$taskImages;task_xml=$taskXml}
 }
 function Registration-Changes($Context){
  $before=Get-Content -Raw (Join-Path $Context.root 'registrations-before.json') | ConvertFrom-Json;$after=Get-RegistrationSnapshot;Save-Private (Join-Path $Context.root 'registrations-after.json') $after;$changed=0

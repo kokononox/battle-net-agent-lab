@@ -51,7 +51,14 @@ jobs:
           if(Test-Path output/g17-private-pointer.json){
             $p=Get-Content -Raw output/g17-private-pointer.json | ConvertFrom-Json
             if(Test-Path (Join-Path $p.root 'before.wfw')){
-              & (Join-Path $p.root 'Recover.ps1') -Config (Join-Path $p.root 'config.json') -Origin fallback
+              & {
+                . (Join-Path $p.root 'Common.ps1')
+                $c=Read-Context (Join-Path $p.root 'config.json')
+                if((Get-Content -Raw (Join-Path $p.root 'lease.json') | ConvertFrom-Json).phase -ne 'released'){
+                  Start-ScheduledTask $c.cleanup_task_name
+                  Wait-File (Join-Path $p.root 'recovery-result.json') 40
+                }
+              }
             }
           }
       - name: Build only allowlisted evidence

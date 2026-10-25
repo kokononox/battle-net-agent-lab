@@ -4,7 +4,7 @@ from pathlib import Path
 OUT=Path('output');OUT.mkdir(exist_ok=True)
 def read(p):
  try:
-  if p.stat().st_size>1048576:return {}
+  if p.stat().st_size>16777216:return {}
   return json.loads(p.read_text(encoding='utf-8-sig'))
  except Exception:return {}
 def enum(v):return v if isinstance(v,str) and re.fullmatch('[a-zA-Z0-9_]{1,100}',v) else 'unavailable'
@@ -13,6 +13,7 @@ r={'schema':'offline_bootstrap_g17_v1','source_commit':os.getenv('GITHUB_SHA'),'
 pointer=read(OUT/'g17-private-pointer.json');root=Path(pointer['root']) if pointer.get('root') else None
 if root:
  pre=read(root/'preflight.json');d=read(root/'driver-result.json');o=read(root/'owner-result.json');u=read(root/'ui-result.json');rec=read(root/'recovery-result.json');launch=read(root/'launch-state.json')
+ r['system_baseline']=subset(read(root/'system-baseline-receipt.json'),'system_identity captured');r['system_prelaunch']=subset(read(root/'system-prelaunch-receipt.json'),'system_identity captured registration_changes')
  r['preflight']=subset(pre,'matches_pin signature_accepted trust_status ui_helper_ready error_code bytes');sha=pre.get('sha256','');
  if re.fullmatch('[a-f0-9]{64}',sha):r['preflight']['sha256']=sha
  r['driver']=subset(d,'stage failure_stage error_code gate_verified_before_launch gate_verified_after_observation baseline_canary_connected blocked_canary_connected post_restore_canary_connected target_launch_attempted target_launched owner_exit_confirmed')
@@ -52,6 +53,22 @@ if root:
      result.extend(matches[:3])
     return sorted(set(result))
    r['registration_differences'].append({'kind':kind,'identifier':label,'identity_sha256':hashlib.sha256(key.encode()).hexdigest(),'change':'added' if key not in a else 'removed' if key not in b else 'modified','image_names_before':image_names(before),'image_names_after':image_names(after),'command_or_action_images_changed':before.get('service_commands' if kind=='services' else 'task_images',{}).get(key)!=after.get('service_commands' if kind=='services' else 'task_images',{}).get(key)})
+   if kind=='tasks':
+    def shape(xml):
+     import xml.etree.ElementTree as E
+     result={}
+     def walk(node,path):
+      result[path]=(tuple(sorted(node.attrib.items())),(node.text or '').strip());counts={}
+      for child in node:
+       label=child.tag.split('}')[-1];counts[label]=counts.get(label,0)+1;walk(child,path+'/'+label+'['+str(counts[label])+']')
+     try:walk(E.fromstring(xml),'Task')
+     except Exception:return None
+     return result
+    x=shape(before.get('task_xml',{}).get(key,''));y=shape(after.get('task_xml',{}).get(key,''))
+    if x is not None and y is not None:
+     r['registration_differences'][-1]['changed_xml_fields']=[k for k in sorted(set(x)|set(y)) if x.get(k)!=y.get(k)][:32]
+     r['registration_differences'][-1]['raw_xml_only_difference']=x==y
+
 
  seen=set();hashed=0
  names={'battle.net-setup.exe':'Battle.net-Setup.exe','agent.exe':'Agent.exe','battle.net.exe':'Battle.net.exe','battle.net launcher.exe':'Battle.net Launcher.exe','blizzarderror.exe':'BlizzardError.exe','conhost.exe':'conhost.exe','msiexec.exe':'msiexec.exe'}
@@ -76,7 +93,7 @@ if root:
   matching=next((x for x in r['components'] if all(x[k]==item[k] for k in ['name','path_category','sha256','evidence'])),None)
   if matching:matching['observed_instances']+=1
   elif len(r['components'])<32:r['components'].append(item)
- good=(pre.get('matches_pin') is True and pre.get('signature_accepted') is True and pre.get('ui_helper_ready') is True and r['installer_launched'] is True and all(d.get(k) is True for k in ['gate_verified_before_launch','gate_verified_after_observation','baseline_canary_connected','post_restore_canary_connected','owner_exit_confirmed']) and d.get('blocked_canary_connected') is False and not d.get('error_code') and all(o.get(k) is True for k in ['assigned_before_resume','job_active_zero_before_close','root_exited']) and rec.get('status')=='restored_after_scoped_exit_checks' and rec.get('system_identity') is True and rec.get('firewall_restored') is True and not rec.get('registration_changes') and not rec.get('outside_job_target_candidates'))
+ good=(r['system_baseline'].get('system_identity') is True and r['system_prelaunch'].get('system_identity') is True and r['system_prelaunch'].get('registration_changes')==0 and pre.get('matches_pin') is True and pre.get('signature_accepted') is True and pre.get('ui_helper_ready') is True and r['installer_launched'] is True and all(d.get(k) is True for k in ['gate_verified_before_launch','gate_verified_after_observation','baseline_canary_connected','post_restore_canary_connected','owner_exit_confirmed']) and d.get('blocked_canary_connected') is False and not d.get('error_code') and all(o.get(k) is True for k in ['assigned_before_resume','job_active_zero_before_close','root_exited']) and rec.get('status')=='restored_after_scoped_exit_checks' and rec.get('system_identity') is True and rec.get('firewall_restored') is True and not rec.get('registration_changes') and not rec.get('outside_job_target_candidates'))
  if good:r['status']='offline_bootstrap_observed_and_restored'
  elif rec.get('restore_refused'):r['status']='quarantined_restore_refused'
  elif pre.get('error_code'):r['status']='preflight_stopped'

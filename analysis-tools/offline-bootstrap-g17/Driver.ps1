@@ -8,14 +8,14 @@ try{
  $null=New-Item -ItemType Directory -Force $root;$acl=[Security.AccessControl.DirectorySecurity]::new();$acl.SetAccessRuleProtection($true,$false)
  foreach($sid in @('S-1-5-18','S-1-5-32-544')){$s=[Security.Principal.SecurityIdentifier]::new($sid);$acl.AddAccessRule([Security.AccessControl.FileSystemAccessRule]::new($s,[Security.AccessControl.FileSystemRights]::FullControl,([Security.AccessControl.InheritanceFlags]::ContainerInherit -bor [Security.AccessControl.InheritanceFlags]::ObjectInherit),[Security.AccessControl.PropagationFlags]::None,[Security.AccessControl.AccessControlType]::Allow))};Set-Acl $root $acl
  Save-Private output/g17-private-pointer.json @{root=$root}
- foreach($name in @('Common.ps1','FirewallGate.ps1','Inventory.ps1','Recover.ps1')){Copy-Item (Join-Path $PSScriptRoot $name) (Join-Path $root $name)}
+ foreach($name in @('Common.ps1','FirewallGate.ps1','Inventory.ps1','Recover.ps1','Snapshot.ps1')){Copy-Item (Join-Path $PSScriptRoot $name) (Join-Path $root $name)}
  Copy-Item "$env:RUNNER_TEMP\bnet-g17-bin\OfflineLauncher.exe" (Join-Path $root 'OfflineLauncher.exe')
  $stageTemp=Join-Path $root 'stage-temp';$null=New-Item -ItemType Directory $stageTemp
  $envChild=@{};foreach($key in @('SystemRoot','windir','SystemDrive','ProgramFiles','ProgramFiles(x86)','ProgramW6432','ProgramData','LOCALAPPDATA','APPDATA','USERPROFILE','COMSPEC')){$v=[Environment]::GetEnvironmentVariable($key);if($v){$envChild[$key]=$v}}
  $envChild['TEMP']=$stageTemp;$envChild['TMP']=$stageTemp;$envChild['PATH']="$env:SystemRoot\System32;$env:SystemRoot"
  $ip=& python -c "import socket,ipaddress; a=sorted({x[4][0] for x in socket.getaddrinfo('us.version.battle.net',1119,socket.AF_INET,socket.SOCK_STREAM) if ipaddress.ip_address(x[4][0]).is_global}); assert a; print(a[0])"
  if($LASTEXITCODE -ne 0){throw 'canary_resolution_failed'}
- $c=@{root=$root;setup=(Join-Path $root 'Battle.net-Setup.exe');helper=(Join-Path $root 'OfflineLauncher.exe');job_name=('Global\BNetOfflineG17_'+$guid);watchdog_name=('BNetOfflineG17_'+$guid+'_recovery');cleanup_task_name=('BNetOfflineG17_'+$guid+'_cleanup');mutex_name=('Global\BNetOfflineG17Lease_'+$guid);canary_ip=[string]$ip;signature_accepted=$false;child_environment=$envChild;iis_original=[string](Get-Service W3SVC).Status;target_roots=@((Join-Path ${env:ProgramFiles(x86)} 'Battle.net'),(Join-Path $env:ProgramData 'Battle.net'),(Join-Path $env:ProgramData 'Blizzard Entertainment'),(Join-Path $env:LOCALAPPDATA 'Battle.net'),$root)}
+ $c=@{root=$root;setup=(Join-Path $root 'Battle.net-Setup.exe');helper=(Join-Path $root 'OfflineLauncher.exe');job_name=('Global\BNetOfflineG17_'+$guid);watchdog_name=('BNetOfflineG17_'+$guid+'_recovery');cleanup_task_name=('BNetOfflineG17_'+$guid+'_cleanup');snapshot_task_name=('BNetOfflineG17_'+$guid+'_snapshot');mutex_name=('Global\BNetOfflineG17Lease_'+$guid);canary_ip=[string]$ip;signature_accepted=$false;child_environment=$envChild;iis_original=[string](Get-Service W3SVC).Status;target_roots=@((Join-Path ${env:ProgramFiles(x86)} 'Battle.net'),(Join-Path $env:ProgramData 'Battle.net'),(Join-Path $env:ProgramData 'Blizzard Entertainment'),(Join-Path $env:LOCALAPPDATA 'Battle.net'),$root)}
  foreach($path in @($c.target_roots | Where-Object {$_ -ne $root})){if(Test-Path $path){throw 'preexisting_battlenet_directory'}}
  if(@(Get-Process -Name 'Battle.net-Setup','Battle.net','Agent','BlizzardError' -ErrorAction SilentlyContinue).Count -gt 0){throw 'preexisting_target_process'}
  Save-Private $config $c;Save-Private (Join-Path $root 'lease.json') @{phase='prepared'}
@@ -27,18 +27,22 @@ try{
  $before=(& $c.helper canary $config | ConvertFrom-Json);$r.baseline_canary_connected=$before.connected;if(-not $before.connected){throw 'baseline_canary_not_healthy'}
  $ps="$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe";$principal=New-ScheduledTaskPrincipal -UserId 'SYSTEM' -LogonType ServiceAccount -RunLevel Highest
  $settings=New-ScheduledTaskSettingsSet -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Seconds 90)
- foreach($origin in @('deadline','explicit')){
-  $name=if($origin -eq 'deadline'){$c.watchdog_name}else{$c.cleanup_task_name}
+ foreach($origin in @('deadline','explicit','snapshot')){
+  $name=if($origin -eq 'deadline'){$c.watchdog_name}elseif($origin -eq 'snapshot'){$c.snapshot_task_name}else{$c.cleanup_task_name}
   $action=New-ScheduledTaskAction -Execute $ps -Argument ('-NoProfile -NonInteractive -ExecutionPolicy Bypass -File "'+(Join-Path $root 'Recover.ps1')+'" -Config "'+$config+'" -Origin '+$origin)
+  if($origin -eq 'snapshot'){$action=New-ScheduledTaskAction -Execute $ps -Argument ('-NoProfile -NonInteractive -ExecutionPolicy Bypass -File "'+(Join-Path $root 'Snapshot.ps1')+'" -Config "'+$config+'"')}
   if($origin -eq 'deadline'){$trigger=New-ScheduledTaskTrigger -Once -At (Get-Date).AddSeconds(210);$null=Register-ScheduledTask -TaskName $name -Action $action -Principal $principal -Trigger $trigger -Settings $settings}else{$null=Register-ScheduledTask -TaskName $name -Action $action -Principal $principal -Settings $settings}
  }
- Save-Private (Join-Path $root 'registrations-before.json') (Get-RegistrationSnapshot)
+ Save-Private (Join-Path $root 'snapshot-phase.json') @{value='baseline'};Start-ScheduledTask $c.snapshot_task_name;Wait-File (Join-Path $root 'system-baseline-receipt.json') 40
+ $baseReceipt=Get-Content -Raw (Join-Path $root 'system-baseline-receipt.json') | ConvertFrom-Json;if(-not $baseReceipt.system_identity -or -not $baseReceipt.captured){throw 'system_baseline_not_verified'}
  $r.stage='offline_gate';Write-Host 'G17_STAGE:offline_gate';$null=Invoke-Gate $c 'Prepare'
  if($c.iis_original -eq 'Running'){Stop-Service W3SVC}
  $gate=Invoke-Gate $c 'Apply';$r.gate_verified_before_launch=($gate.verified -and $gate.target_allow_rules -eq 0)
  Save-Private (Join-Path $root 'lease.json') @{phase='active'}
  $blocked=(& $c.helper canary $config | ConvertFrom-Json);$r.blocked_canary_connected=$blocked.connected
  if(-not $r.gate_verified_before_launch -or $blocked.connected){throw 'offline_gate_not_verified'}
+ Save-Private (Join-Path $root 'snapshot-phase.json') @{value='prelaunch'};Start-ScheduledTask $c.snapshot_task_name;Wait-File (Join-Path $root 'system-prelaunch-receipt.json') 40
+ $preReceipt=Get-Content -Raw (Join-Path $root 'system-prelaunch-receipt.json') | ConvertFrom-Json;if(-not $preReceipt.system_identity -or $preReceipt.registration_changes -ne 0){$r.target_launched=$false;throw 'registration_drift_before_target'}
  $r.stage='real_setup_launch';Write-Host 'G17_STAGE:real_setup_launch';$r.target_launch_attempted=$true;Save-Private (Join-Path $root 'launch-attempted.json') @{attempted=$true}
  $owner=Start-Process $c.helper -ArgumentList ('run "'+$config+'"') -PassThru -RedirectStandardOutput (Join-Path $root 'owner-stdout.private.txt') -RedirectStandardError (Join-Path $root 'owner-stderr.private.txt')
  Record-Process $owner (Join-Path $root 'owner-process.json')
