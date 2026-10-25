@@ -1,0 +1,161 @@
+{
+  "schema": "offline_bootstrap_g17_v1",
+  "source_commit": "ab93cfed586db885bc233b74bdf57bdc344a72d6",
+  "run_id": "40173327853",
+  "status": "quarantined_restore_refused",
+  "installer_launched": true,
+  "installation_verified": false,
+  "full_chain_discovered": false,
+  "all_processes_observed": false,
+  "all_target_egress_blocked_proven": false,
+  "minimum_two_destinations_tested": false,
+  "login_attempted": false,
+  "game_download_requested": false,
+  "install_options_action_requested": false,
+  "components": [
+    {
+      "name": "Battle.net-Setup.exe",
+      "path_category": "setup_exact",
+      "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+      "signature": "verified_before_gate",
+      "observed_instances": 1,
+      "evidence": "job_observed"
+    }
+  ],
+  "system_baseline": {
+    "system_identity": true,
+    "captured": true
+  },
+  "system_prelaunch": {
+    "system_identity": true,
+    "captured": true,
+    "registration_changes": 0
+  },
+  "preflight": {
+    "matches_pin": true,
+    "signature_accepted": true,
+    "trust_status": 0,
+    "ui_helper_ready": true,
+    "error_code": null,
+    "bytes": 4700880,
+    "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6"
+  },
+  "driver": {
+    "stage": "complete",
+    "failure_stage": "scoped_cleanup",
+    "error_code": "cleanup_not_verified",
+    "gate_verified_before_launch": true,
+    "gate_verified_after_observation": true,
+    "baseline_canary_connected": true,
+    "blocked_canary_connected": false,
+    "post_restore_canary_connected": null,
+    "target_launch_attempted": true,
+    "target_launched": true,
+    "owner_exit_confirmed": true
+  },
+  "owner": {
+    "target_launched": true,
+    "assigned_before_resume": true,
+    "job_active_zero_before_close": true,
+    "root_exited": true,
+    "new_process_events": 1,
+    "process_exit_events": 0,
+    "unresolved_event_count": 0,
+    "unique_observed_identities": 1,
+    "observation_seconds": 90
+  },
+  "ui": {
+    "language_attempted": true,
+    "language_status": "continued",
+    "language_continue_returned": true,
+    "outcome_uncertain": false,
+    "install_action_requested": false,
+    "ui_probe_errors": 0,
+    "language_probes": 1
+  },
+  "recovery": {
+    "status": "stopped",
+    "origin": "explicit",
+    "system_identity": true,
+    "owned_job_ended": true,
+    "registration_changes": 4,
+    "outside_job_target_candidates": 0,
+    "restore_refused": true,
+    "firewall_restored": false,
+    "iis_restored": false,
+    "error_code": "unclassified_external_component_blocks_restore",
+    "stage": "external_component_check"
+  },
+  "recovery_error_shape": {
+    "type": "RuntimeException",
+    "id": "unclassified_external_component_blocks_restore",
+    "line": 24
+  },
+  "registration_changes_by_kind": {
+    "services": 1,
+    "tasks": 3
+  },
+  "registration_differences": [
+    {
+      "kind": "services",
+      "identifier": "BITS",
+      "identity_sha256": "94383f71bb67e1abe7b5f06eab59a146924dea7bf9362394ef5fc528051d48d1",
+      "change": "modified",
+      "image_names_before": [
+        "svchost.exe"
+      ],
+      "image_names_after": [
+        "svchost.exe"
+      ],
+      "command_or_action_images_changed": false
+    },
+    {
+      "kind": "tasks",
+      "identifier": "SvcRestartTask",
+      "identity_sha256": "4023f1322db1c44e9afe47a715033f592132e209dd8511b71be83c290ae8c7a2",
+      "change": "modified",
+      "image_names_before": [],
+      "image_names_after": [],
+      "command_or_action_images_changed": false,
+      "changed_xml_fields": [
+        "Task/Triggers[1]/CalendarTrigger[1]/StartBoundary[1]"
+      ],
+      "raw_xml_only_difference": false
+    },
+    {
+      "kind": "tasks",
+      "identifier": "Schedule Scan",
+      "identity_sha256": "404332cecd04dc875aab6b8c36688f5d86374eb03390d9e33179990b3a8dd3f8",
+      "change": "modified",
+      "image_names_before": [
+        "usoclient.exe"
+      ],
+      "image_names_after": [
+        "usoclient.exe"
+      ],
+      "command_or_action_images_changed": false,
+      "changed_xml_fields": [
+        "Task/Triggers[1]/TimeTrigger[1]/RandomDelay[1]",
+        "Task/Triggers[1]/TimeTrigger[1]/Repetition[1]/Interval[1]"
+      ],
+      "raw_xml_only_difference": false
+    },
+    {
+      "kind": "tasks",
+      "identifier": "Schedule Wake To Work",
+      "identity_sha256": "e896a3aeac484c18d26c0161c7a4baf558b2a1491dda21d884b95a62c9ed45f4",
+      "change": "modified",
+      "image_names_before": [
+        "usoclient.exe"
+      ],
+      "image_names_after": [
+        "usoclient.exe"
+      ],
+      "command_or_action_images_changed": false,
+      "changed_xml_fields": [
+        "Task/Settings[1]/Enabled[1]"
+      ],
+      "raw_xml_only_difference": false
+    }
+  ]
+}
