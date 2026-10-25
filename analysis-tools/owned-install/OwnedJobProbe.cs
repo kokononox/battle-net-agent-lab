@@ -7,6 +7,7 @@ using System.Threading;
 using System.Runtime.InteropServices;
 using System.Web.Script.Serialization;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 class OwnedJobProbe {
  const uint CREATE_SUSPENDED=4, CREATE_NO_WINDOW=0x08000000, BREAKAWAY=0x01000000, KILL_ON_CLOSE=0x2000, SYNCHRONIZE=0x00100000, QUERY_LIMITED=0x1000;
  static readonly string Self=Process.GetCurrentProcess().MainModule.FileName;
@@ -20,6 +21,7 @@ class OwnedJobProbe {
  [DllImport("kernel32.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern IntPtr CreateJobObject(IntPtr attributes,string name);
  [DllImport("kernel32.dll",SetLastError=true)] static extern bool SetInformationJobObject(IntPtr job,int kind,ref ExtendedLimit data,uint size);
  [DllImport("kernel32.dll",SetLastError=true)] static extern bool QueryInformationJobObject(IntPtr job,int kind,out Accounting data,uint size,IntPtr length);
+ [DllImport("kernel32.dll",EntryPoint="QueryInformationJobObject",SetLastError=true)] static extern bool QueryJobRaw(IntPtr job,int kind,IntPtr data,uint size,IntPtr length);
  [DllImport("kernel32.dll",SetLastError=true)] static extern bool AssignProcessToJobObject(IntPtr job,IntPtr process);
  [DllImport("kernel32.dll",SetLastError=true)] static extern bool IsProcessInJob(IntPtr process,IntPtr job,out bool member);
  [DllImport("kernel32.dll",SetLastError=true)] static extern bool TerminateJobObject(IntPtr job,uint code);
@@ -31,17 +33,37 @@ class OwnedJobProbe {
  [DllImport("kernel32.dll",SetLastError=true)] static extern bool GetProcessTimes(IntPtr process,out long created,out long exited,out long kernel,out long user);
  [DllImport("kernel32.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern bool QueryFullProcessImageName(IntPtr process,uint flags,StringBuilder buffer,ref uint size);
  [DllImport("kernel32.dll",SetLastError=true)] static extern bool TerminateProcess(IntPtr process,uint code);
- public class Identity {public uint pid;public long created;}
- public class State {public Identity root;public Identity leaf;public bool assigned_before_resume;public bool breakaway_denied;public uint active;}
- public class CaseResult {public string mode;public bool ready,assigned_before_resume,root_member,leaf_member,breakaway_denied,root_exited,leaf_exited,owner_exited,active_zero_before_release;public uint active_at_ready;public string error_code;}
+ public class Identity {public uint pid;public long created;public string kind;public string image_hash;}
+ public class State {public Identity root;public Identity leaf;public bool assigned_before_resume;public bool breakaway_denied;public uint active;public Identity[] members;}
+ public class CaseResult {public string mode;public bool ready,assigned_before_resume,root_member,leaf_member,breakaway_denied,root_exited,leaf_exited,owner_exited,active_zero_before_release;public uint active_at_ready;public int observed_members,owned_probe_members,console_host_members,unclassified_members;public bool all_observed_members_exited;public string error_code;}
  static string Env(string k){return Environment.GetEnvironmentVariable(k)??"";}
- static bool Authorized(){return Environment.OSVersion.Platform==PlatformID.Win32NT && Env("GITHUB_ACTIONS")=="true" && Env("RUNNER_ENVIRONMENT")=="github-hosted" && Env("RUNNER_OS")=="Windows" && Env("GITHUB_REF")=="refs/heads/research/battlenet-minimal-install-isolation-2026-10-25" && Env("GITHUB_EVENT_NAME")=="push" && Env("GITHUB_RUN_ATTEMPT")=="1" && Env("BNET_OWNED_G9")=="lab: approved owned-job qualification G9a 20261025";}
+ static bool Authorized(){return Environment.OSVersion.Platform==PlatformID.Win32NT && Env("GITHUB_ACTIONS")=="true" && Env("RUNNER_ENVIRONMENT")=="github-hosted" && Env("RUNNER_OS")=="Windows" && Env("GITHUB_REF")=="refs/heads/research/battlenet-minimal-install-isolation-2026-10-25" && Env("GITHUB_EVENT_NAME")=="push" && Env("GITHUB_RUN_ATTEMPT")=="1" && Env("BNET_OWNED_G9")=="lab: approved owned-job qualification G9b 20261025";}
  static string Quote(string s){if(s.IndexOf('"')>=0 || s.IndexOf('\r')>=0 || s.IndexOf('\n')>=0)throw new Exception("path_refused");return "\""+s+"\"";}
  static string PrivatePath(string p){string full=Path.GetFullPath(p);string root=Path.GetFullPath(Env("RUNNER_TEMP")).TrimEnd('\\')+"\\";if(!full.StartsWith(root,StringComparison.OrdinalIgnoreCase)||Path.GetFileName(Path.GetDirectoryName(full)).IndexOf("bnet-owned-g9-",StringComparison.Ordinal)!=0)throw new Exception("private_path_refused");return full;}
  static void Save(string p,object value){p=PrivatePath(p);string tmp=p+".tmp";File.WriteAllText(tmp,Json.Serialize(value),new UTF8Encoding(false));File.Move(tmp,p);}
  static T Read<T>(string p){p=PrivatePath(p);if(new FileInfo(p).Length>8192)throw new Exception("private_state_limit");return Json.Deserialize<T>(File.ReadAllText(p));}
- static Identity Identify(IntPtr h,uint pid){long c,e,k,u;if(!GetProcessTimes(h,out c,out e,out k,out u))throw new Exception("process_identity_unavailable");return new Identity{pid=pid,created=c};}
- static IntPtr OpenVerified(Identity id){IntPtr h=OpenProcess(SYNCHRONIZE|QUERY_LIMITED,false,id.pid);if(h==IntPtr.Zero)throw new Exception("process_open_failed");try{Identity actual=Identify(h,id.pid);var name=new StringBuilder(32768);uint size=32768;if(actual.created!=id.created||!QueryFullProcessImageName(h,0,name,ref size)||!String.Equals(Path.GetFullPath(name.ToString()),Path.GetFullPath(Self),StringComparison.OrdinalIgnoreCase))throw new Exception("process_identity_mismatch");return h;}catch{CloseHandle(h);throw;}}
+ static Identity Identify(IntPtr h,uint pid){
+  long c,e,k,u;if(!GetProcessTimes(h,out c,out e,out k,out u))throw new Exception("process_identity_unavailable");
+  var name=new StringBuilder(32768);uint size=32768;if(!QueryFullProcessImageName(h,0,name,ref size))throw new Exception("process_image_unavailable");
+  string image=Path.GetFullPath(name.ToString());string kind="other";
+  if(String.Equals(image,Path.GetFullPath(Self),StringComparison.OrdinalIgnoreCase))kind="owned_probe";
+  else if(String.Equals(image,Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows),"System32","conhost.exe"),StringComparison.OrdinalIgnoreCase))kind="windows_console_host";
+  string hash;using(var sha=SHA256.Create())hash=BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(image.ToUpperInvariant()))).Replace("-","");
+  return new Identity{pid=pid,created=c,kind=kind,image_hash=hash};
+ }
+ static IntPtr OpenVerified(Identity id){IntPtr h=OpenProcess(SYNCHRONIZE|QUERY_LIMITED,false,id.pid);if(h==IntPtr.Zero)throw new Exception("process_open_failed");try{Identity actual=Identify(h,id.pid);if(actual.created!=id.created||actual.image_hash!=id.image_hash||actual.kind!=id.kind)throw new Exception("process_identity_mismatch");return h;}catch{CloseHandle(h);throw;}}
+ static Identity[] Members(IntPtr job){
+  int capacity=64;IntPtr buffer=Marshal.AllocHGlobal(8+capacity*IntPtr.Size);
+  try{
+   if(!QueryJobRaw(job,3,buffer,(uint)(8+capacity*IntPtr.Size),IntPtr.Zero))throw new Exception("job_members_query_failed");
+   int assigned=Marshal.ReadInt32(buffer),count=Marshal.ReadInt32(buffer,4);if(count<2||count>16||assigned!=count)throw new Exception("job_members_count_refused");
+   var result=new List<Identity>();
+   for(int i=0;i<count;i++){
+    uint pid=checked((uint)Marshal.ReadIntPtr(buffer,8+i*IntPtr.Size).ToInt64());IntPtr h=OpenProcess(SYNCHRONIZE|QUERY_LIMITED,false,pid);if(h==IntPtr.Zero)throw new Exception("job_member_open_failed");
+    try{bool member;if(!IsProcessInJob(h,job,out member)||!member)throw new Exception("job_member_changed");result.Add(Identify(h,pid));}finally{CloseHandle(h);}
+   }return result.ToArray();
+  }finally{Marshal.FreeHGlobal(buffer);}
+ }
  static uint Active(IntPtr job){Accounting a;if(!QueryInformationJobObject(job,1,out a,(uint)Marshal.SizeOf(typeof(Accounting)),IntPtr.Zero))throw new Exception("job_query_failed");return a.ActiveProcesses;}
  static Process StartMode(string args){return Process.Start(new ProcessStartInfo(Self,args){UseShellExecute=false,CreateNoWindow=true});}
  static bool AwaitFile(string p,Process owner,int ms){var sw=Stopwatch.StartNew();while(sw.ElapsedMilliseconds<ms){if(File.Exists(p))return true;if(owner!=null&&owner.HasExited)return false;Thread.Sleep(30);}return false;}
@@ -72,7 +94,7 @@ class OwnedJobProbe {
    if(!AwaitFile(worker,null,12000))throw new Exception("worker_ready_timeout");
    State state=Read<State>(worker);IntPtr leaf=OpenVerified(state.leaf);
    try{bool leafMember;if(!IsProcessInJob(leaf,job,out leafMember)||!leafMember)throw new Exception("leaf_membership_failed");}finally{CloseHandle(leaf);}
-   state.assigned_before_resume=true;state.active=Active(job);Save(Path.Combine(directory,"ready.json"),state);
+   state.assigned_before_resume=true;Thread.Sleep(250);state.members=Members(job);state.active=Active(job);if(state.active!=state.members.Length)throw new Exception("job_member_snapshot_unstable");Save(Path.Combine(directory,"ready.json"),state);
    if(!AwaitFile(Path.Combine(directory,"terminate"),null,30000))return 3;
    if(!TerminateJobObject(job,9))throw new Exception("job_terminate_failed");
    var sw=Stopwatch.StartNew();while(Active(job)!=0&&sw.ElapsedMilliseconds<5000)Thread.Sleep(25);
@@ -84,23 +106,28 @@ class OwnedJobProbe {
   }
  }
  static CaseResult RunCase(string mode){
-  var r=new CaseResult{mode=mode};string dir=Path.Combine(Env("RUNNER_TEMP"),"bnet-owned-g9-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(dir);Process owner=null;IntPtr root=IntPtr.Zero,leaf=IntPtr.Zero;
+  var r=new CaseResult{mode=mode};string dir=Path.Combine(Env("RUNNER_TEMP"),"bnet-owned-g9-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(dir);Process owner=null;IntPtr root=IntPtr.Zero,leaf=IntPtr.Zero;var observedHandles=new List<IntPtr>();
   try{
    owner=StartMode("owner "+Quote(dir));if(owner==null||!AwaitFile(Path.Combine(dir,"ready.json"),owner,18000))throw new Exception("owner_ready_failed");
    State state=Read<State>(Path.Combine(dir,"ready.json"));root=OpenVerified(state.root);leaf=OpenVerified(state.leaf);
    bool rootMember,leafMember;if(!IsProcessInJob(root,IntPtr.Zero,out rootMember)||!IsProcessInJob(leaf,IntPtr.Zero,out leafMember))throw new Exception("membership_query_failed");
+   if(state.members==null)throw new Exception("member_identities_missing");
+   foreach(Identity id in state.members){observedHandles.Add(OpenVerified(id));if(id.kind=="owned_probe")r.owned_probe_members++;else if(id.kind=="windows_console_host")r.console_host_members++;else r.unclassified_members++;}
+   r.observed_members=observedHandles.Count;
    r.ready=true;r.assigned_before_resume=state.assigned_before_resume;r.root_member=rootMember;r.leaf_member=leafMember;r.breakaway_denied=state.breakaway_denied;r.active_at_ready=state.active;
    if(mode=="owner_crash")owner.Kill();else File.WriteAllText(Path.Combine(dir,"terminate"),"terminate");
    r.owner_exited=owner.WaitForExit(10000);r.root_exited=WaitForSingleObject(root,5000)==0;r.leaf_exited=WaitForSingleObject(leaf,5000)==0;
+   r.all_observed_members_exited=observedHandles.Count>0;foreach(IntPtr h in observedHandles)if(WaitForSingleObject(h,5000)!=0)r.all_observed_members_exited=false;
    if(mode=="explicit_terminate"&&File.Exists(Path.Combine(dir,"done.json")))r.active_zero_before_release=Read<State>(Path.Combine(dir,"done.json")).active==0;
   }catch(Exception ex){string code=ex.Message;r.error_code=System.Text.RegularExpressions.Regex.IsMatch(code,"^[a-z_]{1,64}$")?code:"owned_job_operation_failed";}
   finally{
    if(owner!=null){try{if(!owner.HasExited){owner.Kill();owner.WaitForExit(5000);}}catch{}owner.Dispose();}
+   foreach(IntPtr h in observedHandles){WaitForSingleObject(h,5000);CloseHandle(h);}
    if(root!=IntPtr.Zero){WaitForSingleObject(root,5000);CloseHandle(root);}if(leaf!=IntPtr.Zero){WaitForSingleObject(leaf,5000);CloseHandle(leaf);}
    try{Directory.Delete(dir,true);}catch{}
   }return r;
  }
- static bool Pass(CaseResult r){return r.error_code==null&&r.ready&&r.assigned_before_resume&&r.root_member&&r.leaf_member&&r.breakaway_denied&&r.active_at_ready==2&&r.owner_exited&&r.root_exited&&r.leaf_exited&&(r.mode!="explicit_terminate"||r.active_zero_before_release);}
+ static bool Pass(CaseResult r){return r.error_code==null&&r.ready&&r.assigned_before_resume&&r.root_member&&r.leaf_member&&r.breakaway_denied&&r.active_at_ready==r.observed_members&&r.owned_probe_members==2&&r.unclassified_members==0&&r.all_observed_members_exited&&r.owner_exited&&r.root_exited&&r.leaf_exited&&(r.mode!="explicit_terminate"||r.active_zero_before_release);}
  static int Main(string[] args){
   if(!Authorized())return 4;
   try{
@@ -109,7 +136,7 @@ class OwnedJobProbe {
    if(args.Length==2&&args[0]=="owner")return Owner(args[1]);
    if(args.Length!=0)return 4;
    CaseResult normal=RunCase("explicit_terminate"),crash=RunCase("owner_crash");bool passed=Pass(normal)&&Pass(crash);
-   var result=new Dictionary<string,object>{{"schema","bnet-owned-job-g9-1"},{"source_commit",Env("GITHUB_SHA")},{"run_id",Env("GITHUB_RUN_ID")},{"architecture",IntPtr.Size==8?"x64":"x86"},{"status",passed?"qualified_synthetic_owned_descendants":"stopped"},{"installer_launched",false},{"network_policy_changed",false},{"services_changed",false},{"service_containment_proven",false},{"network_release_order_tested",false},{"cases",new[]{normal,crash}}};
+   var result=new Dictionary<string,object>{{"schema","bnet-owned-job-g9b-1"},{"source_commit",Env("GITHUB_SHA")},{"run_id",Env("GITHUB_RUN_ID")},{"architecture",IntPtr.Size==8?"x64":"x86"},{"status",passed?"qualified_synthetic_owned_descendants":"stopped"},{"installer_launched",false},{"network_policy_changed",false},{"services_changed",false},{"service_containment_proven",false},{"network_release_order_tested",false},{"cases",new[]{normal,crash}}};
    Console.WriteLine(Json.Serialize(result));return passed?0:2;
   }catch{Console.WriteLine("{\"schema\":\"bnet-owned-job-g9-1\",\"status\":\"stopped\",\"error_code\":\"harness_failed\",\"installer_launched\":false}");return 2;}
  }

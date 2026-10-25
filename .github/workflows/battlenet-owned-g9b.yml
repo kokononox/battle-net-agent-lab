@@ -1,0 +1,51 @@
+name: Battle.net owned-job G9b qualification (synthetic only)
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/owned-install/**', '.github/workflows/battlenet-owned-g9b.yml']
+permissions: {}
+jobs:
+  qualify:
+    if: >-
+      github.event.head_commit.message == 'lab: approved owned-job qualification G9b 20261025' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 6
+    permissions:
+      contents: read
+    env:
+      BNET_OWNED_G9: 'lab: approved owned-job qualification G9b 20261025'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Build own synthetic harness for both Windows architectures
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          New-Item -ItemType Directory -Force output, "$env:RUNNER_TEMP\bnet-g9-bin" | Out-Null
+          $csc="$env:SystemRoot\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+          $source=(Resolve-Path 'analysis-tools\owned-install\OwnedJobProbe.cs').Path
+          foreach($arch in @('x64','x86')) {
+            $destination=Join-Path "$env:RUNNER_TEMP\bnet-g9-bin" "OwnedJobProbe-$arch.exe"
+            & $csc @('/nologo','/target:exe',('/platform:'+$arch),'/r:System.Web.Extensions.dll',('/out:'+$destination),$source)
+            if($LASTEXITCODE -ne 0) {throw 'harness_compile_failed'}
+          }
+      - name: Qualify explicit termination and owner crash without Setup or firewall changes
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $failed=$false
+          foreach($arch in @('x64','x86')) {
+            $json=& "$env:RUNNER_TEMP\bnet-g9-bin\OwnedJobProbe-$arch.exe"
+            $code=$LASTEXITCODE
+            $json | Set-Content "output/owned-job-g9-$arch.json" -Encoding UTF8
+            if($code -ne 0) {$failed=$true}
+          }
+          if($failed) {throw 'owned_job_qualification_stopped'}
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: battlenet-owned-job-g9-sanitized
+          path: output/owned-job-g9-*.json
+          if-no-files-found: error
+          retention-days: 3
