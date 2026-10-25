@@ -1,0 +1,379 @@
+{
+  "schema": "bnet-minimal-install-c0d-1",
+  "case": "C0d-verified-install-baseline",
+  "installation_gate": "signed_binary_version_v1",
+  "binary_probe_counts": {
+    "waiting_stability": 4,
+    "accepted": 8
+  },
+  "binary_probe_failures": [],
+  "last_sample_process_names": [
+    "agent.exe",
+    "battle.net.exe"
+  ],
+  "replica": "r3",
+  "started_at": "2026-10-25T02:37:01Z",
+  "ended_at": "2026-10-25T02:39:05Z",
+  "registry_version_state": "missing",
+  "source_commit": "0eff24fd917c797a5500bc88adf4bd219cfc9543",
+  "run_id": "40155104804",
+  "status": "installed_by_defined_gate",
+  "phase": "complete",
+  "error_code": null,
+  "target_launched": true,
+  "installer": {
+    "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+    "bytes": 4700880,
+    "signature_accepted": true,
+    "matches_pin": true
+  },
+  "native_ui_gate": true,
+  "language_attempted": true,
+  "install_attempted": true,
+  "language_status": "continued",
+  "install_status": "continued",
+  "samples": 41,
+  "snapshot_errors": 0,
+  "gui_errors": 2,
+  "known_process_counts": {
+    "battle.net-setup.exe": 1,
+    "agent.exe": 1,
+    "battle.net.exe": 6
+  },
+  "public_endpoints": [
+    {
+      "process_name": "agent.exe",
+      "ip": "136.110.153.89",
+      "port": 443,
+      "samples": 20
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "137.221.64.6",
+      "port": 80,
+      "samples": 6
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "23.1.254.204",
+      "port": 80,
+      "samples": 16
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "23.1.254.208",
+      "port": 80,
+      "samples": 23
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "23.1.254.223",
+      "port": 80,
+      "samples": 14
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "23.219.87.108",
+      "port": 80,
+      "samples": 36
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "23.53.127.234",
+      "port": 80,
+      "samples": 6
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "8.232.70.12",
+      "port": 443,
+      "samples": 99
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 0,
+      "samples": 33
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 53914,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 53915,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 53929,
+      "samples": 3
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 53930,
+      "samples": 3
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 53942,
+      "samples": 12
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 53943,
+      "samples": 12
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 54068,
+      "samples": 2
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 54069,
+      "samples": 2
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 54070,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 54071,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 54103,
+      "samples": 1
+    },
+    {
+      "process_name": "agent.exe",
+      "ip": "nonpublic",
+      "port": 54104,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "23.11.33.159",
+      "port": 80,
+      "samples": 19
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "23.219.87.108",
+      "port": 80,
+      "samples": 69
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "23.219.87.109",
+      "port": 80,
+      "samples": 69
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "23.53.127.137",
+      "port": 80,
+      "samples": 69
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "nonpublic",
+      "port": 1120,
+      "samples": 4
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "nonpublic",
+      "port": 53881,
+      "samples": 23
+    },
+    {
+      "process_name": "battle.net-setup.exe",
+      "ip": "nonpublic",
+      "port": 53882,
+      "samples": 23
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "13.226.53.29",
+      "port": 443,
+      "samples": 11
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "216.239.34.178",
+      "port": 443,
+      "samples": 11
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "23.1.254.221",
+      "port": 443,
+      "samples": 22
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "23.33.22.135",
+      "port": 80,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "23.53.127.205",
+      "port": 80,
+      "samples": 44
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "34.110.236.123",
+      "port": 443,
+      "samples": 2
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "35.201.91.89",
+      "port": 443,
+      "samples": 22
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "44.244.197.242",
+      "port": 443,
+      "samples": 11
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "74.125.69.97",
+      "port": 443,
+      "samples": 11
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 0,
+      "samples": 12
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 54119,
+      "samples": 12
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 54120,
+      "samples": 12
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 54122,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 54123,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 54124,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 54125,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 54128,
+      "samples": 1
+    },
+    {
+      "process_name": "battle.net.exe",
+      "ip": "nonpublic",
+      "port": 54129,
+      "samples": 1
+    }
+  ],
+  "endpoints_truncated": false,
+  "install_checks": {
+    "registry_key_found": true,
+    "registry_location_match": true,
+    "signed_launcher": true,
+    "signed_client": true,
+    "version_evidence_verified": true,
+    "setup_absent": true,
+    "client_running": true,
+    "account_signal_seen": true,
+    "stable_layout_20_seconds": true
+  },
+  "client_binaries": [
+    {
+      "kind": "launcher",
+      "sha256": "b8bd3943b01749c841e4058db9e9e224536279c6707f31469913ecd2b6cd65a8",
+      "bytes": 216784,
+      "signature_accepted": true,
+      "file_version": "2.53.6.17952",
+      "version_status": "accepted"
+    },
+    {
+      "kind": "client",
+      "sha256": "54cd2f928dd4947d4ab33aae48c47b112ee851c29745bf1da1a54fbfc67525c7",
+      "bytes": 995024,
+      "signature_accepted": true,
+      "file_version": "2.53.6.17952",
+      "version_status": "accepted"
+    }
+  ],
+  "cleanup_attempted": true,
+  "observer_seconds": 124,
+  "native_options_probes": 3,
+  "native_options_last_status": "continued",
+  "ui_signal_seen": {
+    "account": true,
+    "error": false,
+    "installation_options": false,
+    "language": true,
+    "legal": false,
+    "progress": true
+  },
+  "ui_signal_last": {
+    "language": false,
+    "legal": false,
+    "account": true,
+    "installation_options": false,
+    "progress": false,
+    "error": false
+  },
+  "intervention": "none",
+  "login_attempted": false,
+  "game_download_requested": false,
+  "raw_payloads_exported": false,
+  "all_processes_observed": false,
+  "all_network_observed": false,
+  "necessity_tested": false,
+  "telemetry_blocked": false
+}
