@@ -1,0 +1,55 @@
+{
+  "schema": "privacy_architecture_characterization_v1",
+  "source_commit": "c579bec60c4fbcbef5694c44f27a808409a1d62e",
+  "source_directory": "analysis-tools/two-destination-g34",
+  "tests_run": 6,
+  "failures": 0,
+  "errors": 0,
+  "tests_passed": true,
+  "acceptance_for_anti_fingerprinting": false,
+  "no_external_network": true,
+  "no_os_policy_changes": true,
+  "admission_mocked": true,
+  "no_real_tls_session": true,
+  "synthetic_markers_only": true,
+  "observations": [
+    {
+      "id": "http_post_body",
+      "outcome": "synthetic_device_field_forwarded",
+      "anti_fingerprint_requirement": "not_enforced"
+    },
+    {
+      "id": "http_get_fields",
+      "outcome": "query_header_cookie_forwarded",
+      "anti_fingerprint_requirement": "not_enforced"
+    },
+    {
+      "id": "http_get_path",
+      "outcome": "synthetic_identifier_in_path_forwarded",
+      "anti_fingerprint_requirement": "not_enforced"
+    },
+    {
+      "id": "unapproved_host",
+      "outcome": "blocked_before_dial",
+      "scope": "protocol_unit_only"
+    },
+    {
+      "id": "nonadmitted_peer",
+      "outcome": "blocked_before_dial",
+      "scope": "mocked_admission_rejection_only"
+    },
+    {
+      "id": "connect_opaque_relay",
+      "outcome": "clienthello_and_opaque_record_forwarded",
+      "scope": "in_memory_protocol_no_real_tls_session",
+      "anti_fingerprint_requirement": "not_enforced"
+    }
+  ],
+  "source_sha256": {
+    "domain_proxy.py": "db75b46a2d1fd24229437637f7935235912e7b41e413180841e16a19c0cbaea6",
+    "tls_records.py": "9700cde1cd5eb38634c95380646648ba3642cb42e42fe8c620f08c28d1269494",
+    "peer_guard.py": "c77e5c25d311286c32cbc027a6bd49549ccd533fa3448d58bf080a634a95f401",
+    "FirewallGate.ps1": "48fd26a19f66dbd92512ccec02ee905ea78b1e98c9c0d6efea8fbd8af3da25a6",
+    "OfflineLauncher.cs": "af3a170d178312773634f7130b0c8747b266dd1868633f4460f7eae456b038dc"
+  }
+}
