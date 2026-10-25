@@ -1,0 +1,23 @@
+name: Windows G42 static signature only no installer execution
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/bootstrap-static-g42/**', '.github/workflows/battlenet-static-signature-g42.yml']
+permissions: {}
+jobs:
+  verify:
+    if: >-
+      github.event.head_commit.message == 'lab: approved static signature check G42' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Download pinned public PE and check Authenticode without execution
+        timeout-minutes: 3
+        shell: powershell
+        run: |
+          & analysis-tools/bootstrap-static-g42/Verify-Signature.ps1
