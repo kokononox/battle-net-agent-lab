@@ -1,0 +1,38 @@
+{
+  "source_commit": "27783c448ff21a953db6db45450ed1fcb09e2b56",
+  "run_id": "40187272765",
+  "verified_manifest": {
+    "parts": 78,
+    "raw_bytes": 158935,
+    "sha256": "7b406cb5ddf0fa39425d18c71fea6c47658d8f54b904bd91ae7e291e5986456f"
+  },
+  "jobs": [
+    {
+      "id": 121150625195,
+      "name": "observe (real_setup)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 121151510916,
+      "name": "collect",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 12597030915,
+      "name": "battlenet-online-g25-recovered-sanitized",
+      "size_in_bytes": 33849,
+      "expired": false
+    },
+    {
+      "id": 12596815634,
+      "name": "battlenet-online-g25-real_setup-sanitized",
+      "size_in_bytes": 34244,
+      "expired": false
+    }
+  ],
+  "profiling": "heterogeneous_nested_document_validated_with_targeted_schema_and_independent_headline_checks"
+}
