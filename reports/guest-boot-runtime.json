@@ -1,7 +1,7 @@
 {
-  "schema": "bnet-owned-guest-boot-1",
-  "source_commit": "337e4b70532b4291cb020c90bfbdda1438fbc730",
-  "run_id": "40161082563",
+  "schema": "bnet-owned-guest-boot-2",
+  "source_commit": "e92a798e26bd8199c5db20ca015bbbb2444dd482",
+  "run_id": "40165111430",
   "status": "stopped",
   "stage": "monitor",
   "error_code": "guest_timeout",
@@ -15,11 +15,38 @@
   "dpapi_roundtrip_verified": false,
   "owned_marker_preserved": false,
   "serial_challenge_verified": false,
-  "disk_free_before_bytes": 91511390208,
-  "disk_free_after_cleanup_bytes": 91511390208,
-  "disk_free_final_bytes": 91368505344,
+  "disk_free_before_bytes": 91506528256,
+  "disk_free_after_cleanup_bytes": 91506528256,
+  "disk_free_final_bytes": 91333267456,
   "disk_virtual_bytes": 68719476736,
-  "disk_actual_bytes": 0,
+  "disk_actual_bytes": 200704,
+  "winpe_signal": false,
+  "visual_checks": [
+    {
+      "second": 30,
+      "state": "uefi_shell"
+    },
+    {
+      "second": 120,
+      "state": "uefi_shell"
+    },
+    {
+      "second": 301,
+      "state": "uefi_shell"
+    },
+    {
+      "second": 601,
+      "state": "uefi_shell"
+    },
+    {
+      "second": 900,
+      "state": "uefi_shell"
+    },
+    {
+      "second": 1150,
+      "state": "uefi_shell"
+    }
+  ],
   "cleanup_labels": [],
   "target_launched": false,
   "battle_net_uuid_reboot_tested": false,
