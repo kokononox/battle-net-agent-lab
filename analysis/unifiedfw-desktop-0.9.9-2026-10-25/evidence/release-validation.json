@@ -1,0 +1,29 @@
+{
+  "version": "0.9.9 RC / LAB",
+  "passed": true,
+  "python_tests": 509,
+  "powershell_suites": 39,
+  "powershell_parse_files": 91,
+  "Windows_GUI_executed": false,
+  "Windows_native_API_executed": false,
+  "Windows_TaskScheduler_executed": false,
+  "Windows_ACL_executed": false,
+  "packet_leak_tested": false,
+  "no_leak_certified": false,
+  "all_34_runtime_files_unchanged_since_0_9_8": true,
+  "private_state_included": false,
+  "base_release_for_hotfix": "0.9.8 RC",
+  "old_native_write_engine_unchanged": true,
+  "native_request_admission_updated_for_canonical_port_ranges": true,
+  "new_regression_evidence": [
+    "activity-packages-tests.json",
+    "dns-sink-native-range-tests.json"
+  ],
+  "byte_unchanged_modules": [
+    "lab/native.ps1",
+    "lab/session-core.ps1",
+    "app/audit-worker.ps1",
+    "app/hosts_edit.py",
+    "app/hosts_reset.py"
+  ]
+}
