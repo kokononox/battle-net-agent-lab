@@ -1,0 +1,59 @@
+name: Battle.net G15 peer admission before forward (local fixtures only)
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/peer-admission-g15/**', '.github/workflows/battlenet-peer-g15.yml']
+permissions: {}
+jobs:
+  qualify:
+    if: >-
+      github.event.head_commit.message == 'lab: approved peer admission G15 20261025' && github.run_attempt == 1
+    strategy:
+      fail-fast: false
+      matrix:
+        architecture: [x64, x86]
+    runs-on: windows-2025
+    timeout-minutes: 6
+    permissions:
+      contents: read
+    env:
+      BNET_PEER_G15: 'lab: approved peer admission G15 20261025'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Compile inert loopback client and test Python syntax
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $base=(Resolve-Path 'analysis-tools/peer-admission-g15').Path
+          python -m py_compile "$base/peer_guard.py" "$base/domain_proxy.py" "$base/Harness.py"
+          if($LASTEXITCODE -ne 0){throw 'python_parse_failed'}
+          $bin=Join-Path $env:RUNNER_TEMP 'g15-client';New-Item -ItemType Directory -Force $bin | Out-Null
+          $csc="$env:SystemRoot\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+          & $csc @('/nologo','/target:exe','/platform:${{ matrix.architecture }}','/r:System.Web.Extensions.dll',('/out:'+(Join-Path $bin 'PeerClient.exe')),(Join-Path $base 'PeerClient.cs'))
+          if($LASTEXITCODE -ne 0){throw 'fixture_compile_failed'}
+      - name: Qualify real Windows socket owner mapping with instrumented local upstreams
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          if($env:GITHUB_ACTIONS -ne 'true' -or $env:RUNNER_ENVIRONMENT -ne 'github-hosted' -or $env:GITHUB_REF -ne 'refs/heads/research/battlenet-minimal-install-isolation-2026-10-25' -or $env:GITHUB_EVENT_NAME -ne 'push' -or $env:GITHUB_RUN_ATTEMPT -ne '1'){throw 'fresh_hosted_required'}
+          $root=Join-Path (Join-Path $env:ProgramData 'BNetPeerG15') ([guid]::NewGuid().ToString('N'))
+          New-Item -ItemType Directory -Force $root | Out-Null
+          $acl=[Security.AccessControl.DirectorySecurity]::new();$acl.SetAccessRuleProtection($true,$false)
+          foreach($sid in @('S-1-5-18','S-1-5-32-544')){
+            $identity=[Security.Principal.SecurityIdentifier]::new($sid)
+            $acl.AddAccessRule([Security.AccessControl.FileSystemAccessRule]::new($identity,[Security.AccessControl.FileSystemRights]::FullControl,([Security.AccessControl.InheritanceFlags]::ContainerInherit -bor [Security.AccessControl.InheritanceFlags]::ObjectInherit),[Security.AccessControl.PropagationFlags]::None,[Security.AccessControl.AccessControlType]::Allow))
+          }
+          Set-Acl $root $acl
+          Copy-Item (Join-Path $env:RUNNER_TEMP 'g15-client\PeerClient.exe') (Join-Path $root 'PeerClient.exe')
+          python analysis-tools/peer-admission-g15/Harness.py $root (Join-Path $root 'PeerClient.exe') '${{ matrix.architecture }}'
+          if($LASTEXITCODE -ne 0){throw 'peer_admission_qualification_stopped'}
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: 'battlenet-peer-g15-${{ matrix.architecture }}-sanitized'
+          path: output/peer-g15-${{ matrix.architecture }}.json
+          if-no-files-found: error
+          retention-days: 3
