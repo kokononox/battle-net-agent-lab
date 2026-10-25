@@ -1,7 +1,7 @@
 {
   "schema": "bnet-prelogin-q1-verdict-2",
   "review_date": "2026-10-24",
-  "scope": "Historical pre-account H1 and separate private user attachments, plus fresh bounded hosted Windows H3/e7 pre-account startup with native qualification and verified disabled LSO.",
+  "scope": "Historical pre-account H1 and separate private user attachments, plus fresh bounded hosted Windows H3/e7 pre-account startup with native qualification and verified disabled LSO. Separate lifecycle a8 compares two preaccount process startups on one runner, no OS reboot or reinstall.",
   "verdict": {
     "hardware_in_observed_preaccount_outbound_request": "established",
     "observation_point": "H3/e7: decoded hardware request -> successful local socket write -> full exact ciphertext match in unique local NIC TCP capture; no paired hardware HTTP response or server storage proof",
@@ -11,7 +11,7 @@
     "all_users_all_versions": "not_established",
     "exclusive_hardware_destination": "not_established",
     "host_id_agent_wire_mapping": "/1/4/1",
-    "host_id_restart_persistence": "process_restart_attempted_inconclusive; OS_reboot_not_tested",
+    "host_id_restart_persistence": "same_exact_host_id_across_two_process_startups_in_a8_with_configuration_preserved; OS_reboot_and_reinstall_not_tested",
     "host_id_hardware_derived": "not_established",
     "wow_data_marking_question": "queued_not_tested",
     "same_hardware_payload_ciphertext_in_local_network_capture": "established_in_h3_e7"
@@ -79,6 +79,15 @@
       "verdict": "process_restart_comparison_attempted_but_inconclusive",
       "blocking_reason": "unexpected_image_name",
       "report": "reports/prelogin-host-lifecycle-a4.json"
+    },
+    "host_id_lifecycle_a8": {
+      "source_commit": "2040c935f020598cc1d7453a31567fdb6f4472f3",
+      "run_id": "40145528838",
+      "evidence_commit": "0eb4cebc834e7e47b628f8c2f7579b419e031ad9",
+      "report": "reports/prelogin-host-lifecycle-a8.json",
+      "comparison": true,
+      "hardware_messages_linked_to_local_network_capture": 2,
+      "helper_identification_report": "reports/prelogin-helper-identification.json"
     }
   },
   "decoding": {
@@ -124,6 +133,15 @@
       "second_phase_collector_incomplete": true,
       "raw_identifiers_exported": false,
       "comparison": null
+    },
+    "host_id_lifecycle_a8": {
+      "local_python_tests_passed": 58,
+      "first_native_gate_passed": true,
+      "collector_errors_both_phases": 0,
+      "dropped_events_both_phases": 0,
+      "collector_fatal_both_phases": false,
+      "comparison": true,
+      "raw_identifiers_exported": false
     }
   }
 }

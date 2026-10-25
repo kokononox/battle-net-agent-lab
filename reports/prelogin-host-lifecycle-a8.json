@@ -1,0 +1,122 @@
+{
+  "schema": "bnet-host-lifecycle-5",
+  "source_commit": "2040c935f020598cc1d7453a31567fdb6f4472f3",
+  "run_id": "40145528838",
+  "status": "same_host_id_after_process_restart",
+  "error_code": null,
+  "first_native_gate_passed": true,
+  "same_machine": true,
+  "configuration_preserved": true,
+  "second_start_clean_processes": true,
+  "comparison": true,
+  "phases": [
+    {
+      "launched": true,
+      "completed": true,
+      "bootstrap_pin_match": true,
+      "instrumented_processes": 3,
+      "collector_errors": 0,
+      "dropped_events": 0,
+      "collector_fatal": false,
+      "request_count": 18,
+      "hardware_requests": 1,
+      "wire_linked_hardware_requests": 1,
+      "host_id_observations": 1,
+      "host_id_unique": 1,
+      "invalid_host_id_events": 0,
+      "all_processes_instrumented": true,
+      "language_status": "not_observed"
+    },
+    {
+      "launched": true,
+      "completed": true,
+      "bootstrap_pin_match": true,
+      "instrumented_processes": 4,
+      "collector_errors": 0,
+      "dropped_events": 0,
+      "collector_fatal": false,
+      "request_count": 11,
+      "hardware_requests": 1,
+      "wire_linked_hardware_requests": 1,
+      "host_id_observations": 1,
+      "host_id_unique": 1,
+      "invalid_host_id_events": 0,
+      "all_processes_instrumented": true,
+      "language_status": "other"
+    }
+  ],
+  "second_diagnostics": {
+    "stage": "complete",
+    "error_type": null,
+    "refusal_reason": null,
+    "refused_image": null,
+    "helper_decisions": [
+      {
+        "checks": {
+          "basename_pinned": true,
+          "content_pinned": true,
+          "parent_process_pinned": true,
+          "live_parent_identity_matches": true,
+          "signature_trusted_blizzard": true,
+          "helper_under_agent_root": true,
+          "path_not_reparse": true,
+          "same_version_directory": false,
+          "parent_creation_matches": true,
+          "parent_path_matches": false,
+          "parent_live_image_pinned": true
+        },
+        "approved": true
+      }
+    ],
+    "processes": [
+      {
+        "name": "battle.net-setup.exe",
+        "phase": "observing",
+        "status": "resumed",
+        "error_type": null,
+        "instrumented_before_resume": true,
+        "script_errors": 0
+      },
+      {
+        "name": "agent.exe",
+        "phase": "observing",
+        "status": "resumed",
+        "error_type": null,
+        "instrumented_before_resume": true,
+        "script_errors": 0
+      },
+      {
+        "name": "agent.exe",
+        "phase": "observing",
+        "status": "resumed",
+        "error_type": null,
+        "instrumented_before_resume": true,
+        "script_errors": 0
+      },
+      {
+        "name": "agenthelper.exe",
+        "phase": "observing",
+        "status": "resumed",
+        "error_type": null,
+        "instrumented_before_resume": true,
+        "script_errors": 0
+      }
+    ]
+  },
+  "limits": {
+    "raw_values_exported": false,
+    "identifier_hashes_exported": false,
+    "login_performed": false,
+    "game_download_requested": false,
+    "install_action_requested": false,
+    "tls_validation_changed": false,
+    "reboot_tested": false,
+    "reinstall_tested": false,
+    "clean_machine_comparison_tested": false,
+    "account_linkage_proven": false,
+    "game_file_marking_proven": false,
+    "server_storage_proven": false,
+    "configuration_storage_location_proven": false,
+    "persistent_hardware_id_proven": false
+  }
+}

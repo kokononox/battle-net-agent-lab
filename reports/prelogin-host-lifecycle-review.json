@@ -1,22 +1,22 @@
 {
-  "schema": "bnet-host-lifecycle-review-1",
-  "source_commit": "8432d4cdaa8bf260958e65dd6e5af757a1b87165",
-  "run_id": "40090018452",
-  "evidence_commit": "37bac487b7840ae27099735c40c9686811b6ca03",
-  "local_python_tests_passed": 29,
-  "verdict": "process_restart_comparison_attempted_but_inconclusive",
-  "same_or_different_host_id": null,
+  "schema": "bnet-host-lifecycle-review-2",
+  "source_commit": "2040c935f020598cc1d7453a31567fdb6f4472f3",
+  "run_id": "40145528838",
+  "evidence_commit": "0eb4cebc834e7e47b628f8c2f7579b419e031ad9",
+  "local_python_tests_passed": 58,
+  "verdict": "exact_host_id_equality_across_two_preaccount_process_startups_on_same_machine_with_configuration_preserved",
+  "same_or_different_host_id": true,
   "first_phase_valid_host_id_observed": true,
-  "second_phase_valid_host_id_observed": false,
-  "blocking_reason": "unexpected_image_name",
-  "second_phase_failed_verification_processes": 1,
-  "second_phase_collector_incomplete": true,
+  "second_phase_valid_host_id_observed": true,
+  "blocking_reason": null,
+  "second_phase_failed_verification_processes": 0,
+  "second_phase_collector_incomplete": false,
   "configuration_deleted_or_rewritten_by_harness": false,
   "identifier_values_or_hashes_exported": false,
   "universal_install_id_proven": false,
   "persistent_hardware_id_proven": false,
   "game_file_marking_proven": false,
-  "next_action": "obtain_allowlisted_basename_class_publisher_signature_and_image_hash_of_refused_child_without_resuming_it_then_review_scope",
+  "next_action": "locate_source_id_storage_and_test_OS_reboot_then_reinstall_independently",
   "runs": [
     {
       "stage": "a1",
@@ -49,6 +49,57 @@
       "status": "inconclusive",
       "error_code": "second_phase_ineligible",
       "comparison": null
+    },
+    {
+      "stage": "a5",
+      "source_commit": "7753138fe5e225f85aec81ef688ae0d2d4b30ead",
+      "run_id": "40144180232",
+      "status": "inconclusive",
+      "error_code": "second_phase_ineligible",
+      "comparison": null
+    },
+    {
+      "stage": "a6",
+      "source_commit": "12b2f4610a4b2f2435988e4d20a48ff477760ab9",
+      "run_id": "40144632517",
+      "status": "inconclusive",
+      "error_code": "second_phase_ineligible",
+      "comparison": null
+    },
+    {
+      "stage": "a7",
+      "source_commit": "e4346372bc0e097f8a4d3d6a0ce85ff31bb3d77c",
+      "run_id": "40145069834",
+      "status": "inconclusive",
+      "error_code": "second_phase_ineligible",
+      "comparison": null
+    },
+    {
+      "stage": "a8",
+      "source_commit": "2040c935f020598cc1d7453a31567fdb6f4472f3",
+      "run_id": "40145528838",
+      "status": "same_host_id_after_process_restart",
+      "error_code": null,
+      "comparison": true
     }
-  ]
+  ],
+  "previous_a4_conclusion": {
+    "source_commit": "8432d4cdaa8bf260958e65dd6e5af757a1b87165",
+    "run_id": "40090018452",
+    "verdict": "process_restart_comparison_attempted_but_inconclusive",
+    "same_or_different_host_id": null,
+    "blocking_reason": "unexpected_image_name",
+    "second_phase_collector_incomplete": true
+  },
+  "hardware_messages_linked_to_local_network_capture": 2,
+  "helper_identified_from_private_archive": true,
+  "helper_image_sha256": "a3a444e6bd163732a648967c01a5fd509f7f33d6963b381c19bdffb604138651",
+  "parent_process_creation_equal": true,
+  "parent_reverified_image_hash_and_signature_pinned": true,
+  "parent_reported_path_equal": false,
+  "OS_reboot_tested": false,
+  "reinstall_tested": false,
+  "account_linkage_proven": false,
+  "storage_location_proven": false,
+  "server_storage_proven": false
 }
