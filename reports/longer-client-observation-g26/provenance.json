@@ -1,0 +1,36 @@
+{
+  "source_commit": "a814cd7b929f415363bc57f0cd27dc6d5f86d791",
+  "run_id": "40187789184",
+  "jobs": [
+    {
+      "id": 121152153276,
+      "name": "observe (real_setup)",
+      "status": "completed",
+      "conclusion": "cancelled"
+    },
+    {
+      "id": 121155702588,
+      "name": "collect",
+      "status": "completed",
+      "conclusion": "failure"
+    }
+  ],
+  "artifacts": [],
+  "final_report_integrity_verified": false,
+  "observed_checkpoint_manifest": {
+    "parts": 77,
+    "raw_bytes": 162504,
+    "sha256": "421819dd942d7a0bceaa14b8bc880d7baba27794ad8e5e842b28a6877c34f9b8",
+    "visible_contiguous_parts": [
+      1,
+      34
+    ],
+    "verified": false
+  },
+  "authenticated_raw_log_result": "BlobNotFound",
+  "complete_installation_claimed": false,
+  "successful_recovery_claimed": false,
+  "agent_cancelled_workflow": false,
+  "gate_or_recovery_requirements_relaxed": false,
+  "partial_diagnostic_prefix_not_promoted_to_final_evidence": true
+}
