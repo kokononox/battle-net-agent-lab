@@ -105,7 +105,10 @@ def log(config,kind,host='other',method='',reason=''):
 
 def connect(config,host,port):
  for ip in config['hosts'][host]:
-  try:return socket.create_connection((ip,port),timeout=5)
+  try:
+   stream=socket.create_connection((ip,port),timeout=5)
+   log(config,'upstream_connected',host,reason=('ipv6_' if ':' in ip else 'ipv4_')+('version_http' if port==1119 else 'tls' if port==443 else 'http'))
+   return stream
   except OSError:continue
  raise ValueError('upstream_unreachable')
 
@@ -167,7 +170,7 @@ class Handler(socketserver.BaseRequestHandler):
      self.request.sendall(data)
    log(config,'connection_closed',host,method)
   except Exception as exc:
-   reason=str(exc) if type(exc) is ValueError and re.fullmatch('[a-z_]{1,64}',str(exc)) else 'io_or_protocol_error'
+   reason=str(exc) if type(exc) is ValueError and re.fullmatch('[a-z_]{1,64}',str(exc)) else 'io_timeout' if isinstance(exc,TimeoutError) else 'connection_reset' if isinstance(exc,ConnectionResetError) else 'broken_pipe' if isinstance(exc,BrokenPipeError) else 'socket_os_error' if isinstance(exc,OSError) else 'io_or_protocol_error'
    log(config,'refused_or_failed',host,method,reason)
    try:self.request.sendall(b'HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 0\r\n\r\n')
    except OSError:pass
@@ -192,7 +195,7 @@ class TransparentTLSHandler(socketserver.BaseRequestHandler):
    self.request.settimeout(15);upstream.settimeout(15);relay(self.request,upstream)
    log(config,'connection_closed',host,'CONNECT')
   except Exception as exc:
-   reason=str(exc) if type(exc) is ValueError and re.fullmatch('[a-z_]{1,64}',str(exc)) else 'io_or_protocol_error'
+   reason=str(exc) if type(exc) is ValueError and re.fullmatch('[a-z_]{1,64}',str(exc)) else 'io_timeout' if isinstance(exc,TimeoutError) else 'connection_reset' if isinstance(exc,ConnectionResetError) else 'broken_pipe' if isinstance(exc,BrokenPipeError) else 'socket_os_error' if isinstance(exc,OSError) else 'io_or_protocol_error'
    log(config,'refused_or_failed',host,'CONNECT',reason)
   finally:
    if upstream is not None:upstream.close()
