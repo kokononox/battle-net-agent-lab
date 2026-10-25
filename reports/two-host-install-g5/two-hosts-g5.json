@@ -1,0 +1,53 @@
+{
+  "schema": "bnet-two-hosts-g5-1",
+  "source_commit": "0ac3167830fe4796d89fe55caad492924bda654f",
+  "run_id": "40162768611",
+  "allowed_hosts": [
+    "level3.blizzard.com",
+    "us.version.battle.net"
+  ],
+  "installer_launched": false,
+  "status": "stopped",
+  "stage": "complete",
+  "firewall_prepared": false,
+  "firewall_applied": false,
+  "firewall_verified": false,
+  "firewall_restored": false,
+  "management_exception_scope": "runner_listener_worker_only_not_target_installers",
+  "proxy_binary_sha256": "73adaad3a02456159310963bee925ac8acbc487bc065297c79e8bf5ff5a2902a",
+  "baseline_direct": {
+    "level3.blizzard.com": true,
+    "us.version.battle.net": true,
+    "negative_fixture": true
+  },
+  "direct_denied": {},
+  "http_allowed": {},
+  "other_authority_denied": false,
+  "wrong_sni_denied": false,
+  "proxy_log_counts": {
+    "proxy_ready:": 1,
+    "http_host_allowed:": 2,
+    "connection_closed:": 2
+  },
+  "tls_certificates_changed": false,
+  "raw_state_exported": false,
+  "all_traffic_blocked_proven": false,
+  "error_code": "proxy_http_fixture_not_healthy_before_firewall",
+  "hosts_steered": false,
+  "hosts_restored": true,
+  "proxy_before_firewall": {
+    "level3.blizzard.com": true,
+    "us.version.battle.net": false
+  },
+  "http_probe_kinds": {},
+  "ipv6_loopback_http": {},
+  "tls_end_to_end_verified": false,
+  "listener_bind_probes": {
+    "ipv4_80": null,
+    "ipv4_443": null,
+    "ipv6_80": null,
+    "ipv6_443": null
+  },
+  "proxy_exit_code": null,
+  "proxy_start_error_kind": null
+}

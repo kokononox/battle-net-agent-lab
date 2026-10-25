@@ -1,0 +1,28 @@
+name: Battle.net two-host protocol G6 read-only diagnosis
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/two-host-install/diagnose_protocol.py', '.github/workflows/battlenet-two-host-g6.yml']
+permissions: {}
+jobs:
+  diagnose:
+    if: >-
+      github.event.head_commit.message == 'lab: approved two-host protocol diagnosis G6 20261025' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    env:
+      BNET_TWO_HOSTS: 'lab: approved two-host protocol diagnosis G6 20261025'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Probe fixed public protocol fixtures without installation
+        run: python analysis-tools/two-host-install/diagnose_protocol.py
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: battlenet-two-host-protocol-g6-sanitized
+          path: output/two-hosts-protocol-g6.json
+          if-no-files-found: error
+          retention-days: 3
