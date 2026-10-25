@@ -1,0 +1,160 @@
+{
+  "schema": "download_source_review_g38_v1",
+  "prior_run": "40187789184",
+  "prior_source_commit": "a814cd7b929f415363bc57f0cd27dc6d5f86d791",
+  "report_url": "https://github.com/kokononox/battle-net-agent-lab/blob/494752c2d647f5c83ac87b502b1e1c535cc7d468/reports/longer-client-observation-g26/online-g26.json",
+  "facts": {
+    "metadata_rows": 256,
+    "reporter_row_cap": 256,
+    "http_request_rows": 128,
+    "distinct_path_hashes": 123,
+    "all_sampled_http_requests_get": true,
+    "all_sampled_http_request_bodies_empty": true,
+    "all_sampled_http_queries_absent": true,
+    "sampled_response_statuses": [
+      200,
+      206
+    ],
+    "http_request_hosts": [
+      "level3.blizzard.com"
+    ],
+    "http_request_ports": [
+      80
+    ],
+    "all_rows_have_raw_path": false,
+    "https_payload_classified": false,
+    "metadata_truncated_relative_to_event_counts": true
+  },
+  "official_head_observation": {
+    "checked_at": "2026-10-25T21:00:08.593389+00:00",
+    "source_page": "https://download.battle.net/en-us/desktop",
+    "route": [
+      {
+        "url": "https://downloader.battle.net//download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live",
+        "method": "HEAD",
+        "status": 302,
+        "body_read": false,
+        "content-length": "0",
+        "location": "https://downloader.battle.net/download/installer/win/1.0.68/Battle.net-Setup.exe"
+      },
+      {
+        "url": "https://downloader.battle.net/download/installer/win/1.0.68/Battle.net-Setup.exe",
+        "method": "HEAD",
+        "status": 200,
+        "body_read": false,
+        "content-type": "application/x-msdos-program",
+        "content-length": "4700880",
+        "etag": "\"85935ffea59d89df335816299bb205c2\"",
+        "last-modified": "Tue, 20 Oct 2026 22:05:21 GMT"
+      }
+    ],
+    "installer_downloaded": false,
+    "signature_reverified": false,
+    "network_policy_changed": false
+  },
+  "candidates": [
+    {
+      "candidate_id": "official_windows_bootstrap",
+      "stage": "pre_isolation_manual_acquisition",
+      "source": "https://download.battle.net/en-us/?platform=windows",
+      "advertised_url": "https://downloader.battle.net//download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live",
+      "versioned_url": "https://downloader.battle.net/download/installer/win/1.0.68/Battle.net-Setup.exe",
+      "head_advertised_bytes": 4700880,
+      "fresh_sha256": null,
+      "fresh_authenticode_verified": false,
+      "historical_pin": {
+        "source_commit": "a814cd7b929f415363bc57f0cd27dc6d5f86d791",
+        "bytes": 4700880,
+        "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+        "signature_accepted_in_prior_vm": true
+      },
+      "runtime_allowlisted": false,
+      "review_status": "pending",
+      "blockers": [
+        "host_outside_existing_two_host_gate",
+        "fresh_file_hash_and_signature_not_checked",
+        "not_proof_of_complete_install_payload",
+        "official_origin_not_privacy_proof"
+      ]
+    },
+    {
+      "candidate_id": "observed_cdn_payloads",
+      "host": "level3.blizzard.com",
+      "stage": "installation_payload",
+      "observed_protocol": "http",
+      "observed_port": 80,
+      "exact_paths_available": false,
+      "object_payload_hashes_available": false,
+      "response_bytes_include_http_headers": true,
+      "runtime_allowlisted": false,
+      "review_status": "pending",
+      "blockers": [
+        "paths_hashed_only",
+        "sample_capped",
+        "outbound_headers_not_recorded",
+        "no_artifact_payload_sha256",
+        "https_compatibility_unverified",
+        "range_206_compatibility_not_implemented_in_broker"
+      ]
+    },
+    {
+      "candidate_id": "observed_version_service",
+      "host": "us.version.battle.net",
+      "stage": "unknown_encrypted_installation_requests",
+      "observed_protocol": "tls",
+      "observed_port": 443,
+      "exact_paths_available": false,
+      "runtime_allowlisted": false,
+      "review_status": "pending",
+      "blockers": [
+        "https_payload_not_decrypted",
+        "request_fields_and_purpose_unknown",
+        "static_manifest_unavailable"
+      ]
+    },
+    {
+      "candidate_id": "negative_test_agent_versions",
+      "host": "us.version.battle.net",
+      "path": "/agent/versions",
+      "port": 1119,
+      "stage": "synthetic_negative_probe_not_observed_target_request",
+      "runtime_allowlisted": false,
+      "review_status": "not_installation_evidence",
+      "blockers": [
+        "path_from_outside_job_denial_test_not_target_request_trace"
+      ]
+    }
+  ],
+  "approved_new_runtime_resources": 0,
+  "catalog_updated": false,
+  "installer_downloaded_in_review": false,
+  "profile_notes": [
+    "event rows mix request,response,TLS projections",
+    "structural nulls are not missing measurements for the same event type",
+    "identical projected rows retained: may be distinct repeated events",
+    "metadata is capped; not full resource inventory",
+    "no raw path reconstruction from one-way hashes",
+    "response_bytes is wire bytes including headers, not object payload size"
+  ],
+  "comparison_plan": [
+    {
+      "grain": "source evidence category",
+      "population": "current official bootstrap and prior sanitized installation observations",
+      "unit": "privacy approval evidence",
+      "finding": "exact bootstrap source identified; complete runtime resource manifest still unavailable",
+      "disposition": "prose",
+      "reason": "qualitative trust/completeness review, no meaningful quantitative chart"
+    }
+  ],
+  "source_sha256": {
+    "Prepare.py": "cd321ec1b6655c329089bf609b90b4f98e145088d75d8f9e61290f93c239244d",
+    "Reporter.py": "29772d1d856c9626d21a6c099aaff897d45a0faef632aa73e43c26fd985fbdd7",
+    "g26-request-metadata.json": "0cfdc318834cab91dbee09e18b9d9eebc57272c5ede78269653e3435edd5a451",
+    "official-desktop.js": "c7fbc6a14d9f7f4187d81f7582185398d4cfbaf0e054cae51a551045e0f50cfc",
+    "official-download.html": "a7ac635a7b6c495e0313aaed7943c6d4679d25cb8206aa36d363f5aaf426c61c",
+    "official-head-route.json": "1e319b40e5e58279a101b4a144da26d68da7243254836471723e173a89a4177c",
+    "official-installer-head-route.json": "c2defcc5288e083aec7b4af44e056e402816fc57f8e3319ed13f045e2d30b8ef",
+    "official-windows.html": "ab175b137d99c6d4d742a1ecb106cac12ec87d9b8393d1cd681861781109d6cb",
+    "online-g26.json": "2424b640b0934cedf8b01a3f18ee71f7da65c2939c537672e7bdb5513b5e4202"
+  }
+}

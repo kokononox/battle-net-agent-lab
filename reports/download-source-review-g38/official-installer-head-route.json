@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-10-25T21:00:08.593389+00:00",
+  "source_page": "https://download.battle.net/en-us/desktop",
+  "route": [
+    {
+      "url": "https://downloader.battle.net//download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live",
+      "method": "HEAD",
+      "status": 302,
+      "body_read": false,
+      "content-length": "0",
+      "location": "https://downloader.battle.net/download/installer/win/1.0.68/Battle.net-Setup.exe"
+    },
+    {
+      "url": "https://downloader.battle.net/download/installer/win/1.0.68/Battle.net-Setup.exe",
+      "method": "HEAD",
+      "status": 200,
+      "body_read": false,
+      "content-type": "application/x-msdos-program",
+      "content-length": "4700880",
+      "etag": "\"85935ffea59d89df335816299bb205c2\"",
+      "last-modified": "Tue, 20 Oct 2026 22:05:21 GMT"
+    }
+  ],
+  "installer_downloaded": false,
+  "signature_reverified": false,
+  "network_policy_changed": false
+}
