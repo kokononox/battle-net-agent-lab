@@ -1,0 +1,35 @@
+name: Battle.net two-host egress G2 qualification (no installer)
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/two-host-install/**', '.github/workflows/battlenet-two-host-g2.yml']
+permissions: {}
+jobs:
+  qualify:
+    if: >-
+      github.event.head_commit.message == 'lab: approved two-host egress qualification G2 20261025' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    env:
+      BNET_TWO_HOSTS: 'lab: approved two-host egress qualification G2 20261025'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Test exact authority SNI and refusal cases
+        run: python -m unittest discover -s analysis-tools/two-host-install/tests -v
+      - name: Build a dedicated proxy executable before any isolation
+        working-directory: analysis-tools/two-host-install
+        run: |
+          python -m pip install --disable-pip-version-check pyinstaller==6.16.0
+          python -m PyInstaller --clean --noconfirm --onefile --name TwoHostProxy domain_proxy.py
+      - name: Qualify real firewall restrictions and rollback without running Setup
+        run: python analysis-tools/two-host-install/qualify_gate.py
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: battlenet-two-host-g2-sanitized
+          path: output/two-hosts-g2.json
+          if-no-files-found: error
+          retention-days: 3

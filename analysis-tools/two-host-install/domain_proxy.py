@@ -80,17 +80,18 @@ def header(sock):
   name,value=line.split(':',1)
   if not re.fullmatch('[!#$%&\'*+.^_`|~0-9A-Za-z-]+',name):raise ValueError('http_header_rejected')
   fields.append((name.lower(),value.strip()))
- if any(k in {'proxy-authorization','authorization'} for k,v in fields):raise ValueError('authentication_not_supported')
+ if any(k in {'proxy-authorization'} for k,v in fields):raise ValueError('authentication_not_supported')
  return request,fields
 
 def validated_config(raw):
- if type(raw) is not dict or set(raw)!={'hosts','port','seconds','log'} or set(raw['hosts'])!=HOSTS:raise ValueError('config_scope')
+ if type(raw) is not dict or set(raw) not in ({'hosts','port','seconds','log'},{'hosts','port','seconds','log','transparent'}) or set(raw['hosts'])!=HOSTS:raise ValueError('config_scope')
  for host,addresses in raw['hosts'].items():
   if type(addresses) is not list or not 1<=len(addresses)<=32:raise ValueError('config_addresses')
   for text in addresses:
    if type(text) is not str or not ipaddress.ip_address(text).is_global:raise ValueError('config_nonpublic')
  if type(raw['port']) is not int or not 1024<=raw['port']<=65535 or type(raw['seconds']) is not int or not 10<=raw['seconds']<=600:raise ValueError('config_bounds')
  if type(raw['log']) is not str:raise ValueError('config_log')
+ if type(raw.get('transparent',False)) is not bool:raise ValueError('config_mode')
  return raw
 
 def log(config,kind,host='other',method='',reason=''):
@@ -140,6 +141,8 @@ class Handler(socketserver.BaseRequestHandler):
     upstream=connect(config,host,443);upstream.sendall(raw);self.request.settimeout(15);upstream.settimeout(15);relay(self.request,upstream)
    else:
     if method not in {'GET','HEAD','POST'}:raise ValueError('http_method_rejected')
+    if getattr(self.server,'transparent_http',False) and target.startswith('/') and not target.startswith('//'):
+     target='http://'+hosts[0]+target
     u=urlsplit(target)
     if u.scheme!='http' or u.username is not None or u.password is not None or u.fragment:raise ValueError('http_url_rejected')
     host=authority(u.netloc,80)
@@ -174,10 +177,38 @@ class Handler(socketserver.BaseRequestHandler):
 class Server(socketserver.ThreadingTCPServer):
  allow_reuse_address=False;daemon_threads=True
 
+class IPv6Server(Server):
+ address_family=socket.AF_INET6
+
+class TransparentTLSHandler(socketserver.BaseRequestHandler):
+ def handle(self):
+  config=self.server.config;upstream=None;host='other'
+  if not LIMIT.acquire(False):return
+  try:
+   self.request.settimeout(10);raw,host=clienthello(self.request)
+   log(config,'tls_sni_allowed',host,'CONNECT')
+   upstream=connect(config,host,443);upstream.sendall(raw)
+   self.request.settimeout(15);upstream.settimeout(15);relay(self.request,upstream)
+   log(config,'connection_closed',host,'CONNECT')
+  except Exception as exc:
+   reason=str(exc) if type(exc) is ValueError and re.fullmatch('[a-z_]{1,64}',str(exc)) else 'io_or_protocol_error'
+   log(config,'refused_or_failed',host,'CONNECT',reason)
+  finally:
+   if upstream is not None:upstream.close()
+   LIMIT.release()
+
 def main():
  if len(sys.argv)!=2:raise SystemExit('config_file_required')
  config=validated_config(json.loads(Path(sys.argv[1]).read_text(encoding='utf-8-sig')))
- with Server(('127.0.0.1',config['port']),Handler) as server:
-  server.config=config;server.timeout=1;deadline=time.monotonic()+config['seconds'];log(config,'proxy_ready')
-  while time.monotonic()<deadline:server.handle_request()
+ servers=[]
+ try:
+  bindings=[(Server,'127.0.0.1',config['port'],Handler,False)]
+  if config.get('transparent',False):
+   bindings=[(cls,ip,port,handler,port==80) for cls,ip in [(Server,'127.0.0.1'),(IPv6Server,'::1')] for port,handler in [(80,Handler),(443,TransparentTLSHandler)]]
+  for cls,ip,port,handler,transparent_http in bindings:
+   server=cls((ip,port),handler);server.config=config;server.transparent_http=transparent_http;servers.append(server)
+   threading.Thread(target=server.serve_forever,daemon=True).start()
+  log(config,'proxy_ready');time.sleep(config['seconds'])
+ finally:
+  for server in servers:server.shutdown();server.server_close()
 if __name__=='__main__':main()

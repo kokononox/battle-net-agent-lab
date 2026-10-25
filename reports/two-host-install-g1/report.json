@@ -1,0 +1,45 @@
+{
+  "schema": "bnet-two-hosts-g1-1",
+  "source_commit": "a212679a416b114d4d705ec3bdbf9fecd1c696d4",
+  "run_id": "40161062734",
+  "allowed_hosts": [
+    "level3.blizzard.com",
+    "us.version.battle.net"
+  ],
+  "installer_launched": false,
+  "status": "stopped",
+  "stage": "complete",
+  "firewall_prepared": true,
+  "firewall_applied": true,
+  "firewall_verified": true,
+  "firewall_restored": true,
+  "management_exception_scope": "runner_listener_worker_only_not_target_installers",
+  "proxy_binary_sha256": "29860e2e32362ec5353bd2acd96a8b48919d4be06afb95cd86d5b086589c0e5f",
+  "baseline_direct": {
+    "us.version.battle.net": true,
+    "level3.blizzard.com": true,
+    "negative_fixture": true
+  },
+  "direct_denied": {
+    "us.version.battle.net": true,
+    "level3.blizzard.com": true,
+    "negative_fixture": true
+  },
+  "http_allowed": {
+    "level3.blizzard.com": true,
+    "us.version.battle.net": false
+  },
+  "other_authority_denied": true,
+  "wrong_sni_denied": true,
+  "proxy_log_counts": {
+    "proxy_ready:": 1,
+    "http_host_allowed:": 2,
+    "connection_closed:": 2,
+    "refused_or_failed:authority_rejected": 1,
+    "refused_or_failed:tls_sni_rejected": 1
+  },
+  "tls_certificates_changed": false,
+  "raw_state_exported": false,
+  "all_traffic_blocked_proven": false,
+  "error_code": "qualification_probe_failed"
+}

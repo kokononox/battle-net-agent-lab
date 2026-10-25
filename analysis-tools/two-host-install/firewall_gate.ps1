@@ -40,6 +40,19 @@ try {
   @'
 param([string]$Backup,[string]$Marker)
 $ErrorActionPreference='Stop'
+# G2 is qualification only: there is no installer to terminate before rollback.
+# An installation runner MUST add a terminate-and-verify owned-job step first.
+$dir=Split-Path $Backup
+$old=Join-Path $dir 'hosts-before.bak'; $expected=Join-Path $dir 'hosts-after.expected'
+$hostsPath="$env:SystemRoot\System32\drivers\etc\hosts"
+if((Test-Path $old) -and (Test-Path $expected)) {
+ $sha=[Security.Cryptography.SHA256]::Create()
+ try {
+  $current=[BitConverter]::ToString($sha.ComputeHash([IO.File]::ReadAllBytes($hostsPath)))
+  $changed=[BitConverter]::ToString($sha.ComputeHash([IO.File]::ReadAllBytes($expected)))
+  if($current -eq $changed){[IO.File]::WriteAllBytes($hostsPath,[IO.File]::ReadAllBytes($old));$null=& "$env:SystemRoot\System32\ipconfig.exe" /flushdns}
+ } finally {$sha.Dispose()}
+}
 $null=& "$env:SystemRoot\System32\netsh.exe" advfirewall import $Backup
 if($LASTEXITCODE -eq 0){'watchdog_imported' | Set-Content $Marker}
 '@ | Set-Content -Encoding UTF8 $rollback
