@@ -6,8 +6,10 @@ from validate_report import decode
 class Gates(unittest.TestCase):
  def env(self):return dict(GITHUB_ACTIONS='true',RUNNER_ENVIRONMENT='github-hosted',RUNNER_OS='Windows',GITHUB_REF='refs/heads/'+BRANCH,GITHUB_EVENT_NAME='push',GITHUB_RUN_ATTEMPT='1',BNET_MINIMAL_INSTALL=APPROVAL,BNET_CASE=CASE,BNET_REPLICA='r1',GITHUB_SHA='a'*40,GITHUB_RUN_ID='123')
  def report(self):return blank(self.env())
- def success(self):
-  r=self.report();r.update(status='installed_by_defined_gate',phase='complete',target_launched=True,started_at='2026-10-25T02:00:00Z',ended_at='2026-10-25T02:01:00Z',registry_version_state='missing',last_sample_process_names=['battle.net.exe'],ui_signal_seen={k:(k=='account') for k in UI_KEYS},native_ui_gate=True,cleanup_attempted=True,samples=1,install_checks={k:True for k in CHECKS},installer=dict(sha256=SETUP_SHA,bytes=SETUP_BYTES,signature_accepted=True,matches_pin=True),client_binaries=[dict(kind=k,sha256='b'*64,bytes=123,signature_accepted=True,file_version='2.1.0.1',version_status='accepted') for k in ('launcher','client')]);return r
+ def success(self,replica='r1'):
+  r=blank(dict(self.env(),BNET_REPLICA=replica));
+  if POLICIES[replica][1]:r['hosts'].update(backup_created=True,override_written=True,resolver_verified=True,verification_checks=3,flush_exit_code=0,restore_flush_exit_code=0,restore_attempted=True,restored=True)
+  r.update(status='installed_by_defined_gate',phase='complete',target_launched=True,started_at='2026-10-25T02:00:00Z',ended_at='2026-10-25T02:01:00Z',registry_version_state='missing',last_sample_process_names=['battle.net.exe'],ui_signal_seen={k:(k=='account') for k in UI_KEYS},native_ui_gate=True,cleanup_attempted=True,samples=1,install_checks={k:True for k in CHECKS},installer=dict(sha256=SETUP_SHA,bytes=SETUP_BYTES,signature_accepted=True,matches_pin=True),client_binaries=[dict(kind=k,sha256='b'*64,bytes=123,signature_accepted=True,file_version='2.1.0.1',version_status='accepted') for k in ('launcher','client')]);return r
  def test_native_version_windows_smoke(self):
   if sys.platform!='win32':self.skipTest('Requires native Windows version API')
   from native_version import query
@@ -19,7 +21,7 @@ class Gates(unittest.TestCase):
   for args in ((0,0,0xfeef04bd),(0,1,0),(True,1,0xfeef04bd),(-1,1,0xfeef04bd)):
    self.assertIsNone(fixed_version(*args))
  def test_bad_replica(self):
-  r=self.report();r['replica']='r4'
+  r=self.report();r['replica']='r7'
   with self.assertRaises(ValueError):validate(r)
  def test_backward_time(self):
   r=self.success();r['ended_at']='2026-10-24T02:00:00Z'
@@ -97,20 +99,20 @@ class Batch(unittest.TestCase):
  success=Gates.success
  def test_missing_not_success(self):
   from publish_batch import summarize
-  records,m=summarize({},'a'*40,'123');self.assertEqual(m['missing_replicas'],['r1','r2','r3']);self.assertFalse(m['all_three_target_windows_overlap']);self.assertEqual(sum(m['status_counts'].values()),0)
+  records,m=summarize({},'a'*40,'123');self.assertEqual(m['missing_replicas'],sorted(REPLICAS));self.assertFalse(m['all_six_target_windows_overlap']);self.assertEqual(sum(m['status_counts'].values()),0)
  def test_real_overlap_and_identity(self):
   from publish_batch import summarize
   inputs={}
-  for k in ('r1','r2','r3'):
-   r=self.success();r['replica']=k;inputs[k]=json.dumps(r).encode()
-  records,m=summarize(inputs,'a'*40,'123');self.assertEqual(len(records),3);self.assertEqual(m['common_overlap_seconds'],60);self.assertTrue(m['all_three_target_windows_overlap']);self.assertTrue(m['same_signed_client_hash_across_three'])
-  r=self.success();r['replica']='r2';inputs['r1']=json.dumps(r).encode();records,m=summarize(inputs,'a'*40,'123');self.assertEqual(m['rejected_replicas'],['r1']);self.assertFalse(m['all_three_target_windows_overlap'])
+  for k in sorted(REPLICAS):
+   r=self.success(k);inputs[k]=json.dumps(r).encode()
+  records,m=summarize(inputs,'a'*40,'123');self.assertEqual(len(records),6);self.assertEqual(m['common_overlap_seconds'],60);self.assertTrue(m['all_six_target_windows_overlap']);self.assertTrue(m['same_signed_client_hash_across_all_six'])
+  r=self.success();r['replica']='r2';inputs['r1']=json.dumps(r).encode();records,m=summarize(inputs,'a'*40,'123');self.assertEqual(m['rejected_replicas'],['r1']);self.assertFalse(m['all_six_target_windows_overlap'])
  def test_nonoverlap(self):
   from publish_batch import summarize
   inputs={}
-  for n,k in enumerate(('r1','r2','r3')):
-   r=self.success();r['replica']=k;r['started_at']=f'2026-10-25T02:0{n*2}:00Z';r['ended_at']=f'2026-10-25T02:0{n*2+1}:00Z';inputs[k]=json.dumps(r).encode()
-  records,m=summarize(inputs,'a'*40,'123');self.assertEqual(m['common_overlap_seconds'],0);self.assertFalse(m['all_three_target_windows_overlap'])
+  for n,k in enumerate(sorted(REPLICAS)):
+   r=self.success(k);r['started_at']=f'2026-10-25T02:{n*2:02d}:00Z';r['ended_at']=f'2026-10-25T02:{n*2+1:02d}:00Z';inputs[k]=json.dumps(r).encode()
+  records,m=summarize(inputs,'a'*40,'123');self.assertEqual(m['common_overlap_seconds'],0);self.assertFalse(m['all_six_target_windows_overlap'])
  def test_malformed_report_not_raw_exported(self):
   from publish_batch import summarize
   records,m=summarize({'r1':b'{"secret":"must not publish"}'},'a'*40,'123');self.assertEqual(m['rejected_replicas'],['r1']);self.assertNotIn('secret',json.dumps(m))

@@ -1,16 +1,17 @@
 """C0: qualify repeatable client installation before testing removal of any activity."""
 import re
+from experiment_policy import POLICIES,hosts_blank
 from signature_observation import STATUSES as PROBE_STATUSES
 BRANCH='research/battlenet-minimal-install-isolation-2026-10-25'
-APPROVAL='lab: approved minimal Battle.net install C0 20261025-p2'
+APPROVAL='lab: approved minimal Battle.net install C0 20261025-s6a1'
 SETUP_SHA='f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6'
 SETUP_BYTES=4700880
-CASE='C0d-verified-install-baseline'
-REPLICAS={'r1','r2','r3'}
+CASE='C1-six-hosts-dependency-pilot'
+REPLICAS=set(POLICIES)
 VERSION_STATES={'unobserved','missing','wrong_type','format_rejected','accepted'}
 BINARY_VERSION_STATES={'accepted','no_resource','native_error','invalid_fixed_info','unstable_file'}
 STATUSES={'not_started','stopped','bounded_install_not_verified','installed_by_defined_gate'}
-PHASES={'guard','baseline','download','identity','native_gate','launch','observe','cleanup','complete'}
+PHASES={'guard','baseline','download','identity','intervention','native_gate','launch','observe','cleanup','complete'}
 KNOWN_NAMES={'agent.exe','battle.net.exe','battle.net launcher.exe','battle.net-setup.exe','battle.net helper.exe','blizzarderror.exe'}
 ACTION_STATUSES=set('not_attempted not_requested pending no_targets ambiguous_window process_mismatch page_mismatch forbidden_text signature_refused executable_identity_refused pattern_unavailable page_changed page_confirmed continue_attempted continued timeout helper_failed output_rejected native_exception journal_failed window_mismatch page_not_language control_ambiguous selection_failed selection_attempted selection_confirmed forbidden_control name_too_long unsafe_name language_group_missing continue_ambiguous continue_missing language_group_ambiguous'.split())
 UI_KEYS={'language','legal','account','installation_options','progress','error'}
@@ -23,10 +24,10 @@ def layout_ready(checks):
  # File-layout stability must not depend on an unrelated registry version field.
  return all(checks.get(k) is True for k in ('signed_launcher','signed_client'))
 def blank(env):
- return dict(schema='bnet-minimal-install-c0d-1',case=CASE,installation_gate='signed_binary_version_v1',binary_probe_counts={},binary_probe_failures=[],last_sample_process_names=[],replica=env.get('BNET_REPLICA',''),started_at=None,ended_at=None,registry_version_state='unobserved',source_commit=env.get('GITHUB_SHA',''),run_id=env.get('GITHUB_RUN_ID',''),status='not_started',phase='guard',error_code=None,target_launched=False,installer={},native_ui_gate=False,language_attempted=False,install_attempted=False,language_status='not_attempted',install_status='not_attempted',samples=0,snapshot_errors=0,gui_errors=0,known_process_counts={},public_endpoints=[],endpoints_truncated=False,install_checks={k:False for k in sorted(CHECKS)},client_binaries=[],cleanup_attempted=False,observer_seconds=0,native_options_probes=0,native_options_last_status='not_attempted',ui_signal_seen={k:False for k in sorted(UI_KEYS)},ui_signal_last={k:False for k in sorted(UI_KEYS)},intervention='none',login_attempted=False,game_download_requested=False,raw_payloads_exported=False,all_processes_observed=False,all_network_observed=False,necessity_tested=False,telemetry_blocked=False)
+ return dict(schema='bnet-minimal-install-c1-1',case=CASE,experiment_label=POLICIES.get(env.get('BNET_REPLICA'),('',None))[0],hosts=hosts_blank(env.get('BNET_REPLICA')),installation_gate='signed_binary_version_v1',binary_probe_counts={},binary_probe_failures=[],last_sample_process_names=[],replica=env.get('BNET_REPLICA',''),started_at=None,ended_at=None,registry_version_state='unobserved',source_commit=env.get('GITHUB_SHA',''),run_id=env.get('GITHUB_RUN_ID',''),status='not_started',phase='guard',error_code=None,target_launched=False,installer={},native_ui_gate=False,language_attempted=False,install_attempted=False,language_status='not_attempted',install_status='not_attempted',samples=0,snapshot_errors=0,gui_errors=0,known_process_counts={},public_endpoints=[],endpoints_truncated=False,install_checks={k:False for k in sorted(CHECKS)},client_binaries=[],cleanup_attempted=False,observer_seconds=0,native_options_probes=0,native_options_last_status='not_attempted',ui_signal_seen={k:False for k in sorted(UI_KEYS)},ui_signal_last={k:False for k in sorted(UI_KEYS)},intervention='hosts_exact_domain_override' if POLICIES.get(env.get('BNET_REPLICA'),('',None))[1] else 'none',login_attempted=False,game_download_requested=False,raw_payloads_exported=False,all_processes_observed=False,all_network_observed=False,necessity_tested=False,telemetry_blocked=False)
 def validate(v):
  expected=set(blank({}))
- if type(v) is not dict or set(v)!=expected or v['schema']!='bnet-minimal-install-c0d-1' or v['case']!=CASE:raise ValueError('report_schema')
+ if type(v) is not dict or set(v)!=expected or v['schema']!='bnet-minimal-install-c1-1' or v['case']!=CASE:raise ValueError('report_schema')
  if not re.fullmatch('[a-f0-9]{40}',v['source_commit']) or not re.fullmatch('[0-9]{1,30}',v['run_id']):raise ValueError('report_identity')
  if v['replica'] not in REPLICAS or v['registry_version_state'] not in VERSION_STATES:raise ValueError('replica_or_version_state')
  from datetime import datetime
@@ -51,7 +52,22 @@ def validate(v):
  if any(type(v[k]) is not bool for k in flags):raise ValueError('boolean')
  for k in flags[-7:]:
   if v[k] is not False:raise ValueError('scope_or_claim')
- if v['intervention']!='none':raise ValueError('baseline_has_no_intervention')
+ label,domain=POLICIES[v['replica']]
+ if v['experiment_label']!=label or v['intervention']!=('hosts_exact_domain_override' if domain else 'none'):raise ValueError('case_policy')
+ h=v['hosts'];expected=hosts_blank(v['replica'])
+ if type(h) is not dict or set(h)!=set(expected) or h['domain']!=domain or h['scope']!=expected['scope']:raise ValueError('hosts_schema')
+ for key in ('backup_created','override_written','resolver_verified','restore_attempted','restored'):
+  if type(h[key]) is not bool:raise ValueError('hosts_boolean')
+ for key in ('verification_checks','verification_failures'):
+  if type(h[key]) is not int or not 0<=h[key]<=64:raise ValueError('hosts_count')
+ for key in ('flush_exit_code','restore_flush_exit_code'):
+  if h[key] is not None and (type(h[key]) is not int or not -2**31<=h[key]<2**31):raise ValueError('hosts_flush_code')
+ if domain is None and h!=expected:raise ValueError('control_hosts_mutation')
+ if domain and v['target_launched'] and (not h['backup_created'] or not h['override_written'] or h['flush_exit_code']!=0 or h['verification_checks']<1):raise ValueError('hosts_launch_gate')
+ if h['restored'] and (not h['restore_attempted'] or h['restore_flush_exit_code']!=0):raise ValueError('hosts_restore_evidence')
+ if v['status']=='installed_by_defined_gate' and domain:
+  if not h['resolver_verified'] or h['verification_failures']:raise ValueError('hosts_test_not_maintained')
+  if v['phase']=='complete' and not h['restored']:raise ValueError('hosts_test_not_restored')
  for k,cap in [('samples',240),('snapshot_errors',240),('gui_errors',240),('observer_seconds',700),('native_options_probes',30)]:
   if type(v[k]) is not int or not 0<=v[k]<=cap:raise ValueError('report_count')
  if set(v['install_checks'])!=CHECKS or any(type(x) is not bool for x in v['install_checks'].values()):raise ValueError('checks')

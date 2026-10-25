@@ -1,28 +1,28 @@
-name: Minimal Battle.net three-replica baseline
+name: Minimal Battle.net six-case hosts dependency pilot
 on:
   push:
     branches: [research/battlenet-minimal-install-isolation-2026-10-25]
     paths: ['analysis-tools/minimal-install/**', '.github/workflows/minimal-battlenet-install.yml']
 permissions: {}
 concurrency:
-  group: minimal-battlenet-install-c0c-batch
+  group: minimal-battlenet-install-c1-six-batch
   cancel-in-progress: false
 jobs:
   observe:
     if: >-
-      github.event.head_commit.message == 'lab: approved minimal Battle.net install C0 20261025-p2' && github.run_attempt == 1
+      github.event.head_commit.message == 'lab: approved minimal Battle.net install C0 20261025-s6a1' && github.run_attempt == 1
     strategy:
       fail-fast: false
-      max-parallel: 3
+      max-parallel: 6
       matrix:
-        replica: [r1, r2, r3]
+        replica: [r1, r2, r3, r4, r5, r6]
     runs-on: windows-2025
     timeout-minutes: 14
     permissions:
       contents: read
     env:
-      BNET_MINIMAL_INSTALL: 'lab: approved minimal Battle.net install C0 20261025-p2'
-      BNET_CASE: C0d-verified-install-baseline
+      BNET_MINIMAL_INSTALL: 'lab: approved minimal Battle.net install C0 20261025-s6a1'
+      BNET_CASE: C1-six-hosts-dependency-pilot
       BNET_REPLICA: '${{ matrix.replica }}'
       EXPECTED_SOURCE: '${{ github.sha }}'
     steps:
@@ -35,16 +35,16 @@ jobs:
         run: python analysis-tools/minimal-install/run_case.py
       - name: Validate exact source run and replica
         if: always()
-        run: python analysis-tools/minimal-install/validate_report.py output/minimal-install-c0d-${{ matrix.replica }}.json sanitized/minimal-install-c0d-${{ matrix.replica }}.json
+        run: python analysis-tools/minimal-install/validate_report.py output/minimal-install-c1-${{ matrix.replica }}.json sanitized/minimal-install-c1-${{ matrix.replica }}.json
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: minimal-install-c0d-${{ matrix.replica }}-sanitized
-          path: sanitized/minimal-install-c0d-${{ matrix.replica }}.json
+          name: minimal-install-c1-${{ matrix.replica }}-sanitized
+          path: sanitized/minimal-install-c1-${{ matrix.replica }}.json
           if-no-files-found: error
           retention-days: 3
   publish:
     if: >-
-      always() && needs.observe.result != 'skipped' && github.event.head_commit.message == 'lab: approved minimal Battle.net install C0 20261025-p2' && github.run_attempt == 1
+      always() && needs.observe.result != 'skipped' && github.event.head_commit.message == 'lab: approved minimal Battle.net install C0 20261025-s6a1' && github.run_attempt == 1
     needs: observe
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -59,7 +59,7 @@ jobs:
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         continue-on-error: true
         with:
-          pattern: minimal-install-c0d-*-sanitized
+          pattern: minimal-install-c1-*-sanitized
           path: sanitized
           merge-multiple: true
       - name: Publish available validated replicas and explicit missing-report manifest
@@ -68,7 +68,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A -- reports/minimal-install-c0d
+          git add -A -- reports/minimal-install-c1
           git diff --cached --quiet && exit 0
-          git commit -m 'lab: publish sanitized three-replica C0d batch'
+          git commit -m 'lab: publish sanitized six-case C1 batch'
           git push origin HEAD:research/battlenet-minimal-install-isolation-2026-10-25

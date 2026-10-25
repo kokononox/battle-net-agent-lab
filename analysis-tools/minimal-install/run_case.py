@@ -3,11 +3,12 @@ from pathlib import Path
 import hashlib,json,os,re,subprocess,sys,tempfile,time
 from model import *
 import native_version
+import hosts_experiment
 from binary_observer import BinaryObserver
 from datetime import datetime,timezone
 def utc_now():return datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 BASE=Path(__file__).resolve().parents[2]
-OUT=Path('output')/('minimal-install-c0d-'+(os.environ.get('BNET_REPLICA') if os.environ.get('BNET_REPLICA') in REPLICAS else 'invalid')+'.json')
+OUT=Path('output')/('minimal-install-c1-'+(os.environ.get('BNET_REPLICA') if os.environ.get('BNET_REPLICA') in REPLICAS else 'invalid')+'.json')
 def write(r):
  validate(r);OUT.parent.mkdir(exist_ok=True);data=json.dumps(r,ensure_ascii=False,indent=2).encode();assert len(data)<=1048576
  tmp=OUT.with_suffix('.tmp');tmp.write_bytes(data);os.replace(tmp,OUT)
@@ -60,7 +61,7 @@ def footprint(root,obs,env,observer,r,elapsed):
 def main():
  # No report/disk changes before the hosted-runner guard. No portable EXE is released from this pilot.
  if not authorized(os.environ,sys.platform):raise SystemExit('disposable_hosted_approved_case_required')
- r=blank(os.environ);write(r);process=None;env=None;obs=None;started=None
+ r=blank(os.environ);write(r);process=None;env=None;obs=None;started=None;experiment=None
  try:
   sys.path.insert(0,str(BASE/'scripts'));import observe_agent as obs
   import native_gui,ui_accessibility,language_step,install_step,agent_state
@@ -68,11 +69,12 @@ def main():
   roots=[root,Path(os.environ['ProgramData'])/'Battle.net',Path(os.environ['LOCALAPPDATA'])/'Battle.net']
   if obs.snapshot(env).get('processes') or any(p.exists() for p in roots):raise obs.LabError('preexisting_battlenet_state_refused')
   r['phase']='native_gate';ui_accessibility.smoke_check();r['native_ui_gate']=True;write(r)
-  with tempfile.TemporaryDirectory(prefix='bnet-minimal-c0d-',dir=os.environ['RUNNER_TEMP'],ignore_cleanup_errors=True) as tmp:
+  with tempfile.TemporaryDirectory(prefix='bnet-minimal-c1-',dir=os.environ['RUNNER_TEMP'],ignore_cleanup_errors=True) as tmp:
    work=Path(tmp);setup=work/'Battle.net-Setup.exe';r['phase']='download';download=obs.fetch_setup(setup);r['phase']='identity';sig=obs.signature(setup,env)
    r['installer']=dict(sha256=download['sha256'],bytes=download['bytes'],signature_accepted=sig['accepted_for_execution'],matches_pin=download['sha256']==SETUP_SHA and download['bytes']==SETUP_BYTES);write(r)
    if not sig['accepted_for_execution']:raise obs.LabError('installer_signature_refused')
    if not r['installer']['matches_pin']:raise obs.LabError('approved_installer_changed_no_execution')
+   r['phase']='intervention';experiment=hosts_experiment.for_runner(work,r['hosts'],env,obs);experiment.apply();write(r)
    r['phase']='launch';process=subprocess.Popen([str(setup)],cwd=work,env=env,stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL);r['target_launched']=True;r['started_at']=utc_now();started=time.monotonic();r['phase']='observe';write(r)
    endpoints={};seen_processes=set();last_gui=-20;last_foot=-20;layout_since=None;last_hash='';raw={'processes':[]};gui_signals={};last_setup_absent=False;observer=BinaryObserver()
    while time.monotonic()-started<420 and r['samples']<240:
@@ -114,19 +116,23 @@ def main():
      except obs.LabError:raise
      except Exception:r['gui_errors']+=1
     if elapsed-last_foot>=15:
-     last_foot=elapsed;checks,binaries,layout_hash,version_state=footprint(root,obs,env,observer,r,elapsed);r['client_binaries']=binaries;r['registry_version_state']=version_state
+     last_foot=elapsed
+     if not experiment.check():raise obs.LabError('hosts_override_changed_during_target')
+     checks,binaries,layout_hash,version_state=footprint(root,obs,env,observer,r,elapsed);r['client_binaries']=binaries;r['registry_version_state']=version_state
      ready=layout_ready(checks)
      if ready and layout_hash==last_hash:
       if layout_since is None:layout_since=elapsed
      else:layout_since=elapsed if ready else None
      last_hash=layout_hash;checks['setup_absent']=last_setup_absent;checks['client_running']='battle.net.exe' in r['last_sample_process_names'];checks['account_signal_seen']=r['ui_signal_seen']['account'];checks['stable_layout_20_seconds']=layout_since is not None and elapsed-layout_since>=20;r['install_checks']=checks
      if installed(checks,r['target_launched']) and not r['snapshot_errors']:
+      if not experiment.check():raise obs.LabError('hosts_override_changed_before_success')
       r['status']='installed_by_defined_gate';break
     write(r);time.sleep(3)
    if r['status']!='installed_by_defined_gate':r['status']='bounded_install_not_verified'
    # The disposable VM, not a persistent user installation, is the isolation boundary for this pilot.
    r['phase']='cleanup';r['cleanup_attempted']=True;write(r);obs.stop_observed(obs.snapshot(env),env)
    if process.poll() is None:subprocess.run(['taskkill','/PID',str(process.pid),'/T','/F'],env=env,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=8,check=False)
+   if not experiment.restore():raise obs.LabError('hosts_restore_failed_or_conflict')
    r['phase']='complete'
  except Exception as e:
   r['status']='stopped';code=str(e);r['error_code']=code if re.fullmatch('[a-z0-9_]{1,100}',code) else 'pilot_failed_no_install_success_claim'
@@ -138,6 +144,8 @@ def main():
    if process is not None and process.poll() is None:
     try:subprocess.run(['taskkill','/PID',str(process.pid),'/T','/F'],env=env,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=8,check=False)
     except Exception:pass
+  if experiment is not None and experiment.touched and not r['hosts']['restored']:
+   if not experiment.restore():r['status']='stopped';r['error_code']='hosts_restore_failed_or_conflict'
   if started is not None:r['observer_seconds']=min(700,int(time.monotonic()-started))
   if r['target_launched']:r['ended_at']=utc_now()
   write(r);print(json.dumps(dict(status=r['status'],error_code=r['error_code'],target_launched=r['target_launched'],case=CASE)))
