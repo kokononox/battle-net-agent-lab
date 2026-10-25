@@ -1,7 +1,7 @@
 param([Parameter(Mandatory=$true)][string]$Config,[ValidateSet('deadline','fallback')][string]$Origin='fallback')
 . (Join-Path $PSScriptRoot 'Common.ps1')
 $c=Read-Context $Config;$mutex=$null;$job=[IntPtr]::Zero;$handles=New-Object Collections.Generic.List[Diagnostics.Process]
-$r=[ordered]@{schema='bnet-integrated-recovery-g12-1';origin=$Origin;system_identity=([Security.Principal.WindowsIdentity]::GetCurrent().User.Value -eq 'S-1-5-18');status='stopped';lease_closed=$false;supervisor_exited=$false;service_removed=$false;task_removed=$false;job_active_zero=$false;all_observed_members_exited=$false;fixture_images_gone=$false;hosts_restored=$false;firewall_restored=$false;iis_restored=$false;error_code=$null}
+$r=[ordered]@{schema='bnet-integrated-recovery-g12-1';origin=$Origin;system_identity=([Security.Principal.WindowsIdentity]::GetCurrent().User.Value -eq 'S-1-5-18');status='stopped';lease_closed=$false;supervisor_exited=$false;service_removed=$false;task_removed=$false;job_active_zero=$false;all_observed_members_exited=$false;fixture_images_gone=$false;hosts_restored=$false;firewall_restored=$false;iis_restored=$false;error_code=$null;error_shape=$null}
 try{
  $mutex=Enter-Lease $c
  $lease=Get-Content -Raw (Join-Path $c.root 'lease.json') | ConvertFrom-Json
@@ -72,6 +72,7 @@ try{
  Unregister-ScheduledTask $c.watchdog_name -Confirm:$false -ErrorAction SilentlyContinue
 }catch{
  $message=$_.Exception.Message;$r.error_code=if($message -match '^[a-z_]{1,80}$'){$message}else{'independent_recovery_operation_failed'}
+ $r.error_shape=Error-Shape $_
  Save-Private (Join-Path $c.root 'recovery-result.json') $r
  throw 'independent_recovery_stopped_no_unconditional_import'
 }finally{

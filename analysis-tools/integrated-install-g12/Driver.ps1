@@ -1,8 +1,8 @@
 $ErrorActionPreference='Stop'
-if($env:GITHUB_ACTIONS -ne 'true' -or $env:RUNNER_ENVIRONMENT -ne 'github-hosted' -or $env:RUNNER_OS -ne 'Windows' -or $env:GITHUB_REF -ne 'refs/heads/research/battlenet-minimal-install-isolation-2026-10-25' -or $env:GITHUB_EVENT_NAME -ne 'push' -or $env:GITHUB_RUN_ATTEMPT -ne '1' -or $env:BNET_INTEGRATED_G12 -ne 'lab: approved integrated-recovery qualification G12 20261025' -or $env:BNET_G12_SCENARIO -notin @('supervisor_crash','supervisor_timeout')){throw 'fresh_hosted_integration_required'}
+if($env:GITHUB_ACTIONS -ne 'true' -or $env:RUNNER_ENVIRONMENT -ne 'github-hosted' -or $env:RUNNER_OS -ne 'Windows' -or $env:GITHUB_REF -ne 'refs/heads/research/battlenet-minimal-install-isolation-2026-10-25' -or $env:GITHUB_EVENT_NAME -ne 'push' -or $env:GITHUB_RUN_ATTEMPT -ne '1' -or $env:BNET_INTEGRATED_G12 -ne 'lab: approved integrated-recovery qualification G12a 20261025' -or $env:BNET_G12_SCENARIO -notin @('supervisor_crash','supervisor_timeout')){throw 'fresh_hosted_integration_required'}
 . (Join-Path $PSScriptRoot 'Common.ps1')
 New-Item -ItemType Directory -Force output | Out-Null
-$r=[ordered]@{schema='bnet-integrated-g12-1';source_commit=$env:GITHUB_SHA;run_id=$env:GITHUB_RUN_ID;scenario=$env:BNET_G12_SCENARIO;status='stopped';installer_launched=$false;baseline_direct_ok=$false;gate_ready=$false;root_and_leaf_in_job=$false;external_service_task_outside=$false;supervisor_crashed_as_requested=$false;supervisor_alive_for_timeout=$false;fixtures_alive_at_failure=$false;fixtures_alive_after_failure=$false;post_scenario_direct_denied=$false;no_observed_direct_release_before_recovery=$true;independent_deadline_system_recovery=$false;components_exited_before_restore=$false;hosts_restored=$false;firewall_restored=$false;iis_restored=$false;post_restore_direct_ok=$false;full_install_boundary_proven=$false;arbitrary_service_discovery_proven=$false;mid_startup_crash_tested=$false;stage='prepare';error_code=$null}
+$r=[ordered]@{schema='bnet-integrated-g12-1';source_commit=$env:GITHUB_SHA;run_id=$env:GITHUB_RUN_ID;scenario=$env:BNET_G12_SCENARIO;status='stopped';installer_launched=$false;baseline_direct_ok=$false;gate_ready=$false;root_and_leaf_in_job=$false;external_service_task_outside=$false;supervisor_crashed_as_requested=$false;supervisor_alive_for_timeout=$false;fixtures_alive_at_failure=$false;fixtures_alive_after_failure=$false;post_scenario_direct_denied=$false;no_observed_direct_release_before_recovery=$true;independent_deadline_system_recovery=$false;components_exited_before_restore=$false;hosts_restored=$false;firewall_restored=$false;iis_restored=$false;post_restore_direct_ok=$false;full_install_boundary_proven=$false;arbitrary_service_discovery_proven=$false;mid_startup_crash_tested=$false;stage='prepare';error_code=$null;failure_stage=$null;supervisor_diagnostic=$null;recovery_error_code=$null;recovery_error_shape=$null}
 $guid=[guid]::NewGuid().ToString('N');$root=Join-Path (Join-Path $env:ProgramData 'BNetIntegratedG12') $guid;$config=Join-Path $root 'config.json';$c=$null;$supervisor=$null
 function Save-Report{$r | ConvertTo-Json -Depth 8 | Set-Content ('output/integrated-g12-'+$env:BNET_G12_SCENARIO+'.json') -Encoding UTF8;Write-Output ($r | ConvertTo-Json -Depth 8 -Compress)}
 try{
@@ -31,7 +31,7 @@ try{
  Record-Process $supervisor (Join-Path $root 'supervisor-process.json')
  $watch=[Diagnostics.Stopwatch]::StartNew()
  while(-not (Test-Path (Join-Path $root 'supervisor-ready.json')) -and $watch.Elapsed.TotalSeconds -lt 150){
-  if(Test-Path (Join-Path $root 'supervisor-error.json')){$e=Get-Content -Raw (Join-Path $root 'supervisor-error.json') | ConvertFrom-Json;throw $e.error_code}
+  if(Test-Path (Join-Path $root 'supervisor-error.json')){$e=Get-Content -Raw (Join-Path $root 'supervisor-error.json') | ConvertFrom-Json;$r.supervisor_diagnostic=$e;throw $e.error_code}
   if($supervisor.HasExited){throw 'supervisor_exited_before_ready'};Start-Sleep -Milliseconds 250
  }
  Wait-File (Join-Path $root 'supervisor-ready.json') 1
@@ -61,13 +61,14 @@ try{
  }
  Wait-File (Join-Path $root 'recovery-result.json') 1
  $recovery=Get-Content -Raw (Join-Path $root 'recovery-result.json') | ConvertFrom-Json
+ $r.recovery_error_code=$recovery.error_code;$r.recovery_error_shape=$recovery.error_shape
  $r.independent_deadline_system_recovery=($recovery.origin -eq 'deadline' -and $recovery.system_identity -eq $true -and $recovery.status -eq 'recovered_after_verified_component_exit')
  $r.components_exited_before_restore=($recovery.supervisor_exited -and $recovery.job_active_zero -and $recovery.all_observed_members_exited -and $recovery.service_removed -and $recovery.task_removed -and $recovery.fixture_images_gone)
  $r.hosts_restored=$recovery.hosts_restored;$r.firewall_restored=$recovery.firewall_restored;$r.iis_restored=$recovery.iis_restored
  if($r.independent_deadline_system_recovery){$after=Invoke-Canary $c 'canary';$r.post_restore_direct_ok=($after.connected -and $after.http200)}
  $expected=if($env:BNET_G12_SCENARIO -eq 'supervisor_crash'){$r.supervisor_crashed_as_requested}else{$r.supervisor_alive_for_timeout}
  if($r.gate_ready -and $r.fixtures_alive_after_failure -and $r.root_and_leaf_in_job -and $r.external_service_task_outside -and $expected -and $r.post_scenario_direct_denied -and $r.no_observed_direct_release_before_recovery -and $r.independent_deadline_system_recovery -and $r.components_exited_before_restore -and $r.hosts_restored -and $r.firewall_restored -and $r.iis_restored -and $r.post_restore_direct_ok){$r.status='qualified_post_ready_integrated_deadline_recovery'}else{$r.error_code='integrated_recovery_probes_failed'}
-}catch{$message=$_.Exception.Message;$r.error_code=if($message -match '^[a-z_]{1,80}$'){$message}else{'integration_operation_failed'}}
+}catch{$r.failure_stage=$r.stage;$message=$_.Exception.Message;$r.error_code=if($message -match '^[a-z_]{1,80}$'){$message}else{'integration_operation_failed'}}
 finally{
  if($supervisor){$supervisor.Dispose()};$r.stage='complete';Save-Report
 }

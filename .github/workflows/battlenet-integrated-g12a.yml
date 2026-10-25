@@ -1,0 +1,90 @@
+name: Battle.net integrated G12a recovery (synthetic only)
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/integrated-install-g12/**', '.github/workflows/battlenet-integrated-g12a.yml']
+permissions: {}
+jobs:
+  qualify:
+    if: >-
+      github.event.head_commit.message == 'lab: approved integrated-recovery qualification G12a 20261025' && github.run_attempt == 1
+    strategy:
+      fail-fast: false
+      matrix:
+        scenario: [supervisor_crash, supervisor_timeout]
+    runs-on: windows-2025
+    timeout-minutes: 9
+    permissions:
+      contents: read
+    env:
+      BNET_INTEGRATED_G12: 'lab: approved integrated-recovery qualification G12a 20261025'
+      BNET_G12_SCENARIO: '${{ matrix.scenario }}'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse all PowerShell sources before any mutation
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          foreach($file in Get-ChildItem analysis-tools/integrated-install-g12/*.ps1){
+            $tokens=$null;$errors=$null
+            $null=[Management.Automation.Language.Parser]::ParseFile($file.FullName,[ref]$tokens,[ref]$errors)
+            if($errors.Count -gt 0){$errors | ForEach-Object {Write-Output ($_.ErrorId+':'+$_.Extent.StartLineNumber)};throw 'powershell_parse_failed'}
+          }
+      - name: Test private lease rewrites and mutex without policy mutations
+        shell: powershell
+        run: |
+          . ./analysis-tools/integrated-install-g12/Common.ps1
+          $dir=Join-Path $env:RUNNER_TEMP ('g12-lease-preflight-'+[guid]::NewGuid().ToString('N'))
+          New-Item -ItemType Directory $dir | Out-Null
+          $file=Join-Path $dir 'state.json'
+          try {
+            Save-Private $file @{phase='prepared'}
+            Save-Private $file @{phase='active'}
+            Save-Private $file @{phase='releasing'}
+            if((Get-Content -Raw $file | ConvertFrom-Json).phase -ne 'releasing'){throw 'lease_rewrite_failed'}
+            $m=Enter-Lease @{mutex_name=('Global\BNetG12Preflight_'+[guid]::NewGuid().ToString('N'))}
+            $m.ReleaseMutex();$m.Dispose()
+          } finally {Remove-Item $dir -Recurse -Force}
+      - name: Build owned fixture and qualified two-host proxy before policy changes
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          New-Item -ItemType Directory -Force output, "$env:RUNNER_TEMP\bnet-g12-bin" | Out-Null
+          $base=(Resolve-Path 'analysis-tools\integrated-install-g12').Path
+          $source=Join-Path $base 'ExternalProbe.cs'
+          $csc="$env:SystemRoot\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+          & $csc @('/nologo','/target:exe','/platform:x64','/r:System.Web.Extensions.dll','/r:System.ServiceProcess.dll',('/out:'+(Join-Path "$env:RUNNER_TEMP\bnet-g12-bin" 'ExternalProbe.exe')),$source)
+          if($LASTEXITCODE -ne 0){throw 'fixture_build_failed'}
+          Push-Location $base
+          try {
+            python -m pip install --disable-pip-version-check pyinstaller==6.16.0
+            if($LASTEXITCODE -ne 0){throw 'proxy_build_dependency_failed'}
+            python -m PyInstaller --clean --noconfirm --onefile --name TwoHostProxy domain_proxy.py
+            if($LASTEXITCODE -ne 0){throw 'proxy_build_failed'}
+          } finally {Pop-Location}
+      - name: Exercise post-ready supervisor failure and independent SYSTEM deadline
+        shell: powershell
+        run: '& ./analysis-tools/integrated-install-g12/Driver.ps1'
+      - name: Fail-closed fallback uses the same component-first recovery
+        if: always()
+        shell: powershell
+        run: |
+          if(Test-Path output/g12-private-recovery-pointer.json){
+            $p=Get-Content -Raw output/g12-private-recovery-pointer.json | ConvertFrom-Json
+            try { & (Join-Path (Split-Path $p.config) 'Recover.ps1') -Config $p.config -Origin fallback }
+            finally {
+              $receipt=Join-Path (Split-Path $p.config) 'recovery-result.json'
+              if(Test-Path $receipt){Copy-Item $receipt ('output/recovery-g12-'+$env:BNET_G12_SCENARIO+'.json')}
+            }
+          }
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: 'battlenet-integrated-g12-${{ matrix.scenario }}-sanitized'
+          path: |
+            output/integrated-g12-${{ matrix.scenario }}.json
+            output/recovery-g12-${{ matrix.scenario }}.json
+          if-no-files-found: error
+          retention-days: 3

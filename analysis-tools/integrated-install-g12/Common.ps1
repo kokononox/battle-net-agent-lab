@@ -8,7 +8,7 @@ function Read-Context([string]$Path){
 }
 function Save-Private([string]$Path,$Value){
  $text=$Value | ConvertTo-Json -Depth 12 -Compress;$temp=$Path+'.tmp';[IO.File]::WriteAllText($temp,$text,[Text.UTF8Encoding]::new($false))
- if(Test-Path $Path){[IO.File]::Replace($temp,$Path,$null)}else{[IO.File]::Move($temp,$Path)}
+ if(Test-Path $Path){$prior=$Path+'.prior';if(Test-Path $prior){[IO.File]::Delete($prior)};[IO.File]::Replace($temp,$Path,$prior)}else{[IO.File]::Move($temp,$Path)}
 }
 function Enter-Lease($Context){
  $mutex=[Threading.Mutex]::new($false,$Context.mutex_name)
@@ -33,3 +33,11 @@ function Invoke-Canary($Context,[string]$Mode){
  if($null -eq $v.connected -or $null -eq $v.http200){throw 'canary_protocol_failed'};return $v
 }
 function Hash-Bytes([byte[]]$Bytes){$sha=[Security.Cryptography.SHA256]::Create();try{return [BitConverter]::ToString($sha.ComputeHash($Bytes))}finally{$sha.Dispose()}}
+
+function Error-Shape($Record){
+ $type=$Record.Exception.GetType().Name;$id=[string]$Record.FullyQualifiedErrorId
+ if($id -notmatch '^[A-Za-z0-9_,.+-]{1,140}$'){$id='unclassified'}
+ $name=[IO.Path]::GetFileName($Record.InvocationInfo.ScriptName)
+ if($name -notin @('Common.ps1','Supervisor.ps1','Recover.ps1','Driver.ps1','FirewallGate.ps1')){$name='unavailable'}
+ return @{type=$type;id=$id;line=$Record.InvocationInfo.ScriptLineNumber;source=$name}
+}
