@@ -1,0 +1,55 @@
+{
+  "schema": "g31_g32_review_evidence_v1",
+  "g31": {
+    "run_id": "40221048613",
+    "qualified_control": false,
+    "error": "gate_verify_unexpected_allow_count",
+    "task_event_log_was_disabled": true,
+    "stale_final_focus_summary_known": true,
+    "diagnosis_of_extra_rule_not_proven": true
+  },
+  "g32": {
+    "source_commit": "0f80a5a89ad0307aa40eba10553a25f3a4dfce0f",
+    "run_id": "40221985456",
+    "control_status": "ambient_control_observed_restore_refused",
+    "gate_checks_passed_before_after": true,
+    "installer_executed": false,
+    "focus_query_errors": 0,
+    "all_four_tasks_fully_captured": true,
+    "fresh_baseline_signature_verified_count": 4,
+    "print_enabled_initial": true,
+    "print_enabled_final": false,
+    "print_disable_event_142_present": true,
+    "print_task_start_and_finish_events_present": true,
+    "exact_mutation_actor_proven": false,
+    "shadow_candidate_matches": 2,
+    "runtime_new_exemptions": 0,
+    "diagnostic_log_original_state_restored": true,
+    "firewall_restored": false,
+    "remaining_runtime_blockers": 3,
+    "workflow_status_at_retrieval": "in_progress",
+    "workflow_conclusion_at_retrieval": null,
+    "matching_task_events": 17,
+    "examined_operational_events": 89
+  },
+  "limitations": [
+    "event co-occurrence does not prove task self-disabled or identify disabling caller",
+    "bounded polling and log read are not continuous kernel coverage or proven log continuity",
+    "G31 gate drift did not recur in G32, its cause remains unknown",
+    "raw legacy global signature rollup is stale false; four per-row fresh baseline checks used and future rollup code corrected separately",
+    "baseline signature verification does not imply new signature verification under gate or audited revocation settings",
+    "shadow candidates do not authorize live recovery",
+    "G31 and G32 are separate hosted VMs, not paired causal experiments"
+  ],
+  "comparison_plan": [
+    {
+      "grain": "task definition transitions and correlated diagnostic events in one VM",
+      "finding": "Print Enabled true-to-false, two strict shadow candidates, actor unknown",
+      "disposition": "prose",
+      "reason": "categorical security review, not quantitative trend"
+    }
+  ],
+  "profile_notes": [
+    "nested diagnostic JSON uses bounded schema validator and explicit assertions; no forced tabular interpretation"
+  ]
+}

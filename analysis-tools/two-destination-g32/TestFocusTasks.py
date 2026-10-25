@@ -33,4 +33,8 @@ class Tests(unittest.TestCase):
   a=snap('<Task/>');a['tasks'][ID]['scheduler_enabled']=True;self.assertTrue(summarize(a,[],a)['tasks'][0]['baseline_enabled'])
  def test_missing_enabled_unknown(self):
   a=snap('<Task/>');self.assertIsNone(summarize(a,[],a)['tasks'][0]['baseline_enabled'])
+ def test_fresh_signature_rollup_not_stale_false(self):
+  a=snap(A);a['tasks'][ID]['baseline_signature']={'checked_before_gate':True,'valid_microsoft':True,'hash_stable':True};r=summarize(a,[],a);self.assertTrue(r['image_signatures_newly_verified']);self.assertEqual(r['baseline_signatures_verified_count'],1);self.assertEqual(r['image_signature_scope'],'baseline_pre_gate_only')
+ def test_failed_signature_not_verified_rollup(self):
+  a=snap(A);a['tasks'][ID]['baseline_signature']={'checked_before_gate':True,'valid_microsoft':False,'hash_stable':True};r=summarize(a,[],a);self.assertFalse(r['image_signatures_newly_verified']);self.assertEqual(r['baseline_signatures_verified_count'],0)
 if __name__=='__main__':unittest.main()
