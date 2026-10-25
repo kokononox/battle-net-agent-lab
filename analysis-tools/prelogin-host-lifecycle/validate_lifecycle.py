@@ -1,12 +1,12 @@
 """Fail-closed export schema. Only equality, counters, fixed labels and code provenance."""
 import json,re,sys
 from pathlib import Path
-TOP={'schema','source_commit','run_id','status','error_code','first_native_gate_passed','same_machine','configuration_preserved','second_start_clean_processes','comparison','phases','second_diagnostics','limits'}
+TOP={'schema','source_commit','run_id','status','error_code','first_native_gate_passed','same_machine','configuration_preserved','second_start_clean_processes','comparison','phases','second_diagnostics','storage_scans','limits'}
 PHASE={'launched','completed','bootstrap_pin_match','instrumented_processes','collector_errors','dropped_events','collector_fatal','request_count','hardware_requests','wire_linked_hardware_requests','host_id_observations','host_id_unique','invalid_host_id_events','all_processes_instrumented','language_status'}
 LIMITS={'raw_values_exported':False,'identifier_hashes_exported':False,'login_performed':False,'game_download_requested':False,'install_action_requested':False,'tls_validation_changed':False,'reboot_tested':False,'reinstall_tested':False,'clean_machine_comparison_tested':False,'account_linkage_proven':False,'game_file_marking_proven':False,'server_storage_proven':False,'configuration_storage_location_proven':False,'persistent_hardware_id_proven':False}
 BOOL={'launched','completed','bootstrap_pin_match','collector_fatal','all_processes_instrumented'}
 def validate(r):
-    if type(r) is not dict or set(r)!=TOP or r['schema']!='bnet-host-lifecycle-5':raise ValueError('schema')
+    if type(r) is not dict or set(r)!=TOP or r['schema']!='bnet-host-lifecycle-6':raise ValueError('schema')
     if type(r['source_commit']) is not str or not re.fullmatch('[a-f0-9]{40}',r['source_commit']):raise ValueError('source')
     if type(r['run_id']) is not str or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('run')
     if r['status'] not in ('stopped','inconclusive','same_host_id_after_process_restart','changed_host_id_after_process_restart'):raise ValueError('status')
@@ -27,6 +27,11 @@ def validate(r):
         if not p['wire_linked_hardware_requests']<=p['hardware_requests']<=p['request_count']:raise ValueError('requests')
         if p['host_id_unique']>p['host_id_observations']:raise ValueError('unique')
         if (p['collector_errors'] or p['dropped_events'] or p['collector_fatal']) and p['wire_linked_hardware_requests']:raise ValueError('incomplete_wire_claim')
+    from storage_scan import validate as validate_storage
+    if type(r['storage_scans']) is not list or len(r['storage_scans'])>2:raise ValueError('storage_scans')
+    for i,scan in enumerate(r['storage_scans']):
+        validate_storage(scan)
+        if scan['phase']!=('after_first','after_second')[i]:raise ValueError('storage_scan_order')
     from phase_diagnostics import validate_debug
     validate_debug(r['second_diagnostics'])
     ds=r['second_diagnostics']['processes']
