@@ -215,8 +215,13 @@ def initial_report():
         'log_keyword_counts_do_not_prove_operation_execution':True}}
 
 
-def observe(out_dir, seconds=150, advance_language=False, advance_install=False):
+def observe(out_dir, seconds=150, advance_language=False, advance_install=False, retry_language_when_no_target=False):
     if type(seconds) is not int or not 30<=seconds<=150:raise LabError('observation_seconds_out_of_range')
+    if type(retry_language_when_no_target) is not bool or (retry_language_when_no_target and (not advance_language or advance_install)):raise LabError('language_retry_scope_refused')
+    poll=None
+    if retry_language_when_no_target:
+        from language_poll import Poll
+        poll=Poll()
     report=initial_report();report['limits']['observation_seconds']=seconds
     from language_step import blank as language_blank, run as language_run
     if advance_install and not advance_language:raise LabError('language_authorization_required')
@@ -225,7 +230,7 @@ def observe(out_dir, seconds=150, advance_language=False, advance_install=False)
     report['language_step']=language_blank(advance_language)
     install_checked=False
     def advance(targets):
-        # The callback is used only for the first read-only snapshot, never repeated.
+        # Action helper is never retried after it starts; only no-target preflight can repeat.
         report['language_step']['outcome_uncertain']=True # retained if an unexpected wrapper failure interrupts
         report['language_step']=language_run(targets,process.pid,setup,authorized=True)
     def install(targets):
@@ -272,11 +277,15 @@ def observe(out_dir, seconds=150, advance_language=False, advance_install=False)
         while time.monotonic()-started<seconds:
             raw=snapshot(env)
             report['samples'].append(safe_snapshot(raw,round(time.monotonic()-started,2)))
-            if not report['gui_observations'] and time.monotonic()-started>=5:
+            if (poll.due(time.monotonic()-started,report['language_step']) if poll else (not report['gui_observations'] and time.monotonic()-started>=5)):
                 report['phase']='gui_inspection'
                 import native_gui
                 pids={p['pid'] for p in report['samples'][-1]['processes']}
-                report['gui_observations'].append(native_gui.inspect(pids,round(time.monotonic()-started,2),on_visible_targets=advance) if advance_language else native_gui.inspect(pids,round(time.monotonic()-started,2)))
+                gui=native_gui.inspect(pids,round(time.monotonic()-started,2),on_visible_targets=advance) if advance_language else native_gui.inspect(pids,round(time.monotonic()-started,2))
+                if poll:
+                    from language_poll import keep
+                    keep(report,gui)
+                else:report['gui_observations'].append(gui)
                 report['phase']='sampling'
             if advance_install and not install_checked and time.monotonic()-started>=30:
                 install_checked=True # One attempt only, including mismatch or uncertainty.

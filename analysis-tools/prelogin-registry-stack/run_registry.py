@@ -17,7 +17,7 @@ def baseline():
     return r
 
 def main():
-    if not(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_REGISTRY_TRACE')=='approved-registry-stack-a12c'):raise SystemExit('fresh_hosted_once_required')
+    if not(sys.platform=='win32' and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_REGISTRY_TRACE')=='approved-registry-stack-a12d'):raise SystemExit('fresh_hosted_once_required')
     r=blank(os.environ['GITHUB_SHA'],os.environ['GITHUB_RUN_ID']);out=Path('output');out.mkdir(exist_ok=True)
     import run_lifecycle as lifecycle,trace_manager
     old_first=lifecycle.first.Manager;old_second=lifecycle.Manager;old_tracking=lifecycle.Tracking;old_flag=os.environ.get('BNET_HOST_LIFECYCLE');trackers=[]
@@ -25,6 +25,16 @@ def main():
         def __init__(self,delegate):super().__init__(delegate);trackers.append(self)
     try:
         import frida,observe_agent as obs
+        from bootstrap_readiness import blank as blank_ready,fold
+        readiness=blank_ready(os.environ['GITHUB_SHA'],os.environ['GITHUB_RUN_ID'])
+        original_observe=obs.observe
+        def observe_ready(out_dir,seconds=90,advance_language=False,advance_install=False):
+            nonlocal readiness
+            if not advance_language or advance_install:raise RuntimeError('readiness_scope')
+            base=original_observe(out_dir,150,advance_language=True,advance_install=False,retry_language_when_no_target=True)
+            readiness=fold(base,os.environ['GITHUB_SHA'],os.environ['GITHUB_RUN_ID'])
+            return base
+        obs.observe=observe_ready
         if frida.__version__!='17.24.2':raise RuntimeError('frida')
         from native_gate import fixture
         env=obs.clean_environment(os.environ)
@@ -53,6 +63,10 @@ def main():
             r['successful_matching_write_observed']=any(x['operation']=='write' and x['status']==0 and x['equals_wire_host_id'] for p in r['phases'] for x in p['records'])
     except Exception:r['status']='stopped'
     finally:
+        if 'original_observe' in locals():
+            obs.observe=original_observe
+            from bootstrap_readiness import validate as validate_ready
+            validate_ready(readiness);(out/'prelogin-bootstrap-readiness.json').write_text(json.dumps(readiness,indent=2)+'\n')
         lifecycle.first.Manager=old_first;lifecycle.Manager=old_second;lifecycle.Tracking=old_tracking
         if old_flag is None:os.environ.pop('BNET_HOST_LIFECYCLE',None)
         else:os.environ['BNET_HOST_LIFECYCLE']=old_flag

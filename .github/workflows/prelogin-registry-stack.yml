@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved registry stack a12c'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved registry stack a12d'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved registry stack a12c'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved registry stack a12d'
     runs-on: windows-2025
     timeout-minutes: 22
     permissions:
@@ -67,8 +67,15 @@ jobs:
         id: observation
         timeout-minutes: 14
         env:
-          BNET_REGISTRY_TRACE: approved-registry-stack-a12c
+          BNET_REGISTRY_TRACE: approved-registry-stack-a12d
         run: python analysis-tools/prelogin-registry-stack/run_registry.py
+      - name: Validate allowlisted bootstrap readiness only
+        if: always()
+        run: |
+          if (Test-Path output/prelogin-bootstrap-readiness.json) {
+            python analysis-tools/prelogin-registry-stack/bootstrap_readiness.py output/prelogin-bootstrap-readiness.json sanitized/prelogin-bootstrap-readiness.json
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
       - name: Strictly validate fixed-key registry summary
         id: sanitize
         if: always()
@@ -130,6 +137,7 @@ jobs:
           if [ -f incoming/prelogin-host-lifecycle.json ]; then python analysis-tools/prelogin-host-lifecycle/validate_lifecycle.py incoming/prelogin-host-lifecycle.json reports/prelogin-host-lifecycle-runtime.json; fi
           if [ -f incoming/prelogin-host-lifecycle-first-phase.json ]; then python analysis-tools/prelogin-wire-h3/target_validate.py incoming/prelogin-host-lifecycle-first-phase.json reports/prelogin-host-lifecycle-first-phase-runtime.json; fi
           if [ -f incoming/prelogin-registry-stack-runtime.json ]; then python analysis-tools/prelogin-registry-stack/validate_registry.py incoming/prelogin-registry-stack-runtime.json reports/prelogin-registry-stack-runtime.json; fi
+          if [ -f incoming/prelogin-bootstrap-readiness.json ]; then python analysis-tools/prelogin-registry-stack/bootstrap_readiness.py incoming/prelogin-bootstrap-readiness.json reports/prelogin-bootstrap-readiness.json; fi
           python3 - <<'PY'
           import json,os,sys
           from pathlib import Path
@@ -143,10 +151,15 @@ jobs:
           if p.exists():
            data=json.loads(p.read_text())
            if data['source_commit']!=os.environ['SOURCE'] or data['run_id']!=os.environ['RUN']:raise SystemExit('source_mismatch')
+          q=Path('incoming/prelogin-bootstrap-readiness.json')
+          if q.exists():
+           d=json.loads(q.read_text())
+           if d['source_commit']!=os.environ['SOURCE'] or d['run_id']!=os.environ['RUN']:raise SystemExit('readiness_identity_mismatch')
           PY
           git config user.name prelogin-wire-report
           git config user.email prelogin-wire-report@users.noreply.github.com
           git add -- reports/prelogin-registry-stack-ci.json
+          if test -f incoming/prelogin-bootstrap-readiness.json; then git add -- reports/prelogin-bootstrap-readiness.json; fi
           if test -f incoming/prelogin-registry-stack-runtime.json; then git add -- reports/prelogin-registry-stack-runtime.json; fi
           for p in reports/prelogin-host-lifecycle-runtime.json reports/prelogin-host-lifecycle-first-phase-runtime.json; do if test -f "$p"; then git add -- "$p"; fi; done
           git diff --cached --quiet && exit 0
