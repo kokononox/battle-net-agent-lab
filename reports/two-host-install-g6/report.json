@@ -1,0 +1,92 @@
+{
+  "schema": "bnet-two-hosts-protocol-g6-1",
+  "source_commit": "2d7614fbb7f9f9164d7f8f6efb1fcce20c474c6d",
+  "run_id": "40162894766",
+  "allowed_hosts": [
+    "level3.blizzard.com",
+    "us.version.battle.net"
+  ],
+  "installer_launched": false,
+  "policy_changed": false,
+  "tls_certificates_changed": false,
+  "raw_response_exported": false,
+  "probes": [
+    {
+      "host": "level3.blizzard.com",
+      "port": 80,
+      "fixture": "http_root",
+      "connected": true,
+      "tls_verified": false,
+      "response_kind": "http",
+      "http_status": 403,
+      "received_bytes": 1034,
+      "error_code": null
+    },
+    {
+      "host": "level3.blizzard.com",
+      "port": 443,
+      "fixture": "https_root",
+      "connected": true,
+      "tls_verified": true,
+      "response_kind": "http",
+      "http_status": 403,
+      "received_bytes": 620,
+      "error_code": null
+    },
+    {
+      "host": "us.version.battle.net",
+      "port": 80,
+      "fixture": "http_root",
+      "connected": true,
+      "tls_verified": false,
+      "response_kind": "none",
+      "http_status": null,
+      "received_bytes": 0,
+      "error_code": null
+    },
+    {
+      "host": "us.version.battle.net",
+      "port": 443,
+      "fixture": "https_root",
+      "connected": true,
+      "tls_verified": true,
+      "response_kind": "http",
+      "http_status": 404,
+      "received_bytes": 333,
+      "error_code": null
+    },
+    {
+      "host": "us.version.battle.net",
+      "port": 80,
+      "fixture": "http_agent_versions",
+      "connected": true,
+      "tls_verified": false,
+      "response_kind": "none",
+      "http_status": null,
+      "received_bytes": 0,
+      "error_code": null
+    },
+    {
+      "host": "us.version.battle.net",
+      "port": 1119,
+      "fixture": "http_agent_versions_1119",
+      "connected": true,
+      "tls_verified": false,
+      "response_kind": "http",
+      "http_status": 200,
+      "received_bytes": 1044,
+      "error_code": null
+    },
+    {
+      "host": "us.version.battle.net",
+      "port": 1119,
+      "fixture": "ribbit_agent_versions",
+      "connected": true,
+      "tls_verified": false,
+      "response_kind": "http",
+      "http_status": 400,
+      "received_bytes": 179,
+      "error_code": null
+    }
+  ]
+}

@@ -19,10 +19,21 @@ function Verify-Gate {
  $proxy=@($allows | Where-Object {$_.DisplayName -eq 'BNet G1 proxy outbound'})
  if($proxy.Count -ne 1){throw 'proxy_rule_missing'}
  if((($proxy | Get-NetFirewallApplicationFilter).Program) -ne $ProxyExe){throw 'proxy_program_mismatch'}
+ $version=@($allows | Where-Object {$_.DisplayName -eq 'BNet version HTTP outbound'})
+ if($version.Count -ne 1 -or (($version | Get-NetFirewallApplicationFilter).Program) -ne $ProxyExe){throw 'version_proxy_rule_missing'}
+ foreach($rule in @($proxy)+@($version)){
+  $pf=$rule | Get-NetFirewallPortFilter
+  if($rule.Direction -ne 'Outbound' -or $pf.Protocol -ne 'TCP'){throw 'proxy_rule_protocol_mismatch'}
+ }
+ if(((@(($proxy | Get-NetFirewallPortFilter).RemotePort) | Sort-Object) -join ',') -ne '443,80'){throw 'proxy_rule_ports_mismatch'}
+ if([string](($version | Get-NetFirewallPortFilter).RemotePort) -ne '1119'){throw 'version_rule_port_mismatch'}
  $cfg=Get-Content -Raw $Config | ConvertFrom-Json
  $expected=@($cfg.hosts.'us.version.battle.net')+@($cfg.hosts.'level3.blizzard.com') | Sort-Object -Unique
  $actual=@(($proxy | Get-NetFirewallAddressFilter).RemoteAddress) | Sort-Object -Unique
  if(($expected -join ',') -ne ($actual -join ',')){throw 'proxy_remote_address_mismatch'}
+ $versionExpected=@($cfg.hosts.'us.version.battle.net') | Sort-Object -Unique
+ $versionActual=@(($version | Get-NetFirewallAddressFilter).RemoteAddress) | Sort-Object -Unique
+ if(($versionExpected -join ',') -ne ($versionActual -join ',')){throw 'version_remote_address_mismatch'}
  return @{verified=$true;enabled_allow_rules=$allows.Count;management_rules=@($allows | Where-Object {$_.DisplayName -like 'BNet G1 management *'}).Count;profiles=3}
 }
 try {
@@ -69,6 +80,7 @@ if($LASTEXITCODE -eq 0){'watchdog_imported' | Set-Content $Marker}
   Get-NetFirewallRule -PolicyStore PersistentStore -Enabled True -Action Allow | Disable-NetFirewallRule
   Set-NetFirewallProfile -Profile Domain,Private,Public -Enabled True -DefaultOutboundAction Block -DefaultInboundAction Block -AllowLocalFirewallRules True -DisabledInterfaceAliases @()
   $null=New-NetFirewallRule -DisplayName 'BNet G1 proxy outbound' -Group $group -Direction Outbound -Action Allow -Enabled True -Profile Any -Program $ProxyExe -Protocol TCP -RemoteAddress $ips -RemotePort 80,443
+  $null=New-NetFirewallRule -DisplayName 'BNet version HTTP outbound' -Group $group -Direction Outbound -Action Allow -Enabled True -Profile Any -Program $ProxyExe -Protocol TCP -RemoteAddress @($cfg.hosts.'us.version.battle.net') -RemotePort 1119
   $saved=Get-Content -Raw $state | ConvertFrom-Json
   foreach($path in @($saved.management_paths)){
    $null=New-NetFirewallRule -DisplayName ('BNet G1 management '+[IO.Path]::GetFileName($path)) -Group $group -Direction Outbound -Action Allow -Enabled True -Profile Any -Program $path

@@ -6,7 +6,7 @@ import hashlib,ipaddress,json,os,re,socket,ssl,subprocess,sys,tempfile,time
 from pathlib import Path
 from domain_proxy import HOSTS,validated_config
 from redirect_hosts import Redirect
-APPROVAL='lab: approved two-host egress qualification G5 20261025'
+APPROVAL='lab: approved two-host egress qualification G7 20261025'
 BRANCH='research/battlenet-minimal-install-isolation-2026-10-25'
 
 def authorized(e,p):
@@ -36,11 +36,11 @@ def main():
  if not authorized(os.environ,sys.platform):raise SystemExit('approved_fresh_hosted_qualification_required')
  base=Path(__file__).resolve().parent;repo=base.parents[1];sys.path.insert(0,str(repo/'scripts'));import observe_agent as obs
  env=obs.clean_environment(os.environ);ps=Path(os.environ['SystemRoot'])/'System32/WindowsPowerShell/v1.0/powershell.exe'
- r=dict(schema='bnet-two-hosts-g5-1',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],allowed_hosts=sorted(HOSTS),installer_launched=False,status='stopped',stage='prepare',firewall_prepared=False,firewall_applied=False,firewall_verified=False,firewall_restored=False,management_exception_scope='runner_listener_worker_only_not_target_installers',proxy_binary_sha256=None,baseline_direct={},direct_denied={},http_allowed={},other_authority_denied=False,wrong_sni_denied=False,proxy_log_counts={},tls_certificates_changed=False,raw_state_exported=False,all_traffic_blocked_proven=False,error_code=None)
- r.update(hosts_steered=False,hosts_restored=False,proxy_before_firewall={},http_probe_kinds={},ipv6_loopback_http={},tls_end_to_end_verified=False,listener_bind_probes={},proxy_exit_code=None,proxy_start_error_kind=None)
+ r=dict(schema='bnet-two-hosts-g7-1',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],allowed_hosts=sorted(HOSTS),installer_launched=False,status='stopped',stage='prepare',firewall_prepared=False,firewall_applied=False,firewall_verified=False,firewall_restored=False,management_exception_scope='runner_listener_worker_only_not_target_installers',proxy_binary_sha256=None,baseline_direct={},direct_denied={},http_allowed={},other_authority_denied=False,wrong_sni_denied=False,proxy_log_counts={},tls_certificates_changed=False,raw_state_exported=False,all_traffic_blocked_proven=False,error_code=None)
+ r.update(hosts_steered=False,hosts_restored=False,proxy_before_firewall={},http_probe_kinds={},ipv6_loopback_http={},tls_end_to_end_verified=False,listener_bind_probes={},proxy_exit_code=None,proxy_start_error_kind=None,tls_by_host={},baseline_direct_tls={},direct_tls_denied={},http_status_by_host={})
  def write():
-  out=Path('output/two-hosts-g5.json');out.parent.mkdir(exist_ok=True);out.write_text(json.dumps(r,indent=2)+'\n',encoding='utf-8')
- with tempfile.TemporaryDirectory(prefix='bnet-two-hosts-g5-',dir=os.environ['RUNNER_TEMP'],ignore_cleanup_errors=True) as tmp:
+  out=Path('output/two-hosts-g7.json');out.parent.mkdir(exist_ok=True);out.write_text(json.dumps(r,indent=2)+'\n',encoding='utf-8')
+ with tempfile.TemporaryDirectory(prefix='bnet-two-hosts-g7-',dir=os.environ['RUNNER_TEMP'],ignore_cleanup_errors=True) as tmp:
   work=Path(tmp);config=work/'proxy.json';log=work/'proxy-private.jsonl';proxy=None;prepared=False;redirect=Redirect(work,env)
   exe=base/'dist/TwoHostProxy.exe';startup_error=work/'proxy-stderr.private.txt';error_stream=None
   def gate(action):
@@ -52,7 +52,7 @@ def main():
    return v
   try:
    for ip,family in [('127.0.0.1',socket.AF_INET),('::1',socket.AF_INET6)]:
-    for port_probe in [80,443]:
+    for port_probe in [80,443,1119]:
      probe_socket=socket.socket(family,socket.SOCK_STREAM)
      try:
       probe_socket.bind((ip,port_probe));code=None
@@ -62,9 +62,10 @@ def main():
    if not exe.is_file():raise ValueError('proxy_binary_missing')
    r['proxy_binary_sha256']=hashlib.sha256(exe.read_bytes()).hexdigest()
    pins={host:public_ips(host) for host in HOSTS};negative=public_ips('example.com')[0]
-   baseline={h:next((ip for ip in pins[h] if connect(ip,80)),None) for h in HOSTS}
+   baseline={h:next((ip for ip in pins[h] if connect(ip,1119 if h=='us.version.battle.net' else 80)),None) for h in HOSTS}
    r['baseline_direct']={h:ip is not None for h,ip in baseline.items()};r['baseline_direct']['negative_fixture']=connect(negative,443)
-   if not all(r['baseline_direct'].values()):raise ValueError('network_baseline_not_healthy')
+   r['baseline_direct_tls']={h:connect(ip,443) for h,ip in baseline.items() if ip is not None}
+   if not all(r['baseline_direct'].values()) or not all(r['baseline_direct_tls'].values()):raise ValueError('network_baseline_not_healthy')
    # A fixed loopback port is tested before any firewall change.
    port=80;cfg=validated_config(dict(hosts=pins,port=18731,seconds=150,log=str(log),transparent=True));config.write_text(json.dumps(cfg),encoding='utf-8')
    error_stream=startup_error.open('wb')
@@ -77,7 +78,8 @@ def main():
    else:raise ValueError('proxy_ready_timeout')
    for host in sorted(HOSTS):
     path='/agent/versions' if host=='us.version.battle.net' else '/'
-    head,_=request(port,('GET http://'+host+path+' HTTP/1.1\r\nHost: '+host+'\r\nConnection: close\r\n\r\n').encode())
+    target_port=1119 if host=='us.version.battle.net' else 80;host_header=host+(':1119' if target_port==1119 else '')
+    head,_=request(target_port,('GET '+path+' HTTP/1.1\r\nHost: '+host_header+'\r\nConnection: close\r\n\r\n').encode())
     r['proxy_before_firewall'][host]=bool(re.match(rb'HTTP/1\.[01] [1-5][0-9][0-9]',head) and not head.startswith(b'HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 0'))
    if not all(r['proxy_before_firewall'].values()):raise ValueError('proxy_http_fixture_not_healthy_before_firewall')
    redirect.prepare()
@@ -86,22 +88,33 @@ def main():
    r['stage']='apply';result=gate('Apply');r['firewall_applied']=result.get('verified') is True;write()
    if not r['firewall_applied']:raise ValueError('firewall_not_applied')
    r['stage']='probe'
-   r['direct_denied']={h:not connect(ip,80) for h,ip in baseline.items()};r['direct_denied']['negative_fixture']=not connect(negative,443)
+   r['direct_denied']={h:not connect(ip,1119 if h=='us.version.battle.net' else 80) for h,ip in baseline.items()};r['direct_denied']['negative_fixture']=not connect(negative,443)
    for host in sorted(HOSTS):
     path='/agent/versions' if host=='us.version.battle.net' else '/'
-    wire=('GET '+path+' HTTP/1.1\r\nHost: '+host+'\r\nConnection: close\r\n\r\n').encode()
-    head,_=request(port,wire,addr=host)
+    target_port=1119 if host=='us.version.battle.net' else 80;host_header=host+(':1119' if target_port==1119 else '')
+    wire=('GET '+path+' HTTP/1.1\r\nHost: '+host_header+'\r\nConnection: close\r\n\r\n').encode()
+    head,_=request(target_port,wire,addr=host)
     good=bool(re.match(rb'HTTP/1\.[01] [1-5][0-9][0-9]',head) and not head.startswith(b'HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 0'))
+    r['http_status_by_host'][host]=int(head.split(b' ')[1]) if re.match(rb'HTTP/1\.[01] [1-5][0-9][0-9]',head) else None
+    if host=='us.version.battle.net':good=good and r['http_status_by_host'][host]==200
     r['http_allowed'][host]=good;r['http_probe_kinds'][host]='http_response' if good else 'no_usable_http_response'
-    head6,_=request(port,wire,addr='::1')
+    head6,_=request(target_port,wire,addr='::1')
     r['ipv6_loopback_http'][host]=bool(re.match(rb'HTTP/1\.[01] [1-5][0-9][0-9]',head6) and not head6.startswith(b'HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 0'))
+   r['direct_tls_denied']={h:not connect(ip,443) for h,ip in baseline.items()}
+   for host in sorted(HOSTS):
+    try:
+     with socket.create_connection((host,443),timeout=5) as raw_socket:
+      with ssl.create_default_context().wrap_socket(raw_socket,server_hostname=host) as secure:
+       r['tls_by_host'][host]=bool(secure.getpeercert())
+    except (OSError,ssl.SSLError):r['tls_by_host'][host]=False
+   r['tls_end_to_end_verified']=len(r['tls_by_host'])==2 and all(r['tls_by_host'].values())
    head,_=request(port,b'HEAD http://example.com/ HTTP/1.1\r\nHost: example.com\r\n\r\n');r['other_authority_denied']=head.startswith(b'HTTP/1.1 403')
    incoming,outgoing=ssl.MemoryBIO(),ssl.MemoryBIO();tls=ssl.create_default_context().wrap_bio(incoming,outgoing,server_hostname='example.com')
    try:tls.do_handshake()
    except ssl.SSLWantReadError:pass
    head,tail=request(port,b'CONNECT us.version.battle.net:443 HTTP/1.1\r\nHost: us.version.battle.net:443\r\n\r\n',outgoing.read());r['wrong_sni_denied']=head.startswith(b'HTTP/1.1 200') and (not tail or tail.startswith(b'HTTP/1.1 403'))
    r['stage']='verify';r['firewall_verified']=gate('Verify').get('verified') is True
-   if all(r['direct_denied'].values()) and all(r['http_allowed'].values()) and r['other_authority_denied'] and r['wrong_sni_denied'] and r['firewall_verified'] and r['hosts_steered'] and all(r['ipv6_loopback_http'].values()):r['status']='qualified_transparent_http_and_ipv4_gate'
+   if all(r['direct_denied'].values()) and all(r['http_allowed'].values()) and r['other_authority_denied'] and r['wrong_sni_denied'] and r['firewall_verified'] and r['hosts_steered'] and all(r['ipv6_loopback_http'].values()) and all(r['direct_tls_denied'].values()) and r['tls_end_to_end_verified']:r['status']='qualified_two_host_http_tls_ipv4_gate'
    else:r['error_code']='qualification_probe_failed'
   except Exception as exc:
    text=str(exc);r['error_code']=text if type(exc) is ValueError and re.fullmatch('[a-z_]{1,80}',text) else 'qualification_operation_failed'
@@ -131,7 +144,7 @@ def main():
      k=x.get('kind','')+':'+x.get('reason','')
      if re.fullmatch('[a-z_:]{1,130}',k):counts[k]=counts.get(k,0)+1
     r['proxy_log_counts']=counts
-    if r['status']=='qualified_transparent_http_and_ipv4_gate' and not counts.get('refused_or_failed:tls_sni_rejected'):
+    if r['status']=='qualified_two_host_http_tls_ipv4_gate' and not counts.get('refused_or_failed:tls_sni_rejected'):
      r['status']='stopped';r['error_code']='wrong_sni_refusal_not_confirmed'
    r['stage']='complete';write();print(json.dumps(dict(status=r['status'],error_code=r['error_code'],firewall_restored=r['firewall_restored'])))
 if __name__=='__main__':main()

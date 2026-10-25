@@ -125,7 +125,7 @@ def relay(a,b):
 
 class Handler(socketserver.BaseRequestHandler):
  def handle(self):
-  config=self.server.config;host='other';method='';upstream=None
+  config=self.server.config;host='other';method='';upstream=None;destination_port=getattr(self.server,'destination_port',80)
   if not LIMIT.acquire(False):return
   try:
    self.request.settimeout(10);request,fields=header(self.request);method,target,_=request
@@ -145,8 +145,9 @@ class Handler(socketserver.BaseRequestHandler):
      target='http://'+hosts[0]+target
     u=urlsplit(target)
     if u.scheme!='http' or u.username is not None or u.password is not None or u.fragment:raise ValueError('http_url_rejected')
-    host=authority(u.netloc,80)
-    if authority(hosts[0],80)!=host:raise ValueError('http_host_mismatch')
+    host=authority(u.netloc,destination_port)
+    if destination_port==1119 and host!='us.version.battle.net':raise ValueError('http_host_port_rejected')
+    if authority(hosts[0],destination_port)!=host:raise ValueError('http_host_mismatch')
     if any(k=='transfer-encoding' for k,v in fields):raise ValueError('http_transfer_encoding_refused')
     sizes=[v for k,v in fields if k=='content-length']
     if len(sizes)>1 or sizes and not sizes[0].isdigit():raise ValueError('http_body_rejected')
@@ -155,8 +156,8 @@ class Handler(socketserver.BaseRequestHandler):
     body=exact(self.request,length);path=(u.path or '/')+('?' + u.query if u.query else '')
     if any(c in path for c in '\r\n\x00'):raise ValueError('http_url_rejected')
     forwarded=[(k,v) for k,v in fields if k not in {'host','proxy-connection','connection','proxy-authorization'}]
-    wire=(method+' '+path+' HTTP/1.1\r\nHost: '+host+'\r\nConnection: close\r\n'+''.join(k+': '+v+'\r\n' for k,v in forwarded)+'\r\n').encode('iso-8859-1')+body
-    log(config,'http_host_allowed',host,method);upstream=connect(config,host,80);upstream.sendall(wire)
+    wire=(method+' '+path+' HTTP/1.1\r\nHost: '+host+(':'+str(destination_port) if destination_port!=80 else '')+'\r\nConnection: close\r\n'+''.join(k+': '+v+'\r\n' for k,v in forwarded)+'\r\n').encode('iso-8859-1')+body
+    log(config,'http_host_allowed',host,method);upstream=connect(config,host,destination_port);upstream.sendall(wire)
     total=0;deadline=time.monotonic()+120
     while time.monotonic()<deadline:
      data=upstream.recv(65536)
@@ -204,15 +205,15 @@ def main():
  try:
   bindings=[(Server,'127.0.0.1',config['port'],Handler,False)]
   if config.get('transparent',False):
-   bindings=[(cls,ip,port,handler,port==80) for cls,ip in [(Server,'127.0.0.1'),(IPv6Server,'::1')] for port,handler in [(80,Handler),(443,TransparentTLSHandler)]]
+   bindings=[(cls,ip,port,handler,port in {80,1119}) for cls,ip in [(Server,'127.0.0.1'),(IPv6Server,'::1')] for port,handler in [(80,Handler),(443,TransparentTLSHandler),(1119,Handler)]]
   for cls,ip,port,handler,transparent_http in bindings:
    try:server=cls((ip,port),handler)
    except OSError as exc:
     code=getattr(exc,'winerror',None) or exc.errno
     kind='in_use' if code in {10048,98} else 'access_denied' if code in {10013,13} else 'unavailable' if code in {10049,99} else 'os_error'
-    log(config,'proxy_start_failed',reason=('ipv6_' if cls is IPv6Server else 'ipv4_')+('http_' if port==80 else 'tls_' if port==443 else 'explicit_')+kind)
+    log(config,'proxy_start_failed',reason=('ipv6_' if cls is IPv6Server else 'ipv4_')+('http_' if port==80 else 'tls_' if port==443 else 'version_http_' if port==1119 else 'explicit_')+kind)
     raise
-   server.config=config;server.transparent_http=transparent_http;servers.append(server)
+   server.config=config;server.transparent_http=transparent_http;server.destination_port=port if transparent_http else 80;servers.append(server)
    threading.Thread(target=server.serve_forever,daemon=True).start()
   log(config,'proxy_ready');time.sleep(config['seconds'])
  finally:
