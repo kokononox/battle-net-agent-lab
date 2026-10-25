@@ -27,7 +27,7 @@ def summarize(inputs,source,run):
  for r in records.values():
   candidates=[b for b in r['client_binaries'] if b['kind']=='client' and b['signature_accepted']]
   cohort.append(candidates[0]['sha256'] if len(candidates)==1 else None)
- manifest=dict(schema='bnet-minimal-install-c1-batch-1',case=CASE,source_commit=source,run_id=run,expected_replicas=sorted(REPLICAS),received_replicas=sorted(records),missing_replicas=missing,rejected_replicas=rejected,status_counts=status_counts,all_six_target_windows_overlap=overlap is not None and overlap>0,common_overlap_seconds=overlap,same_signed_client_hash_across_all_six=len(cohort)==len(REPLICAS) and None not in cohort and len(set(cohort))==1,intervention='six_case_hosts_dependency_probe',necessity_tested=False,telemetry_blocked=False,replicas=[dict(replica=k,experiment_label=r['experiment_label'],hosts=r['hosts'],intervention=r['intervention'],status=r['status'],started_at=r['started_at'],ended_at=r['ended_at'],registry_version_state=r['registry_version_state'],installation_gate=r['installation_gate'],binary_probe_counts=r['binary_probe_counts'],binary_probe_failures=r['binary_probe_failures'],snapshot_errors=r['snapshot_errors'],gui_errors=r['gui_errors'],install_checks=r['install_checks'],client_binaries=r['client_binaries'],ui_signal_seen=r['ui_signal_seen'],error_code=r['error_code']) for k,r in sorted(records.items())])
+ manifest=dict(schema='bnet-minimal-install-c1b-batch-1',case=CASE,source_commit=source,run_id=run,expected_replicas=sorted(REPLICAS),received_replicas=sorted(records),missing_replicas=missing,rejected_replicas=rejected,status_counts=status_counts,all_six_target_windows_overlap=overlap is not None and overlap>0,common_overlap_seconds=overlap,same_signed_client_hash_across_all_six=len(cohort)==len(REPLICAS) and None not in cohort and len(set(cohort))==1,intervention='six_case_hosts_dependency_probe',necessity_tested=False,telemetry_blocked=False,replicas=[dict(replica=k,experiment_label=r['experiment_label'],hosts=r['hosts'],intervention=r['intervention'],status=r['status'],started_at=r['started_at'],ended_at=r['ended_at'],registry_version_state=r['registry_version_state'],installation_gate=r['installation_gate'],binary_probe_counts=r['binary_probe_counts'],binary_probe_failures=r['binary_probe_failures'],snapshot_errors=r['snapshot_errors'],gui_errors=r['gui_errors'],install_checks=r['install_checks'],client_binaries=r['client_binaries'],ui_signal_seen=r['ui_signal_seen'],error_code=r['error_code']) for k,r in sorted(records.items())])
  manifest['control_gate_pass_count']=sum(r['status']=='installed_by_defined_gate' for k,r in records.items() if POLICIES[k][1] is None)
  events=[(a,1) for a,b in windows]+[(b,-1) for a,b in windows];active=peak=0
  for stamp,delta in sorted(events):active+=delta;peak=max(peak,active)
@@ -36,9 +36,9 @@ def summarize(inputs,source,run):
  return records,manifest
 
 def main():
- inputs={k:(Path('sanitized')/('minimal-install-c1-'+k+'.json')).read_bytes() for k in REPLICAS if (Path('sanitized')/('minimal-install-c1-'+k+'.json')).is_file()}
+ inputs={k:(Path('sanitized')/('minimal-install-c1b-'+k+'.json')).read_bytes() for k in REPLICAS if (Path('sanitized')/('minimal-install-c1b-'+k+'.json')).is_file()}
  records,manifest=summarize(inputs,os.environ['EXPECTED_SOURCE'],os.environ['GITHUB_RUN_ID'])
- folder=Path('reports/minimal-install-c1');folder.mkdir(parents=True,exist_ok=True)
+ folder=Path('reports/minimal-install-c1b');folder.mkdir(parents=True,exist_ok=True)
  # Publish only this batch, never leave a stale report that could impersonate a missing replica.
  for k in REPLICAS:
   destination=folder/(k+'.json')

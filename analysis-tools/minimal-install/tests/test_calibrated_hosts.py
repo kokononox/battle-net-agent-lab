@@ -93,3 +93,30 @@ class QualificationTests(unittest.TestCase):
    for field in ['installer_launched','all_traffic_blocked_proven']:
     bad=copy.deepcopy(report);bad[field]=True
     with self.assertRaises(ValueError):q.validate(bad)
+
+class AdapterTests(unittest.TestCase):
+ def test_summary_crossfoot_including_failure(self):
+  from hosts_experiment import CalibratedAdapter
+  from experiment_policy import hosts_blank
+  with tempfile.TemporaryDirectory() as d:
+   path,c,x=CalibratedTests().setup_case(d);r=hosts_blank('r3');r['calibration']=c;adapter=CalibratedAdapter(x,r)
+   adapter.apply();self.assertTrue(r['resolver_verified']);self.assertEqual(r['verification_checks'],1)
+   path.write_bytes(b'# conflict');self.assertFalse(adapter.check());self.assertFalse(r['resolver_verified']);self.assertEqual(r['verification_failures'],1);self.assertFalse(adapter.restore())
+ def test_new_install_requires_calibration(self):
+  from test_model import Gates
+  from model import validate
+  r=Gates().success('r3');r['hosts']['calibration']=None
+  with self.assertRaisesRegex(ValueError,'calibration_required'):validate(r)
+ def test_false_calibration_summary_rejected(self):
+  from test_model import Gates
+  from model import validate
+  r=Gates().success('r3');r['hosts']['calibration']['checks'][0]['accepted']=False
+  with self.assertRaises(ValueError):validate(r)
+ def test_control_factory_is_noop(self):
+  from hosts_experiment import for_runner
+  from test_model import Gates
+  from experiment_policy import hosts_blank
+  from unittest.mock import patch
+  from types import SimpleNamespace
+  with patch.dict(os.environ,dict(Gates().env(),SystemRoot='X:/unused'),clear=True),patch('hosts_experiment.sys.platform','win32'):
+   r=hosts_blank('r1');x=for_runner('/unused',r,{},SimpleNamespace(is_reparse=Mock(side_effect=AssertionError('control touched disk'))));x.apply();self.assertTrue(x.check());self.assertTrue(x.restore());self.assertIsNone(r['calibration'])

@@ -19,5 +19,5 @@ def main():
  if r['replica']!=os.environ['BNET_REPLICA']:raise ValueError('unexpected_replica')
  if r['status'] not in ('stopped','bounded_install_not_verified','installed_by_defined_gate') or (r['target_launched'] and r['ended_at'] is None):raise ValueError('unfinished_report')
  destination.parent.mkdir(parents=True,exist_ok=True);destination.write_text(json.dumps(r,indent=2)+'\n',encoding='utf-8')
- print('Validated bounded sanitized C0 report')
+ print('Validated bounded sanitized C1b report')
 if __name__=='__main__':main()

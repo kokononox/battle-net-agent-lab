@@ -8,7 +8,7 @@ from binary_observer import BinaryObserver
 from datetime import datetime,timezone
 def utc_now():return datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 BASE=Path(__file__).resolve().parents[2]
-OUT=Path('output')/('minimal-install-c1-'+(os.environ.get('BNET_REPLICA') if os.environ.get('BNET_REPLICA') in REPLICAS else 'invalid')+'.json')
+OUT=Path('output')/('minimal-install-c1b-'+(os.environ.get('BNET_REPLICA') if os.environ.get('BNET_REPLICA') in REPLICAS else 'invalid')+'.json')
 def write(r):
  validate(r);OUT.parent.mkdir(exist_ok=True);data=json.dumps(r,ensure_ascii=False,indent=2).encode();assert len(data)<=1048576
  tmp=OUT.with_suffix('.tmp');tmp.write_bytes(data);os.replace(tmp,OUT)

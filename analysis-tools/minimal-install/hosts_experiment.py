@@ -70,4 +70,26 @@ def for_runner(work,record,env,obs):
  if not authorized(os.environ,sys.platform):raise ValueError('hosts_approved_hosted_case_required')
  root=Path(os.environ['SystemRoot']);path=root/'System32'/'drivers'/'etc'/'hosts'
  def ordinary(candidate):return not any(obs.is_reparse(p) for p in (root,root/'System32',root/'System32'/'drivers',path.parent,candidate))
- return HostsExperiment(path,work,record,env,safe_path=ordinary)
+ if record['domain'] is None:return HostsExperiment(path,work,record,env,safe_path=ordinary)
+ from calibrated_hosts import CalibratedHosts,blank as calibrated_blank
+ record['calibration']=calibrated_blank(record['domain'])
+ return CalibratedAdapter(CalibratedHosts(path,work,record['calibration'],env,safe=ordinary),record)
+
+class CalibratedAdapter:
+ """Bridge the qualified v2 evidence to C1b's explicit legacy summary fields."""
+ def __init__(self,experiment,record):self.experiment=experiment;self.record=record
+ @property
+ def touched(self):return self.experiment.touched
+ def sync(self):
+  c=self.experiment.r;r=self.record
+  for k in ('backup_created','override_written','flush_exit_code','restore_flush_exit_code','restore_attempted','restored'):r[k]=c[k]
+  r['verification_checks']=len(c['checks']);r['verification_failures']=c['verification_failures'];r['resolver_verified']=bool(c['checks'] and not c['verification_failures'] and all(x['accepted'] for x in c['checks']))
+ def apply(self):
+  try:return self.experiment.apply()
+  finally:self.sync()
+ def check(self):
+  try:return self.experiment.check()
+  finally:self.sync()
+ def restore(self):
+  try:return self.experiment.restore()
+  finally:self.sync()

@@ -29,7 +29,7 @@ class PublicationTests(unittest.TestCase):
             self.git(root, 'clone', '--branch', BRANCH, str(remote), str(newer))
             self.git(newer, 'config', 'user.name', 'test')
             self.git(newer, 'config', 'user.email', 'test@example.invalid')
-            report='reports/minimal-install-c1/batch.json'
+            report='reports/minimal-install-c1b/batch.json'
             (work/report).parent.mkdir(parents=True)
             (work/report).write_text('old-source report')
             self.git(work, 'add', '.')

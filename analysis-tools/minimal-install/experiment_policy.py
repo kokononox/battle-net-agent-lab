@@ -10,4 +10,4 @@ POLICIES={
 DOMAINS={domain for label,domain in POLICIES.values() if domain}
 def hosts_blank(replica):
  domain=POLICIES.get(replica,('',None))[1]
- return dict(domain=domain,scope='exact-hosts-os-resolver-only' if domain else 'none',backup_created=False,override_written=False,resolver_verified=False,verification_checks=0,verification_failures=0,flush_exit_code=None,restore_flush_exit_code=None,restore_attempted=False,restored=False)
+ return dict(domain=domain,scope='exact-hosts-os-resolver-only' if domain else 'none',backup_created=False,override_written=False,resolver_verified=False,verification_checks=0,verification_failures=0,flush_exit_code=None,restore_flush_exit_code=None,restore_attempted=False,restored=False,calibration=None)

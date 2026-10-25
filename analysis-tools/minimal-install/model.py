@@ -3,10 +3,10 @@ import re
 from experiment_policy import POLICIES,hosts_blank
 from signature_observation import STATUSES as PROBE_STATUSES
 BRANCH='research/battlenet-minimal-install-isolation-2026-10-25'
-APPROVAL='lab: approved minimal Battle.net install C0 20261025-s6a1'
+APPROVAL='lab: approved calibrated Battle.net install C1b 20261025-s6b1'
 SETUP_SHA='f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6'
 SETUP_BYTES=4700880
-CASE='C1-six-hosts-dependency-pilot'
+CASE='C1b-six-calibrated-hosts'
 REPLICAS=set(POLICIES)
 VERSION_STATES={'unobserved','missing','wrong_type','format_rejected','accepted'}
 BINARY_VERSION_STATES={'accepted','no_resource','native_error','invalid_fixed_info','unstable_file'}
@@ -24,10 +24,10 @@ def layout_ready(checks):
  # File-layout stability must not depend on an unrelated registry version field.
  return all(checks.get(k) is True for k in ('signed_launcher','signed_client'))
 def blank(env):
- return dict(schema='bnet-minimal-install-c1-1',case=CASE,experiment_label=POLICIES.get(env.get('BNET_REPLICA'),('',None))[0],hosts=hosts_blank(env.get('BNET_REPLICA')),installation_gate='signed_binary_version_v1',binary_probe_counts={},binary_probe_failures=[],last_sample_process_names=[],replica=env.get('BNET_REPLICA',''),started_at=None,ended_at=None,registry_version_state='unobserved',source_commit=env.get('GITHUB_SHA',''),run_id=env.get('GITHUB_RUN_ID',''),status='not_started',phase='guard',error_code=None,target_launched=False,installer={},native_ui_gate=False,language_attempted=False,install_attempted=False,language_status='not_attempted',install_status='not_attempted',samples=0,snapshot_errors=0,gui_errors=0,known_process_counts={},public_endpoints=[],endpoints_truncated=False,install_checks={k:False for k in sorted(CHECKS)},client_binaries=[],cleanup_attempted=False,observer_seconds=0,native_options_probes=0,native_options_last_status='not_attempted',ui_signal_seen={k:False for k in sorted(UI_KEYS)},ui_signal_last={k:False for k in sorted(UI_KEYS)},intervention='hosts_exact_domain_override' if POLICIES.get(env.get('BNET_REPLICA'),('',None))[1] else 'none',login_attempted=False,game_download_requested=False,raw_payloads_exported=False,all_processes_observed=False,all_network_observed=False,necessity_tested=False,telemetry_blocked=False)
+ return dict(schema='bnet-minimal-install-c1b-1',case=CASE,experiment_label=POLICIES.get(env.get('BNET_REPLICA'),('',None))[0],hosts=hosts_blank(env.get('BNET_REPLICA')),installation_gate='signed_binary_version_v1',binary_probe_counts={},binary_probe_failures=[],last_sample_process_names=[],replica=env.get('BNET_REPLICA',''),started_at=None,ended_at=None,registry_version_state='unobserved',source_commit=env.get('GITHUB_SHA',''),run_id=env.get('GITHUB_RUN_ID',''),status='not_started',phase='guard',error_code=None,target_launched=False,installer={},native_ui_gate=False,language_attempted=False,install_attempted=False,language_status='not_attempted',install_status='not_attempted',samples=0,snapshot_errors=0,gui_errors=0,known_process_counts={},public_endpoints=[],endpoints_truncated=False,install_checks={k:False for k in sorted(CHECKS)},client_binaries=[],cleanup_attempted=False,observer_seconds=0,native_options_probes=0,native_options_last_status='not_attempted',ui_signal_seen={k:False for k in sorted(UI_KEYS)},ui_signal_last={k:False for k in sorted(UI_KEYS)},intervention='hosts_exact_domain_override' if POLICIES.get(env.get('BNET_REPLICA'),('',None))[1] else 'none',login_attempted=False,game_download_requested=False,raw_payloads_exported=False,all_processes_observed=False,all_network_observed=False,necessity_tested=False,telemetry_blocked=False)
 def validate(v):
  expected=set(blank({}))
- if type(v) is not dict or set(v)!=expected or v['schema']!='bnet-minimal-install-c1-1' or v['case']!=CASE:raise ValueError('report_schema')
+ if type(v) is not dict or set(v)!=expected or v['schema']!='bnet-minimal-install-c1b-1' or v['case']!=CASE:raise ValueError('report_schema')
  if not re.fullmatch('[a-f0-9]{40}',v['source_commit']) or not re.fullmatch('[0-9]{1,30}',v['run_id']):raise ValueError('report_identity')
  if v['replica'] not in REPLICAS or v['registry_version_state'] not in VERSION_STATES:raise ValueError('replica_or_version_state')
  from datetime import datetime
@@ -63,6 +63,15 @@ def validate(v):
  for key in ('flush_exit_code','restore_flush_exit_code'):
   if h[key] is not None and (type(h[key]) is not int or not -2**31<=h[key]<2**31):raise ValueError('hosts_flush_code')
  if domain is None and h!=expected:raise ValueError('control_hosts_mutation')
+ if h['calibration'] is not None:
+  from calibrated_hosts import validate_record
+  c=validate_record(h['calibration'])
+  if c['domain']!=domain:raise ValueError('calibration_target')
+  for key in ('backup_created','override_written','flush_exit_code','restore_flush_exit_code','restore_attempted','restored'):
+   if h[key]!=c[key]:raise ValueError('calibration_summary')
+  if h['verification_checks']!=len(c['checks']) or h['verification_failures']!=c['verification_failures'] or h['resolver_verified']!=bool(c['checks'] and not c['verification_failures'] and all(x['accepted'] for x in c['checks'])):raise ValueError('calibration_summary_checks')
+ if domain and v['target_launched'] and h['calibration'] is None:raise ValueError('calibration_required_before_launch')
+
  if domain and v['target_launched'] and (not h['backup_created'] or not h['override_written'] or h['flush_exit_code']!=0 or h['verification_checks']<1):raise ValueError('hosts_launch_gate')
  if h['restored'] and (not h['restore_attempted'] or h['restore_flush_exit_code']!=0):raise ValueError('hosts_restore_evidence')
  if v['status']=='installed_by_defined_gate' and domain:

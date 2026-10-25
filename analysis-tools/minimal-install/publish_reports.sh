@@ -2,7 +2,7 @@
 # Publish a report-only commit without overwriting a newer research branch.
 set -euo pipefail
 branch='research/battlenet-minimal-install-isolation-2026-10-25'
-report_dir='reports/minimal-install-c1'
+report_dir='reports/minimal-install-c1b'
 if [[ -n "$(git status --porcelain)" ]]; then
   echo 'Refusing publication from a dirty worktree' >&2; exit 1
 fi

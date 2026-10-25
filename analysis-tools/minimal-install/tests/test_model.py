@@ -8,7 +8,12 @@ class Gates(unittest.TestCase):
  def report(self):return blank(self.env())
  def success(self,replica='r1'):
   r=blank(dict(self.env(),BNET_REPLICA=replica));
-  if POLICIES[replica][1]:r['hosts'].update(backup_created=True,override_written=True,resolver_verified=True,verification_checks=3,flush_exit_code=0,restore_flush_exit_code=0,restore_attempted=True,restored=True)
+  if POLICIES[replica][1]:
+   from calibrated_hosts import blank as cblank
+   from resolver_diagnostic import result,classify,FAMILIES
+   c=cblank(POLICIES[replica][1]);public={k:result('answers',counts=classify(['8.8.8.8'])) for k in FAMILIES};no_data={k:result('dns_error',11004) for k in FAMILIES}
+   c.update(backup_created=True,override_written=True,baseline=dict(target=copy.deepcopy(public),control=copy.deepcopy(public)),checks=[dict(observations=dict(target=copy.deepcopy(no_data),control=copy.deepcopy(public)),readback_verified=True,resolver_state='accepted_no_data',accepted=True) for _ in range(3)],flush_exit_code=0,restore_flush_exit_code=0,restore_attempted=True,file_restored=True,restored=True,restoration=dict(target=copy.deepcopy(public),control=copy.deepcopy(public)))
+   r['hosts'].update(backup_created=True,override_written=True,resolver_verified=True,verification_checks=3,flush_exit_code=0,restore_flush_exit_code=0,restore_attempted=True,restored=True,calibration=c)
   r.update(status='installed_by_defined_gate',phase='complete',target_launched=True,started_at='2026-10-25T02:00:00Z',ended_at='2026-10-25T02:01:00Z',registry_version_state='missing',last_sample_process_names=['battle.net.exe'],ui_signal_seen={k:(k=='account') for k in UI_KEYS},native_ui_gate=True,cleanup_attempted=True,samples=1,install_checks={k:True for k in CHECKS},installer=dict(sha256=SETUP_SHA,bytes=SETUP_BYTES,signature_accepted=True,matches_pin=True),client_binaries=[dict(kind=k,sha256='b'*64,bytes=123,signature_accepted=True,file_version='2.1.0.1',version_status='accepted') for k in ('launcher','client')]);return r
  def test_native_version_windows_smoke(self):
   if sys.platform!='win32':self.skipTest('Requires native Windows version API')
