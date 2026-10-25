@@ -27,6 +27,9 @@ def gate(c,action):
  except ValueError:raise Stopped('gate_output_invalid') from None
  if p.returncode or v.get('error_code'):
   safe={k:value for k,value in v.items() if k in {'error_code','failure_stage','error_type'} and type(value) is str and re.fullmatch('[A-Za-z_]{1,80}',value)}
+  for k in ('export_exit_code','backup_length'):
+   if type(v.get(k)) is int and 0<=v[k]<=2**32:safe[k]=v[k]
+  if type(v.get('backup_exists')) is bool:safe['backup_exists']=v['backup_exists']
   save(Path(c['root'])/'gate-error.json',safe)
   raise Stopped(v.get('error_code','gate_failed'))
  return v

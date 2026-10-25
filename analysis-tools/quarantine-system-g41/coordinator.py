@@ -6,7 +6,11 @@ from common import context,save,read,wait_file,gate,ROOT
 import native as n
 
 KEEP={'SYSTEMROOT','WINDIR','SYSTEMDRIVE','ALLUSERSPROFILE','PROGRAMDATA','TEMP','TMP','USERPROFILE','APPDATA','LOCALAPPDATA','PROGRAMFILES','PROGRAMFILES(X86)','PROGRAMW6432','COMSPEC','PATH'}
-def clean_env():return {k:v for k,v in os.environ.items() if k.upper() in KEEP}
+def clean_env():
+ # Fixed standard extensions: PowerShell must identify native .exe applications.
+ env={k:v for k,v in os.environ.items() if k.upper() in KEEP}
+ env['PATHEXT']='.COM;.EXE;.BAT;.CMD'
+ return env
 def start_component(c,role,job):
  child=subprocess.Popen([sys.executable,'-I',str(ROOT/'component.py'),role,c['root']],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,env=clean_env())
  try:n.assign(job,child)
