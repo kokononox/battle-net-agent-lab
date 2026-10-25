@@ -56,3 +56,6 @@ ISO، WIM، qcow2، socket و log خام در پوشهٔ موقت همان job �
 
 ### d5: تشخیص استثنای خارج از خروجی معتبر
 d4، run 40158164765، source debea6e3d644a0fc169810bea3d9f74c5be22dfe: tests success، preparation failure، sanitization failure. در نتیجه وجود خروجی معتبر آماده‌سازی تأیید نشد و علت دقیق هنوز معلوم نیست. wrapper جدید فقط stage/type/reason از enum ثابت و شمارهٔ خط کد را گزارش می‌کند؛ متن exception، traceback و محیط منتشر نمی‌شوند. در استثنا، خروجی ناقص دور ریخته و fallback صریح stopped ساخته می‌شود، نه موفقیت مصنوعی.
+
+### d6: رفع خطای هم‌نامی متغیر گزارش
+خروجی d5، run 40159586736، source 1bbd3a7b83a6af14b00de32e2457a1bced901e94: exception در خط 212 مرحله validate و fallback=true. بررسی کد و آزمون یکپارچهٔ mock خطای TypeError را بازتولید کرد: `with wim.open(...) as out` متغیر مسیر output را با BufferedWriter جایگزین می‌کرد. نام به wim_out تغییر کرد. آزمون پیش از اصلاح fail و پس از اصلاح pass شد؛ مجموع 45 آزمون محلی. این تست mock هیچ apt/download/cleanup/QEMU اجرا نمی‌کند و اثبات مهمان واقعی نیست.

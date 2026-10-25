@@ -59,7 +59,7 @@ def validate(r):
 class ProbeError(Exception):pass
 
 def guard():
- return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_WINDOWS_PREP')=='owned-windows-prep-d5'
+ return sys.platform.startswith('linux') and os.geteuid()==0 and os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('RUNNER_ENVIRONMENT')=='github-hosted' and os.environ.get('GITHUB_RUN_ATTEMPT')=='1' and os.environ.get('GITHUB_EVENT_NAME')=='push' and os.environ.get('GITHUB_REF')=='refs/heads/research/prelogin-telemetry-wow-data-provenance' and os.environ.get('BNET_WINDOWS_PREP')=='owned-windows-prep-d6'
 
 def safe_cleanup_path(label,path,workspace):
  return label in CLEANUP and path==CLEANUP[label] and path.is_dir() and not path.is_symlink() and path.resolve()==path and workspace!=path and path not in workspace.parents and workspace not in path.parents
@@ -184,8 +184,8 @@ def main():
     try:
      try:
       STAGE='extract_wim'
-      with wim.open('xb') as out:
-       subprocess.run(['7z','e','-so','-y','-ssc-',str(iso),'sources/install.wim'],stdin=subprocess.DEVNULL,stdout=out,stderr=log,timeout=300,check=True)
+      with wim.open('xb') as wim_out:
+       subprocess.run(['7z','e','-so','-y','-ssc-',str(iso),'sources/install.wim'],stdin=subprocess.DEVNULL,stdout=wim_out,stderr=log,timeout=300,check=True)
       if not 1024**3<wim.stat().st_size<=ISO_BYTES:raise ProbeError('media_extract_failed')
      except (OSError,subprocess.SubprocessError):raise ProbeError('media_extract_failed')
      STAGE='xml_command'
