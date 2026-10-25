@@ -59,11 +59,18 @@ jobs:
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         continue-on-error: true
         with:
-          pattern: minimal-install-c1-*-sanitized
+          pattern: minimal-install-c1-r*-sanitized
           path: sanitized
           merge-multiple: true
       - name: Publish available validated replicas and explicit missing-report manifest
         run: python analysis-tools/minimal-install/publish_batch.py
+      - name: Retain aggregate even if Git publication fails
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: minimal-install-c1-batch-sanitized
+          path: reports/minimal-install-c1/*.json
+          if-no-files-found: error
+          retention-days: 3
       - name: Commit this batch only on the isolated research branch
         run: |
           git config user.name 'github-actions[bot]'
@@ -71,4 +78,4 @@ jobs:
           git add -A -- reports/minimal-install-c1
           git diff --cached --quiet && exit 0
           git commit -m 'lab: publish sanitized six-case C1 batch'
-          git push origin HEAD:research/battlenet-minimal-install-isolation-2026-10-25
+          bash analysis-tools/minimal-install/publish_reports.sh
