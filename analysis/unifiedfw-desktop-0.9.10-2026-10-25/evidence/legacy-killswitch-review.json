@@ -1,0 +1,58 @@
+{
+  "source_filename": "SstpKillSwitch-v1.2.ps1",
+  "source_sha256": "2b58527e52cc2b537842d309316bad692cf6c0e06040b484356b8ca590768244",
+  "source_size": 6813,
+  "review_type": "static source and documented Windows Firewall precedence; original script never executed",
+  "Windows_firewall_executed": false,
+  "legacy_script_enabled_by_agent": false,
+  "no_leak_certified": false,
+  "findings": [
+    {
+      "severity": "critical",
+      "lines": "129-153",
+      "finding": "Default outbound Block does not override existing explicit Allow rules; these are left enabled."
+    },
+    {
+      "severity": "critical",
+      "lines": "136-145",
+      "finding": "DNS TCP/UDP 53 exceptions have no interface/program/service restriction; configured physical DNS servers can remain directly reachable."
+    },
+    {
+      "severity": "high",
+      "lines": "132-134",
+      "finding": "SSTP server TCP443 exception applies to any program/service/interface, not exclusively VPN transport."
+    },
+    {
+      "severity": "high",
+      "lines": "129-130",
+      "finding": "RemoteAccess Allow covers all destinations and all RemoteAccess interfaces, not a selected profile or whitelist."
+    },
+    {
+      "severity": "high",
+      "lines": "64-69",
+      "finding": "EmergencyReset forces outbound Allow on all profiles and deletes recovery receipt; this is not scoped restoration."
+    },
+    {
+      "severity": "high",
+      "lines": "105-124,156-160",
+      "finding": "Failure during re-Enable may restore pre-kill-switch defaults and delete saved state, dropping previously active protection."
+    },
+    {
+      "severity": "medium",
+      "lines": "41-60",
+      "finding": "Status counts rule presence only; does not certify enabled filters, foreign Allows, IPv6, routing or disconnect behavior."
+    },
+    {
+      "severity": "medium",
+      "lines": "85-101",
+      "finding": "Picks first connected SSTP; resolves server IPv4 only; does not follow server/profile changes. Persistent default Block itself does not need a polling loop to fail closed for unmatched traffic."
+    },
+    {
+      "severity": "high",
+      "lines": "32-38,71-83,124",
+      "finding": "No verified atomic/locked protected backup, rule image drift checks, or native readback before claiming enabled/restored."
+    }
+  ],
+  "precedence_reference": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-firewall/rules",
+  "changes_in_candidate": "Read-only legacy rule detector now recognizes SSTP Kill Switch group; existing admission gate rejects co-activation. No old rules deleted/adopted; no firewall writes run."
+}
