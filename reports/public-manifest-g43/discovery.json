@@ -1,0 +1,172 @@
+{
+  "checked_at": "2026-10-25T23:08:22.119967+00:00",
+  "schema": "public_manifest_discovery_g43_v1",
+  "requests": [
+    {
+      "url": "https://us.version.battle.net/bna/versions",
+      "method": "GET",
+      "query_present": false,
+      "application_body_sent": false,
+      "cookie_sent": false,
+      "redirects_followed": false,
+      "status": 200,
+      "accepted": true,
+      "bytes": 1129,
+      "sha256": "be7aba22a35007dfee97ad8b02aa1da1d82a9f0231df6522d41d53e8636e0f73",
+      "content_type": "text/plain; charset=utf-8",
+      "snapshot": "public-metadata/v1-versions.bin"
+    },
+    {
+      "url": "https://us.version.battle.net/bna/cdns",
+      "method": "GET",
+      "query_present": false,
+      "application_body_sent": false,
+      "cookie_sent": false,
+      "redirects_followed": false,
+      "status": 200,
+      "accepted": true,
+      "bytes": 1441,
+      "sha256": "ad4266cb133338f8d1bc1a0ebd8839b773ab9a6aed55b2002ede4d4322362e2c",
+      "content_type": "text/plain; charset=utf-8",
+      "snapshot": "public-metadata/v1-cdns.bin"
+    }
+  ],
+  "parsed": {
+    "v1-versions": {
+      "columns": [
+        "Region",
+        "BuildConfig",
+        "CDNConfig",
+        "KeyRing",
+        "BuildId",
+        "VersionsName",
+        "ProductConfig"
+      ],
+      "rows": [
+        {
+          "Region": "us",
+          "BuildConfig": "05e3da6c8b1c789bcb79b3581e9ee24e",
+          "CDNConfig": "c8743bdf1b6b4ba5dfdeb2e0d28bd1a4",
+          "KeyRing": "",
+          "BuildId": "17952",
+          "VersionsName": "2.53.6.17952",
+          "ProductConfig": "c9dc6de3a629d80327fc6e96256dd19e"
+        },
+        {
+          "Region": "eu",
+          "BuildConfig": "05e3da6c8b1c789bcb79b3581e9ee24e",
+          "CDNConfig": "c8743bdf1b6b4ba5dfdeb2e0d28bd1a4",
+          "KeyRing": "",
+          "BuildId": "17952",
+          "VersionsName": "2.53.6.17952",
+          "ProductConfig": "c9dc6de3a629d80327fc6e96256dd19e"
+        },
+        {
+          "Region": "cn",
+          "BuildConfig": "05e3da6c8b1c789bcb79b3581e9ee24e",
+          "CDNConfig": "c8743bdf1b6b4ba5dfdeb2e0d28bd1a4",
+          "KeyRing": "",
+          "BuildId": "17952",
+          "VersionsName": "2.53.6.17952",
+          "ProductConfig": "c9dc6de3a629d80327fc6e96256dd19e"
+        },
+        {
+          "Region": "kr",
+          "BuildConfig": "05e3da6c8b1c789bcb79b3581e9ee24e",
+          "CDNConfig": "c8743bdf1b6b4ba5dfdeb2e0d28bd1a4",
+          "KeyRing": "",
+          "BuildId": "17952",
+          "VersionsName": "2.53.6.17952",
+          "ProductConfig": "c9dc6de3a629d80327fc6e96256dd19e"
+        },
+        {
+          "Region": "tw",
+          "BuildConfig": "05e3da6c8b1c789bcb79b3581e9ee24e",
+          "CDNConfig": "c8743bdf1b6b4ba5dfdeb2e0d28bd1a4",
+          "KeyRing": "",
+          "BuildId": "17952",
+          "VersionsName": "2.53.6.17952",
+          "ProductConfig": "c9dc6de3a629d80327fc6e96256dd19e"
+        },
+        {
+          "Region": "sg",
+          "BuildConfig": "05e3da6c8b1c789bcb79b3581e9ee24e",
+          "CDNConfig": "c8743bdf1b6b4ba5dfdeb2e0d28bd1a4",
+          "KeyRing": "",
+          "BuildId": "17952",
+          "VersionsName": "2.53.6.17952",
+          "ProductConfig": "c9dc6de3a629d80327fc6e96256dd19e"
+        },
+        {
+          "Region": "beta",
+          "BuildConfig": "ef12a0ac2f7c9abd4c8802f34c538dfc",
+          "CDNConfig": "c8743bdf1b6b4ba5dfdeb2e0d28bd1a4",
+          "KeyRing": "",
+          "BuildId": "17953",
+          "VersionsName": "2.53.6.17953",
+          "ProductConfig": "c9dc6de3a629d80327fc6e96256dd19e"
+        },
+        {
+          "Region": "macos-10.12",
+          "BuildConfig": "401bf479ca7b070137079647cd22d84f",
+          "CDNConfig": "c8743bdf1b6b4ba5dfdeb2e0d28bd1a4",
+          "KeyRing": "",
+          "BuildId": "14220",
+          "VersionsName": "2.16.6.14220",
+          "ProductConfig": "cb43342ae016258bbbbc2300d0995f73"
+        }
+      ]
+    },
+    "v1-cdns": {
+      "columns": [
+        "Name",
+        "Path",
+        "Hosts",
+        "Servers",
+        "ConfigPath"
+      ],
+      "rows": [
+        {
+          "Name": "us",
+          "Path": "tpr/bnt002",
+          "Hosts": "level3.blizzard.com us.cdn.blizzard.com",
+          "Servers": "http://level3.blizzard.com/?maxhosts=4 http://us.cdn.blizzard.com/?maxhosts=4 https://level3.ssl.blizzard.com/?maxhosts=4&fallback=1 https://us.cdn.blizzard.com/?maxhosts=4&fallback=1",
+          "ConfigPath": "tpr/configs/data"
+        },
+        {
+          "Name": "eu",
+          "Path": "tpr/bnt002",
+          "Hosts": "level3.blizzard.com eu.cdn.blizzard.com",
+          "Servers": "http://eu.cdn.blizzard.com/?maxhosts=4 http://level3.blizzard.com/?maxhosts=4 https://eu.cdn.blizzard.com/?maxhosts=4&fallback=1 https://level3.ssl.blizzard.com/?maxhosts=4&fallback=1",
+          "ConfigPath": "tpr/configs/data"
+        },
+        {
+          "Name": "cn",
+          "Path": "tpr/bnt002",
+          "Hosts": "blzdist-phx.necdn.leihuo.netease.com",
+          "Servers": "http://blzdist-phx.necdn.leihuo.netease.com/?maxhosts=4 https://blzdist-phx.necdn.leihuo.netease.com/?maxhosts=4&fallback=1",
+          "ConfigPath": "tpr/configs/data"
+        },
+        {
+          "Name": "kr",
+          "Path": "tpr/bnt002",
+          "Hosts": "level3.blizzard.com kr.cdn.blizzard.com blizzard.gcdn.cloudn.co.kr",
+          "Servers": "http://blizzard.gcdn.cloudn.co.kr/?maxhosts=4 http://kr.cdn.blizzard.com/?maxhosts=4 http://level3.blizzard.com/?maxhosts=4 https://blizzard.gcdn.cloudn.co.kr/?maxhosts=4&fallback=1 https://kr.cdn.blizzard.com/?maxhosts=4&fallback=1 https://level3.ssl.blizzard.com/?maxhosts=4&fallback=1",
+          "ConfigPath": "tpr/configs/data"
+        },
+        {
+          "Name": "tw",
+          "Path": "tpr/bnt002",
+          "Hosts": "level3.blizzard.com us.cdn.blizzard.com",
+          "Servers": "http://level3.blizzard.com/?maxhosts=4 http://us.cdn.blizzard.com/?maxhosts=4 https://level3.ssl.blizzard.com/?maxhosts=4&fallback=1 https://us.cdn.blizzard.com/?maxhosts=4&fallback=1",
+          "ConfigPath": "tpr/configs/data"
+        }
+      ]
+    }
+  },
+  "installer_executed": false,
+  "payload_downloaded": false,
+  "runtime_network_policy_changed": false,
+  "catalog_entries_approved": 0,
+  "telemetry_endpoint_requested": false
+}

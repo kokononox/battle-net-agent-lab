@@ -1,0 +1,1732 @@
+{
+  "schema": "public_configs_g43_v1",
+  "region": "us",
+  "product": "bna",
+  "version": "2.53.6.17952",
+  "build_id": "17952",
+  "server_advertised_https": true,
+  "cdn_server_query_forwarded": false,
+  "requests": [
+    {
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/config/05/e3/05e3da6c8b1c789bcb79b3581e9ee24e",
+      "method": "GET",
+      "query_present": false,
+      "application_body_sent": false,
+      "cookie_sent": false,
+      "redirects_followed": false,
+      "status": 200,
+      "accepted": true,
+      "bytes": 853,
+      "sha256": "8d646ffde94d7edf2cdacbcdb5bb0091fcaaba1a411a2df0134c5ed722adfa17",
+      "content_type": "binary/octet-stream",
+      "snapshot": "public-metadata/bna-us-build-config.bin",
+      "kind": "build",
+      "content_key": "05e3da6c8b1c789bcb79b3581e9ee24e",
+      "runtime_approved": false,
+      "content_key_md5_matches": true,
+      "parsed": {
+        "root": "70b22a019290a5d2299deded6a98c973",
+        "install": "78d3b190f83db615b00e93be8c4e56f6 9579df8a22e1cccb8a4cfd31f7278b6d",
+        "install-size": "125951 123288",
+        "download": "9f1f8d6c67f78985def04c2fd718cd3d 90e0c8c7c0a60933ff71724fac2074f4",
+        "download-size": "23418 21256",
+        "size": "298b188f644c28533adfd4969749538b 0d48744646e79eb957d9601ce3064f05",
+        "size-size": "14836 12769",
+        "encoding": "3db1899abd70caf0517149b9b0152220 67a9e70e3f9d69b84ad05d9e0fa49242",
+        "encoding-size": "62068 62245",
+        "patch-index": "aea94d5d55edd67e7c85eafc966bf36a 329eb68342eb07eec24b4c231f47a13d",
+        "patch-index-size": "34229 12414",
+        "patch": "c1591c5047bb15b57fe2da4ec090218f",
+        "patch-size": "17089",
+        "build-num": "17952",
+        "build-name": "17952_release_2.53.6",
+        "build-branch": "release_2.53.6",
+        "build-attributes": "public",
+        "build-product": "Phoenix",
+        "build-uid": "bna",
+        "build-critical-patch-seqn": "23",
+        "feature-placeholder": "true"
+      }
+    },
+    {
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/config/c8/74/c8743bdf1b6b4ba5dfdeb2e0d28bd1a4",
+      "method": "GET",
+      "query_present": false,
+      "application_body_sent": false,
+      "cookie_sent": false,
+      "redirects_followed": false,
+      "status": 200,
+      "accepted": true,
+      "bytes": 4226,
+      "sha256": "1d2da7b05e82643e2a1a876793f903aa4af70dc2e1c8c60f0fb5cc1ee9fadfad",
+      "content_type": "binary/octet-stream",
+      "snapshot": "public-metadata/bna-us-cdn-config.bin",
+      "kind": "cdn",
+      "content_key": "c8743bdf1b6b4ba5dfdeb2e0d28bd1a4",
+      "runtime_approved": false,
+      "content_key_md5_matches": true,
+      "parsed": {
+        "archives": "0374cbbc08cbcbb5a950b1d41ad3986d 11997641538a447ba9b7026a1145da9c 155c2bb185e331d7c372606dd02419cd 16905aa9696dee38f45ee2b8174df3b9 16c49927787b511397de611826338b45 1f55108a531942f13cb17eec16a344b1 23ca26320be7023fb17fe5c09a906183 2a7a4fdb593ce4081c9b5bacc6d901f6 39ad90e8db19c7993247a5a46020f9b3 3d4586dd3eb9ac5c883a861fcb400c1f 4251fe60b54005363627320be13dc1e8 4ad447bf51a17009e8b6292744f0aeb7 5262cb0f9eb9446b97b27cce25999ba9 56af27fdf16264a3876468c2be4d4a4a 573cd75d5da3dd3795e59c00598d75cb 5c83515e2d6a621571490c40bbc1dc70 5f351c4532323f37aa4b44af3f2acd26 605fbbb3d7a768acc56fa91d845181b0 67392f075170c9dbfe2ca5740bf14702 6deecb71d2102c50873cada032ab087a 78bc251a011deea4917e7641b04b96df 78cc00f538730a22c5cac6743514be8f 89729819d0e5dc9c449c2f2a6afe4322 9bd67b33267b8df445ab0a2100e0af02 9ea44eca45c4414a7a13a98bbd1457dc a1252ce9720257133f515615fd49ad00 a351629149df1bfc2b428362ff786167 a4613f9d86e25a0e103789ee37ea68a6 a9c8ec57aec9855c5a8fdb5c5353f9b1 a9e35394f7d463fc6ca8d750bb03f538 b23946c05a82c9cf4cc742f7bd8d4716 b42cd7f3accce56d189adbdbe45a57b5 b6d04a12381809af69bca6e5b113a94a b9933de5a009d5a3a277df1d2e0b8ddf bdbd566b284f85fc6ff7aea210e3de9e c1d8236aaf9a80f218dedbd3938ddc32 c2e08f50296ae03645fe8bd7eaac4252 c560764daecedf5f76cf9c0703d03219 cb91aaa31cc3f8db711ff15d1a629a49 dc2c12802529e373b97f5e01e57fd920 e2c3a7fc4331e95775da64c93c2dcefe efa762b0d7b281a866288a9b59233fd8 f420ec441751fa39eacdf9b9b7ae8e74 fb42bf90e06226b1270b57c0186208bb fc8b56fa72ad18a7faf1dbd98437309f",
+        "archives-index-size": "24748 28868 8268 8268 8268 24748 8268 8268 8268 28868 20628 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 8268 28868 24748 8268 16508 8268 16508",
+        "archive-group": "9c1ab4f1e8a4e76fac4c10ca0e121191",
+        "patch-archives": "022a173a230229059ebc71448d519d19 02ef6f3e558dcf4d4e560052b4bd4d0d 0dabd664a802378503b7747a0f4fb916 100dbb31dc7caeedcb0d6850b78bcc03 10cca74bf27162a7c9994be25dfbf01f 12558674ff946468c1b7737b65269103 1808b4c00cf7d20ed0846d4cc4b513bd 1d8d2d12cfedeff9167275062e7d507a 2bbe5c5c734ab736968ec83410d52e2e 2f472964ef941c07c4b7fdd120b017f5 300dcafabb381ec6f6862526a1a4670a 370d5335a6e39f36b3352933a369f211 4736b020896fcd6aee52af652fc47076 477897f9e0e6b27e9289168323ae8ff6 56b71ad59ddb38affb7512b9784727b9 5c6c4c20c58ee9e0b828b37c6830a459 5e8bc3f0f52c47ea45832780515ada0f 60aefc58c71deaa918c4e201ace455d6 62dff31dc49f8848d659142fef758d4d 67ec4ac93e09caac9984a8710a21d655 69697af39e0adafaa5e1eb61940b0e3e 77f658cd9565b89da0586ff7b91079a2 8246e1c0c3b4cd411625b9cc7e3a5f06 8b235f3f3d204d9bb65ea2e52a89ca3e 8ca2e7ec5c071700662c661da4426476 8e111183c897a8fcc65ff6b64902f97a 8e81a1ebb090ebee9b8897e1da13a941 91c3700550de74a7863483e881e719ec 956253cc3979f0f95a05cfcb965f5e3a 96502d0a32287c07678b80514ac862c7 994d348d791faaf46dd3f9ff6f239708 a41bb2fbea247df3df574132c2373955 a4a48154ed92c585a29cd0f65f78e86e a553c467aaac8844c8893e6a35c4fcf4 a8f8e1bad5197114e360b3ad9bd00990 add4afdc30e5702ab5c8baf8f7314c69 b923ef04c2a1366830c2ec0011892080 b961b7107fe5b9bdfb007469b4f55976 bddfc8aa7283d7a663b930568790b33d c11a7be970102b6ff892f63f273a1fd1 c65cc15730d8ce171d731e297b2a87e3 c947c462ab2d590cae2a72ced2fd01d7 cb4b889954d2d6f27d8e249767154fb3 cc26e05e10ac29a809ccfc403396fb0d cef8189d1ddd2b7fc641acdfeda559f4 d4bab56563554ae8e4c800e32f0b1edb d7333d69d5f437be507ec93ba48b30f4 dba490a68f2ff1afc80f007da1e00508 def7d3b0ac8fcbcf1e4f78877d6905d2 f0a8f17559bdd15ad4d52531a6f89de0 f1b312526f21a2cedfc190a159200dae fb409f20f8fdcc0dda8dc77164698be1 fc20b821d33e58822ce24bc55849c069 fca074feda3d0097e1af0fb071a9e4fc ff4169ad3a789ba7148abe76f60d4a10",
+        "patch-archives-index-size": "107148 98908 32988 70068 12388 16508 20628 24748 28868 24748 20628 20628 20628 12388 16508 16508 12388 12388 12388 12388 12388 12388 12388 12388 49468 12388 20628 12388 12388 12388 12388 12388 12388 12388 12388 12388 12388 12388 12388 12388 20628 16508 37108 41228 45348 8268 8268 12388 45348 164828 177188 123628 131868 131868 82428",
+        "patch-archive-group": "afce2aa2ebf3c3d31e92f46e236b17b8",
+        "file-index": "23df2e3563093c5915d5fd0205bf9f2d",
+        "file-index-size": "111268",
+        "patch-file-index": "b0983fa484f0ed92ae246f0bb5439f31",
+        "patch-file-index-size": "156588"
+      }
+    },
+    {
+      "url": "https://us.cdn.blizzard.com/tpr/configs/data/c9/dc/c9dc6de3a629d80327fc6e96256dd19e",
+      "method": "GET",
+      "query_present": false,
+      "application_body_sent": false,
+      "cookie_sent": false,
+      "redirects_followed": false,
+      "status": 200,
+      "accepted": true,
+      "bytes": 38805,
+      "sha256": "6b6d930f10419e6408d3d76bbbe0add14b8223f346d6e1531c0021da2f3f9e2d",
+      "content_type": "binary/octet-stream",
+      "snapshot": "public-metadata/bna-us-product-config.bin",
+      "kind": "product",
+      "content_key": "c9dc6de3a629d80327fc6e96256dd19e",
+      "runtime_approved": false,
+      "content_key_md5_matches": true,
+      "parsed": {
+        "all": {
+          "config": {
+            "beta": false,
+            "casc_language_agnostic": true,
+            "containerless_do_clean_up": true,
+            "containerless_do_real_cancel": true,
+            "form": {
+              "eula": {
+                "eula": false
+              }
+            },
+            "product": "Bna",
+            "side_by_side_patching": true,
+            "supports_multibox": true,
+            "supports_offline": true,
+            "update_method": "containerless ngdp"
+          }
+        },
+        "dede": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "Hier klicken, um Battle.net zu starten.",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://eu.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net ist die n\u00e4chste Evolutionsstufe des Blizzard Launcher.\r\n\r\nDie App vereint all unsere bisherigen Launcher in einer einzigen integrierten L\u00f6sung. Battle.net h\u00e4lt all deine Spiele auf dem neuesten Stand und du musst dich nur ein einziges Mal anmelden, um sie alle zu spielen.\r\n\r\nMit Battle.net ist es einfacher denn je, mit deinen Blizzard-Freunden in Kontakt zu bleiben.",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "engb": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "Click here to launch Battle.net.",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://eu.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net is the next step in the evolution of the Blizzard launcher.\r\n\r\nIt combines all of our previous launchers into a single, integrated solution. Battle.net keeps all of your games up-to-date, and only requires you to sign in once to play any of them.\r\n\r\nWith Battle.net, it's easier to stay in contact with your Blizzard friends than ever before.",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "ensg": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "Click here to launch Battle.net.",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://us.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net is the next step in the evolution of the Blizzard launcher.\r\n\r\nIt combines all of our previous launchers into a single, integrated solution. Battle.net keeps all of your games up-to-date, and only requires you to sign in once to play any of them.\r\n\r\nWith Battle.net, it's easier to stay in contact with your Blizzard friends than ever before.",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "enus": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "Click here to launch Battle.net.",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://us.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net is the next step in the evolution of the Blizzard launcher.\r\n\r\nIt combines all of our previous launchers into a single, integrated solution. Battle.net keeps all of your games up-to-date, and only requires you to sign in once to play any of them.\r\n\r\nWith Battle.net, it's easier to stay in contact with your Blizzard friends than ever before.",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "eses": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "Haz clic aqu\u00ed para iniciar Battle.net.",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://eu.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net es el siguiente paso en la evoluci\u00f3n del programa de inicio de Blizzard.\r\n\r\nCombina todos los programas de inicio anteriores y los integra en una \u00fanica herramienta. Battle.net mantiene actualizados todos tus juegos y solo requiere que inicies sesi\u00f3n una vez para jugar a cualquiera de ellos.\r\n\r\nCon Battle.net, es m\u00e1s f\u00e1cil que nunca mantenerte en contacto con tus amigos de Blizzard.",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "esmx": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "Haz clic aqu\u00ed para ejecutar Battle.net.",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://us.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net es el siguiente paso en la evoluci\u00f3n del iniciador de Blizzard.\r\n\r\nLa aplicaci\u00f3n de Blizzard combina todos nuestros iniciadores previos en una \u00fanica soluci\u00f3n integrada. Tambi\u00e9n mantiene todos tus juegos actualizados y solo tienes que iniciar sesi\u00f3n una vez para jugar cualquiera de ellos.\r\n\r\nCon Battle.net, es mucho m\u00e1s f\u00e1cil mantenerte en contacto con tus amigos.",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "frfr": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "Cliquez ici pour lancer Battle.net.",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://eu.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net est le nouveau Launcher de Blizzard.\r\n\r\nIl r\u00e9unit toutes les anciennes versions du programme. Battle.net se charge des mises \u00e0 jour de vos jeux et vous permet d\u2019y jouer via une simple identification.\r\n\r\nAvec Battle.net, il n\u2019a jamais \u00e9t\u00e9 aussi facile de rester connect\u00e9 \u00e0 vos contacts Blizzard.",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "itit": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "Clicca qui per avviare Battle.net.",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://eu.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net \u00e8 l'evoluzione del programma di avvio Blizzard.\r\n\r\nCombina tutti i programmi di avvio precedenti in un'unica soluzione integrata. Battle.net mantiene aggiornati tutti i tuoi giochi, ed \u00e8 necessario accedere una sola volta per giocare a qualsiasi di essi.\r\n\r\nCon Battle.net, rimanere in contatto coi tuoi amici di Blizzard \u00e8 pi\u00f9 facile che mai.",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "jajp": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "\u3053\u3053\u3092\u30af\u30ea\u30c3\u30af\u3057\u3066Battle.net\u3092\u8d77\u52d5\u3059\u308b",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://us.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net\u306fBlizzard\u30e9\u30f3\u30c1\u30e3\u30fc\u304c\u9032\u5316\u3057\u305f\u6b21\u4e16\u4ee3\u306e\u30a2\u30d7\u30ea\u30b1\u30fc\u30b7\u30e7\u30f3\u3067\u3059\u3002\r\n\r\n\u904e\u53bb\u306e\u5168\u3066\u306e\u30e9\u30f3\u30c1\u30e3\u30fc\u306e\u6a5f\u80fd\u3092\u7d71\u5408\u3057\u305f\u3082\u306e\u3067\u3001\u5168\u3066\u306e\u30b2\u30fc\u30e0\u3092\u6700\u65b0\u306b\u4fdd\u3061\u3001\u30b5\u30a4\u30f3\u30a4\u30f3\u3092\u884c\u3048\u3070\u305d\u308c\u3089\u306e\u7c21\u5358\u306b\u30b2\u30fc\u30e0\u3092\u904a\u3076\u3053\u3068\u304c\u3067\u304d\u307e\u3059\u3002\r\n\r\n\u305d\u3057\u3066\u3001Battle.net\u306e\u65b0\u6a5f\u80fd\u3067Blizzard\u306e\u30b2\u30fc\u30e0\u3067\u4f5c\u3063\u305f\u53cb\u9054\u3084\u5b9f\u969b\u306e\u53cb\u9054\u3068\u306e\u30b3\u30df\u30e5\u30cb\u30b1\u30fc\u30b7\u30e7\u30f3\u3082\u3088\u308a\u53d6\u308a\u3084\u3059\u304f\u306a\u308a\u307e\u3059\u3002",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "kokr": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "\uc5ec\uae30\ub97c \ud074\ub9ad\ud558\uc5ec Battle.net\uc744 \uc2e4\ud589\ud558\uc138\uc694.",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://kr.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net\uc740 \ube14\ub9ac\uc790\ub4dc \ub7f0\ucc98\uac00 \uc9c4\ud654\ud558\uc5ec \ud0c4\uc0dd\ud55c \ucc28\uc138\ub300 \ud50c\ub7ab\ud3fc\uc785\ub2c8\ub2e4.\r\n\r\n\uae30\uc874\uc758 \ub7f0\ucc98\ub97c \ubaa8\ub450 \ud1b5\ud569\ud558\uc5ec \ud558\ub098\uc758 \ud1b5\ud569\ub41c \uc194\ub8e8\uc158\uc73c\ub85c \uac1c\ud3b8\ud588\uc2b5\ub2c8\ub2e4. Battle.net\uc740 \uc5ec\ub7ec\ubd84\uc758 \uac8c\uc784\uc744 \ud56d\uc0c1 \ucd5c\uc2e0 \ubc84\uc804\uc73c\ub85c \uc720\uc9c0\ud558\uace0, \ub2e8 \ud55c \ubc88\ub9cc \ub85c\uadf8\uc778\ud558\uba74 \ubaa8\ub4e0 \uac8c\uc784\uc744 \ud3b8\ub9ac\ud558\uac8c \uc990\uae38 \uc218 \uc788\uc2b5\ub2c8\ub2e4.\r\n\r\nBattle.net\uacfc \ud568\uaed8\ud558\uba74 \ube14\ub9ac\uc790\ub4dc \uce5c\uad6c\ub4e4\uacfc\ub3c4 \ud3b8\ub9ac\ud558\uac8c \uc18c\ud1b5\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "platform": {
+          "mac": {
+            "config": {
+              "binaries": {
+                "game": {
+                  "relative_path": ""
+                }
+              },
+              "binary_launch_path": "",
+              "bundle_install_info": {
+                "convert_user_install_path": true,
+                "install_path": "%userlibraryappsupport%Battle.net/Versions",
+                "sync_bundle_path": "Battle.net.app"
+              },
+              "form": {
+                "game_dir": {
+                  "default": "Applications",
+                  "dirname": "Battle.net.app",
+                  "required_space": 350000000.0
+                }
+              },
+              "tags": [
+                "OSX",
+                "Volatile"
+              ],
+              "uninstall": [
+                {
+                  "delete_folder": {
+                    "relative_paths": [
+                      "Battle.net.*",
+                      "Logs",
+                      "MacOS",
+                      "Resources",
+                      "Blizzard Error.app",
+                      "Battle.net Launcher.app",
+                      "_CodeSignature"
+                    ],
+                    "root": "%game%"
+                  }
+                },
+                {
+                  "delete_folder": {
+                    "relative_paths": [
+                      "Battle.net"
+                    ],
+                    "root": "%userlibraryappsupport%"
+                  }
+                },
+                {
+                  "delete_file": {
+                    "relative_paths": [
+                      "info.plist",
+                      "SetupOSX.mpq",
+                      "SystemSurvey",
+                      ".agent.db",
+                      ".product.db",
+                      ".patch.result",
+                      ".build.info",
+                      "Launcher.db"
+                    ],
+                    "root": "%game%"
+                  }
+                },
+                {
+                  "delete_file": {
+                    "relative_path": "net.battle.plist",
+                    "root": "%userlibrarypreferences%"
+                  }
+                }
+              ],
+              "version_subfolder_binary": "battle.net-core.framework"
+            }
+          },
+          "win": {
+            "config": {
+              "binaries": {
+                "game": {
+                  "regex": "Battle\\.net\\.(beta\\.)*exe",
+                  "relative_path": "Battle.net.exe",
+                  "switcher": true
+                }
+              },
+              "binary_launch_path": "Battle.net.exe",
+              "form": {
+                "game_dir": {
+                  "default": "Program Files",
+                  "dirname": "Battle.net",
+                  "required_space": 250000000.0
+                }
+              },
+              "install": [
+                {
+                  "redirect_link": {
+                    "install_path": "%installpath%",
+                    "new_target": "%shortcutpath%",
+                    "old_targets": [
+                      "Battle.net.exe"
+                    ]
+                  }
+                },
+                {
+                  "register_game_catalog_extension": {
+                    "clsid": "257A53D9-0BBB-476B-9500-A888092E0260",
+                    "exe_args": "--launched-by-xbox",
+                    "exe_is_64_bit": false,
+                    "exe_path": "%installpath%\\Battle.net.exe",
+                    "extension_api_version": "1.2.2310054",
+                    "extension_display_name": "Battle.net App Xbox Extension",
+                    "extension_id": "XPDM5VSMTKQLBJ",
+                    "min_supported_os_version": "10.0.0.18362",
+                    "null_assignment_state": "Uninstalled"
+                  }
+                }
+              ],
+              "shortcut_target_path": "Battle.net Launcher.exe",
+              "tags": [
+                "Windows",
+                "Volatile"
+              ],
+              "tags_override_by_os": {
+                "<=5.2": [
+                  "Windows",
+                  "Volatile",
+                  "WindowsXP?"
+                ]
+              },
+              "uninstall": [
+                {
+                  "delete_registry_key_list": {
+                    "flags": "WOW_BOTH",
+                    "key_type": "HKEY_CURRENT_USER",
+                    "root": "SOFTWARE\\Blizzard Entertainment\\Battle.net",
+                    "subkeys": [
+                      "Capabilities",
+                      "UnifiedAuth"
+                    ],
+                    "values": [
+                      "12341D41",
+                      "8606D073",
+                      "B15228EB"
+                    ]
+                  }
+                },
+                {
+                  "delete_registry_key_list": {
+                    "key_type": "HKEY_CLASSES_ROOT",
+                    "root": "",
+                    "subkeys": [
+                      "starcraft",
+                      "heroes",
+                      "battlenet",
+                      "blizzard",
+                      "Blizzard.URI.SC2",
+                      "Blizzard.URI.Heroes",
+                      "Blizzard.URI.Battlenet",
+                      "Blizzard.URI.Blizzard"
+                    ]
+                  }
+                },
+                {
+                  "delete_registry_key_list": {
+                    "flags": "WOW_32BIT",
+                    "key_type": "HKEY_LOCAL_MACHINE",
+                    "root": "SOFTWARE\\RegisteredApplications",
+                    "values": [
+                      "Battle.net"
+                    ]
+                  }
+                },
+                {
+                  "delete_registry_key_list": {
+                    "flags": "WOW_BOTH",
+                    "key_type": "HKEY_LOCAL_MACHINE",
+                    "root": "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall",
+                    "subkeys": [
+                      "Battle.net"
+                    ]
+                  }
+                },
+                {
+                  "delete_registry_key_list": {
+                    "flags": "WOW_BOTH",
+                    "key_type": "HKEY_CURRENT_USER",
+                    "root": "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+                    "values": [
+                      "Battle.net"
+                    ]
+                  }
+                },
+                {
+                  "delete_registry_key_list": {
+                    "flags": "WOW_BOTH",
+                    "key_type": "HKEY_LOCAL_MACHINE",
+                    "root": "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+                    "values": [
+                      "Battle.net"
+                    ]
+                  }
+                },
+                {
+                  "delete_folder": {
+                    "relative_paths": [
+                      "Battle.net.*",
+                      "Logs",
+                      "redist"
+                    ],
+                    "root": "%game%"
+                  }
+                },
+                {
+                  "delete_folder": {
+                    "relative_paths": [
+                      "Blizzard Entertainment/Battle.net*"
+                    ],
+                    "root": "%programfilescommon%"
+                  }
+                },
+                {
+                  "delete_folder": {
+                    "relative_paths": [
+                      "Battle.net"
+                    ],
+                    "root": "%userlibraryappsupport%"
+                  }
+                },
+                {
+                  "delete_folder": {
+                    "relative_paths": [
+                      "Battle.net"
+                    ],
+                    "root": "%localappdata%"
+                  }
+                },
+                {
+                  "delete_file": {
+                    "relative_paths": [
+                      "Battle.net Launcher.exe",
+                      "Battle.net.exe",
+                      "BlizzardError.exe",
+                      "SetupWin.mpq",
+                      "SystemSurvey.exe",
+                      ".agent.db",
+                      ".product.db",
+                      ".patch.result",
+                      ".build.info",
+                      "Launcher.db",
+                      "Microsoft.Gaming.XboxApp.Extensions.winmd"
+                    ],
+                    "root": "%game%"
+                  }
+                },
+                {
+                  "unregister_game_catalog_extension": {
+                    "clsid": "257A53D9-0BBB-476B-9500-A888092E0260",
+                    "extension_id": "XPDM5VSMTKQLBJ",
+                    "full_reset": true
+                  }
+                }
+              ],
+              "version_subfolder_binary": "battle.net.dll"
+            }
+          }
+        },
+        "plpl": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "Kliknij tutaj, aby uruchomi\u0107 aplikacj\u0119 Battle.net.",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://eu.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Aplikacja Battle.net to kolejny krok w rozwoju programu startowego Blizzard.\r\n\r\n\u0141\u0105czy wszystkie poprzednie programy uruchamiaj\u0105ce w jedn\u0105, zintegrowan\u0105 aplikacj\u0119. Aplikacja Battle.net umo\u017cliwia automatyczne aktualizowanie wszystkich gier, a ich uruchamianie nie wymaga powt\u00f3rnego logowania si\u0119 w grze.\r\n\r\nTeraz aplikacja Battle.net jeszcze bardziej u\u0142atwia utrzymywanie kontaktu ze znajomymi z gier Blizzarda.",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "ptbr": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "Clique aqui para iniciar o Battle.net.",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://us.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net \u00e9 o pr\u00f3ximo passo na evolu\u00e7\u00e3o do Blizzard Launcher.\r\n\r\nEle combina todos os antigos incializadores em uma s\u00f3 solu\u00e7\u00e3o. Battle.net mant\u00e9m seus jogos atualizados e pede que voc\u00ea fa\u00e7a seu login apenas uma vez para acessar todos.\r\n\r\nCom Battle.net est\u00e1 mais f\u00e1cil do que nunca manter-se em contato com seus amigos nos mundos da Blizzard.",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "ruru": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "\u0429\u0435\u043b\u043a\u043d\u0438\u0442\u0435 \u0437\u0434\u0435\u0441\u044c, \u0447\u0442\u043e\u0431\u044b \u0437\u0430\u043f\u0443\u0441\u0442\u0438\u0442\u044c Battle.net.",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://eu.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net \u2014 \u044d\u0442\u043e \u043d\u043e\u0432\u044b\u0439 \u044d\u0442\u0430\u043f \u0432 \u0440\u0430\u0437\u0432\u0438\u0442\u0438\u0438 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f Blizzard.\r\n\r\n\u041c\u044b \u0441\u043e\u0431\u0440\u0430\u043b\u0438 \u0432\u043e\u0435\u0434\u0438\u043d\u043e \u0432\u0441\u0435 \u043f\u0440\u0435\u0434\u044b\u0434\u0443\u0449\u0438\u0435 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b \u0437\u0430\u043f\u0443\u0441\u043a\u0430 \u0438 \u0434\u043e\u0431\u0430\u0432\u0438\u043b\u0438 \u0444\u0443\u043d\u043a\u0446\u0438\u044e \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u044f: \u0442\u0435\u043f\u0435\u0440\u044c, \u0447\u0442\u043e\u0431\u044b \u043d\u0430\u0447\u0430\u0442\u044c \u0438\u0433\u0440\u0430\u0442\u044c, \u043d\u0443\u0436\u043d\u043e \u0442\u043e\u043b\u044c\u043a\u043e \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u0442\u044c\u0441\u044f!\r\n\r\n\u0421 Battle.net \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0442\u044c \u0441\u0432\u044f\u0437\u044c \u0441 \u0434\u0440\u0443\u0437\u044c\u044f\u043c\u0438 \u043f\u043e Blizzard \u2014 \u043f\u0440\u043e\u0441\u0442\u043e \u043a\u0430\u043a \u043d\u0438\u043a\u043e\u0433\u0434\u0430!",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "thth": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "\u0e04\u0e25\u0e34\u0e01\u0e17\u0e35\u0e48\u0e19\u0e35\u0e48\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e40\u0e1b\u0e34\u0e14 Battle.net",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://us.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net \u0e04\u0e37\u0e2d\u0e27\u0e34\u0e27\u0e31\u0e12\u0e19\u0e32\u0e01\u0e32\u0e23\u0e2d\u0e35\u0e01\u0e02\u0e31\u0e49\u0e19\u0e2b\u0e19\u0e36\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e15\u0e31\u0e27\u0e40\u0e1b\u0e34\u0e14 Blizzard\r\n\r\n\u0e42\u0e14\u0e22\u0e23\u0e27\u0e21\u0e15\u0e31\u0e27\u0e40\u0e1b\u0e34\u0e14\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14\u0e01\u0e48\u0e2d\u0e19\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e02\u0e2d\u0e07\u0e40\u0e23\u0e32\u0e40\u0e02\u0e49\u0e32\u0e44\u0e27\u0e49\u0e43\u0e19\u0e42\u0e0b\u0e25\u0e39\u0e0a\u0e31\u0e19\u0e40\u0e14\u0e35\u0e22\u0e27 Battle.net \u0e17\u0e33\u0e43\u0e2b\u0e49\u0e40\u0e01\u0e21\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13\u0e44\u0e21\u0e48\u0e15\u0e01\u0e22\u0e38\u0e04 \u0e41\u0e25\u0e30\u0e04\u0e38\u0e13\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e40\u0e02\u0e49\u0e32\u0e40\u0e25\u0e48\u0e19\u0e40\u0e01\u0e21\u0e43\u0e14\u0e01\u0e47\u0e44\u0e14\u0e49\u0e42\u0e14\u0e22\u0e40\u0e02\u0e49\u0e32\u0e2a\u0e39\u0e48\u0e23\u0e30\u0e1a\u0e1a\u0e40\u0e1e\u0e35\u0e22\u0e07\u0e04\u0e23\u0e31\u0e49\u0e07\u0e40\u0e14\u0e35\u0e22\u0e27\r\n\r\n Battle.net \u0e22\u0e31\u0e07\u0e0a\u0e48\u0e27\u0e22\u0e43\u0e2b\u0e49\u0e04\u0e38\u0e13\u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d\u0e01\u0e31\u0e1a\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e19 Blizzard \u0e2d\u0e22\u0e39\u0e48\u0e15\u0e25\u0e2d\u0e14\u0e40\u0e27\u0e25\u0e32\u0e44\u0e14\u0e49\u0e2a\u0e30\u0e14\u0e27\u0e01\u0e22\u0e34\u0e48\u0e07\u0e02\u0e36\u0e49\u0e19",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "zhcn": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%\u66b4\u96ea\u6218\u7f51/\u66b4\u96ea\u6218\u7f51.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "\u70b9\u51fb\u6b64\u5904\u542f\u52a8\u66b4\u96ea\u6218\u7f51\u3002",
+                  "link": "%desktoppreference%\u66b4\u96ea\u6218\u7f51.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "\u66b4\u96ea\u6218\u7f51",
+                  "helplink": "http://cn.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "\u66b4\u96ea\u6218\u7f51\u662f\u65b0\u4e00\u4ee3\u7684\u6e38\u620f\u542f\u52a8\u7a0b\u5e8f\u3002\r\n\r\n\u5b83\u6574\u5408\u4e86\u5404\u4e2a\u72ec\u7acb\u542f\u52a8\u7a0b\u5e8f\uff0c\u7528\u7edf\u4e00\u7684\u89e3\u51b3\u65b9\u6848\u4f7f\u4f60\u7684\u6240\u6709\u6e38\u620f\u4fdd\u6301\u66f4\u65b0\uff0c\u5e76\u4e14\u53ea\u9700\u4e00\u6b21\u767b\u5f55\u5373\u53ef\u4f53\u9a8c\u6bcf\u4e00\u6b3e\u4ea7\u54c1\u3002\r\n\r\n\u6709\u4e86\u66b4\u96ea\u6218\u7f51\uff0c\u4f60\u4e0e\u6e38\u620f\u597d\u53cb\u7684\u6c9f\u901a\u5c06\u53d8\u5f97\u524d\u6240\u672a\u6709\u7684\u4fbf\u6377\u3002",
+                  "application_display_name": "\u66b4\u96ea\u6218\u7f51",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "zhtw": {
+          "config": {
+            "install": [
+              {
+                "start_menu_shortcut": {
+                  "link": "%commonstartmenu%Battle.net/Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "desktop_shortcut": {
+                  "description": "\u9ede\u64ca\u6b64\u8655\u4f86\u555f\u52d5Battle.net\u61c9\u7528\u7a0b\u5f0f\u3002",
+                  "link": "%desktoppreference%Battle.net.lnk",
+                  "target": "%shortcutpath%",
+                  "working_dir": "%installpath%"
+                }
+              },
+              {
+                "add_remove_programs_key": {
+                  "contact": "Blizzard Support",
+                  "display_name": "Battle.net",
+                  "helplink": "http://tw.blizzard.com/support/",
+                  "icon_path": "%binarypath%",
+                  "install_path": "%installpath%",
+                  "locale": "%locale%",
+                  "root": "Battle.net",
+                  "uid": "%uid%",
+                  "uninstall_path": "%uninstallpath%"
+                }
+              },
+              {
+                "program_associations": {
+                  "application_description": "Battle.net\u662f\u66b4\u96ea\u555f\u52d5\u7a0b\u5f0f\u7684\u4e0b\u500b\u9032\u5316\u968e\u6bb5\u3002\r\n\r\nBattle.net\u628a\u4e4b\u524d\u6240\u6709\u555f\u52d5\u7a0b\u5f0f\u6574\u5408\u6210\u4e00\u500b\uff0c\u53ea\u8981\u4f60\u767b\u5165\u9032\u53bb\u3001\u73a9\u904e\u4efb\u4f55\u4e00\u500b\u904a\u6232\uff0c\u4e4b\u5f8c\u5c31\u80fd\u5e6b\u4f60\u628a\u6240\u6709\u904a\u6232\u90fd\u66f4\u65b0\u5230\u6700\u65b0\u7248\u672c\u3002\r\n\r\n\u6709\u4e86Battle.net\uff0c\u66f4\u5bb9\u6613\u548c\u73a9\u66b4\u96ea\u904a\u6232\u7684\u597d\u53cb\u4fdd\u6301\u806f\u7e6b\u3002",
+                  "application_display_name": "Battle.net",
+                  "executable_icon_index": 0.0,
+                  "executable_icon_path": "%binarypath%",
+                  "executable_path": "%binarypath%",
+                  "game_registry_key": "Battle.net",
+                  "overwrite_exes": [
+                    "%relative_binarypath%",
+                    "Support\\HeroesSwitcher.exe",
+                    "Support\\SC2Switcher.exe",
+                    "Support\\SC2Editor.exe"
+                  ],
+                  "uri_schemas": [
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:StarCraft II Protocol",
+                      "display_name": "Blizzard.URI.SC2",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "starcraft"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Heroes of the Storm Protocol",
+                      "display_name": "Blizzard.URI.Heroes",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "heroes"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Battlenet",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "battlenet"
+                    },
+                    {
+                      "command": "\"%binarypath%\" --uri=\"%1\"",
+                      "description": "URL:Blizzard Battle.net Protocol",
+                      "display_name": "Blizzard.URI.Blizzard",
+                      "icon_index": 0.0,
+                      "icon_path": "%binarypath%",
+                      "name": "blizzard"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "installer_executed": false,
+  "payload_downloaded": false,
+  "production_catalog_modified": false,
+  "catalog_entries_approved": 0,
+  "content_key_md5_is_not_publisher_signature": true
+}

@@ -1,0 +1,80 @@
+{
+  "schema": "research_metadata_pins_g43_v1",
+  "not_loadable_as_g37_catalog": true,
+  "runtime_approved_entries": 0,
+  "automatic_promotion_allowed": false,
+  "objects": [
+    {
+      "id": "g43-metadata-1",
+      "url": "https://us.version.battle.net/bna/versions",
+      "method": "GET",
+      "bytes": 1129,
+      "sha256": "be7aba22a35007dfee97ad8b02aa1da1d82a9f0231df6522d41d53e8636e0f73",
+      "approval_state": "pending_runtime_review",
+      "source_snapshot": "public-metadata/v1-versions.bin"
+    },
+    {
+      "id": "g43-metadata-2",
+      "url": "https://us.version.battle.net/bna/cdns",
+      "method": "GET",
+      "bytes": 1441,
+      "sha256": "ad4266cb133338f8d1bc1a0ebd8839b773ab9a6aed55b2002ede4d4322362e2c",
+      "approval_state": "pending_runtime_review",
+      "source_snapshot": "public-metadata/v1-cdns.bin"
+    },
+    {
+      "id": "g43-metadata-3",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/config/05/e3/05e3da6c8b1c789bcb79b3581e9ee24e",
+      "method": "GET",
+      "bytes": 853,
+      "sha256": "8d646ffde94d7edf2cdacbcdb5bb0091fcaaba1a411a2df0134c5ed722adfa17",
+      "approval_state": "pending_runtime_review",
+      "source_snapshot": "public-metadata/bna-us-build-config.bin"
+    },
+    {
+      "id": "g43-metadata-4",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/config/c8/74/c8743bdf1b6b4ba5dfdeb2e0d28bd1a4",
+      "method": "GET",
+      "bytes": 4226,
+      "sha256": "1d2da7b05e82643e2a1a876793f903aa4af70dc2e1c8c60f0fb5cc1ee9fadfad",
+      "approval_state": "pending_runtime_review",
+      "source_snapshot": "public-metadata/bna-us-cdn-config.bin"
+    },
+    {
+      "id": "g43-metadata-5",
+      "url": "https://us.cdn.blizzard.com/tpr/configs/data/c9/dc/c9dc6de3a629d80327fc6e96256dd19e",
+      "method": "GET",
+      "bytes": 38805,
+      "sha256": "6b6d930f10419e6408d3d76bbbe0add14b8223f346d6e1531c0021da2f3f9e2d",
+      "approval_state": "pending_runtime_review",
+      "source_snapshot": "public-metadata/bna-us-product-config.bin"
+    },
+    {
+      "id": "g43-metadata-6",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/67/a9/67a9e70e3f9d69b84ad05d9e0fa49242",
+      "method": "GET",
+      "bytes": 62245,
+      "sha256": "81d1fa435e552dca930ac36c9998ddd994a5737c3ba48f6eb2d1e7feb5950388",
+      "approval_state": "pending_runtime_review",
+      "source_snapshot": "public-metadata/bna-us-encoding-encoded.bin"
+    },
+    {
+      "id": "g43-metadata-7",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/95/79/9579df8a22e1cccb8a4cfd31f7278b6d",
+      "method": "GET",
+      "bytes": 123288,
+      "sha256": "badfc26e8e7a5aa17f72005c0ae7c44018ac5c2b3899a7d40898c36231cb9ddb",
+      "approval_state": "pending_runtime_review",
+      "source_snapshot": "public-metadata/bna-us-install-encoded.bin"
+    },
+    {
+      "id": "g43-metadata-8",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/90/e0/90e0c8c7c0a60933ff71724fac2074f4",
+      "method": "GET",
+      "bytes": 21256,
+      "sha256": "19bebb658efa31661a64873d4604f2d57d26ce1a0ab07bd18137d6a3adda2817",
+      "approval_state": "pending_runtime_review",
+      "source_snapshot": "public-metadata/bna-us-download-encoded.bin"
+    }
+  ]
+}
