@@ -1,0 +1,45 @@
+name: G75 loopback-only native pre-send enforcement controls
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/two-host-native-send-g75/**', '.github/workflows/battlenet-native-send-g75.yml']
+permissions: {}
+concurrency:
+  group: two-host-native-send-g75
+  cancel-in-progress: false
+jobs:
+  native-gate:
+    if: >-
+      github.event.head_commit.message == 'lab: approved loopback-only native pre-send gate G75' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 6
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Verify pinned Git blobs and materialize native adapter
+        run: python analysis-tools/two-host-native-send-g75/compose.py
+      - name: Parse and test policy and exact native admission
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          python -m compileall -q analysis-tools/two-host-live-g75-runtime
+          if($LASTEXITCODE -ne 0){throw 'python_parse_failed'}
+          python -m unittest discover -s analysis-tools/two-host-live-g75-runtime -p 'test_*.py' -v
+          if($LASTEXITCODE -ne 0){throw 'native_admission_tests_failed'}
+      - name: Install pinned fixture instrumentation dependency
+        run: python -m pip install --disable-pip-version-check frida==17.24.2
+      - name: Native x86 and x64 send controls, loopback only, no installer
+        shell: powershell
+        run: |
+          python analysis-tools/two-host-live-g75-runtime/native_send_control.py
+          if($LASTEXITCODE -ne 0){throw 'native_pre_send_control_failed'}
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: two-host-native-send-g75-loopback-only
+          path: output/g75-native-pre-send.json
+          if-no-files-found: warn
+          retention-days: 3
