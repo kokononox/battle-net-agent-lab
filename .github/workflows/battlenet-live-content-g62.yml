@@ -1,0 +1,64 @@
+name: Two-host G62 bidirectional attach and process scope diagnosis
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/two-host-live-g62/**', '.github/workflows/battlenet-live-content-g62.yml']
+permissions: {}
+concurrency:
+  group: two-host-live-g62
+  cancel-in-progress: false
+jobs:
+  observe:
+    if: >-
+      github.event.head_commit.message == 'lab: approved scoped Schannel observation G62' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    env:
+      BNET_G62: approved-live-startup-two-hosts-g62
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse and test before any execution or firewall mutation
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $t=$null;$e=$null
+          foreach($file in Get-ChildItem analysis-tools/two-host-live-g62/*.ps1){
+            $null=[Management.Automation.Language.Parser]::ParseFile($file.FullName,[ref]$t,[ref]$e)
+            if($e.Count){throw 'powershell_parse_failed'}
+          }
+          python -m compileall -q analysis-tools/two-host-live-g62
+          if($LASTEXITCODE -ne 0){throw 'python_parse_failed'}
+          python -m unittest discover -s analysis-tools/two-host-live-g62 -p 'test_*.py' -v
+          if($LASTEXITCODE -ne 0){throw 'parser_tests_failed'}
+      - name: Install pinned observation dependency
+        run: python -m pip install --disable-pip-version-check frida==17.24.2
+      - name: Native x86 and x64 bidirectional WinINet plus Winsock controls
+        shell: powershell
+        run: |
+          python analysis-tools/two-host-live-g62/control.py
+          if($LASTEXITCODE -ne 0){throw 'positive_control_failed_no_installer_launch'}
+      - name: Guarded language Continue then bounded content observation
+        shell: powershell
+        run: |
+          python analysis-tools/two-host-live-g62/run.py
+          if($LASTEXITCODE -ne 0){throw 'live_probe_failed_review_sanitized_report'}
+      - name: Fallback cleanup on disposable runner only
+        if: always()
+        shell: powershell
+        run: |
+          if(Test-Path (Join-Path $env:RUNNER_TEMP 'g62-tls-cert.PRIVATE.json')){& ./analysis-tools/two-host-live-g62/TlsCert.ps1 -Action Cleanup}
+          $r=Join-Path $env:RUNNER_TEMP 'g62-private'
+          if(Test-Path (Join-Path $r 'armed')){& ./analysis-tools/two-host-live-g62/Gate.ps1 -Action Restore -Root $r}
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: two-host-live-g62-sanitized
+          path: |
+            output/g62-native-control.json
+            output/two-host-live-g62.json
+          if-no-files-found: warn
+          retention-days: 3
