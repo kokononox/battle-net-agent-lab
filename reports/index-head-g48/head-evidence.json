@@ -1,0 +1,471 @@
+{
+  "schema": "fixed_head_evidence_g48_v1",
+  "source_g46_commit": "e4153a9ee5094d66d5ccc821cb69f99738da8886",
+  "source_sha256": "116df3c222031f02c8dfcdc71c4e469ca00192127a69ff4a6be025fcac9bfc33",
+  "plan_sha256": "3716b6a8c92f9b694919bbed696ea31cd9945f85a6f67e3a8e1b56800537eced",
+  "started_at_utc": "2026-10-26T00:29:19.390801+00:00",
+  "attempts_reserved": 16,
+  "response_body_read_calls": 0,
+  "response_body_read_budget": 0,
+  "total_tls_or_wire_bytes_metered": false,
+  "request_method": "HEAD",
+  "automatic_retries": 0,
+  "redirects_followed": false,
+  "request_body_cookie_authorization_sent": false,
+  "get_requests_issued": false,
+  "range_requests_issued": false,
+  "installer_or_payload_executed": false,
+  "runtime_approved_entries": 0,
+  "production_catalog_modified": false,
+  "results": [
+    {
+      "id": "index_1",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/03/74/0374cbbc08cbcbb5a950b1d41ad3986d.index",
+      "original_expected_bytes": 24748,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.401083+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "8268"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_2",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/11/99/11997641538a447ba9b7026a1145da9c.index",
+      "original_expected_bytes": 28868,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.410705+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "8268"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_3",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/15/5c/155c2bb185e331d7c372606dd02419cd.index",
+      "original_expected_bytes": 8268,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.418660+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "24748"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 24748,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_6",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/1f/55/1f55108a531942f13cb17eec16a344b1.index",
+      "original_expected_bytes": 24748,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.425984+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "8268"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_10",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/3d/45/3d4586dd3eb9ac5c883a861fcb400c1f.index",
+      "original_expected_bytes": 28868,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.432669+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "8268"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_11",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/42/51/4251fe60b54005363627320be13dc1e8.index",
+      "original_expected_bytes": 20628,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.442422+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "8268"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_14",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/56/af/56af27fdf16264a3876468c2be4d4a4a.index",
+      "original_expected_bytes": 8268,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.451884+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "28868"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 28868,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_19",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/67/39/67392f075170c9dbfe2ca5740bf14702.index",
+      "original_expected_bytes": 8268,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.458469+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "16508"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 16508,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_35",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/bd/bd/bdbd566b284f85fc6ff7aea210e3de9e.index",
+      "original_expected_bytes": 8268,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.467744+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "28868"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 28868,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_37",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/c2/e0/c2e08f50296ae03645fe8bd7eaac4252.index",
+      "original_expected_bytes": 8268,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.475151+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "24748"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 24748,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_38",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/c5/60/c560764daecedf5f76cf9c0703d03219.index",
+      "original_expected_bytes": 8268,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.483212+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "16508"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 16508,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_39",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/cb/91/cb91aaa31cc3f8db711ff15d1a629a49.index",
+      "original_expected_bytes": 8268,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.490201+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "24748"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 24748,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_40",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/dc/2c/dc2c12802529e373b97f5e01e57fd920.index",
+      "original_expected_bytes": 28868,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.496808+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "8268"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_41",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/e2/c3/e2c3a7fc4331e95775da64c93c2dcefe.index",
+      "original_expected_bytes": 24748,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.503388+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "28868"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 28868,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_43",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/f4/20/f420ec441751fa39eacdf9b9b7ae8e74.index",
+      "original_expected_bytes": 16508,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.511130+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "8268"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    },
+    {
+      "id": "index_45",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/fc/8b/fc8b56fa72ad18a7faf1dbd98437309f.index",
+      "original_expected_bytes": 16508,
+      "original_g46_actual_content_length": null,
+      "observed_at_utc": "2026-10-26T00:29:19.517658+00:00",
+      "error_code": null,
+      "http_status": 200,
+      "observed_headers": {
+        "content-length": [
+          "20628"
+        ],
+        "content-encoding": [],
+        "transfer-encoding": [],
+        "content-range": [],
+        "content-type": [
+          "binary/octet-stream"
+        ],
+        "accept-ranges": [
+          "bytes"
+        ]
+      },
+      "advertised_content_length": 20628,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "body_read_calls": 0,
+      "payload_or_index_validated": false
+    }
+  ],
+  "finished_at_utc": "2026-10-26T00:29:19.523903+00:00"
+}

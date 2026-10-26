@@ -1,0 +1,21 @@
+## /data/raw/g48-head-observations.csv
+
+- Shape: 16 rows x 6 columns
+- Duplicate rows: 0
+- Candidate key columns (distinct == rows): id
+
+| column | type | non-null | distinct | values |
+| --- | --- | --- | --- | --- |
+| id | text | 100% | 16 | top: index_1 (1), index_2 (1), index_3 (1), index_6 (1), index_10 (1) |
+| http_status | number | 100% | 1 | 200 → 200, mean 200 |
+| original_expected_bytes | number | 100% | 5 | 8,268 → 28,868, mean 17,023 |
+| advertised_content_length | number | 100% | 5 | 8,268 → 28,868, mean 17,023 |
+| head_length_usable_for_review | text | 100% | 1 | top: True (16) |
+| matches_original_expected | text | 100% | 1 | top: False (16) |
+
+**Warnings:**
+
+- ⚠️ `http_status` is constant
+- ⚠️ `head_length_usable_for_review` is constant
+- ⚠️ `matches_original_expected` is constant
+

@@ -1,0 +1,216 @@
+{
+  "schema": "head_diagnostic_analysis_g48_v1",
+  "head_receipt_sha256": "0763f9894afdab896ddc8def77de93d520c5ad00a3dee4c539c5dac422c2fb33",
+  "source_hashes_match_preflight": true,
+  "cdn_config_content_md5_and_sha256_verified": true,
+  "summary": {
+    "observed_entries": 16,
+    "http_200_count": 16,
+    "usable_head_length_count": 16,
+    "different_from_original_expected_count": 16,
+    "same_as_original_expected_count": 0,
+    "original_size_sum": 272368,
+    "head_advertised_size_sum": 272368,
+    "response_body_read_calls": 0,
+    "all_original_expectations_match_pinned_cdn_config": true
+  },
+  "profile_notes": [
+    "grain: one fixed index URL per HEAD observation",
+    "16 unique ids; no duplicates or null lengths",
+    "constant HTTP status and booleans are legitimate observed outcomes, not missing variance",
+    "HEAD measures current advertised length; not verified body length or historical GET header"
+  ],
+  "comparison_plan": [
+    {
+      "grain": "one index URL",
+      "population": "16 G46 length-rejected indexes only",
+      "unit": "advertised bytes",
+      "finding": "Each current HEAD length differs from its prior pinned-config expectation.",
+      "disposition": "table",
+      "reason": "Protocol acceptance/evidence ledger, not a performance trend; per-key exact values matter and a chart supplies no additional decision evidence."
+    }
+  ],
+  "cause_proven": false,
+  "historical_g46_actual_length_recovered": false,
+  "new_lengths_approved_for_runtime": false,
+  "catalog_sha256": "ee2b6f3e115f58ff21414168185024ffa9f574863333ab869cbb861c52c0c8c5",
+  "catalog_unchanged": true,
+  "rows": [
+    {
+      "id": "index_1",
+      "http_status": 200,
+      "original_expected_bytes": 24748,
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "0374cbbc08cbcbb5a950b1d41ad3986d",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/03/74/0374cbbc08cbcbb5a950b1d41ad3986d.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_2",
+      "http_status": 200,
+      "original_expected_bytes": 28868,
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "11997641538a447ba9b7026a1145da9c",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/11/99/11997641538a447ba9b7026a1145da9c.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_3",
+      "http_status": 200,
+      "original_expected_bytes": 8268,
+      "advertised_content_length": 24748,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "155c2bb185e331d7c372606dd02419cd",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/15/5c/155c2bb185e331d7c372606dd02419cd.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_6",
+      "http_status": 200,
+      "original_expected_bytes": 24748,
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "1f55108a531942f13cb17eec16a344b1",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/1f/55/1f55108a531942f13cb17eec16a344b1.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_10",
+      "http_status": 200,
+      "original_expected_bytes": 28868,
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "3d4586dd3eb9ac5c883a861fcb400c1f",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/3d/45/3d4586dd3eb9ac5c883a861fcb400c1f.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_11",
+      "http_status": 200,
+      "original_expected_bytes": 20628,
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "4251fe60b54005363627320be13dc1e8",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/42/51/4251fe60b54005363627320be13dc1e8.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_14",
+      "http_status": 200,
+      "original_expected_bytes": 8268,
+      "advertised_content_length": 28868,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "56af27fdf16264a3876468c2be4d4a4a",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/56/af/56af27fdf16264a3876468c2be4d4a4a.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_19",
+      "http_status": 200,
+      "original_expected_bytes": 8268,
+      "advertised_content_length": 16508,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "67392f075170c9dbfe2ca5740bf14702",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/67/39/67392f075170c9dbfe2ca5740bf14702.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_35",
+      "http_status": 200,
+      "original_expected_bytes": 8268,
+      "advertised_content_length": 28868,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "bdbd566b284f85fc6ff7aea210e3de9e",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/bd/bd/bdbd566b284f85fc6ff7aea210e3de9e.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_37",
+      "http_status": 200,
+      "original_expected_bytes": 8268,
+      "advertised_content_length": 24748,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "c2e08f50296ae03645fe8bd7eaac4252",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/c2/e0/c2e08f50296ae03645fe8bd7eaac4252.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_38",
+      "http_status": 200,
+      "original_expected_bytes": 8268,
+      "advertised_content_length": 16508,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "c560764daecedf5f76cf9c0703d03219",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/c5/60/c560764daecedf5f76cf9c0703d03219.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_39",
+      "http_status": 200,
+      "original_expected_bytes": 8268,
+      "advertised_content_length": 24748,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "cb91aaa31cc3f8db711ff15d1a629a49",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/cb/91/cb91aaa31cc3f8db711ff15d1a629a49.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_40",
+      "http_status": 200,
+      "original_expected_bytes": 28868,
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "dc2c12802529e373b97f5e01e57fd920",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/dc/2c/dc2c12802529e373b97f5e01e57fd920.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_41",
+      "http_status": 200,
+      "original_expected_bytes": 24748,
+      "advertised_content_length": 28868,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "e2c3a7fc4331e95775da64c93c2dcefe",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/e2/c3/e2c3a7fc4331e95775da64c93c2dcefe.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_43",
+      "http_status": 200,
+      "original_expected_bytes": 16508,
+      "advertised_content_length": 8268,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "f420ec441751fa39eacdf9b9b7ae8e74",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/f4/20/f420ec441751fa39eacdf9b9b7ae8e74.index",
+      "original_expected_matches_pinned_cdn_config": true
+    },
+    {
+      "id": "index_45",
+      "http_status": 200,
+      "original_expected_bytes": 16508,
+      "advertised_content_length": 20628,
+      "head_length_usable_for_review": true,
+      "matches_original_expected": false,
+      "key": "fc8b56fa72ad18a7faf1dbd98437309f",
+      "url": "https://us.cdn.blizzard.com/tpr/bnt002/data/fc/8b/fc8b56fa72ad18a7faf1dbd98437309f.index",
+      "original_expected_matches_pinned_cdn_config": true
+    }
+  ]
+}
