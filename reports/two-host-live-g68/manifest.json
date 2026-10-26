@@ -1,0 +1,133 @@
+{
+  "run_id": "40286805955",
+  "source_commit": "2a1d104de3778f58b675899a9de15757107c31be",
+  "artifact_sha256": "c13feb8982ce0c92a8364a6110c1186ecdd77ed7da04ec92713818e83a2622b8",
+  "CDN_API_rows": 34,
+  "whole_path_exact_public_matches": 33,
+  "unmatched_CDN_API_rows": 1,
+  "TLS_record_bytes": 5116,
+  "transport_audit": {
+    "accepted_API_input_bytes": 9494,
+    "counts": {
+      "TLS_handshake_record_bytes": 2870,
+      "TLS_handshake_records": 7,
+      "TLS_change_cipher_spec_record_bytes": 42,
+      "TLS_change_cipher_spec_records": 7,
+      "TLS_application_data_record_bytes": 2204,
+      "TLS_application_data_records": 24,
+      "HTTP1_candidate_bytes": 4378
+    },
+    "buffered_unclassified_bytes": 0,
+    "accounting_reconciles": true,
+    "cap_hit": false,
+    "TLS_record_type_does_not_reveal_plaintext": true,
+    "HTTP_candidate_bytes_require_separate_HTTP_audit": true,
+    "ciphertext_to_SSPI_plaintext_one_to_one_mapping_proven": false,
+    "all_processes_and_APIs_covered": false,
+    "raw_values_exported": false,
+    "fingerprinting_absence_proven": false
+  },
+  "unmatched_redacted_rows": [
+    {
+      "host": "level3.blizzard.com",
+      "method": "GET",
+      "route_matches_fixed_public_endpoint": false,
+      "path_segment_classes": {
+        "fixed_download_route_word": 2,
+        "opaque_or_unclassified": 3,
+        "opaque_hex_not_proven_content_hash": 1
+      },
+      "unresolved_path_segments": 4,
+      "path_local_identifier_matches": [],
+      "query_parameters": [],
+      "user_agent": {
+        "present": true,
+        "known_product_words": [
+          "agent"
+        ],
+        "platform_words": [],
+        "version_number_groups": 1,
+        "local_identifier_matches": [],
+        "hardware_word_hint": false,
+        "raw_value_exported": false,
+        "absence_of_encoded_identifiers_proven": false,
+        "matches_exact_agent_version_only_grammar": false,
+        "all_version_groups_match_fixed_public_reference": true,
+        "non_version_text_excluded_by_exact_grammar": false,
+        "bounded_structure": {
+          "present": true,
+          "structure": [
+            {
+              "kind": "fixed_word",
+              "word": "agent"
+            },
+            {
+              "kind": "separator",
+              "symbol": "/"
+            },
+            {
+              "kind": "version_shape",
+              "public_exact": true
+            }
+          ],
+          "truncated": false,
+          "unresolved_token_count": 0,
+          "exact_fixed_product_version_grammar": false,
+          "all_version_shapes_match_public_reference": true,
+          "only_fixed_words_public_versions_and_separators_observed": true,
+          "exact_match_to_pinned_official_bootstrap_static_UA": false,
+          "static_match_scope": "exact_whole_value_not_prefix_not_privacy_clearance",
+          "raw_value_exported": false,
+          "fingerprinting_absence_proven": false
+        }
+      },
+      "header_local_identifier_matches": [],
+      "explicit_credentials_present": false,
+      "accept_values_all_generic_download_types": true,
+      "range_present": false,
+      "range_syntax_valid": true,
+      "body_bytes": 0,
+      "body_local_identifier_match": false,
+      "verdict": "unknown_requires_more_evidence",
+      "fingerprinting_absence_proven": false,
+      "raw_path_query_header_values_exported": false,
+      "public_download_path": {
+        "whole_path_exactly_in_independent_public_reference": false,
+        "public_reference_kinds": [],
+        "public_reference_products": [],
+        "query_present": false,
+        "method_is_GET": true,
+        "body_empty": true,
+        "range_present": false,
+        "range_inside_public_object_size_if_checkable": null,
+        "range_matches_public_archive_record": false,
+        "range_semantics": "absent",
+        "unexpected_header_names_present": false,
+        "credential_header_present": false,
+        "verdict": "unknown_requires_more_evidence",
+        "raw_path_range_header_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    }
+  ],
+  "range_rows": 13,
+  "range_public_size_within_bounds_rows": 8,
+  "range_public_size_unknown_rows": 5,
+  "all_snapshots_no_unobserved_live_owner": true,
+  "snapshot_count": 6,
+  "coverage_complete": false,
+  "observed_seconds": 120.5,
+  "cache_valid": true,
+  "native_controls_passed": true,
+  "unit_tests_passed": 70,
+  "cleanup": true,
+  "firewall_verified": true,
+  "grain": "API observations, not unique wire requests; identical redacted rows retained",
+  "comparison_plan": [
+    {
+      "finding": "exact path reference matches and framing checks resolve specific privacy evidence gaps",
+      "disposition": "prose",
+      "reason": "headline is two counts, with semantic caveats, no temporal or multi-measure numerical comparison requested"
+    }
+  ]
+}
