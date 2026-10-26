@@ -1,0 +1,105 @@
+{
+  "run_id": "40282833225",
+  "source_commit": "9fe38fcf58a51fdfa02276eecb6a1a5c98b09102",
+  "digest": "132673f6947980587c97bd8ae7e1afbee8ceeb10f07fcd96b596b5f32dc1fb80",
+  "query_relation": {
+    "rows": [
+      {
+        "key": "seqn",
+        "route_is_fixed_summary": true,
+        "decimal": true,
+        "is_zero_sentinel_candidate_not_proven": false,
+        "matches_prepared_public_sequence_exact": false,
+        "matches_sequence_in_complete_200_table_on_same_TLS_context": false,
+        "context_had_rejected_response": false,
+        "meaning": "unknown_requires_more_evidence",
+        "raw_value_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    ],
+    "response_observation_counts": {
+      "complete_framed_responses": 12,
+      "recognized_200_table_responses": 10
+    },
+    "buffered_bytes": 0,
+    "matching_scope": "same_TLS_context_not_request_response_pairing",
+    "coverage_complete": false,
+    "raw_values_exported": false
+  },
+  "ua_structures": [
+    {
+      "present": true,
+      "structure": [
+        {
+          "kind": "unresolved_text",
+          "length": 7
+        },
+        {
+          "kind": "separator",
+          "symbol": "-"
+        },
+        {
+          "kind": "fixed_word",
+          "word": "agent"
+        },
+        {
+          "kind": "separator",
+          "symbol": "/"
+        },
+        {
+          "kind": "version_shape",
+          "public_exact": false
+        }
+      ],
+      "truncated": false,
+      "unresolved_token_count": 1,
+      "exact_fixed_product_version_grammar": false,
+      "all_version_shapes_match_public_reference": false,
+      "only_fixed_words_public_versions_and_separators_observed": false,
+      "raw_value_exported": false,
+      "fingerprinting_absence_proven": false
+    },
+    {
+      "present": true,
+      "structure": [
+        {
+          "kind": "fixed_word",
+          "word": "agent"
+        },
+        {
+          "kind": "separator",
+          "symbol": "/"
+        },
+        {
+          "kind": "version_shape",
+          "public_exact": true
+        }
+      ],
+      "truncated": false,
+      "unresolved_token_count": 0,
+      "exact_fixed_product_version_grammar": false,
+      "all_version_shapes_match_public_reference": true,
+      "only_fixed_words_public_versions_and_separators_observed": true,
+      "raw_value_exported": false,
+      "fingerprinting_absence_proven": false
+    }
+  ],
+  "native_controls_all_passed": true,
+  "cleanup": true,
+  "firewall_verified": true,
+  "cache_valid": true,
+  "observed_seconds": 120.7,
+  "coverage_complete": false,
+  "unparsed": {
+    "non_HTTP1_or_midstream_bytes": 5116
+  },
+  "audit_cap_hit": false,
+  "row_grain": "HTTP API observations, not unique server receipts; duplicate redacted rows retained",
+  "comparison_plan": [
+    {
+      "finding": "one UA structure only fixed product and public version; second has unresolved prefix; seqn unmatched",
+      "disposition": "prose",
+      "reason": "semantic evidence; not a numerical comparison needing a chart"
+    }
+  ]
+}
