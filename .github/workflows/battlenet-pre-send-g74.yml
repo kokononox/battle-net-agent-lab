@@ -1,0 +1,43 @@
+name: G74 local-only complete-request pre-send gate
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/two-host-pre-send-g74/**', '.github/workflows/battlenet-pre-send-g74.yml']
+permissions: {}
+concurrency:
+  group: two-host-pre-send-g74
+  cancel-in-progress: false
+jobs:
+  local-gate:
+    if: >-
+      github.event.head_commit.message == 'lab: approved local-only pre-send gate G74' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 4
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Verify pinned Git-blob bases and materialize local prototype
+        run: python analysis-tools/two-host-pre-send-g74/compose.py
+      - name: Parse and test admission and canonicalization
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          python -m compileall -q analysis-tools/two-host-live-g74-runtime
+          if($LASTEXITCODE -ne 0){throw 'python_parse_failed'}
+          python -m unittest discover -s analysis-tools/two-host-live-g74-runtime -p 'test_*.py' -v
+          if($LASTEXITCODE -ne 0){throw 'pre_send_tests_failed'}
+      - name: Local-only physical upstream receipt controls, no installer
+        shell: powershell
+        run: |
+          python analysis-tools/two-host-live-g74-runtime/pre_send_fixture.py
+          if($LASTEXITCODE -ne 0){throw 'local_pre_send_control_failed'}
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: two-host-pre-send-g74-local-only
+          path: output/g74-pre-send-fixture.json
+          if-no-files-found: warn
+          retention-days: 3
