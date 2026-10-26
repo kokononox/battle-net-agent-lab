@@ -1,0 +1,12 @@
+# G72 — اصلاح مورد واقعی schema و انتساب به مرجع عمومی مستقل
+هدف: حل شکاف field/route کلید نامنطبق G71، نه تکرار آزمون نصب یا افزایش allowlist.
+
+بررسی آفلاین fixtures عمومی G69 و دریافت مستقل metadata نشان داد header واقعی `VersionsName!String:0` دارد؛ parser G71 فقط STRING تمام‌بزرگ را می‌پذیرفت و کل schema را رد می‌کرد. اصلاح فقط case-insensitive کردن نوع‌های شناخته‌شدهٔ STRING/HEX/DEC است، نه حدس نام field یا پذیرش نوع دلخواه. تست regression هر دو versions واقعیِ پین‌شده را می‌خواند و ProductConfig را پیدا می‌کند. native TLS x86/x64 نیز همین mixed-case header را دارد.
+
+summary عمومی مستقل پیش از target، agent_beta و agent_redist را معرفی کرد. چهار GET عمومی ثابت نسخه/CDN همین دو محصول، همراه با summary مستقل، پیش از target به fixture جدید با SHA256 ثابت و receipt تبدیل شد. هیچ نام/کلید/URL target به دریافت مستقل بازتاب داده نشد. reference loader پین، hash receipt، schema، نام محصول در summary، نوع و اندازهٔ مقادیر HEX/DEC را کنترل می‌کند. دریافت پژوهشی هیچ دسترسی runtime تازه‌ای نمی‌سازد.
+
+نام محصول در route فقط اگر از summary مستقل آمده باشد منتشر می‌شود. بخش‌های دیگر path فقط کلمهٔ ثابت پروتکل، opaque hex یا other هستند؛ نام آزاد/کلید/URI/query خام صادر نمی‌شوند. شکل absolute-form فقط برای HTTPS همان host تشخیص داده می‌شود؛ unquote، تغییر case path یا نرمال‌سازی مبهم نداریم. schema diagnostic فقط نام‌های شناخته‌شدهٔ ستون و نوع/عرض ساختاری را صادر می‌کند، نه ردیف‌های داده یا نام آزاد.
+
+مسیر کامل عمومی config مستقل از target از versions و cdns ساخته می‌شود: BuildConfig/CDNConfig زیر Path/config، ProductConfig زیر ConfigPath؛ fanout دقیق دو/دو/کلید. Region و Name باید منطبق و level3.blizzard.com در Hosts اعلام شده باشد. query، fanout متفاوت، prefix نامعتبر یا نبود field عمومی مثبت نمی‌شوند. مرجع G69 برای انتخاب همان target نامنطبق دست‌نخورده باقی می‌ماند؛ فقط در ردیاب مستقل مشخص می‌شود آیا مسیر کامل با مرجع تازه تطبیق دارد. عمومی بودن یک path نه نبود تمام fingerprintهاست و نه ضرورت انتخاب آن؛ هیچ unknown خودکار به allow rule تبدیل نمی‌شود.
+
+132 تست کشف شد؛ در Linux یک تست Windows skip شد. تست‌ها و 12 کنترل بومی پیش از target الزامی‌اند. هدف تازه فقط یک مشاهدهٔ 120ثانیه‌ای است؛ login/Install click یا دانلود کامل نداریم. سیاست شبکه، process guard، revocation/TLS و cleanup همان قبل است. Runtime همان دو مقصد و استثنای مدیریت CI است. main و Unified Firewall Desktop 0.9.10 تغییر نمی‌کنند. raw مقدار کلید/مسیر/پاسخ/ردیف/شناسه/command line صادر نمی‌شود. شکل success در parser یا public equality حریم خصوصی کل سیستم را تضمین نمی‌کند.
