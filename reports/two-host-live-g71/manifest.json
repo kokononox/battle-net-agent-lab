@@ -1,0 +1,164 @@
+{
+  "run_id": "40297279657",
+  "source_commit": "8f493c8cbd86e20d3d08c38cd4c5de81984c9b51",
+  "artifact_sha256": "bc46cba366c9ce0072447ae8a81140f14f3e2d165bf472632fb94aff4f39064f",
+  "initial_run_id": "40295973870",
+  "initial_source_commit": "566eacbb78a69277efae15506aa1203139f5f26c",
+  "initial_paired_responses": 12,
+  "initial_key_occurrence_response_count": 2,
+  "target_executions_this_stage": 2,
+  "paired_complete_requests": 15,
+  "paired_complete_responses": 15,
+  "prior_complete_response_body_matches": 3,
+  "target_key_count": 1,
+  "unknown_target_API_observations": 2,
+  "field_identified": false,
+  "source_route_identified": false,
+  "independent_public_match": false,
+  "unknown_key_public_origin_proven": false,
+  "whole_CDN_path_independently_public": false,
+  "raw_values_exported": false,
+  "redacted_API_rows": 56,
+  "redacted_duplicate_rows_kept": 27,
+  "CDN_API_rows": 41,
+  "exact_public_path_matches": 39,
+  "range_rows": 16,
+  "range_exact_public_boundaries": 15,
+  "response_attribution": {
+    "targets": [
+      {
+        "target_index": 1,
+        "path_family": "data",
+        "paired_response_occurrences": [
+          {
+            "event": 1,
+            "route": "<other_route>",
+            "query_present": false,
+            "method": "GET",
+            "status": 200,
+            "body_decoding_supported": true,
+            "preceded_target_observation": true,
+            "locations": [
+              {
+                "area": "body",
+                "field": "<unrecognized_body>",
+                "match": "ASCII_substring",
+                "wrapper": "identity",
+                "line_contains_pipe": true,
+                "line_contains_equals": false,
+                "line_contains_colon": false
+              }
+            ],
+            "pairing_basis": "FIFO_on_same_observed_TLS_context",
+            "pinned_public_body_equalities": []
+          },
+          {
+            "event": 8,
+            "route": "<other_route>",
+            "query_present": false,
+            "method": "GET",
+            "status": 200,
+            "body_decoding_supported": true,
+            "preceded_target_observation": true,
+            "locations": [
+              {
+                "area": "body",
+                "field": "<unrecognized_body>",
+                "match": "ASCII_substring",
+                "wrapper": "identity",
+                "line_contains_pipe": true,
+                "line_contains_equals": false,
+                "line_contains_colon": false
+              }
+            ],
+            "pairing_basis": "FIFO_on_same_observed_TLS_context",
+            "pinned_public_body_equalities": []
+          },
+          {
+            "event": 9,
+            "route": "<other_route>",
+            "query_present": false,
+            "method": "GET",
+            "status": 200,
+            "body_decoding_supported": true,
+            "preceded_target_observation": true,
+            "locations": [
+              {
+                "area": "body",
+                "field": "<unrecognized_body>",
+                "match": "ASCII_substring",
+                "wrapper": "identity",
+                "line_contains_pipe": true,
+                "line_contains_equals": false,
+                "line_contains_colon": false
+              }
+            ],
+            "pairing_basis": "FIFO_on_same_observed_TLS_context",
+            "pinned_public_body_equalities": []
+          }
+        ],
+        "independent_reference_occurrences": [],
+        "raw_values_exported": false,
+        "causal_derivation_proven": false,
+        "whole_CDN_path_independently_public": false
+      }
+    ],
+    "counts": {
+      "complete_requests": 15,
+      "complete_responses": 15,
+      "paired_responses": 15
+    },
+    "buffered_bytes": 0,
+    "unanswered_observed_requests": 0,
+    "retained_response_bytes": 50250,
+    "blocked_contexts": 0,
+    "independent_successful_reference_documents": 7,
+    "raw_values_exported": false,
+    "coverage_complete": false,
+    "meaning": "paired location and independent equality, never causal derivation or privacy clearance"
+  },
+  "native_controls_passed": 12,
+  "native_TLS_field_attribution_controls_passed": 2,
+  "tests_discovered": 119,
+  "Linux_Windows_specific_skip": 1,
+  "observed_seconds": 120.9,
+  "cleanup": true,
+  "firewall_verified": true,
+  "certificate_cache_online_offline_passed": true,
+  "transport": {
+    "accepted_API_input_bytes": 12372,
+    "counts": {
+      "TLS_handshake_record_bytes": 3690,
+      "TLS_handshake_records": 9,
+      "TLS_change_cipher_spec_record_bytes": 54,
+      "TLS_change_cipher_spec_records": 9,
+      "TLS_application_data_record_bytes": 3302,
+      "TLS_application_data_records": 33,
+      "HTTP1_candidate_bytes": 5326
+    },
+    "buffered_unclassified_bytes": 0,
+    "accounting_reconciles": true,
+    "cap_hit": false,
+    "TLS_record_type_does_not_reveal_plaintext": true,
+    "HTTP_candidate_bytes_require_separate_HTTP_audit": true,
+    "ciphertext_to_SSPI_plaintext_one_to_one_mapping_proven": false,
+    "all_processes_and_APIs_covered": false,
+    "raw_values_exported": false,
+    "fingerprinting_absence_proven": false
+  },
+  "origin_gaps": {
+    "origin_gap_overlapped_ReadFile_unobserved": 50
+  },
+  "origin_source_byte_cap_hit": false,
+  "origin_evicted_chunks": 0,
+  "coverage_complete": false,
+  "profiling_notes": "heterogeneous runtime normalized to request rows; duplicate redacted observations retained; constants are bounded observed facts not privacy clearance; public_download_path null on version-host rows; control null error fields mean no error; run_id is an identifier",
+  "comparison_plan": [
+    {
+      "finding": "key located in three paired response bodies, but source field and independent public origin remain unidentified",
+      "grain": "one key, two target API observations, three prior paired responses in final run; no unique-request inference across runs",
+      "disposition": "prose",
+      "reason": "semantic checks, not a distribution or trend; repeat counts are not progress metrics"
+    }
+  ]
+}
