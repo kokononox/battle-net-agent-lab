@@ -15,6 +15,7 @@ import certificate_cache
 from semantic_audit import Audit,load_public,local_comparisons
 from download_path_audit import load_reference
 from transport_audit import TransportAudit
+from process_exit_proof import CandidateAlreadyExited
 base=Path(__file__).resolve().parent;root=Path(os.environ['RUNNER_TEMP'])/'g69-private'
 if os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted' or os.environ.get('BNET_G69')!='approved-live-startup-two-hosts-g69':raise SystemExit('hosted_approval_required')
 def ps(action):
@@ -145,7 +146,10 @@ try:
    candidates,inv=snapshot_inventory(base,root,scoped)
    inventory_rows.append({'elapsed_seconds':round(elapsed,1),'snapshot':inv})
    for candidate_process in candidates:
-    handle,late_birth=guarded_process(candidate_process)
+    try:handle,late_birth=guarded_process(candidate_process)
+    except CandidateAlreadyExited:
+     counts['late_candidate_proven_terminated_before_attach']+=1
+     continue
     late_handles.append(handle)
     late_processes.append({'pid':candidate_process['pid'],'birth':late_birth,'image_path':candidate_process['image_path']})
     (root/'late-processes.PRIVATE.json').write_text(json.dumps(late_processes))

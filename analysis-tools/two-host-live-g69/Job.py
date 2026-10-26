@@ -1,5 +1,6 @@
 import ctypes as C
 from ctypes import wintypes as W
+from process_exit_proof import termination_proven,CandidateAlreadyExited
 K=C.WinDLL('kernel32',use_last_error=True)
 K.CreateJobObjectW.argtypes=[C.c_void_p,W.LPCWSTR];K.CreateJobObjectW.restype=W.HANDLE
 K.SetInformationJobObject.argtypes=[W.HANDLE,C.c_int,C.c_void_p,W.DWORD];K.SetInformationJobObject.restype=W.BOOL
@@ -41,13 +42,19 @@ def creation_time(pid):
 
 K.IsProcessInJob.argtypes=[W.HANDLE,W.HANDLE,C.POINTER(W.BOOL)];K.IsProcessInJob.restype=W.BOOL
 K.QueryFullProcessImageNameW.argtypes=[W.HANDLE,W.DWORD,W.LPWSTR,C.POINTER(W.DWORD)];K.QueryFullProcessImageNameW.restype=W.BOOL
+K.WaitForSingleObject.argtypes=[W.HANDLE,W.DWORD];K.WaitForSingleObject.restype=W.DWORD
 def guarded_process(row):
  import os,hashlib
- p=K.OpenProcess(0x1000|0x100|0x1,False,row['pid'])
+ p=K.OpenProcess(0x1000|0x100|0x1|0x100000,False,row['pid'])
  if not p:raise RuntimeError('late_process_open_failed')
  try:
   image=C.create_unicode_buffer(32768);n=W.DWORD(len(image))
-  if not K.QueryFullProcessImageNameW(p,0,image,C.byref(n)):raise RuntimeError('late_process_image_failed')
+  if not K.QueryFullProcessImageNameW(p,0,image,C.byref(n)):
+   # Only the SAME opened process handle being signalled may bypass an attach
+   # attempt. This does not approve any live/unknown process or loosen identity.
+   if termination_proven(K.WaitForSingleObject(p,0)):
+    raise CandidateAlreadyExited('late_candidate_proven_terminated')
+   raise RuntimeError('late_process_image_failed')
   if os.path.normcase(image.value)!=os.path.normcase(row['image_path']):raise RuntimeError('late_process_path_changed')
   with open(image.value,'rb') as f:digest=hashlib.file_digest(f,'sha256').hexdigest()
   if digest!=row['sha256']:raise RuntimeError('late_process_hash_changed')
