@@ -28,7 +28,7 @@ let inetInstalled=false;
 function installInet(mod){
  if(inetInstalled)return;inetInstalled=true;
  const connections=new Map(),requests=new Map(),openers=new Map();
- function str(p,n){if(p.isNull())return '';return n===undefined?p.readCString(65536):p.readCString(Math.min(n,65536));}
+ function str(p,n){if(p.isNull())return '';const limit=n===undefined?65536:Math.min(n,65536);let out='';for(let i=0;i<limit;i++){const b=p.add(i).readU8();if(b===0)break;out+=String.fromCharCode(b);}return out;}
  Interceptor.attach(mod.getExportByName('InternetOpenA'),{onEnter(a){this.agent=str(a[0]);},onLeave(r){if(!r.isNull())openers.set(r.toString(),this.agent);}});
  Interceptor.attach(mod.getExportByName('InternetConnectA'),{onEnter(a){this.meta={server:str(a[1]).toLowerCase(),port:a[2].toUInt32()&65535,agent:openers.get(a[0].toString())||'',username_argument_present:!a[3].isNull(),password_argument_present:!a[4].isNull()};},onLeave(r){if(!r.isNull())connections.set(r.toString(),this.meta);else send({kind:'wininet_connect_failed',error:this.lastError});}});
  Interceptor.attach(mod.getExportByName('HttpOpenRequestA'),{onEnter(a){this.meta=Object.assign({},connections.get(a[0].toString())||{server:'',port:0},{method:str(a[1])||'GET',path:str(a[2]),secure:(a[6].toUInt32()&0x00800000)!==0});},onLeave(r){if(!r.isNull())requests.set(r.toString(),this.meta);else send({kind:'wininet_open_request_failed',error:this.lastError});}});

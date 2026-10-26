@@ -22,7 +22,9 @@ def run_inet(arch):
  try:
   pid=device.spawn([str(exe),str(port)]);job.assign(pid);session=device.attach(pid);session.on('detached',lambda *a:done.set());script=session.create_script((BASE/'hook.js').read_text())
   def message(m,data):
-   if m.get('type')!='send':errors.append('script_error');return
+   if m.get('type')!='send':
+    text=m.get('description','')
+    errors.append('access_violation' if 'access violation' in text.lower() else 'type_error' if 'TypeError' in text else 'other_script_error');return
    p=m['payload']
    if p.get('kind')=='ready':ready.set()
    if p.get('kind')=='wininet_request_input':events.append((p,bytes(data or b'')))
@@ -35,7 +37,7 @@ def run_inet(arch):
    p,b=events[0];good=p['server']=='127.0.0.1' and p['port']==port and p['method']=='POST' and p['path']=='/agent/versions?fixture=1' and p['api_returned_true'] and b==BODY and p['body_observed_complete']
    row=classify(p,b,allow_fixture=True);good=good and row['hardware_field_name_hint'] and row['query_present']
   server_exact=received==[('/agent/versions?fixture=1',BODY)]
-  return {'architecture':arch,'control':'WinINet_HTTP_loopback','passed':bool(good and server_exact),'native_request_rows':len(events),'receiving_server_exact':server_exact,'script_errors':len(errors),'synthetic_only':True,'included_in_real_report':False}
+  return {'architecture':arch,'control':'WinINet_HTTP_loopback','passed':bool(good and server_exact),'native_request_rows':len(events),'receiving_server_exact':server_exact,'script_errors':len(errors),'script_error_kinds':sorted(set(errors)),'synthetic_only':True,'included_in_real_report':False}
  finally:
   job.close();server.shutdown();server.server_close()
   if session:
