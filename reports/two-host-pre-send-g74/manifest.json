@@ -1,0 +1,42 @@
+{
+  "source_commit": "c56b70bcc6178fe61be3df3a8cab22b4e873bd35",
+  "run_id": "40312354354",
+  "job_id": "121536404373",
+  "run_attempt": 1,
+  "Windows_job_success": true,
+  "Windows_test_step_success": true,
+  "Windows_loopback_fixture_step_success": true,
+  "local_test_discovery_total": 171,
+  "local_Windows_specific_skips": 1,
+  "new_policy_unit_tests": 30,
+  "local_physical_receipt_controls": 17,
+  "local_positive_controls": 3,
+  "local_negative_controls": 14,
+  "local_denied_controls_zero_upstream_connections": true,
+  "local_positive_receipts_exact_canonical": true,
+  "Windows_artifact_id": "12644549561",
+  "Windows_artifact_API_digest": "sha256:c7aa10519204dae7a8244035ab6293bd6f73608a3d843164e7f28ea4f511525a",
+  "Windows_artifact_bytes_downloaded": false,
+  "Windows_artifact_digest_locally_rechecked": false,
+  "Windows_raw_case_rows_individually_rechecked": false,
+  "Windows_detailed_logs_downloaded": false,
+  "Windows_evidence_limit": "public run/job API confirms source and successful guarded steps; artifact 401 and log 403 require authentication; individual rows and log count not independently loaded",
+  "target_runs_this_stage": 0,
+  "external_BattleNet_requests_this_stage": 0,
+  "firewall_changes_this_stage": false,
+  "certificate_changes_this_stage": false,
+  "new_runtime_destinations": false,
+  "main_or_desktop_release_changed": false,
+  "production_integration_complete": false,
+  "global_privacy_absence_proven": false,
+  "prototype_input_contract": "one complete bounded plaintext HTTP/1.1 request from trusted adapter; no transparent proxy/TLS/OS-wide binding",
+  "raw_case_rows_source": "local Git-blob-composed prototype only; not Windows runner artifact",
+  "comparison_plan": [
+    {
+      "finding": "pre-admission loopback physical receipt assertions",
+      "grain": "synthetic fixture case, not real installer request",
+      "disposition": "prose",
+      "reason": "functional equality and zero-side-effect assertions; not a measured trend or distribution"
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "schema": "g74-complete-request-pre-send-fixture-1",
+  "run_id": "local",
+  "source_commit": "local",
+  "passed": true,
+  "rows": [
+    {
+      "case": "public_CDN_single",
+      "passed": true,
+      "expected_allowed": true,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 1,
+      "upstream_accepted_connections": 1,
+      "upstream_receipt_exact_canonical_request": true,
+      "denied_zero_upstream_connections_and_bytes": null,
+      "decision": {
+        "allowed": true,
+        "reason": "canonical_public_request",
+        "destination_class": "CDN_host",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "public_CDN_fragmented_full_range",
+      "passed": true,
+      "expected_allowed": true,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 1,
+      "upstream_accepted_connections": 1,
+      "upstream_receipt_exact_canonical_request": true,
+      "denied_zero_upstream_connections_and_bytes": null,
+      "decision": {
+        "allowed": true,
+        "reason": "canonical_public_request",
+        "destination_class": "CDN_host",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "public_metadata",
+      "passed": true,
+      "expected_allowed": true,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 1,
+      "upstream_accepted_connections": 1,
+      "upstream_receipt_exact_canonical_request": true,
+      "denied_zero_upstream_connections_and_bytes": null,
+      "decision": {
+        "allowed": true,
+        "reason": "canonical_public_request",
+        "destination_class": "version_host",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "query_identifier",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "request_target",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "user_agent_identifier",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "unapproved_user_agent",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "cookie_identifier",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "unapproved_header",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "authorization_identifier",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "unapproved_header",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "body_identifier",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "body_or_trailing_bytes",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "unknown_header",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "unapproved_header",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "range_one_byte_short",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "range_not_exact_public_boundary",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "unknown_destination",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "unapproved_host",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "pipelined_tail",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "body_or_trailing_bytes",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "late_fragment_body",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "body_or_trailing_bytes",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "incomplete_headers",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "incomplete_request",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "opaque_TLS_bytes",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "incomplete_request",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "duplicate_host",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "duplicate_header",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    },
+    {
+      "case": "transfer_encoding",
+      "passed": true,
+      "expected_allowed": false,
+      "no_upstream_connection_before_complete_admission": true,
+      "upstream_connection_attempts": 0,
+      "upstream_accepted_connections": 0,
+      "upstream_receipt_exact_canonical_request": null,
+      "denied_zero_upstream_connections_and_bytes": true,
+      "decision": {
+        "allowed": false,
+        "reason": "unapproved_header",
+        "destination_class": "none",
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    }
+  ],
+  "case_count": 17,
+  "external_service_used": false,
+  "loopback_sink_only": true,
+  "installer_started": false,
+  "firewall_changed": false,
+  "certificate_trust_changed": false,
+  "transparent_proxy_implemented": false,
+  "production_integration_complete": false,
+  "all_outbound_paths_covered": false,
+  "raw_values_exported": false,
+  "fingerprinting_absence_proven": false
+}
