@@ -1,0 +1,41 @@
+{
+  "schema": "two-host-live-g53-1",
+  "source_commit": "7c64dd67163f1a83a09aaa50c10df07e925fa12f",
+  "run_id": "40259299797",
+  "scope": "bounded_signed_bootstrap_startup_no_UI_advance_no_login_not_full_download",
+  "installer_executed": true,
+  "firewall_verified": true,
+  "error": null,
+  "cleanup": true,
+  "fingerprinting_absence_proven": false,
+  "observed_seconds": 90.0,
+  "content": {
+    "requests": [],
+    "unparsed": {},
+    "buffered_unparsed_bytes": 0,
+    "api_input_bytes_seen": 0,
+    "cap_hit": false,
+    "fingerprinting_absence_proven": false,
+    "raw_values_exported": false,
+    "request_grain": "synchronous_Winsock_accepted_input_not_independent_wire_or_server_receipt"
+  },
+  "hook_counts": {
+    "hooks_installed": 1,
+    "ready": 1,
+    "bytes": 6,
+    "peer_unattributed_or_not_target_bytes": 30
+  },
+  "hosts": {
+    "level3.blizzard.com": {
+      "request_rows": 0,
+      "verdict": "unknown_no_content_rows"
+    },
+    "us.version.battle.net": {
+      "request_rows": 0,
+      "verdict": "unknown_no_content_rows"
+    }
+  },
+  "coverage_complete": false,
+  "server_receipt_proven": false,
+  "hook_changes_client_timing_possible": true
+}
