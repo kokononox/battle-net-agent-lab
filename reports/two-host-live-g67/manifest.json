@@ -1,0 +1,64 @@
+{
+  "run_id": "40285129412",
+  "source_commit": "8aa0286026b41f34a3fc603064ec62af41db9f21",
+  "artifact_sha256": "a1f4ffd704a51a49c2eff574899918d500dfccb12b28655bd69c2ec29f168681",
+  "initial_run_id": "40284772754",
+  "initial_error": "late_process_image_failed",
+  "initial_cleanup": true,
+  "query_relation": {
+    "rows": [
+      {
+        "key": "seqn",
+        "route_is_fixed_summary": true,
+        "decimal": true,
+        "is_zero_sentinel_candidate_not_proven": false,
+        "matches_prepared_public_sequence_exact": true,
+        "matches_prepared_public_summary_document_sequence_exact": true,
+        "matches_sequence_in_complete_200_table_on_same_TLS_context": false,
+        "matches_summary_document_sequence_on_same_TLS_context": false,
+        "context_had_rejected_response": false,
+        "meaning": "public_sequence_match_not_privacy_clearance",
+        "raw_value_exported": false,
+        "fingerprinting_absence_proven": false
+      }
+    ],
+    "response_observation_counts": {
+      "complete_framed_responses": 12,
+      "recognized_200_table_responses": 10
+    },
+    "buffered_bytes": 0,
+    "matching_scope": "same_TLS_context_not_request_response_pairing",
+    "coverage_complete": false,
+    "raw_values_exported": false
+  },
+  "UA_exact_static_literal_match": true,
+  "agent_public_version_only_structure_observed": true,
+  "independent_official_static_literal": {
+    "download_url": "https://downloader.battle.net/download/installer/win/1.0.68/Battle.net-Setup.exe",
+    "sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+    "bytes": 4700880,
+    "offset": 3580116,
+    "ASCII_literal": "phoenix-agent/1.0"
+  },
+  "cache_online_valid": true,
+  "cache_offline_valid": true,
+  "firewall_verified": true,
+  "cleanup": true,
+  "native_controls_passed": true,
+  "unit_tests_passed": 58,
+  "observed_seconds": 120.2,
+  "coverage_complete": false,
+  "fingerprinting_absence_proven": false,
+  "unparsed_bytes": {
+    "non_HTTP1_or_midstream_bytes": 5116
+  },
+  "cap_hit": false,
+  "grain_note": "Redacted API observations, duplicate redacted rows retained; not unique wire requests.",
+  "comparison_plan": [
+    {
+      "finding": "two specific semantic ambiguities resolved by exact public/static equality",
+      "disposition": "prose",
+      "reason": "semantic equality evidence, not a comparative chart"
+    }
+  ]
+}
