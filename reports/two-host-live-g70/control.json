@@ -1,0 +1,1088 @@
+{
+  "schema": "g70-native-control-1",
+  "run_id": "40293205084",
+  "source_commit": "11e25be92e33c76a23a6469cbbacbee33fb8d117",
+  "passed": true,
+  "TLS_fixture_phase": "fixture-certificate-ready-no-root-trust",
+  "failure_stage": null,
+  "TLS_fixture_trust_removed_before_installer": true,
+  "rows": [
+    {
+      "architecture": "x86",
+      "passed": true,
+      "server_received_exact_fixture": true,
+      "observer_received_exact_fixture": true,
+      "peer_exact_loopback_port": true,
+      "events": {
+        "hooks_installed": 1,
+        "ready": 1,
+        "origin_file_closed": 58,
+        "origin_source": 12,
+        "bytes": 2,
+        "api_send": 1,
+        "api_WSASend": 1,
+        "socket_closed": 1
+      },
+      "script_errors": 0,
+      "request_rows": 2,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "passed": true,
+      "server_received_exact_fixture": true,
+      "observer_received_exact_fixture": true,
+      "peer_exact_loopback_port": true,
+      "events": {
+        "hooks_installed": 1,
+        "ready": 1,
+        "origin_file_closed": 62,
+        "origin_source": 12,
+        "bytes": 2,
+        "api_send": 1,
+        "api_WSASend": 1,
+        "socket_closed": 1
+      },
+      "script_errors": 0,
+      "request_rows": 2,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x86",
+      "control": "native_prior_key_occurrence",
+      "passed": true,
+      "targets": [
+        {
+          "target_index": 1,
+          "observation_count": 1,
+          "method": "GET",
+          "request_frames": [
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "ws2_32.dll",
+              "relative_offset": "0x17370"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x12556"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x1e529"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x1f1f7"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x10d847"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad631"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad4a6"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad8b4"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad7fa"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xfe1fc"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xa38e"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xfbae"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x15788"
+            }
+          ],
+          "occurrences": [
+            {
+              "source_event": 13,
+              "source_kind": "disk_ReadFile_sync",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "kernelbase.dll",
+                  "relative_offset": "0x157fa0"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x12556"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1e529"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1f1f7"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x10d847"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad631"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad4a6"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad8b4"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad7fa"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfe1fc"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xa38e"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfbae"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x15788"
+                },
+                {
+                  "module": "ntdll.dll",
+                  "relative_offset": "0x6d8cb"
+                }
+              ],
+              "derivation_proven": false
+            },
+            {
+              "source_event": 14,
+              "source_kind": "disk_ReadFile_sync",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "kernelbase.dll",
+                  "relative_offset": "0x157fa0"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x12556"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1e529"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1f1f7"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x10d847"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad631"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad4a6"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad8b4"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad7fa"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfe1fc"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xa38e"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfbae"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x15788"
+                },
+                {
+                  "module": "ntdll.dll",
+                  "relative_offset": "0x6d8cb"
+                }
+              ],
+              "derivation_proven": false
+            }
+          ],
+          "raw_values_exported": false,
+          "derivation_proven": false,
+          "public_origin_proven": false
+        },
+        {
+          "target_index": 2,
+          "observation_count": 1,
+          "method": "GET",
+          "request_frames": [
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "ws2_32.dll",
+              "relative_offset": "0x17370"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x12556"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x1e529"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x1f1f7"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x10d847"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad631"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad4a6"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad8b4"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad7fa"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xfe1fc"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xa38e"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xfbae"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x15788"
+            }
+          ],
+          "occurrences": [
+            {
+              "source_event": 15,
+              "source_kind": "selected_two_host_recv",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "ws2_32.dll",
+                  "relative_offset": "0x16ac0"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x12556"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1e529"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1f1f7"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x10d847"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad631"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad4a6"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad8b4"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad7fa"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfe1fc"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xa38e"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfbae"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x15788"
+                },
+                {
+                  "module": "ntdll.dll",
+                  "relative_offset": "0x6d8cb"
+                }
+              ],
+              "derivation_proven": false
+            }
+          ],
+          "raw_values_exported": false,
+          "derivation_proven": false,
+          "public_origin_proven": false
+        },
+        {
+          "target_index": 3,
+          "observation_count": 1,
+          "method": "GET",
+          "request_frames": [
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "ws2_32.dll",
+              "relative_offset": "0x17370"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x12556"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x1e529"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x1f1f7"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x10d847"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad631"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad4a6"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad8b4"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad7fa"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xfe1fc"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xa38e"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xfbae"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x15788"
+            }
+          ],
+          "occurrences": [
+            {
+              "source_event": 16,
+              "source_kind": "selected_two_host_WSARecv_immediate",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "ws2_32.dll",
+                  "relative_offset": "0x112e0"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x12556"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1e529"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1f1f7"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x10d847"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad631"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad4a6"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad8b4"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad7fa"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfe1fc"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xa38e"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfbae"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x15788"
+                },
+                {
+                  "module": "ntdll.dll",
+                  "relative_offset": "0x6d8cb"
+                }
+              ],
+              "derivation_proven": false
+            }
+          ],
+          "raw_values_exported": false,
+          "derivation_proven": false,
+          "public_origin_proven": false
+        }
+      ],
+      "script_errors": 0,
+      "server_errors": [],
+      "synthetic_only": true,
+      "included_in_real_report": false,
+      "external_network_used": false
+    },
+    {
+      "architecture": "x64",
+      "control": "native_prior_key_occurrence",
+      "passed": true,
+      "targets": [
+        {
+          "target_index": 1,
+          "observation_count": 1,
+          "method": "GET",
+          "request_frames": [
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x7e78b0"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            }
+          ],
+          "occurrences": [
+            {
+              "source_event": 13,
+              "source_kind": "disk_ReadFile_sync",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x18f035"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                }
+              ],
+              "derivation_proven": false
+            },
+            {
+              "source_event": 14,
+              "source_kind": "disk_ReadFile_sync",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x18f035"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                }
+              ],
+              "derivation_proven": false
+            }
+          ],
+          "raw_values_exported": false,
+          "derivation_proven": false,
+          "public_origin_proven": false
+        },
+        {
+          "target_index": 2,
+          "observation_count": 1,
+          "method": "GET",
+          "request_frames": [
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x7e78b0"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            }
+          ],
+          "occurrences": [
+            {
+              "source_event": 15,
+              "source_kind": "selected_two_host_recv",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x7e78b0"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                }
+              ],
+              "derivation_proven": false
+            }
+          ],
+          "raw_values_exported": false,
+          "derivation_proven": false,
+          "public_origin_proven": false
+        },
+        {
+          "target_index": 3,
+          "observation_count": 1,
+          "method": "GET",
+          "request_frames": [
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x7e78b0"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            }
+          ],
+          "occurrences": [
+            {
+              "source_event": 16,
+              "source_kind": "selected_two_host_WSARecv_immediate",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                }
+              ],
+              "derivation_proven": false
+            }
+          ],
+          "raw_values_exported": false,
+          "derivation_proven": false,
+          "public_origin_proven": false
+        }
+      ],
+      "script_errors": 0,
+      "server_errors": [],
+      "synthetic_only": true,
+      "included_in_real_report": false,
+      "external_network_used": false
+    },
+    {
+      "architecture": "x86",
+      "control": "WinINet_A_HTTP_loopback",
+      "passed": true,
+      "native_request_rows": 1,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 2,
+      "startup_diagnostic_control_passed": true,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "control": "WinINet_A_HTTP_loopback",
+      "passed": true,
+      "native_request_rows": 1,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 2,
+      "startup_diagnostic_control_passed": true,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x86",
+      "control": "WinINet_W_HTTP_loopback",
+      "passed": true,
+      "native_request_rows": 1,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 3,
+      "startup_diagnostic_control_passed": true,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "control": "WinINet_W_HTTP_loopback",
+      "passed": true,
+      "native_request_rows": 1,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 3,
+      "startup_diagnostic_control_passed": true,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x86",
+      "control": "WinHTTP_HTTP_loopback",
+      "passed": true,
+      "native_API_input_rows": 2,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 1,
+      "startup_diagnostic_control_passed": true,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "control": "WinHTTP_HTTP_loopback",
+      "passed": true,
+      "native_API_input_rows": 2,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 1,
+      "startup_diagnostic_control_passed": true,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x86",
+      "control": "Schannel_TLS12_loopback",
+      "passed": true,
+      "native_both_endpoints_exact": true,
+      "pre_encrypt_plaintext_exact": true,
+      "post_decrypt_plaintext_exact": true,
+      "scoped_handshake_success_observed": true,
+      "script_errors": 0,
+      "observation_errors": 0,
+      "plaintext_API_events": 2,
+      "handshake_status_codes": [
+        "0x00000000",
+        "0x00090312"
+      ],
+      "TLS_fixture_executed": true,
+      "fixture_exact_certificate_pin_required": true,
+      "fixture_standard_chain_trust_used": false,
+      "fixture_root_trust_installed": false,
+      "production_certificate_validation_changed": false,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "control": "Schannel_TLS12_loopback",
+      "passed": true,
+      "native_both_endpoints_exact": true,
+      "pre_encrypt_plaintext_exact": true,
+      "post_decrypt_plaintext_exact": true,
+      "scoped_handshake_success_observed": true,
+      "script_errors": 0,
+      "observation_errors": 0,
+      "plaintext_API_events": 2,
+      "handshake_status_codes": [
+        "0x00000000",
+        "0x00090312"
+      ],
+      "TLS_fixture_executed": true,
+      "fixture_exact_certificate_pin_required": true,
+      "fixture_standard_chain_trust_used": false,
+      "fixture_root_trust_installed": false,
+      "production_certificate_validation_changed": false,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    }
+  ],
+  "error_type": null,
+  "external_network_used_by_fixture": false
+}

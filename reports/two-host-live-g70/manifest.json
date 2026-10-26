@@ -1,0 +1,260 @@
+{
+  "run_id": "40293205084",
+  "source_commit": "11e25be92e33c76a23a6469cbbacbee33fb8d117",
+  "artifact_sha256": "c0004c5c26504e4c983d1492847ac82d4991f5fcd3eceb986ca70362b17d8a21",
+  "initial_preflight_failed_run": "40292278079",
+  "initial_target_executed": false,
+  "initial_cause": "fixed hash rejected Windows working-tree bytes; all local base Git blob SHAs matched source commit; git-show byte materialization fixed it; exact original byte difference was not logged",
+  "CDN_API_observation_rows": 34,
+  "exact_public_path_matches": 33,
+  "unknown_path_rows": 1,
+  "unknown_target_observations": 1,
+  "prior_version_plaintext_occurrence_events": 3,
+  "events_are_not_distinct_responses": true,
+  "unknown_key_still_not_independently_public": true,
+  "causal_derivation_proven": false,
+  "unknown_origin_trace": {
+    "targets": [
+      {
+        "target_index": 1,
+        "observation_count": 1,
+        "method": "GET",
+        "request_frames": [
+          {
+            "module": "Agent",
+            "relative_offset": "0x35d89a"
+          },
+          {
+            "module": "ws2_32.dll",
+            "relative_offset": "0x17370"
+          },
+          {
+            "module": "unmapped"
+          },
+          {
+            "module": "Agent",
+            "relative_offset": "0x3414da"
+          },
+          {
+            "module": "Agent",
+            "relative_offset": "0x341ac9"
+          },
+          {
+            "module": "Agent",
+            "relative_offset": "0x34203a"
+          },
+          {
+            "module": "Agent",
+            "relative_offset": "0x34828c"
+          },
+          {
+            "module": "Agent",
+            "relative_offset": "0x348cd2"
+          },
+          {
+            "module": "Agent",
+            "relative_offset": "0x347c0b"
+          },
+          {
+            "module": "Agent",
+            "relative_offset": "0x3347ea"
+          },
+          {
+            "module": "Agent",
+            "relative_offset": "0x333894"
+          },
+          {
+            "module": "Agent",
+            "relative_offset": "0x63256"
+          },
+          {
+            "module": "Agent",
+            "relative_offset": "0x61809"
+          },
+          {
+            "module": "Agent",
+            "relative_offset": "0x463207"
+          },
+          {
+            "module": "Agent",
+            "relative_offset": "0x487f3f"
+          },
+          {
+            "module": "kernel32.dll",
+            "relative_offset": "0x15d49"
+          }
+        ],
+        "occurrences": [
+          {
+            "source_event": 12,
+            "source_kind": "version_TLS_plaintext",
+            "representation": [
+              "ASCII_lower_hex"
+            ],
+            "preceded_request_observation": true,
+            "frames": [],
+            "derivation_proven": false
+          },
+          {
+            "source_event": 112,
+            "source_kind": "version_TLS_plaintext",
+            "representation": [
+              "ASCII_lower_hex"
+            ],
+            "preceded_request_observation": true,
+            "frames": [],
+            "derivation_proven": false
+          },
+          {
+            "source_event": 113,
+            "source_kind": "version_TLS_plaintext",
+            "representation": [
+              "ASCII_lower_hex"
+            ],
+            "preceded_request_observation": true,
+            "frames": [],
+            "derivation_proven": false
+          },
+          {
+            "source_event": 115,
+            "source_kind": "selected_two_host_recv",
+            "representation": [
+              "ASCII_lower_hex"
+            ],
+            "preceded_request_observation": false,
+            "frames": [
+              {
+                "module": "Agent",
+                "relative_offset": "0x35e90e"
+              },
+              {
+                "module": "ws2_32.dll",
+                "relative_offset": "0x16ac0"
+              },
+              {
+                "module": "Agent",
+                "relative_offset": "0x35da69"
+              },
+              {
+                "module": "unmapped"
+              },
+              {
+                "module": "Agent",
+                "relative_offset": "0x3414b1"
+              },
+              {
+                "module": "Agent",
+                "relative_offset": "0x341a77"
+              },
+              {
+                "module": "Agent",
+                "relative_offset": "0x3420a4"
+              },
+              {
+                "module": "Agent",
+                "relative_offset": "0x34d34e"
+              },
+              {
+                "module": "Agent",
+                "relative_offset": "0x34cd1c"
+              },
+              {
+                "module": "Agent",
+                "relative_offset": "0x334c64"
+              },
+              {
+                "module": "Agent",
+                "relative_offset": "0x333894"
+              },
+              {
+                "module": "Agent",
+                "relative_offset": "0x63256"
+              },
+              {
+                "module": "Agent",
+                "relative_offset": "0x61809"
+              },
+              {
+                "module": "Agent",
+                "relative_offset": "0x463207"
+              },
+              {
+                "module": "Agent",
+                "relative_offset": "0x487f3f"
+              },
+              {
+                "module": "kernel32.dll",
+                "relative_offset": "0x15d49"
+              }
+            ],
+            "derivation_proven": false
+          }
+        ],
+        "raw_values_exported": false,
+        "derivation_proven": false,
+        "public_origin_proven": false
+      }
+    ],
+    "source_counts": {
+      "disk_ReadFile_sync_bytes": 3173586,
+      "non_HTTP_request_bytes": 5092,
+      "version_TLS_plaintext_bytes": 45369,
+      "selected_two_host_recv_bytes": 7736227
+    },
+    "retained_source_bytes": 10960411,
+    "retention_limit": 33554432,
+    "raw_values_exported": false,
+    "coverage_complete": false,
+    "meaning": "byte occurrence is not causal derivation; incoming data is not independently public; negative results are bounded by retention and unsupported asynchronous/mapped/decompressed reads"
+  },
+  "gaps": {
+    "origin_gap_overlapped_ReadFile_unobserved": 48
+  },
+  "full_trace_eviction_count": 0,
+  "source_byte_cap_hit": false,
+  "native_controls_passed": 12,
+  "tests_discovered": 90,
+  "Windows_tests_passed": 90,
+  "redacted_API_rows": 46,
+  "redacted_duplicate_rows_kept": 17,
+  "Linux_native_Windows_test_skipped": 1,
+  "observation_seconds": 120.6,
+  "cleanup": true,
+  "firewall_verified": true,
+  "TLS_certificate_cache_online_and_offline_passed": true,
+  "transport_audit": {
+    "accepted_API_input_bytes": 9470,
+    "counts": {
+      "TLS_handshake_record_bytes": 2870,
+      "TLS_handshake_records": 7,
+      "TLS_change_cipher_spec_record_bytes": 42,
+      "TLS_change_cipher_spec_records": 7,
+      "TLS_application_data_record_bytes": 2180,
+      "TLS_application_data_records": 23,
+      "HTTP1_candidate_bytes": 4378
+    },
+    "buffered_unclassified_bytes": 0,
+    "accounting_reconciles": true,
+    "cap_hit": false,
+    "TLS_record_type_does_not_reveal_plaintext": true,
+    "HTTP_candidate_bytes_require_separate_HTTP_audit": true,
+    "ciphertext_to_SSPI_plaintext_one_to_one_mapping_proven": false,
+    "all_processes_and_APIs_covered": false,
+    "raw_values_exported": false,
+    "fingerprinting_absence_proven": false
+  },
+  "range_rows": 13,
+  "range_exact_public_boundaries": 12,
+  "coverage_complete": false,
+  "grain": "redacted API observations; repeated API rows retained, not unique network requests; provenance events may overlap",
+  "profiling_notes": "runtime has heterogeneous arrays, normalized to request_value_audit.rows; control constants/null failure_stage/error_type expected because one run and success, run_id treated as identifier not measure",
+  "comparison_plan": [
+    {
+      "finding": "The unmatched key occurs before its outgoing observation in decrypted input attributed to version server",
+      "population": "one unknown target observation, three potentially overlapping source events",
+      "unit": "exact ASCII lower-hex byte occurrence",
+      "disposition": "prose",
+      "reason": "semantic equality with no causal or time-series comparison"
+    }
+  ]
+}
