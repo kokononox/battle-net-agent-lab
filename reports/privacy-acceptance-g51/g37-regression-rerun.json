@@ -1,0 +1,29 @@
+{
+  "schema": "offline_broker_session_g37_v1",
+  "tests_run": 50,
+  "tests_passed": true,
+  "failures": 0,
+  "errors": 0,
+  "injection_cases_in_contract_test": 1000,
+  "adversarial_sequences": 156,
+  "concurrent_duplicate_requests": 32,
+  "expected_concurrent_deliveries": 1,
+  "transport": "in_memory_fixtures_only",
+  "socket_creation_guarded_in_each_test": true,
+  "production_catalog_resources": 0,
+  "external_network_transport_implemented": false,
+  "windows_policy_changed": false,
+  "real_battlenet_download_tested": false,
+  "cross_session_replay_prevention_implemented": false,
+  "timing_channel_eliminated": false,
+  "runtime_anti_fingerprint_acceptance": false,
+  "exe_delivered": false,
+  "files_sha256": {
+    "README.fa.md": "4a9faa2160e97cdba0e094fcf0fe42e30fea362e4f495a8e60db295efaf16e34",
+    "broker.py": "f1064d7846d63893063a1c1a996635eea7402f4df9f84be34df439feedbfeba3",
+    "catalog.deny-all.json": "ee2b6f3e115f58ff21414168185024ffa9f574863333ab869cbb861c52c0c8c5",
+    "run_tests.py": "ebfc9db042cf589c152f4c337a2756949bb489916bf282d69a19d955dc2fa7c2",
+    "test_broker.py": "e17f9e206c1666690b1c95411f31beff1b02b31a211398a80843d91e196c808f",
+    "test_sessions.py": "cf4ce22d7fb558393d5fe4ebfc28b3b845335c66cfb47a2fbad6be6e2571cf0c"
+  }
+}

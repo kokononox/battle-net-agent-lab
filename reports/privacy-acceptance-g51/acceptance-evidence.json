@@ -1,0 +1,165 @@
+{
+  "schema": "privacy_acceptance_audit_g51_v1",
+  "mode": "offline_component_tests_only",
+  "os_socket_creation_forbidden": true,
+  "external_network_requests": 0,
+  "native_windows_admission_stubbed": true,
+  "windows_firewall_or_job_tested_in_g51": false,
+  "real_tls_session_tested": false,
+  "real_installer_or_payload_executed": false,
+  "production_policy_changed": false,
+  "cases": [
+    {
+      "component": "legacy_domain_proxy",
+      "case": "post_body",
+      "synthetic_marker_reached_mock_upstream": true,
+      "upstream_is_in_memory_only": true,
+      "privacy_requirement_met": false
+    },
+    {
+      "component": "legacy_domain_proxy",
+      "case": "get_body",
+      "synthetic_marker_reached_mock_upstream": true,
+      "upstream_is_in_memory_only": true,
+      "privacy_requirement_met": false
+    },
+    {
+      "component": "legacy_domain_proxy",
+      "case": "query_id",
+      "synthetic_marker_reached_mock_upstream": true,
+      "upstream_is_in_memory_only": true,
+      "privacy_requirement_met": false
+    },
+    {
+      "component": "legacy_domain_proxy",
+      "case": "path_id",
+      "synthetic_marker_reached_mock_upstream": true,
+      "upstream_is_in_memory_only": true,
+      "privacy_requirement_met": false
+    },
+    {
+      "component": "legacy_domain_proxy",
+      "case": "custom_header",
+      "synthetic_marker_reached_mock_upstream": true,
+      "upstream_is_in_memory_only": true,
+      "privacy_requirement_met": false
+    },
+    {
+      "component": "legacy_domain_proxy",
+      "case": "cookie",
+      "synthetic_marker_reached_mock_upstream": true,
+      "upstream_is_in_memory_only": true,
+      "privacy_requirement_met": false
+    },
+    {
+      "component": "legacy_domain_proxy",
+      "case": "authorization",
+      "synthetic_marker_reached_mock_upstream": true,
+      "upstream_is_in_memory_only": true,
+      "privacy_requirement_met": false
+    },
+    {
+      "component": "quarantine_only_endpoint",
+      "case": "post_body",
+      "decision": "blocked",
+      "upstream_calls": 0,
+      "public_receipt_contains_marker": false,
+      "privacy_requirement_met_for_this_request": true,
+      "download_allowed": false
+    },
+    {
+      "component": "quarantine_only_endpoint",
+      "case": "get_body",
+      "decision": "blocked",
+      "upstream_calls": 0,
+      "public_receipt_contains_marker": false,
+      "privacy_requirement_met_for_this_request": true,
+      "download_allowed": false
+    },
+    {
+      "component": "quarantine_only_endpoint",
+      "case": "query_id",
+      "decision": "blocked",
+      "upstream_calls": 0,
+      "public_receipt_contains_marker": false,
+      "privacy_requirement_met_for_this_request": true,
+      "download_allowed": false
+    },
+    {
+      "component": "quarantine_only_endpoint",
+      "case": "path_id",
+      "decision": "blocked",
+      "upstream_calls": 0,
+      "public_receipt_contains_marker": false,
+      "privacy_requirement_met_for_this_request": true,
+      "download_allowed": false
+    },
+    {
+      "component": "quarantine_only_endpoint",
+      "case": "custom_header",
+      "decision": "blocked",
+      "upstream_calls": 0,
+      "public_receipt_contains_marker": false,
+      "privacy_requirement_met_for_this_request": true,
+      "download_allowed": false
+    },
+    {
+      "component": "quarantine_only_endpoint",
+      "case": "cookie",
+      "decision": "blocked",
+      "upstream_calls": 0,
+      "public_receipt_contains_marker": false,
+      "privacy_requirement_met_for_this_request": true,
+      "download_allowed": false
+    },
+    {
+      "component": "quarantine_only_endpoint",
+      "case": "authorization",
+      "decision": "blocked",
+      "upstream_calls": 0,
+      "public_receipt_contains_marker": false,
+      "privacy_requirement_met_for_this_request": true,
+      "download_allowed": false
+    }
+  ],
+  "opaque_relay": {
+    "unchanged_synthetic_record_forwarded": true,
+    "real_encryption_or_handshake_tested": false,
+    "meaning": "relay does not inspect application payload semantics; allowed SNI/host cannot establish privacy safety"
+  },
+  "fixed_broker": {
+    "direct_injection_cases_executed_and_blocked": 23,
+    "additional_unique_injections_executed_and_blocked": 1000,
+    "blocked_before_fixture_fetch": true,
+    "approved_synthetic_download_succeeded": true,
+    "client_wire_reconstructed_not_forwarded": true,
+    "shipped_deny_all_fetch_calls": 0,
+    "online_transport_available": false,
+    "trusted_bad_catalog_can_embed_identifier": true,
+    "content_hash_and_approved_label_are_not_privacy_review": true,
+    "synthetic_success_is_not_real_install_success": true
+  },
+  "historical_test_correction": {
+    "source": "G37 test_many_injected_requests_never_fetch",
+    "generated_variants": 1000,
+    "download_calls_actually_executed_in_original_test": 1,
+    "cause": "assertRaises/download block lies outside for-loop",
+    "g51_independently_executed_unique_variants": 1000,
+    "prior_source_or_receipt_modified": false
+  },
+  "catalog_sha256": "ee2b6f3e115f58ff21414168185024ffa9f574863333ab869cbb861c52c0c8c5",
+  "source_hashes": {
+    "analysis-tools/download-broker-g37/broker.py": "f1064d7846d63893063a1c1a996635eea7402f4df9f84be34df439feedbfeba3",
+    "analysis-tools/download-broker-g37/test_broker.py": "e17f9e206c1666690b1c95411f31beff1b02b31a211398a80843d91e196c808f",
+    "analysis-tools/quarantine-system-g41/domain_proxy.py": "db75b46a2d1fd24229437637f7935235912e7b41e413180841e16a19c0cbaea6",
+    "analysis-tools/quarantine-system-g41/quarantine_handler.py": "46ad5bc40e4f023fa4141137fd02ba00c7f77bfc55f228fd5114e755c53905b7",
+    "analysis-tools/quarantine-system-g41/quarantine.py": "8d5dfd4d0826921f3781eb0109f69ec25daa5753957462a81bdbdd2d97f6a0cc",
+    "analysis-tools/quarantine-system-g41/tls_records.py": "9700cde1cd5eb38634c95380646648ba3642cb42e42fe8c620f08c28d1269494"
+  },
+  "acceptance": {
+    "user_goal_met": false,
+    "release_as_privacy_safe_installer_route": false,
+    "reason": "Legacy route forwards arbitrary allowed-host HTTP data and opaque TLS bytes; safe broker is offline only; quarantine blocks all downloads. No combined Windows manual-install route validated.",
+    "next_required_work": "Keep legacy forwarding out of privacy mode; integrate fixed-request online broker with Windows deny-all gate, then test manual-install compatibility and negative controls. No broad host exception or blind CONNECT fallback."
+  }
+}

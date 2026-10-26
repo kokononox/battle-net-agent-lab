@@ -1,0 +1,55 @@
+test_bad_json_blocked (test_broker.Tests.test_bad_json_blocked) ... ok
+test_client_encoding_not_forwarded (test_broker.Tests.test_client_encoding_not_forwarded) ... ok
+test_deny_all_shipped_policy (test_broker.Tests.test_deny_all_shipped_policy) ... ok
+test_deterministic_reconstruction (test_broker.Tests.test_deterministic_reconstruction) ... ok
+test_duplicate_json_key_blocked (test_broker.Tests.test_duplicate_json_key_blocked) ... ok
+test_duplicate_resource_blocked (test_broker.Tests.test_duplicate_resource_blocked) ... ok
+test_extra_fields_blocked_before_fetch (test_broker.Tests.test_extra_fields_blocked_before_fetch) ... ok
+test_fixture_download (test_broker.Tests.test_fixture_download) ... ok
+test_hash_mismatch_not_delivered (test_broker.Tests.test_hash_mismatch_not_delivered) ... ok
+test_host_lookalikes_and_ip_blocked (test_broker.Tests.test_host_lookalikes_and_ip_blocked) ... ok
+test_integrity_configuration_blocked (test_broker.Tests.test_integrity_configuration_blocked) ... ok
+test_many_injected_requests_never_fetch (test_broker.Tests.test_many_injected_requests_never_fetch) ... ok
+test_no_fixture_no_network_fallback (test_broker.Tests.test_no_fixture_no_network_fallback) ... ok
+test_noncanonical_paths_blocked (test_broker.Tests.test_noncanonical_paths_blocked) ... ok
+test_policy_cannot_add_arbitrary_headers_or_method (test_broker.Tests.test_policy_cannot_add_arbitrary_headers_or_method) ... ok
+test_policy_duplicate_key_blocked (test_broker.Tests.test_policy_duplicate_key_blocked) ... ok
+test_policy_pin_mismatch (test_broker.Tests.test_policy_pin_mismatch) ... ok
+test_policy_resource_mapping_readonly (test_broker.Tests.test_policy_resource_mapping_readonly) ... ok
+test_raw_http_and_connect_blocked (test_broker.Tests.test_raw_http_and_connect_blocked) ... ok
+test_real_transport_not_accepted (test_broker.Tests.test_real_transport_not_accepted) ... ok
+test_redirects_errors_not_delivered (test_broker.Tests.test_redirects_errors_not_delivered) ... ok
+test_request_type_size_shape_blocked (test_broker.Tests.test_request_type_size_shape_blocked) ... ok
+test_same_destination_url_blocked (test_broker.Tests.test_same_destination_url_blocked) ... ok
+test_size_mismatch_not_delivered (test_broker.Tests.test_size_mismatch_not_delivered) ... ok
+test_unknown_id_blocked (test_broker.Tests.test_unknown_id_blocked) ... ok
+test_unreviewed_resource_blocked (test_broker.Tests.test_unreviewed_resource_blocked) ... ok
+test_wire_exact (test_broker.Tests.test_wire_exact) ... ok
+test_adversarial_sequences_preserve_prefix_and_budget (test_sessions.SessionTests.test_adversarial_sequences_preserve_prefix_and_budget) ... ok
+test_aggregate_cap_rejected (test_sessions.SessionTests.test_aggregate_cap_rejected) ... ok
+test_byte_budget_must_match_exact_total (test_sessions.SessionTests.test_byte_budget_must_match_exact_total) ... ok
+test_cancel_before_any_fetch (test_sessions.SessionTests.test_cancel_before_any_fetch) ... ok
+test_cancel_between_resources (test_sessions.SessionTests.test_cancel_between_resources) ... ok
+test_cancel_does_not_reset_complete (test_sessions.SessionTests.test_cancel_does_not_reset_complete) ... ok
+test_completed_session_never_reopens (test_sessions.SessionTests.test_completed_session_never_reopens) ... ok
+test_concurrent_duplicate_only_one_fetch (test_sessions.SessionTests.test_concurrent_duplicate_only_one_fetch) ... ok
+test_fixed_sequence_and_exact_budgets (test_sessions.SessionTests.test_fixed_sequence_and_exact_budgets) ... ok
+test_hash_failure_spends_attempt_and_never_retries (test_sessions.SessionTests.test_hash_failure_spends_attempt_and_never_retries) ... ok
+test_injected_body_terminal_no_fetch (test_sessions.SessionTests.test_injected_body_terminal_no_fetch) ... ok
+test_interruption_terminal (test_sessions.SessionTests.test_interruption_terminal) ... ok
+test_legacy_policy_no_fallback (test_sessions.SessionTests.test_legacy_policy_no_fallback) ... ok
+test_malformed_input_terminal_no_fetch (test_sessions.SessionTests.test_malformed_input_terminal_no_fetch) ... ok
+test_out_of_order_closes_before_fetch (test_sessions.SessionTests.test_out_of_order_closes_before_fetch) ... ok
+test_redirect_terminal_no_refund (test_sessions.SessionTests.test_redirect_terminal_no_refund) ... ok
+test_repeated_first_blocks_remaining (test_sessions.SessionTests.test_repeated_first_blocks_remaining) ... ok
+test_request_budget_cannot_expand_or_shrink (test_sessions.SessionTests.test_request_budget_cannot_expand_or_shrink) ... ok
+test_sequence_duplicates_unknown_omission_rejected (test_sessions.SessionTests.test_sequence_duplicates_unknown_omission_rejected) ... ok
+test_session_shapes_rejected (test_sessions.SessionTests.test_session_shapes_rejected) ... ok
+test_session_spec_readonly (test_sessions.SessionTests.test_session_spec_readonly) ... ok
+test_snapshot_readonly (test_sessions.SessionTests.test_snapshot_readonly) ... ok
+test_transport_exception_terminal (test_sessions.SessionTests.test_transport_exception_terminal) ... ok
+
+----------------------------------------------------------------------
+Ran 50 tests in 0.052s
+
+OK
