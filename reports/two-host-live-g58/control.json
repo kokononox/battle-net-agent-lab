@@ -1,0 +1,76 @@
+{
+  "schema": "g58-native-control-1",
+  "run_id": "40265997690",
+  "source_commit": "acccb7f82f9787d0036a3d07ec91a195780f3dd5",
+  "passed": true,
+  "rows": [
+    {
+      "architecture": "x86",
+      "passed": true,
+      "server_received_exact_fixture": true,
+      "observer_received_exact_fixture": true,
+      "peer_exact_loopback_port": true,
+      "events": {
+        "hooks_installed": 1,
+        "ready": 1,
+        "bytes": 2,
+        "api_send": 1,
+        "api_WSASend": 1
+      },
+      "script_errors": 0,
+      "request_rows": 2,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "passed": true,
+      "server_received_exact_fixture": true,
+      "observer_received_exact_fixture": true,
+      "peer_exact_loopback_port": true,
+      "events": {
+        "hooks_installed": 1,
+        "ready": 1,
+        "bytes": 2,
+        "api_send": 1,
+        "api_WSASend": 1
+      },
+      "script_errors": 0,
+      "request_rows": 2,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x86",
+      "control": "WinINet_HTTP_loopback",
+      "passed": true,
+      "native_request_rows": 1,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 2,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "control": "WinINet_HTTP_loopback",
+      "passed": true,
+      "native_request_rows": 1,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 2,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    }
+  ],
+  "error_type": null,
+  "external_network_used_by_fixture": false
+}
