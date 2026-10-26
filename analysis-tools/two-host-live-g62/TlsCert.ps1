@@ -10,17 +10,13 @@ if($Action -eq 'Prepare'){
  Phase 'create-localhost-certificate'
  $cert=New-SelfSignedCertificate -DnsName 'localhost' -CertStoreLocation 'Cert:\CurrentUser\My' -KeyAlgorithm RSA -KeyLength 2048 -KeyExportPolicy NonExportable -HashAlgorithm SHA256 -Type SSLServerAuthentication -NotAfter (Get-Date).AddHours(2)
  @{thumbprint=$cert.Thumbprint}|ConvertTo-Json -Compress|Set-Content -LiteralPath $state -Encoding UTF8
- Phase 'add-localhost-fixture-trust'
- [IO.File]::WriteAllBytes($der,$cert.RawData)
- $null=& "$env:SystemRoot\System32\certutil.exe" -user -f -addstore Root $der 2>&1
- if($LASTEXITCODE -ne 0 -or -not(Test-Path -LiteralPath ('Cert:\CurrentUser\Root\'+$cert.Thumbprint))){throw 'fixture_root_add_failed'}
- Phase 'fixture-trust-ready'
+ Phase 'fixture-certificate-ready-no-root-trust'
  Write-Output $cert.Thumbprint
 }else{
  if(-not(Test-Path $state)){throw 'fixture_cert_state_missing'}
  $thumb=(Get-Content -LiteralPath $state -Raw|ConvertFrom-Json).thumbprint
  if($thumb -notmatch '^[0-9A-F]{40}$'){throw 'fixture_cert_identity_invalid'}
- foreach($store in @('Root','My')){
+ foreach($store in @('My')){
   $path='Cert:\CurrentUser\'+$store+'\'+$thumb
   if(Test-Path -LiteralPath $path){Remove-Item -LiteralPath $path -Force}
   if(Test-Path -LiteralPath $path){throw 'fixture_certificate_removal_unverified'}

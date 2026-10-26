@@ -7,9 +7,12 @@ from Job import Job
 BASE=Path(__file__).resolve().parent
 REQUEST=b'G62-REQUEST-PLAINTEXT';RESPONSE=b'G62-RESPONSE-PLAINTEXT'
 def cert(action):
- r=subprocess.run(['powershell.exe','-NoProfile','-File',str(BASE/'TlsCert.ps1'),'-Action',action],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=90)
+ output=Path(os.environ['RUNNER_TEMP'])/('g62-cert-'+action+'.PRIVATE.txt')
+ with output.open('wb') as stream:
+  r=subprocess.run(['powershell.exe','-NoProfile','-File',str(BASE/'TlsCert.ps1'),'-Action',action],stdout=stream,stderr=subprocess.DEVNULL,timeout=40)
  if r.returncode:raise RuntimeError('tls_fixture_certificate_'+action.lower()+'_failed')
- return r.stdout.decode('utf-8-sig').strip()
+ return output.read_text(encoding='utf-8-sig').strip()
+
 def run_tls(arch,thumb):
  exe=Path(os.environ['RUNNER_TEMP'])/('g62-tls-'+arch+'.exe');marker=Path(os.environ['RUNNER_TEMP'])/('g62-tls-'+arch+'.exact')
  if exe.exists() or marker.exists():raise RuntimeError('fixture_path_exists')
@@ -36,7 +39,7 @@ def run_tls(arch,thumb):
   incoming=any(p['server']=='localhost' and p['direction']=='incoming_post_decrypt' and p['status']=='0x00000000' and b==RESPONSE for p,b in parts)
   handshake=any(p['server']=='localhost' and p['succeeded'] for p in statuses)
   passed=native_exact and outgoing and incoming and handshake and errors==0 and counts['sspi_observation_error']==0
-  return {'architecture':arch,'control':'Schannel_TLS12_loopback','passed':bool(passed),'native_both_endpoints_exact':native_exact,'pre_encrypt_plaintext_exact':outgoing,'post_decrypt_plaintext_exact':incoming,'scoped_handshake_success_observed':handshake,'script_errors':errors,'observation_errors':counts['sspi_observation_error'],'plaintext_API_events':len(parts),'handshake_status_codes':sorted(set(p['status_hex'] for p in statuses)),'TLS_fixture_executed':True,'certificate_validation_callback_used':False,'certificate_error_bypass_used':False,'synthetic_only':True,'included_in_real_report':False}
+  return {'architecture':arch,'control':'Schannel_TLS12_loopback','passed':bool(passed),'native_both_endpoints_exact':native_exact,'pre_encrypt_plaintext_exact':outgoing,'post_decrypt_plaintext_exact':incoming,'scoped_handshake_success_observed':handshake,'script_errors':errors,'observation_errors':counts['sspi_observation_error'],'plaintext_API_events':len(parts),'handshake_status_codes':sorted(set(p['status_hex'] for p in statuses)),'TLS_fixture_executed':True,'fixture_exact_certificate_pin_required':True,'fixture_standard_chain_trust_used':False,'fixture_root_trust_installed':False,'production_certificate_validation_changed':False,'synthetic_only':True,'included_in_real_report':False}
  finally:
   job.close()
   if session:
