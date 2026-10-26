@@ -1,0 +1,45 @@
+{
+  "schema": "unexecuted_fixed_range_proposal_g46_v1",
+  "entries": [
+    {
+      "sample_id": "sample_1",
+      "archive_url": "https://us.cdn.blizzard.com/tpr/bnt002/data/60/5f/605fbbb3d7a768acc56fa91d845181b0",
+      "range_header": "bytes=49635016-49635042",
+      "range_start": 49635016,
+      "range_end": 49635042,
+      "expected_encoded_bytes": 27,
+      "expected_decoded_bytes": 18,
+      "ekey": "ce429ae91fc7868cdeae3158bac493ce",
+      "ckey": "65f69bd2d8b6458d3ecf77d84d70dc1c",
+      "source_index_id": "index_18",
+      "source_index_sha256": "f1bbec63638357ddfe84bba83682d99bfcd0c0a53ea79be8c352b29c93cb6e9e",
+      "executed": false,
+      "runtime_approved": false
+    },
+    {
+      "sample_id": "sample_2",
+      "archive_url": "https://us.cdn.blizzard.com/tpr/bnt002/data/9b/d6/9bd67b33267b8df445ab0a2100e0af02",
+      "range_header": "bytes=41437004-41441286",
+      "range_start": 41437004,
+      "range_end": 41441286,
+      "expected_encoded_bytes": 4283,
+      "expected_decoded_bytes": 11264,
+      "ekey": "929f7207500e376c596eccbe3f501ba6",
+      "ckey": "8faacd0a5d9da72963aa835ce01471ed",
+      "source_index_id": "index_24",
+      "source_index_sha256": "01398f80e364833fcb86761c746b11bbb5456f70ed37826828729cbc56074edd",
+      "executed": false,
+      "runtime_approved": false
+    }
+  ],
+  "all_three_samples_have_archive_candidate": false,
+  "executed": false,
+  "max_requests": 2,
+  "expected_encoded_bytes": 4310,
+  "required_response_status": 206,
+  "require_exact_content_range_and_length": true,
+  "reject_full_archive_200_before_body": true,
+  "must_validate_blte_ckey_and_actual_sha256": true,
+  "client_may_supply_offset_or_range": false,
+  "runtime_approved_entries": 0
+}
