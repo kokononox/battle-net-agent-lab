@@ -7,7 +7,7 @@ from Job import Job
 BASE=Path(__file__).resolve().parent
 REQUEST=b'G62-REQUEST-PLAINTEXT';RESPONSE=b'G62-RESPONSE-PLAINTEXT'
 def cert(action):
- r=subprocess.run(['powershell.exe','-NoProfile','-File',str(BASE/'TlsCert.ps1'),'-Action',action],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=40)
+ r=subprocess.run(['powershell.exe','-NoProfile','-File',str(BASE/'TlsCert.ps1'),'-Action',action],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,timeout=90)
  if r.returncode:raise RuntimeError('tls_fixture_certificate_'+action.lower()+'_failed')
  return r.stdout.decode('utf-8-sig').strip()
 def run_tls(arch,thumb):

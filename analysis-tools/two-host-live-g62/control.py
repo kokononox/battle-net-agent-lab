@@ -51,7 +51,7 @@ def run_one(arch):
   except OSError:pass
 if __name__=='__main__':
  if os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted':raise SystemExit('hosted_required')
- rows=[];error=None;trust_removed=False
+ rows=[];error=None;trust_removed=False;error_stage=None;tls_phase=None
  try:
   for arch in ['x86','x64']:rows.append(run_one(arch))
   from inet_control import run_inet
@@ -61,12 +61,21 @@ if __name__=='__main__':
   for arch in ['x86','x64']:rows.append(run_http(arch))
   from tls_control import cert,run_tls
   try:
+   error_stage='TLS_certificate_prepare'
    thumb=cert('Prepare')
+   phase_path=Path(os.environ['RUNNER_TEMP'])/'g62-tls-phase'
+   tls_phase=phase_path.read_text().strip() if phase_path.is_file() else None
    if len(thumb)!=40 or any(x not in '0123456789ABCDEF' for x in thumb):raise RuntimeError('fixture_cert_identity_invalid')
-   for arch in ['x86','x64']:rows.append(run_tls(arch,thumb))
+   for arch in ['x86','x64']:
+    error_stage='TLS_native_'+arch
+    rows.append(run_tls(arch,thumb))
+   error_stage=None
   finally:trust_removed=cert('Cleanup')=='fixture_trust_removed'
- except Exception as e:error=type(e).__name__
+ except Exception as e:
+  error=type(e).__name__
+  phase_path=Path(os.environ['RUNNER_TEMP'])/'g62-tls-phase'
+  tls_phase=phase_path.read_text().strip() if phase_path.is_file() else None
  out=Path('output');out.mkdir(exist_ok=True)
- r={'schema':'g62-native-control-1','run_id':os.environ['GITHUB_RUN_ID'],'source_commit':os.environ['GITHUB_SHA'],'passed':len(rows)==10 and trust_removed and all(x['passed'] for x in rows) and error is None,'TLS_fixture_trust_removed_before_installer':trust_removed,'rows':rows,'error_type':error,'external_network_used_by_fixture':False}
+ r={'schema':'g62-native-control-1','run_id':os.environ['GITHUB_RUN_ID'],'source_commit':os.environ['GITHUB_SHA'],'passed':len(rows)==10 and trust_removed and all(x['passed'] for x in rows) and error is None,'TLS_fixture_phase':tls_phase,'failure_stage':error_stage if error else None,'TLS_fixture_trust_removed_before_installer':trust_removed,'rows':rows,'error_type':error,'external_network_used_by_fixture':False}
  (out/'g62-native-control.json').write_text(json.dumps(r,indent=2));print('G62_CONTROL='+json.dumps(r))
  if not r['passed']:raise SystemExit(1)
