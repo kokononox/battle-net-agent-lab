@@ -1,0 +1,961 @@
+{
+  "schema": "two-host-live-g60-1",
+  "source_commit": "447ea724090ffa2806058ce4459adccbccecae72",
+  "run_id": "40267105064",
+  "scope": "one_guarded_language_continue_then_bounded_content_observation_no_install_click_no_login_not_full_download",
+  "installer_executed": true,
+  "firewall_verified": true,
+  "error": null,
+  "cleanup": true,
+  "fingerprinting_absence_proven": false,
+  "native_control_passed": true,
+  "observed_seconds": 120.3,
+  "local_log_diagnosis": {
+    "files": [
+      {
+        "root_role": "PROGRAMDATA_Battle.net",
+        "file_kind": "log",
+        "file_index": 1,
+        "size_bytes": 2729,
+        "read_bytes": 2729,
+        "tail_only": false,
+        "decode": "utf-8",
+        "diagnostic_rows": [
+          {
+            "classes": [
+              "download"
+            ],
+            "blizzard_error_codes": [],
+            "hex_error_tokens": [],
+            "named_numeric_diagnostics": [],
+            "approved_host_mentions": [],
+            "raw_line_exported": false
+          },
+          {
+            "classes": [
+              "bootstrap"
+            ],
+            "blizzard_error_codes": [
+              "BLZBNTBTS0000004A"
+            ],
+            "hex_error_tokens": [],
+            "named_numeric_diagnostics": [],
+            "approved_host_mentions": [],
+            "raw_line_exported": false
+          },
+          {
+            "classes": [
+              "bootstrap"
+            ],
+            "blizzard_error_codes": [
+              "BLZBNTBTS0000004A"
+            ],
+            "hex_error_tokens": [],
+            "named_numeric_diagnostics": [],
+            "approved_host_mentions": [],
+            "raw_line_exported": false
+          },
+          {
+            "classes": [],
+            "blizzard_error_codes": [],
+            "hex_error_tokens": [],
+            "named_numeric_diagnostics": [],
+            "approved_host_mentions": [],
+            "raw_line_exported": false
+          },
+          {
+            "classes": [],
+            "blizzard_error_codes": [
+              "BLZBNTBTS0000004A"
+            ],
+            "hex_error_tokens": [],
+            "named_numeric_diagnostics": [],
+            "approved_host_mentions": [],
+            "raw_line_exported": false
+          }
+        ],
+        "additional_diagnostic_lines": 0,
+        "raw_path_exported": false,
+        "raw_text_exported": false
+      }
+    ],
+    "candidate_cap_or_walk_limit": false,
+    "total_bytes_read": 2729,
+    "read_errors": 0,
+    "only_new_or_changed_since_baseline": true,
+    "raw_paths_exported": false,
+    "raw_lines_exported": false,
+    "coverage_complete": false
+  },
+  "content": {
+    "requests": [],
+    "unparsed": {},
+    "buffered_unparsed_bytes": 0,
+    "api_input_bytes_seen": 0,
+    "cap_hit": false,
+    "fingerprinting_absence_proven": false,
+    "raw_values_exported": false,
+    "request_grain": "synchronous_Winsock_accepted_input_not_independent_wire_or_server_receipt"
+  },
+  "hook_counts": {
+    "hooks_installed": 1,
+    "ready": 1,
+    "wininet_hooks_installed": 1,
+    "network_module_category": 4,
+    "module_category_WinINet": 1,
+    "module_category_WinHTTP": 1,
+    "winhttp_hooks_installed": 1,
+    "module_category_Windows_SSPI_TLS": 2,
+    "startup_diagnostic": 18,
+    "bytes": 14,
+    "peer_loopback_bytes": 70,
+    "port_other_or_unknown_events": 14
+  },
+  "read_only_UI_snapshots": [
+    {
+      "elapsed_seconds": 5.0,
+      "probe": {
+        "UIA": {
+          "status": "completed_bounded_read",
+          "windows": 0,
+          "nodes": 0,
+          "rows": [],
+          "errors": 0,
+          "truncated": false,
+          "raw_text_exported": false,
+          "actions_performed": false,
+          "coverage_complete": false
+        },
+        "process_states": [
+          "running"
+        ],
+        "visible_owned_controls_seen": 0,
+        "recognized_control_rows": [],
+        "read_errors": 0,
+        "raw_text_exported": false,
+        "actions_performed": false,
+        "coverage_complete": false
+      }
+    },
+    {
+      "elapsed_seconds": 25.1,
+      "probe": {
+        "UIA": {
+          "status": "completed_bounded_read",
+          "windows": 1,
+          "nodes": 33,
+          "rows": [
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Window",
+              "label": "battle.net setup",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Group",
+              "label": "not_read",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [
+                "english"
+              ],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [
+                "english"
+              ],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Button",
+              "label": "continue",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [
+                "english"
+              ],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [
+                "english"
+              ],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "RadioButton",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            }
+          ],
+          "errors": 0,
+          "truncated": false,
+          "raw_text_exported": false,
+          "actions_performed": false,
+          "coverage_complete": false
+        },
+        "process_states": [
+          "running"
+        ],
+        "visible_owned_controls_seen": 1,
+        "recognized_control_rows": [],
+        "read_errors": 0,
+        "raw_text_exported": false,
+        "actions_performed": false,
+        "coverage_complete": false
+      }
+    },
+    {
+      "elapsed_seconds": 45.2,
+      "probe": {
+        "UIA": {
+          "status": "completed_bounded_read",
+          "windows": 1,
+          "nodes": 4,
+          "rows": [
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Window",
+              "label": "battle.net setup",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [
+                "BLZBNTBTS0000004A"
+              ],
+              "message_classes": [],
+              "type": "Hyperlink",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Text",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Button",
+              "label": "close",
+              "markers": [],
+              "enabled": true
+            }
+          ],
+          "errors": 0,
+          "truncated": false,
+          "raw_text_exported": false,
+          "actions_performed": false,
+          "coverage_complete": false
+        },
+        "process_states": [
+          "running"
+        ],
+        "visible_owned_controls_seen": 1,
+        "recognized_control_rows": [],
+        "read_errors": 0,
+        "raw_text_exported": false,
+        "actions_performed": false,
+        "coverage_complete": false
+      }
+    },
+    {
+      "elapsed_seconds": 65.5,
+      "probe": {
+        "UIA": {
+          "status": "completed_bounded_read",
+          "windows": 1,
+          "nodes": 4,
+          "rows": [
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Window",
+              "label": "battle.net setup",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [
+                "BLZBNTBTS0000004A"
+              ],
+              "message_classes": [],
+              "type": "Hyperlink",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Text",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Button",
+              "label": "close",
+              "markers": [],
+              "enabled": true
+            }
+          ],
+          "errors": 0,
+          "truncated": false,
+          "raw_text_exported": false,
+          "actions_performed": false,
+          "coverage_complete": false
+        },
+        "process_states": [
+          "running"
+        ],
+        "visible_owned_controls_seen": 1,
+        "recognized_control_rows": [],
+        "read_errors": 0,
+        "raw_text_exported": false,
+        "actions_performed": false,
+        "coverage_complete": false
+      }
+    },
+    {
+      "elapsed_seconds": 85.7,
+      "probe": {
+        "UIA": {
+          "status": "completed_bounded_read",
+          "windows": 1,
+          "nodes": 4,
+          "rows": [
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Window",
+              "label": "battle.net setup",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [
+                "BLZBNTBTS0000004A"
+              ],
+              "message_classes": [],
+              "type": "Hyperlink",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Text",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Button",
+              "label": "close",
+              "markers": [],
+              "enabled": true
+            }
+          ],
+          "errors": 0,
+          "truncated": false,
+          "raw_text_exported": false,
+          "actions_performed": false,
+          "coverage_complete": false
+        },
+        "process_states": [
+          "running"
+        ],
+        "visible_owned_controls_seen": 1,
+        "recognized_control_rows": [],
+        "read_errors": 0,
+        "raw_text_exported": false,
+        "actions_performed": false,
+        "coverage_complete": false
+      }
+    },
+    {
+      "elapsed_seconds": 105.0,
+      "probe": {
+        "UIA": {
+          "status": "completed_bounded_read",
+          "windows": 1,
+          "nodes": 4,
+          "rows": [
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Window",
+              "label": "battle.net setup",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [
+                "BLZBNTBTS0000004A"
+              ],
+              "message_classes": [],
+              "type": "Hyperlink",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Text",
+              "label": "unrecognized",
+              "markers": [],
+              "enabled": true
+            },
+            {
+              "error_codes": [],
+              "message_classes": [],
+              "type": "Button",
+              "label": "close",
+              "markers": [],
+              "enabled": true
+            }
+          ],
+          "errors": 0,
+          "truncated": false,
+          "raw_text_exported": false,
+          "actions_performed": false,
+          "coverage_complete": false
+        },
+        "process_states": [
+          "running"
+        ],
+        "visible_owned_controls_seen": 1,
+        "recognized_control_rows": [],
+        "read_errors": 0,
+        "raw_text_exported": false,
+        "actions_performed": false,
+        "coverage_complete": false
+      }
+    }
+  ],
+  "language_action": {
+    "status": "continued",
+    "authorized": true,
+    "helper_started": true,
+    "selection_already_set": true,
+    "selection_attempted": false,
+    "selection_confirmed": true,
+    "continue_attempted": true,
+    "continue_returned": true,
+    "journal_recovered": false,
+    "outcome_uncertain": false,
+    "elapsed_seconds": 29.6
+  },
+  "wininet_inputs": [],
+  "wininet_error_codes": {},
+  "wininet_inputs_before_call": [],
+  "wininet_response_chunks": [],
+  "process_inventory_snapshots": [
+    {
+      "elapsed_seconds": 5.0,
+      "snapshot": {
+        "processes": [
+          {
+            "role": "setup",
+            "signature_status": "Valid",
+            "blizzard_verified": true,
+            "already_observed": true
+          }
+        ],
+        "target_IP_TCP_rows": 0,
+        "target_IP_TCP_rows_from_observed_PIDs": 0,
+        "target_IP_TCP_rows_from_unobserved_PIDs": 0,
+        "candidate_limit_hit": false,
+        "coverage_complete": false,
+        "command_lines_collected": false,
+        "raw_paths_exported": false
+      }
+    },
+    {
+      "elapsed_seconds": 25.1,
+      "snapshot": {
+        "processes": [
+          {
+            "role": "setup",
+            "signature_status": "Valid",
+            "blizzard_verified": true,
+            "already_observed": true
+          }
+        ],
+        "target_IP_TCP_rows": 0,
+        "target_IP_TCP_rows_from_observed_PIDs": 0,
+        "target_IP_TCP_rows_from_unobserved_PIDs": 0,
+        "candidate_limit_hit": false,
+        "coverage_complete": false,
+        "command_lines_collected": false,
+        "raw_paths_exported": false
+      }
+    },
+    {
+      "elapsed_seconds": 45.2,
+      "snapshot": {
+        "processes": [
+          {
+            "role": "setup",
+            "signature_status": "Valid",
+            "blizzard_verified": true,
+            "already_observed": true
+          }
+        ],
+        "target_IP_TCP_rows": 0,
+        "target_IP_TCP_rows_from_observed_PIDs": 0,
+        "target_IP_TCP_rows_from_unobserved_PIDs": 0,
+        "candidate_limit_hit": false,
+        "coverage_complete": false,
+        "command_lines_collected": false,
+        "raw_paths_exported": false
+      }
+    },
+    {
+      "elapsed_seconds": 65.5,
+      "snapshot": {
+        "processes": [
+          {
+            "role": "setup",
+            "signature_status": "Valid",
+            "blizzard_verified": true,
+            "already_observed": true
+          }
+        ],
+        "target_IP_TCP_rows": 0,
+        "target_IP_TCP_rows_from_observed_PIDs": 0,
+        "target_IP_TCP_rows_from_unobserved_PIDs": 0,
+        "candidate_limit_hit": false,
+        "coverage_complete": false,
+        "command_lines_collected": false,
+        "raw_paths_exported": false
+      }
+    },
+    {
+      "elapsed_seconds": 85.7,
+      "snapshot": {
+        "processes": [
+          {
+            "role": "setup",
+            "signature_status": "Valid",
+            "blizzard_verified": true,
+            "already_observed": true
+          }
+        ],
+        "target_IP_TCP_rows": 0,
+        "target_IP_TCP_rows_from_observed_PIDs": 0,
+        "target_IP_TCP_rows_from_unobserved_PIDs": 0,
+        "candidate_limit_hit": false,
+        "coverage_complete": false,
+        "command_lines_collected": false,
+        "raw_paths_exported": false
+      }
+    },
+    {
+      "elapsed_seconds": 105.0,
+      "snapshot": {
+        "processes": [
+          {
+            "role": "setup",
+            "signature_status": "Valid",
+            "blizzard_verified": true,
+            "already_observed": true
+          }
+        ],
+        "target_IP_TCP_rows": 0,
+        "target_IP_TCP_rows_from_observed_PIDs": 0,
+        "target_IP_TCP_rows_from_unobserved_PIDs": 0,
+        "candidate_limit_hit": false,
+        "coverage_complete": false,
+        "command_lines_collected": false,
+        "raw_paths_exported": false
+      }
+    }
+  ],
+  "hosts": {
+    "level3.blizzard.com": {
+      "socket_request_rows": 0,
+      "wininet_input_rows": 0,
+      "wininet_begun_rows": 0,
+      "wininet_response_chunks": 0,
+      "verdict": "unknown_no_content_rows"
+    },
+    "us.version.battle.net": {
+      "socket_request_rows": 0,
+      "wininet_input_rows": 0,
+      "wininet_begun_rows": 0,
+      "wininet_response_chunks": 0,
+      "verdict": "unknown_no_content_rows"
+    }
+  },
+  "startup_diagnostics": [
+    {
+      "kind": "startup_diagnostic",
+      "api": "WinHttpOpen",
+      "succeeded": true,
+      "error_code": 0
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "GetAddrInfoW",
+      "destination_class": "other_or_empty",
+      "succeeded": false,
+      "error_code": 11001
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "getaddrinfo",
+      "destination_class": "other_or_empty",
+      "succeeded": false,
+      "error_code": 11001
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "WinHttpOpen",
+      "succeeded": true,
+      "error_code": 0
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "GetAddrInfoW",
+      "destination_class": "other_or_empty",
+      "succeeded": false,
+      "error_code": 11001
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "getaddrinfo",
+      "destination_class": "other_or_empty",
+      "succeeded": false,
+      "error_code": 11001
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "WinHttpOpen",
+      "succeeded": true,
+      "error_code": 0
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "GetAddrInfoW",
+      "destination_class": "other_or_empty",
+      "succeeded": false,
+      "error_code": 11001
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "getaddrinfo",
+      "destination_class": "other_or_empty",
+      "succeeded": false,
+      "error_code": 11001
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "GetAddrInfoW",
+      "destination_class": "us.version.battle.net",
+      "succeeded": false,
+      "error_code": 11001
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "getaddrinfo",
+      "destination_class": "us.version.battle.net",
+      "succeeded": false,
+      "error_code": 11001
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "GetAddrInfoW",
+      "destination_class": "us.version.battle.net",
+      "succeeded": false,
+      "error_code": 11001
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "getaddrinfo",
+      "destination_class": "us.version.battle.net",
+      "succeeded": false,
+      "error_code": 11001
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "GetAddrInfoW",
+      "destination_class": "us.version.battle.net",
+      "succeeded": false,
+      "error_code": 11001
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "getaddrinfo",
+      "destination_class": "us.version.battle.net",
+      "succeeded": false,
+      "error_code": 11001
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "WinHttpOpen",
+      "succeeded": true,
+      "error_code": 0
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "GetAddrInfoW",
+      "destination_class": "other_or_empty",
+      "succeeded": false,
+      "error_code": 11001
+    },
+    {
+      "kind": "startup_diagnostic",
+      "api": "getaddrinfo",
+      "destination_class": "other_or_empty",
+      "succeeded": false,
+      "error_code": 11001
+    }
+  ],
+  "coverage_complete": false,
+  "server_receipt_proven": false,
+  "hook_changes_client_timing_possible": true
+}
