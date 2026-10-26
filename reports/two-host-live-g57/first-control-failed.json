@@ -1,0 +1,66 @@
+{
+  "schema": "g57-native-control-1",
+  "run_id": "40264065119",
+  "source_commit": "2bb9c4ab8a4a6e615982381da7c34fa35e09feed",
+  "passed": false,
+  "rows": [
+    {
+      "architecture": "x86",
+      "passed": true,
+      "server_received_exact_fixture": true,
+      "observer_received_exact_fixture": true,
+      "peer_exact_loopback_port": true,
+      "events": {
+        "hooks_installed": 1,
+        "ready": 1,
+        "bytes": 2,
+        "api_send": 1,
+        "api_WSASend": 1
+      },
+      "script_errors": 0,
+      "request_rows": 2,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "passed": true,
+      "server_received_exact_fixture": true,
+      "observer_received_exact_fixture": true,
+      "peer_exact_loopback_port": true,
+      "events": {
+        "hooks_installed": 1,
+        "ready": 1,
+        "bytes": 2,
+        "api_send": 1,
+        "api_WSASend": 1
+      },
+      "script_errors": 0,
+      "request_rows": 2,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x86",
+      "control": "WinINet_HTTP_loopback",
+      "passed": false,
+      "native_request_rows": 1,
+      "receiving_server_exact": true,
+      "script_errors": 3,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "control": "WinINet_HTTP_loopback",
+      "passed": false,
+      "native_request_rows": 1,
+      "receiving_server_exact": true,
+      "script_errors": 3,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    }
+  ],
+  "error_type": null,
+  "external_network_used_by_fixture": false
+}
