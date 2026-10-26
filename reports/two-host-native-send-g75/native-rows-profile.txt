@@ -1,0 +1,42 @@
+## /data/analysis/g75-native-rows.json
+
+- Shape: 48 rows x 19 columns
+- Duplicate rows: 0
+- Candidate key columns: none (no single column uniquely identifies a row)
+
+| column | type | non-null | distinct | values |
+| --- | --- | --- | --- | --- |
+| TCP_connections_accepted | number | 100% | 1 | 1 → 1, mean 1 |
+| approved_snapshot_copy_used | number | 21% | 1 | 1 → 1, mean 1 |
+| architecture | text | 100% | 2 | top: x86 (24), x64 (24) |
+| case | text | 100% | 24 | top: public_CDN (2), public_CDN_full_range (2), public_metadata (2), query_identifier (2), user_agent_identifier (2) |
+| denial_reasons | text | 100% | 7 | top: ["policy_or_reply_rejected"] (30), [] (8), ["policy_or_reply_rejected", "socket_alr (2), ["WSASend_unsupported"] (2), ["peer_binding"] (2) |
+| expected_original_send_calls | number | 100% | 2 | 0 → 1, mean 0.2083 |
+| native_exit_code | number | 100% | 1 | 0 → 0, mean 0 |
+| native_result_count | number | 100% | 2 | 1 → 2, mean 1.083 |
+| original_buffer_mutation_completed | number | 4% | 1 | 1 → 1, mean 1 |
+| original_send_calls | number | 100% | 2 | 0 → 1, mean 0.2083 |
+| passed | number | 100% | 1 | 1 → 1, mean 1 |
+| policy_decisions | text | 100% | 11 | top: [{"allow": true, "reason": "exact_canoni (12), [{"allow": false, "reason": "unapproved_ (12), [{"allow": false, "reason": "incomplete_ (6), [] (6), [{"allow": false, "reason": "body_or_tra (4) |
+| process_identity_verified | number | 100% | 1 | 1 → 1, mean 1 |
+| receipt_exact_expected_public_bytes | number | 100% | 1 | 1 → 1, mean 1 |
+| runtime_architecture_verified | number | 100% | 1 | 1 → 1, mean 1 |
+| script_errors | number | 100% | 1 | 0 → 0, mean 0 |
+| synthetic_only | number | 100% | 1 | 1 → 1, mean 1 |
+| synthetic_private_sentinel_absent | number | 100% | 1 | 1 → 1, mean 1 |
+| upstream_bytes_received | number | 100% | 4 | 0 → 152, mean 27.08 |
+
+**Warnings:**
+
+- ⚠️ `TCP_connections_accepted` is constant
+- ⚠️ `approved_snapshot_copy_used` is 79% null
+- ⚠️ `native_exit_code` is constant
+- ⚠️ `original_buffer_mutation_completed` is 96% null
+- ⚠️ `passed` is constant
+- ⚠️ `process_identity_verified` is constant
+- ⚠️ `receipt_exact_expected_public_bytes` is constant
+- ⚠️ `runtime_architecture_verified` is constant
+- ⚠️ `script_errors` is constant
+- ⚠️ `synthetic_only` is constant
+- ⚠️ `synthetic_private_sentinel_absent` is constant
+

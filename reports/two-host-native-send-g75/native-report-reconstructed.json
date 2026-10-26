@@ -1,0 +1,1320 @@
+{
+  "TLS_supported": false,
+  "all_API_bypasses_closed": false,
+  "certificate_trust_changed": false,
+  "error_type": null,
+  "external_target_traffic": false,
+  "failure_stage": null,
+  "fingerprinting_absence_proven": false,
+  "firewall_changed": false,
+  "installer_started": false,
+  "loopback_only": true,
+  "passed": true,
+  "raw_values_exported": false,
+  "run_id": "40314863305",
+  "schema": "g75-native-pre-send-control-1",
+  "source_commit": "6db91a46fa8eceaf80a2cbed3e6f7cf329981101",
+  "transparent_client_compatibility_proven": false,
+  "rows": [
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": true,
+      "architecture": "x86",
+      "case": "public_CDN",
+      "denial_reasons": [],
+      "expected_original_send_calls": 1,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 1,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": true,
+          "reason": "exact_canonical_public_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 131
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": true,
+      "architecture": "x86",
+      "case": "public_CDN_full_range",
+      "denial_reasons": [],
+      "expected_original_send_calls": 1,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 1,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": true,
+          "reason": "exact_canonical_public_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 152
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": true,
+      "architecture": "x86",
+      "case": "public_metadata",
+      "denial_reasons": [],
+      "expected_original_send_calls": 1,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 1,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": true,
+          "reason": "exact_canonical_public_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 105
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "query_identifier",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "request_target"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "user_agent_identifier",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "unapproved_user_agent"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "cookie_identifier",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "unapproved_header"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "authorization_identifier",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "unapproved_header"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "body_identifier",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "body_or_trailing_bytes"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "unknown_header",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "unapproved_header"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "range_one_byte_short",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "range_not_exact_public_boundary"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "unknown_host",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "unapproved_host"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "pipelined_request_tail",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "body_or_trailing_bytes"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "incomplete_headers",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "incomplete_request"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "opaque_TLS",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "incomplete_request"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "duplicate_host",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "duplicate_header"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "transfer_encoding",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "unapproved_header"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "noncanonical_benign",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "requires_canonical_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "two_actual_fragment_calls",
+      "denial_reasons": [
+        "policy_or_reply_rejected",
+        "socket_already_used"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 2,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "incomplete_request"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "WSASend_bypass_attempt",
+      "denial_reasons": [
+        "WSASend_unsupported"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "wrong_peer_binding",
+      "denial_reasons": [
+        "peer_binding"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "malformed_policy_reply",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": true,
+          "reason": "exact_canonical_public_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x86",
+      "case": "unapproved_send_flags",
+      "denial_reasons": [
+        "send_flags_unsupported"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": true,
+      "architecture": "x86",
+      "case": "approved_then_private_tail",
+      "denial_reasons": [
+        "socket_already_used"
+      ],
+      "expected_original_send_calls": 1,
+      "native_exit_code": 0,
+      "native_result_count": 2,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 1,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": true,
+          "reason": "exact_canonical_public_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 131
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": true,
+      "architecture": "x86",
+      "case": "buffer_mutation_after_snapshot",
+      "denial_reasons": [],
+      "expected_original_send_calls": 1,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": true,
+      "original_send_calls": 1,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": true,
+          "reason": "exact_canonical_public_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 131
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": true,
+      "architecture": "x64",
+      "case": "public_CDN",
+      "denial_reasons": [],
+      "expected_original_send_calls": 1,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 1,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": true,
+          "reason": "exact_canonical_public_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 131
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": true,
+      "architecture": "x64",
+      "case": "public_CDN_full_range",
+      "denial_reasons": [],
+      "expected_original_send_calls": 1,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 1,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": true,
+          "reason": "exact_canonical_public_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 152
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": true,
+      "architecture": "x64",
+      "case": "public_metadata",
+      "denial_reasons": [],
+      "expected_original_send_calls": 1,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 1,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": true,
+          "reason": "exact_canonical_public_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 105
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "query_identifier",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "request_target"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "user_agent_identifier",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "unapproved_user_agent"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "cookie_identifier",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "unapproved_header"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "authorization_identifier",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "unapproved_header"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "body_identifier",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "body_or_trailing_bytes"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "unknown_header",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "unapproved_header"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "range_one_byte_short",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "range_not_exact_public_boundary"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "unknown_host",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "unapproved_host"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "pipelined_request_tail",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "body_or_trailing_bytes"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "incomplete_headers",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "incomplete_request"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "opaque_TLS",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "incomplete_request"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "duplicate_host",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "duplicate_header"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "transfer_encoding",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "unapproved_header"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "noncanonical_benign",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "requires_canonical_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "two_actual_fragment_calls",
+      "denial_reasons": [
+        "policy_or_reply_rejected",
+        "socket_already_used"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 2,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": false,
+          "reason": "incomplete_request"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "WSASend_bypass_attempt",
+      "denial_reasons": [
+        "WSASend_unsupported"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "wrong_peer_binding",
+      "denial_reasons": [
+        "peer_binding"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "malformed_policy_reply",
+      "denial_reasons": [
+        "policy_or_reply_rejected"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": true,
+          "reason": "exact_canonical_public_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": null,
+      "architecture": "x64",
+      "case": "unapproved_send_flags",
+      "denial_reasons": [
+        "send_flags_unsupported"
+      ],
+      "expected_original_send_calls": 0,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 0,
+      "passed": true,
+      "policy_decisions": [],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 0
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": true,
+      "architecture": "x64",
+      "case": "approved_then_private_tail",
+      "denial_reasons": [
+        "socket_already_used"
+      ],
+      "expected_original_send_calls": 1,
+      "native_exit_code": 0,
+      "native_result_count": 2,
+      "original_buffer_mutation_completed": null,
+      "original_send_calls": 1,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": true,
+          "reason": "exact_canonical_public_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 131
+    },
+    {
+      "TCP_connections_accepted": 1,
+      "approved_snapshot_copy_used": true,
+      "architecture": "x64",
+      "case": "buffer_mutation_after_snapshot",
+      "denial_reasons": [],
+      "expected_original_send_calls": 1,
+      "native_exit_code": 0,
+      "native_result_count": 1,
+      "original_buffer_mutation_completed": true,
+      "original_send_calls": 1,
+      "passed": true,
+      "policy_decisions": [
+        {
+          "allow": true,
+          "reason": "exact_canonical_public_input"
+        }
+      ],
+      "process_identity_verified": true,
+      "receipt_exact_expected_public_bytes": true,
+      "runtime_architecture_verified": true,
+      "script_errors": 0,
+      "synthetic_only": true,
+      "synthetic_private_sentinel_absent": true,
+      "upstream_bytes_received": 131
+    }
+  ]
+}
