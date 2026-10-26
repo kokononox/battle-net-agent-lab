@@ -10,7 +10,7 @@ class SchemaTests(unittest.TestCase):
   for p in ('agent','bna'):
    text=base64.b64decode(f[p+'-versions']).decode();t=table(text);self.assertIsNotNone(t);self.assertEqual(t[0][5],('VersionsName','STRING',0));key=t[1][0]['ProductConfig'];loc=locate(key,{},text.encode());self.assertTrue(any(x['field']=='ProductConfig' and x['match']=='exact_value' for x in loc))
  def test_extra_receipts_schema_and_public_names(self):
-  r=load_extra_refs(BASE);self.assertEqual(len(r),5);self.assertTrue({'agent_beta','agent_redist'}<=products_from_refs(r));self.assertTrue(all(table(x['text']) is not None for x in r))
+  r=load_extra_refs(BASE);self.assertEqual(len(r),8);self.assertTrue({'agent_beta','agent_redist'}<=products_from_refs(r));self.assertTrue(all(table(x['text']) is not None for x in r if x.get('kind')!='pinned_ProductConfig'))
  def test_mixed_case_marker(self):
   self.assertEqual(typed_header('Region!string:0|VersionsName!String:0|Hash!hEx:16'),[('Region','STRING',0),('VersionsName','STRING',0),('Hash','HEX',16)])
  def test_unknown_type_rejected(self):
@@ -35,3 +35,12 @@ class SchemaTests(unittest.TestCase):
   self.assertIsNone(table('Region!STRING:0|Hash!HEX:16\nus|abc\n'))
  def test_marker_case_is_not_field_name_guessing(self):
   x=locate(K,{},('Region!STRING:0|VersionsName!String:0|UnknownField!HEX:16\nus|v|'+K).encode());self.assertEqual(x[0]['field'],'<other_column>')
+
+ def test_bts_ProductConfig_without_false_region_matching(self):
+  refs=load_extra_refs(BASE);paths=public_config_paths(refs);records=[x for rr in paths.values() for x in rr if x['product']=='bts'];self.assertTrue(records);self.assertTrue(all(x['version_field']=='ProductConfig' and x['selector_mapping']=='global_identical_ConfigPath_no_region_assumption' for x in records))
+ def test_bts_disagreeing_ConfigPath_rejected(self):
+  import copy
+  refs=copy.deepcopy(load_extra_refs(BASE))
+  for r in refs:
+   if r['route']=='/v2/products/bts/cdns':r['text']=r['text'].replace('tpr/configs/data','tpr/configs/other',1)
+  self.assertFalse(any(x['product']=='bts' for rr in public_config_paths(refs).values() for x in rr))

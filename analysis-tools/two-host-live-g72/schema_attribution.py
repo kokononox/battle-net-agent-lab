@@ -1,7 +1,7 @@
 """Only known schema labels and independently public product names may be exported."""
 import re,json,hashlib
 from pathlib import Path
-PIN='71a487b4ac5c2aa3f9df71d29469408d8276b37ea97c9a0b988c34225190e052'
+PIN='df0ac10b130975375dab328c9ff70501808239a781fa72101c67dc40f685302d'
 KNOWN={'Region','BuildConfig','CDNConfig','KeyRing','BuildId','VersionsName','ProductConfig','Name','Path','Hosts','Servers','ConfigPath','Product','Seqn','Flags','Key','Value','Hash','ContentKey','EncodingKey','CKey','EKey','Version','AgentConfig','KeyName','KeyId'}
 OPS={'versions','cdns','bgdl','config','blobs','blob','summary'}
 def typed_header(line):
@@ -45,10 +45,15 @@ def load_extra_refs(base):
  if j['installer_input_used'] is not False or j['runtime_permission'] is not False:raise ValueError('reference_scope')
  rows=j['rows'];products=products_from_refs(rows)
  for r in rows:
-  expected='https://us.version.battle.net'+r['route']
-  if r['receipt']['url']!=expected or hashlib.sha256(r['text'].encode()).hexdigest()!=r['receipt']['sha256']:raise ValueError('reference_receipt')
+  if hashlib.sha256(r['text'].encode()).hexdigest()!=r['receipt']['sha256']:raise ValueError('reference_receipt')
+  if r.get('kind')=='pinned_ProductConfig':
+   if r.get('public_product')!='bts' or r['route']!='pinned_ProductConfig:bts':raise ValueError('unexpected_public_config')
+   key=hashlib.md5(r['text'].encode()).hexdigest();paths=public_config_paths(rows);matches=[p for p,rr in paths.items() if p.endswith('/'+key) and any(x['product']=='bts' and x['version_field']=='ProductConfig' for x in rr)]
+   if r['receipt']['url'] not in ['https://us.cdn.blizzard.com'+p for p in matches]:raise ValueError('public_config_MD5_or_URL')
+   json.loads(r['text']);continue
+  if r['receipt']['url']!='https://us.version.battle.net'+r['route']:raise ValueError('reference_receipt_URL')
   if r['route']=='/v2/summary':continue
-  m=re.fullmatch(r'/v2/products/(agent_beta|agent_redist)/(versions|cdns)',r['route'])
+  m=re.fullmatch(r'/v2/products/(agent_beta|agent_redist|bts)/(versions|cdns)',r['route'])
   if not m or m[1] not in products or table(r['text']) is None:raise ValueError('independent_related_schema')
  return rows
 
@@ -90,18 +95,28 @@ def schemas(body):
 def public_config_paths(refs):
  versions={};cdns={};paths={}
  for r in refs:
-  m=re.fullmatch(r'/v2/products/(agent|bna|bnt|agent_beta|agent_redist)/(versions|cdns)',r.get('route',''))
+  m=re.fullmatch(r'/v2/products/(agent|bna|bnt|bts|agent_beta|agent_redist)/(versions|cdns)',r.get('route',''))
   if not m or r.get('status')!=200:continue
   parsed=table(r.get('text',''))
   if parsed:(versions if m[2]=='versions' else cdns)[m[1]]=parsed[1]
  for product,vs in versions.items():
   for v in vs:
    for c in cdns.get(product,[]):
-    if v.get('Region')!=c.get('Name') or 'level3.blizzard.com' not in c.get('Hosts','').split():continue
-    for field in ('BuildConfig','CDNConfig','ProductConfig'):
+    if 'level3.blizzard.com' not in c.get('Hosts','').split():continue
+    if product=='bts':
+     # bts versions uses product selectors (e.g. launcher), not geographic names.
+     # Derive only ProductConfig and only when EVERY public region declares the
+     # same nonempty ConfigPath. No guessed region or fallback association.
+     prefixes={x.get('ConfigPath','') for x in cdns.get(product,[])}
+     if len(prefixes)!=1 or not next(iter(prefixes)):continue
+     fields=('ProductConfig',)
+    else:
+     if v.get('Region')!=c.get('Name'):continue
+     fields=('BuildConfig','CDNConfig','ProductConfig')
+    for field in fields:
      key=v.get(field,'');prefix=c.get('ConfigPath','') if field=='ProductConfig' else c.get('Path','')+'/config'
      if not re.fullmatch(r'[0-9a-f]{32}',key) or not re.fullmatch(r'[A-Za-z0-9_-]+(?:/[A-Za-z0-9_-]+){0,7}',prefix):continue
      path='/'+prefix+'/'+key[:2]+'/'+key[2:4]+'/'+key
-     rec={'product':product,'version_field':field,'prefix_basis':'ConfigPath' if field=='ProductConfig' else 'Path_plus_config','version_route':'/v2/products/'+product+'/versions','cdn_route':'/v2/products/'+product+'/cdns'}
+     rec={'product':product,'version_field':field,'prefix_basis':'ConfigPath' if field=='ProductConfig' else 'Path_plus_config','version_route':'/v2/products/'+product+'/versions','cdn_route':'/v2/products/'+product+'/cdns','selector_mapping':'global_identical_ConfigPath_no_region_assumption' if product=='bts' else 'equal_Region_and_Name'}
      if rec not in paths.setdefault(path,[]):paths[path].append(rec)
  return paths
