@@ -18,3 +18,6 @@
 
 ## چیزی که این نمونه نیست
 این adapter نصب‌کننده، پراکسی شفاف، مسیر TLS یا ابزار آمادهٔ استفاده نیست. partial sends/async I/O و fragmentation واقعی client عمداً برای سازگاری باز نشده‌اند؛ policy snapshot ثابت است و seqn/short alias/UAهای تازه همچنان محدودند. sendto، kernel I/O، API/فرایندهای دیگر و مسیرهای بدون injection ممکن است bypass باشند. endpoint واقعی و TLS binding برای Battle.net پیاده نشده است. timing، selection، ترتیب و تعداد درخواست‌های عمومی همچنان می‌تواند کانال اطلاعاتی باشد؛ نبود fingerprint ادعا نمی‌شود.
+
+## انتشار شواهد
+اجرای اول کنترل‌ها موفق بود، ولی annotation عمومی GitHub پس از 4096 کاراکتر بریده شد. فقط انتشار اصلاح شد: summary و chunkهای compact، هر کدام حداکثر 3400 بایت، با هویت run/source و SHA256 کل ردیف‌های redacted منتشر می‌شوند. بازسازی ناقص یا دستکاری‌شده رد می‌شود. این hash فقط یکپارچگی شواهد ساختگی را می‌سنجد، نه شناسهٔ خصوصی یا payload.

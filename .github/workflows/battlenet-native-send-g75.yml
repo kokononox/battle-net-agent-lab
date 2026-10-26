@@ -10,7 +10,7 @@ concurrency:
 jobs:
   native-gate:
     if: >-
-      github.event.head_commit.message == 'lab: approved loopback-only native pre-send gate G75' && github.run_attempt == 1
+      github.event.head_commit.message == 'lab: approved bounded native evidence publication G75' && github.run_attempt == 1
     runs-on: windows-2025
     timeout-minutes: 6
     permissions:

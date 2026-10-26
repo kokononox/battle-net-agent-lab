@@ -151,7 +151,11 @@ def main():
  out=Path('output');out.mkdir(exist_ok=True);(out/'g75-native-pre-send.json').write_text(json.dumps(result,indent=2))
  # One bounded public check annotation preserves redacted fixture receipts even
  # when artifact download requires a separate GitHub browser sign-in.
- print('::notice title=G75_NATIVE_EVIDENCE::'+json.dumps(result,separators=(',',':')))
+ from native_evidence import pack,encoded
+ summary_record,chunk_records=pack(result)
+ print('::notice title=G75_NATIVE_SUMMARY::'+encoded(summary_record))
+ for chunk in chunk_records:
+  print('::notice title=G75_NATIVE_ROWS_'+str(chunk['index'])+'::'+encoded(chunk))
  summary=os.environ.get('GITHUB_STEP_SUMMARY')
  if summary:
   with open(summary,'a') as f:f.write('## G75 native pre-send fixture\n\nPassed: '+str(result['passed'])+'; completed cases: '+str(len(rows))+'; failure stage: '+str(stage)+'\n\nLoopback-only, no installer/TLS/firewall changes. Full redacted cases in the G75_NATIVE_EVIDENCE check annotation and artifact.\n')

@@ -10,5 +10,5 @@ def blob(folder,name,digest,previous):
  return b
 for folder,manifest,previous in [('two-host-live-g69','base-manifest.json','g69'),('two-host-live-g70','g70-overlay-manifest.json','g70'),('two-host-live-g71','g71-overlay-manifest.json','g71'),('two-host-live-g72','g72-overlay-manifest.json','g72'),('two-host-live-g73','g73-overlay-manifest.json','g73'),('two-host-pre-send-g74','g74-overlay-manifest.json','g74')]:
  for n,d in json.loads((base/manifest).read_text()).items():(dst/n).write_bytes(blob(folder,n,d,previous))
-for n in ('native_admission.py', 'test_native_admission.py', 'NativeSendFixture.cs', 'native_send_gate.js', 'native_send_control.py', 'README.fa.md'):(dst/n).write_bytes(subprocess.run(['git','show','HEAD:analysis-tools/two-host-native-send-g75/'+n],cwd=base.parents[1],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,check=True).stdout)
+for n in ('native_evidence.py', 'test_native_evidence.py', 'native_admission.py', 'test_native_admission.py', 'NativeSendFixture.cs', 'native_send_gate.js', 'native_send_control.py', 'README.fa.md'):(dst/n).write_bytes(subprocess.run(['git','show','HEAD:analysis-tools/two-host-native-send-g75/'+n],cwd=base.parents[1],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,check=True).stdout)
 print('G75 pinned Git-blob bases and explicit overlays verified')
