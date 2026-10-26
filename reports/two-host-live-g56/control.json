@@ -1,0 +1,46 @@
+{
+  "schema": "g56-native-control-1",
+  "run_id": "40263437339",
+  "source_commit": "03643f41b0a2f8b1b8c66e164dea32ad1d174910",
+  "passed": true,
+  "rows": [
+    {
+      "architecture": "x86",
+      "passed": true,
+      "server_received_exact_fixture": true,
+      "observer_received_exact_fixture": true,
+      "peer_exact_loopback_port": true,
+      "events": {
+        "hooks_installed": 1,
+        "ready": 1,
+        "bytes": 2,
+        "api_send": 1,
+        "api_WSASend": 1
+      },
+      "script_errors": 0,
+      "request_rows": 2,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "passed": true,
+      "server_received_exact_fixture": true,
+      "observer_received_exact_fixture": true,
+      "peer_exact_loopback_port": true,
+      "events": {
+        "hooks_installed": 1,
+        "ready": 1,
+        "bytes": 2,
+        "api_send": 1,
+        "api_WSASend": 1
+      },
+      "script_errors": 0,
+      "request_rows": 2,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    }
+  ],
+  "error_type": null,
+  "external_network_used_by_fixture": false
+}
