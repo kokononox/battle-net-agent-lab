@@ -1,0 +1,41 @@
+## /data/analysis/g73-request-rows.json
+
+- Shape: 46 rows x 19 columns
+- Duplicate rows: 17 ⚠️
+- Candidate key columns: none (no single column uniquely identifies a row)
+
+| column | type | non-null | distinct | values |
+| --- | --- | --- | --- | --- |
+| host | text | 100% | 2 | top: level3.blizzard.com (34), us.version.battle.net (12) |
+| method | text | 100% | 1 | top: GET (46) |
+| route_matches_fixed_public_endpoint | number | 100% | 2 | 0 → 1, mean 0.1739 |
+| path_segment_classes | text | 100% | 14 | top: {"decimal_shape_meaning_unknown": 1, "fi (18), {"decimal_shape_meaning_unknown": 2, "fi (7), {"fixed_download_route_word": 2, "opaque (6), {"fixed_download_route_word": 2} (4), {"fixed_download_route_word": 4} (4) |
+| unresolved_path_segments | number | 100% | 4 | 0 → 4, mean 2.891 |
+| path_local_identifier_matches | text | 100% | 1 | top: [] (46) |
+| query_parameters | text | 100% | 2 | top: [] (45), [{"class": "fixed_public_sequence_exact" (1) |
+| user_agent | text | 100% | 3 | top: {"absence_of_encoded_identifiers_proven" (46) |
+| header_local_identifier_matches | text | 100% | 1 | top: [] (46) |
+| explicit_credentials_present | number | 100% | 1 | 0 → 0, mean 0 |
+| accept_values_all_generic_download_types | number | 100% | 1 | 1 → 1, mean 1 |
+| range_present | number | 100% | 2 | 0 → 1, mean 0.2826 |
+| range_syntax_valid | number | 100% | 1 | 1 → 1, mean 1 |
+| body_bytes | number | 100% | 1 | 0 → 0, mean 0 |
+| body_local_identifier_match | number | 100% | 1 | 0 → 0, mean 0 |
+| verdict | text | 100% | 2 | top: unknown_requires_more_evidence (38), consistent_with_download_selection_not_p (8) |
+| fingerprinting_absence_proven | number | 100% | 1 | 0 → 0, mean 0 |
+| raw_path_query_header_values_exported | number | 100% | 1 | 0 → 0, mean 0 |
+| public_download_path | text | 74% | 19 | top: {"body_empty": true, "credential_header_ (34) |
+
+**Warnings:**
+
+- ⚠️ `method` is constant
+- ⚠️ `path_local_identifier_matches` is constant
+- ⚠️ `header_local_identifier_matches` is constant
+- ⚠️ `explicit_credentials_present` is constant
+- ⚠️ `accept_values_all_generic_download_types` is constant
+- ⚠️ `range_syntax_valid` is constant
+- ⚠️ `body_bytes` is constant
+- ⚠️ `body_local_identifier_match` is constant
+- ⚠️ `fingerprinting_absence_proven` is constant
+- ⚠️ `raw_path_query_header_values_exported` is constant
+

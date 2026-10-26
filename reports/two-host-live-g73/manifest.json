@@ -1,0 +1,71 @@
+{
+  "run_id": "40303775767",
+  "source_commit": "9ecfa937b6641cac904e3ec80caed3a5e6a10950",
+  "artifact_sha256": "853375455bb47336709ebb19da9b7f88da59b4d8d68d7530799f0f3aa0fd3459",
+  "artifact_hash_rechecked": true,
+  "target_runs_this_stage": 1,
+  "observed_seconds": 120.5,
+  "range_API_observations": 13,
+  "exact_public_range_observations": 13,
+  "whole_public_object_range_observations": 1,
+  "existing_structural_range_observations": 12,
+  "full_object_comparison": {
+    "independent_DL_EN_size_agreement": true,
+    "starts_at_zero": true,
+    "end_equals_public_size_minus_one": true,
+    "range_length_equals_public_size": true
+  },
+  "public_paths_with_DL_EN_size_agreement": 993,
+  "CDN_API_rows": 34,
+  "baseline_public_full_path_matches": 33,
+  "additional_bts_exact_public_full_path_matches": 1,
+  "redacted_API_rows": 46,
+  "redacted_duplicates_retained": 17,
+  "Windows_tests_passed": 141,
+  "local_tests_total": 141,
+  "local_Windows_specific_skip": 1,
+  "native_controls_passed": 12,
+  "cleanup": true,
+  "firewall_verified": true,
+  "certificate_cache_online_offline_passed": true,
+  "coverage_complete": false,
+  "transport": {
+    "accepted_API_input_bytes": 9470,
+    "counts": {
+      "TLS_handshake_record_bytes": 2870,
+      "TLS_handshake_records": 7,
+      "TLS_change_cipher_spec_record_bytes": 42,
+      "TLS_change_cipher_spec_records": 7,
+      "TLS_application_data_record_bytes": 2180,
+      "TLS_application_data_records": 23,
+      "HTTP1_candidate_bytes": 4378
+    },
+    "buffered_unclassified_bytes": 0,
+    "accounting_reconciles": true,
+    "cap_hit": false,
+    "TLS_record_type_does_not_reveal_plaintext": true,
+    "HTTP_candidate_bytes_require_separate_HTTP_audit": true,
+    "ciphertext_to_SSPI_plaintext_one_to_one_mapping_proven": false,
+    "all_processes_and_APIs_covered": false,
+    "raw_values_exported": false,
+    "fingerprinting_absence_proven": false
+  },
+  "origin_gaps": {
+    "origin_gap": 48,
+    "origin_gap_overlapped_ReadFile_unobserved": 48
+  },
+  "historical_raw_range_equality_proven": false,
+  "runtime_allow_rules_changed": false,
+  "public_reference_changed": false,
+  "new_external_research_fetch_for_Range": false,
+  "privacy_clearance": false,
+  "comparison_plan": [
+    {
+      "finding": "exact whole-object Range equality in current observation",
+      "grain": "redacted API observation, not unique network request",
+      "disposition": "prose",
+      "reason": "semantic equality only; no temporal series or distribution to chart"
+    }
+  ],
+  "profiling_notes": "normalized heterogeneous runtime to request rows; retain redacted duplicates; version-server public_download_path null expected; null control errors mean no reported error; run_id is identifier; observed constants do not establish privacy"
+}
