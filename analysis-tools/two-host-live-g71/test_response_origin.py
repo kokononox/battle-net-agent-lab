@@ -51,3 +51,25 @@ class ResponseOriginTests(unittest.TestCase):
 
  def test_HEAD_rejected_not_misframed(self):
   a=ResponseOrigin();a.feed(1,'out',req().replace(b'GET ',b'HEAD '));self.assertEqual(a.counts['non_GET_pairing_unsupported'],1)
+
+ def test_embedded_JSON_string(self):
+  body=json.dumps({'config':{'settings':{'c++_x64':json.dumps({'hash':K})}}}).encode();x=locate(K,{},body);self.assertEqual(x[0]['area'],'embedded_JSON_value');self.assertEqual(x[0]['field'],'hash');self.assertEqual(x[0]['match'],'exact_value')
+ def test_MIME_table(self):
+  body=b'--boundary\r\nContent-Type: text/plain\r\n\r\n'+BODY+b'\r\n--boundary--\r\n';x=locate(K,{'content-type':['multipart/mixed; boundary=boundary']},body);self.assertEqual(x[0]['field'],'BuildConfig');self.assertEqual(x[0]['wrapper'],'MIME_part')
+ def test_BLTE_chunkless_N(self):
+  x=locate(K,{},b'BLTE\0\0\0\0N'+BODY);self.assertEqual(x[0]['wrapper'],'BLTE_chunkless_N');self.assertEqual(x[0]['field'],'BuildConfig')
+ def test_unsupported_BLTE_not_stripped(self):
+  self.assertFalse(locate(K,{},b'BLTE\0\0\0\0E'+BODY))
+ def test_typed_table_after_preamble(self):
+  x=locate(K,{},b'-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA256\n\n'+BODY);self.assertEqual(x[0]['field'],'BuildConfig')
+ def test_pinned_ProductConfig_refs_revalidate(self):
+  from response_origin import load_pinned_product_refs
+  from pathlib import Path
+  refs=load_pinned_product_refs(Path(__file__).parent);self.assertEqual(len(refs),2);self.assertTrue(all(r['kind']=='pinned_ProductConfig' for r in refs))
+ def test_whole_public_doc_containment(self):
+  text=json.dumps({'hash':K});a=ResponseOrigin([{'route':'pinned_ProductConfig:agent','kind':'pinned_ProductConfig','status':200,'text':text}]);a.feed(1,'out',req());a.feed(1,'in',resp(b'wrapper'+text.encode()+b'end'));a.target(K,P);x=a.rows[0]['paired_response_occurrences'][0];self.assertTrue(x['pinned_public_body_equalities'][0]['entire_pinned_document_contained']);self.assertTrue(any(v.get('field')=='hash' for v in x['locations']));self.assertNotIn(K,json.dumps(a.report()))
+ def test_dynamic_blob_route_redacted(self):
+  a=ResponseOrigin();a.feed(1,'out',req('/v1/products/agent/blobs/'+K));a.feed(1,'in',resp());a.target(K,P);x=a.rows[0]['paired_response_occurrences'][0];self.assertEqual(x['route'],'/v1/products/agent/blobs/<opaque_key>');self.assertNotIn(K,json.dumps(a.report()))
+
+ def test_MIME_boundary_case_preserved(self):
+  body=b'--CASEboundary\r\nContent-Type: text/plain\r\n\r\n'+BODY+b'\r\n--CASEboundary--\r\n';x=locate(K,{'content-type':['multipart/mixed; boundary=CASEboundary']},body);self.assertEqual(x[0]['field'],'BuildConfig')

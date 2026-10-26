@@ -1,10 +1,12 @@
 """Pair identity HTTP/1 responses on each TLS context; redact all dynamic values."""
-import re,json
+import re,json,hashlib,base64
+from email.parser import BytesParser
+from email import policy
 from collections import Counter,deque
 MAX=1024*1024
 PRODUCTS=('agent','bna','bnt')
 ROUTES={'/summary','/v1/summary','/v2/summary'}|{'/'+p+'/'+k for p in PRODUCTS for k in ('versions','cdns','bgdl','config')}|{'/v'+v+'/products/'+p+'/'+k for v in ('1','2') for p in PRODUCTS for k in ('versions','cdns','bgdl','config')}
-FIELDS={'Region','BuildConfig','CDNConfig','KeyRing','BuildId','VersionsName','ProductConfig','Name','Path','Hosts','Servers','ConfigPath','Product','Seqn','Flags','Key','Value','Hash','ContentKey','EncodingKey','CKey','EKey','Version','AgentConfig','KeyName','KeyId'}
+FIELDS={'Region','BuildConfig','CDNConfig','KeyRing','BuildId','VersionsName','ProductConfig','Name','Path','Hosts','Servers','ConfigPath','Product','Seqn','Flags','Key','Value','Hash','ContentKey','EncodingKey','CKey','EKey','Version','AgentConfig','KeyName','KeyId','hash','architecture','cdn_product','version','url','path','key','data','encoding','root','install','download','archives'}
 HEADERS={'etag','content-md5','content-type','content-length','last-modified','date','location','x-blz-contentkey','x-blz-encodingkey'}
 class Reject(Exception):pass
 
@@ -58,50 +60,96 @@ def split_http(buf,request=False):
 
 def route_label(path):
  route=path.partition('?')[0]
- return route if route in ROUTES else '<other_route>'
+ if route in ROUTES:return route
+ m=re.fullmatch(r'/v([12])/products/(agent|bna|bnt)/blobs/[0-9a-f]{32}',route)
+ return '/v'+m[1]+'/products/'+m[2]+'/blobs/<opaque_key>' if m else '<other_route>'
+
+def body_parts(headers,body):
+ """Bounded format selection; MIME/BLTE recognition is not signature verification."""
+ ct=' '.join(headers.get('content-type',[]))
+ if body.startswith(b'BLTE'):
+  # Only a chunkless, identity N frame. Other BLTE shapes remain unsupported here.
+  if len(body)>=9 and body[4:8]==b'\0\0\0\0' and body[8:9]==b'N':return [('BLTE_chunkless_N',body[9:])]
+  return [('BLTE_unsupported',b'')]
+ if ct.lower().startswith('multipart/'):
+  try:
+   msg=BytesParser(policy=policy.default).parsebytes(('MIME-Version: 1.0\r\nContent-Type: '+ct+'\r\n\r\n').encode()+body)
+   parts=[]
+   for i,part in enumerate(msg.walk()):
+    if i>=12:break
+    if not part.is_multipart():
+     value=part.get_payload(decode=True)
+     if isinstance(value,bytes) and len(value)<=MAX:parts.append(('MIME_part',value))
+   return parts or [('MIME_unsupported',b'')]
+  except Exception:return [('MIME_unsupported',b'')]
+ return [('identity',body)]
 
 def locate(token,headers,body):
- """Occurrences are locations, not interpretations of a content key."""
  out=[]
  for k,vs in headers.items():
   for v in vs:
-   if token in v:
-    out.append({'area':'HTTP_header','field':k if k in HEADERS else '<other_header>','match':'exact_value' if v==token else 'quoted_value' if v=='"'+token+'"' else 'substring'})
- if token.encode() not in body:return out
- try:text=body.decode('utf-8-sig')
- except UnicodeError:
-  out.append({'area':'body','field':'<non_UTF8>','match':'ASCII_substring'});return out
- lines=[x for x in text.splitlines() if x and not x.startswith('#')]
- schema=[]
- if lines:
-  for c in lines[0].split('|'):
-   m=re.fullmatch(r'([A-Za-z][A-Za-z0-9_]{0,63})!(STRING|HEX|DEC):[0-9]{1,3}',c)
-   if not m:schema=[];break
-   schema.append(m[1])
- if schema:
-  for row in lines[1:]:
-   cells=row.split('|')
-   if len(cells)!=len(schema):continue
-   for i,v in enumerate(cells):
-    if token in v:out.append({'area':'typed_table_cell','field':schema[i] if schema[i] in FIELDS else '<other_column>','column_index':i,'match':'exact_value' if v==token else 'space_delimited_token' if token in v.split() else 'substring'})
- if not any(x['area'] in ('typed_table_cell',) for x in out):
-  # Fixed allowlisted JSON member names only. Arbitrary keys and values stay private.
+   if token in v:out.append({'area':'HTTP_header','field':k if k in HEADERS else '<other_header>','match':'exact_value' if v==token else 'quoted_value' if v=='"'+token+'"' else 'substring'})
+ for wrapper,payload in body_parts(headers,body):
+  if token.encode() not in payload:continue
+  before=len(out)
+  try:text=payload.decode('utf-8-sig')
+  except UnicodeError:
+   out.append({'area':'body','field':'<non_UTF8>','match':'ASCII_substring','wrapper':wrapper});continue
+  lines=text.splitlines()
+  # A signed/preamble wrapper may put the actual table below its first line.
+  for n,line in enumerate(lines):
+   schema=[]
+   for c in line.split('|'):
+    m=re.fullmatch(r'([A-Za-z][A-Za-z0-9_]{0,63})!(STRING|HEX|DEC):[0-9]{1,3}',c)
+    if not m:schema=[];break
+    schema.append(m[1])
+   if not schema:continue
+   for row in lines[n+1:]:
+    if row.startswith('#'):continue
+    cells=row.split('|')
+    if len(cells)!=len(schema):break
+    for i,v in enumerate(cells):
+     if token in v:out.append({'area':'typed_table_cell','field':schema[i] if schema[i] in FIELDS else '<other_column>','column_index':i,'match':'exact_value' if v==token else 'space_delimited_token' if token in v.split() else 'substring','wrapper':wrapper})
   try:j=json.loads(text)
   except (ValueError,RecursionError):j=None
-  def walk(v,field=None,depth=0):
-   if depth>8:return
+  visited=[0]
+  def walk(v,field=None,depth=0,embedded=0):
+   visited[0]+=1
+   if visited[0]>4096 or depth>20:return
    if isinstance(v,dict):
-    for k,x in list(v.items())[:128]:walk(x,k,depth+1)
+    for k,x in v.items():walk(x,k,depth+1,embedded)
    elif isinstance(v,list):
-    for x in v[:128]:walk(x,field,depth+1)
-   elif isinstance(v,str) and token in v:out.append({'area':'JSON_value','field':field if field in FIELDS else '<other_member>','match':'exact_value' if v==token else 'substring'})
+    for x in v:walk(x,field,depth+1,embedded)
+   elif isinstance(v,str) and token in v:
+    if embedded<3 and len(v)<=65536 and v.lstrip().startswith(('{','[')):
+     try:inner=json.loads(v)
+     except (ValueError,RecursionError):inner=None
+     if inner is not None:walk(inner,field,depth+1,embedded+1);return
+    out.append({'area':'embedded_JSON_value' if embedded else 'JSON_value','field':field if field in FIELDS else '<other_member>','match':'exact_value' if v==token else 'substring','wrapper':wrapper})
   walk(j)
- if not any(x['area'] in ('typed_table_cell','JSON_value') for x in out):out.append({'area':'body','field':'<unrecognized_body>','match':'ASCII_substring'})
+  if len(out)==before:
+   hitlines=[line for line in lines if token in line]
+   out.append({'area':'body','field':'<unrecognized_body>','match':'ASCII_substring','wrapper':wrapper,'line_contains_pipe':any('|' in line for line in hitlines),'line_contains_equals':any('=' in line for line in hitlines),'line_contains_colon':any(':' in line for line in hitlines)})
  return out[:32]
+
+def load_pinned_product_refs(base):
+ from pathlib import Path
+ raw=(Path(base)/'public-reference-fixtures.json').read_bytes()
+ if hashlib.sha256(raw).hexdigest()!='372a42ca244cb5b10a73c10a7a94d753e5e0d92b5b47f8b640c031429f809ca7':raise ValueError('public_fixture_pin')
+ fixtures=json.loads(raw);out=[]
+ for product in ('agent','bna'):
+  body=base64.b64decode(fixtures[product+'-product'],validate=True)
+  versions=base64.b64decode(fixtures[product+'-versions'],validate=True).decode('utf-8-sig').splitlines();names=[x.split('!')[0] for x in versions[0].split('|')];keys=[]
+  for line in versions[1:]:
+   cells=line.split('|')
+   if len(cells)==len(names) and cells[names.index('Region')]=='us':keys.append(cells[names.index('ProductConfig')])
+  if hashlib.md5(body).hexdigest() not in keys:raise ValueError('public_ProductConfig_content_key')
+  out.append({'route':'pinned_ProductConfig:'+product,'kind':'pinned_ProductConfig','status':200,'text':body.decode('utf-8'),'headers':{},'public_product':product})
+ return out
 
 class ResponseOrigin:
  def __init__(self,reference_rows=()):
-  self.refs=[r for r in reference_rows if r.get('status')==200 and r.get('route') in ROUTES];self.buffers={};self.blocked=set();self.queues={};self.docs=[];self.targets={};self.rows=[];self.counts=Counter();self.serial=0;self.total=0;self.retained=0
+  self.refs=[r for r in reference_rows if r.get('status')==200 and (r.get('route') in ROUTES or r.get('kind')=='pinned_ProductConfig')];self.buffers={};self.blocked=set();self.queues={};self.docs=[];self.targets={};self.rows=[];self.counts=Counter();self.serial=0;self.total=0;self.retained=0
  def reject(self,key,why):self.counts[why]+=1;self.blocked.add(key);self.buffers.pop((key,'out'),None);self.buffers.pop((key,'in'),None);self.queues.pop(key,None)
  def feed(self,key,direction,data):
   if key in self.blocked:return
@@ -128,7 +176,7 @@ class ResponseOrigin:
     q=self.queues.get(key,deque());req=q.popleft() if q else None
     if not req:self.reject(key,'response_without_observed_request');return
     self.serial+=1;enc=h.get('content-encoding',['identity']);supported=enc==['identity']
-    doc={'event':self.serial,'route':route_label(req['path']),'query_present':'?' in req['path'],'method':req['method'],'status':info['status'],'headers':h,'body':body if supported else b'','body_decoding_supported':supported}
+    doc={'event':self.serial,'route':route_label(req['path']),'query_present':'?' in req['path'],'method':req['method'],'request_path':req['path'],'status':info['status'],'headers':h,'body':body if supported else b'','body_decoding_supported':supported}
     self.retained+=len(body)+sum(len(v) for vs in h.values() for v in vs)
     if self.retained>8*MAX:self.reject(key,'retention_cap');return
     self.docs.append(doc);self.counts['paired_responses']+=1
@@ -137,8 +185,23 @@ class ResponseOrigin:
   self.buffers[k]=b
  def match_doc(self,token,row,doc,prior):
   locations=locate(token,doc['headers'],doc['body'])
+  # If framing wraps an entire independently pinned document, attribute only by
+  # exact contained public bytes; never strip arbitrary bytes and call them JSON.
+  for ref in self.refs:
+   if ref.get('kind')=='pinned_ProductConfig':
+    public=ref['text'].encode()
+    if token.encode() in public and public in doc['body']:
+     for loc in locate(token,{},public):locations.append(dict(loc,area='exact_pinned_public_subdocument_'+loc['area'],public_document=ref['route']))
   if locations and len(row['paired_response_occurrences'])<32:
-   row['paired_response_occurrences'].append({k:doc[k] for k in ('event','route','query_present','method','status','body_decoding_supported')}|{'preceded_target_observation':prior,'locations':locations,'pairing_basis':'FIFO_on_same_observed_TLS_context'})
+   exact=[]
+   for wrapper,payload in body_parts(doc['headers'],doc['body']):
+    for ref in self.refs:
+     if ref.get('kind')=='pinned_ProductConfig' and payload==ref['text'].encode():
+      exact.append({'public_document':ref['route'],'decoded_body_byte_exact':True,'source_request_key_matches_public_ProductConfig_MD5':doc['request_path'].partition('?')[0].endswith('/'+hashlib.md5(payload).hexdigest()),'wrapper':wrapper})
+   for ref in self.refs:
+    if ref.get('kind')=='pinned_ProductConfig' and ref['text'].encode() in doc['body']:
+     exact.append({'public_document':ref['route'],'entire_pinned_document_contained':True,'source_request_key_matches_public_ProductConfig_MD5':doc['request_path'].partition('?')[0].endswith('/'+hashlib.md5(ref['text'].encode()).hexdigest())})
+   row['paired_response_occurrences'].append({k:doc[k] for k in ('event','route','query_present','method','status','body_decoding_supported')}|{'preceded_target_observation':prior,'locations':locations,'pairing_basis':'FIFO_on_same_observed_TLS_context','pinned_public_body_equalities':exact})
  def target(self,token,path):
   if token in self.targets:return
   if len(self.rows)>=16:self.counts['target_cap']+=1;return

@@ -17,7 +17,7 @@ from download_path_audit import load_reference
 from transport_audit import TransportAudit
 from process_exit_proof import CandidateAlreadyExited
 from origin_audit import OriginAudit
-from response_origin import ResponseOrigin
+from response_origin import ResponseOrigin,load_pinned_product_refs
 base=Path(__file__).resolve().parent;root=Path(os.environ['RUNNER_TEMP'])/'g71-private'
 if os.environ.get('RUNNER_ENVIRONMENT')!='github-hosted' or os.environ.get('BNET_G71')!='approved-live-startup-two-hosts-g71':raise SystemExit('hosted_approval_required')
 def ps(action):
@@ -50,7 +50,7 @@ try:
  reference=subprocess.run(['powershell.exe','-NoProfile','-File',str(base/'PublicReference.ps1'),'-Root',str(root)],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=65)
  if reference.returncode:raise RuntimeError('fixed_public_reference_failed')
  public_tokens,reference_summary=load_public(root);report['fixed_public_reference']=reference_summary
- response_origin=ResponseOrigin(json.loads((root/'public-reference.PRIVATE.json').read_text(encoding='utf-8-sig'))['rows']);origin.on_target=response_origin.target
+ response_origin=ResponseOrigin(json.loads((root/'public-reference.PRIVATE.json').read_text(encoding='utf-8-sig'))['rows']+load_pinned_product_refs(base));origin.on_target=response_origin.target
  request_audit=Audit(public_tokens,local_comparisons(),public_paths)
  config=json.loads((root/'config.json').read_text(encoding='utf-8-sig'));ips={ipaddress.ip_address(x) for x in config['ips']}
  job=Job();device=frida.get_local_device();hook=(base/'hook.js').read_text()
