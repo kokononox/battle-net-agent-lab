@@ -1,0 +1,133 @@
+{
+  "run_id": "40289840845",
+  "source_commit": "e762f8ef0fb70ccc75e08f15c980fdb327a81ac5",
+  "artifact_sha256": "3e86ad8bff3c829c0caada1c3b6c03b6f920d016662dbcd4c9b85697ff5d1cb7",
+  "initial_run_id": "40289287822",
+  "initial_error": "late_process_image_failed",
+  "initial_cleanup": true,
+  "CDN_API_rows": 34,
+  "exact_public_path_matches": 33,
+  "range_rows": 13,
+  "range_exact_public_boundaries": 12,
+  "range_metadata_objects": 7,
+  "range_archive_records_or_contiguous_unions": 5,
+  "unresolved_range_rows": [
+    {
+      "whole_path_exactly_in_independent_public_reference": true,
+      "public_reference_kinds": [
+        "public_download_manifest_entry",
+        "public_encoding_EKey_entry"
+      ],
+      "public_reference_products": [
+        "agent"
+      ],
+      "query_present": false,
+      "method_is_GET": true,
+      "body_empty": true,
+      "range_present": true,
+      "range_inside_public_object_size_if_checkable": true,
+      "range_matches_public_archive_record": false,
+      "range_semantics": {
+        "present": true,
+        "exact_public_boundary_match": false,
+        "public_boundary_basis": [],
+        "within_single_public_archive_record": false,
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false,
+        "offset_is_zero": true,
+        "length_class": "other",
+        "status": "no_independent_range_reference"
+      },
+      "public_key_origin_diagnostic": {
+        "canonical_hash_path_shape": true,
+        "raw_values_exported": false,
+        "canonical_fanout_matches_key": true,
+        "prefix_in_public_reference": true,
+        "suffix_class": "none",
+        "key_public_origins": [
+          "public_exact_object_reference"
+        ],
+        "semantic_endpoint_confirmed": false
+      },
+      "unexpected_header_names_present": false,
+      "credential_header_present": false,
+      "verdict": "public_object_selection_observed_not_privacy_clearance",
+      "raw_path_range_header_values_exported": false,
+      "fingerprinting_absence_proven": false
+    }
+  ],
+  "unmatched_path_diagnostic": [
+    {
+      "whole_path_exactly_in_independent_public_reference": false,
+      "public_reference_kinds": [],
+      "public_reference_products": [],
+      "query_present": false,
+      "method_is_GET": true,
+      "body_empty": true,
+      "range_present": false,
+      "range_inside_public_object_size_if_checkable": null,
+      "range_matches_public_archive_record": false,
+      "range_semantics": {
+        "present": false,
+        "exact_public_boundary_match": false,
+        "public_boundary_basis": [],
+        "within_single_public_archive_record": false,
+        "raw_values_exported": false,
+        "fingerprinting_absence_proven": false
+      },
+      "public_key_origin_diagnostic": {
+        "canonical_hash_path_shape": true,
+        "raw_values_exported": false,
+        "canonical_fanout_matches_key": true,
+        "prefix_in_public_reference": true,
+        "suffix_class": "none",
+        "key_public_origins": [],
+        "semantic_endpoint_confirmed": false
+      },
+      "unexpected_header_names_present": false,
+      "credential_header_present": false,
+      "verdict": "unknown_requires_more_evidence",
+      "raw_path_range_header_values_exported": false,
+      "fingerprinting_absence_proven": false
+    }
+  ],
+  "proven_terminated_candidates_skipped": 0,
+  "process_exit_proof_live_target_exercised": false,
+  "observed_seconds": 120.6,
+  "cleanup": true,
+  "firewall_verified": true,
+  "cache_valid": true,
+  "coverage_complete": false,
+  "native_controls_passed": true,
+  "tests_discovered": 78,
+  "local_Linux_native_Windows_test_skipped": 1,
+  "transport_audit": {
+    "accepted_API_input_bytes": 9470,
+    "counts": {
+      "TLS_handshake_record_bytes": 2870,
+      "TLS_handshake_records": 7,
+      "TLS_change_cipher_spec_record_bytes": 42,
+      "TLS_change_cipher_spec_records": 7,
+      "TLS_application_data_record_bytes": 2180,
+      "TLS_application_data_records": 23,
+      "HTTP1_candidate_bytes": 4378
+    },
+    "buffered_unclassified_bytes": 0,
+    "accounting_reconciles": true,
+    "cap_hit": false,
+    "TLS_record_type_does_not_reveal_plaintext": true,
+    "HTTP_candidate_bytes_require_separate_HTTP_audit": true,
+    "ciphertext_to_SSPI_plaintext_one_to_one_mapping_proven": false,
+    "all_processes_and_APIs_covered": false,
+    "raw_values_exported": false,
+    "fingerprinting_absence_proven": false
+  },
+  "grain": "redacted API observations, not unique server requests; duplicates kept",
+  "comparison_plan": [
+    {
+      "finding": "12 of 13 ranges have exact independent structural boundaries; unresolved path persists",
+      "disposition": "prose",
+      "reason": "semantic equality checks with a two-number headline, no time trend requested"
+    }
+  ]
+}
