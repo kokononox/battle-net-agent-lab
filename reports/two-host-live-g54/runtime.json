@@ -1,0 +1,115 @@
+{
+  "schema": "two-host-live-g54-1",
+  "source_commit": "9d8ff81dd208a07942475cac549c9900321f8b41",
+  "run_id": "40260018340",
+  "scope": "bounded_signed_bootstrap_startup_with_read_only_UI_probe_no_UI_advance_no_login_not_full_download",
+  "installer_executed": true,
+  "firewall_verified": true,
+  "error": null,
+  "cleanup": true,
+  "fingerprinting_absence_proven": false,
+  "native_control_passed": true,
+  "observed_seconds": 90.0,
+  "content": {
+    "requests": [],
+    "unparsed": {},
+    "buffered_unparsed_bytes": 0,
+    "api_input_bytes_seen": 0,
+    "cap_hit": false,
+    "fingerprinting_absence_proven": false,
+    "raw_values_exported": false,
+    "request_grain": "synchronous_Winsock_accepted_input_not_independent_wire_or_server_receipt"
+  },
+  "hook_counts": {
+    "hooks_installed": 1,
+    "ready": 1,
+    "bytes": 6,
+    "peer_loopback_bytes": 30,
+    "port_other_or_unknown_events": 6
+  },
+  "read_only_UI_snapshots": [
+    {
+      "elapsed_seconds": 5.0,
+      "probe": {
+        "process_states": [
+          "running"
+        ],
+        "visible_owned_controls_seen": 0,
+        "recognized_control_rows": [],
+        "read_errors": 0,
+        "raw_text_exported": false,
+        "actions_performed": false,
+        "coverage_complete": false
+      }
+    },
+    {
+      "elapsed_seconds": 25.0,
+      "probe": {
+        "process_states": [
+          "running"
+        ],
+        "visible_owned_controls_seen": 1,
+        "recognized_control_rows": [],
+        "read_errors": 0,
+        "raw_text_exported": false,
+        "actions_performed": false,
+        "coverage_complete": false
+      }
+    },
+    {
+      "elapsed_seconds": 45.0,
+      "probe": {
+        "process_states": [
+          "running"
+        ],
+        "visible_owned_controls_seen": 1,
+        "recognized_control_rows": [],
+        "read_errors": 0,
+        "raw_text_exported": false,
+        "actions_performed": false,
+        "coverage_complete": false
+      }
+    },
+    {
+      "elapsed_seconds": 65.0,
+      "probe": {
+        "process_states": [
+          "running"
+        ],
+        "visible_owned_controls_seen": 1,
+        "recognized_control_rows": [],
+        "read_errors": 0,
+        "raw_text_exported": false,
+        "actions_performed": false,
+        "coverage_complete": false
+      }
+    },
+    {
+      "elapsed_seconds": 85.0,
+      "probe": {
+        "process_states": [
+          "running"
+        ],
+        "visible_owned_controls_seen": 1,
+        "recognized_control_rows": [],
+        "read_errors": 0,
+        "raw_text_exported": false,
+        "actions_performed": false,
+        "coverage_complete": false
+      }
+    }
+  ],
+  "hosts": {
+    "level3.blizzard.com": {
+      "request_rows": 0,
+      "verdict": "unknown_no_content_rows"
+    },
+    "us.version.battle.net": {
+      "request_rows": 0,
+      "verdict": "unknown_no_content_rows"
+    }
+  },
+  "coverage_complete": false,
+  "server_receipt_proven": false,
+  "hook_changes_client_timing_possible": true
+}
