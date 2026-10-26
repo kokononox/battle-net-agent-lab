@@ -1,0 +1,88 @@
+{
+  "schema": "fixed_range_evidence_g47_v1",
+  "source_g46_commit": "e4153a9ee5094d66d5ccc821cb69f99738da8886",
+  "plan_sha256": "d6632dc0b25709e7871a270cc7bdbe51cb6cbc561ebfa9d5d8c484dae3eb9bf5",
+  "source_sha256": "f25afd15e428ce1d4ef8fd68df725e2fb558b148c38ee507eab1e027e858e776",
+  "codec_sha256": "9e8ea2936cf31875206e225ea22826c53c1339659d31102430077d887a04e7ce",
+  "reserved_attempts": 2,
+  "reserved_expected_bytes": 4310,
+  "max_application_body_read_bytes_with_oversize_detection": 4312,
+  "not_a_total_wire_or_tls_byte_cap": true,
+  "automatic_retries": 0,
+  "redirects_followed": false,
+  "request_body_sent": false,
+  "cookies_or_authorization_sent": false,
+  "runtime_approved_entries": 0,
+  "installer_or_payload_executed": false,
+  "production_catalog_modified": false,
+  "publisher_signature_verified": false,
+  "anti_fingerprinting_proven": false,
+  "results": [
+    {
+      "sample_id": "sample_1",
+      "archive_url": "https://us.cdn.blizzard.com/tpr/bnt002/data/60/5f/605fbbb3d7a768acc56fa91d845181b0",
+      "range_header": "bytes=49635016-49635042",
+      "expected_encoded_bytes": 27,
+      "expected_decoded_bytes": 18,
+      "ekey": "ce429ae91fc7868cdeae3158bac493ce",
+      "ckey": "65f69bd2d8b6458d3ecf77d84d70dc1c",
+      "source_index_id": "index_18",
+      "source_index_sha256": "f1bbec63638357ddfe84bba83682d99bfcd0c0a53ea79be8c352b29c93cb6e9e",
+      "http_status": 206,
+      "body_received_and_sized": true,
+      "verified": true,
+      "error_code": null,
+      "runtime_approved": false,
+      "observed_content_length": [
+        "27"
+      ],
+      "observed_content_range": [
+        "bytes 49635016-49635042/73418901"
+      ],
+      "received_bytes": 27,
+      "received_sha256": "5efa4b94f88426d050057d5e3c084b325f32e98bce9f734787936c63fc35f962",
+      "encoded_sha256": "5efa4b94f88426d050057d5e3c084b325f32e98bce9f734787936c63fc35f962",
+      "decoded_sha256": "ca73097bd968b363b7145e86b64f3c595e533808b0763dc8863a27fc363cfa51",
+      "encoded_bytes": 27,
+      "decoded_bytes": 18,
+      "blte_ekey_verified": true,
+      "decoded_ckey_verified": true,
+      "decoded_starts_with_mz": false,
+      "stored_private_non_executable": true
+    },
+    {
+      "sample_id": "sample_2",
+      "archive_url": "https://us.cdn.blizzard.com/tpr/bnt002/data/9b/d6/9bd67b33267b8df445ab0a2100e0af02",
+      "range_header": "bytes=41437004-41441286",
+      "expected_encoded_bytes": 4283,
+      "expected_decoded_bytes": 11264,
+      "ekey": "929f7207500e376c596eccbe3f501ba6",
+      "ckey": "8faacd0a5d9da72963aa835ce01471ed",
+      "source_index_id": "index_24",
+      "source_index_sha256": "01398f80e364833fcb86761c746b11bbb5456f70ed37826828729cbc56074edd",
+      "http_status": 206,
+      "body_received_and_sized": true,
+      "verified": true,
+      "error_code": null,
+      "runtime_approved": false,
+      "observed_content_length": [
+        "4283"
+      ],
+      "observed_content_range": [
+        "bytes 41437004-41441286/73968810"
+      ],
+      "received_bytes": 4283,
+      "received_sha256": "03b828b3c3416a60daefef1d924bffe359c73ba8d4aac3c2e6eb0029de23d6e7",
+      "encoded_sha256": "03b828b3c3416a60daefef1d924bffe359c73ba8d4aac3c2e6eb0029de23d6e7",
+      "decoded_sha256": "58aea5f30e9a8c51bc9b859867ddf32ef8a28f7ee5cad5b4537938f1b0d34ffd",
+      "encoded_bytes": 4283,
+      "decoded_bytes": 11264,
+      "blte_ekey_verified": true,
+      "decoded_ckey_verified": true,
+      "decoded_starts_with_mz": true,
+      "stored_private_non_executable": true
+    }
+  ],
+  "verified_payload_count": 2,
+  "status": "two_range_samples_verified"
+}

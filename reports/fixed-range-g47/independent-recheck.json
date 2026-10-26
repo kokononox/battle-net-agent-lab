@@ -1,0 +1,26 @@
+{
+  "schema": "independent_local_recheck_g47_v1",
+  "network_requests_issued": false,
+  "checks": [
+    {
+      "sample_id": "sample_1",
+      "independent_observed_z_format_check": true,
+      "encoded_sha256": "5efa4b94f88426d050057d5e3c084b325f32e98bce9f734787936c63fc35f962",
+      "decoded_sha256": "ca73097bd968b363b7145e86b64f3c595e533808b0763dc8863a27fc363cfa51",
+      "posix_private_file_mode_0600": true
+    },
+    {
+      "sample_id": "sample_2",
+      "independent_observed_z_format_check": true,
+      "encoded_sha256": "03b828b3c3416a60daefef1d924bffe359c73ba8d4aac3c2e6eb0029de23d6e7",
+      "decoded_sha256": "58aea5f30e9a8c51bc9b859867ddf32ef8a28f7ee5cad5b4537938f1b0d34ffd",
+      "posix_private_file_mode_0600": true
+    }
+  ],
+  "source_and_plan_hashes_match_preflight": true,
+  "production_catalog_sha256": "ee2b6f3e115f58ff21414168185024ffa9f574863333ab869cbb861c52c0c8c5",
+  "catalog_matches_g46_baseline": true,
+  "runtime_approved_entries": 0,
+  "payloads_executed": false,
+  "public_payload_fixtures_published": false
+}
