@@ -1,0 +1,38 @@
+name: Two-host content G52 evidence recount and Windows observer parse
+on:
+  push:
+    branches: [research/battlenet-minimal-install-isolation-2026-10-25]
+    paths: ['analysis-tools/two-host-content-g52/**', '.github/workflows/battlenet-content-g52.yml']
+permissions: {}
+jobs:
+  audit:
+    if: github.event.head_commit.message == 'lab: approved two-host content evidence G52' && github.run_attempt == 1
+    runs-on: windows-2025
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Parse observer without executing capture or changing Windows
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          $t=$null;$e=$null
+          $null=[Management.Automation.Language.Parser]::ParseFile((Join-Path $pwd 'analysis-tools/two-host-content-g52/Capture-TwoDestinations.ps1'),[ref]$t,[ref]$e)
+          if($e.Count){$e|ForEach-Object{Write-Output ($_.ErrorId+':'+$_.Extent.StartLineNumber)};throw 'observer_parse_failed'}
+          Write-Output 'OBSERVER_PARSE_OK; capture_not_executed; installer_not_executed'
+      - name: Test false-clearance and independently recount existing content evidence
+        shell: powershell
+        run: |
+          python -m unittest discover -s analysis-tools/two-host-content-g52 -p 'test_*.py' -v
+          if($LASTEXITCODE -ne 0){throw 'audit_tests_failed'}
+          python analysis-tools/two-host-content-g52/audit.py
+          if($LASTEXITCODE -ne 0){throw 'audit_failed'}
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: two-host-content-g52-sanitized
+          path: output/two-host-content-g52.json
+          if-no-files-found: error
+          retention-days: 3
