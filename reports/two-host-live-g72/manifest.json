@@ -1,0 +1,290 @@
+{
+  "run_id": "40301741045",
+  "source_commit": "4c1c84b55fe3f88a4a79b4551df829093625cff1",
+  "artifact_sha256": "e50a1b3bcef45ce97eff3e286777d3b7dfacae20fe91eafd62670e473972e648",
+  "artifact_hash_rechecked": true,
+  "preflight_run_id": "40300241533",
+  "preflight_target_executed": false,
+  "initial_actual_run_id": "40300539643",
+  "actual_target_runs_this_stage": 2,
+  "paired_requests": 12,
+  "paired_responses": 12,
+  "prior_paired_response_matches": 2,
+  "identified_product": "bts",
+  "identified_field": "ProductConfig",
+  "column_index_zero_based": 6,
+  "independent_reference_match": true,
+  "whole_CDN_path_independently_public": true,
+  "causal_derivation_proven": false,
+  "baseline_catalog_CDN_path_matches": 33,
+  "CDN_API_rows": 34,
+  "CDN_path_observations_with_exact_public_basis_after_combining_references": 34,
+  "current_baseline_unknown_path_observations_resolved": 1,
+  "bts_public_config_bytes": 308,
+  "bts_public_config_MD5_matches_versions": true,
+  "bts_versions_nonempty_ProductConfig_selector": "launcher",
+  "bts_ConfigPath_identical_all_CDN_regions": true,
+  "schema_bug": "String type rejected by all-uppercase-only G71 schema matcher",
+  "range_rows": 13,
+  "range_exact_public_boundaries": 12,
+  "remaining_range_unknown": 1,
+  "redacted_API_rows": 46,
+  "redacted_duplicate_rows_kept": 17,
+  "native_controls_passed": 12,
+  "Windows_tests_passed": 134,
+  "Linux_Windows_specific_skip": 1,
+  "observed_seconds": 120.3,
+  "cleanup": true,
+  "firewall_verified": true,
+  "certificate_cache_online_offline_passed": true,
+  "coverage_complete": false,
+  "transport": {
+    "accepted_API_input_bytes": 9470,
+    "counts": {
+      "TLS_handshake_record_bytes": 2870,
+      "TLS_handshake_records": 7,
+      "TLS_change_cipher_spec_record_bytes": 42,
+      "TLS_change_cipher_spec_records": 7,
+      "TLS_application_data_record_bytes": 2180,
+      "TLS_application_data_records": 23,
+      "HTTP1_candidate_bytes": 4378
+    },
+    "buffered_unclassified_bytes": 0,
+    "accounting_reconciles": true,
+    "cap_hit": false,
+    "TLS_record_type_does_not_reveal_plaintext": true,
+    "HTTP_candidate_bytes_require_separate_HTTP_audit": true,
+    "ciphertext_to_SSPI_plaintext_one_to_one_mapping_proven": false,
+    "all_processes_and_APIs_covered": false,
+    "raw_values_exported": false,
+    "fingerprinting_absence_proven": false
+  },
+  "origin_gaps": {
+    "origin_gap_overlapped_ReadFile_unobserved": 48
+  },
+  "attribution": {
+    "targets": [
+      {
+        "target_index": 1,
+        "path_family": "data",
+        "paired_response_occurrences": [
+          {
+            "event": 1,
+            "route": "/bts/versions",
+            "query_present": false,
+            "method": "GET",
+            "status": 200,
+            "body_decoding_supported": true,
+            "schema_diagnostics": [
+              {
+                "columns": [
+                  {
+                    "field": "Region",
+                    "type": "STRING",
+                    "width": 0
+                  },
+                  {
+                    "field": "BuildConfig",
+                    "type": "HEX",
+                    "width": 16
+                  },
+                  {
+                    "field": "CDNConfig",
+                    "type": "HEX",
+                    "width": 16
+                  },
+                  {
+                    "field": "KeyRing",
+                    "type": "HEX",
+                    "width": 16
+                  },
+                  {
+                    "field": "BuildId",
+                    "type": "DEC",
+                    "width": 4
+                  },
+                  {
+                    "field": "VersionsName",
+                    "type": "STRING",
+                    "width": 0
+                  },
+                  {
+                    "field": "ProductConfig",
+                    "type": "HEX",
+                    "width": 16
+                  }
+                ],
+                "typing_rule": "case_insensitive_type_marker"
+              }
+            ],
+            "route_diagnostics": {
+              "route": "/bts/versions",
+              "request_target_form": "origin",
+              "route_structure": [
+                {
+                  "kind": "independently_public_product",
+                  "product": "bts"
+                },
+                {
+                  "kind": "fixed_protocol_word",
+                  "word": "versions"
+                }
+              ],
+              "query_present": false
+            },
+            "preceded_target_observation": true,
+            "locations": [
+              {
+                "area": "typed_table_cell",
+                "field": "ProductConfig",
+                "column_index": 6,
+                "match": "exact_value",
+                "wrapper": "identity"
+              }
+            ],
+            "pairing_basis": "FIFO_on_same_observed_TLS_context",
+            "pinned_public_body_equalities": []
+          },
+          {
+            "event": 9,
+            "route": "/v2/products/bts/versions",
+            "query_present": false,
+            "method": "GET",
+            "status": 200,
+            "body_decoding_supported": true,
+            "schema_diagnostics": [
+              {
+                "columns": [
+                  {
+                    "field": "Region",
+                    "type": "STRING",
+                    "width": 0
+                  },
+                  {
+                    "field": "BuildConfig",
+                    "type": "HEX",
+                    "width": 16
+                  },
+                  {
+                    "field": "CDNConfig",
+                    "type": "HEX",
+                    "width": 16
+                  },
+                  {
+                    "field": "KeyRing",
+                    "type": "HEX",
+                    "width": 16
+                  },
+                  {
+                    "field": "BuildId",
+                    "type": "DEC",
+                    "width": 4
+                  },
+                  {
+                    "field": "VersionsName",
+                    "type": "STRING",
+                    "width": 0
+                  },
+                  {
+                    "field": "ProductConfig",
+                    "type": "HEX",
+                    "width": 16
+                  }
+                ],
+                "typing_rule": "case_insensitive_type_marker"
+              }
+            ],
+            "route_diagnostics": {
+              "route": "/v2/products/bts/versions",
+              "request_target_form": "origin",
+              "route_structure": [
+                {
+                  "kind": "fixed_protocol_word",
+                  "word": "v2"
+                },
+                {
+                  "kind": "fixed_protocol_word",
+                  "word": "products"
+                },
+                {
+                  "kind": "independently_public_product",
+                  "product": "bts"
+                },
+                {
+                  "kind": "fixed_protocol_word",
+                  "word": "versions"
+                }
+              ],
+              "query_present": false
+            },
+            "preceded_target_observation": true,
+            "locations": [
+              {
+                "area": "typed_table_cell",
+                "field": "ProductConfig",
+                "column_index": 6,
+                "match": "exact_value",
+                "wrapper": "identity"
+              }
+            ],
+            "pairing_basis": "FIFO_on_same_observed_TLS_context",
+            "pinned_public_body_equalities": []
+          }
+        ],
+        "independent_reference_occurrences": [
+          {
+            "route": "/v2/products/bts/versions",
+            "locations": [
+              {
+                "area": "typed_table_cell",
+                "field": "ProductConfig",
+                "column_index": 6,
+                "match": "exact_value",
+                "wrapper": "identity"
+              }
+            ],
+            "fixed_public_request_before_target": true
+          }
+        ],
+        "raw_values_exported": false,
+        "causal_derivation_proven": false,
+        "whole_CDN_path_independently_public": true,
+        "independent_configuration_path_references": [
+          {
+            "product": "bts",
+            "version_field": "ProductConfig",
+            "prefix_basis": "ConfigPath",
+            "version_route": "/v2/products/bts/versions",
+            "cdn_route": "/v2/products/bts/cdns",
+            "selector_mapping": "global_identical_ConfigPath_no_region_assumption"
+          }
+        ]
+      }
+    ],
+    "counts": {
+      "complete_requests": 12,
+      "complete_responses": 12,
+      "paired_responses": 12
+    },
+    "buffered_bytes": 0,
+    "unanswered_observed_requests": 0,
+    "retained_response_bytes": 43627,
+    "blocked_contexts": 0,
+    "independent_successful_reference_documents": 15,
+    "independent_reference_routes": 14,
+    "independently_derived_configuration_paths": 12,
+    "raw_values_exported": false,
+    "coverage_complete": false,
+    "meaning": "paired location and independent equality, never causal derivation or privacy clearance"
+  },
+  "historical_raw_key_equality_across_runs_proven": false,
+  "comparison_plan": [
+    {
+      "finding": "current unmatched path exactly equals an independently public bts ProductConfig path",
+      "grain": "one unmatched path API observation in the final run; other path observations matched baseline reference",
+      "disposition": "prose",
+      "reason": "semantic equality checks, not a trend; no independent-request count inferred"
+    }
+  ],
+  "profiling_notes": "heterogeneous runtime normalized to request rows; 17 duplicate redacted rows retained; constants are observed facts, not privacy clearance; public_download_path null for version-host rows; control null errors expected; run_id is identifier"
+}

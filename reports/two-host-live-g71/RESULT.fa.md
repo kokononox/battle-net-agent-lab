@@ -42,3 +42,7 @@
 - `manifest.json`: یافته‌ها و حدود ادعا؛ `analyze.py`: کنترل run/source، شمارش مستقل از hierarchy خام و reconciliation. برای اجرای دوباره، `--raw-dir` شامل JSONهای اصلی و ZIP دانلودشده و `--out-dir` مقصد خروجی را تعیین می‌کند.
 - SHA256 artifact اولیه: `018e62c32b955af16d20afc3a3bee0e125c198206c5d1623f93f1a4d4cd1c287`؛ تکمیلی: `bc46cba366c9ce0072447ae8a81140f14f3e2d165bf472632fb94aff4f39064f`. هر دو با digest صفحهٔ اجرای GitHub مقایسه شدند.
 - profiler فایل runtime را به‌دلیل آرایه‌های ناهم‌اندازه مستقیم نپذیرفت. آرایهٔ request_value_audit.rows جدا profile شد: 56 observation، شامل 27 تکرارِ پالایش‌شده که حذف نشدند. public_download_path فقط برای ردیف‌های CDN است؛ null در ردیف‌های سرور نسخه طراحی‌شده است. constantهای GET/body و falseهای privacy، نتیجهٔ observation هستند نه تضمین حریم خصوصی. nullهای error در کنترل نشانهٔ نبود خطا هستند؛ run_id شناسه است، نه معیار عددی.
+
+
+## تصحیح تشخیصی پس از G72
+بررسی G72 نشان داد parserِ G71 با type marker واقعی `String` به‌جای `STRING` کل schema را رد می‌کرد؛ بنابراین unrecognized بودن field در این گزارش را نباید نبود schema استاندارد دانست. در مشاهدهٔ جدید، field دقیق ProductConfig محصول bts و کل مسیر CDN با مرجع مستقل عمومی تأیید شد. metadata bts در مرجع G71 نبود. این تصحیح، مقادیر خام تاریخی را بازیابی یا برابری تمام raw keyهای اجراهای قدیمی را ادعا نمی‌کند؛ حدود نتیجهٔ تاریخی حفظ می‌شود. [شواهد و حدود نتیجهٔ G72](../two-host-live-g72/RESULT.fa.md)

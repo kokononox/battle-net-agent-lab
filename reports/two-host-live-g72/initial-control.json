@@ -1,0 +1,1328 @@
+{
+  "schema": "g72-native-control-1",
+  "run_id": "40300539643",
+  "source_commit": "706e9695b44207168869e5ac611e31aa95b4ba23",
+  "passed": true,
+  "TLS_fixture_phase": "fixture-certificate-ready-no-root-trust",
+  "failure_stage": null,
+  "TLS_fixture_trust_removed_before_installer": true,
+  "rows": [
+    {
+      "architecture": "x86",
+      "passed": true,
+      "server_received_exact_fixture": true,
+      "observer_received_exact_fixture": true,
+      "peer_exact_loopback_port": true,
+      "events": {
+        "hooks_installed": 1,
+        "ready": 1,
+        "origin_file_closed": 58,
+        "origin_source": 12,
+        "bytes": 2,
+        "api_send": 1,
+        "api_WSASend": 1,
+        "socket_closed": 1
+      },
+      "script_errors": 0,
+      "request_rows": 2,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "passed": true,
+      "server_received_exact_fixture": true,
+      "observer_received_exact_fixture": true,
+      "peer_exact_loopback_port": true,
+      "events": {
+        "hooks_installed": 1,
+        "ready": 1,
+        "origin_file_closed": 62,
+        "origin_source": 12,
+        "bytes": 2,
+        "api_send": 1,
+        "api_WSASend": 1,
+        "socket_closed": 1
+      },
+      "script_errors": 0,
+      "request_rows": 2,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x86",
+      "control": "native_prior_key_occurrence",
+      "passed": true,
+      "targets": [
+        {
+          "target_index": 1,
+          "observation_count": 1,
+          "method": "GET",
+          "request_frames": [
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "ws2_32.dll",
+              "relative_offset": "0x17370"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x12556"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x1e529"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x1f1f7"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x10d847"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad631"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad4a6"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad8b4"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad7fa"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xfe1fc"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xa38e"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xfbae"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x15788"
+            }
+          ],
+          "occurrences": [
+            {
+              "source_event": 13,
+              "source_kind": "disk_ReadFile_sync",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "kernelbase.dll",
+                  "relative_offset": "0x157fa0"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x12556"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1e529"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1f1f7"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x10d847"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad631"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad4a6"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad8b4"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad7fa"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfe1fc"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xa38e"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfbae"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x15788"
+                },
+                {
+                  "module": "ntdll.dll",
+                  "relative_offset": "0x6d8cb"
+                }
+              ],
+              "derivation_proven": false
+            },
+            {
+              "source_event": 14,
+              "source_kind": "disk_ReadFile_sync",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "kernelbase.dll",
+                  "relative_offset": "0x157fa0"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x12556"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1e529"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1f1f7"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x10d847"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad631"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad4a6"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad8b4"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad7fa"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfe1fc"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xa38e"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfbae"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x15788"
+                },
+                {
+                  "module": "ntdll.dll",
+                  "relative_offset": "0x6d8cb"
+                }
+              ],
+              "derivation_proven": false
+            }
+          ],
+          "raw_values_exported": false,
+          "derivation_proven": false,
+          "public_origin_proven": false
+        },
+        {
+          "target_index": 2,
+          "observation_count": 1,
+          "method": "GET",
+          "request_frames": [
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "ws2_32.dll",
+              "relative_offset": "0x17370"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x12556"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x1e529"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x1f1f7"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x10d847"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad631"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad4a6"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad8b4"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad7fa"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xfe1fc"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xa38e"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xfbae"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x15788"
+            }
+          ],
+          "occurrences": [
+            {
+              "source_event": 15,
+              "source_kind": "selected_two_host_recv",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "ws2_32.dll",
+                  "relative_offset": "0x16ac0"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x12556"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1e529"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1f1f7"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x10d847"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad631"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad4a6"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad8b4"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad7fa"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfe1fc"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xa38e"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfbae"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x15788"
+                },
+                {
+                  "module": "ntdll.dll",
+                  "relative_offset": "0x6d8cb"
+                }
+              ],
+              "derivation_proven": false
+            }
+          ],
+          "raw_values_exported": false,
+          "derivation_proven": false,
+          "public_origin_proven": false
+        },
+        {
+          "target_index": 3,
+          "observation_count": 1,
+          "method": "GET",
+          "request_frames": [
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "ws2_32.dll",
+              "relative_offset": "0x17370"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x12556"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x1e529"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x1f1f7"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x10d847"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad631"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad4a6"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad8b4"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xad7fa"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xfe1fc"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xa38e"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0xfbae"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x15788"
+            }
+          ],
+          "occurrences": [
+            {
+              "source_event": 16,
+              "source_kind": "selected_two_host_WSARecv_immediate",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "ws2_32.dll",
+                  "relative_offset": "0x112e0"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x12556"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1e529"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x1f1f7"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x10d847"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad631"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad4a6"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad8b4"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xad7fa"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfe1fc"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xa38e"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0xfbae"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x15788"
+                },
+                {
+                  "module": "ntdll.dll",
+                  "relative_offset": "0x6d8cb"
+                }
+              ],
+              "derivation_proven": false
+            }
+          ],
+          "raw_values_exported": false,
+          "derivation_proven": false,
+          "public_origin_proven": false
+        }
+      ],
+      "script_errors": 0,
+      "server_errors": [],
+      "synthetic_only": true,
+      "included_in_real_report": false,
+      "external_network_used": false
+    },
+    {
+      "architecture": "x64",
+      "control": "native_prior_key_occurrence",
+      "passed": true,
+      "targets": [
+        {
+          "target_index": 1,
+          "observation_count": 1,
+          "method": "GET",
+          "request_frames": [
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x7e78b0"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            }
+          ],
+          "occurrences": [
+            {
+              "source_event": 13,
+              "source_kind": "disk_ReadFile_sync",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x18f035"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                }
+              ],
+              "derivation_proven": false
+            },
+            {
+              "source_event": 14,
+              "source_kind": "disk_ReadFile_sync",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x18f035"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                }
+              ],
+              "derivation_proven": false
+            }
+          ],
+          "raw_values_exported": false,
+          "derivation_proven": false,
+          "public_origin_proven": false
+        },
+        {
+          "target_index": 2,
+          "observation_count": 1,
+          "method": "GET",
+          "request_frames": [
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x7e78b0"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            }
+          ],
+          "occurrences": [
+            {
+              "source_event": 15,
+              "source_kind": "selected_two_host_recv",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "other_module",
+                  "relative_offset": "0x7e78b0"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                }
+              ],
+              "derivation_proven": false
+            }
+          ],
+          "raw_values_exported": false,
+          "derivation_proven": false,
+          "public_origin_proven": false
+        },
+        {
+          "target_index": 3,
+          "observation_count": 1,
+          "method": "GET",
+          "request_frames": [
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "other_module",
+              "relative_offset": "0x7e78b0"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            },
+            {
+              "module": "unmapped"
+            }
+          ],
+          "occurrences": [
+            {
+              "source_event": 16,
+              "source_kind": "selected_two_host_WSARecv_immediate",
+              "representation": [
+                "ASCII_lower_hex"
+              ],
+              "preceded_request_observation": true,
+              "frames": [
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                },
+                {
+                  "module": "unmapped"
+                }
+              ],
+              "derivation_proven": false
+            }
+          ],
+          "raw_values_exported": false,
+          "derivation_proven": false,
+          "public_origin_proven": false
+        }
+      ],
+      "script_errors": 0,
+      "server_errors": [],
+      "synthetic_only": true,
+      "included_in_real_report": false,
+      "external_network_used": false
+    },
+    {
+      "architecture": "x86",
+      "control": "WinINet_A_HTTP_loopback",
+      "passed": true,
+      "native_request_rows": 1,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 2,
+      "startup_diagnostic_control_passed": true,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "control": "WinINet_A_HTTP_loopback",
+      "passed": true,
+      "native_request_rows": 1,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 2,
+      "startup_diagnostic_control_passed": true,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x86",
+      "control": "WinINet_W_HTTP_loopback",
+      "passed": true,
+      "native_request_rows": 1,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 3,
+      "startup_diagnostic_control_passed": true,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "control": "WinINet_W_HTTP_loopback",
+      "passed": true,
+      "native_request_rows": 1,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 3,
+      "startup_diagnostic_control_passed": true,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x86",
+      "control": "WinHTTP_HTTP_loopback",
+      "passed": true,
+      "native_API_input_rows": 2,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 1,
+      "startup_diagnostic_control_passed": true,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "control": "WinHTTP_HTTP_loopback",
+      "passed": true,
+      "native_API_input_rows": 2,
+      "begin_and_completion_linked": true,
+      "response_plaintext_exact": true,
+      "response_API_events": 1,
+      "startup_diagnostic_control_passed": true,
+      "TLS_fixture_executed": false,
+      "receiving_server_exact": true,
+      "script_errors": 0,
+      "script_error_kinds": [],
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x86",
+      "control": "Schannel_TLS12_loopback",
+      "passed": true,
+      "response_field_attribution_passed": true,
+      "synthetic_response_attribution": {
+        "targets": [
+          {
+            "target_index": 1,
+            "path_family": "config",
+            "paired_response_occurrences": [
+              {
+                "event": 1,
+                "route": "/v2/products/agent/versions",
+                "query_present": false,
+                "method": "GET",
+                "status": 200,
+                "body_decoding_supported": true,
+                "schema_diagnostics": [
+                  {
+                    "columns": [
+                      {
+                        "field": "Region",
+                        "type": "STRING",
+                        "width": 0
+                      },
+                      {
+                        "field": "VersionsName",
+                        "type": "STRING",
+                        "width": 0
+                      },
+                      {
+                        "field": "BuildConfig",
+                        "type": "HEX",
+                        "width": 16
+                      }
+                    ],
+                    "typing_rule": "case_insensitive_type_marker"
+                  }
+                ],
+                "route_diagnostics": {
+                  "route": "/v2/products/agent/versions",
+                  "request_target_form": "origin",
+                  "route_structure": [
+                    {
+                      "kind": "fixed_protocol_word",
+                      "word": "v2"
+                    },
+                    {
+                      "kind": "fixed_protocol_word",
+                      "word": "products"
+                    },
+                    {
+                      "kind": "independently_public_product",
+                      "product": "agent"
+                    },
+                    {
+                      "kind": "fixed_protocol_word",
+                      "word": "versions"
+                    }
+                  ],
+                  "query_present": false
+                },
+                "preceded_target_observation": true,
+                "locations": [
+                  {
+                    "area": "HTTP_header",
+                    "field": "etag",
+                    "match": "quoted_value"
+                  },
+                  {
+                    "area": "typed_table_cell",
+                    "field": "BuildConfig",
+                    "column_index": 2,
+                    "match": "exact_value",
+                    "wrapper": "identity"
+                  }
+                ],
+                "pairing_basis": "FIFO_on_same_observed_TLS_context",
+                "pinned_public_body_equalities": []
+              }
+            ],
+            "independent_reference_occurrences": [
+              {
+                "route": "/v2/products/agent/versions",
+                "locations": [
+                  {
+                    "area": "HTTP_header",
+                    "field": "etag",
+                    "match": "quoted_value"
+                  },
+                  {
+                    "area": "typed_table_cell",
+                    "field": "BuildConfig",
+                    "column_index": 2,
+                    "match": "exact_value",
+                    "wrapper": "identity"
+                  }
+                ],
+                "fixed_public_request_before_target": true
+              }
+            ],
+            "raw_values_exported": false,
+            "causal_derivation_proven": false,
+            "whole_CDN_path_independently_public": false,
+            "independent_configuration_path_references": []
+          }
+        ],
+        "counts": {
+          "complete_requests": 1,
+          "complete_responses": 1,
+          "paired_responses": 1
+        },
+        "buffered_bytes": 0,
+        "unanswered_observed_requests": 0,
+        "retained_response_bytes": 135,
+        "blocked_contexts": 0,
+        "independent_successful_reference_documents": 1,
+        "independent_reference_routes": 1,
+        "independently_derived_configuration_paths": 0,
+        "raw_values_exported": false,
+        "coverage_complete": false,
+        "meaning": "paired location and independent equality, never causal derivation or privacy clearance"
+      },
+      "native_both_endpoints_exact": true,
+      "pre_encrypt_plaintext_exact": true,
+      "post_decrypt_plaintext_exact": true,
+      "scoped_handshake_success_observed": true,
+      "script_errors": 0,
+      "observation_errors": 0,
+      "plaintext_API_events": 2,
+      "handshake_status_codes": [
+        "0x00000000",
+        "0x00090312"
+      ],
+      "TLS_fixture_executed": true,
+      "fixture_exact_certificate_pin_required": true,
+      "fixture_standard_chain_trust_used": false,
+      "fixture_root_trust_installed": false,
+      "production_certificate_validation_changed": false,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    },
+    {
+      "architecture": "x64",
+      "control": "Schannel_TLS12_loopback",
+      "passed": true,
+      "response_field_attribution_passed": true,
+      "synthetic_response_attribution": {
+        "targets": [
+          {
+            "target_index": 1,
+            "path_family": "config",
+            "paired_response_occurrences": [
+              {
+                "event": 1,
+                "route": "/v2/products/agent/versions",
+                "query_present": false,
+                "method": "GET",
+                "status": 200,
+                "body_decoding_supported": true,
+                "schema_diagnostics": [
+                  {
+                    "columns": [
+                      {
+                        "field": "Region",
+                        "type": "STRING",
+                        "width": 0
+                      },
+                      {
+                        "field": "VersionsName",
+                        "type": "STRING",
+                        "width": 0
+                      },
+                      {
+                        "field": "BuildConfig",
+                        "type": "HEX",
+                        "width": 16
+                      }
+                    ],
+                    "typing_rule": "case_insensitive_type_marker"
+                  }
+                ],
+                "route_diagnostics": {
+                  "route": "/v2/products/agent/versions",
+                  "request_target_form": "origin",
+                  "route_structure": [
+                    {
+                      "kind": "fixed_protocol_word",
+                      "word": "v2"
+                    },
+                    {
+                      "kind": "fixed_protocol_word",
+                      "word": "products"
+                    },
+                    {
+                      "kind": "independently_public_product",
+                      "product": "agent"
+                    },
+                    {
+                      "kind": "fixed_protocol_word",
+                      "word": "versions"
+                    }
+                  ],
+                  "query_present": false
+                },
+                "preceded_target_observation": true,
+                "locations": [
+                  {
+                    "area": "HTTP_header",
+                    "field": "etag",
+                    "match": "quoted_value"
+                  },
+                  {
+                    "area": "typed_table_cell",
+                    "field": "BuildConfig",
+                    "column_index": 2,
+                    "match": "exact_value",
+                    "wrapper": "identity"
+                  }
+                ],
+                "pairing_basis": "FIFO_on_same_observed_TLS_context",
+                "pinned_public_body_equalities": []
+              }
+            ],
+            "independent_reference_occurrences": [
+              {
+                "route": "/v2/products/agent/versions",
+                "locations": [
+                  {
+                    "area": "HTTP_header",
+                    "field": "etag",
+                    "match": "quoted_value"
+                  },
+                  {
+                    "area": "typed_table_cell",
+                    "field": "BuildConfig",
+                    "column_index": 2,
+                    "match": "exact_value",
+                    "wrapper": "identity"
+                  }
+                ],
+                "fixed_public_request_before_target": true
+              }
+            ],
+            "raw_values_exported": false,
+            "causal_derivation_proven": false,
+            "whole_CDN_path_independently_public": false,
+            "independent_configuration_path_references": []
+          }
+        ],
+        "counts": {
+          "complete_requests": 1,
+          "complete_responses": 1,
+          "paired_responses": 1
+        },
+        "buffered_bytes": 0,
+        "unanswered_observed_requests": 0,
+        "retained_response_bytes": 135,
+        "blocked_contexts": 0,
+        "independent_successful_reference_documents": 1,
+        "independent_reference_routes": 1,
+        "independently_derived_configuration_paths": 0,
+        "raw_values_exported": false,
+        "coverage_complete": false,
+        "meaning": "paired location and independent equality, never causal derivation or privacy clearance"
+      },
+      "native_both_endpoints_exact": true,
+      "pre_encrypt_plaintext_exact": true,
+      "post_decrypt_plaintext_exact": true,
+      "scoped_handshake_success_observed": true,
+      "script_errors": 0,
+      "observation_errors": 0,
+      "plaintext_API_events": 2,
+      "handshake_status_codes": [
+        "0x00000000",
+        "0x00090312"
+      ],
+      "TLS_fixture_executed": true,
+      "fixture_exact_certificate_pin_required": true,
+      "fixture_standard_chain_trust_used": false,
+      "fixture_root_trust_installed": false,
+      "production_certificate_validation_changed": false,
+      "synthetic_only": true,
+      "included_in_real_report": false
+    }
+  ],
+  "error_type": null,
+  "external_network_used_by_fixture": false
+}
