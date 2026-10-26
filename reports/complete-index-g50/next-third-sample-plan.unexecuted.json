@@ -1,0 +1,33 @@
+{
+  "schema": "unexecuted_third_sample_range_g50_v1",
+  "executed": false,
+  "max_requests": 1,
+  "expected_application_body_bytes": 7461,
+  "max_application_body_read_with_oversize_detection": 7462,
+  "not_a_total_wire_or_tls_byte_cap": true,
+  "required_status": 206,
+  "require_exact_content_range_and_length": true,
+  "reject_full_archive_200_before_body": true,
+  "must_verify_blte_ekey_ckey_decoded_size_and_observed_sha256": true,
+  "automatic_retries": 0,
+  "redirects_followed": false,
+  "client_may_supply_offset_or_range": false,
+  "runtime_approved_entries": 0,
+  "entries": [
+    {
+      "sample_id": "sample_3",
+      "archive_url": "https://us.cdn.blizzard.com/tpr/bnt002/data/11/99/11997641538a447ba9b7026a1145da9c",
+      "range_start": 65064708,
+      "range_end": 65072168,
+      "range_header": "bytes=65064708-65072168",
+      "expected_encoded_bytes": 7461,
+      "expected_decoded_bytes": 12840,
+      "ekey": "2f49790cbe4824363b14d37c9cb889d4",
+      "ckey": "47af4d1649e32238b956e6c1ea9c722c",
+      "source_index_id": "index_2",
+      "source_index_sha256": "dddd859343761e559497340cc54aaf127e61f600f253b0dd04f2120e3731c3ee",
+      "executed": false,
+      "runtime_approved": false
+    }
+  ]
+}
