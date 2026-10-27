@@ -1,21 +1,42 @@
 {
   "schema": "bnet-counter-diagnostic-run-1",
-  "source_commit": "5422b20f3fd70608386d7b07ff333070a2c79ce8",
-  "run_id": "40506916228",
-  "status": "build_failed",
+  "source_commit": "891dd21eb91493a771b63ca3d94d8fd25aad8251",
+  "run_id": "40507340822",
+  "status": "observed",
   "guard_build": {
-    "stage": "compile",
+    "stage": "compiled",
     "vswhere_exit_code": 0,
     "installation_found": true,
     "devcmd_found": true,
-    "compiler_exit_code": 2,
-    "compiler_error_codes": [
-      "C2589"
-    ],
+    "compiler_exit_code": 0,
+    "compiler_error_codes": [],
     "source_error_lines": []
   },
-  "portable_assertions_passed": false,
-  "native": null,
+  "portable_assertions_passed": true,
+  "native": {
+    "schema": "bnet-counter-native-1",
+    "source_commit": "891dd21eb91493a771b63ca3d94d8fd25aad8251",
+    "run_id": "40507340822",
+    "status": "observed",
+    "network_scope": "hostwide_adapter_counters",
+    "boundary_kind": "synthetic_observation_marker",
+    "target_launched": false,
+    "transfer_requested": false,
+    "diagnostics": {
+      "samples": 33,
+      "interface_set_changes": 0,
+      "counter_reset_intervals": 0,
+      "last_sample_gap_ms": 250,
+      "max_sample_gap_ms": 266,
+      "last_sample_delta_bytes": 0,
+      "max_sample_delta_bytes": 96141,
+      "phase_boundary_observed": true,
+      "phase_boundary_gap_ms": 265,
+      "phase_boundary_delta_bytes": 0,
+      "phase_boundary_interfaces_changed": false,
+      "phase_boundary_counter_reset": false
+    }
+  },
   "target_launched": false,
   "transfer_requested": false,
   "production_limits_changed": false
