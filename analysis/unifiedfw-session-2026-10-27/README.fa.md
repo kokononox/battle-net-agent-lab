@@ -1,6 +1,6 @@
 # ادامهٔ جلسهٔ Unified Firewall
 
-آخرین ادامه: [مدل تراکنش ایزولاسیون و بازیابی](../../docs/SESSION-UNIFIED-FIREWALL-ISOLATION-TRANSACTION-01.fa.md).
+آخرین ادامه: [ثبت خصوصیِ فقط‌خواندنی قواعد و منشأ](../../docs/SESSION-UNIFIED-FIREWALL-PRIVATE-INVENTORY-01.fa.md).
 
 اول [تحویل جامع](../../docs/SESSION-UNIFIED-FIREWALL-2026-10-27.fa.md) و [وضعیت جاری](../../docs/UNIFIED-FIREWALL-CURRENT.json) را بخوانید.
 
@@ -20,3 +20,5 @@
 - `allow-review-v01/`: تشخیص مستقل فقط‌خواندنی و شمارشی علت رد قواعد Allow؛۱۶۱۷ assertion؛ بدون تغییر فایروال/audit، انتخاب candidate یا اجرای نصب‌کننده. نخستین اجرای runtime در gate قواعد متوقف شد و هنوز audit/READY/capture بومی تأیید نشده است.
 
 - `isolation-transaction-v01/`: قرارداد و مدل آفلاین journal-before-effect/quarantine/recovery؛۱۱test methodجدید،۶۰حالت ابهام اثر و۱۰گام resume بازیابی؛ فاقد setter/Apply/backup خصوصی واقعی. تشخیص Allow روی Windows موفق و۱۰۶mismatch بدون خطای خواندن ثبت شد.
+
+- `private-inventory-v01/`: ثبت محلیِ خصوصی دو store و هفت دستهٔ فیلتر با رضایت ذخیره؛۱۷۲assertion/۱۹callback و۱۶۱۷regression؛ Windows جریان جدید هنوز اجرا نشده، فاقد setter/Apply/restore. فقط diagnostic عمومی برگردد، نه snapshot خصوصی.
