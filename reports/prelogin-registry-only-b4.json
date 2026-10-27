@@ -1,0 +1,374 @@
+{
+  "schema": "bnet-registry-only-control-1",
+  "source_commit": "bd72035e2a2f03765b9bf147de84dda91fe0ed0a",
+  "run_id": "40443309512",
+  "status": "observation_complete",
+  "native_gate": [
+    {
+      "architecture": "x64",
+      "passed": true,
+      "exit_code": 0,
+      "attach": {
+        "status": "ready",
+        "attach_returned": true,
+        "image_verified_before_and_after": true,
+        "ready": true,
+        "pointer_bits": 64,
+        "bitness_confirmed": true,
+        "message_errors": 0,
+        "error_kind": null,
+        "registry_ready": true
+      },
+      "error_kind": null,
+      "probe_checks": {
+        "read_a": true,
+        "read_w": true,
+        "get_w": true,
+        "write_w": true,
+        "size_only_not_uuid": true,
+        "read_w_main_frame": true,
+        "write_w_main_frame": true
+      },
+      "registry_errors": 0,
+      "registry_limits": 0
+    },
+    {
+      "architecture": "x86",
+      "passed": true,
+      "exit_code": 0,
+      "attach": {
+        "status": "ready",
+        "attach_returned": true,
+        "image_verified_before_and_after": true,
+        "ready": true,
+        "pointer_bits": 32,
+        "bitness_confirmed": true,
+        "message_errors": 0,
+        "error_kind": null,
+        "registry_ready": true
+      },
+      "error_kind": null,
+      "probe_checks": {
+        "read_a": true,
+        "read_w": true,
+        "get_w": true,
+        "write_w": true,
+        "size_only_not_uuid": true,
+        "read_w_main_frame": true,
+        "write_w_main_frame": true
+      },
+      "registry_errors": 0,
+      "registry_limits": 0
+    }
+  ],
+  "bootstrap_pin_match": true,
+  "target_launched": true,
+  "error_kind": null,
+  "readiness": {
+    "schema": "bnet-bootstrap-readiness-1",
+    "source_commit": "bd72035e2a2f03765b9bf147de84dda91fe0ed0a",
+    "run_id": "40443309512",
+    "status": "agent_process_observed",
+    "language_status": "continued",
+    "sample_count": 30,
+    "gui_snapshot_count": 2,
+    "observed_names": [
+      "agent.exe",
+      "battle.net-setup.exe"
+    ],
+    "language_flags": {
+      "helper_started": true,
+      "selection_attempted": false,
+      "selection_confirmed": true,
+      "continue_attempted": true,
+      "continue_returned": true,
+      "outcome_uncertain": false
+    },
+    "bounded_wait_seconds": 150,
+    "no_target_only_polling": true,
+    "install_action_requested": false,
+    "login_performed": false,
+    "raw_values_exported": false
+  },
+  "desktop_observations": [
+    {
+      "window_station_visible": true,
+      "input_desktop_accessible": true,
+      "same_session_processes": 1,
+      "different_session_processes": 0,
+      "unknown_session_processes": 0,
+      "owned_windows": 3,
+      "visible_owned_windows": 1,
+      "enumeration_truncated": false,
+      "probe_errors": 0
+    },
+    {
+      "window_station_visible": true,
+      "input_desktop_accessible": true,
+      "same_session_processes": 2,
+      "different_session_processes": 0,
+      "unknown_session_processes": 0,
+      "owned_windows": 6,
+      "visible_owned_windows": 1,
+      "enumeration_truncated": false,
+      "probe_errors": 0
+    }
+  ],
+  "root_samples": {
+    "running": 31,
+    "exited_zero": 0,
+    "exited_nonzero": 0,
+    "unknown": 0
+  },
+  "root_state_before_cleanup": "running",
+  "target_attach": {
+    "status": "ready",
+    "attach_returned": true,
+    "image_verified_before_and_after": true,
+    "ready": true,
+    "pointer_bits": 32,
+    "bitness_confirmed": true,
+    "message_errors": 0,
+    "error_kind": null,
+    "registry_ready": true
+  },
+  "registry": {
+    "ready_processes": 1,
+    "installed_apis": [
+      "RegCloseKey",
+      "RegCreateKeyExA",
+      "RegCreateKeyExW",
+      "RegGetValueA",
+      "RegGetValueW",
+      "RegOpenKeyExA",
+      "RegOpenKeyExW",
+      "RegQueryValueExA",
+      "RegQueryValueExW",
+      "RegSetValueExA",
+      "RegSetValueExW"
+    ],
+    "errors": 0,
+    "limits": 0,
+    "records": [
+      {
+        "api": "RegSetValueExW",
+        "operation": "write",
+        "status": 0,
+        "value_type": 1,
+        "caller_rva": null,
+        "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+        "stack_status": "captured",
+        "verified_image_stack_rvas": [
+          2046194,
+          2046613,
+          428790,
+          1950943,
+          282279,
+          288667,
+          799250,
+          2879059
+        ],
+        "image_scope": "verified",
+        "process_main_matches_verified_image": false,
+        "valid_uuid": true
+      },
+      {
+        "api": "RegSetValueExW",
+        "operation": "write",
+        "status": 0,
+        "value_type": 1,
+        "caller_rva": 2046194,
+        "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+        "stack_status": "captured",
+        "verified_image_stack_rvas": [
+          2046194,
+          2046613,
+          428790,
+          1950943,
+          282279,
+          288667,
+          799250,
+          2879059
+        ],
+        "image_scope": "verified",
+        "process_main_matches_verified_image": false,
+        "valid_uuid": true
+      },
+      {
+        "api": "RegQueryValueExW",
+        "operation": "read",
+        "status": 0,
+        "value_type": 1,
+        "caller_rva": null,
+        "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+        "stack_status": "captured",
+        "verified_image_stack_rvas": [
+          2045887,
+          2046005,
+          2046321,
+          428664,
+          1950578,
+          1951906,
+          282398,
+          288667,
+          799250,
+          2879059
+        ],
+        "image_scope": "verified",
+        "process_main_matches_verified_image": false,
+        "valid_uuid": true
+      },
+      {
+        "api": "RegQueryValueExW",
+        "operation": "read",
+        "status": 0,
+        "value_type": 1,
+        "caller_rva": 2045887,
+        "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+        "stack_status": "captured",
+        "verified_image_stack_rvas": [
+          2045887,
+          2046005,
+          2046321,
+          428664,
+          1950578,
+          1951906,
+          282398,
+          288667,
+          799250,
+          2879059
+        ],
+        "image_scope": "verified",
+        "process_main_matches_verified_image": false,
+        "valid_uuid": true
+      },
+      {
+        "api": "RegQueryValueExW",
+        "operation": "read",
+        "status": 0,
+        "value_type": 1,
+        "caller_rva": null,
+        "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+        "stack_status": "captured",
+        "verified_image_stack_rvas": [
+          2045887,
+          2046005,
+          2046321,
+          428664,
+          1951985,
+          282398,
+          288667,
+          799250,
+          2879059
+        ],
+        "image_scope": "verified",
+        "process_main_matches_verified_image": false,
+        "valid_uuid": true
+      },
+      {
+        "api": "RegQueryValueExW",
+        "operation": "read",
+        "status": 0,
+        "value_type": 1,
+        "caller_rva": 2045887,
+        "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+        "stack_status": "captured",
+        "verified_image_stack_rvas": [
+          2045887,
+          2046005,
+          2046321,
+          428664,
+          1951985,
+          282398,
+          288667,
+          799250,
+          2879059
+        ],
+        "image_scope": "verified",
+        "process_main_matches_verified_image": false,
+        "valid_uuid": true
+      },
+      {
+        "api": "RegQueryValueExW",
+        "operation": "read",
+        "status": 0,
+        "value_type": 1,
+        "caller_rva": null,
+        "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+        "stack_status": "captured",
+        "verified_image_stack_rvas": [
+          2045887,
+          2046005,
+          2046321,
+          428664,
+          1951134,
+          1952368,
+          282398,
+          288667,
+          799250,
+          2879059
+        ],
+        "image_scope": "verified",
+        "process_main_matches_verified_image": false,
+        "valid_uuid": true
+      },
+      {
+        "api": "RegQueryValueExW",
+        "operation": "read",
+        "status": 0,
+        "value_type": 1,
+        "caller_rva": 2045887,
+        "process_sha256": "f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6",
+        "stack_status": "captured",
+        "verified_image_stack_rvas": [
+          2045887,
+          2046005,
+          2046321,
+          428664,
+          1951134,
+          1952368,
+          282398,
+          288667,
+          799250,
+          2879059
+        ],
+        "image_scope": "verified",
+        "process_main_matches_verified_image": false,
+        "valid_uuid": true
+      }
+    ],
+    "wire_comparison_performed": false
+  },
+  "baseline_before_target": {
+    "status": "absent",
+    "value_present": false,
+    "valid_uuid": false
+  },
+  "baseline_after_target": {
+    "status": "present",
+    "value_present": true,
+    "valid_uuid": true
+  },
+  "limits": {
+    "target_scope": "bootstrap_only",
+    "ordinary_popen_launch": true,
+    "frida_attach_requested": true,
+    "registry_hook_requested": true,
+    "network_hook_requested": false,
+    "child_gating_requested": false,
+    "suspended_spawn_requested": false,
+    "process_birth_coverage": false,
+    "account_login_requested": false,
+    "install_action_requested": false,
+    "game_download_requested": false,
+    "remote_access_enabled": false,
+    "raw_values_exported": false,
+    "network_payload_observed": false,
+    "observer_causality_proven": false,
+    "wire_comparison_performed": false,
+    "provider_assignment_causality_proven": false,
+    "identifier_hashes_exported": false,
+    "target_registry_modified_by_observer": false,
+    "same_host_as_b3": false
+  }
+}

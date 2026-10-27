@@ -1,0 +1,27 @@
+{
+  "schema": "bnet-registry-only-b4-review-1",
+  "source_commit": "bd72035e2a2f03765b9bf147de84dda91fe0ed0a",
+  "run_id": "40443309512",
+  "evidence_commit": "947196379c532d88f06c52bfb3d3134096828587",
+  "target_scope": "bootstrap_only",
+  "callback_counts": {
+    "write": 2,
+    "read": 6
+  },
+  "counts_are_distinct_operations": false,
+  "direct_caller_rvas": {
+    "read": [
+      2045887
+    ],
+    "write": [
+      2046194
+    ]
+  },
+  "successful_uuid_read_with_verified_image_frame_observed": true,
+  "successful_uuid_write_with_verified_image_frame_observed": true,
+  "value_absent_before_and_present_after": true,
+  "read_write_byte_equality_tested": false,
+  "wire_comparison_performed": false,
+  "first_writer_proven": false,
+  "provider_assignment_causality_proven": false
+}
