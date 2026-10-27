@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "user confirmed browser works without VPN after explicitly authorized normal-mode outbound Allow on all three local profiles; firewall still enabled, effective inbound Block; reboot afterward not tested",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "Minimal independent read-only profile foundation v01; no legacy runtime imports; not worker-integrated or deployed",
+  "latest_offline_candidate": "Minimal installer core v01: pinned read-only preflight integration and private memory-tested profile recovery callbacks; no native write or protected journal adapter",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -50,7 +50,12 @@
     "minimal_readonly_model_assertions": 54,
     "minimal_readonly_Windows_native_tested": false,
     "minimal_readonly_HF124_assertions_rerun": 72,
-    "minimal_readonly_previous_runner_assertions_rerun": 47
+    "minimal_readonly_previous_runner_assertions_rerun": 47,
+    "installer_core_model_assertions": 78,
+    "installer_core_reader_assertions_rerun": 54,
+    "installer_core_HF124_assertions_rerun": 72,
+    "installer_core_previous_runner_assertions_rerun": 47,
+    "installer_core_Windows_native_tested": false
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -97,16 +102,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "offline controlled integration of minimal read contract into small installer foundation preflight and reset-free recovery tests; do not relax legacy NotConfigured migration gate, claim Apply authority, or deploy old full runtime",
-  "user_action_now": "none; keep SSTP/network state unchanged; no repeat package, Apply/Restore/reconnect or Allow change requested",
+  "next_step": "offline explicit session consent and protected new journal adapter with fault tests before any native setter; preserve current no-live-Apply gate and unresolved legacy baseline; rules/SSTP transport/native recovery remain pending",
+  "user_action_now": "none; keep current SSTP/network; no new Windows package, Apply/Restore/reconnect or Allow change requested",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "Independent profile reader built with single exported read-only entry, exact 3-profile checks, separated local/effective fields, typed exclusion validation, explicit NotConfigured handling, two matching observations/four total native getter calls on success, no writes or imports from legacy mutation runtime; 54 mocked assertions passed; Windows pending",
-  "previous_sync_commit": "328f623ebc41a94f426db9602d23121aa19ffd2b",
+  "latest_progress": "Core public read-only entry connected to byte-unchanged pinned reader. Private profile-only callback recovery tested with memory-only adapters: 8 Save failure points, 3 write failures, 3 crash-after-write points, drift/readback/final-sweep failures, exact Block/Allow preservation, no old-journal migration; 78 assertions passed; no user deployment",
+  "previous_sync_commit": "8da9c929a64ade33e4983fb0ced6540f90db0778",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
