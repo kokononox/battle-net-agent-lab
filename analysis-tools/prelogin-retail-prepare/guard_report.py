@@ -27,10 +27,14 @@ def validate_diagnostics(d):
 
 def receipt(r):
  keys={'schema','source_commit','run_id','mode','status','root_exit_code','network_scope'}|FLAGS|NUMS
- if type(r)is dict and r.get('schema')=='bnet-retail-supervisor-3':keys=keys|{'network_diagnostics'}
- if type(r)is not dict or set(r)!=keys or r['schema']not in {'bnet-retail-supervisor-2','bnet-retail-supervisor-3'} or r['mode']not in MODES or r['status']not in STATUSES:raise ValueError('receipt_schema')
+ if type(r)is dict and r.get('schema')in {'bnet-retail-supervisor-3','bnet-retail-supervisor-4'}:keys=keys|{'network_diagnostics'}
+ if type(r)is dict and r.get('schema')=='bnet-retail-supervisor-4':keys=keys|{'phase_arming_acknowledged','phase_baseline_policy'}
+ if type(r)is not dict or set(r)!=keys or r['schema']not in {'bnet-retail-supervisor-2','bnet-retail-supervisor-3','bnet-retail-supervisor-4'} or r['mode']not in MODES or r['status']not in STATUSES:raise ValueError('receipt_schema')
  identity(r)
- if r['schema']=='bnet-retail-supervisor-3':
+ if r['schema']=='bnet-retail-supervisor-4':
+  if type(r['phase_arming_acknowledged'])is not bool or r['phase_baseline_policy']!='acknowledged_pre_request_snapshot':raise ValueError('arming_schema')
+  if r['phase_arming_acknowledged'] and (not r['transfer_phase_signal_seen'] or r['mode']!='observe'):raise ValueError('arming_scope')
+ if r['schema']in {'bnet-retail-supervisor-3','bnet-retail-supervisor-4'}:
   d=validate_diagnostics(r['network_diagnostics'])
   if d['phase_boundary_observed'] and (not r['transfer_phase_signal_seen'] or r['mode']!='observe'):raise ValueError('diagnostic_phase_scope')
  for k in FLAGS:

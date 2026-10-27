@@ -86,7 +86,7 @@ class Diagnostics(unittest.TestCase):
     def test_native_guard_preserves_limits_and_previous_sample_baseline(self):
         # Text contract supplements C++ tests; not a claim of a Windows native run.
         text = Path(__file__).with_name('guard.cpp').read_text()
-        for contract in ('phase_net0=last_net;', 'r.phase_delta>=67108864ULL',
+        for contract in ('phase_net0=arm.baseline;', 'r.phase_delta>=67108864ULL',
                          'r.phase_elapsed>=30000', 'r.delta>=r.byte_limit',
                          'r.min_free<r.reserve', 'JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE'):
             self.assertIn(contract, text)

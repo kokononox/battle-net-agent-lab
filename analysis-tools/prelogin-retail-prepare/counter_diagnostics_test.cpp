@@ -7,12 +7,14 @@
 #define max(a,b) windows_max_macro(a,b)
 #include "network_diagnostics.h"
 #undef max
+#include "phase_arm.h"
 #include <cassert>
 #include <sstream>
 #include <string>
 using namespace counter_diag;
 Sample sample(Count total,Count tick,Count key=42,Count received=1,Count sent=1){Sample s;s.total=total;s.tick=tick;s.interfaces[key]={received,sent};return s;}
 int main(){
+ PhaseArm arm;assert(arm.arm(500000000,1000));assert(!arm.arm(900000000,2000));assert(arm.baseline==500000000&&arm.start==1000);
  Diagnostics d;d.observe(sample(100,1000));d.observe(sample(200,1250,42,2,2));
  assert(d.samples==2&&d.last_sample_gap_ms==250&&d.last_sample_delta_bytes==100);
  // A phase-time of zero does not imply a zero sample interval. No division/rate claim.

@@ -34,7 +34,7 @@ class Checkpoints(unittest.TestCase):
   with tempfile.TemporaryDirectory() as d:
    os.chdir(d);Path('output').mkdir()
    try:
-    with patch.object(t.path_guard,'inspect',return_value=guard()),patch.object(t,'tcp_rows',return_value=[]),patch.object(t,'owner_at',return_value=321),patch.object(t,'connection_counts',return_value=t.counts()),patch.object(t,'file_snapshot',return_value={'files':0,'directories':0,'bytes':0}):
+    with patch.object(t,'await_arm',return_value=True),patch.object(t.path_guard,'inspect',return_value=guard()),patch.object(t,'tcp_rows',return_value=[]),patch.object(t,'owner_at',return_value=321),patch.object(t,'connection_counts',return_value=t.counts()),patch.object(t,'file_snapshot',return_value={'files':0,'directories':0,'bytes':0}):
      t.execute(session,Path('D:/PRIVATE'),{'form':{'game_dir':{'game_dir':'D:/PRIVATE'}}},r)
     saved=json.loads(Path('output/retail-transfer.json').read_text())
    finally:os.chdir(old)

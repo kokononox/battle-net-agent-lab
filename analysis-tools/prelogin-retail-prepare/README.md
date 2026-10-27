@@ -91,3 +91,23 @@ Only a strictly validated, source/run-bound typed receipt is published at
 `reports/prelogin-counter-diagnostic-latest.json`; no adapter names, IPs, PIDs,
 raw paths, or compiler logs are published. The target workflow's exact C10
 commit-message approval does not match this diagnostic-only approval.
+
+## D13: acknowledged pre-request phase arming
+
+D11 completed a non-finalizing form update. D12 then hit the phase counter limit
+before even recording a finalization attempt: the boundary interval contained
+256,406,670 hostwide bytes over266ms, with no observed interface-set change/reset.
+This is not evidence of game-transfer bytes; the transfer receipt had0 requests.
+
+D13 supersedes the earlier previous-sample phase baseline policy. The worker
+writes intent and waits for an atomic ready acknowledgment. The native parent
+captures one immutable network/time baseline, checks the unchanged global budget,
+disk and time limits, and only then publishes the acknowledgment. No target
+request is permitted before that acknowledgment. The64MiB/30s phase budget starts
+before permission is issued; no resets occur after arming. Pre-arming bytes still
+count against the unchanged global1GiB/240s budget. This removes the unobserved
+pre-request boundary interval without exempting any requested transfer bytes.
+Native receipts use schema4 with an explicit baseline-policy/ack flag; transfer
+receipts use schema2 and reject request-intent flags without acknowledged arming.
+Older receipt schemas remain readable. The active workflow requires a separate
+D13 exact commit-message approval. No account/country/consent fields are added.

@@ -12,10 +12,16 @@ NUMERIC={'downloaded_bytes','bytes_downloaded','downloaded','total_bytes','bytes
 PORTS={'80','443','1119','3724','other'}
 def counts():return {k:0 for k in sorted(PORTS)}
 def blank(source,run):
- return dict(schema='bnet-retail-transfer-1',source_commit=source,run_id=run,status='not_started',error_kind=None,finalization_attempted=False,start_attempted=False,local_requests=0,polls=0,phase_signal_created=False,preflight_path_guard=path_guard.blank(),finalization_http_status=None,start_http_status=None,finalization_response_bytes=0,start_response_bytes=0,finalized_returned=None,finalization_error_codes={k:None for k in ('agent',*CODES)},start_agent_error=None,final_path_guard=path_guard.blank(),final_path_relation=path_relation.blank(),baseline_progress=None,last_progress=None,baseline_files=None,last_files=None,baseline_connections=None,last_connections=None,account_parameter_sent=False,country_parameter_sent=False,legal_acceptance_parameter_sent=False,payload_exported=False,raw_paths_exported=False,complete_installation_proven=False,hardware_upload_proven=False)
+ return dict(schema='bnet-retail-transfer-2',source_commit=source,run_id=run,status='not_started',error_kind=None,finalization_attempted=False,start_attempted=False,local_requests=0,polls=0,phase_signal_created=False,phase_acknowledged=False,preflight_path_guard=path_guard.blank(),finalization_http_status=None,start_http_status=None,finalization_response_bytes=0,start_response_bytes=0,finalized_returned=None,finalization_error_codes={k:None for k in ('agent',*CODES)},start_agent_error=None,final_path_guard=path_guard.blank(),final_path_relation=path_relation.blank(),baseline_progress=None,last_progress=None,baseline_files=None,last_files=None,baseline_connections=None,last_connections=None,account_parameter_sent=False,country_parameter_sent=False,legal_acceptance_parameter_sent=False,payload_exported=False,raw_paths_exported=False,complete_installation_proven=False,hardware_upload_proven=False)
 def validate(r):
- if type(r)is not dict or set(r)!=set(blank('a'*40,'1')) or r['schema']!='bnet-retail-transfer-1' or r['status']not in STATES or r['error_kind']not in {None,'OSError','ValueError','Stop','other'}:raise ValueError('transfer_schema')
+ keys=set(blank('a'*40,'1'))
+ if type(r)is dict and r.get('schema')=='bnet-retail-transfer-1':keys=keys-{'phase_acknowledged'}
+ if type(r)is not dict or set(r)!=keys or r['schema']not in {'bnet-retail-transfer-1','bnet-retail-transfer-2'} or r['status']not in STATES or r['error_kind']not in {None,'OSError','ValueError','Stop','other'}:raise ValueError('transfer_schema')
  if type(r['source_commit'])is not str or not re.fullmatch('[0-9a-f]{40}',r['source_commit']) or type(r['run_id'])is not str or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('transfer_identity')
+ if r['schema']=='bnet-retail-transfer-2':
+  if type(r['phase_acknowledged'])is not bool:raise ValueError('ack_boolean')
+  if r['phase_acknowledged'] and not r['phase_signal_created']:raise ValueError('ack_signal')
+  if r['finalization_attempted'] and not r['phase_acknowledged']:raise ValueError('request_before_arm')
  for k in ('finalization_attempted','start_attempted','phase_signal_created'):
   if type(r[k])is not bool:raise ValueError('transfer_bool')
  for k in ('account_parameter_sent','country_parameter_sent','legal_acceptance_parameter_sent','payload_exported','raw_paths_exported','complete_installation_proven','hardware_upload_proven'):
@@ -113,6 +119,18 @@ def connection_counts(port,owner,rows):
   p=str(socket.ntohs(rport&65535));out[p if p in PORTS else 'other']+=1
  return out
 
+def await_arm():
+ deadline=time.monotonic()+3
+ p=Path('output/retail-transfer-ready.signal')
+ while time.monotonic()<deadline:
+  try:
+   if p.is_symlink():raise ValueError('ack_reparse')
+   with p.open('rb')as f:
+    if f.read(7)==b'ready\n':return True
+    raise ValueError('ack_contents')
+  except FileNotFoundError:time.sleep(.025)
+ raise ValueError('arm_timeout')
+
 def execute(session,target,configured,r):
  t=r['transfer'];write(t)
  try:
@@ -125,6 +143,8 @@ def execute(session,target,configured,r):
   # Signal is an intent marker, not proof of transfer or permission to reset global limits.
   with Path('output/retail-transfer-active.signal').open('x')as signal:signal.write('active\n')
   t['phase_signal_created']=True;t['status']='pending';write(t)
+  if await_arm()is not True:raise ValueError('arm_refused')
+  t['phase_acknowledged']=True;write(t)
   def request(method,path,payload=None,stage=None):
    allowed={('POST','/install/wow'),('POST','/update'),('GET','/game/wow')}
    if (method,path)not in allowed or t['local_requests']>=7:raise ValueError('transfer_scope')
