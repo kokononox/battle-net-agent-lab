@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "latest actual reopen receipt: all three local/effective outbound Block, firewall enabled True, effective local rules True, stable against saved prepared baseline across two fresh preflights; SSTP prior user-reported Connected, not queried here",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "UFW-PROGRAM-CANDIDATE-01 now passed actual Windows protected program candidate recording; one x86 program, destinations empty; not executable policy",
+  "latest_offline_candidate": "UFW-PROGRAM-OBSERVER-01: passive TCP endpoint suggestions from explicitly selected existing protected program candidate; offline QA passed; Windows workflow untested",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -142,7 +142,9 @@
     "program_candidate_Windows_success_path_passed": true,
     "program_candidate_Windows_observation_passes": 3,
     "program_candidate_Windows_program_count": 1,
-    "program_candidate_Windows_destinations_count": 0
+    "program_candidate_Windows_destinations_count": 0,
+    "program_observer_model_assertions": 645,
+    "program_observer_regression_assertions_rerun": 569
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -189,8 +191,8 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "consume the protected existing candidate locally with validation and fresh executable reobservation as part of per-program destination proposal/review, not another standalone generic test; recorder/proposal source still needs scoped design/consent and no automatic auditing/DNS/target execution or Allow; never treat capture as approval; compose accepted grants with baseline and narrowly approved SSTP transport only after remaining native gates",
-  "user_action_now": "none; successful recording needs no rerun, do not delete/recreate protected candidate or upload raw data; keep network/SSTP/baseline journal; destination_count zero so no profile Apply/Restore or target execution requested",
+  "next_step": "receive first Windows PROGRAM-OBSERVER-01 sanitized diagnostic for independent reopen/reobservation/native passive sampling/private suggestion storage; do not rerun candidate recording; then explicitly review per-program endpoint proposals, never auto-approve; native Apply/recovery/SSTP binding/bootstrap/reconnect remain separate gates",
+  "user_action_now": "new folder; admin same Windows account Run-Observer.cmd; explicitly select EXISTING saved candidate.json; local review then optional Observe and save suggestions; do not launch target or change network/SSTP/firewall for this first test; return only new diagnostic JSON; zero endpoints expected if target absent; do not send raw candidate/suggestions/path/hash/ID/screenshots; uncertain write means no automatic retry/delete",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
@@ -429,5 +431,34 @@
     ],
     "Windows_test_scope": "one successful candidate write/readback via real helpers and three observations; not live qualification of all refusal/crash/power-loss paths, separate-process reopen, trust or policy enforcement",
     "specific_installer_path_or_hash_verified_by_remote_agent": false
-  }
+  },
+  "program_observer": {
+    "package": "UFW-PROGRAM-OBSERVER-01",
+    "package_sha256": "cbdcac1601640e89d96364bb67c8578bb4a09b2beca1de58783b6c1dbb4e6764",
+    "source": "analysis/unifiedfw-session-2026-10-27/program-observer-v01",
+    "candidate_selection": "explicit existing protected candidate.json, same actor, no latest/merge/recreation",
+    "fresh_file_observation_passes": 3,
+    "candidate_reopen_passes": 3,
+    "samples": 15,
+    "interval_seconds": 2,
+    "process_attribution": "PID/start UTC ticks/image path equal before and after TCP snapshot; not proof of loaded image hash",
+    "direction": "unknown_tcp_table",
+    "covered_TCP_states": [
+      "Established",
+      "SynSent"
+    ],
+    "proposal_only": true,
+    "automatic_target_execution": false,
+    "network_or_audit_mutation": false,
+    "baseline_journal_access": false,
+    "private_root": "CommonApplicationData/UnifiedFW-ProgramObservations-01",
+    "raw_diagnostic_identity_exported": false,
+    "Windows_native_executed": false,
+    "PS51_native_executed": false,
+    "new_assertions": 645,
+    "regression_assertions": 569,
+    "limits": "sampling can miss short/blocked/UDP/inaccessible processes; IP is not domain and may be shared; zero result is not safety proof; no capture approval",
+    "ready_for_apply": false
+  },
+  "latest_continuation_notes": "docs/SESSION-UNIFIED-FIREWALL-PROGRAM-OBSERVER-01.fa.md"
 }
