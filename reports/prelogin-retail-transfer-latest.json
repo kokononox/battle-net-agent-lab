@@ -1,25 +1,25 @@
 {
   "schema": "bnet-retail-transfer-5",
-  "source_commit": "1dd633b0ead77193f93fb66158ca1eff3668e6dc",
-  "run_id": "40519546948",
-  "status": "pending",
+  "source_commit": "4294b14cf03fccba2820be6305434d12d11f35e7",
+  "run_id": "40521138654",
+  "status": "identity_control_observed",
   "error_kind": null,
-  "finalization_attempted": true,
+  "finalization_attempted": false,
   "start_attempted": false,
-  "local_requests": 1,
+  "local_requests": 0,
   "polls": 0,
   "phase_signal_created": true,
   "phase_acknowledged": true,
   "finalization_response_shape": {
-    "kind": "unknown",
+    "kind": "not_observed",
     "recognized_top_fields": [],
-    "unknown_top_fields": 2,
+    "unknown_top_fields": 0,
     "owned_game_link": false
   },
   "response_diagnostic": {
-    "observed": true,
+    "observed": false,
     "recognized_top_fields": [],
-    "unknown_top_fields": 2,
+    "unknown_top_fields": 0,
     "nodes": [],
     "message_markers": []
   },
@@ -31,10 +31,10 @@
     "absolute_containment_lexically_verified": true,
     "race_free_containment_proven": false
   },
-  "finalization_http_status": 200,
+  "finalization_http_status": null,
   "start_http_status": null,
   "status_query_http_status": null,
-  "finalization_response_bytes": 65,
+  "finalization_response_bytes": 0,
   "start_response_bytes": 0,
   "status_query_response_bytes": 0,
   "finalized_returned": null,
@@ -70,7 +70,11 @@
     "directories": 0,
     "bytes": 0
   },
-  "last_files": null,
+  "last_files": {
+    "files": 0,
+    "directories": 0,
+    "bytes": 0
+  },
   "baseline_connections": {
     "1119": 0,
     "3724": 0,
@@ -78,7 +82,13 @@
     "80": 3,
     "other": 0
   },
-  "last_connections": null,
+  "last_connections": {
+    "1119": 0,
+    "3724": 0,
+    "443": 3,
+    "80": 3,
+    "other": 0
+  },
   "account_parameter_sent": false,
   "country_parameter_sent": false,
   "legal_acceptance_parameter_sent": false,
