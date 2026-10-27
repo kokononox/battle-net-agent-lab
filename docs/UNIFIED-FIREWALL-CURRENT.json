@@ -23,22 +23,28 @@
     "HF122_Python_skipped": 2,
     "HF122_parsed_PS_files": 99,
     "HF122_new_model_checks": 33,
-    "reconnect_decision_checks": 67
+    "reconnect_decision_checks": 67,
+    "native_observer_model_checks": 84
   },
   "reconnect": {
     "decision_kernel_implemented": true,
-    "native_observer_implemented": false,
+    "native_observer_implemented": true,
     "native_executor_implemented": false,
     "DNS_bootstrap_solved": false,
     "certificate_bootstrap_solved": false,
-    "production_integration": false
+    "production_integration": false,
+    "native_observer_Windows_verified": false,
+    "native_observer_guardian_integrated": false,
+    "CurrentUser_SYSTEM_context_handling": "observer rejects mismatched SID; final coordination not implemented"
   },
-  "next_step": "validate native identity observations for disconnected/reconnected approved SSTP; then scoped suspension/rebind executor and explicit DNS/TLS bootstrap design",
-  "user_action_now": "none; no new Apply, reset or disconnect test",
+  "next_step": "run standalone observer read-only against existing Windows VPN state without dialing/disconnecting; inspect profile/RAS/interface chain before designing scoped executor",
+  "user_action_now": "one standalone read-only observer run; no Apply, Restore, VPN state change, or new network probe",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
-  "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials"
+  "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
+  "latest_progress": "read-only native SSTP lifecycle observer v0.2 built; real C# helper compiled/layout checked in Linux; no Windows DLL API execution yet",
+  "previous_sync_commit": "4ada27c4cc0b0688c1a83bb44562ef60fddad0a3"
 }
