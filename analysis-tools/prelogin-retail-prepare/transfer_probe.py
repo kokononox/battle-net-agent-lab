@@ -5,20 +5,25 @@ from pathlib import Path
 import sys
 sys.path.append(str(Path(__file__).resolve().parents[2]/'agent-interface-lab'))
 import probe,path_guard,path_relation
+import finalization_shape
 from retail_protocol import summarize,CODES
-STATES={'not_started','prerequisite_refused','pending','request_failed','finalization_refused','start_refused','observed','identity_changed','collection_refused'}
+STATES={'not_started','prerequisite_refused','pending','request_failed','finalization_refused','start_refused','observed','identity_changed','collection_refused','canonical_game_link_observed','response_schema_unrecognized'}
 FIELDS={'installed','download_complete','playable','downloaded_bytes','bytes_downloaded','downloaded','total_bytes','bytes_total','download_size','download_progress','progress'}
 NUMERIC={'downloaded_bytes','bytes_downloaded','downloaded','total_bytes','bytes_total','download_size'}
 PORTS={'80','443','1119','3724','other'}
 def counts():return {k:0 for k in sorted(PORTS)}
 def blank(source,run):
- return dict(schema='bnet-retail-transfer-2',source_commit=source,run_id=run,status='not_started',error_kind=None,finalization_attempted=False,start_attempted=False,local_requests=0,polls=0,phase_signal_created=False,phase_acknowledged=False,preflight_path_guard=path_guard.blank(),finalization_http_status=None,start_http_status=None,finalization_response_bytes=0,start_response_bytes=0,finalized_returned=None,finalization_error_codes={k:None for k in ('agent',*CODES)},start_agent_error=None,final_path_guard=path_guard.blank(),final_path_relation=path_relation.blank(),baseline_progress=None,last_progress=None,baseline_files=None,last_files=None,baseline_connections=None,last_connections=None,account_parameter_sent=False,country_parameter_sent=False,legal_acceptance_parameter_sent=False,payload_exported=False,raw_paths_exported=False,complete_installation_proven=False,hardware_upload_proven=False)
+ return dict(schema='bnet-retail-transfer-3',source_commit=source,run_id=run,status='not_started',error_kind=None,finalization_attempted=False,start_attempted=False,local_requests=0,polls=0,phase_signal_created=False,phase_acknowledged=False,finalization_response_shape=finalization_shape.blank(),preflight_path_guard=path_guard.blank(),finalization_http_status=None,start_http_status=None,finalization_response_bytes=0,start_response_bytes=0,finalized_returned=None,finalization_error_codes={k:None for k in ('agent',*CODES)},start_agent_error=None,final_path_guard=path_guard.blank(),final_path_relation=path_relation.blank(),baseline_progress=None,last_progress=None,baseline_files=None,last_files=None,baseline_connections=None,last_connections=None,account_parameter_sent=False,country_parameter_sent=False,legal_acceptance_parameter_sent=False,payload_exported=False,raw_paths_exported=False,complete_installation_proven=False,hardware_upload_proven=False)
 def validate(r):
  keys=set(blank('a'*40,'1'))
+ if type(r)is dict and r.get('schema')in {'bnet-retail-transfer-1','bnet-retail-transfer-2'}:keys=keys-{'finalization_response_shape'}
  if type(r)is dict and r.get('schema')=='bnet-retail-transfer-1':keys=keys-{'phase_acknowledged'}
- if type(r)is not dict or set(r)!=keys or r['schema']not in {'bnet-retail-transfer-1','bnet-retail-transfer-2'} or r['status']not in STATES or r['error_kind']not in {None,'OSError','ValueError','Stop','other'}:raise ValueError('transfer_schema')
+ if type(r)is not dict or set(r)!=keys or r['schema']not in {'bnet-retail-transfer-1','bnet-retail-transfer-2','bnet-retail-transfer-3'} or r['status']not in STATES or r['error_kind']not in {None,'OSError','ValueError','Stop','other'}:raise ValueError('transfer_schema')
  if type(r['source_commit'])is not str or not re.fullmatch('[0-9a-f]{40}',r['source_commit']) or type(r['run_id'])is not str or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('transfer_identity')
- if r['schema']=='bnet-retail-transfer-2':
+ if r['schema']=='bnet-retail-transfer-3':
+  finalization_shape.validate(r['finalization_response_shape'])
+  if r['status']=='canonical_game_link_observed' and(r['finalization_response_shape']['kind']!='canonical_game_link' or r['finalization_http_status']not in (200,201) or not r['finalization_response_bytes']):raise ValueError('canonical_evidence')
+ if r['schema']in {'bnet-retail-transfer-2','bnet-retail-transfer-3'}:
   if type(r['phase_acknowledged'])is not bool:raise ValueError('ack_boolean')
   if r['phase_acknowledged'] and not r['phase_signal_created']:raise ValueError('ack_signal')
   if r['finalization_attempted'] and not r['phase_acknowledged']:raise ValueError('request_before_arm')
@@ -169,10 +174,25 @@ def execute(session,target,configured,r):
     if stage is not None:
      t[stage+'_response_bytes']=len(raw);write(t)
     data=probe.unique_json(raw)
+    if stage=='finalization':
+     t['finalization_response_shape']=finalization_shape.classify(data,session.port);write(t)
     if session.verify()is not True:raise probe.Stop('identity_changed')
     return data
    finally:conn.close()
   data=request('POST','/install/wow',dict(finalized=True,game_dir=str(target),language=['enUS'],selected_asset_locale='enUS',selected_locale='enUS'),stage='finalization')
+  if t['finalization_response_shape']['kind']=='canonical_game_link':
+   # No /update after a different response shape. Read the exact owned endpoint only.
+   t['status']='canonical_game_link_observed';write(t)
+   t['final_path_guard']=path_guard.inspect(target,str(target));write(t)
+   if t['final_path_guard']['status']!='verified_existing_chain':return
+   for _ in range(4):
+    observed=progress(request('GET','/game/wow'));t['polls']+=1
+    if t['baseline_progress']is None:t['baseline_progress']=observed
+    t['last_progress']=observed;write(t)
+    t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
+    time.sleep(1)
+   return
+  if t['finalization_response_shape']['kind']!='form':t['status']='response_schema_unrecognized';return
   s=summarize(data);t['finalization_error_codes']=s['error_codes'];f=data.get('form',{})
   if type(f)is not dict:t['status']='finalization_refused';return
   if type(f.get('finalized'))is bool:t['finalized_returned']=f['finalized']
