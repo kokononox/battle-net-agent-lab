@@ -8,7 +8,7 @@ import probe,path_guard,path_relation
 import finalization_shape
 import response_diagnostic
 from retail_protocol import summarize,CODES
-STATES={'not_started','prerequisite_refused','pending','request_failed','finalization_refused','start_refused','observed','identity_changed','collection_refused','canonical_game_link_observed','response_schema_unrecognized','product_state_observed'}
+STATES={'identity_control_observed','not_started','prerequisite_refused','pending','request_failed','finalization_refused','start_refused','observed','identity_changed','collection_refused','canonical_game_link_observed','response_schema_unrecognized','product_state_observed'}
 FIELDS={'installed','download_complete','playable','downloaded_bytes','bytes_downloaded','downloaded','total_bytes','bytes_total','download_size','download_progress','progress'}
 NUMERIC={'downloaded_bytes','bytes_downloaded','downloaded','total_bytes','bytes_total','download_size'}
 PORTS={'80','443','1119','3724','other'}
@@ -69,6 +69,7 @@ def validate(r):
     if len(parts)not in (1,2) or parts[-1]not in NUMERIC or len(parts)==2 and parts[0]not in {'progress','download_progress'} or type(v)is not int or not 0<=v<=2**50:raise ValueError('progress_counter')
  if r['finalization_attempted']and(not r['phase_signal_created'] or r['local_requests']<1 or r['preflight_path_guard']['status']!='verified_existing_chain'):raise ValueError('finalize_guard')
  if r['start_attempted']and(not r['finalization_attempted'] or r['finalized_returned']is not True or r['local_requests']<3 or r['final_path_guard']['status']!='verified_existing_chain'):raise ValueError('start_guard')
+ if r['status']=='identity_control_observed'and(not r['phase_acknowledged']or r['finalization_attempted']or r['start_attempted']or r['local_requests']or r['polls']):raise ValueError('control_evidence')
  if r['status']=='observed' and(not r['start_attempted'] or r['start_http_status']not in (200,201) or r['start_agent_error']!=0 or r['polls']<1):raise ValueError('observed_guard')
  return r
 
@@ -188,6 +189,13 @@ def execute(session,target,configured,r):
     if session.verify()is not True:raise probe.Stop('identity_changed')
     return data
    finally:conn.close()
+  if os.environ.get('RETAIL_PHASE_CONTROL')=='identity-only-d20':
+   # Negative control: same post-arm identity check, zero phase HTTP requests.
+   if session.verify()is not True:raise probe.Stop('identity_changed')
+   t['status']='identity_control_observed';write(t)
+   t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
+   return
+  if os.environ.get('RETAIL_PHASE_CONTROL')not in (None,''):raise ValueError('control_scope')
   data=request('POST','/install/wow',dict(finalized=True,game_dir=str(target),language=['enUS'],selected_asset_locale='enUS',selected_locale='enUS'),stage='finalization')
   if t['finalization_response_shape']['kind']in {'canonical_game_link','product_state'}:
    # No /update after a different response shape. Read the exact owned endpoint only.

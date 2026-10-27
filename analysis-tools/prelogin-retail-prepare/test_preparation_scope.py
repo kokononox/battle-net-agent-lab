@@ -15,11 +15,11 @@ class PreparationScope(unittest.TestCase):
   text=Path(p.__file__).read_text()
   self.assertIn('if context is not None and allow_transfer:transfer_probe.execute',text)
   self.assertEqual(text.count('transfer_probe.execute('),1)
- def test_live_workflow_requires_explicit_status_d19_approval(self):
+ def test_live_workflow_requires_explicit_control_d20_approval(self):
   root=Path(p.__file__).resolve().parents[2]
   text=(root/'.github/workflows/prelogin-retail-prepare.yml').read_text()
   self.assertIn('RETAIL_PREPARE_SCOPE: limited-transfer-c10',text)
-  self.assertIn("github.event.head_commit.message == 'lab: approved short startup retail status d19'",text)
+  self.assertIn("github.event.head_commit.message == 'lab: approved retail identity control d20'",text)
   self.assertNotIn("github.event.head_commit.message == 'lab: approved retail prepare c10'",text)
 
 class ShortStartup(unittest.TestCase):

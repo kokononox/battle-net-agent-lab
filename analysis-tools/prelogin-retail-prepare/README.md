@@ -124,3 +124,15 @@ remain unchanged. Actual observation duration is recorded as the optional fixed
 The handshake report retains its original 120-second maximum budget; it is not
 a claim of the actual bootstrap observation duration. A non-ready Agent is a
 failed experiment, never permission to skip the readiness gates.
+
+
+### D20: acknowledged-phase identity-only negative control
+
+D19 reached finalization but was stopped before its status GET. D20 deliberately
+sends **zero phase HTTP requests** after the same arming acknowledgement, runs
+the same live identity verifier, records only metadata and exits. No finalization,
+/update, URL following or consent occurs. All startup and nonfinalizing form
+preparation remain identical to D19; startup may itself cause network activity.
+The immutable post-arm baseline and all native budgets remain unchanged. A stop
+in this control cannot be attributed to a phase finalization/download request,
+but does not itself identify which process caused the hostwide bytes.

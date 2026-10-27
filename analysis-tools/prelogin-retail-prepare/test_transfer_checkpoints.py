@@ -39,6 +39,16 @@ class Checkpoints(unittest.TestCase):
     saved=json.loads(Path('output/retail-transfer.json').read_text())
    finally:os.chdir(old)
   return saved,calls[0]
+ def test_identity_control_never_requests_http(self):
+  with patch.dict(os.environ,{'RETAIL_PHASE_CONTROL':'identity-only-d20'}):
+   r,n=self.run_case()
+  self.assertEqual(n,0);self.assertEqual(r['local_requests'],0)
+  self.assertEqual(r['status'],'identity_control_observed');self.assertTrue(r['phase_acknowledged'])
+  self.assertFalse(r['finalization_attempted']);self.assertFalse(r['start_attempted'])
+ def test_unknown_control_refuses_all_http(self):
+  with patch.dict(os.environ,{'RETAIL_PHASE_CONTROL':'not-approved'}):
+   r,n=self.run_case()
+  self.assertEqual(n,0);self.assertEqual(r['status'],'request_failed')
  def test_headers_saved_before_body_read(self):
   seen=[]
   r,_=self.run_case(assert_before_read=lambda s:seen.append(s['finalization_http_status']))
