@@ -1,0 +1,22 @@
+{
+  "schema": "bnet-counter-diagnostic-run-1",
+  "source_commit": "5422b20f3fd70608386d7b07ff333070a2c79ce8",
+  "run_id": "40506916228",
+  "status": "build_failed",
+  "guard_build": {
+    "stage": "compile",
+    "vswhere_exit_code": 0,
+    "installation_found": true,
+    "devcmd_found": true,
+    "compiler_exit_code": 2,
+    "compiler_error_codes": [
+      "C2589"
+    ],
+    "source_error_lines": []
+  },
+  "portable_assertions_passed": false,
+  "native": null,
+  "target_launched": false,
+  "transfer_requested": false,
+  "production_limits_changed": false
+}
