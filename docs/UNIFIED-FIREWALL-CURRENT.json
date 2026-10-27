@@ -716,7 +716,14 @@
     "service_observation_is_complete_IPC_authority": false,
     "service_observer_Windows_qualified": false,
     "service_quiescence_assertions": 238,
-    "service_quiescence_cases": 31
+    "service_quiescence_cases": 31,
+    "saved_arm_audit_baseline_checked_without_pending": true,
+    "strict_numeric_audit_readback_at_dispatcher": true,
+    "backend_guard_rechecked_after_final_policy_snapshot": true,
+    "closed_historical_journals_automatically_rescanned": false,
+    "atomic_recovery_snapshot_claimed": false,
+    "final_audit_verification_assertions": 83,
+    "final_audit_verification_cases": 12
   },
   "workflow_correction": {
     "user_objects_to_fragmented_manual_tests": true,
@@ -731,5 +738,6 @@
   "durable_runtime_witness_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/DURABLE-RUNTIME-WITNESS.fa.md",
   "process_quiescence_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/PROCESS-QUIESCENCE.fa.md",
   "exit_review_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/EXIT-REVIEW.fa.md",
-  "service_quiescence_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/SERVICE-QUIESCENCE.fa.md"
+  "service_quiescence_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/SERVICE-QUIESCENCE.fa.md",
+  "final_audit_verification_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/FINAL-AUDIT-VERIFICATION.fa.md"
 }
