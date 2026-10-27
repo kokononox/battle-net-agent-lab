@@ -2,10 +2,11 @@
 # Must run inside the PRIVATE Ufw.SessionJournal module scope. No firewall setter.
 function Get-UfwUnifiedStorageJson($Data){return ConvertTo-Json -InputObject $Data -Depth 64 -Compress}
 function Get-UfwUnifiedStorageRoot {return Join-Path ([Environment]::GetFolderPath('CommonApplicationData')) 'UnifiedFW-IntegratedSessions-01'}
-function New-UfwUnifiedStorage {
+function New-UfwUnifiedStorage([string]$SessionId='') {
+ if($SessionId -cne '' -and $SessionId -cnotmatch '^[a-f0-9]{32}$'){throw 'ufw_unified_storage_id'}
  $root=Get-UfwUnifiedStorageRoot
  if([IO.Directory]::Exists($root)){Assert-UfwJournalAcl $root $true}else{New-UfwPrivateJournalDirectory $root}
- $id=[guid]::NewGuid().ToString('N');$dir=Join-Path $root ('session-'+$id);New-UfwPrivateJournalDirectory $dir
+ $id=$SessionId;if($id -ceq ''){$id=[guid]::NewGuid().ToString('N')};$dir=Join-Path $root ('session-'+$id);New-UfwPrivateJournalDirectory $dir
  $lock=Open-UfwPrivateJournalFile (Join-Path $dir 'operation.lock') ([IO.FileMode]::CreateNew)
  return [pscustomobject]@{id=$id;dir=$dir;sequence=0;head=('0'*64);lock=$lock;total_bytes=[long]0}
 }
