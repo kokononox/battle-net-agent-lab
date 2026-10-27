@@ -134,3 +134,8 @@ kernel تصمیم جدید زیر `reconnect-design-v01` اجراپذیر در �
 ## جدیدترین تحویل — NORMAL-EXIT-REVIEW-01
 
 [راه‌انداز، source و راهنمای اجرا](../analysis/unifiedfw-session-2026-10-27/normal-exit-runner-v01/README.fa.md): fixture جدا برای آزمون واقعی Windows storage، سپس real read-only review و consent اختیاری ثبت رکورد جداگانه. ۴۷ assertion runner و ۷۲ library rerun و parse/hash گذشتند؛ Windows هنوز pending است. کاربر فقط همین بستهٔ جدید را بدون تغییر اینترنت/VPN اجرا می‌کند و JSON را برمی‌گرداند؛ لغو prompt مجاز است. legacy journal و firewall تغییر نمی‌کنند؛ در failure پس از write attempt، وجود رکورد باید بررسی شود. Apply/migration/reboot/no-leak authority وجود ندارد و مسیرهای قدیمی همچنان متوقف‌اند.
+
+
+## دریافت نتیجهٔ Windows NORMAL-EXIT-REVIEW-01
+
+storage fixture تماماً گذشت و cleanup موفق بود؛ real legacy journal preserved=true. real review با normal_exit_current_profile_not_normal_allow پیش از prompt/record متوقف شد. هیچ تغییر firewall/VPN یا نوشتن رکورد واقعی درخواست نشد. field دقیق معلوم نیست؛ فقط دو-store profile table برای Name/Enabled/DefaultOutboundAction/AllowLocalFirewallRules درخواست شود؛ از روی این کد Block مجدد را نتیجه نگیرید. [receipt](../analysis/unifiedfw-session-2026-10-27/normal-exit-runner-v01/evidence/Windows-normal-exit-review-01-result.json).

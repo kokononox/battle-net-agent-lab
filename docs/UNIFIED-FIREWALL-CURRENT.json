@@ -43,7 +43,10 @@
     "normal_exit_runner_model_assertions": 47,
     "HF124_library_assertions_rerun": 72,
     "normal_exit_runner_PS_files_parsed": 7,
-    "normal_exit_runner_Windows_storage_tested": false
+    "normal_exit_runner_Windows_storage_tested": true,
+    "normal_exit_runner_Windows_storage_passed": true,
+    "normal_exit_runner_Windows_cleanup_passed": true,
+    "normal_exit_runner_real_review_passed": false
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -90,16 +93,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "user runs only new NORMAL-EXIT-REVIEW-01 package with current internet/VPN unchanged; inspect sanitized JSON; stop on failure, do not weaken exact before-image checks or repeat old Restore; record gives no Apply authority",
-  "user_action_now": "extract new package separately; same-account admin Run-Exit.cmd; keep internet/VPN unchanged; optional RECORD NORMAL challenge only after fixture and live checks; Enter cancels; return sanitized diagnostic JSON even failure",
+  "next_step": "read only PersistentStore and ActiveStore Name/Enabled/DefaultOutboundAction/AllowLocalFirewallRules for all profiles; guard error is disjunctive and does not establish outbound Block; no policy changes or retry old Apply/Restore",
+  "user_action_now": "return read-only two-store profile table; keep current network/VPN unchanged; no Record/Apply/Restore requested",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "Standalone Windows runner built: separate synthetic ACL/file/lock fixture, then real read-only review and optional exact human consent for separate normal-mode record; no firewall or legacy journal writes; ZIP hash/pin verified; Windows pending",
-  "previous_sync_commit": "c458488601baea2f9b8311ff55ca9941d1cbfaef",
+  "latest_progress": "Windows PS5.1 x64 payload and disposable fixture ACL/file/lock/no-overwrite/roundtrip/cleanup passed; legacy journal hash preserved; real review stopped with normal_exit_current_profile_not_normal_allow before consent or Record; exact profile field unknown",
+  "previous_sync_commit": "fbba7ac9f7e908af2e1dfc98f44b5fed204ad33b",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -140,10 +143,11 @@
     "legacy_NotConfigured_migration_implemented": false,
     "separate_normal_mode_exit_record_library_implemented": true,
     "separate_normal_mode_exit_record_created_on_user_PC": false,
-    "separate_normal_mode_exit_Windows_native_API_or_ACL_tested": false,
+    "separate_normal_mode_exit_Windows_native_API_or_ACL_tested": true,
     "separate_normal_mode_exit_worker_integrated": false,
     "legacy_Apply_gate_bypassed": false,
     "normal_exit_runner_built": true,
-    "normal_exit_runner_Windows_executed": false
+    "normal_exit_runner_Windows_executed": true,
+    "latest_legacy_journal_preserved": true
   }
 }
