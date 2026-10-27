@@ -43,7 +43,7 @@ class Arming(unittest.TestCase):
   with self.assertRaises(ValueError):t.validate(r)
   r['phase_acknowledged']=True;t.validate(r)
  def test_old_receipt_still_readable(self):
-  r=t.blank('a'*40,'1');r['schema']='bnet-retail-transfer-1';r.pop('phase_acknowledged');r.pop('finalization_response_shape');t.validate(r)
+  r=t.blank('a'*40,'1');r['schema']='bnet-retail-transfer-1';r.pop('phase_acknowledged');r.pop('finalization_response_shape');r.pop('response_diagnostic');t.validate(r)
  def test_new_native_receipt(self):
   r=rec('observe');r.update(schema='bnet-retail-supervisor-4',network_diagnostics=blank(),phase_arming_acknowledged=False,phase_baseline_policy='acknowledged_pre_request_snapshot');g.receipt(r)
   r['phase_arming_acknowledged']=True
