@@ -1,7 +1,8 @@
-# PRIVATE partial backend for the coordinator's LOCAL QUARANTINE operations only.
-# Transport creation/cleanup and integrated UI are intentionally not faked here.
+# PRIVATE backend; local mode is preserved, mixed mode uses MixedPolicyBackend.ps1.
+# Human review, native SSTP observation and integrated live UI are not faked here.
 # Actual native IO is injectable for internal tests; this is not an admin sandbox.
 function Assert-UfwLocalBackendView($View){
+ if($View.scope -ceq 'mixed_transport_quarantine_backend_development'){Assert-UfwMixedBackendView $View;return}
  if($View.scope -cne 'local_quarantine_backend_development' -or $View.binding -cne (Get-UfwJournalHash (Get-UfwLocalSnapshotText $View.snapshot))){throw 'ufw_unified_native_view_binding'}
  $expected=New-UfwLocalQuarantineOperations $View.snapshot
  if((Get-UfwLocalJson $expected) -cne (Get-UfwLocalJson $View.operations)){throw 'ufw_unified_native_plan_changed'}
@@ -14,7 +15,7 @@ function Get-UfwLocalBackendState($Context){
  $back=Read-UfwUnifiedStorage $Context.storage
  if($back.sequence -ne $Context.storage.sequence -or $back.head -cne $Context.storage.head -or $back.sequence -lt 1){throw 'ufw_unified_native_checkpoint_head'}
  if((Get-UfwLocalJson $back.records[0].data) -cne (Get-UfwLocalJson $Context.view)){throw 'ufw_unified_native_checkpoint_baseline'}
- $saved=@();$results=0;$restoreStarted=$false;$restoring=$null;$restored=0;$closed=$false
+ $saved=@();$results=0;$restoreStarted=$false;$restoring=$null;$restored=0;$closed=$false;$materialized=@{}
  for($i=1;$i -lt $back.records.Count;$i++){
   $entry=$back.records[$i]
   switch -CaseSensitive ($entry.kind){
@@ -23,7 +24,14 @@ function Get-UfwLocalBackendState($Context){
     $saved+=,$entry.data
    }
    'result'{
-    if($restoreStarted -or $saved.Count -ne $results+1 -or (Get-UfwLocalJson $entry.data) -cne (Get-UfwLocalJson $saved[$results])){throw 'ufw_unified_native_result_order'};$results++
+    $opData=$entry.data
+    if($saved.Count -eq $results+1 -and $saved[$results].kind -ceq 'create_disabled_transport'){
+     if((@($entry.data.PSObject.Properties.Name|Sort-Object)-join ',') -cne 'observed,operation'){throw 'ufw_unified_transport_result_materialization'}
+     $opData=$entry.data.operation
+     Assert-UfwOwnedPair $entry.data.observed $Context.view.transport 'False'
+     $materialized[$saved[$results].name]=$entry.data.observed
+    }
+    if($restoreStarted -or $saved.Count -ne $results+1 -or (Get-UfwLocalJson $opData) -cne (Get-UfwLocalJson $saved[$results])){throw 'ufw_unified_native_result_order'};$results++
    }
    'restore_intent'{
     if($null -ne $restoring -or $restored -ge $saved.Count -or (Get-UfwLocalJson $entry.data) -cne (Get-UfwLocalJson $saved[$saved.Count-1-$restored])){throw 'ufw_unified_native_restore_order'}
@@ -36,7 +44,7 @@ function Get-UfwLocalBackendState($Context){
    default{throw 'ufw_unified_native_checkpoint_protocol'}
   }
  }
- return [pscustomobject]@{saved=$saved;results=$results;restore_started=$restoreStarted;restoring=$restoring;restored=$restored;closed=$closed}
+ return [pscustomobject]@{saved=$saved;results=$results;restore_started=$restoreStarted;restoring=$restoring;restored=$restored;closed=$closed;materialized=$materialized}
 }
 function Get-UfwLocalExpectedSnapshot($Context,$Applied){
  $expected=Copy-UfwLocalData $Context.view.snapshot
@@ -56,6 +64,7 @@ function Assert-UfwLocalBackendGuard($Context,[string]$Phase){
  if($permit -isnot [bool] -or -not $permit){throw 'ufw_unified_native_bound_guard_refused'}
 }
 function Get-UfwLocalReconciledObservation($Context,$State){
+ if($Context.view.scope -ceq 'mixed_transport_quarantine_backend_development'){return Get-UfwMixedReconciledObservation $Context $State}
  $count=$State.saved.Count-$State.restored
  $applied=@();for($i=0;$i -lt $count;$i++){$applied+=,$State.saved[$i]}
  $read=Read-UfwLocalStableSnapshot $Context.io;$text=Get-UfwLocalSnapshotText $read.snapshot
@@ -75,9 +84,14 @@ function Invoke-UfwLocalForward($Context,$Operation){
  if($state.closed -or $state.restore_started -or $state.saved.Count -ne $state.results+1 -or (Get-UfwLocalJson $Operation) -cne (Get-UfwLocalJson $state.saved[-1])){throw 'ufw_unified_native_forward_intent_missing'}
  $obs=Get-UfwLocalReconciledObservation $Context $state
  if($obs.tail_applied){throw 'ufw_unified_native_forward_not_exact_before'}
- if(-not $obs.read.handles.ContainsKey($Operation.name)){throw 'ufw_unified_native_fresh_handle_missing'}
+ if($Operation.kind -cne 'create_disabled_transport' -and -not $obs.read.handles.ContainsKey($Operation.name)){throw 'ufw_unified_native_fresh_handle_missing'}
  Assert-UfwLocalBackendGuard $Context 'immediately_before_forward'
- & $Context.io.SetEnabled $obs.read.handles[$Operation.name] 'False'
+ switch -CaseSensitive ($Operation.kind){
+  'create_disabled_transport'{& $Context.io.CreateTransport $Context.view.transport}
+  'enable_owned_transport'{& $Context.io.SetEnabled $obs.read.handles[$Operation.name] 'True'}
+  'disable_reviewed_local_allow'{& $Context.io.SetEnabled $obs.read.handles[$Operation.name] 'False'}
+  default{throw 'ufw_unified_transport_mutation_kind'}
+ }
  # Failure after effect is intentionally not swallowed. SAVED intent owns recovery.
  $check=Get-UfwLocalReconciledObservation $Context $state
  if(-not $check.tail_applied){throw 'ufw_unified_native_forward_readback'}
@@ -91,7 +105,12 @@ function Restore-UfwLocalSavedOperation($Context,$Operation){
  if($obs.tail_applied){
   if(-not $obs.read.handles.ContainsKey($Operation.name)){throw 'ufw_unified_native_fresh_handle_missing'}
   Assert-UfwLocalBackendGuard $Context 'immediately_before_restore'
-  & $Context.io.SetEnabled $obs.read.handles[$Operation.name] 'True'
+  switch -CaseSensitive ($Operation.kind){
+   'create_disabled_transport'{& $Context.io.RemoveOwned $obs.read.handles[$Operation.name] $Context.view.transport}
+   'enable_owned_transport'{& $Context.io.SetEnabled $obs.read.handles[$Operation.name] 'False'}
+   'disable_reviewed_local_allow'{& $Context.io.SetEnabled $obs.read.handles[$Operation.name] 'True'}
+   default{throw 'ufw_unified_transport_restore_kind'}
+  }
  }
  $check=Get-UfwLocalReconciledObservation $Context $state
  if($check.tail_applied){throw 'ufw_unified_native_restore_readback'}
@@ -117,6 +136,10 @@ function Recover-UfwLocalBackend($Context){
 function New-UfwLocalBackendContext($IO,$Storage,$View,[scriptblock]$Guard){
  if($null -eq $Guard -or -not $IO.ContainsKey('SetEnabled') -or $IO.SetEnabled -isnot [scriptblock]){throw 'ufw_unified_native_backend_binding_missing'}
  Assert-UfwLocalBackendView $View
+ if($View.scope -ceq 'mixed_transport_quarantine_backend_development'){
+  if($Storage.id -cne $View.transport.session_id){throw 'ufw_unified_transport_storage_binding'}
+  foreach($k in @('CreateTransport','RemoveOwned')){if(-not $IO.ContainsKey($k) -or $IO[$k] -isnot [scriptblock]){throw 'ufw_unified_transport_io_binding'}}
+ }
  return [pscustomobject]@{io=$IO;storage=$Storage;view=(Copy-UfwLocalData $View);guard=$Guard}
 }
 function New-UfwLocalModuleCallback([scriptblock]$Body,$Bound){
@@ -127,7 +150,7 @@ function New-UfwLocalModuleCallback([scriptblock]$Body,$Bound){
  return {& $owner $Body $Bound @args}.GetNewClosure()
 }
 function New-UfwLocalCoordinatorBindings($Context){
- # Merge only these adapters into the EXISTING coordinator. Missing transport,
+ # Merge into the EXISTING coordinator. Transport uses the same journal grammar;
  # human review, runtime, quiescence and qualification adapters are not invented.
  $c=$Context
  return @{
@@ -157,7 +180,12 @@ function New-UfwLocalCoordinatorBindings($Context){
    $s=Get-UfwLocalBackendState $c
    if($s.closed -or $s.restore_started -or $s.results -ne $s.saved.Count-1 -or (Get-UfwLocalJson $op) -cne (Get-UfwLocalJson $s.saved[-1])){throw 'ufw_unified_native_save_result_order'}
    $o=Get-UfwLocalReconciledObservation $c $s;if(-not $o.tail_applied){throw 'ufw_unified_native_save_result_effect'}
-   Write-UfwUnifiedStorage $c.storage 'result' $op
+   $data=$op
+   if($op.kind -ceq 'create_disabled_transport'){
+    if($null -eq $o.owned_pair){throw 'ufw_unified_transport_materialization_missing'}
+    $data=[pscustomobject]@{operation=$op;observed=$o.owned_pair}
+   }
+   Write-UfwUnifiedStorage $c.storage 'result' $data
   } $c)
   RestoreOperation=(New-UfwLocalModuleCallback {param($c,$backup,$intent)Restore-UfwLocalSavedOperation $c $intent.operation} $c)
   VerifyRestored=(New-UfwLocalModuleCallback {param($c,$backup,$view)

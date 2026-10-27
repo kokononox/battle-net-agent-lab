@@ -214,15 +214,22 @@ public class UfwBackendProps:IEnumerable {public List<UfwBackendProp> Items=new 
    foreach($cmd in $ast.FindAll({param($n)$n -is [Management.Automation.Language.CommandAst]},$true)){
     $name=$cmd.GetCommandName()
     if($null -ne $name -and $name -match '^(Set|New|Remove|Enable|Disable)-NetFirewall'){
-     Check ($file.Name -ceq 'NativePolicyIO.ps1' -and $name -ceq 'Set-NetFirewallRule') 'only_scoped_setter'
      $params=@($cmd.CommandElements|Where-Object{$_ -is [Management.Automation.Language.CommandParameterAst]}|ForEach-Object{$_.ParameterName}|Sort-Object)
-     Check (($params -join ',') -ceq 'Confirm,Enabled,ErrorAction,InputObject') 'no_name_group_profile_or_default_write'
-     $setters++
+     if($name -ceq 'Set-NetFirewallRule'){
+      Check ($file.Name -ceq 'NativePolicyIO.ps1') 'only_scoped_setter'
+      Check (($params -join ',') -ceq 'Confirm,Enabled,ErrorAction,InputObject') 'no_name_group_profile_or_default_write';$setters++
+     }elseif($name -ceq 'Remove-NetFirewallRule'){
+      Check ($file.Name -ceq 'OwnedTransport.ps1') 'owned_remove_only'
+      Check (($params -join ',') -ceq 'Confirm,ErrorAction,InputObject') 'remove_no_name_or_group'
+     }elseif($name -ceq 'New-NetFirewallRule'){
+      Check ($file.Name -ceq 'OwnedTransport.ps1') 'owned_creation_only'
+      Check (($params -join ',') -ceq 'Confirm,ErrorAction') 'creation_parameters_from_fixed_dictionary'
+     }else{Check $false 'unexpected_native_mutator'}
     }
    }
   }
   Check ($setters -eq 1) 'exactly_one_private_setter'
-  [pscustomobject]@{passed=$true;assertions=$script:BackendChecks;PS_source_files_parsed=$parsed;private_native_setter_sites=$setters;partial_effect_cases=$modes.Count;two_rule_durable_prefix_cuts=$cuts;full_coordinator_with_local_backend=$true;actual_native_reader_with_CIM_cmdlet_fixtures=$true;real_Linux_journal_IO=$true;reopen_recovery=$true;native_Windows_cmdlets_executed=$false;SSTP_transport_writer_implemented=$false;live_entrypoint_published=$false;user_test_requested=$false;ready_for_apply=$false}
+  [pscustomobject]@{passed=$true;assertions=$script:BackendChecks;PS_source_files_parsed=$parsed;private_native_setter_sites=$setters;partial_effect_cases=$modes.Count;two_rule_durable_prefix_cuts=$cuts;full_coordinator_with_local_backend=$true;actual_native_reader_with_CIM_cmdlet_fixtures=$true;real_Linux_journal_IO=$true;reopen_recovery=$true;native_Windows_cmdlets_executed=$false;SSTP_transport_exercised_in_this_suite=$false;live_entrypoint_published=$false;user_test_requested=$false;ready_for_apply=$false}
  } $SourceRoot $temp $InventoryCore
  $out=Join-Path (Split-Path $SourceRoot -Parent) 'evidence/local-policy-backend-tests.json'
  $report|ConvertTo-Json -Depth 8|Set-Content -LiteralPath $out -Encoding UTF8
