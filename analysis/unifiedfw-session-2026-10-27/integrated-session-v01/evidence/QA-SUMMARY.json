@@ -15,8 +15,8 @@
   },
   "local_policy_backend": {
     "passed": true,
-    "assertions": 95,
-    "PS_source_files_parsed": 7,
+    "assertions": 101,
+    "PS_source_files_parsed": 9,
     "private_native_setter_sites": 1,
     "partial_effect_cases": 15,
     "two_rule_durable_prefix_cuts": 14,
@@ -25,8 +25,25 @@
     "real_Linux_journal_IO": true,
     "reopen_recovery": true,
     "native_Windows_cmdlets_executed": false,
-    "SSTP_transport_writer_implemented": false,
+    "SSTP_transport_exercised_in_this_suite": false,
     "live_entrypoint_published": false,
+    "user_test_requested": false,
+    "ready_for_apply": false
+  },
+  "mixed_policy_backend": {
+    "passed": true,
+    "assertions": 107,
+    "coordinator_cases": 9,
+    "mixed_durable_prefix_cuts": 26,
+    "tamper_cases": 10,
+    "existing_runtime_coordinator_and_bridge_executed": true,
+    "real_Linux_journal_IO": true,
+    "materialization_before_enable_verified": true,
+    "owned_transport_writer_implemented": true,
+    "native_Windows_effects_executed": false,
+    "native_connected_SSTP_observer_bound": false,
+    "human_review_bound": false,
+    "public_live_entrypoint_published": false,
     "user_test_requested": false,
     "ready_for_apply": false
   },
@@ -41,6 +58,7 @@
     }
   ],
   "private_native_local_setter_implemented": true,
+  "private_owned_transport_writer_implemented": true,
   "native_firewall_setter_bound": false,
   "Windows_user_test_requested": false
 }
