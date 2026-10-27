@@ -69,3 +69,25 @@ receipts from the same run, including when the final worker/form receipt is abse
 This reporting-only change does not trigger another approved target run, alter
 native guards, reset counter baselines, or raise any limits. See
 `docs/PRELOGIN-RETAIL-C10-RECONCILIATION.fa.md` for the offline C10 reconciliation.
+
+## D1 read-only network-counter diagnostics
+
+`network_diagnostics.h` tracks sample gaps/deltas, interface membership changes,
+and per-interface counter decreases. Interface LUIDs and absolute per-interface
+counters remain in memory and are never serialized. `guard.cpp` emits schema3
+with these diagnostic counts; schema2 receipts remain readable. Production C10
+limits, previous-sample phase baseline, and fail-closed behavior are unchanged.
+A phase clock of 0ms can coexist with a nonzero preceding sample interval; the
+boundary diagnostic reports that interval separately and does not claim a rate.
+
+The separate `prelogin-counter-diagnostics.yml` approval runs a Windows build of
+the production guard without executing it, native synthetic C++ assertions, and
+33 adapter-counter samples at nominal250ms spacing. The marker at sample8 is
+synthetic, not a game-transfer marker. Neither Setup nor Agent is downloaded or
+launched and no transfer request is sent. This is a measurement/toolchain control,
+not a reproduction of the historical C10 event. A clean D1 cannot exclude a
+transient interface change, sampling stall, or network burst in C10.
+Only a strictly validated, source/run-bound typed receipt is published at
+`reports/prelogin-counter-diagnostic-latest.json`; no adapter names, IPs, PIDs,
+raw paths, or compiler logs are published. The target workflow's exact C10
+commit-message approval does not match this diagnostic-only approval.

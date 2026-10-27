@@ -7,10 +7,32 @@ FLAGS={'job_kill_on_close_configured','child_assigned_before_resume','child_resu
 NUMS={'max_active_processes','final_active_processes','win32_error','elapsed_ms','time_limit_ms','network_threshold_bytes','network_delta_bytes','minimum_free_bytes','disk_reserve_bytes','poll_interval_ms','phase_elapsed_ms','phase_network_delta_bytes','phase_time_limit_ms','phase_network_threshold_bytes'}
 def identity(d):
  if type(d.get('source_commit'))is not str or not re.fullmatch('[0-9a-f]{40}',d['source_commit']) or type(d.get('run_id'))is not str or not re.fullmatch('[0-9]{1,30}',d['run_id']):raise ValueError('identity')
+DIAG_NUMS={'samples','interface_set_changes','counter_reset_intervals','last_sample_gap_ms','max_sample_gap_ms','last_sample_delta_bytes','max_sample_delta_bytes','phase_boundary_gap_ms','phase_boundary_delta_bytes'}
+DIAG_FLAGS={'phase_boundary_observed','phase_boundary_interfaces_changed','phase_boundary_counter_reset'}
+def validate_diagnostics(d):
+ if type(d)is not dict or set(d)!=DIAG_NUMS|DIAG_FLAGS:raise ValueError('diagnostic_schema')
+ for k in DIAG_NUMS:
+  if type(d[k])is not int or not 0<=d[k]<=2**64-1:raise ValueError('diagnostic_number')
+ for k in DIAG_FLAGS:
+  if type(d[k])is not bool:raise ValueError('diagnostic_boolean')
+ if any(d[k]>max(0,d['samples']-1)for k in ('interface_set_changes','counter_reset_intervals')):raise ValueError('diagnostic_intervals')
+ if d['last_sample_gap_ms']>d['max_sample_gap_ms'] or d['last_sample_delta_bytes']>d['max_sample_delta_bytes']:raise ValueError('diagnostic_max')
+ if d['phase_boundary_observed']:
+  if d['samples']<2 or d['phase_boundary_gap_ms']>d['max_sample_gap_ms'] or d['phase_boundary_delta_bytes']>d['max_sample_delta_bytes']:raise ValueError('diagnostic_boundary')
+  if d['phase_boundary_interfaces_changed'] and not d['interface_set_changes']:raise ValueError('diagnostic_change')
+  if d['phase_boundary_counter_reset'] and not d['counter_reset_intervals']:raise ValueError('diagnostic_reset')
+ elif any(d[k]for k in ('phase_boundary_gap_ms','phase_boundary_delta_bytes','phase_boundary_interfaces_changed','phase_boundary_counter_reset')):raise ValueError('diagnostic_no_boundary')
+ if d['samples']<2 and any(d[k]for k in DIAG_NUMS-{'samples'}):raise ValueError('diagnostic_no_interval')
+ return d
+
 def receipt(r):
  keys={'schema','source_commit','run_id','mode','status','root_exit_code','network_scope'}|FLAGS|NUMS
- if type(r)is not dict or set(r)!=keys or r['schema']!='bnet-retail-supervisor-2' or r['mode']not in MODES or r['status']not in STATUSES:raise ValueError('receipt_schema')
+ if type(r)is dict and r.get('schema')=='bnet-retail-supervisor-3':keys=keys|{'network_diagnostics'}
+ if type(r)is not dict or set(r)!=keys or r['schema']not in {'bnet-retail-supervisor-2','bnet-retail-supervisor-3'} or r['mode']not in MODES or r['status']not in STATUSES:raise ValueError('receipt_schema')
  identity(r)
+ if r['schema']=='bnet-retail-supervisor-3':
+  d=validate_diagnostics(r['network_diagnostics'])
+  if d['phase_boundary_observed'] and (not r['transfer_phase_signal_seen'] or r['mode']!='observe'):raise ValueError('diagnostic_phase_scope')
  for k in FLAGS:
   if type(r[k])is not bool:raise ValueError('flag')
  for k in NUMS:
