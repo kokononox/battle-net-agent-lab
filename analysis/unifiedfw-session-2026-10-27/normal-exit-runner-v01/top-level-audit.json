@@ -1,0 +1,98 @@
+[
+  {
+    "file": "isolation-core.ps1",
+    "top_level_command_names": [],
+    "policy_mutator_definition_calls": []
+  },
+  {
+    "file": "isolation-native.ps1",
+    "top_level_command_names": [],
+    "policy_mutator_definition_calls": [
+      {
+        "name": "New-NetFirewallRule",
+        "line": 45
+      },
+      {
+        "name": "Set-NetFirewallProfile",
+        "line": 76
+      },
+      {
+        "name": "Set-NetFirewallRule",
+        "line": 195
+      }
+    ]
+  },
+  {
+    "file": "native.ps1",
+    "top_level_command_names": [
+      "Set-StrictMode"
+    ],
+    "policy_mutator_definition_calls": [
+      {
+        "name": "New-NetFirewallRule",
+        "line": 62
+      },
+      {
+        "name": "Set-NetFirewallRule",
+        "line": 95
+      },
+      {
+        "name": "Remove-NetFirewallRule",
+        "line": 99
+      }
+    ]
+  },
+  {
+    "file": "normal-exit-record.ps1",
+    "top_level_command_names": [
+      "Set-StrictMode"
+    ],
+    "policy_mutator_definition_calls": []
+  },
+  {
+    "file": "Qualification.ps1",
+    "top_level_command_names": [
+      "Set-StrictMode"
+    ],
+    "policy_mutator_definition_calls": []
+  },
+  {
+    "file": "Run-Exit.ps1",
+    "top_level_command_names": [
+      "Set-StrictMode",
+      "Join-Path",
+      "New-Object",
+      "ConvertFrom-Json",
+      "Join-Path",
+      "Get-FileHash",
+      null,
+      "Join-Path",
+      "IsoSecureRoot",
+      "Join-Path",
+      "UAssertPath",
+      "Get-FileHash",
+      "Write-Host",
+      "Write-Host",
+      "Invoke-ExitStorageQualification",
+      "Write-Host",
+      "Write-Host",
+      "Invoke-ExitReviewAndConsent",
+      "Write-Host",
+      "UAssertPath",
+      "Get-FileHash",
+      "ConvertTo-Json",
+      "Write-Host",
+      "Write-Host",
+      "Write-Host",
+      "Write-Host"
+    ],
+    "policy_mutator_definition_calls": []
+  },
+  {
+    "file": "session-core.ps1",
+    "top_level_command_names": [
+      "Set-StrictMode"
+    ],
+    "policy_mutator_definition_calls": []
+  }
+]

@@ -93,16 +93,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "read only PersistentStore and ActiveStore Name/Enabled/DefaultOutboundAction/AllowLocalFirewallRules for all profiles; guard error is disjunctive and does not establish outbound Block; no policy changes or retry old Apply/Restore",
-  "user_action_now": "return read-only two-store profile table; keep current network/VPN unchanged; no Record/Apply/Restore requested",
+  "next_step": "stop repeating historical WMI probes; keep live isolation paused; focus offline minimal read-only runtime dependencies and explicit restorable local/effective baseline gating; any later network-mode change requires explicit user authorization and before/after evidence",
+  "user_action_now": "none; keep present SSTP/network state; do not repeat package, old Apply/Restore, change Allow, or stop WmiPrvSE",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "Windows PS5.1 x64 payload and disposable fixture ACL/file/lock/no-overwrite/roundtrip/cleanup passed; legacy journal hash preserved; real review stopped with normal_exit_current_profile_not_normal_allow before consent or Record; exact profile field unknown",
-  "previous_sync_commit": "fbba7ac9f7e908af2e1dfc98f44b5fed204ad33b",
+  "latest_progress": "Windows 2082 events show all profiles Allow at local 06:29:09 then Block at local 07:23:05; Block UTC04:23:05.125 precedes runner filename UTC04:23:51 by ~46s, before its qualification/review; WmiPrvSE logged host, underlying requester unknown; WMI4 events yielded no ClientProcessId rows",
+  "previous_sync_commit": "768f03cbf1b27c4e27d404f0663662c50c6b90cd",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -148,6 +148,15 @@
     "legacy_Apply_gate_bypassed": false,
     "normal_exit_runner_built": true,
     "normal_exit_runner_Windows_executed": true,
-    "latest_legacy_journal_preserved": true
+    "latest_legacy_journal_preserved": true,
+    "latest_outbound_profiles": "Block in both PersistentStore and ActiveStore on all 3 profiles, user reported",
+    "latest_change_requester_unknown": true,
+    "latest_Block_UTC": "2026-10-27T04:23:05.1253967Z",
+    "runner_qualification_and_review_start_after_report_filename_UTC": "2026-10-27T04:23:51Z",
+    "known_isolation_task_count": 0,
+    "known_related_running_process_count": 0,
+    "user_reports_no_reboot_since_Allow": true,
+    "user_reports_old_UI_not_opened": true,
+    "user_reports_SSTP_connected": true
   }
 }

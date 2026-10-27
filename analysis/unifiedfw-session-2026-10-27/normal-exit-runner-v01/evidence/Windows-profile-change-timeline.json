@@ -1,0 +1,30 @@
+{
+  "source": "user supplied sanitized firewall event and WMI query outputs in ongoing chat",
+  "profile_change_event_id": 2082,
+  "all_three_profiles_changed_to_Block_UTC": "2026-10-27T04:23:05.1253967Z",
+  "runner_report_filename_UTC_second": "2026-10-27T04:23:51Z",
+  "ordering": "Run-Exit.ps1 report filename is assigned before qualification and real review; the reported Block event precedes that timestamp by about 46 seconds",
+  "earlier_local_event_times": {
+    "Allow_all_profiles": "2026-10-27 06:29:09",
+    "Block_all_profiles": "2026-10-27 07:23:05"
+  },
+  "logged_modifying_application_basename": "WmiPrvSE.exe",
+  "underlying_requester_identified": false,
+  "known_isolation_task_count": 0,
+  "current_matching_process_count": 0,
+  "process_scan_scope": "known command-line markers only, point-in-time; not proof of absence of prior writers",
+  "user_reports_no_reboot_since_Allow": true,
+  "user_reports_old_UI_not_opened": true,
+  "user_reports_SSTP_connected": true,
+  "firewall_log_enabled": true,
+  "firewall_log_record_count_at_query": 859,
+  "firewall_log_mode": "Circular",
+  "WMI_events_in_window": 4,
+  "WMI_rows_with_ClientProcessId_printed": 0,
+  "WMI_absence_proves_no_request": false,
+  "namespace_reader_correction": "use local-name() in XPath; previous no-field results were parser errors, not evidence that events lacked fields",
+  "new_firewall_changes_requested": false,
+  "original_restore_verified": false,
+  "no_leak_certified": false,
+  "ready_for_apply": false
+}
