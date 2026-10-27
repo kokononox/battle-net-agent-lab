@@ -315,3 +315,6 @@ network download estimate.
 ### Latest SSTP diagnostic milestone
 
 [Read-only endpoint observer v0.3](analysis/unifiedfw-session-2026-10-27/endpoint-v03/README.fa.md) is ready for one unchanged-state Windows observation. Linux tests: 58 endpoint model/adapter assertions and 84 lifecycle assertions. No Windows endpoint receipt, Apply authorization, TLS/DNS bootstrap or no-leak qualification. See the current handoff above for context.
+
+
+Latest diagnostic correction: [v0.3.1 lifecycle failure visibility](analysis/unifiedfw-session-2026-10-27/endpoint-v031/README.fa.md). Two Windows v0.3 receipts stopped before endpoint observation; unknown is not disconnected. Reporting-only fix, 61 plus 84 local assertions, Windows v0.3.1 pending.

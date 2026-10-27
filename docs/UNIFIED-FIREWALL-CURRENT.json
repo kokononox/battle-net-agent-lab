@@ -4,7 +4,7 @@
   "base_commit": "f4ba758b1aa358e2a36c4fda7795072d7b700acc",
   "goal": "small dedicated Battle.net installer isolation foundation; authorized SSTP only",
   "user_has_independent_Windows_test_PC": true,
-  "latest_user_network_state": "internet restored after scoped recovery; user confirmed",
+  "latest_user_network_state": "user reports LAN SSTP connected after transient 734 on same router; cause unknown; no isolated reconnection qualification",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
   "latest_offline_candidate": "HF1.2.2 Prepare-only bulk integration",
   "candidate_ready_for_Apply": false,
@@ -25,7 +25,8 @@
     "HF122_new_model_checks": 33,
     "reconnect_decision_checks": 67,
     "native_observer_model_checks": 84,
-    "endpoint_v03_model_assertions": 58
+    "endpoint_v03_model_assertions": 58,
+    "endpoint_v031_model_assertions": 61
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -46,20 +47,28 @@
     "endpoint_observer_Windows_tested": false,
     "endpoint_observer_native_service_tag_verified": false,
     "endpoint_observer_offline_signature_verification_implemented": false,
-    "endpoint_observer_guardian_integrated": false
+    "endpoint_observer_guardian_integrated": false,
+    "endpoint_v03_Windows_invoked": true,
+    "endpoint_v03_Windows_endpoint_reader_reached": false,
+    "endpoint_v03_lifecycle_receipt_states": [
+      "disconnected",
+      "unknown"
+    ],
+    "endpoint_v031_Windows_tested": false,
+    "endpoint_v031_preserves_lifecycle_failure_details": true
   },
-  "next_step": "one read-only endpoint v0.3 run with current VPN unchanged; review sanitized cache/process/TCP correlation and shared-host ambiguity; no Apply or rebind executor",
-  "user_action_now": "run separate endpoint observer v0.3 as administrator in same Windows account; keep existing VPN/firewall state; return sanitized JSON even if false",
+  "next_step": "one unchanged-state read-only endpoint v0.3.1 run; review lifecycle_before code/stage before considering any profile change; no Apply",
+  "user_action_now": "run separate v0.3.1 package as administrator in same Windows account with VPN unchanged; return sanitized JSON even if false",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "standalone read-only endpoint observer v0.3 implemented; 58 model/adapter assertions plus 84 unchanged lifecycle assertions pass; no Windows endpoint receipt yet",
-  "previous_sync_commit": "0047d56d9f6950fd7f43c1895c69b71336ba76c4",
+  "latest_progress": "v0.3 real Windows observations stopped before endpoint; latest lifecycle reason was hidden by wrapper; v0.3.1 reporting-only fix passed 61 plus 84 local assertions",
+  "previous_sync_commit": "a43f1e81bf2a95d120f89315b73541990643a691",
   "underlay": {
-    "current_carrier_user_reported": "USB Wi-Fi dongle",
+    "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
     "planned_carrier": "Ethernet cable",
     "required_design": "underlay-independent SSTP transport; application data stays on verified SSTP interface",
@@ -67,6 +76,7 @@
     "Windows_Ethernet_tested": false,
     "live_adapter_switch_tested": false,
     "DHCP_DNS_route_bootstrap_solved": false,
-    "compiler_underlay_model_checks": 10
+    "compiler_underlay_model_checks": 10,
+    "Ethernet_isolation_qualified": false
   }
 }
