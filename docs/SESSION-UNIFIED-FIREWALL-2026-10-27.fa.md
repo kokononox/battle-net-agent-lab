@@ -200,3 +200,14 @@ whole-array JSON clone در WinPS5.1 می‌تواند nested array بدهد. sh
 این فقط **qualification fixture ذخیره‌سازی همین اجرا** است، نه original Restore/Apply/WFP/reboot/SSTP/fingerprint/no-leak. consent انسانی واقعی، نوشتن نشست واقعی در root تولیدی و recovery بومی هنوز انجام نشده‌اند. profile query/legacy access/firewall/VPN/DNS changes همگی requested=false و ready_for_apply/no_leak_certified=false اند. علت Block تاریخی همچنان مجهول است.
 
 کاربر اقدام ندارد و این آزمون موفق تکرار نشود؛ شبکه/SSTP همان حالت بماند. مرحلهٔ بعد runner کنترل‌شدهٔ preparation-only با fresh real profile read و رضایت محدود ثبت ژورنال مستقل است، نه consent برای تغییر فایروال. وجود baseline صریح Block به معنی ایزولاسیون سالم یا اجازهٔ تبدیل به Allow نیست؛ تمام guardهای policy/SSTP/native recovery پابرجا می‌مانند.
+
+
+## گام بعد آماده شد — UFW-PREPARE-SESSION-01
+
+راه‌انداز محدود [source و بسته](../analysis/unifiedfw-session-2026-10-27/prepare-session-v01/package/UFW-PREPARE-SESSION-01/) خواندن واقعی profileها را به review و consent مخصوص ثبت preparation متصل می‌کند. سه ماژول تولیدی همان بایت‌های milestone قبلی‌اند و native firewall writer وجود ندارد. ۶۰ بررسی راه‌انداز، با getter/prompt شبیه‌سازی‌شده و فایل واقعی Linux، و ۷۳ بررسی ژورنال دوباره پاس شدند؛ پنج PS file و bootstrap/manifest/ZIP کنترل شدند. این آمار، اجرای واقعی WinPS5.1 راه‌انداز یا consent انسانی نیست. آزمون STORAGE-011 قبلاً روی Windows کامل پاس شد و دوباره لازم نیست.
+
+کاربر فقط بستهٔ تازه را در پوشهٔ جدا با همان حساب و admin اجرا می‌کند؛ شبکه و SSTP بدون تغییر. baseline فعلی Block در هر سه profile فقط برای preparation قابل ثبت است، نه normal-mode یا isolation qualification. prompt دقیق `PREPARE JOURNAL <ID> <nonce>` حداکثر دو دقیقه و تنها برای ثبت فایل معتبر است؛ Enter خالی/پاسخ متفاوت بدون نوشتن ژورنال نشست لغو می‌کند و گزارش تشخیصی می‌سازد. عبارت تأیید و فایل محافظت‌شده هرگز ارسال نشوند؛ فقط JSON تازهٔ sanitized. موفقیت سه preflight/۱۲ getter call، یک prepared checkpoint مستقل و authorizes_firewall_change=false دارد. تغییر baseline/انقضا/ACL نامعتبر متوقف می‌کند. پس از attempted write ممکن است رکورد باقی مانده باشد؛ تکرار/حذف خودکار مجاز نیست.
+
+root جدید CommonApplicationData/UnifiedFW-InstallerSessions-01 از ژورنال قدیمی مستقل است؛ legacy read/migration، Apply/Restore، Block→Allow، rule/task/VPN/route/DNS changes انجام نمی‌شود. native recovery، policy/rules/SSTP integration، cold-start/reconnect، reboot، fingerprint و no-leak همچنان حل/تأیید نشده‌اند. هدف همان نصاب کوچک بتل‌نت است؛ این مرحله تنها مبنای بازیابی مستقل آن را ثبت می‌کند، نه محصول نهایی.
+
+وضعیت جاری برای جلوگیری از برداشت اشتباه: آخرین گفتهٔ کاربر SSTP connected، بدون reboot بعد از Allow قبلی؛ آخرین خروجی profileها Block محلی/موثر هر سه بود. علت برگشت Block مجهول است. موفقیت اینترنت بدون VPN پس از Allow یک رخداد تاریخی است نه اثبات وضعیت فعلی؛ normal-exit review بعد از Block آغاز شده و WmiPrvSE.exe فقط host است نه انتساب requester. هیچ آزمون زندهٔ Apply/Restore/reconnect درخواست نشده است.
