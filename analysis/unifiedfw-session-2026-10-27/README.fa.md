@@ -1,6 +1,6 @@
 # ادامهٔ جلسهٔ Unified Firewall
 
-آخرین ادامه: [تشخیص فقط‌خواندنی علت رد Allowها](../../docs/SESSION-UNIFIED-FIREWALL-ALLOW-REVIEW-01.fa.md).
+آخرین ادامه: [مدل تراکنش ایزولاسیون و بازیابی](../../docs/SESSION-UNIFIED-FIREWALL-ISOLATION-TRANSACTION-01.fa.md).
 
 اول [تحویل جامع](../../docs/SESSION-UNIFIED-FIREWALL-2026-10-27.fa.md) و [وضعیت جاری](../../docs/UNIFIED-FIREWALL-CURRENT.json) را بخوانید.
 
@@ -18,3 +18,5 @@
 - `runtime-capture-v01/`: رصد رخدادهای زمان اجرا با audit موقت و بازیابی صریح؛ فقط پس از READY اجرای دستی هدف، بدون Allow جدید؛ recorder آزمایشی و نه تضمین ایزولاسیون.۷۱۸ assertion و۱۲۱۴ regression؛ Windows native هنوز تأیید نشده.
 
 - `allow-review-v01/`: تشخیص مستقل فقط‌خواندنی و شمارشی علت رد قواعد Allow؛۱۶۱۷ assertion؛ بدون تغییر فایروال/audit، انتخاب candidate یا اجرای نصب‌کننده. نخستین اجرای runtime در gate قواعد متوقف شد و هنوز audit/READY/capture بومی تأیید نشده است.
+
+- `isolation-transaction-v01/`: قرارداد و مدل آفلاین journal-before-effect/quarantine/recovery؛۱۱test methodجدید،۶۰حالت ابهام اثر و۱۰گام resume بازیابی؛ فاقد setter/Apply/backup خصوصی واقعی. تشخیص Allow روی Windows موفق و۱۰۶mismatch بدون خطای خواندن ثبت شد.
