@@ -26,16 +26,29 @@ def receipt(r):
 def fixture_passed(r):
  receipt(r);expected={'fixture_timeout':'time_limit','fixture_network':'network_limit','fixture_disk':'disk_limit'}
  return r['mode']in expected and r['status']==expected[r['mode']] and r['child_resumed'] and r['max_active_processes']>=2 and r['job_drained'] and r['termination_requested']
-def blank(source,run):return dict(schema='bnet-retail-supervision-gate-1',source_commit=source,run_id=run,status='not_started',error_kind=None,fixtures={},observation=None)
+def blank_build():return dict(stage='not_started',vswhere_exit_code=None,installation_found=False,devcmd_found=False,compiler_exit_code=None,compiler_error_codes=[],source_error_lines=[])
+def validate_build(b):
+ if type(b)is not dict or set(b)!=set(blank_build()) or b['stage']not in {'not_started','vswhere_query','vswhere_refused','devcmd_missing','compile','compiled'}:raise ValueError('build_schema')
+ for k in ('vswhere_exit_code','compiler_exit_code'):
+  if b[k]is not None and(type(b[k])is not int or not -2**31<=b[k]<2**32):raise ValueError('build_exit')
+ for k in ('installation_found','devcmd_found'):
+  if type(b[k])is not bool:raise ValueError('build_bool')
+ if type(b['compiler_error_codes'])is not list or len(b['compiler_error_codes'])>8 or any(type(x)is not str or not re.fullmatch(r'(?:C|D)[0-9]{4}|LNK[0-9]{4}',x)for x in b['compiler_error_codes']):raise ValueError('build_codes')
+ if type(b['source_error_lines'])is not list or len(b['source_error_lines'])>8 or any(type(x)is not int or not 1<=x<=10000 for x in b['source_error_lines']):raise ValueError('build_lines')
+ if b['stage']=='compiled' and not(b['installation_found'] and b['devcmd_found'] and b['compiler_exit_code']==0):raise ValueError('compiled_evidence')
+ return b
+def blank(source,run):return dict(build=blank_build(),schema='bnet-retail-supervision-gate-2',source_commit=source,run_id=run,status='not_started',error_kind=None,fixtures={},observation=None)
 def validate(r):
- if type(r)is not dict or set(r)!=set(blank('a'*40,'1')) or r['schema']!='bnet-retail-supervision-gate-1' or r['status']not in {'not_started','refused','completed'} or r['error_kind']not in {None,'build_failed','fixture_failed','native_failed','validation_failed','other'}:raise ValueError('gate_schema')
+ if type(r)is not dict or set(r)!=set(blank('a'*40,'1')) or r['schema']!='bnet-retail-supervision-gate-2' or r['status']not in {'not_started','refused','completed'} or r['error_kind']not in {None,'build_failed','fixture_failed','native_failed','validation_failed','other'}:raise ValueError('gate_schema')
  identity(r)
+ validate_build(r['build'])
  if type(r['fixtures'])is not dict or not set(r['fixtures'])<=MODES-{'observe'}:raise ValueError('fixtures')
  for k,v in r['fixtures'].items():
   receipt(v)
   if v['mode']!=k or any(v[x]!=r[x]for x in ('source_commit','run_id')):raise ValueError('fixture_identity')
  o=r['observation']
  if o is not None:
+  if r['build']['stage']!='compiled':raise ValueError('build_prerequisite')
   receipt(o)
   if o['mode']!='observe' or any(o[x]!=r[x]for x in ('source_commit','run_id')) or set(r['fixtures'])!=MODES-{'observe'} or not all(fixture_passed(v)for v in r['fixtures'].values()):raise ValueError('gate_prerequisite')
  if r['status']=='completed' and(o is None or o['status']!='worker_completed' or not o['job_drained'] or r['error_kind']is not None):raise ValueError('gate_complete')

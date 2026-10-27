@@ -11,10 +11,10 @@ from report import blank,validate,ERRORS
 PIN='f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6'
 BRANCH='refs/heads/research/prelogin-telemetry-wow-data-provenance'
 def authorized(e,platform):
- return platform=='win32' and all(e.get(k)==v for k,v in dict(GITHUB_ACTIONS='true',RUNNER_OS='Windows',RUNNER_ENVIRONMENT='github-hosted',GITHUB_RUN_ATTEMPT='1',GITHUB_EVENT_NAME='push',GITHUB_REF=BRANCH,RETAIL_PREPARE='approved-retail-prepare-c6').items())
+ return platform=='win32' and all(e.get(k)==v for k,v in dict(GITHUB_ACTIONS='true',RUNNER_OS='Windows',RUNNER_ENVIRONMENT='github-hosted',GITHUB_RUN_ATTEMPT='1',GITHUB_EVENT_NAME='push',GITHUB_REF=BRANCH,RETAIL_PREPARE='approved-retail-prepare-c7').items())
 def main():
  if not authorized(os.environ,sys.platform):raise SystemExit('fresh_hosted_once_required')
- if os.environ.get('RETAIL_SUPERVISED')!='job-c6':raise SystemExit('independent_job_required')
+ if os.environ.get('RETAIL_SUPERVISED')!='job-c7':raise SystemExit('independent_job_required')
  r=blank(os.environ['GITHUB_SHA'],os.environ['GITHUB_RUN_ID']);validate(r);out=Path('output');out.mkdir(exist_ok=True)
  import observe_agent as lab
  original_fetch=lab.fetch_setup;original_observe=lab.observe;old_approval=os.environ.get('AGENT_INTERFACE_ONCE')

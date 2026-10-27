@@ -1,4 +1,4 @@
-# Logged-out Retail non-finalizing preparation under independent supervision — c6
+# Logged-out Retail non-finalizing preparation under independent supervision — c7
 
 Scope remains anonymous local handshake, GET /game, POST /install and one
 POST /install/wow with finalized=false + owned destination + enUS. No /update,
@@ -25,7 +25,7 @@ is possible. Counter reset/read failure stops the Job. The guard's own
 crash/handle closure is covered by KILL_ON_JOB_CLOSE; not power failure or an
 unverified process that escaped this Job. An external service started through
 a broker is not automatically proven to be in the tree. No claim of universal
-containment. Full-game transfer is not requested in c6.
+containment. Full-game transfer is not requested in c7.
 
 After lexical returned-path check, metadata-only lstat walks ancestors from
 root and refuses reparse/non-directory/error/outside paths. Missing tail is
@@ -40,4 +40,10 @@ paths, UI, raw logs/responses, binaries and UUIDs are not published.
 
 EULA=true still has unverified semantics and is NOT accepted by the tool.
 Zero form errors/finalized=false do not prove successful downloading or an
-absence of network side effects. No content/payload trace in c6.
+absence of network side effects. No content/payload trace in c7.
+
+C6 failed at build_failed, before all native fixtures and before observation.
+C7 invokes an explicit batch file using call VsDevCmd and reports only bounded
+build stages, numeric exit codes and standard compiler diagnostic codes/line
+numbers. Raw build logs remain local and are not uploaded. This is a revised
+build path, not evidence that c6's original failure cause was proven.

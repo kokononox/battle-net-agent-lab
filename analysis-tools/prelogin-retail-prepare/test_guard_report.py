@@ -26,7 +26,7 @@ class Receipts(unittest.TestCase):
   r=rec();r['network_delta_bytes']=True;self.assertRaises(ValueError,g.receipt,r)
  def test_gate_blank(self):g.validate(g.blank('a'*40,'1'))
  def test_gate_complete(self):
-  r=g.blank('a'*40,'1');r.update(status='completed',fixtures={m:rec(m)for m in g.MODES-{'observe'}},observation=rec('observe'));g.validate(r)
+  r=g.blank('a'*40,'1');r['build'].update(stage='compiled',installation_found=True,devcmd_found=True,compiler_exit_code=0);r.update(status='completed',fixtures={m:rec(m)for m in g.MODES-{'observe'}},observation=rec('observe'));g.validate(r)
  def test_gate_before_fixtures_refused(self):
   r=g.blank('a'*40,'1');r['observation']=rec('observe');self.assertRaises(ValueError,g.validate,r)
  def test_source_bound(self):
