@@ -13,6 +13,23 @@
     "ready_for_apply": false,
     "no_leak_certified": false
   },
+  "local_policy_backend": {
+    "passed": true,
+    "assertions": 95,
+    "PS_source_files_parsed": 7,
+    "private_native_setter_sites": 1,
+    "partial_effect_cases": 15,
+    "two_rule_durable_prefix_cuts": 14,
+    "full_coordinator_with_local_backend": true,
+    "actual_native_reader_with_CIM_cmdlet_fixtures": true,
+    "real_Linux_journal_IO": true,
+    "reopen_recovery": true,
+    "native_Windows_cmdlets_executed": false,
+    "SSTP_transport_writer_implemented": false,
+    "live_entrypoint_published": false,
+    "user_test_requested": false,
+    "ready_for_apply": false
+  },
   "regressions": [
     {
       "suite": "runtime",
@@ -23,6 +40,7 @@
       "assertions": 172
     }
   ],
+  "private_native_local_setter_implemented": true,
   "native_firewall_setter_bound": false,
   "Windows_user_test_requested": false
 }
