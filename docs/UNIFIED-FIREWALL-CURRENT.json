@@ -116,9 +116,12 @@
     "program_review_CSharp_compiled_Linux": true,
     "program_review_PS_files_parsed": 2,
     "program_review_Windows_file_API_executed": false,
-    "program_review_WinPS51_executed": false,
+    "program_review_WinPS51_executed": true,
     "program_review_real_user_selection_executed": false,
-    "program_review_program_config_saved": false
+    "program_review_program_config_saved": false,
+    "program_review_Windows_runner_bootstrap_and_CSharp_load_passed": true,
+    "program_review_Windows_empty_selection_cancellation_verified": true,
+    "program_review_Windows_real_EXE_observation_passed": false
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -165,16 +168,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "user runs new normal-user local program observation for existing installer EXE without executing it; inspect sanitized result before persistence/review integration; next future stage must reobserve fresh files for local program-and-destination record and compose baseline/transport with explicit consent; do not infer trusted identity or Apply from this observation",
-  "user_action_now": "extract new separate local folder; normal double-click Run-Review.cmd (not admin); enter actual existing installer EXE full path, optional explicitly known helper paths, Enter finishes; preserve network/SSTP/journal; return only new UFW-PROGRAM-REVIEW-01 JSON, never path/hash/file ID/EXE/screenshot; no preparation/reopen rerun",
+  "next_step": "clarify whether user has an existing installer EXE on the same test PC; if yes run current package and enter its actual full local path before blank Enter finishes; if absent do not substitute unrelated/fake EXE, ask user before obtaining installer; no new package or firewall changes needed",
+  "user_action_now": "answer whether actual installer EXE exists on same test PC; full path stays local, not in chat; current receipt is cancellation, not file API failure or observation success",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "implemented C# native read-only local EXE observer, parent handles pinned root-to-leaf before descent, reparse/network/hardlink rejection, final path/volume/file ID/metadata and two same-handle SHA256 checks, limited PE x86/x64 header inspection; normal-user local multi-selection review with sanitized report; 147 Linux/model assertions and CSharp compilation passed; no selected program execution, trust check, program config save, journal or firewall access",
-  "previous_sync_commit": "8fb09e640443350563e5eddc1fb1ffd870e9b8f6",
+  "latest_progress": "actual Windows PS5.1 x64 program review runner payload check and CSharp load reached selection; returned successful cancellation with zero selected/observed EXEs and no review display; NOT a pass of native file identity API or real program observation",
+  "previous_sync_commit": "ff4d5b14c368c654538745fb3e2c801557839f37",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -352,6 +355,12 @@
     "program_config_saved": false,
     "Windows_executed": false,
     "package_sha256": "b45d8506d6bd6b3d6e8dfbc30d92a3161eae023f252a280919f3524b35736aa2",
-    "ready_for_apply": false
+    "ready_for_apply": false,
+    "Windows_runner_executed": true,
+    "Windows_runner_result": "cancelled_no_selection",
+    "Windows_CSharp_load_reached": true,
+    "Windows_file_API_executed": false,
+    "real_program_selected_count": 0,
+    "Windows_executed_field_scope": "native file observation remains unexecuted; runner/CSharp load only has executed"
   }
 }

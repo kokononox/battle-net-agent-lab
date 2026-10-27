@@ -278,3 +278,10 @@ prepare/reopen plumbing فعلاً پاس شده و نباید دوباره از
 اقدام تازهٔ کاربر: ZIP در پوشهٔ جدا، Run-Review.cmd با دوبارکلیک معمولی (admin لازم نیست)، فقط مسیر واقعی EXE نصاب موجود و در صورت نیاز helper مشخص؛ Enter پایان/لغو. خود installer/update هم‌زمان اجرا نشود. فقط JSON تازه حتی در شکست ارسال شود، نه مسیر/hash/fileID/فایل EXE/عکس یا transcript خصوصی. اگر فایل نصاب موجود نیست Enter/cancel؛ فایل ساختگی/نامربوط انتخاب نشود. شبکه/SSTP و ژورنال قبلی بدون تغییر؛ storage/preparation/reopen موفق تکرار نشوند.
 
 نتیجهٔ موفق این مرحله فقط observation/review همان اجراست؛ raw هویت در حافظه/console می‌ماند و persist نمی‌شود؛ در مرحلهٔ آینده انتخاب و revalidation تازه لازم خواهد بود. recorder، destination approval، native policy application/recovery، SSTP bootstrap/binding و mode-switch همچنان ساخته/qualified نشده‌اند. profile برنامه‌محور و یک active حفظ می‌شود؛ ready_for_apply/no_leak=false.
+
+
+## نتیجهٔ واقعی PROGRAM-REVIEW-01 — لغو بدون انتخاب، نه موفقیت مشاهدهٔ EXE
+
+[receipt](../analysis/unifiedfw-session-2026-10-27/program-review-v01/evidence/Windows-program-review-01-cancelled-no-selection.json): Windows PS5.1.26100.6899 x64، payload_verified=true و code=ufw_program_cancelled_no_selection. selected_count=observed_count=0، review_displayed=false، results خالی. completed=true به معنی پایان صحیح مسیر لغو است؛ نه بررسی فایل واقعی. runner از load C# و dot-source به prompt رسیده است، اما Observe/Windows file API فراخوانی نشده‌اند. هیچ selected EXE اجرا، config ذخیره، trust check یا firewall/journal/VPN/DNS change درخواست نشده است.
+
+باید روشن شود نصاب EXE روی همان سیستم موجود است یا نه؛ در صورت وجود، همین بسته با مسیر واقعی محلی و Enter بعدی برای پایان انتخاب کافی است. مسیر/hash/EXE در چت ارسال نشود. در صورت نبود، فایل فرضی/نامربوط برای pass انتخاب نشود و دانلود/اجرای installer بدون درخواست کاربر انجام نشود. بسته یا تست عمومی تازه لازم نیست؛ این مرحله هنوز native identity observation موفق ندارد.
