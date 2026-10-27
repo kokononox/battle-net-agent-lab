@@ -1,0 +1,77 @@
+{
+  "schema": "bnet-bootstrap-control-1",
+  "source_commit": "18d4ca655c1e9897d5f4fb6306ce9a90f93e24d8",
+  "run_id": "40433984524",
+  "bootstrap_pin_match": true,
+  "target_launched": true,
+  "error_kind": null,
+  "readiness": {
+    "schema": "bnet-bootstrap-readiness-1",
+    "source_commit": "18d4ca655c1e9897d5f4fb6306ce9a90f93e24d8",
+    "run_id": "40433984524",
+    "status": "agent_process_observed",
+    "language_status": "continued",
+    "sample_count": 30,
+    "gui_snapshot_count": 2,
+    "observed_names": [
+      "agent.exe",
+      "battle.net-setup.exe"
+    ],
+    "language_flags": {
+      "helper_started": true,
+      "selection_attempted": false,
+      "selection_confirmed": true,
+      "continue_attempted": true,
+      "continue_returned": true,
+      "outcome_uncertain": false
+    },
+    "bounded_wait_seconds": 150,
+    "no_target_only_polling": true,
+    "install_action_requested": false,
+    "login_performed": false,
+    "raw_values_exported": false
+  },
+  "desktop_observations": [
+    {
+      "window_station_visible": true,
+      "input_desktop_accessible": true,
+      "same_session_processes": 1,
+      "different_session_processes": 0,
+      "unknown_session_processes": 0,
+      "owned_windows": 3,
+      "visible_owned_windows": 1,
+      "enumeration_truncated": false,
+      "probe_errors": 0
+    },
+    {
+      "window_station_visible": true,
+      "input_desktop_accessible": true,
+      "same_session_processes": 2,
+      "different_session_processes": 0,
+      "unknown_session_processes": 0,
+      "owned_windows": 6,
+      "visible_owned_windows": 1,
+      "enumeration_truncated": false,
+      "probe_errors": 0
+    }
+  ],
+  "root_samples": {
+    "running": 31,
+    "exited_zero": 0,
+    "exited_nonzero": 0,
+    "unknown": 0
+  },
+  "root_state_before_cleanup": "running",
+  "limits": {
+    "frida_imported": false,
+    "injection_requested": false,
+    "account_login_requested": false,
+    "install_action_requested": false,
+    "game_download_requested": false,
+    "remote_access_enabled": false,
+    "raw_values_exported": false,
+    "network_payload_observed": false,
+    "observer_causality_proven": false,
+    "same_host_as_a12d": false
+  }
+}
