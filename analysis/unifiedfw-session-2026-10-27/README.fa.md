@@ -24,3 +24,5 @@
 - `private-inventory-v01/`: ثبت محلیِ خصوصی دو store و هفت دستهٔ فیلتر با رضایت ذخیره؛۱۷۲assertion/۱۹callback و۱۶۱۷regression؛ Windows جریان ذخیرهٔ خصوصی موفق شد؛ فاقد setter/Apply/restore. فقط diagnostic عمومی برگردد، نه snapshot خصوصی.
 
 - `integrated-session-v01/`: یک coordinator با bridge رصدگر موجود و journal فایل واقعی؛۲۷سناریو/۱۲۳assertion داخلی. backend بومیِ محدودِ Enabled/restore محلی و reader کامل اضافه و به همان coordinator در fixture متصل شد؛ اثر آزمون حافظه‌ای است، حمل disabled/materialize/enable/remove اکنون در همان دفتر پیاده شد؛ observer/review زنده، UI/recovery نهایی و performance هنوز qualify نشده‌اند؛ ZIP یا آزمون دستی تازه ندارد. inventory خصوصی Windows قبلی موفق شد و تکرار نشود.
+
+- ادامهٔ داخلی `integrated-session-v01`: adapter بازبینی زندهٔ SSTP/EXE و lease موقت، global lock/scan و reopen با parser قبلی اضافه شدند؛ restore به VPN وابسته نیست. اثر Windows/UI نهایی و quiescence/performance هنوز تأیید نشده‌اند؛ ZIP جدید ندارد. جزئیات در `LIVE-REVIEW-REGISTRY.fa.md` و آمار نهایی در QA-SUMMARY است.
