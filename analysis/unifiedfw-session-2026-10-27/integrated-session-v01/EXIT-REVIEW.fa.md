@@ -39,3 +39,7 @@ factory پنجرهٔ بومی، arm بدون این مبنای v02 را برای
 suite جدید collector واقعی و journal فایل واقعی، audit baseline پایدار، guardهای قبلی و backend reopenشده را در fixture اجرا می‌کند. cancel، audit drift/type/pending، v01 بدون baseline، تغییر prompt، انقضا/ساعت، drift بعد از اولین inverse و مسیر recovery-only با audit مرتبط/نامرتبط پوشش دارند. نتیجه و شمارش معتبر در `evidence/exit-review-tests.json` و `evidence/QA-SUMMARY.json` است. UI/effects Windows واقعی اجرا نشده‌اند؛ providerها و guard موفق helper/service فرضی و صریح‌اند.
 
 پوشش بومیِ معتبر سرویس/IPC یا helper خارج از زنجیره در این گام حل نشده است؛ callback تهی یا true فرضی جای آن را نمی‌گیرد. دامنهٔ native restore، عملکرد reader/lease و رابط نهایی باید پیش از یک اعتبارسنجی هدفمند Windows روشن و تکمیل شوند. `ready_for_apply=false`؛ هیچ ZIP یا diagnostic دستی تازه از کاربر خواسته نمی‌شود.
+
+## ادامه: تطبیق محدود سرویس و PID
+
+[تطبیق سرویس‌ها](SERVICE-QUIESCENCE.fa.md) اکنون به‌صورت factory داخلیِ قابل‌ترکیب با همان بازیابی و رضایت خروج پیاده شده است. این مشاهده فقط یک شرط لازم است؛ پوشش مستقل helper/service/IPC همچنان اجباری و در production حل‌نشده است. entrypoint بومی یا ready-for-Apply از آن نتیجه نمی‌شود.

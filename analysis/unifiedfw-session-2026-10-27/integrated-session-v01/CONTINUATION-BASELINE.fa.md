@@ -28,3 +28,7 @@ RC 0.9.10 دورریختنی نیست: UI، ویرایش سیاست و تجرب�
 4. سنجش و اصلاح هزینهٔ reader/lease برای تعداد قواعد واقعی، بدون تضعیف guard؛ سپس یک اعتبارسنجی هدفمند Windows برای جریان واحد.
 
 نسخهٔ اول فقط SSTP ازقبل‌وصل‌شده است. reconnect/cold-start/reboot و نصب کامل Battle.net هنوز تأیید نشده‌اند. تا تکمیل موارد بالا `ready_for_apply=false` است؛ grant برنامه، ZIP عمومی Apply یا درخواست diagnostic دستی تازه نداریم. موفقیت‌های storage/prepare/reopen/candidate/inventory ویندوز محفوظ‌اند، اما جای qualification این اتصال اجرایی را نمی‌گیرند.
+
+## ادامهٔ سرویس‌ها
+
+تطبیق دو دور سرویس/PID و factory اتصال آن به بازیابی در [SERVICE-QUIESCENCE.fa.md](SERVICE-QUIESCENCE.fa.md) آمده است. factory پیشین خودکار جایگزین نشده؛ انتساب کامل service/IPC، عملکرد و qualification Windows همچنان مانع نسخهٔ اجرایی‌اند. callback مستقل با موفقیت این مشاهده یا تأیید کاربر جایگزین نمی‌شود.
