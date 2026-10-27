@@ -1,4 +1,4 @@
-# Logged-out WoW Retail preparation (c1)
+# Logged-out WoW Retail preparation (c2)
 
 Purpose: query the fresh, owned Battle.net Agent's Retail (`wow`, not Classic)
 installation preparation form without logging into a Battle.net account.

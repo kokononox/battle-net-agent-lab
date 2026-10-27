@@ -1,5 +1,8 @@
 """One Retail preparation request, no finalization/login or game-content transfer."""
 import http.client,json,re,urllib.request,hashlib
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[2]/'agent-interface-lab'))
 import probe
 PRODUCT='wow'
 FIELDS={'authentication','game_dir','min_spec','language','eula','finalized','shortcut','tome_path'}
