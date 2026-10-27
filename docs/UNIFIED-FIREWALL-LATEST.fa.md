@@ -97,3 +97,14 @@ root جدید CommonApplicationData/UnifiedFW-InstallerSessions-01 از ژورن
 موفقیت فقط preparation همین اجراست؛ بازکردن همان رکورد در process مستقل، reboot، native recovery، rule/SSTP binding و Apply هنوز تست نشده‌اند. baseline Block باید به عنوان Block نگه داشته شود، نه تبدیل بی‌اجازه به Allow یا ادعای اینترنت عادی. علت Block قبلی همچنان مجهول است. آزمون موفق را تکرار نکنید، journal را حذف/بازسازی نکنید و شبکه/SSTP را همان وضعیت نگه دارید.
 
 گام بعد محدود: ساخت و آزمون validator مستقل read-only برای بازخوانی نشست جدید و مقایسه با profile تازه؛ ACL root/session/record/lock، chain/checkpoint/receipt و baseline بررسی شود. اگر چند session باشد انتخاب خودکار آخرین ممنوع؛ بدون فایل خصوصی در چت، بدون write/migration/Apply/Restore یا اعطای authority. این validator هنوز تحویل/اجرا نشده و کاربر فعلاً اقدام ندارد.
+
+
+## گام تازه — بازخوان مستقل read-only آمادهٔ اجرای Windows
+
+[بسته و source بازخوان](../analysis/unifiedfw-session-2026-10-27/reopen-session-v01/package/UFW-REOPEN-SESSION-01/) فقط root مستقل جدید و **تک‌نشست موجود** را باز می‌کند؛ root/lock/record گم‌شده را نمی‌سازد، چند نشست را خودکار انتخاب نمی‌کند و journal را repair/migrate نمی‌کند. operation.lock فقط Open/Read/FileShare.None؛ فقط یک prepared checkpoint و lock خالی مجازند. ACL، schema، receipt، baseline، checksum/chain بررسی می‌شوند. دو preflight واقعی جدید (۸ getter در موفقیت) باید با baseline یکسان باشند؛ سپس رکورد و تک‌نشست دوباره بررسی می‌شوند. گزارش، ID/path/hash/nonce ندارد. تنها خروجی جدید، JSON تشخیصی کنار بسته است؛ محتوا/ساختار journal write نمی‌شود. metadata دسترسی فایل‌سیستم ممکن است تغییر کند.
+
+۳۸۸ assertion در ۲۴ سناریوی پایه، PS5.1 top-level JSON-array contract shim، child process تازهٔ Linux، کنترل byte/inventory، parse و boundary پاس شده؛ ۷۳ assertion ژورنال هم rerun شد. سه module قبلی بدون تغییر بایت هستند. این آمار اجرای Windows/ACL/getter واقعی بستهٔ جدید نیست؛ getterها و platform guards در مدل جایگزین شده‌اند. receipt قبلی actual Windows preparation و storage در evidence حفظ شده است.
+
+اقدام کاربر: در پوشهٔ محلی تازه، Run-Reopen.cmd با همان حساب و admin؛ شبکه/SSTP بدون تغییر؛ prompt/consent جدید ندارد؛ فقط JSON تازه حتی در شکست ارسال شود. preparation را تکرار نکند، فایل‌های خصوصی/عکس نفرستد، journal را حذف/اصلاح نکند و تنظیمات را برای pass تغییر ندهد. old Apply/Restore، reboot یا reconnect درخواست نشده است.
+
+موفقیت بازخوان فقط سازگاری رکورد prepared با مشاهدات همان اجراست؛ baseline Block همان Block می‌ماند. external anchor برای اثبات قطعی هویت نشست تاریخی وجود ندارد، خواندن اتمیک یا دفاع در برابر admin مخرب نیست؛ reboot/power-loss/native recovery/rule/SSTP/cold-start/reconnect/no-leak/fingerprint همچنان qualification ندارند. ready_for_apply=false؛ هدف نصاب محدود بتل‌نت باقی است، نه اضافه‌کردن اختیار Apply با خواندن یک receipt. اجرای Windows این بسته هنوز pending است.

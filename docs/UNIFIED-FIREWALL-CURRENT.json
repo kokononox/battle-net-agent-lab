@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "latest preparation receipt confirms all three local/effective outbound Block with firewall enabled and effective local rules True throughout 3 preflights; latest user-reported SSTP connected, not measured by this package",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "UFW-PREPARE-SESSION-01: real Windows PS5.1 x64 preparation-only entry passed; no native firewall writer or Apply authority",
+  "latest_offline_candidate": "UFW-REOPEN-SESSION-01 independent read-only reopening/validation of exactly one existing prepared journal and two fresh current profile preflights; actual Windows run pending",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -91,7 +91,15 @@
     "preparation_entry_Windows_read_review_consent_save_postread_passed": true,
     "preparation_entry_Windows_native_profile_calls": 12,
     "minimal_readonly_Windows_native_scope": "real nested reader invoked by preparation runner, three preflights each 4 getters; standalone entry not run; no write",
-    "installer_core_Windows_native_scope": "preflight and draft construction within preparation runner only; native recovery not executed"
+    "installer_core_Windows_native_scope": "preflight and draft construction within preparation runner only; native recovery not executed",
+    "reopen_entry_assertions": 388,
+    "reopen_entry_base_cases": 24,
+    "reopen_entry_fresh_Linux_child_process_tested": true,
+    "reopen_entry_journal_assertions_rerun": 73,
+    "reopen_entry_PS_files_parsed": 5,
+    "reopen_entry_Windows_executed": false,
+    "reopen_entry_Windows_getters_mocked_in_model": true,
+    "reopen_entry_Windows_ACL_executed_in_model": false
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -138,16 +146,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "implement and test separate-process read-only reopening/validation of the single new prepared session; validate root ACL, session/checkpoint chain, immutable receipt/baseline and compare fresh current profile observation; no mutation, automatic selection among multiple sessions, legacy access, Apply/Restore or firewall authority; prepare-only receipt is not native recovery or reboot qualification",
-  "user_action_now": "none; successful preparation runner needs no rerun, keep protected journal and present network/SSTP unchanged; do not delete/recreate session or run legacy Apply/Restore; next read-only validator not delivered yet",
+  "next_step": "user runs read-only reopen package once from new local folder, same account admin, existing journal retained; inspect sanitized receipt before later native recovery/rule/SSTP work; no Apply/Restore/new preparation/reboot/reconnect requested",
+  "user_action_now": "Run-Reopen.cmd as same-account administrator, keep network/SSTP unchanged; no consent prompt; return only new UFW-REOPEN-SESSION-01 diagnostic JSON, including failure; do not delete/alter protected journal or rerun preparation",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "user receipt confirms actual Windows PS5.1 x64 payload verification, real current-profile preflight, displayed review, accepted consent, native independent preparation journal saved/revalidated and postwrite fresh profile check; 3 preflights/12 getters, identical explicit Block baseline; no firewall/VPN/DNS/legacy change request or execution authority",
-  "previous_sync_commit": "3a5f48a43456b5f73e5054b65788b02aa72c1f89",
+  "latest_progress": "read-only reopen entry passed 388 assertions across 24 base cases plus PS51 JSON contract shim, genuinely fresh Linux child process and static boundaries; actual Linux bytes/inventory unchanged except explicit test-injected faults; Windows getters/ACL mocked or not executed; journal 73 rerun; manifest/5 PS/bootstrap/ZIP verified; prior actual Windows preparation success retained",
+  "previous_sync_commit": "9621280942d9d23f0e8bb4cb899659662eee4b62",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -227,5 +235,22 @@
     "real_record_created_and_revalidated": true,
     "baseline_outbound": "Block on all three local/effective profiles",
     "reopened_in_separate_process_verified": false
+  },
+  "readonly_reopen_entry": {
+    "scope": "existing prepared journal validation and current-profile comparison only",
+    "root": "fixed new installer sessions root, never legacy root",
+    "selection": "exactly one valid session; no latest or automatic selection among multiple",
+    "existing_lock": "Open + Read + FileShare.None; missing/nonempty/busy refused; no creation",
+    "checkpoint": "exactly 00000001.json + operation.lock, prepared only, no intent/restored/execution authority",
+    "journal_mutation_requested": false,
+    "fresh_profile_preflights_on_success": 2,
+    "native_getter_calls_on_success": 8,
+    "second_read_checks": "record bytes/length/head/canonical receipt and root single session revalidated",
+    "snapshot_is_atomic": false,
+    "protected_against_malicious_admin": false,
+    "prior_session_identity_anchored_externally": false,
+    "Windows_executed": false,
+    "package_sha256": "87c534625fbbdaeec817e92add11b574e656ce70e86b95feed66f5379cfa687c",
+    "ready_for_apply": false
   }
 }
