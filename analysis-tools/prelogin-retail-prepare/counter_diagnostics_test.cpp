@@ -1,4 +1,12 @@
+// Reproduce the Windows SDK max macro without needing Windows headers.
+#include <algorithm>
+#include <cstdint>
+#include <map>
+#include <ostream>
+#include <utility>
+#define max(a,b) windows_max_macro(a,b)
 #include "network_diagnostics.h"
+#undef max
 #include <cassert>
 #include <sstream>
 #include <string>

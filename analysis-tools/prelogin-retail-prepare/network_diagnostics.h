@@ -29,8 +29,8 @@ struct Diagnostics {
    for(const auto& item:now.interfaces)if(previous.interfaces.find(item.first)==previous.interfaces.end())changed=true;
    last_sample_gap_ms=now.tick>=previous.tick?now.tick-previous.tick:0;
    last_sample_delta_bytes=now.total>=previous.total?now.total-previous.total:0;
-   max_sample_gap_ms=std::max(max_sample_gap_ms,last_sample_gap_ms);
-   max_sample_delta_bytes=std::max(max_sample_delta_bytes,last_sample_delta_bytes);
+   max_sample_gap_ms=(std::max)(max_sample_gap_ms,last_sample_gap_ms);
+   max_sample_delta_bytes=(std::max)(max_sample_delta_bytes,last_sample_delta_bytes);
    if(changed)++interface_set_changes;
    if(reset)++counter_reset_intervals;
    if(boundary&&!phase_boundary_observed){
