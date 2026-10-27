@@ -327,3 +327,6 @@ Latest offline development: [exact SSTP transport draft and bootstrap gates](ana
 
 
 Latest development: [local-only SSTP draft review adapter](analysis/unifiedfw-session-2026-10-27/local-review-v01/README.fa.md), manual challenge plus post-prompt native revalidation. 64 new model assertions and prior regressions pass; Windows local review pending. No persistent approval authority or Apply qualification.
+
+
+Latest diagnostic correction: [local review v0.1.1 privacy-safe endpoint counters](analysis/unifiedfw-session-2026-10-27/local-review-v011/README.fa.md). First Windows v0.1 run stopped before prompt at unique stable endpoint gate; root cause unknown. Reporting-only fix, 68 review model assertions and prior regressions pass; no gate relaxation or Apply authority.

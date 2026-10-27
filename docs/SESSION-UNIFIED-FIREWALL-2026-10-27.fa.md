@@ -114,3 +114,8 @@ kernel تصمیم جدید زیر `reconnect-design-v01` اجراپذیر در �
 ## آخرین توسعه — بازبینی محلی draft مقصد
 
 [adapter و راهنما](../analysis/unifiedfw-session-2026-10-27/local-review-v01/README.fa.md): readerهای موجود به نمایش محلی، challenge دستی و revalidation پس از prompt وصل شدند. ۶۴ assertion جدید و رگرسیون‌های قبلی گذشتند. هیچ approval اجرایی/persistence یا Apply نداریم. اکنون یک اجرای بستهٔ جداگانه روی وضعیت فعلی Windows درخواست شده؛ raw console ارسال نشود، فقط JSON sanitized حتی در لغو/شکست. عبارت قدیمی «اقدام لازم نیست» مربوط به گام آفلاین قبلی است.
+
+
+## تازه‌ترین رسید — توقف بازبینی قبل از prompt
+
+[رسید و اصلاح v0.1.1](../analysis/unifiedfw-session-2026-10-27/local-review-v011/README.fa.md): v0.1 در review_unique_stable_endpoint_required متوقف شد؛ علت دقیق به دلیل نبود شمارنده معلوم نیست. نسخهٔ جدید فقط metrics بدون raw identity اضافه می‌کند؛ guardها تضعیف نشده‌اند. گام جاری یک اجرای بدون تغییر وضعیت و دریافت JSON جدید است؛ هیچ approval انسانی قبلی ثبت نشده است.
