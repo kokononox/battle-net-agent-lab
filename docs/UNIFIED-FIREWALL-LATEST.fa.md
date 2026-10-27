@@ -117,3 +117,10 @@ root جدید CommonApplicationData/UnifiedFW-InstallerSessions-01 از ژورن
 این اجرای مستقلِ واقعی مسیر بازخوان/اعتبارسنجی موجود و profile comparison را تأیید می‌کند؛ journal write/repair، legacy access، firewall/VPN/DNS changes requested=false و normal_mode_restored/original_restore_verified/reboot_qualified/ready_for_apply/no_leak_certified=false. VPN query نشده؛ SSTP connected هنوز از گفتهٔ قبلی کاربر است. هیچ anchor بیرونی برای اثبات هویت تاریخی ضد‌دستکاری، مشاهدهٔ اتمیک، packet capture یا آزمون reboot/native recovery وجود ندارد. موفقیت را به آن‌ها تعمیم ندهید.
 
 prepare/reopen plumbing فعلاً پاس شده و نباید دوباره از کاربر آزمون موفق یا ارسال فایل خصوصی خواست. کاربر فعلاً اقدام ندارد؛ journal و شبکه/SSTP همان وضعیت بماند. مرحلهٔ بعد باید به هدف اصلی برگردد: پلن حداقلی و قابل بازبینی برای ایزولاسیون نصاب بتل‌نت، با executable/destinations و SSTP transport/binding صریح، گیت‌های اجرا و recovery محدود. این receipt صرفاً baseline را فراهم می‌کند؛ native writer/Apply/Restore/rules/reconnect هنوز مجاز یا qualified نیستند. علت Block تاریخی همچنان مجهول است و Block هرگز بی‌اجازه به Allow تفسیر نشود.
+
+
+## تصمیم صریح دامنهٔ مجوز — همهٔ برنامه‌های سیستم
+
+کاربر گزینهٔ «همهٔ برنامه‌های سیستم بتوانند به مقصدهای وایت‌لیست وصل شوند» را انتخاب کرد، نه محدودکردن به executableهای نصاب. دلیل: مقصدها بعداً قابل حذف/اضافه باشند؛ مرورگر بتواند سایت مجاز را باز کند و برنامه‌های دیگر هم به مقصدهای مجاز دسترسی داشته باشند. هدف اولیهٔ بتل‌نت نباید به یک executable allowlist اجباری تبدیل شود. این تصمیم مربوط به دامنهٔ مجوز است، نه اجازهٔ Apply روی سیستم.
+
+[قرارداد کامل دامنه و محدودیت نام‌دامنه/IP](UNIFIED-FIREWALL-WHITELIST-SCOPE.fa.md) ثبت شد. دامنهٔ داده whole_system/Any-program باقی می‌ماند؛ executable-path gate برای نصاب ساخته نشود. مسیر داده فقط SSTP معتبر، حمل خود SSTP جدا و محدود؛ افزودن/حذف مقصد با نسل تازه و بدون Apply خودکار. این انتخاب مجوز تغییر فایروال نیست، سایت دقیق روی IP مشترک و fingerprint با IP whitelist تضمین نمی‌شوند؛ دامنهٔ اجرایی/DNS refresh و native gates هنوز باقی‌اند. کد یا تست جدید در این ثبت تصمیم ایجاد نشده است.

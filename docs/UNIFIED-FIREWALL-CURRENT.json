@@ -2,7 +2,7 @@
   "schema": "unifiedfw-session-continuity-20261027",
   "branch": "analysis/entry-loader-startup-2026-10-23",
   "base_commit": "f4ba758b1aa358e2a36c4fda7795072d7b700acc",
-  "goal": "small dedicated Battle.net installer isolation foundation; authorized SSTP only",
+  "goal": "small editable whole-system destination-whitelist isolation tool, initially for Battle.net installer; all programs including browsers can use allowed destinations over authorized SSTP only; not executable allowlisting or content/fingerprint filter",
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "latest actual reopen receipt: all three local/effective outbound Block, firewall enabled True, effective local rules True, stable against saved prepared baseline across two fresh preflights; SSTP prior user-reported Connected, not queried here",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
@@ -152,16 +152,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "move from completed preparation/reopen plumbing to a minimal Battle.net installer isolation policy plan and explicit execution gates; reuse verified baseline, do not repeat successful diagnostics; resolve executable/destinations and approved SSTP transport/binding prerequisites before any native Apply; baseline alone cannot authorize writes; native recovery/rules/SSTP/reconnect remain unqualified",
-  "user_action_now": "none; keep the existing protected session and network/SSTP state; no repeat preparation/reopen, deletion/repair, legacy Apply/Restore, reboot or reconnect requested",
+  "next_step": "reuse existing global policy and exact SSTP draft foundations, compose a non-executable whole-system plan with editable destination entries; no executable-path gate; separate application destinations from narrow SSTP bootstrap, preserve checked baseline and foreign-rule review gates; hostname resolution/shared-IP limitations must be explicit, not a claim of site-level filtering",
+  "user_action_now": "none; scope choice is recorded, not Apply/Restore permission; retain protected prepared journal and keep present network/SSTP unchanged",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "actual Windows receipt confirms one existing prepared checkpoint validated, existing read-only lock acquired/released, two successful current profile preflights (8 getter calls), both match saved explicit Block baseline; record bytes and single-session selection unchanged during observation; no journal mutation/repair or firewall/VPN/DNS/legacy access requested",
-  "previous_sync_commit": "b985b070dfe5185cb042e783753862fa4b624c67",
+  "latest_progress": "user explicitly selected whole-system all-program destination whitelist, with later destination additions/removals and browser/other-app usage; remove any assumption that minimal tool must restrict executable paths; prior preparation/reopen Windows passes retained",
+  "previous_sync_commit": "c1be87efd9d621c8703981426f90aa303a0056b5",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -263,5 +263,20 @@
     "Windows_record_bytes_unchanged": true,
     "reboot_qualified": false,
     "external_historical_identity_anchor": false
+  },
+  "whitelist_scope_decision": {
+    "user_selected": "all_programs_systemwide",
+    "executable_allowlist_required": false,
+    "examples_user_requested": [
+      "browser loading an allowed site",
+      "other applications using allowed destinations"
+    ],
+    "destinations_editable": true,
+    "application_transport_requirement": "freshly verified SSTP binding only, no physical-interface fallback",
+    "transport_control_plane": "separate narrowly scoped approved SSTP exception, not global TCP443",
+    "selection_authorizes_firewall_apply": false,
+    "domain_resolution_semantics_implemented": false,
+    "domain_to_IP_limit": "IP allowlisting cannot strictly distinguish different sites/services sharing one IP or inspect HTTPS content",
+    "recorded_from": "explicit user choice in current project conversation"
   }
 }
