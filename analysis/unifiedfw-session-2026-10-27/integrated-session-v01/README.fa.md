@@ -69,3 +69,7 @@
 ## بررسی مستقل پایان فرایندها، متصل به backend
 
 [بررسی فرایند و guard بازیابی](PROCESS-QUIESCENCE.fa.md) شاهد lifecycle را با دو census فعلی تطبیق می‌دهد؛ خطای دسترسی skip نمی‌شود. guard قبلی و guard مستقل helper/service باید جداگانه اجازه بدهند. recovery پیش از بستن دفتر، finish guard را نیز بررسی می‌کند. این اتصال در backend واقعی با اثرهای Windows فرضی آزموده شده است؛ پوشش معتبر helper/service، اجرای واقعی Windows و UI نهایی هنوز کامل نیستند.
+
+## رضایت خروج متصل به بازیابی، با مبنای اصلی audit
+
+[رضایت خروج و audit baseline](EXIT-REVIEW.fa.md) arm v02 را به دفتر audit اصلی bind می‌کند و وضعیت واقعی قبل از inverse را می‌خواند. رابط محلی رضایت دقیق و منقضی‌شونده می‌گیرد؛ callback آن مستقیماً به recovery-first و همان backend متصل است. cancel یا drift اجازهٔ reset/Allow یا closed موفق نمی‌دهد. helper/service safety و qualification واقعی Windows همچنان مانع‌اند؛ UI کنسولی پیاده‌شده معادل launcher نهایی نیست.

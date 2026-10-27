@@ -32,3 +32,7 @@
 پس این guard به backend متصل و منطق خوانندهٔ بومی پیاده شده است، اما native restore-ready و `ready_for_apply` هنوز false هستند. مشاهده‌های user-space اتمیک یا محافظ اجرای مجدد نیستند؛ این ابزار sandbox علیه مدیر، kernel یا IPC نیست. هدف بعدی اتصال ایمن helper/exit-consent به recovery/UI با دامنهٔ روشن، بررسی عملکرد و یک اعتبارسنجی هدفمند Windows است؛ نه درخواست ZIP یا diagnostic دستی تازه از کاربر.
 
 نتایج aggregate فقط در `evidence/process-quiescence-tests.json` و `evidence/QA-SUMMARY.json` منتشر می‌شوند؛ paths/PIDs/actor/boot خصوصی و snapshot کاربر منتشر نمی‌شوند.
+
+## ادامه: رضایت خروج و audit-clean واقعی
+
+[رضایت خروج](EXIT-REVIEW.fa.md) اکنون در callback بازیابی همان backend به این guard ترکیب شده است. سه mask اصلی از arm v02 می‌آیند و واقعاً بازخوانی می‌شوند؛ نبود pending کافی نیست. این اتصال پوشش helper/service یا qualification Windows را جعل نمی‌کند.
