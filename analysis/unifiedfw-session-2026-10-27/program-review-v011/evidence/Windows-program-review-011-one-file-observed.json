@@ -1,0 +1,51 @@
+{
+  "schema": "ufw-program-review-diagnostic-011",
+  "completed": true,
+  "stage": "completed",
+  "code": "ufw_program_observed_review_only_no_authority",
+  "powershell_version": "5.1.26100.6899",
+  "is_64bit": true,
+  "payload_verified": true,
+  "review": {
+    "schema": "ufw-program-local-review-result-011",
+    "completed": true,
+    "code": "ufw_program_observed_review_only_no_authority",
+    "selection_method": "windows_open_file_dialog",
+    "picker_completed": true,
+    "selection_cancelled": false,
+    "selected_count": 1,
+    "observed_count": 1,
+    "review_displayed": true,
+    "results": [
+      {
+        "program_number": 1,
+        "header_architecture": "x86",
+        "same_handle_double_hash_matched": true,
+        "native_identity_observed": true,
+        "authenticode_verified": false,
+        "program_trusted": false,
+        "execution_authorized": false
+      }
+    ],
+    "raw_identity_exported": false,
+    "program_config_saved": false,
+    "program_trusted": false,
+    "authenticode_verification_requested": false,
+    "program_execution_requested": false,
+    "firewall_change_requested": false,
+    "journal_write_requested": false,
+    "VPN_change_requested": false,
+    "DNS_query_generated": false,
+    "ready_for_apply": false,
+    "no_leak_certified": false
+  },
+  "program_execution_requested": false,
+  "program_config_saved": false,
+  "authenticode_verification_requested": false,
+  "firewall_change_requested": false,
+  "journal_access_requested": false,
+  "VPN_change_requested": false,
+  "DNS_query_generated": false,
+  "ready_for_apply": false,
+  "no_leak_certified": false
+}
