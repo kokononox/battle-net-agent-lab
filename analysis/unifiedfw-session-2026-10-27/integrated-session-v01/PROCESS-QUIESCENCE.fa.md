@@ -36,3 +36,7 @@
 ## ادامه: رضایت خروج و audit-clean واقعی
 
 [رضایت خروج](EXIT-REVIEW.fa.md) اکنون در callback بازیابی همان backend به این guard ترکیب شده است. سه mask اصلی از arm v02 می‌آیند و واقعاً بازخوانی می‌شوند؛ نبود pending کافی نیست. این اتصال پوشش helper/service یا qualification Windows را جعل نمی‌کند.
+
+## ادامه: تطبیق محدود سرویس و PID
+
+[تطبیق سرویس‌ها](SERVICE-QUIESCENCE.fa.md) اکنون به‌صورت factory داخلیِ قابل‌ترکیب با همان بازیابی و رضایت خروج پیاده شده است. این مشاهده فقط یک شرط لازم است؛ پوشش مستقل helper/service/IPC همچنان اجباری و در production حل‌نشده است. entrypoint بومی یا ready-for-Apply از آن نتیجه نمی‌شود.

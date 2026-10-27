@@ -73,3 +73,7 @@
 ## رضایت خروج متصل به بازیابی، با مبنای اصلی audit
 
 [رضایت خروج و audit baseline](EXIT-REVIEW.fa.md) arm v02 را به دفتر audit اصلی bind می‌کند و وضعیت واقعی قبل از inverse را می‌خواند. رابط محلی رضایت دقیق و منقضی‌شونده می‌گیرد؛ callback آن مستقیماً به recovery-first و همان backend متصل است. cancel یا drift اجازهٔ reset/Allow یا closed موفق نمی‌دهد. helper/service safety و qualification واقعی Windows همچنان مانع‌اند؛ UI کنسولی پیاده‌شده معادل launcher نهایی نیست.
+
+## ادامه: تطبیق محدود سرویس و PID
+
+[تطبیق سرویس‌ها](SERVICE-QUIESCENCE.fa.md) اکنون به‌صورت factory داخلیِ قابل‌ترکیب با همان بازیابی و رضایت خروج پیاده شده است. این مشاهده فقط یک شرط لازم است؛ پوشش مستقل helper/service/IPC همچنان اجباری و در production حل‌نشده است. entrypoint بومی یا ready-for-Apply از آن نتیجه نمی‌شود.
