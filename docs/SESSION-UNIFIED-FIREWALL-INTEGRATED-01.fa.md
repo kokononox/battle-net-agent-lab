@@ -37,3 +37,13 @@ coordinator موجود با همین callbackها در fixture از backup تا 
 `LiveReview.ps1` از observer SSTP و reader EXE قبلی، بدون تغییر آنها، استفاده می‌کند؛ رضایت محلی موقت به فایل، actor، RAS/flow/host و view کامل bind شده و در تغییر یا پایان مهلت باطل می‌شود. `SessionRegistry.ps1` global lock و scan/reopen را با همان journal/parser فراهم می‌کند؛ pending قبل از نشست جدید بررسی می‌شود. guard موجود actor/audit/quiescence/exit حفظ و restore/finish از SSTP و lease مستقل شده‌اند. [شرح و محدودیت‌ها](../analysis/unifiedfw-session-2026-10-27/integrated-session-v01/LIVE-REVIEW-REGISTRY.fa.md).
 
 آزمون داخلی assembled همین coordinator/backend با adapterهای تازه را برای موفقیت، cancel و disconnect اجرا می‌کند؛ اثرهای Windows همچنان fixture هستند. launcher و recovery safety/capture UI نهایی، quiescence واقعی و performance هنوز bind/qualify نشده‌اند. هیچ فایل خصوصی تازه، ZIP یا آزمون دستی از کاربر درخواست نشد؛ Apply و no-leak همچنان false هستند. شمارش نهایی از QA-SUMMARY خوانده شود.
+
+## ادامهٔ فعلی: رصد انتخاب ثابت و بازیابی audit-first
+
+`RuntimeSession.ps1` همان candidate محافظت‌شده را با head/actor/program digest به collector قبلی وصل می‌کند؛ picker دوباره باز نمی‌شود و guard قبلی جایگزین نمی‌شود. `RecoveryFirst.ps1` audit را با رضایت و readback پیش از policy بازمی‌گرداند و همان coordinator را در recovery-only نگه می‌دارد؛ VPN/EXE زنده برای این dispatcher لازم نیست. [شرح](../analysis/unifiedfw-session-2026-10-27/integrated-session-v01/RUNTIME-RECOVERY-BINDING.fa.md).
+
+شواهد خروج root/child محافظه‌کارانه پیگیری می‌شود، اما اختیار quiescence نمی‌سازد. reader قدیمی که access error را skip می‌کند، probe پایان امن نیست. بدون probe مستقل و شاهد خصوصی پایدار پس از crash، native restore/launcher باید unqualified بماند. این مانع و performance هنوز باقی‌اند؛ هیچ ZIP یا تست دستی/دادهٔ خصوصی تازه‌ای از کاربر خواسته نشده است. آمار نهایی از QA-SUMMARY خوانده شود.
+
+## مبنای ادامهٔ بازبینی‌شده
+
+تطبیق RC، hotfixها و رسیدهای واقعی Windows در [مبنای ادامه](../analysis/unifiedfw-session-2026-10-27/integrated-session-v01/CONTINUATION-BASELINE.fa.md) ثبت شد. نه شروع دوباره، نه بازگشت مستقیم RC و نه آزمون دستی خرد مبنای ادامه نیست. اتصال ثابت collector و recovery-first تکمیل شد؛ تغییر audit/actor پس از callback سیاست و true فرضی بدون terminal معتبر نیز موفقیت نمی‌گیرند. شاهد پایدار و probe بومی مستقل هنوز مانع انتشار زنده هستند.

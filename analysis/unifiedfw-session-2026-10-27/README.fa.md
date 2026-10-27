@@ -26,3 +26,5 @@
 - `integrated-session-v01/`: یک coordinator با bridge رصدگر موجود و journal فایل واقعی؛۲۷سناریو/۱۲۳assertion داخلی. backend بومیِ محدودِ Enabled/restore محلی و reader کامل اضافه و به همان coordinator در fixture متصل شد؛ اثر آزمون حافظه‌ای است، حمل disabled/materialize/enable/remove اکنون در همان دفتر پیاده شد؛ observer/review زنده، UI/recovery نهایی و performance هنوز qualify نشده‌اند؛ ZIP یا آزمون دستی تازه ندارد. inventory خصوصی Windows قبلی موفق شد و تکرار نشود.
 
 - ادامهٔ داخلی `integrated-session-v01`: adapter بازبینی زندهٔ SSTP/EXE و lease موقت، global lock/scan و reopen با parser قبلی اضافه شدند؛ restore به VPN وابسته نیست. اثر Windows/UI نهایی و quiescence/performance هنوز تأیید نشده‌اند؛ ZIP جدید ندارد. جزئیات در `LIVE-REVIEW-REGISTRY.fa.md` و آمار نهایی در QA-SUMMARY است.
+
+- ادامهٔ داخلی همان جریان: candidate ثابت به collector قبلی bind و dispatcher بازیابی audit-before-policy اضافه شد؛ شواهد exit به‌تنهایی quiescence نیست. probe بومی کامل و شاهد پایدار فرایند برای recovery پس از crash هنوز مانع‌اند؛ Apply/Windows launcher منتشر نشده است. شرح در `integrated-session-v01/RUNTIME-RECOVERY-BINDING.fa.md`.
