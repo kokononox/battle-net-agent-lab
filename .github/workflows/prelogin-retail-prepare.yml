@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c7'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c8'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c7'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c8'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -59,7 +59,7 @@ jobs:
         id: observation
         timeout-minutes: 6
         env:
-          RETAIL_PREPARE: approved-retail-prepare-c7
+          RETAIL_PREPARE: approved-retail-prepare-c8
         run: python analysis-tools/prelogin-retail-prepare/guard_driver.py
       - name: Validate only counts and fixed labels
         id: sanitize

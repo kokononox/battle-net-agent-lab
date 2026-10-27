@@ -1,4 +1,4 @@
-# Logged-out Retail non-finalizing preparation under independent supervision — c7
+# Logged-out Retail non-finalizing preparation under independent supervision — c8
 
 Scope remains anonymous local handshake, GET /game, POST /install and one
 POST /install/wow with finalized=false + owned destination + enUS. No /update,
@@ -47,3 +47,8 @@ C7 invokes an explicit batch file using call VsDevCmd and reports only bounded
 build stages, numeric exit codes and standard compiler diagnostic codes/line
 numbers. Raw build logs remain local and are not uploaded. This is a revised
 build path, not evidence that c6's original failure cause was proven.
+
+C7 compiler diagnostics identified missing declarations at the network-counter
+function (C2065/C3861 and cascading errors). C8 explicitly includes Winsock2,
+ws2tcpip and netioapi declarations before using MIB_IF_TABLE2/GetIfTable2.
+No fixture or Agent was executed in c7. No safety gate is removed in c8.
