@@ -310,3 +310,8 @@ network download estimate.
 - https://github.com/barncastle/Battle.Net-Installer — delegates to the Battle.net
   Agent; its README states a recent-login prerequisite for that third-party tool,
   not a universal Battle.net update requirement. It is not run here.
+
+
+### Latest SSTP diagnostic milestone
+
+[Read-only endpoint observer v0.3](analysis/unifiedfw-session-2026-10-27/endpoint-v03/README.fa.md) is ready for one unchanged-state Windows observation. Linux tests: 58 endpoint model/adapter assertions and 84 lifecycle assertions. No Windows endpoint receipt, Apply authorization, TLS/DNS bootstrap or no-leak qualification. See the current handoff above for context.

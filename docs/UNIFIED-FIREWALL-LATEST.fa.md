@@ -1,9 +1,7 @@
 # ادامهٔ فعلی Unified Firewall
 
-اول [تحویل جامع](SESSION-UNIFIED-FIREWALL-2026-10-27.fa.md)، [رسید واقعی مشاهده‌گر Windows](../analysis/unifiedfw-session-2026-10-27/observer-v02/windows-results/REVIEW.fa.md) و [وضعیت ماشین‌خوان](UNIFIED-FIREWALL-CURRENT.json) را بخوانید.
+اول [تحویل جامع](SESSION-UNIFIED-FIREWALL-2026-10-27.fa.md)، [مشاهده‌گر مقصد v0.3](../analysis/unifiedfw-session-2026-10-27/endpoint-v03/README.fa.md) و [وضعیت ماشین‌خوان](UNIFIED-FIREWALL-CURRENT.json) را بخوانید.
 
-هر دو اجرای واقعی v0.2 در حالت connected زنجیرهٔ profile/RAS/interface را تأیید کردند. این تأیید اتصال مجدد نیست؛ binding با اجرای قبلی مقایسه نشده و حالت قطع/connecting آزموده نشده است. endpoint، bootstrap DNS/TLS و executor/guardian همچنان بازند. HF1.2.2 نیز هنوز کاندید آفلاین است.
+v0.2 قبلاً در دو اجرای واقعی connected روی Windows زنجیرهٔ profile/RAS/interface را تأیید کرده است. اکنون v0.3 برای مشاهدهٔ cache محلی، process و TCP/443 آماده است؛ فقط ۵۸ assertion مدل/adapter جدید و ۸۴ lifecycle در Linux، نه تأیید زندهٔ endpoint. PID مشترک مالکیت سرویس نیست و Authenticode برای پرهیز از retrieval شبکه‌ای ضمنی فراخوانی نمی‌شود.
 
-اکنون آزمون مشاهده‌گر تکرار نشود؛ اقدام تازه‌ای از کاربر لازم نیست. گام بعد طراحی مشاهدهٔ endpoint/pin/service به‌صورت فقط‌خواندنی و با بیان ابهام PID مشترک، پیش از suspend/rebind است. Apply، تغییر VPN، بازکردن عمومی DNS/443 یا خاموش‌کردن TLS پیشنهاد نشده‌اند.
-
-شرط جدید کاربر: اکنون دانگل USB وای‌فای، بعداً Ethernet. طراحی نباید به کارت فیزیکی ثابت وابسته باشد؛ جابه‌جایی واقعی و DHCP/DNS/route زیر ایزولاسیون هنوز آزموده/حل نشده‌اند.
+گام بعد تنها اجرای بستهٔ جداگانهٔ v0.3 با VPN در وضعیت فعلی و دریافت JSON است. Apply/Restore/قطع و وصل درخواست نشود. bootstrap DNS/TLS، امضا/service-tag، reconnect، executor و guardian تأیید نشده‌اند. استقلال از کارت فیزیکی شرط طراحی است؛ تعویض واقعی Wi-Fi/Ethernet آزموده نشده. no-leak و عدم ارسال fingerprint تأیید نمی‌شوند.

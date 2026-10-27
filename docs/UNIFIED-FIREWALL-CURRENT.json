@@ -24,7 +24,8 @@
     "HF122_parsed_PS_files": 99,
     "HF122_new_model_checks": 33,
     "reconnect_decision_checks": 67,
-    "native_observer_model_checks": 84
+    "native_observer_model_checks": 84,
+    "endpoint_v03_model_assertions": 58
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -40,18 +41,23 @@
     "native_observer_Windows_disconnected_verified": false,
     "native_observer_Windows_connecting_verified": false,
     "cross_run_binding_comparison_tested": false,
-    "endpoint_verified": false
+    "endpoint_verified": false,
+    "endpoint_observer_implemented": true,
+    "endpoint_observer_Windows_tested": false,
+    "endpoint_observer_native_service_tag_verified": false,
+    "endpoint_observer_offline_signature_verification_implemented": false,
+    "endpoint_observer_guardian_integrated": false
   },
-  "next_step": "design read-only endpoint correlation/pin and service identity observation before any suspension/rebind executor; keep DNS/TLS/bootstrap and CurrentUser/SYSTEM gaps explicit",
-  "user_action_now": "none; do not repeat observer or change VPN/firewall settings",
+  "next_step": "one read-only endpoint v0.3 run with current VPN unchanged; review sanitized cache/process/TCP correlation and shared-host ambiguity; no Apply or rebind executor",
+  "user_action_now": "run separate endpoint observer v0.3 as administrator in same Windows account; keep existing VPN/firewall state; return sanitized JSON even if false",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "two actual Windows connected-state observer receipts passed profile/RAS/interface chain; no cross-run comparison, endpoint, bootstrap or enforcement qualification",
-  "previous_sync_commit": "8a7982081c58c2fa64b815d50bf72fe98c7717f8",
+  "latest_progress": "standalone read-only endpoint observer v0.3 implemented; 58 model/adapter assertions plus 84 unchanged lifecycle assertions pass; no Windows endpoint receipt yet",
+  "previous_sync_commit": "0047d56d9f6950fd7f43c1895c69b71336ba76c4",
   "underlay": {
     "current_carrier_user_reported": "USB Wi-Fi dongle",
     "carrier_independently_measured_in_receipt": false,
