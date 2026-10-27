@@ -2,11 +2,11 @@
   "schema": "unifiedfw-session-continuity-20261027",
   "branch": "analysis/entry-loader-startup-2026-10-23",
   "base_commit": "f4ba758b1aa358e2a36c4fda7795072d7b700acc",
-  "goal": "small editable whole-system destination-whitelist isolation tool, initially for Battle.net installer; all programs including browsers can use allowed destinations over authorized SSTP only; not executable allowlisting or content/fingerprint filter",
+  "goal": "one whole-system isolation engine with exactly one active application-bound browser/game/installer profile; only its explicitly specified program/destination/port grants over verified SSTP, all other applications blocked even to those destinations; initially complete Battle.net installer",
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "latest actual reopen receipt: all three local/effective outbound Block, firewall enabled True, effective local rules True, stable against saved prepared baseline across two fresh preflights; SSTP prior user-reported Connected, not queried here",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "UFW-REOPEN-SESSION-01 now passed actual Windows PS5.1 x64 read-only existing prepared journal reopening and current baseline comparison; no native firewall execution authority",
+  "latest_offline_candidate": "application-bound profile draft compiler v01; source/model only, no Windows runner, recorder or native executor",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -105,7 +105,13 @@
     "reopen_entry_Windows_existing_prepared_record_passed": true,
     "reopen_entry_Windows_profile_getter_calls": 8,
     "reopen_entry_Windows_record_bytes_unchanged": true,
-    "reopen_entry_Windows_lock_released": true
+    "reopen_entry_Windows_lock_released": true,
+    "app_profile_plan_test_methods": 25,
+    "app_profile_plan_randomized_offline_predicate_cases": 1000,
+    "app_profile_plan_Windows_executed": false,
+    "app_profile_plan_recorder_implemented": false,
+    "app_profile_plan_native_executor_implemented": false,
+    "app_profile_plan_transport_regression_assertions": 86
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -152,16 +158,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "reuse existing global policy and exact SSTP draft foundations, compose a non-executable whole-system plan with editable destination entries; no executable-path gate; separate application destinations from narrow SSTP bootstrap, preserve checked baseline and foreign-rule review gates; hostname resolution/shared-IP limitations must be explicit, not a claim of site-level filtering",
-  "user_action_now": "none; scope choice is recorded, not Apply/Restore permission; retain protected prepared journal and keep present network/SSTP unchanged",
+  "next_step": "implement local read/review of real executable identities and explicitly scoped program/destination proposals for installer profile without firewall apply; then compose protected baseline and unchanged exact transport draft through explicit consent/native validation gates; do not repeat storage/preparation/reopen fixtures or implement all-program grants",
+  "user_action_now": "none; no new Windows package/test, Apply/Restore, capture, VPN/reboot change or private-data upload requested; preserve existing protected prepared journal",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "user explicitly selected whole-system all-program destination whitelist, with later destination additions/removals and browser/other-app usage; remove any assumption that minimal tool must restrict executable paths; prior preparation/reopen Windows passes retained",
-  "previous_sync_commit": "c1be87efd9d621c8703981426f90aa303a0056b5",
+  "latest_progress": "implemented pure one-active-profile program/destination/port compiler with independent program-grant edges, no inactive profile union or child inheritance, canonical config/generation digest and strict shape validation; 25 test methods and 1000 offline predicate cases passed; existing exact SSTP transport 86 assertion regression passed unchanged; current app-bound decision supersedes all-program whitelist",
+  "previous_sync_commit": "19d80e7948298b41e28f0e26d4aec69126828bab",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -265,18 +271,56 @@
     "external_historical_identity_anchor": false
   },
   "whitelist_scope_decision": {
-    "user_selected": "all_programs_systemwide",
-    "executable_allowlist_required": false,
-    "examples_user_requested": [
-      "browser loading an allowed site",
-      "other applications using allowed destinations"
+    "status": "current",
+    "user_selected": "active_profile_programs_only",
+    "whole_system_restricted": true,
+    "all_programs_to_same_destinations_allowed": false,
+    "one_active_profile_at_a_time": true,
+    "kinds": [
+      "browser",
+      "game",
+      "installer"
     ],
-    "destinations_editable": true,
-    "application_transport_requirement": "freshly verified SSTP binding only, no physical-interface fallback",
-    "transport_control_plane": "separate narrowly scoped approved SSTP exception, not global TCP443",
-    "selection_authorizes_firewall_apply": false,
-    "domain_resolution_semantics_implemented": false,
-    "domain_to_IP_limit": "IP allowlisting cannot strictly distinguish different sites/services sharing one IP or inspect HTTPS content",
-    "recorded_from": "explicit user choice in current project conversation"
+    "first_focus": "installer",
+    "program_and_destination_grants_required": true,
+    "implicit_child_or_service_permission": false,
+    "data_transport": "freshly verified SSTP only",
+    "control_plane": "separate narrowly scoped exact SSTP transport, never general Windows service permission",
+    "capture_is_approval": false,
+    "choice_authorizes_Apply": false,
+    "source": "user explicitly corrected prior all-program choice: browser mode allows only browser; other applications blocked"
+  },
+  "whitelist_scope_decision_history": [
+    {
+      "user_selected": "all_programs_systemwide",
+      "executable_allowlist_required": false,
+      "examples_user_requested": [
+        "browser loading an allowed site",
+        "other applications using allowed destinations"
+      ],
+      "destinations_editable": true,
+      "application_transport_requirement": "freshly verified SSTP binding only, no physical-interface fallback",
+      "transport_control_plane": "separate narrowly scoped approved SSTP exception, not global TCP443",
+      "selection_authorizes_firewall_apply": false,
+      "domain_resolution_semantics_implemented": false,
+      "domain_to_IP_limit": "IP allowlisting cannot strictly distinguish different sites/services sharing one IP or inspect HTTPS content",
+      "recorded_from": "explicit user choice in current project conversation",
+      "status": "superseded_by_later_explicit_user_choice"
+    }
+  ],
+  "app_profile_plan": {
+    "source": "analysis/unifiedfw-session-2026-10-27/app-profile-plan-v01/source/app_profile_plan.py",
+    "scope": "whole-system default restriction with active-profile program+destination+port edges",
+    "active_profile_count": 1,
+    "inactive_profile_union": false,
+    "implicit_child_permission": false,
+    "raw_plan_private": true,
+    "digest_is_authority": false,
+    "templates_enabled": false,
+    "native_binding": "unresolved explicit token, never Any interface",
+    "program_identity_verified": false,
+    "capture_implemented": false,
+    "native_executor_implemented": false,
+    "ready_for_apply": false
   }
 }
