@@ -191,3 +191,12 @@ adapter جدید Windows storage در root مستقل InstallerSessions ساخت
 whole-array JSON clone در WinPS5.1 می‌تواند nested array بدهد. shim این قرارداد روی PS7 دقیقاً خطای v01 را بازتولید کرد و یک‌خط اصلاح row-wise clone در v011 کل fixture را عبور داد. سه module تولیدی و guard سه profile unchanged اند؛ ۳۶ fixture، ۷۳ journal و ۱۰ compatibility assertion گذشتند. **اجرای واقعی Windows نسخهٔ اصلاحی هنوز pending است.**
 
 کاربر فقط ZIP v011 در پوشهٔ جدا با admin همان حساب و بدون تغییر شبکه/SSTP اجرا کند؛ JSON جدید UFW-JOURNAL-STORAGE-011-*.json حتی failure برگردد. هیچ Apply/Restore/real session store، profile query یا legacy access درخواست نشده است.
+
+
+## تازه‌ترین نتیجهٔ واقعی — STORAGE-011 روی Windows کامل پاس شد
+
+[receipt واقعیِ بدون اطلاعات شخصی](../analysis/unifiedfw-session-2026-10-27/journal-storage-test-v011/evidence/Windows-storage-011-passed-result.json): completed=true در runner و fixture، Windows PS5.1 x64، payload verified، ACL root/session/record/lock، roundtrip، CreateNew/no-overwrite، stale head، exclusive lock، append chain، baseline-change و checksum/partial refusal همه true؛ recovery حافظه‌ای با ۱۱ checkpoint واقعی فایل و cleanup موفق است. اصلاح row-wise JSON clone در همین اجرای Windows تأیید شد.
+
+این فقط **qualification fixture ذخیره‌سازی همین اجرا** است، نه original Restore/Apply/WFP/reboot/SSTP/fingerprint/no-leak. consent انسانی واقعی، نوشتن نشست واقعی در root تولیدی و recovery بومی هنوز انجام نشده‌اند. profile query/legacy access/firewall/VPN/DNS changes همگی requested=false و ready_for_apply/no_leak_certified=false اند. علت Block تاریخی همچنان مجهول است.
+
+کاربر اقدام ندارد و این آزمون موفق تکرار نشود؛ شبکه/SSTP همان حالت بماند. مرحلهٔ بعد runner کنترل‌شدهٔ preparation-only با fresh real profile read و رضایت محدود ثبت ژورنال مستقل است، نه consent برای تغییر فایروال. وجود baseline صریح Block به معنی ایزولاسیون سالم یا اجازهٔ تبدیل به Allow نیست؛ تمام guardهای policy/SSTP/native recovery پابرجا می‌مانند.

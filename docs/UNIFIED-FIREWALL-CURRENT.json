@@ -75,7 +75,11 @@
     "journal_storage_011_fixture_assertions": 36,
     "journal_storage_011_journal_assertions_rerun": 73,
     "journal_storage_011_PS51_contract_assertions": 10,
-    "journal_storage_011_Windows_executed": false
+    "journal_storage_011_Windows_executed": true,
+    "journal_storage_011_Windows_full_fixture_passed": true,
+    "journal_storage_011_Windows_checkpoint_count": 11,
+    "journal_storage_011_Windows_cleanup_passed": true,
+    "journal_storage_011_PS51_array_fix_confirmed_by_user_receipt": true
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -122,16 +126,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "user runs only new UFW-JOURNAL-STORAGE-011 and returns sanitized JSON; do not treat old partial pass or shim as full Windows pass; no real preparation record, profile query or native firewall write requested",
-  "user_action_now": "extract v011 ZIP separately; same-account admin Run-Test.cmd; keep network/SSTP unchanged; return only new UFW-JOURNAL-STORAGE-011-*.json even failure; do not rerun v01 or change firewall to force pass",
+  "next_step": "build/test controlled preparation-only review/consent runner using fresh real profile preflight and independently qualified storage helpers; consent is only new journal recording, not firewall/normal-mode/Apply authority; keep full policy/SSTP/native recovery gates closed",
+  "user_action_now": "none; successful storage fixture needs no rerun; keep present SSTP/network unchanged; no Apply/Restore/reconnect or Allow change requested",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "v01 Windows native storage/ACL/roundtrip/lock checks passed, memory recovery failed profile coverage and cleanup succeeded. Whole-array JSON contract modeled on PS7 reproduced exact error; row-wise fixture clone fixes it under same shim. Only fixture line changed, production modules and exact 3-profile guard unchanged; v011 awaits Windows JSON",
-  "previous_sync_commit": "ecd8f7041f4f1926ce9f8d054f261cce8cb96302",
+  "latest_progress": "UFW-JOURNAL-STORAGE-011 passed full Windows PS5.1 x64 synthetic storage fixture: ACL root/session/record/lock, CreateNew, stale head, lock, chain, baseline-change/corruption/partial rejection, memory profile recovery with 11 real file checkpoints, cleanup; no live profile query, legacy access, real preparation record or firewall write",
+  "previous_sync_commit": "3e095940e5a9afead1d805312d1ec5622be3f15c",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
