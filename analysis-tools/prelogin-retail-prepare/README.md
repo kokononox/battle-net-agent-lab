@@ -1,4 +1,4 @@
-# Logged-out WoW Retail preparation (c2)
+# Logged-out WoW Retail preparation (c3)
 
 Purpose: query the fresh, owned Battle.net Agent's Retail (`wow`, not Classic)
 installation preparation form without logging into a Battle.net account.
@@ -35,3 +35,15 @@ logs, tokens, identifiers, private paths, UI data or binaries. Unknown form
 fields fail schema validation and their labels/values are not exported.
 
 Tests: python -m unittest discover -s analysis-tools/prelogin-retail-prepare -p 'test_*.py' -v
+
+## c3: structural diagnosis only
+
+Same two local requests; no new write/finalization endpoint. Schema v2 adds
+bounded structure (fixed allowlisted labels and type/count only), exact known
+language locale enums found beneath language, numeric required_space when safe,
+and EULA boolean/presence diagnostics. Locale recognition is not proof of a
+selectable language or a successful install. required_space is Agent-reported,
+not an independently verified final disk/download size. An EULA boolean is not
+consent and no legal document is fabricated. Unknown labels and string values
+are suppressed, including absolute paths and legal text/URLs. Depth/node/count
+limits refuse oversized structure. Maximum sanitized report is 65536 bytes.

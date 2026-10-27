@@ -3,18 +3,20 @@ import json,re,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2];sys.path.append(str(ROOT/'agent-interface-lab'))
 import probe
+import form_details
 from retail_protocol import FIELDS,CODES,BLOCKERS
 STATUSES={'not_started','discovery_failed','handshake_not_ready','request_failed','existing_products_refused','form_observed','form_schema_unknown','identity_changed','stopped'}
 ERRORS={None,'OSError','ValueError','RuntimeError','Stop','other'}
 def blank(source,run):
  h=probe.blank();h.update(source_commit=source,run_id=run,run_attempt='1')
- return dict(schema='bnet-retail-prepare-1',source_commit=source,run_id=run,status='not_started',error_kind=None,product='wow',test_profile=dict(region='eu',locale='enUS',platform='win',architecture='x86_64'),bootstrap_pin_match=None,metadata=None,handshake=h,identity_checks=0,temp_image_verifications=0,last_identity_state=None,identity_failure_state=None,local_requests=0,initial_summary_empty=False,initialization_attempted=False,initialization_http_status=None,initialization_response_bytes=0,last_http_status=None,form=dict(form_fields=[],unknown_fields=False,form_schema_valid=False,error_codes={k:None for k in ('agent',*CODES)},blockers=[]),limits=dict(finalization_requested=False,account_login_requested=False,country_fabricated=False,legal_terms_accepted=False,minimum_spec_bypassed=False,game_payload_download_requested=False,game_executed=False,user_install_accessed=False,token_exported=False,raw_response_exported=False,frida_requested=False,hardware_transmission_in_download_phase_proven=False,game_download_without_login_proven=False,initialization_may_trigger_network=True,child_network_hard_byte_cap=False,full_game_download_requested=False))
+ return dict(schema='bnet-retail-prepare-2',source_commit=source,run_id=run,status='not_started',error_kind=None,product='wow',test_profile=dict(region='eu',locale='enUS',platform='win',architecture='x86_64'),bootstrap_pin_match=None,metadata=None,form_details=form_details.blank(),handshake=h,identity_checks=0,temp_image_verifications=0,last_identity_state=None,identity_failure_state=None,local_requests=0,initial_summary_empty=False,initialization_attempted=False,initialization_http_status=None,initialization_response_bytes=0,last_http_status=None,form=dict(form_fields=[],unknown_fields=False,form_schema_valid=False,error_codes={k:None for k in ('agent',*CODES)},blockers=[]),limits=dict(finalization_requested=False,account_login_requested=False,country_fabricated=False,legal_terms_accepted=False,minimum_spec_bypassed=False,game_payload_download_requested=False,game_executed=False,user_install_accessed=False,token_exported=False,raw_response_exported=False,frida_requested=False,hardware_transmission_in_download_phase_proven=False,game_download_without_login_proven=False,initialization_may_trigger_network=True,child_network_hard_byte_cap=False,full_game_download_requested=False))
 
 def validate(r):
- if type(r) is not dict or set(r)!=set(blank('a'*40,'1')) or r['schema']!='bnet-retail-prepare-1':raise ValueError('fields')
+ if type(r) is not dict or set(r)!=set(blank('a'*40,'1')) or r['schema']!='bnet-retail-prepare-2':raise ValueError('fields')
  if type(r['source_commit']) is not str or re.fullmatch('[0-9a-f]{40}',r['source_commit']) is None or type(r['run_id']) is not str or re.fullmatch('[0-9]{1,30}',r['run_id']) is None:raise ValueError('identity')
  if r['status'] not in STATUSES or r['error_kind'] not in ERRORS or r['product']!='wow' or r['test_profile']!=blank('a'*40,'1')['test_profile']:raise ValueError('enum')
  if r['bootstrap_pin_match'] is not None and type(r['bootstrap_pin_match']) is not bool:raise ValueError('pin')
+ form_details.validate(r['form_details'])
  probe.validate(r['handshake'])
  if any(r['handshake'][k]!=r[k] for k in ('source_commit','run_id')):raise ValueError('handshake_identity')
  if r['handshake']['http_requests_attempted'] and r['bootstrap_pin_match'] is not True:raise ValueError('handshake_pin')
@@ -53,13 +55,14 @@ def validate(r):
  if 'eula' in f['form_fields'] and 'eula_review_pending' not in f['blockers']:raise ValueError('legal_guard')
  expected=blank('a'*40,'1')['limits']
  if type(r['limits']) is not dict or set(r['limits'])!=set(expected) or any(type(r['limits'][k]) is not bool or r['limits'][k] is not v for k,v in expected.items()):raise ValueError('limits')
+ if r['form_details']['status']=='observed' and (not r['initialization_attempted'] or r['initialization_http_status'] not in (200,201) or not r['initialization_response_bytes']):raise ValueError('details_evidence')
  if r['status'] in {'form_observed','form_schema_unknown'}:
   if not (r['initialization_attempted'] and r['initialization_http_status'] in (200,201) and r['initialization_response_bytes']>0 and r['handshake']['status']=='handshake_token_observed' and r['identity_failure_state'] is None and r['identity_checks']>0 and r['last_identity_state'] in {'verified','verified_temp_image'}):raise ValueError('result_evidence')
   if f['form_schema_valid']!=(r['status']=='form_observed'):raise ValueError('result_schema')
  return r
 
 def load(raw):
- if len(raw)>32768:raise ValueError('size')
+ if len(raw)>65536:raise ValueError('size')
  def unique(pairs):
   d={}
   for k,v in pairs:
