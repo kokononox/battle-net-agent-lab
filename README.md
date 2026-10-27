@@ -321,3 +321,6 @@ Latest diagnostic correction: [v0.3.1 lifecycle failure visibility](analysis/uni
 
 
 Latest Windows receipt: [v0.3.1 connected endpoint correlation passed](analysis/unifiedfw-session-2026-10-27/endpoint-v031/windows-results/CONNECTED-REVIEW.fa.md). One stable TCP443 candidate in an unshared service host, stable within-run identity; not approved pin/bootstrap/reconnection/enforcement qualification. No new user run requested.
+
+
+Latest offline development: [exact SSTP transport draft and bootstrap gates](analysis/unifiedfw-session-2026-10-27/exact-transport-plan-v01/README.fa.md). 86 model assertions passed; non-executable draft only, no endpoint approval authority, no firewall changes or Apply qualification.

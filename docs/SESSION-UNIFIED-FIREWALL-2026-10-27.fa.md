@@ -104,3 +104,8 @@ kernel تصمیم جدید زیر `reconnect-design-v01` اجراپذیر در �
 ## آخرین نتیجه — مشاهدهٔ endpoint روی Windows تکمیل شد
 
 [رسید و تحلیل](../analysis/unifiedfw-session-2026-10-27/endpoint-v031/windows-results/CONNECTED-REVIEW.fa.md). پس از Connected/False پروفایل فعلی، v0.3.1 یک هویت پایدار داخل اجرا و یک endpoint همبسته در host تک‌سرویس مشاهده کرد. کاربر فعلاً اقدام یا تکرار آزمون ندارد؛ گام بعد توسعهٔ آفلاین pin/طرح bootstrap است. این موفقیت را no-leak، service-tag، امضا، reconnect یا Apply تلقی نکنید. دستور قبلی برای اجرای v0.3.1 انجام شده و دیگر اقدام جاری نیست.
+
+
+## گام آفلاین بعد از مشاهدهٔ موفق — draft حمل دقیق
+
+[کد و مرزها](../analysis/unifiedfw-session-2026-10-27/exact-transport-plan-v01/README.fa.md) و [bootstrap gates](../analysis/unifiedfw-session-2026-10-27/exact-transport-plan-v01/BOOTSTRAP-GATES.fa.md). ۸۶ assertion مدل گذشت. این سازنده هیچ approval یا دستور اعمال نمی‌سازد؛ digest تنها fingerprint ورودی است و منبع اعتماد نیست. مرحلهٔ بعد adapter بازبینی محلی با native revalidation است. کاربر فعلاً اقدامی ندارد.

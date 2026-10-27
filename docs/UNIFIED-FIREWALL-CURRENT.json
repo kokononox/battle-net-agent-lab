@@ -26,7 +26,8 @@
     "reconnect_decision_checks": 67,
     "native_observer_model_checks": 84,
     "endpoint_v03_model_assertions": 58,
-    "endpoint_v031_model_assertions": 61
+    "endpoint_v031_model_assertions": 61,
+    "exact_transport_draft_model_assertions": 86
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -59,18 +60,22 @@
     "endpoint_v031_Windows_endpoint_reader_reached": true,
     "endpoint_Windows_verification_scope": "single connected-state within-run profile/RAS/interface and unshared host endpoint correlation; no service tag or approved pin",
     "endpoint_correlation_Windows_observed": true,
-    "within_run_binding_comparison_Windows_tested": true
+    "within_run_binding_comparison_Windows_tested": true,
+    "exact_transport_offline_draft_builder_implemented": true,
+    "endpoint_approval_authority_implemented": false,
+    "endpoint_review_native_adapter_implemented": false,
+    "bootstrap_gate_design_documented": true
   },
-  "next_step": "offline design of explicitly approved endpoint input and bootstrap/reconnect constraints; never promote DNS cache correlation to approved pin; no live Apply",
-  "user_action_now": "none; do not repeat observer or change VPN/firewall state",
+  "next_step": "implement local endpoint review adapter with fresh native profile/identity binding and protected approval design; keep DNS/TLS/underlay cold-bootstrap gates blocking execution",
+  "user_action_now": "none; no new Windows package, no observer repetition, no Apply or live reconnect test",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "v0.3.1 real Windows connected observation passed: stable within-run identity and one cache-correlated TCP443 tuple in unshared service host; endpoint pin/bootstrap/Apply remain unapproved",
-  "previous_sync_commit": "ca5d30983af240b9fbe2f621d288cd4316e434de",
+  "latest_progress": "offline non-executable exact transport draft builder added; 86 assertions passed; no automatic cache promotion, no approval authority, no firewall/guardian integration",
+  "previous_sync_commit": "407051ff7901aa9361fd16435cd04d9600ff8c73",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,

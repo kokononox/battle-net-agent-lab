@@ -1,7 +1,7 @@
 # ادامهٔ فعلی Unified Firewall
 
-[تحویل جامع](SESSION-UNIFIED-FIREWALL-2026-10-27.fa.md)، [رسید موفق مقصد Windows](../analysis/unifiedfw-session-2026-10-27/endpoint-v031/windows-results/CONNECTED-REVIEW.fa.md) و [وضعیت ماشین‌خوان](UNIFIED-FIREWALL-CURRENT.json) مرجع ادامه‌اند.
+مرجع ادامه: [تحویل جامع](SESSION-UNIFIED-FIREWALL-2026-10-27.fa.md)، [طرح حمل دقیق](../analysis/unifiedfw-session-2026-10-27/exact-transport-plan-v01/README.fa.md)، [دروازه‌های bootstrap](../analysis/unifiedfw-session-2026-10-27/exact-transport-plan-v01/BOOTSTRAP-GATES.fa.md) و [وضعیت ماشین‌خوان](UNIFIED-FIREWALL-CURRENT.json).
 
-پس از بازگرداندن پروفایل تازه به full-tunnel، v0.3.1 روی Windows تکمیل شد: هویت profile/RAS/interface در دو مشاهدهٔ داخل اجرا ثابت، یک سرویس در host، یک TCP443 و یک candidate پایدار مرتبط با cache محلی. این تأیید همبستگی endpoint است؛ pin مصوب، service tag، امضا، bootstrap DNS/TLS، reconnect تحت ایزولاسیون، guardian، no-leak یا Apply تأیید نشده‌اند.
+پس از مشاهدهٔ موفق Windows v0.3.1، سازندهٔ draft آفلاین مقصد دقیق ساخته شد؛ ۸۶ assertion گذشت. برای هر IP صریح، template محدود SstpSvc/TCP443 می‌سازد؛ CIDR/wildcard/رنج و approval ساختگی رد می‌شوند. Any-interface فقط متعلق به template حمل دقیق است، نه ترافیک برنامه. digest به profile/scope/owner/server/IP وابسته است، اما امضا یا approval نیست. برنامه همیشه draft غیرقابل‌اجرا می‌دهد و ready_for_apply=false است.
 
-آزمون مشاهده‌گر تکرار نشود؛ اکنون اقدام تازه‌ای از کاربر لازم نیست. گام بعد توسعهٔ آفلاین ورودی صریحاً تأییدشدهٔ مقصد و طرح bootstrap/reconnect است. cache خودکار pin نشود، استثنای گسترده ساخته نشود. هدف ابزار اختصاصی نصاب Battle.net است، نه افزودن داشبورد. اتصال فعلی LAN گزارش کاربر است، نه اندازه‌گیری carrier در receipt یا qualification تعویض رابط.
+هیچ native adapter approval، bootstrap DNS/TLS سرد، executor/guardian یا Apply کامل نشده است. مورد بعد adapter بازبینی محلی و اتصالش به هویت تازه است؛ تا حل gateها هیچ اجرای فایروال یا آزمون زندهٔ reconnect انجام نشود. کاربر فعلاً اقدام یا بستهٔ تازه برای اجرا ندارد. هدف همان ابزار کوچک اختصاصی نصاب Battle.net باقی است.
