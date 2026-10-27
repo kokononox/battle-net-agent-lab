@@ -1,0 +1,177 @@
+# PRIVATE partial backend for the coordinator's LOCAL QUARANTINE operations only.
+# Transport creation/cleanup and integrated UI are intentionally not faked here.
+# Actual native IO is injectable for internal tests; this is not an admin sandbox.
+function Assert-UfwLocalBackendView($View){
+ if($View.scope -cne 'local_quarantine_backend_development' -or $View.binding -cne (Get-UfwJournalHash (Get-UfwLocalSnapshotText $View.snapshot))){throw 'ufw_unified_native_view_binding'}
+ $expected=New-UfwLocalQuarantineOperations $View.snapshot
+ if((Get-UfwLocalJson $expected) -cne (Get-UfwLocalJson $View.operations)){throw 'ufw_unified_native_plan_changed'}
+}
+function New-UfwLocalBackendView($Snapshot){
+ return [pscustomobject]@{scope='local_quarantine_backend_development';binding=(Get-UfwJournalHash (Get-UfwLocalSnapshotText $Snapshot));snapshot=(Copy-UfwLocalData $Snapshot);operations=(New-UfwLocalQuarantineOperations $Snapshot)}
+}
+function Get-UfwLocalBackendState($Context){
+ Assert-UfwLocalBackendView $Context.view
+ $back=Read-UfwUnifiedStorage $Context.storage
+ if($back.sequence -ne $Context.storage.sequence -or $back.head -cne $Context.storage.head -or $back.sequence -lt 1){throw 'ufw_unified_native_checkpoint_head'}
+ if((Get-UfwLocalJson $back.records[0].data) -cne (Get-UfwLocalJson $Context.view)){throw 'ufw_unified_native_checkpoint_baseline'}
+ $saved=@();$results=0;$restoreStarted=$false;$restoring=$null;$restored=0;$closed=$false
+ for($i=1;$i -lt $back.records.Count;$i++){
+  $entry=$back.records[$i]
+  switch -CaseSensitive ($entry.kind){
+   'intent'{
+    if($restoreStarted -or $saved.Count -ne $results -or $saved.Count -ge $Context.view.operations.Count -or (Get-UfwLocalJson $entry.data) -cne (Get-UfwLocalJson $Context.view.operations[$saved.Count])){throw 'ufw_unified_native_intent_order'}
+    $saved+=,$entry.data
+   }
+   'result'{
+    if($restoreStarted -or $saved.Count -ne $results+1 -or (Get-UfwLocalJson $entry.data) -cne (Get-UfwLocalJson $saved[$results])){throw 'ufw_unified_native_result_order'};$results++
+   }
+   'restore_intent'{
+    if($null -ne $restoring -or $restored -ge $saved.Count -or (Get-UfwLocalJson $entry.data) -cne (Get-UfwLocalJson $saved[$saved.Count-1-$restored])){throw 'ufw_unified_native_restore_order'}
+    $restoreStarted=$true;$restoring=$entry.data
+   }
+   'restore_result'{
+    if($null -eq $restoring -or (Get-UfwLocalJson $entry.data) -cne (Get-UfwLocalJson $restoring)){throw 'ufw_unified_native_restore_result_order'};$restoring=$null;$restored++
+   }
+   'restored'{if($entry.data.verified -isnot [bool] -or -not $entry.data.verified -or $restored -ne $saved.Count -or $null -ne $restoring){throw 'ufw_unified_native_close_order'};$closed=$true}
+   default{throw 'ufw_unified_native_checkpoint_protocol'}
+  }
+ }
+ return [pscustomobject]@{saved=$saved;results=$results;restore_started=$restoreStarted;restoring=$restoring;restored=$restored;closed=$closed}
+}
+function Get-UfwLocalExpectedSnapshot($Context,$Applied){
+ $expected=Copy-UfwLocalData $Context.view.snapshot
+ foreach($op in $Applied){
+  foreach($pair in @(@('PersistentStore','local'),@('ActiveStore','effective'))){
+   $map=Get-UfwLocalRecordMap $expected.($pair[0]).records
+   if(-not $map.ContainsKey($op.name)){throw 'ufw_unified_native_expected_rule_missing'}
+   $old=$map[$op.name];$new=$op.after.($pair[1]);$old.enabled=$new.enabled;$old.record.rule.properties.Enabled.value=$new.record.rule.properties.Enabled.value
+  }
+ }
+ return $expected
+}
+function Assert-UfwLocalBackendGuard($Context,[string]$Phase){
+ # Unimplemented review/transport/quiescence/native qualification must remain unbound,
+ # not replaced by a flag read from a user snapshot or a fake success in production.
+ $permit=& $Context.guard $Phase $Context.view
+ if($permit -isnot [bool] -or -not $permit){throw 'ufw_unified_native_bound_guard_refused'}
+}
+function Get-UfwLocalReconciledObservation($Context,$State){
+ $count=$State.saved.Count-$State.restored
+ $applied=@();for($i=0;$i -lt $count;$i++){$applied+=,$State.saved[$i]}
+ $read=Read-UfwLocalStableSnapshot $Context.io;$text=Get-UfwLocalSnapshotText $read.snapshot
+ $after=Get-UfwLocalExpectedSnapshot $Context $applied
+ if($text -ceq (Get-UfwLocalSnapshotText $after)){return [pscustomobject]@{read=$read;applied=$applied;tail_applied=($count -gt 0)}}
+ # Only the most recent saved intent can have an unknown effect. Earlier completed
+ # operations must remain applied unless individually restored in reverse order.
+ if($count -gt 0 -and ($State.results -lt $State.saved.Count -or $null -ne $State.restoring)){
+  $less=@();for($i=0;$i -lt $count-1;$i++){$less+=,$applied[$i]}
+  if($text -ceq (Get-UfwLocalSnapshotText (Get-UfwLocalExpectedSnapshot $Context $less))){return [pscustomobject]@{read=$read;applied=$less;tail_applied=$false}}
+ }
+ throw 'ufw_unified_native_global_policy_drift'
+}
+function Invoke-UfwLocalForward($Context,$Operation){
+ Assert-UfwLocalBackendGuard $Context 'forward'
+ $state=Get-UfwLocalBackendState $Context
+ if($state.closed -or $state.restore_started -or $state.saved.Count -ne $state.results+1 -or (Get-UfwLocalJson $Operation) -cne (Get-UfwLocalJson $state.saved[-1])){throw 'ufw_unified_native_forward_intent_missing'}
+ $obs=Get-UfwLocalReconciledObservation $Context $state
+ if($obs.tail_applied){throw 'ufw_unified_native_forward_not_exact_before'}
+ if(-not $obs.read.handles.ContainsKey($Operation.name)){throw 'ufw_unified_native_fresh_handle_missing'}
+ Assert-UfwLocalBackendGuard $Context 'immediately_before_forward'
+ & $Context.io.SetEnabled $obs.read.handles[$Operation.name] 'False'
+ # Failure after effect is intentionally not swallowed. SAVED intent owns recovery.
+ $check=Get-UfwLocalReconciledObservation $Context $state
+ if(-not $check.tail_applied){throw 'ufw_unified_native_forward_readback'}
+}
+function Restore-UfwLocalSavedOperation($Context,$Operation){
+ Assert-UfwLocalBackendGuard $Context 'restore'
+ $state=Get-UfwLocalBackendState $Context;$count=$state.saved.Count-$state.restored
+ if($state.closed -or $count -lt 1 -or (Get-UfwLocalJson $Operation) -cne (Get-UfwLocalJson $state.saved[$count-1])){throw 'ufw_unified_native_restore_saved_intent_missing'}
+ if($null -eq $state.restoring){Write-UfwUnifiedStorage $Context.storage 'restore_intent' $Operation|Out-Null;$state=Get-UfwLocalBackendState $Context}
+ $obs=Get-UfwLocalReconciledObservation $Context $state
+ if($obs.tail_applied){
+  if(-not $obs.read.handles.ContainsKey($Operation.name)){throw 'ufw_unified_native_fresh_handle_missing'}
+  Assert-UfwLocalBackendGuard $Context 'immediately_before_restore'
+  & $Context.io.SetEnabled $obs.read.handles[$Operation.name] 'True'
+ }
+ $check=Get-UfwLocalReconciledObservation $Context $state
+ if($check.tail_applied){throw 'ufw_unified_native_restore_readback'}
+ Write-UfwUnifiedStorage $Context.storage 'restore_result' $Operation|Out-Null
+ return $true
+}
+function Recover-UfwLocalBackend($Context){
+ # Local, network-independent journal reconciliation, not yet a public Windows recovery UI.
+ # Caller must bind audit-clean/quiescent/exit-consent guards before this can run.
+ Assert-UfwLocalBackendGuard $Context 'recovery'
+ $state=Get-UfwLocalBackendState $Context
+ if($state.closed){
+  $fresh=Read-UfwLocalStableSnapshot $Context.io
+  if((Get-UfwLocalSnapshotText $fresh.snapshot) -cne (Get-UfwLocalSnapshotText $Context.view.snapshot)){throw 'ufw_unified_native_closed_baseline_drift'}
+  return $true
+ }
+ for($i=$state.saved.Count-1-$state.restored;$i -ge 0;$i--){[void](Restore-UfwLocalSavedOperation $Context $state.saved[$i])}
+ $fresh=Read-UfwLocalStableSnapshot $Context.io
+ if((Get-UfwLocalSnapshotText $fresh.snapshot) -cne (Get-UfwLocalSnapshotText $Context.view.snapshot)){throw 'ufw_unified_native_recovery_baseline_drift'}
+ Write-UfwUnifiedStorage $Context.storage 'restored' ([pscustomobject]@{verified=$true})|Out-Null
+ return $true
+}
+function New-UfwLocalBackendContext($IO,$Storage,$View,[scriptblock]$Guard){
+ if($null -eq $Guard -or -not $IO.ContainsKey('SetEnabled') -or $IO.SetEnabled -isnot [scriptblock]){throw 'ufw_unified_native_backend_binding_missing'}
+ Assert-UfwLocalBackendView $View
+ return [pscustomobject]@{io=$IO;storage=$Storage;view=(Copy-UfwLocalData $View);guard=$Guard}
+}
+function New-UfwLocalModuleCallback([scriptblock]$Body,$Bound){
+ $owner=$ExecutionContext.SessionState.Module
+ if($null -eq $owner){throw 'ufw_unified_native_private_module_required'}
+ # GetNewClosure alone creates a dynamic module that cannot resolve the existing
+ # journal's PRIVATE helper functions. Re-enter their owning module explicitly.
+ return {& $owner $Body $Bound @args}.GetNewClosure()
+}
+function New-UfwLocalCoordinatorBindings($Context){
+ # Merge only these adapters into the EXISTING coordinator. Missing transport,
+ # human review, runtime, quiescence and qualification adapters are not invented.
+ $c=$Context
+ return @{
+  Backup=(New-UfwLocalModuleCallback {param($c,$view,$answer)
+   Assert-UfwLocalBackendGuard $c 'backup'
+   if((Get-UfwLocalJson $view) -cne (Get-UfwLocalJson $c.view) -or $answer.binding -cne $view.binding -or $c.storage.sequence -ne 0){throw 'ufw_unified_native_backup_binding'}
+   Write-UfwUnifiedStorage $c.storage 'baseline' $c.view
+  } $c)
+  SaveIntent=(New-UfwLocalModuleCallback {param($c,$backup,$op)
+   $s=Get-UfwLocalBackendState $c
+   if($s.closed -or $s.restore_started -or $s.results -ne $s.saved.Count -or $s.saved.Count -ge $c.view.operations.Count -or (Get-UfwLocalJson $op) -cne (Get-UfwLocalJson $c.view.operations[$s.saved.Count])){throw 'ufw_unified_native_save_intent_order'}
+   Write-UfwUnifiedStorage $c.storage 'intent' $op
+  } $c)
+  ObserveOperation=(New-UfwLocalModuleCallback {param($c,$op)
+   $s=Get-UfwLocalBackendState $c
+   if($s.saved.Count -lt 1 -or $s.results -ne $s.saved.Count-1 -or (Get-UfwLocalJson $op) -cne (Get-UfwLocalJson $s.saved[-1])){return 'unknown'}
+   $o=Get-UfwLocalReconciledObservation $c $s
+   if(-not $o.tail_applied){return 'exact_before'};return 'unknown'
+  } $c)
+  Mutate=(New-UfwLocalModuleCallback {param($c,$op)Invoke-UfwLocalForward $c $op} $c)
+  VerifyOperation=(New-UfwLocalModuleCallback {param($c,$op)
+   $s=Get-UfwLocalBackendState $c
+   if($s.saved.Count -lt 1 -or (Get-UfwLocalJson $op) -cne (Get-UfwLocalJson $s.saved[-1])){return $false}
+   $o=Get-UfwLocalReconciledObservation $c $s;return $o.tail_applied
+  } $c)
+  SaveResult=(New-UfwLocalModuleCallback {param($c,$backup,$op)
+   $s=Get-UfwLocalBackendState $c
+   if($s.closed -or $s.restore_started -or $s.results -ne $s.saved.Count-1 -or (Get-UfwLocalJson $op) -cne (Get-UfwLocalJson $s.saved[-1])){throw 'ufw_unified_native_save_result_order'}
+   $o=Get-UfwLocalReconciledObservation $c $s;if(-not $o.tail_applied){throw 'ufw_unified_native_save_result_effect'}
+   Write-UfwUnifiedStorage $c.storage 'result' $op
+  } $c)
+  RestoreOperation=(New-UfwLocalModuleCallback {param($c,$backup,$intent)Restore-UfwLocalSavedOperation $c $intent.operation} $c)
+  VerifyRestored=(New-UfwLocalModuleCallback {param($c,$backup,$view)
+   $s=Get-UfwLocalBackendState $c
+   if($s.restored -ne $s.saved.Count -or $null -ne $s.restoring){return $false}
+   $read=Read-UfwLocalStableSnapshot $c.io
+   return (Get-UfwLocalSnapshotText $read.snapshot) -ceq (Get-UfwLocalSnapshotText $c.view.snapshot)
+  } $c)
+  Finish=(New-UfwLocalModuleCallback {param($c,$backup)
+   $s=Get-UfwLocalBackendState $c
+   if($s.closed -or $s.restored -ne $s.saved.Count -or $null -ne $s.restoring){throw 'ufw_unified_native_finish_order'}
+   Assert-UfwLocalBackendGuard $c 'finish';$read=Read-UfwLocalStableSnapshot $c.io
+   if((Get-UfwLocalSnapshotText $read.snapshot) -cne (Get-UfwLocalSnapshotText $c.view.snapshot)){throw 'ufw_unified_native_finish_drift'}
+   Write-UfwUnifiedStorage $c.storage 'restored' ([pscustomobject]@{verified=$true})
+  } $c)
+ }
+}

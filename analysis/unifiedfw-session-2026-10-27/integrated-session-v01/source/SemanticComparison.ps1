@@ -8,7 +8,10 @@ function Get-UfwSemanticRecord($Record){
  foreach($p in @($Record.rule.properties.PSObject.Properties|Sort-Object Name -CaseSensitive)){
   if($p.Name -cnotin $ignored){$props[$p.Name]=$p.Value}
  }
- foreach($key in @('Name','Enabled','Action','Direction')){if(-not $props.Contains($key)){throw 'ufw_unified_semantic_required_property'}}
+ foreach($key in @('Enabled','Action','Direction')){if(-not $props.Contains($key)){throw 'ufw_unified_semantic_required_property'}}
+ # The native MOF key is InstanceID. PowerShell's displayed Name need not be a
+ # raw CIM property. Keep legacy Name fixtures compatible, never synthesize one.
+ if(-not $props.Contains('InstanceID') -and -not $props.Contains('Name')){throw 'ufw_unified_semantic_required_property'}
  $filters=[ordered]@{}
  foreach($kind in @('Address','Application','Interface','InterfaceType','Port','Security','Service')){
   if($Record.associated_filters.PSObject.Properties.Name -cnotcontains $kind){throw 'ufw_unified_semantic_filter_missing'}
