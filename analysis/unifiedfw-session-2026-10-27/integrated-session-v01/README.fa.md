@@ -65,3 +65,7 @@
 ## شاهد پایدار پیش از اجرای دستی
 
 [شاهد پایدار نشست](DURABLE-RUNTIME-WITNESS.fa.md) arm و lifecycle evidence محدود را در همان journal ذخیره می‌کند. factory بومی بدون arm/readback و lock معتبر READY نمی‌دهد. بازخوانی witness به EXE/VPN زنده وابسته نیست و هیچ اختیار quiescence یا restore ایجاد نمی‌کند؛ probe مستقل و qualification بومی هنوز لازم‌اند.
+
+## بررسی مستقل پایان فرایندها، متصل به backend
+
+[بررسی فرایند و guard بازیابی](PROCESS-QUIESCENCE.fa.md) شاهد lifecycle را با دو census فعلی تطبیق می‌دهد؛ خطای دسترسی skip نمی‌شود. guard قبلی و guard مستقل helper/service باید جداگانه اجازه بدهند. recovery پیش از بستن دفتر، finish guard را نیز بررسی می‌کند. این اتصال در backend واقعی با اثرهای Windows فرضی آزموده شده است؛ پوشش معتبر helper/service، اجرای واقعی Windows و UI نهایی هنوز کامل نیستند.

@@ -15,8 +15,8 @@
   },
   "local_policy_backend": {
     "passed": true,
-    "assertions": 106,
-    "PS_source_files_parsed": 14,
+    "assertions": 107,
+    "PS_source_files_parsed": 15,
     "private_native_setter_sites": 1,
     "partial_effect_cases": 15,
     "two_rule_durable_prefix_cuts": 14,
@@ -81,6 +81,20 @@
     "reopened_without_live_EXE_or_VPN": true,
     "native_Windows_effects_executed": false,
     "quiescence_authorized": false,
+    "ready_for_apply": false,
+    "private_values_exported": false
+  },
+  "process_quiescence": {
+    "passed": true,
+    "assertions": 164,
+    "cases": 29,
+    "two_pass_current_process_checks": true,
+    "real_collector_and_durable_witness": true,
+    "real_reopened_backend_recovery": true,
+    "existing_guard_and_independent_helper_coverage_required": true,
+    "native_Windows_effects_executed": false,
+    "native_process_observer_Windows_qualified": false,
+    "service_IPC_coverage_implemented": false,
     "ready_for_apply": false,
     "private_values_exported": false
   },
