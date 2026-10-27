@@ -27,7 +27,7 @@ function Read-UfwUnifiedStorage($Handle){
   $hash=Get-UfwJournalHash ($seq.ToString()+'|'+$prev+'|'+$en.payload)
   if($hash -cne $en.sha256){throw 'ufw_unified_storage_checksum'}
   $data=ConvertFrom-Json $en.payload
-  if((@($data.PSObject.Properties.Name|Sort-Object)-join ',') -cne 'data,kind,schema,session_id' -or $data.schema -cne 'ufw-unified-checkpoint-01' -or $data.session_id -cne $Handle.id -or $data.kind -cnotin @('baseline','intent','result','restore_intent','restore_result','restored')){throw 'ufw_unified_storage_payload'}
+  if((@($data.PSObject.Properties.Name|Sort-Object)-join ',') -cne 'data,kind,schema,session_id' -or $data.schema -cne 'ufw-unified-checkpoint-01' -or $data.session_id -cne $Handle.id -or $data.kind -cnotin @('baseline','intent','result','restore_intent','restore_result','runtime_arm','runtime_evidence','restored')){throw 'ufw_unified_storage_payload'}
   if(($seq -eq 1) -ne ($data.kind -ceq 'baseline')){throw 'ufw_unified_storage_baseline_order'}
   $closed=$data.kind -ceq 'restored';$records+=,$data;$prev=$hash
  }
@@ -35,7 +35,7 @@ function Read-UfwUnifiedStorage($Handle){
 }
 function Write-UfwUnifiedStorage($Handle,[string]$Kind,$Data){
  if($null -eq $Handle.lock -or -not $Handle.lock.CanWrite){throw 'ufw_unified_storage_lock_missing'}
- if($Kind -cnotin @('baseline','intent','result','restore_intent','restore_result','restored')){throw 'ufw_unified_storage_kind'}
+ if($Kind -cnotin @('baseline','intent','result','restore_intent','restore_result','runtime_arm','runtime_evidence','restored')){throw 'ufw_unified_storage_kind'}
  $back=Read-UfwUnifiedStorage $Handle
  if($back.sequence -ne $Handle.sequence -or $back.head -cne $Handle.head){throw 'ufw_unified_storage_stale_head'}
  $seq=$Handle.sequence+1;if($seq -gt 4096){throw 'ufw_unified_storage_sequence_cap'}
