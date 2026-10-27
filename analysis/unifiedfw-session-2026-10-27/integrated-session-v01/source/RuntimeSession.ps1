@@ -8,7 +8,13 @@ function New-UfwWindowsRuntimeOps {
   Observe={param($p)Read-UfwProgramNativeObservation $p};Clock={[datetime]::UtcNow};FirewallGuard={Get-UfwRuntimeFirewallGuard}
   ExistingProcesses={param($p)Get-UfwObserverProcesses $p};DeviceMap={Get-UfwRuntimeDeviceMap}
   WriteJournal={param($d)Write-UfwRuntimePending $d};LogEdge={param($reverse)Get-UfwRuntimeLogEdge $reverse}
-  SelfTest={param($map)Test-UfwRuntimeNativeEvents $map};Window={param($guard)Show-UfwRuntimeWindow $guard}
+  SelfTest={param($map)Test-UfwRuntimeNativeEvents $map};Window={param($guard,$witness)
+   if($null -eq $witness -or -not $witness.armed -or $null -eq $witness.storage.lock -or -not $witness.storage.lock.CanWrite){throw 'ufw_unified_witness_required_before_native_window'}
+   $back=Read-UfwUnifiedStorage $witness.storage
+   $state=Get-UfwLocalBackendState ([pscustomobject]@{storage=$witness.storage;view=$back.records[0].data})
+   if($state.closed -or $state.restore_started -or $null -eq $state.runtime_arm -or (Get-UfwLocalJson $state.runtime_arm) -cne (Get-UfwLocalJson $witness.arm)){throw 'ufw_unified_witness_required_before_native_window'}
+   Show-UfwRuntimeWindow $guard
+  }
   ReadEvents={param($start,$end,$map)Read-UfwRuntimeEvents $start $end $map};Save={param($d)Save-UfwRuntimeProposals $d}
  }
  $ops=@{};foreach($k in $b.Keys){$ops[$k]=New-UfwLocalModuleCallback {param($body)return & $body @args} $b[$k]};return $ops
@@ -23,7 +29,7 @@ function New-UfwBoundRuntimeContext($RuntimeOps,$Selection,$Record,$Live){
  if($Selection.cancelled -isnot [bool] -or $Selection.cancelled -or $Selection.path -isnot [string] -or [string]::IsNullOrWhiteSpace($Selection.path)){throw 'ufw_unified_bound_candidate_selection'}
  $digest=Get-UfwCandidateProgramDigest $Live.programs
  if($Record.data.receipt.actor_sid -cne $Live.actor -or (Get-UfwCandidateProgramDigest $Record.data.programs) -cne $digest -or (& $RuntimeOps.Actor) -cne $Live.actor){throw 'ufw_unified_bound_candidate_identity'}
- $c=[pscustomobject]@{ops=$RuntimeOps;path=$Selection.path;record=(Copy-UfwLocalData $Record);actor=$Live.actor;program_digest=$digest;live=$Live;used=$false;window_attempted=$false;batch=$null;capture_result=$null}
+ $c=[pscustomobject]@{ops=$RuntimeOps;path=$Selection.path;record=(Copy-UfwLocalData $Record);actor=$Live.actor;program_digest=$digest;live=$Live;used=$false;window_attempted=$false;batch=$null;capture_result=$null;witness=$null}
  # Fresh protected read; saved program-selection consent is NOT isolation consent.
  $fresh=& $RuntimeOps.Load $c.path;Assert-UfwBoundRuntimeRecord $c $fresh
  return $c
@@ -39,8 +45,10 @@ function New-UfwBoundRuntimeOps($Context){
  $copy.Window=New-UfwLocalModuleCallback {
   param($c,$guard)
   # Exception after UI effect must still be treated as possible manual launch.
+  if($null -ne $c.witness){Write-UfwRuntimeArm $c}
   $c.window_attempted=$true
-  return & $c.ops.Window $guard
+  & $guard|Out-Null
+  return & $c.ops.Window $guard $c.witness
  } $Context
  $copy.ReadEvents=New-UfwLocalModuleCallback {
   param($c,$start,$end,$map)
@@ -61,6 +69,7 @@ function Invoke-UfwBoundRuntimeCapture($Context,[scriptblock]$PolicyGuard){
  } ([pscustomobject]@{context=$Context;policy=$PolicyGuard})
  $result=Invoke-UfwUnifiedRuntimeBridge (New-UfwBoundRuntimeOps $Context) $Context.live.view.binding $guard
  $Context.capture_result=$result
+ if($null -ne $Context.witness -and $Context.witness.armed){Write-UfwRuntimeEvidence $Context}
  return $result
 }
 function Get-UfwCapturedLifecycleStatus($Context){

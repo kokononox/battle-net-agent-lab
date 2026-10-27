@@ -1,3 +1,30 @@
+# Witness payloads are PRIVATE evidence, never quiescence/restore authority.
+function Assert-UfwRuntimeWitnessPayload($Data,[string]$Kind,[string]$Binding,$Arm){
+ if($Kind -ceq 'runtime_arm'){
+  if((@($Data.PSObject.Properties.Name|Sort-Object)-join ',') -cne 'actor_sid,boot_marker,candidate_head,phase,programs_json,programs_sha256,schema,view_binding' -or $Data.schema -cne 'ufw-runtime-arm-01' -or $Data.phase -cne 'manual_window_may_open' -or $Data.view_binding -cne $Binding){throw 'ufw_unified_witness_arm_shape'}
+  if($Data.actor_sid -isnot [string] -or $Data.actor_sid -cnotmatch '^S-1-[0-9]+(-[0-9]+)+$'){throw 'ufw_unified_witness_actor'}
+  foreach($k in @('boot_marker','candidate_head','programs_sha256','view_binding')){if($Data.$k -isnot [string] -or $Data.$k -cnotmatch '^[a-f0-9]{64}$'){throw 'ufw_unified_witness_binding'}}
+  if($Data.programs_json -isnot [string] -or -not $Data.programs_json.StartsWith('[') -or $Data.programs_json.Length -gt 262144 -or (Get-UfwJournalHash $Data.programs_json) -cne $Data.programs_sha256){throw 'ufw_unified_witness_programs'}
+  $programs=ConvertFrom-Json $Data.programs_json
+  if(@($programs).Count -lt 1 -or @($programs).Count -gt 16){throw 'ufw_unified_witness_programs'}
+ }elseif($Kind -ceq 'runtime_evidence'){
+  if($null -eq $Arm -or (@($Data.PSObject.Properties.Name|Sort-Object)-join ',') -cne 'arm_sha256,audit_restore_verified,capture_code,capture_completed,capture_interrupted,events_json,events_sha256,parse_errors,schema' -or $Data.schema -cne 'ufw-runtime-evidence-01' -or $Data.arm_sha256 -cne (Get-UfwJournalHash (Get-UfwLocalJson $Arm))){throw 'ufw_unified_witness_evidence_shape'}
+  foreach($k in @('audit_restore_verified','capture_completed','capture_interrupted')){if($Data.$k -isnot [bool]){throw 'ufw_unified_witness_evidence_shape'}}
+  if(($Data.parse_errors -isnot [int] -and $Data.parse_errors -isnot [long]) -or $Data.parse_errors -lt 0 -or $Data.capture_code -isnot [string] -or $Data.capture_code -cnotmatch '^[a-z][a-z0-9_]{0,120}$'){throw 'ufw_unified_witness_evidence_shape'}
+  if($Data.events_json -isnot [string] -or -not $Data.events_json.StartsWith('[') -or $Data.events_json.Length -gt 2097152 -or $Data.events_sha256 -isnot [string] -or $Data.events_sha256 -cnotmatch '^[a-f0-9]{64}$' -or (Get-UfwJournalHash $Data.events_json) -cne $Data.events_sha256){throw 'ufw_unified_witness_events'}
+  $events=ConvertFrom-Json $Data.events_json
+  if(@($events).Count -gt 8192){throw 'ufw_unified_witness_events'}
+  $last=[long]0
+  foreach($e in $events){
+   if((@($e.PSObject.Properties.Name|Sort-Object)-join ',') -cne 'actor,id,parent_path,parent_pid,path,pid,record'){throw 'ufw_unified_witness_events'}
+   foreach($k in @('id','record','pid','parent_pid')){if(($e.$k -isnot [int] -and $e.$k -isnot [long]) -or $e.$k -lt 0){throw 'ufw_unified_witness_events'}}
+   if($e.id -notin @(4688,4689,1101,1102,1104,4719) -or $e.record -le $last -or $e.pid -gt [int]::MaxValue -or $e.parent_pid -gt [int]::MaxValue){throw 'ufw_unified_witness_events'};$last=$e.record
+   foreach($k in @('actor','path','parent_path')){if($e.$k -isnot [string] -or $e.$k.Length -gt 32760){throw 'ufw_unified_witness_events'}}
+   if($e.id -in @(4688,4689) -and ($e.pid -lt 1 -or $e.path -cnotmatch '^[A-Za-z]:\\')){throw 'ufw_unified_witness_events'}
+   if($e.id -eq 4688 -and $e.actor -cnotmatch '^S-1-[0-9]+(-[0-9]+)+$'){throw 'ufw_unified_witness_events'}
+  }
+ }else{throw 'ufw_unified_witness_kind'}
+}
 # PRIVATE backend; local mode is preserved, mixed mode uses MixedPolicyBackend.ps1.
 # Human review, native SSTP observation and integrated live UI are not faked here.
 # Actual native IO is injectable for internal tests; this is not an admin sandbox.
@@ -15,7 +42,7 @@ function Get-UfwLocalBackendState($Context){
  $back=Read-UfwUnifiedStorage $Context.storage
  if($back.sequence -ne $Context.storage.sequence -or $back.head -cne $Context.storage.head -or $back.sequence -lt 1){throw 'ufw_unified_native_checkpoint_head'}
  if((Get-UfwLocalJson $back.records[0].data) -cne (Get-UfwLocalJson $Context.view)){throw 'ufw_unified_native_checkpoint_baseline'}
- $saved=@();$results=0;$restoreStarted=$false;$restoring=$null;$restored=0;$closed=$false;$materialized=@{}
+ $saved=@();$results=0;$restoreStarted=$false;$restoring=$null;$restored=0;$closed=$false;$materialized=@{};$runtimeArm=$null;$runtimeEvidence=$null
  for($i=1;$i -lt $back.records.Count;$i++){
   $entry=$back.records[$i]
   switch -CaseSensitive ($entry.kind){
@@ -33,6 +60,14 @@ function Get-UfwLocalBackendState($Context){
     }
     if($restoreStarted -or $saved.Count -ne $results+1 -or (Get-UfwLocalJson $opData) -cne (Get-UfwLocalJson $saved[$results])){throw 'ufw_unified_native_result_order'};$results++
    }
+   'runtime_arm'{
+    if($restoreStarted -or $null -ne $runtimeArm -or $saved.Count -ne $Context.view.operations.Count -or $results -ne $saved.Count){throw 'ufw_unified_witness_arm_order'}
+    Assert-UfwRuntimeWitnessPayload $entry.data 'runtime_arm' $Context.view.binding $null;$runtimeArm=$entry.data
+   }
+   'runtime_evidence'{
+    if($restoreStarted -or $null -eq $runtimeArm -or $null -ne $runtimeEvidence){throw 'ufw_unified_witness_evidence_order'}
+    Assert-UfwRuntimeWitnessPayload $entry.data 'runtime_evidence' $Context.view.binding $runtimeArm;$runtimeEvidence=$entry.data
+   }
    'restore_intent'{
     if($null -ne $restoring -or $restored -ge $saved.Count -or (Get-UfwLocalJson $entry.data) -cne (Get-UfwLocalJson $saved[$saved.Count-1-$restored])){throw 'ufw_unified_native_restore_order'}
     $restoreStarted=$true;$restoring=$entry.data
@@ -44,7 +79,7 @@ function Get-UfwLocalBackendState($Context){
    default{throw 'ufw_unified_native_checkpoint_protocol'}
   }
  }
- return [pscustomobject]@{saved=$saved;results=$results;restore_started=$restoreStarted;restoring=$restoring;restored=$restored;closed=$closed;materialized=$materialized}
+ return [pscustomobject]@{saved=$saved;results=$results;restore_started=$restoreStarted;restoring=$restoring;restored=$restored;closed=$closed;materialized=$materialized;runtime_arm=$runtimeArm;runtime_evidence=$runtimeEvidence}
 }
 function Get-UfwLocalExpectedSnapshot($Context,$Applied){
  $expected=Copy-UfwLocalData $Context.view.snapshot

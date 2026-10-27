@@ -51,6 +51,15 @@ with tempfile.TemporaryDirectory(prefix='ufw-runtime-bind-') as td:
  if v.returncode:raise RuntimeError('runtime/recovery binding failed; inspect evidence/runtime-recovery-binding-tests.log')
 bound=json.loads((ev/'runtime-recovery-binding-tests.json').read_text('utf-8-sig'));assert bound['passed'] and not bound['native_Windows_effects_executed']
 
+# Durable runtime witness reuses the same policy journal/registry and real collector.
+with tempfile.TemporaryDirectory(prefix='ufw-witness-') as td:
+ fixture=Path(td)/'RuntimeFixture.ps1';fixture.write_text(bound_fixture)
+ local_fixture=Path(td)/'LocalFixture.ps1';local_fixture.write_text(local_source)
+ v=subprocess.run([a.pwsh,'-NoLogo','-NoProfile','-File',str(r/'tests/Test-RuntimeWitness.ps1'),'-SourceRoot',str(r/'source'),'-RuntimeHarness',str(fixture),'-RuntimeRoot',str(runtime/'package/UFW-RUNTIME-CAPTURE-01'),'-InventoryCore',str(r.parent/'private-inventory-v01/package/UFW-PRIVATE-INVENTORY-01/InventoryCore.ps1'),'-LocalFixture',str(local_fixture)],capture_output=True,text=True,timeout=300)
+ (ev/'runtime-witness-tests.log').write_text(v.stdout+'\n'+v.stderr)
+ if v.returncode:raise RuntimeError('runtime witness failed; inspect evidence/runtime-witness-tests.log')
+witness=json.loads((ev/'runtime-witness-tests.json').read_text('utf-8-sig'));assert witness['passed'] and not witness['native_Windows_effects_executed'] and not witness['quiescence_authorized']
+
 regressions=[]
 for name,folder,test,count in [('runtime','runtime-capture-v01','Test-Runtime.ps1',718),('private-inventory','private-inventory-v01','Test-Inventory.ps1',172)]:
  v=subprocess.run([a.pwsh,'-NoLogo','-NoProfile','-File',str(r.parent/folder/test)],capture_output=True,text=True,timeout=240)
@@ -58,5 +67,5 @@ for name,folder,test,count in [('runtime','runtime-capture-v01','Test-Runtime.ps
  assert v.returncode==0,name+' regression failed'
  data=json.loads((r.parent/folder/'evidence/model-tests.json').read_text('utf-8-sig'));assert data['passed'] and data['assertions']==count
  (ev/(name+'-regression.json')).write_text(json.dumps(data,indent=2)+'\n');regressions.append(dict(suite=name,assertions=count))
-summary=dict(passed=True,integration=report,local_policy_backend=backend,mixed_policy_backend=mixed,live_session_adapters=live,runtime_recovery_bindings=bound,regressions=regressions,private_native_local_setter_implemented=True,private_owned_transport_writer_implemented=True,native_firewall_setter_bound=False,Windows_user_test_requested=False)
+summary=dict(passed=True,integration=report,local_policy_backend=backend,mixed_policy_backend=mixed,live_session_adapters=live,runtime_recovery_bindings=bound,runtime_witness=witness,regressions=regressions,private_native_local_setter_implemented=True,private_owned_transport_writer_implemented=True,native_firewall_setter_bound=False,Windows_user_test_requested=False)
 (ev/'QA-SUMMARY.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps(summary))

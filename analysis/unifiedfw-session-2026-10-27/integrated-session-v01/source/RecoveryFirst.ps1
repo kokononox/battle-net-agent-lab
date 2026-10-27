@@ -38,6 +38,9 @@ function New-UfwRecoveryFirstBindings($State,$RuntimeOps,[scriptblock]$PolicyRec
   if($null -ne $pending.audit){$auditProof=Copy-UfwLocalData $pending.audit.data}
   if(-not (Invoke-UfwIntegratedAuditRecovery $b.runtime $pending.audit)){return $r}
   if($null -ne $pending.policy){
+   $policyBack=Read-UfwUnifiedStorage $pending.policy
+   $policyState=Get-UfwLocalBackendState ([pscustomobject]@{storage=$pending.policy;view=$policyBack.records[0].data})
+   if($null -ne $policyState.runtime_arm -and (& $b.runtime.Actor) -cne $policyState.runtime_arm.actor_sid){throw 'ufw_unified_witness_actor_mismatch'}
    # Callback must bind independent actor/audit/quiescence/exit checks and the
    # exact reopened backend. No current VPN or selected EXE is required here.
    $ok=& $b.recover $pending.policy
@@ -45,6 +48,7 @@ function New-UfwRecoveryFirstBindings($State,$RuntimeOps,[scriptblock]$PolicyRec
    $state=Read-UfwUnifiedStorage $pending.policy
    $protocol=Get-UfwLocalBackendState ([pscustomobject]@{storage=$pending.policy;view=$state.records[0].data})
    if(-not $protocol.closed){throw 'ufw_unified_policy_recovery_not_closed'}
+   if($null -ne $policyState.runtime_arm -and (& $b.runtime.Actor) -cne $policyState.runtime_arm.actor_sid){throw 'ufw_unified_witness_actor_mismatch'}
   }
   # Audit drift/reappearance before returning recovery success is not ignored.
   if($null -ne (& $b.runtime.Pending)){throw 'ufw_unified_audit_pending_changed'}
