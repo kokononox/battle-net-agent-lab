@@ -24,6 +24,18 @@ function Write-UfwRuntimeArm($Context){
  if($state.closed -or $state.restore_started -or $null -ne $state.runtime_arm -or $state.saved.Count -ne $back.records[0].data.operations.Count -or $state.results -ne $state.saved.Count){throw 'ufw_unified_witness_arm_order'}
  $programs=Get-UfwCandidateJson @($fresh.data.programs|Sort-Object program_id)
  $arm=[pscustomobject][ordered]@{schema='ufw-runtime-arm-01';phase='manual_window_may_open';actor_sid=$Context.actor;candidate_head=$fresh.head;programs_json=$programs;programs_sha256=$Context.program_digest;view_binding=$Context.live.view.binding;boot_marker=$boot}
+ $audit=& $Context.ops.Pending
+ if($null -ne $audit){
+  Assert-UfwRuntimeJournal $audit.data
+  if($audit.readback_verified -isnot [bool] -or -not $audit.readback_verified -or $audit.head -cne (Get-UfwJournalHash (Get-UfwCandidateJson $audit.data)) -or $audit.data.actor_sid -cne $Context.actor){throw 'ufw_unified_witness_audit_binding'}
+  foreach($item in $audit.data.audit_plan){$value=& $Context.ops.AuditQuery $item.id;if(($value -isnot [int] -and $value -isnot [uint32] -and $value -isnot [long]) -or $value -ne $item.during){throw 'ufw_unified_witness_audit_binding'}}
+  $arm.schema='ufw-runtime-arm-02'
+  $arm|Add-Member -NotePropertyName audit_plan -NotePropertyValue (Copy-UfwLocalData $audit.data.audit_plan)
+  $arm|Add-Member -NotePropertyName audit_pending_head -NotePropertyValue $audit.head
+  $arm|Add-Member -NotePropertyName audit_session_id -NotePropertyValue $audit.data.session_id
+ }
+ # Legacy v01 records remain readable. Native Window requires v02 and NEVER
+ # treats a missing audit pending baseline as permission to display READY.
  Assert-UfwRuntimeWitnessPayload $arm 'runtime_arm' $back.records[0].data.binding $null
  # Durable intent/readback BEFORE Window. Any uncertainty must prevent the UI.
  Write-UfwUnifiedStorage $w.storage 'runtime_arm' $arm|Out-Null

@@ -12,7 +12,7 @@ function New-UfwWindowsRuntimeOps {
    if($null -eq $witness -or -not $witness.armed -or $null -eq $witness.storage.lock -or -not $witness.storage.lock.CanWrite){throw 'ufw_unified_witness_required_before_native_window'}
    $back=Read-UfwUnifiedStorage $witness.storage
    $state=Get-UfwLocalBackendState ([pscustomobject]@{storage=$witness.storage;view=$back.records[0].data})
-   if($state.closed -or $state.restore_started -or $null -eq $state.runtime_arm -or (Get-UfwLocalJson $state.runtime_arm) -cne (Get-UfwLocalJson $witness.arm)){throw 'ufw_unified_witness_required_before_native_window'}
+   if($state.closed -or $state.restore_started -or $null -eq $state.runtime_arm -or $state.runtime_arm.schema -cne 'ufw-runtime-arm-02' -or (Get-UfwLocalJson $state.runtime_arm) -cne (Get-UfwLocalJson $witness.arm)){throw 'ufw_unified_witness_required_before_native_window'}
    Show-UfwRuntimeWindow $guard
   }
   ReadEvents={param($start,$end,$map)Read-UfwRuntimeEvents $start $end $map};Save={param($d)Save-UfwRuntimeProposals $d}
