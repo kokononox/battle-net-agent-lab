@@ -316,3 +316,12 @@ prepare/reopen plumbing فعلاً پاس شده و نباید دوباره از
 کاربر پوشهٔ تازه، Run-Candidate.cmd با admin همان حساب، انتخاب EXE موجود، بازبینی خصوصی و در صورت تمایل Save candidate؛ تنها JSON تازه حتی cancel/failure ارسال شود. raw candidate.json/path/hash/ID/EXE/عکس/متن UI نفرستد. attempted_may_exist_inspect_if_failed یعنی ممکن است فایل وجود داشته باشد؛ خودکار تکرار/حذف/اصلاح نشود. شبکه/SSTP/baseline journal همان حالت و old tests/Apply/Restore بدون اجرا بمانند.
 
 این فقط candidate محلی است؛ ACL رمزگذاری یا امضای trusted نیست و admin مخرب/rollback/power-loss تضمین نشده‌اند. recorder، مقصد هر برنامه، native rule/Apply/recovery، SSTP service/binding/bootstrap/reconnect و mode-switch/packet/reboot/no-leak/fingerprint همچنان باقی‌اند. هدف یک active profile و فقط برنامه‌های همان پروفایل تغییر نکرده است.
+
+
+## نتیجهٔ واقعی Windows — candidate نصاب با رضایت محلی ثبت شد
+
+[receipt بدون هویت خصوصی](../analysis/unifiedfw-session-2026-10-27/program-candidate-v01/evidence/Windows-program-candidate-01-recorded.json): Windows PS5.1.26100.6899 x64، payload verified، completed=true و code=ufw_candidate_recorded_destinations_pending_no_authority. یک برنامه با header x86، سه observation pass، review_displayed/consent_received/candidate_recorded/program_config_saved=true و write_status=recorded_revalidated_no_authority. native protected write/readback مسیر موفق همین اجرا طی شده؛ failure/crash/reboot/rollback یا بازخوانی در process مستقل از این receipt اثبات نمی‌شوند. نام/path/hash فایل خصوصی در report نیست و هویت دقیق بتل‌نت از آن قابل احراز نیست.
+
+phase=programs_reviewed_destinations_pending و destination_count=0. raw identity exported/program trusted/program execution/firewall change/baseline journal access/VPN/DNS changes requested=false؛ baseline_linked/ready_for_apply/no_leak=false. سه observation و ذخیرهٔ فایل، ناشر معتبر یا مجوز Apply/اجرای EXE نیستند. بدون capture مستقل ادعای نبود همهٔ ترافیک OS/shell نکنید.
+
+کاربر فعلاً اقدام ندارد؛ این ثبت موفق تکرار نشود، candidate/baseline journal حذف/بازسازی نشود و دادهٔ خام/عکس/EXE ارسال نشود. مسیر بعد باید از candidate محافظت‌شدهٔ موجود استفاده کند: validation و reobservation تازه در همان workflow اتصال مقصدهای پیشنهادی/بازبینی هر برنامه، نه یک تست عمومی standalone دیگر. recorder/source دادهٔ شبکه هنوز ساخته نشده و فعال‌سازی audit/DNS یا اجرای target/بازکردن Allow بدون consent انجام نشود. capture فقط پیشنهاد است و auto-approval نیست؛ baseline و حمل محدود SSTP و native Apply/recovery/binding/reconnect/flow revocation هنوز گیت‌های جدا دارند.
