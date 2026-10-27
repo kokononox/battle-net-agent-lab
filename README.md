@@ -338,3 +338,6 @@ Latest diagnostic correction: [local review v0.1.1 privacy-safe endpoint counter
 
 
 Latest offline extension: [HF1.2.4 separate normal-mode exit record library](analysis/unifiedfw-session-2026-10-27/normal-exit-hf124/README.fa.md). Explicit consent plus fresh digest/evidence, cooperative lock, protected CreateNew record; legacy journal unchanged and no isolation authority. 72 new assertions, 46 PS suites, 531 Python pass+2 skip; Windows ACL/deployment/runner integration not qualified. Keep live isolation tests paused.
+
+
+Latest handoff: [NORMAL-EXIT-REVIEW-01 standalone consent runner](analysis/unifiedfw-session-2026-10-27/normal-exit-runner-v01/README.fa.md). Separate synthetic Windows storage qualification first; read-only real review, then optional explicit consent for a separate normal-mode record. 47 runner +72 library assertions rerun; Windows execution pending. Keep current network/VPN unchanged; old live Apply/Restore remain paused.

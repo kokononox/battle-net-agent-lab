@@ -129,3 +129,8 @@ kernel تصمیم جدید زیر `reconnect-design-v01` اجراپذیر در �
 ## آخرین توسعه — رکورد جداگانهٔ خروج به حالت عادی HF1.2.4
 
 [کد، قرارداد و مرز اعتماد](../analysis/unifiedfw-session-2026-10-27/normal-exit-hf124/README.fa.md): کتابخانهٔ واقعی Review/Record با consent دقیق، digest تازه، بررسی قواعد/پروفایل‌ها/task، قفل و CreateNew ساخته شد. ۷۲ assertion اختصاصی و ۴۶ PS suite و ۵۳۱ Python+۲ skip گذشتند. کد بازیابی/worker/UI/helperهای محافظت‌شده بدون تغییر بایت‌اند. ژورنال کاربر یا سیستمش تغییر نکرد؛ رکورد هنوز روی Windows کاربر نوشته نشده، migration و Apply-authority ندارد. کاربر اقدام تازه‌ای ندارد.
+
+
+## جدیدترین تحویل — NORMAL-EXIT-REVIEW-01
+
+[راه‌انداز، source و راهنمای اجرا](../analysis/unifiedfw-session-2026-10-27/normal-exit-runner-v01/README.fa.md): fixture جدا برای آزمون واقعی Windows storage، سپس real read-only review و consent اختیاری ثبت رکورد جداگانه. ۴۷ assertion runner و ۷۲ library rerun و parse/hash گذشتند؛ Windows هنوز pending است. کاربر فقط همین بستهٔ جدید را بدون تغییر اینترنت/VPN اجرا می‌کند و JSON را برمی‌گرداند؛ لغو prompt مجاز است. legacy journal و firewall تغییر نمی‌کنند؛ در failure پس از write attempt، وجود رکورد باید بررسی شود. Apply/migration/reboot/no-leak authority وجود ندارد و مسیرهای قدیمی همچنان متوقف‌اند.

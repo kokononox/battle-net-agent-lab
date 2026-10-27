@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "user confirmed browser works without VPN after explicitly authorized normal-mode outbound Allow on all three local profiles; firewall still enabled, effective inbound Block; reboot afterward not tested",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "HF1.2.4 separate protected normal-mode exit record library on HF1.2.3; not deployed or worker-integrated",
+  "latest_offline_candidate": "NORMAL-EXIT-REVIEW-01 runner around byte-unchanged HF124 dependencies; Windows execution pending; not controller upgrade",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -39,7 +39,11 @@
     "HF124_Python_passed": 531,
     "HF124_Python_skipped": 2,
     "HF124_parsed_PS_files": 102,
-    "HF124_normal_exit_model_assertions": 72
+    "HF124_normal_exit_model_assertions": 72,
+    "normal_exit_runner_model_assertions": 47,
+    "HF124_library_assertions_rerun": 72,
+    "normal_exit_runner_PS_files_parsed": 7,
+    "normal_exit_runner_Windows_storage_tested": false
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -86,16 +90,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "design/test controlled review-consent runner and Windows ACL/legacy-preservation qualification for separate exit record; maintain old-journal Apply refusal until an explicitly reviewed migration is implemented",
-  "user_action_now": "none; keep ordinary internet and backup; no live Apply/Restore, old local-review packages, normal-exit command or reconnect test requested",
+  "next_step": "user runs only new NORMAL-EXIT-REVIEW-01 package with current internet/VPN unchanged; inspect sanitized JSON; stop on failure, do not weaken exact before-image checks or repeat old Restore; record gives no Apply authority",
+  "user_action_now": "extract new package separately; same-account admin Run-Exit.cmd; keep internet/VPN unchanged; optional RECORD NORMAL challenge only after fixture and live checks; Enter cancels; return sanitized diagnostic JSON even failure",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "HF124 library implements fresh Review/Record with explicit consent/digest, cooperative lock, private CreateNew record and revalidation; preserves legacy journal; 72 new assertions, 46 PS suites and prior Python regressions pass; no Windows deployment or Apply authority",
-  "previous_sync_commit": "3d9dd106b07aff018b9492bda3f0a6773dc88390",
+  "latest_progress": "Standalone Windows runner built: separate synthetic ACL/file/lock fixture, then real read-only review and optional exact human consent for separate normal-mode record; no firewall or legacy journal writes; ZIP hash/pin verified; Windows pending",
+  "previous_sync_commit": "c458488601baea2f9b8311ff55ca9941d1cbfaef",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -138,6 +142,8 @@
     "separate_normal_mode_exit_record_created_on_user_PC": false,
     "separate_normal_mode_exit_Windows_native_API_or_ACL_tested": false,
     "separate_normal_mode_exit_worker_integrated": false,
-    "legacy_Apply_gate_bypassed": false
+    "legacy_Apply_gate_bypassed": false,
+    "normal_exit_runner_built": true,
+    "normal_exit_runner_Windows_executed": false
   }
 }

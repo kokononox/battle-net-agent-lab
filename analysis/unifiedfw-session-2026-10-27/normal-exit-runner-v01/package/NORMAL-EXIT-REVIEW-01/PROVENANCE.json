@@ -1,0 +1,37 @@
+{
+  "production_dependencies_byte_unchanged": {
+    "session-core.ps1": {
+      "source": "lab/session-core.ps1",
+      "sha256": "a1607e3100734eb4c2fa8e820a6eb95ed759bfd5dee20e4a454e7544f53357c3"
+    },
+    "native.ps1": {
+      "source": "lab/native.ps1",
+      "sha256": "750e8c9a72411a4b22702815cf15b88e12658cc00be4965d07e4a00f74c86ef5"
+    },
+    "isolation-core.ps1": {
+      "source": "app/isolation-core.ps1",
+      "sha256": "f2e9645558845911472f37627cac2277b3031de4025b957c8346dc7a676181ed"
+    },
+    "isolation-native.ps1": {
+      "source": "app/isolation-native.ps1",
+      "sha256": "d851e408a06c43cbd20e97d3a973f477e25b7ef27fc2f3c6666ad9a78838fc6c"
+    },
+    "normal-exit-record.ps1": {
+      "source": "app/normal-exit-record.ps1",
+      "sha256": "398b1fe8d002e6f08ff4830ac18cea87e9d8bbe654cc54d8c4a5c8d6b8c187cc"
+    }
+  },
+  "new_files": [
+    "Qualification.ps1",
+    "Run-Exit.ps1",
+    "Run-Exit.cmd"
+  ],
+  "runner_assertions": 47,
+  "library_assertions": 72,
+  "Windows_native_storage_qualification_executed": false,
+  "real_user_record_created": false,
+  "real_human_prompt_tested": false,
+  "firewall_changed": false,
+  "controller_upgraded": false,
+  "ready_for_apply": false
+}

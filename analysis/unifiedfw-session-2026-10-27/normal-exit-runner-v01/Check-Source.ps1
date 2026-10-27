@@ -1,0 +1,1 @@
+$ErrorActionPreference='Stop';$root='/data/ufd-normal-exit-runner-v01/package/NORMAL-EXIT-REVIEW-01';$n=0;foreach($f in Get-ChildItem $root -Filter *.ps1){$t=$null;$e=$null;[void][Management.Automation.Language.Parser]::ParseFile($f.FullName,[ref]$t,[ref]$e);if($e.Count){throw ('parse '+$f.Name)};$n++};if($n -ne 7){throw 'file_count'};Write-Host 'Seven package PS files parsed.'

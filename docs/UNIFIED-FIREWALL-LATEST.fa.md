@@ -1,9 +1,11 @@
-# اولویت جاری: بازیابی و ثبت خروج عادی، نه Apply
+# اولویت جاری: آزمون ذخیره‌سازی و ثبت اختیاری خروج عادی
 
-مرجع ادامه: [تحویل جامع](SESSION-UNIFIED-FIREWALL-2026-10-27.fa.md)، [کتابخانهٔ رکورد خروج HF1.2.4](../analysis/unifiedfw-session-2026-10-27/normal-exit-hf124/README.fa.md)، [اصلاح بازیابی HF1.2.3](../analysis/unifiedfw-session-2026-10-27/recovery-hf123/README.fa.md) و [وضعیت ماشین‌خوان](UNIFIED-FIREWALL-CURRENT.json).
+مرجع ادامه: [تحویل جامع](SESSION-UNIFIED-FIREWALL-2026-10-27.fa.md)، [بستهٔ جدید NORMAL-EXIT-REVIEW-01](../analysis/unifiedfw-session-2026-10-27/normal-exit-runner-v01/README.fa.md)، [کتابخانه HF1.2.4](../analysis/unifiedfw-session-2026-10-27/normal-exit-hf124/README.fa.md) و [وضعیت ماشین‌خوان](UNIFIED-FIREWALL-CURRENT.json).
 
-اینترنت عادی کاربر بعد از خروج صریح به Allow برگشته؛ firewall روشن و ورودی مؤثر Block بوده است. علت Block پس از reboot و صحت بازیابی اصلی ثابت نشده‌اند. ژورنال قدیمی untouched است.
+اینترنت عادی کاربر با SSTP خاموش برگشته؛ آخرین گزارش firewall روشن، inbound مؤثر Block، outbound محلی/مؤثر Allow هر سه profile است. علت Block بعد reboot و original Restore ثابت نشده‌اند؛ reboot تازه درخواست/آزموده نشده، legacy journal untouched است.
 
-HF1.2.4 کتابخانهٔ Review/Record جداگانه ساخته: consent دقیق و digest تازه، نبود واقعی owned rules، برابری foreign before images، local/effective Allow، نبود task شناخته‌شده، قفل operation و CreateNew محافظت‌شده با checksum/readback و revalidation. ژورنال قدیمی به Allow تبدیل/بازنویسی نمی‌شود. رکورد original_restore_verified/authorizes_isolation/reboot_qualified/ready_for_apply=false دارد. وجودش مجوز Apply نیست و guard HF1.2.3 بدون تغییر است.
+راه‌انداز مستقل جدید ابتدا fixture جداگانهٔ ProgramData را برای ACL metadata، file roundtrip، no-overwrite و exclusive lock می‌سنجد و cleanup غیرrecursive دارد. بعد وضعیت واقعی rules/profiles/journal/task را می‌خواند؛ فقط با رضایت تصادفی دستی، رکورد normal-mode جداگانه ایجاد/بازتأیید می‌شود. در failure بعد از write attempt ممکن است رکورد ایجاد شده باشد؛ retry خودکار نکنید. snapshot اتمیک نیست و ACL test impersonation نیست.
 
-۷۲ assertion اختصاصی، ۴۶ suite PS، ۵۳۱ Python pass+۲ skip و ۱۰۲ parse گذشتند؛ native Windows ACL/identity و اجرای واقعی ثبت آزموده نشده‌اند. wrapper/فایل IO در مدل Linux آزموده شده؛ worker auto-load/runner بسته و migration جدید هنوز نداریم. کاربر اقدام تازه ندارد؛ همهٔ Apply/Restore/local-review و live reconnect متوقف بمانند. مرحلهٔ بعد runner کنترل‌شده و qualification ACL/حفظ legacy در Windows است، نه ارتقای خودکار controller.
+۴۷ assertion راه‌انداز و ۷۲ کتابخانه دوباره گذشتند؛ ۷ PS1 و CMD parse و hash/pin payload تأیید شدند. پنج dependency بدون تغییر بایت‌اند. **این بسته هنوز روی Windows اجرا نشده و رکورد واقعی ساخته نشده است.** اجرای فعلی controller ارتقا نمی‌یابد و ژورنال قدیمی بازنویسی نمی‌شود. record هیچ isolation/original-restore/reboot/no-leak/Apply authority ندارد. guard قدیمی برای baseline حل‌نشده همچنان بسته است.
+
+تنها اقدام تازه: ZIP جدید در پوشهٔ جدا، Run-Exit.cmd با admin همان حساب؛ اینترنت/VPN همان حالت فعلی. فقط JSON تشخیصی را برگردانید؛ Enter در prompt لغو می‌کند. تمام Apply/Restore/local-review قدیمی و live isolation reconnect متوقف بمانند.
