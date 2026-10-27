@@ -15,8 +15,8 @@
   },
   "local_policy_backend": {
     "passed": true,
-    "assertions": 108,
-    "PS_source_files_parsed": 16,
+    "assertions": 109,
+    "PS_source_files_parsed": 17,
     "private_native_setter_sites": 1,
     "partial_effect_cases": 15,
     "two_rule_durable_prefix_cuts": 14,
@@ -109,6 +109,21 @@
     "native_Windows_effects_executed": false,
     "native_exit_UI_executed": false,
     "independent_helper_service_coverage_implemented": false,
+    "ready_for_apply": false,
+    "private_values_exported": false
+  },
+  "service_quiescence": {
+    "passed": true,
+    "assertions": 238,
+    "cases": 31,
+    "two_service_and_process_passes": true,
+    "CIM_SCM_service_identity_crosscheck": true,
+    "same_reopened_recovery_backend": true,
+    "cancel_and_drift_leave_pending": true,
+    "independent_coverage_still_required": true,
+    "complete_helper_service_IPC_coverage": false,
+    "native_Windows_effects_executed": false,
+    "native_service_reader_Windows_qualified": false,
     "ready_for_apply": false,
     "private_values_exported": false
   },
