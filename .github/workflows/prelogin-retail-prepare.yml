@@ -1,4 +1,4 @@
-name: Logged-out Retail non-finalizing form update
+name: Logged-out Retail independently supervised form update
 on:
   push:
     branches: [research/prelogin-telemetry-wow-data-provenance]
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c5'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c6'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c5'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c6'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -59,12 +59,15 @@ jobs:
         id: observation
         timeout-minutes: 6
         env:
-          RETAIL_PREPARE: approved-retail-prepare-c5
-        run: python analysis-tools/prelogin-retail-prepare/run_prepare.py
+          RETAIL_PREPARE: approved-retail-prepare-c6
+        run: python analysis-tools/prelogin-retail-prepare/guard_driver.py
       - name: Validate only counts and fixed labels
         id: sanitize
         if: always()
         run: python analysis-tools/prelogin-retail-prepare/report.py output/prelogin-retail-prepare.json sanitized/prelogin-retail-prepare.json
+      - name: Validate independent supervisor receipt
+        if: always()
+        run: python analysis-tools/prelogin-retail-prepare/guard_report.py output/retail-supervision.json sanitized/retail-supervision.json
       - name: Record typed outcomes
         if: always()
         env:
@@ -110,10 +113,16 @@ jobs:
           sys.path.insert(0,'analysis-tools/prelogin-retail-prepare')
           from ci_status import status
           from report import load
+          from guard_report import validate as validate_guard, read as read_guard
           r=json.loads(Path('incoming/prelogin-retail-prepare-ci.json').read_text())
           expected=status(os.environ['SOURCE'],os.environ['RUN'],'completed',r['dependencies'],r['tests'],r['observation'],r['sanitization'])
           if r!=expected:raise SystemExit('ci_identity_mismatch')
           Path('reports/prelogin-retail-prepare-ci.json').write_text(json.dumps(r,indent=2)+'\n')
+          guard_path=Path('incoming/retail-supervision.json')
+          if guard_path.exists():
+              guard=validate_guard(read_guard(guard_path))
+              if guard['source_commit']!=os.environ['SOURCE'] or guard['run_id']!=os.environ['RUN']:raise SystemExit('guard_identity_mismatch')
+              Path('reports/prelogin-retail-supervision-latest.json').write_text(json.dumps(guard,indent=2)+'\n')
           p=Path('incoming/prelogin-retail-prepare.json')
           if p.exists():
               d=load(p.read_bytes())
@@ -126,6 +135,7 @@ jobs:
           git config user.email prelogin-wire-report@users.noreply.github.com
           git add -- reports/prelogin-retail-prepare-ci.json
           if test -f incoming/prelogin-retail-prepare.json; then git add -- reports/prelogin-retail-prepare-runtime.json reports/prelogin-retail-path-latest.json; fi
+          if test -f incoming/retail-supervision.json; then git add -- reports/prelogin-retail-supervision-latest.json; fi
           git diff --cached --quiet && exit 0
           git commit -m 'lab: publish sanitized Retail preparation evidence'
           git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
