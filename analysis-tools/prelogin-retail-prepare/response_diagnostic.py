@@ -1,4 +1,5 @@
 """Bounded API-shape diagnostics: fixed field names/codes, never raw text/URLs."""
+import re
 FIELDS={'installed','download_complete','playable','downloaded_bytes','bytes_downloaded','downloaded','total_bytes','bytes_total','download_size','download_progress','progress','error','errors','code','error_code','errorCode','errorcode','message','msg','error_message','errorMessage','error_msg','errorText','error_text','status','result','success','succeeded','failure','failed','data','response','operation','operation_id','operationId','task','task_id','taskId','job','job_id','jobId','id','request_id','requestId','link','links','_links','url','location','resource','path','name','type','uid','game','form','state','action','async','description','reason','text','status_code','statusCode','error_count','errorCount','error_string','errorString'}
 CODES={'error','code','error_code','errorCode','errorcode','status_code','statusCode','error_count','errorCount'}
 TEXT={'message','msg','error_message','errorMessage','error_msg','errorText','error_text','description','reason','text','error_string','errorString'}
@@ -20,10 +21,26 @@ def validate(r):
  if not r['observed'] and (r['recognized_top_fields'] or r['unknown_top_fields'] or r['nodes'] or r['message_markers']):raise ValueError('diagnostic_not_observed')
  return r
 
+def canonical_field(name):
+ if type(name)is not str or len(name)>64:return None
+ token=re.sub(r'[ _-]','',name).lower()
+ # Only aliases of the existing finite allowlist; no arbitrary property labels.
+ matches=sorted(k for k in FIELDS if re.sub(r'[ _-]','',k).lower()==token)
+ if not matches:return None
+ return next((k for k in matches if '_'in k),matches[0])
+
 def describe(data):
  r=blank()
  if type(data)is not dict or len(data)>128:return r
- r['observed']=True;r['recognized_top_fields']=sorted(set(data)&FIELDS);r['unknown_top_fields']=len(set(data)-FIELDS)
+ normalized={}
+ unknown=0
+ for key,value in data.items():
+  name=canonical_field(key)
+  if name is None:unknown+=1;continue
+  if name in normalized:raise ValueError('ambiguous_field_alias')
+  normalized[name]=value
+ data=normalized
+ r['observed']=True;r['recognized_top_fields']=sorted(data);r['unknown_top_fields']=unknown
  markers=set()
  for name in r['recognized_top_fields']:
   v=data[name];kind={dict:'object',list:'array',str:'string',bool:'boolean',int:'number',float:'number',type(None):'null'}.get(type(v))

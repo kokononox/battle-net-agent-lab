@@ -19,6 +19,13 @@ class Diagnostic(unittest.TestCase):
  def test_extra_fields_refused(self):
   r=d.blank();r['token']='PRIVATE'
   with self.assertRaises(ValueError):d.validate(r)
+ def test_case_and_separator_aliases(self):
+  r=d.describe({'Error Code':123,'Error Message':'PRIVATE failed auth'})
+  self.assertEqual(r['unknown_top_fields'],0)
+  self.assertTrue(any(n['numeric_code']==123 for n in r['nodes']))
+  self.assertIn('authentication',r['message_markers']);self.assertNotIn('PRIVATE',json.dumps(r))
+ def test_ambiguous_alias_refused(self):
+  with self.assertRaises(ValueError):d.describe({'Error Code':1,'error_code':2})
  def test_no_claim_without_observation(self):d.validate(d.blank())
 
 if __name__=='__main__':unittest.main()
