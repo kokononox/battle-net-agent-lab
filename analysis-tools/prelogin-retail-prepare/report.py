@@ -19,7 +19,8 @@ def validate(r):
  if r['status'] not in STATUSES or r['error_kind'] not in ERRORS or r['product']!='wow' or r['test_profile']!=blank('a'*40,'1')['test_profile']:raise ValueError('enum')
  if r['bootstrap_pin_match'] is not None and type(r['bootstrap_pin_match']) is not bool:raise ValueError('pin')
  b=r['bootstrap_settle']
- if type(b)is not dict or set(b)!={'status','original_cleanup_attempted','checks','stop_calls','last_process_count'} or b['status']not in {'not_started','skipped','empty','remaining','failed'}:raise ValueError('settle_schema')
+ if type(b)is not dict or set(b) not in ({'status','original_cleanup_attempted','checks','stop_calls','last_process_count'}, {'status','original_cleanup_attempted','checks','stop_calls','last_process_count','observation_seconds'}) or b['status']not in {'not_started','skipped','empty','remaining','failed'}:raise ValueError('settle_schema')
+ if 'observation_seconds'in b and(type(b['observation_seconds'])is not int or b['observation_seconds']not in (30,120)):raise ValueError('observation_seconds')
  if b['original_cleanup_attempted']is not None and type(b['original_cleanup_attempted'])is not bool:raise ValueError('settle_bool')
  for k,cap in [('checks',4),('stop_calls',3),('last_process_count',1024)]:
   if type(b[k])is not int or not 0<=b[k]<=cap:raise ValueError('settle_count')

@@ -30,6 +30,8 @@ def main():
   return result
  def observe(*args,**kwargs):
   if kwargs.get('advance_language') is not True or kwargs.get('advance_install') is not False or kwargs.get('seconds')!=120:raise RuntimeError('bootstrap_scope')
+  # D19: shorten only passive startup observation; all readiness/identity gates remain.
+  kwargs['seconds']=30;r['bootstrap_settle']['observation_seconds']=30
   kwargs['retry_language_when_no_target']=True
   result=original_observe(*args,**kwargs);b=r['bootstrap_settle'];b['original_cleanup_attempted']=result.get('cleanup_attempted')
   if b['original_cleanup_attempted']is not True:b['status']='skipped';return result

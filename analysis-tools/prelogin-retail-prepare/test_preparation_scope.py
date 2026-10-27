@@ -15,11 +15,25 @@ class PreparationScope(unittest.TestCase):
   text=Path(p.__file__).read_text()
   self.assertIn('if context is not None and allow_transfer:transfer_probe.execute',text)
   self.assertEqual(text.count('transfer_probe.execute('),1)
- def test_live_workflow_requires_explicit_status_d18_approval(self):
+ def test_live_workflow_requires_explicit_status_d19_approval(self):
   root=Path(p.__file__).resolve().parents[2]
   text=(root/'.github/workflows/prelogin-retail-prepare.yml').read_text()
   self.assertIn('RETAIL_PREPARE_SCOPE: limited-transfer-c10',text)
-  self.assertIn("github.event.head_commit.message == 'lab: approved read-only retail status d18'",text)
+  self.assertIn("github.event.head_commit.message == 'lab: approved short startup retail status d19'",text)
   self.assertNotIn("github.event.head_commit.message == 'lab: approved retail prepare c10'",text)
+
+class ShortStartup(unittest.TestCase):
+ def test_short_observation_keeps_original_scope_gate(self):
+  text=Path(p.__file__).read_text()
+  self.assertIn("kwargs.get('seconds')!=120",text)
+  self.assertIn("kwargs['seconds']=30",text)
+  self.assertIn("r['bootstrap_settle']['observation_seconds']=30",text)
+ def test_duration_report_refuses_unbounded_or_wrong_type(self):
+  import report
+  for v in (0,29,31,121,True,'30'):
+   d=report.blank('a'*40,'1');d['bootstrap_settle']['observation_seconds']=v
+   with self.assertRaises(ValueError):report.validate(d)
+  for v in (30,120):
+   d=report.blank('a'*40,'1');d['bootstrap_settle']['observation_seconds']=v;report.validate(d)
 
 if __name__=='__main__':unittest.main()

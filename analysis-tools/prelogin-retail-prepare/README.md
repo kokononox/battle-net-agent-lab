@@ -111,3 +111,16 @@ Native receipts use schema4 with an explicit baseline-policy/ack flag; transfer
 receipts use schema2 and reject request-intent flags without acknowledged arming.
 Older receipt schemas remain readable. The active workflow requires a separate
 D13 exact commit-message approval. No account/country/consent fields are added.
+
+
+### D19: shorter passive startup observation
+
+D18 was stopped by the unchanged hostwide phase threshold before its status GET.
+D19 reduces the passive bootstrap observation from 120 to 30 seconds only.
+The bootstrap wrapper still refuses a changed caller scope; signature, pin, empty
+environment, cleanup, readiness, listener ownership, arming and all Job budgets
+remain unchanged. Actual observation duration is recorded as the optional fixed
+`bootstrap_settle.observation_seconds` field (older receipts remain readable).
+The handshake report retains its original 120-second maximum budget; it is not
+a claim of the actual bootstrap observation duration. A non-ready Agent is a
+failed experiment, never permission to skip the readiness gates.
