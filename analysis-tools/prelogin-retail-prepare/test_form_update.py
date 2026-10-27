@@ -45,6 +45,8 @@ class Update(unittest.TestCase):
  def test_invalid_body(self):
   for raw in (b'[]',b'{"x":1,"x":2}',b'x'*65537):
    r,s,c,response=self.setup_case();response.read.return_value=raw;self.assertRaises(ValueError,u.execute,s,initial(),r,lambda _:False,target);c.close.assert_called_once()
+ def test_returned_path_relation(self):
+  d=initial();d['form']['game_dir']['game_dir']='D:/private-lab-target/Game';r,s,*_=self.setup_case(d);u.execute(s,initial(),r,lambda _:False,target);self.assertEqual(r['form_update']['path_relation']['relation'],'child_of_owned_target');u.validate(r['form_update'])
  def test_validation(self):
   self.assertEqual(u.validate(u.blank()),u.blank())
   for k in ('attempted','destination_guard_passed'):

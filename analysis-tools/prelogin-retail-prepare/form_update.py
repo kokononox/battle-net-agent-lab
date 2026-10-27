@@ -2,14 +2,16 @@
 import ctypes,json,os,re,shutil
 from pathlib import Path
 import probe
+import path_relation
 from retail_protocol import summarize,CODES
 STATUSES={'not_started','prerequisite_refused','request_failed','response_observed','unexpected_finalized','identity_changed'}
 
 def blank():
- return dict(status='not_started',attempted=False,destination_guard_passed=False,minimum_free_required_bytes=0,free_before_bytes=0,http_status=None,response_bytes=0,response_has_form=False,response_schema_valid=False,response_finalized=None,response_eula_flag=None,response_game_dir_matches_requested=None,response_error_codes={k:None for k in ('agent',*CODES)},unknown_response_fields=False)
+ return dict(path_relation=path_relation.blank(),status='not_started',attempted=False,destination_guard_passed=False,minimum_free_required_bytes=0,free_before_bytes=0,http_status=None,response_bytes=0,response_has_form=False,response_schema_valid=False,response_finalized=None,response_eula_flag=None,response_game_dir_matches_requested=None,response_error_codes={k:None for k in ('agent',*CODES)},unknown_response_fields=False)
 
 def validate(r):
  if type(r)is not dict or set(r)!=set(blank()) or r['status']not in STATUSES:raise ValueError('update_schema')
+ path_relation.validate(r['path_relation'])
  for k in ('attempted','destination_guard_passed','response_has_form','response_schema_valid','unknown_response_fields'):
   if type(r[k])is not bool:raise ValueError('update_bool')
  for k in ('response_finalized','response_eula_flag','response_game_dir_matches_requested'):
@@ -20,6 +22,9 @@ def validate(r):
  if type(r['response_error_codes'])is not dict or set(r['response_error_codes'])!=set(blank()['response_error_codes']):raise ValueError('update_codes')
  for v in r['response_error_codes'].values():
   if v is not None and(type(v)is not int or not 0<=v<=2**32):raise ValueError('update_code')
+ if r['path_relation']['relation']!='not_observed':
+  if not r['response_has_form'] or type(r['response_game_dir_matches_requested'])is not bool:raise ValueError('relation_evidence')
+  if (r['path_relation']['relation']=='exact_string') != r['response_game_dir_matches_requested']:raise ValueError('relation_exact_match')
  if r['destination_guard_passed'] and not(r['minimum_free_required_bytes']>=10*1024**3 and r['free_before_bytes']>=r['minimum_free_required_bytes']):raise ValueError('update_space_guard')
  if r['attempted']and not r['destination_guard_passed']:raise ValueError('update_destination')
  if not r['attempted'] and any(r[k]!=v for k,v in blank().items() if k not in {'status','destination_guard_passed','minimum_free_required_bytes','free_before_bytes'}):raise ValueError('update_without_request')
@@ -45,7 +50,7 @@ def owned_target(required,is_reparse,r):
  if drive(str(Path(root.anchor)))!=3:raise ValueError('fixed_drive')
  required+=10*1024**3;r['minimum_free_required_bytes']=required;r['free_before_bytes']=shutil.disk_usage(root).free
  if r['free_before_bytes']<required:raise ValueError('disk')
- target=root/'retail-form-c4';target.mkdir(exist_ok=False)
+ target=root/'retail-form-c5';target.mkdir(exist_ok=False)
  if is_reparse(target) or any(target.iterdir()):raise ValueError('new_empty_directory')
  r['destination_guard_passed']=True
  return target
@@ -83,6 +88,8 @@ def execute(session,initial_data,r,is_reparse,make_target=owned_target):
    eu=f.get('eula',{})
    if type(eu)is dict and type(eu.get('eula'))is bool:u['response_eula_flag']=eu['eula']
    gd=f.get('game_dir',{})
-   if type(gd)is dict and type(gd.get('game_dir'))is str:u['response_game_dir_matches_requested']=gd['game_dir']==str(target)
+   if type(gd)is dict and type(gd.get('game_dir'))is str:
+    u['response_game_dir_matches_requested']=gd['game_dir']==str(target)
+    u['path_relation']=path_relation.classify(str(target),gd['game_dir'])
   u['status']='unexpected_finalized' if u['response_finalized']is True else 'response_observed'
  finally:conn.close()

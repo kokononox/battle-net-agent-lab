@@ -1,4 +1,4 @@
-# Logged-out WoW Retail form update (c4)
+# Logged-out WoW Retail form update (c5)
 
 Fresh hosted Windows first-attempt approved push on the research branch only.
 Uses the pinned bootstrap and existing owned signed Agent / listener identity
@@ -34,6 +34,18 @@ conservative review rule, not an Agent error code.
 
 A 200/201, zero error, matching path or returned finalized=false cannot prove
 actual game transfer, a complete installation, absence of telemetry, or server
-storage. No packet/payload tracing in c4; Q2 remains queued.
+storage. No packet/payload tracing in c5; Q2 remains queued.
 
 Tests: python -m unittest discover -s analysis-tools/prelogin-retail-prepare -p 'test_*.py' -v
+
+## c5 path relationship
+
+Same requests/payload scope as c4. The returned game_dir string is compared
+using pure lexical ntpath normalization. Only enum relation, child depth,
+absolute/dot-segment booleans are exported. Device/UNC/relative/stream and
+ambiguous trailing-dot/space components are rejected. No returned path is
+opened, created, resolved, trusted for download or published. Even an equal or
+child relation is NOT filesystem containment proof: symlinks/reparse behavior
+in the returned destination is not established by lexical normalization.
+A source-bound compact summary is additionally published to
+reports/prelogin-retail-path-latest.json after full-report validation.

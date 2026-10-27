@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c4'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c5'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c4'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c5'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -59,7 +59,7 @@ jobs:
         id: observation
         timeout-minutes: 6
         env:
-          RETAIL_PREPARE: approved-retail-prepare-c4
+          RETAIL_PREPARE: approved-retail-prepare-c5
         run: python analysis-tools/prelogin-retail-prepare/run_prepare.py
       - name: Validate only counts and fixed labels
         id: sanitize
@@ -119,11 +119,13 @@ jobs:
               d=load(p.read_bytes())
               if d['source_commit']!=os.environ['SOURCE'] or d['run_id']!=os.environ['RUN']:raise SystemExit('control_identity_mismatch')
               Path('reports/prelogin-retail-prepare-runtime.json').write_text(json.dumps(d,indent=2)+'\n')
+              compact=dict(schema='bnet-retail-path-review-1',source_commit=d['source_commit'],run_id=d['run_id'],status=d['status'],form_update=d['form_update'],initial_error_codes=d['form']['error_codes'],identity_failure_state=d['identity_failure_state'],identity_checks=d['identity_checks'],local_requests=d['local_requests'],limits=d['limits'])
+              Path('reports/prelogin-retail-path-latest.json').write_text(json.dumps(compact,indent=2)+'\n')
           PY
           git config user.name prelogin-wire-report
           git config user.email prelogin-wire-report@users.noreply.github.com
           git add -- reports/prelogin-retail-prepare-ci.json
-          if test -f incoming/prelogin-retail-prepare.json; then git add -- reports/prelogin-retail-prepare-runtime.json; fi
+          if test -f incoming/prelogin-retail-prepare.json; then git add -- reports/prelogin-retail-prepare-runtime.json reports/prelogin-retail-path-latest.json; fi
           git diff --cached --quiet && exit 0
           git commit -m 'lab: publish sanitized Retail preparation evidence'
           git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
