@@ -1,7 +1,7 @@
 # ادامهٔ فعلی Unified Firewall
 
-[تحویل جامع](SESSION-UNIFIED-FIREWALL-2026-10-27.fa.md)، [اصلاح مشاهده‌گر ۰٫۳٫۱](../analysis/unifiedfw-session-2026-10-27/endpoint-v031/README.fa.md) و [وضعیت ماشین‌خوان](UNIFIED-FIREWALL-CURRENT.json) مرجع ادامه‌اند.
+[تحویل جامع](SESSION-UNIFIED-FIREWALL-2026-10-27.fa.md)، [رسید موفق مقصد Windows](../analysis/unifiedfw-session-2026-10-27/endpoint-v031/windows-results/CONNECTED-REVIEW.fa.md) و [وضعیت ماشین‌خوان](UNIFIED-FIREWALL-CURRENT.json) مرجع ادامه‌اند.
 
-v0.3 روی Windows دو بار پیش از endpoint متوقف شد: disconnected و سپس unknown. wrapper علت lifecycle را پنهان کرده بود؛ unknown را قطع‌بودن VPN تلقی نکنید. v0.3.1 علت پالایش‌شده را حفظ می‌کند و هیچ guard یا native reader را تغییر نمی‌دهد؛ ۶۱ assertion جدید و ۸۴ lifecycle محلی گذشتند، هنوز receipt اجرای اصلاح نداریم. SplitTunneling=True بعد از بازسازی قبلاً دیده شده، اما علت آخرین شکست با دادهٔ موجود قطعی نیست.
+پس از بازگرداندن پروفایل تازه به full-tunnel، v0.3.1 روی Windows تکمیل شد: هویت profile/RAS/interface در دو مشاهدهٔ داخل اجرا ثابت، یک سرویس در host، یک TCP443 و یک candidate پایدار مرتبط با cache محلی. این تأیید همبستگی endpoint است؛ pin مصوب، service tag، امضا، bootstrap DNS/TLS، reconnect تحت ایزولاسیون، guardian، no-leak یا Apply تأیید نشده‌اند.
 
-گام بعد فقط اجرای بستهٔ جداگانهٔ v0.3.1 با وضعیت فعلی VPN و دریافت JSON است. Apply/Restore/قطع‌و‌وصل یا تغییر حدسی تنظیمات درخواست نشود. مشکل LAN به‌گفتهٔ کاربر فعلاً رفع شده، علت نامعلوم؛ این اثبات reconnect تحت ایزولاسیون نیست. هدف ابزار اختصاصی Battle.net، no-leak و bootstrap تأییدنشده باقی است.
+آزمون مشاهده‌گر تکرار نشود؛ اکنون اقدام تازه‌ای از کاربر لازم نیست. گام بعد توسعهٔ آفلاین ورودی صریحاً تأییدشدهٔ مقصد و طرح bootstrap/reconnect است. cache خودکار pin نشود، استثنای گسترده ساخته نشود. هدف ابزار اختصاصی نصاب Battle.net است، نه افزودن داشبورد. اتصال فعلی LAN گزارش کاربر است، نه اندازه‌گیری carrier در receipt یا qualification تعویض رابط.

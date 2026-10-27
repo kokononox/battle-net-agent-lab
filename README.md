@@ -318,3 +318,6 @@ network download estimate.
 
 
 Latest diagnostic correction: [v0.3.1 lifecycle failure visibility](analysis/unifiedfw-session-2026-10-27/endpoint-v031/README.fa.md). Two Windows v0.3 receipts stopped before endpoint observation; unknown is not disconnected. Reporting-only fix, 61 plus 84 local assertions, Windows v0.3.1 pending.
+
+
+Latest Windows receipt: [v0.3.1 connected endpoint correlation passed](analysis/unifiedfw-session-2026-10-27/endpoint-v031/windows-results/CONNECTED-REVIEW.fa.md). One stable TCP443 candidate in an unshared service host, stable within-run identity; not approved pin/bootstrap/reconnection/enforcement qualification. No new user run requested.

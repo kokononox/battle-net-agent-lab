@@ -44,7 +44,7 @@
     "cross_run_binding_comparison_tested": false,
     "endpoint_verified": false,
     "endpoint_observer_implemented": true,
-    "endpoint_observer_Windows_tested": false,
+    "endpoint_observer_Windows_tested": true,
     "endpoint_observer_native_service_tag_verified": false,
     "endpoint_observer_offline_signature_verification_implemented": false,
     "endpoint_observer_guardian_integrated": false,
@@ -54,19 +54,23 @@
       "disconnected",
       "unknown"
     ],
-    "endpoint_v031_Windows_tested": false,
-    "endpoint_v031_preserves_lifecycle_failure_details": true
+    "endpoint_v031_Windows_tested": true,
+    "endpoint_v031_preserves_lifecycle_failure_details": true,
+    "endpoint_v031_Windows_endpoint_reader_reached": true,
+    "endpoint_Windows_verification_scope": "single connected-state within-run profile/RAS/interface and unshared host endpoint correlation; no service tag or approved pin",
+    "endpoint_correlation_Windows_observed": true,
+    "within_run_binding_comparison_Windows_tested": true
   },
-  "next_step": "one unchanged-state read-only endpoint v0.3.1 run; review lifecycle_before code/stage before considering any profile change; no Apply",
-  "user_action_now": "run separate v0.3.1 package as administrator in same Windows account with VPN unchanged; return sanitized JSON even if false",
+  "next_step": "offline design of explicitly approved endpoint input and bootstrap/reconnect constraints; never promote DNS cache correlation to approved pin; no live Apply",
+  "user_action_now": "none; do not repeat observer or change VPN/firewall state",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "v0.3 real Windows observations stopped before endpoint; latest lifecycle reason was hidden by wrapper; v0.3.1 reporting-only fix passed 61 plus 84 local assertions",
-  "previous_sync_commit": "a43f1e81bf2a95d120f89315b73541990643a691",
+  "latest_progress": "v0.3.1 real Windows connected observation passed: stable within-run identity and one cache-correlated TCP443 tuple in unshared service host; endpoint pin/bootstrap/Apply remain unapproved",
+  "previous_sync_commit": "ca5d30983af240b9fbe2f621d288cd4316e434de",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -78,5 +82,10 @@
     "DHCP_DNS_route_bootstrap_solved": false,
     "compiler_underlay_model_checks": 10,
     "Ethernet_isolation_qualified": false
+  },
+  "profile_latest_user_reported": {
+    "connection_status": "Connected",
+    "split_tunneling": false,
+    "change_scope": "single current-user SSTP profile; explicit user command; no automatic reconnect"
   }
 }
