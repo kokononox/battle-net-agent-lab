@@ -32,3 +32,7 @@
 ## ادامه: شاهد پایدار در همان دفتر نشست
 
 `RuntimeWitness.ps1` پیش از Window، arm را در journal موجود flush/readback می‌کند و پس از collector، evidence محدود فرایندها را append می‌کند. registry همان نشست را پس از قطع بازمی‌خواند؛ factory بومی بدون witness معتبر READY نمی‌دهد. این evidence انتساب کامل helper/service یا authority بازگردانی Allow نیست؛ probe مستقل و recovery/UI بومی همچنان لازم‌اند. جزئیات در `integrated-session-v01/DURABLE-RUNTIME-WITNESS.fa.md`، نتیجهٔ آزمون‌ها در QA-SUMMARY است. اثر بومی Windows یا آزمون دستی تازه‌ای انجام/درخواست نشده است.
+
+## ادامه: guard وضعیت فعلی فرایندها
+
+`ProcessQuiescence.ps1` همان witness را با دو census فعلی و cross-check دو enumerator بررسی می‌کند. دسترسی نامعلوم، تغییر actor/boot/head یا اجرای هدف/فرزند شناخته‌شده رد می‌شود. این guard به همان backend بازیابی وصل شده و guard قبلی و helper/service coverage مستقل را حفظ می‌کند؛ recovery پیش از close، finish guard هم دارد. جزئیات در `integrated-session-v01/PROCESS-QUIESCENCE.fa.md` است. native coverage و qualification همچنان مانع‌اند؛ شمارش معتبر از QA-SUMMARY خوانده شود. آزمون دستی یا فایل خصوصی تازه‌ای درخواست نشد.
