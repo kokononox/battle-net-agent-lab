@@ -55,3 +55,7 @@ coordinator موجود با همین callbackها در fixture از backup تا 
 ## ادامه: guard وضعیت فعلی فرایندها
 
 `ProcessQuiescence.ps1` همان witness را با دو census فعلی و cross-check دو enumerator بررسی می‌کند. دسترسی نامعلوم، تغییر actor/boot/head یا اجرای هدف/فرزند شناخته‌شده رد می‌شود. این guard به همان backend بازیابی وصل شده و guard قبلی و helper/service coverage مستقل را حفظ می‌کند؛ recovery پیش از close، finish guard هم دارد. جزئیات در `integrated-session-v01/PROCESS-QUIESCENCE.fa.md` است. native coverage و qualification همچنان مانع‌اند؛ شمارش معتبر از QA-SUMMARY خوانده شود. آزمون دستی یا فایل خصوصی تازه‌ای درخواست نشد.
+
+## ادامه: رضایت خروج محدود و مبنای audit پایدار
+
+`ExitReview.ps1` رابط کنسولی محلی و lease موقت رضایت را به همان recovery-first/backend وصل می‌کند. arm v02 plan و head/session_id دفتر audit اصلی را نگه می‌دارد؛ مقدار واقعی before ماسک‌ها در خروج لازم است و pending نامرتبط پیش از archive/اثر رد می‌شود. v01 بدون baseline به‌طور خودکار upgrade/approved نمی‌شود. cancel/drift/انقضا inverse یا closed موفق نمی‌سازد؛ هیچ reset/Allow عمومی نیست. جزئیات در `integrated-session-v01/EXIT-REVIEW.fa.md` است؛ helper/service guard، UI نهایی و Windows/performance qualification هنوز مانع‌اند. شمارش معتبر از QA-SUMMARY خوانده شود؛ آزمون دستی تازه درخواست نشد.
