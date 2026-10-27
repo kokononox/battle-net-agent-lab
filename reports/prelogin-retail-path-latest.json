@@ -1,9 +1,17 @@
 {
   "schema": "bnet-retail-path-review-1",
-  "source_commit": "9f33b4295d162122436693aecae98c0a049e24d9",
-  "run_id": "40454828958",
+  "source_commit": "09e840227bcb55a95676ee3067d0de8633049a70",
+  "run_id": "40456815395",
   "status": "form_observed",
   "form_update": {
+    "path_guard": {
+      "status": "verified_existing_chain",
+      "existing_components_checked": 4,
+      "missing_tail": false,
+      "reparse_detected": false,
+      "absolute_containment_lexically_verified": true,
+      "race_free_containment_proven": false
+    },
     "path_relation": {
       "relation": "normalized_equal",
       "child_depth": 0,
@@ -15,7 +23,7 @@
     "attempted": true,
     "destination_guard_passed": true,
     "minimum_free_required_bytes": 62737418240,
-    "free_before_bytes": 235862495232,
+    "free_before_bytes": 157629345792,
     "http_status": 201,
     "response_bytes": 1663,
     "response_has_form": true,
