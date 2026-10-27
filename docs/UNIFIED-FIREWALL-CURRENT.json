@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "latest actual reopen receipt: all three local/effective outbound Block, firewall enabled True, effective local rules True, stable against saved prepared baseline across two fresh preflights; SSTP prior user-reported Connected, not queried here",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "UFW-PROGRAM-OBSERVER-01: passive TCP endpoint suggestions from explicitly selected existing protected program candidate; offline QA passed; Windows workflow untested",
+  "latest_offline_candidate": "UFW-PROGRAM-OBSERVER-01: actual Windows existing-candidate reopen/reobservation/15 passive samples/private zero-suggestion write succeeded; no stable selected process observed, no endpoint attribution qualified",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -191,8 +191,8 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "receive first Windows PROGRAM-OBSERVER-01 sanitized diagnostic for independent reopen/reobservation/native passive sampling/private suggestion storage; do not rerun candidate recording; then explicitly review per-program endpoint proposals, never auto-approve; native Apply/recovery/SSTP binding/bootstrap/reconnect remain separate gates",
-  "user_action_now": "new folder; admin same Windows account Run-Observer.cmd; explicitly select EXISTING saved candidate.json; local review then optional Observe and save suggestions; do not launch target or change network/SSTP/firewall for this first test; return only new diagnostic JSON; zero endpoints expected if target absent; do not send raw candidate/suggestions/path/hash/ID/screenshots; uncertain write means no automatic retry/delete",
+  "next_step": "do not repeat successful candidate/observer plumbing; design a separately consented controlled target observation and source for attempted/blocked connections without opening broad Allow; no execution until concrete scope and safety preconditions are approved; packet/native enforcement/SSTP gates remain",
+  "user_action_now": "none; do not rerun candidate or passive observer solely to fill output; do not launch installer, change network/SSTP/firewall, Apply or Restore; zero stable selected processes is not proof target was stopped, not safety/fingerprint proof; raw candidate/suggestions remain private",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
@@ -453,12 +453,20 @@
     "baseline_journal_access": false,
     "private_root": "CommonApplicationData/UnifiedFW-ProgramObservations-01",
     "raw_diagnostic_identity_exported": false,
-    "Windows_native_executed": false,
-    "PS51_native_executed": false,
+    "Windows_native_executed": true,
+    "PS51_native_executed": true,
     "new_assertions": 645,
     "regression_assertions": 569,
     "limits": "sampling can miss short/blocked/UDP/inaccessible processes; IP is not domain and may be shared; zero result is not safety proof; no capture approval",
-    "ready_for_apply": false
+    "ready_for_apply": false,
+    "Windows_success_scope": "one successful existing candidate reopen, 3 file reobservations, local consent, 15 TCP-table/snapshot calls and protected zero-suggestion write/readback; no stable selected process or attributed connection; not native nonzero attribution/failure-path qualification",
+    "Windows_receipt": "analysis/unifiedfw-session-2026-10-27/program-observer-v01/evidence/Windows-observer-01-completed-zero-stable-process.json",
+    "Windows_samples_completed": 15,
+    "Windows_samples_with_stable_process": 0,
+    "Windows_suggestion_count": 0,
+    "Windows_private_suggestions_saved": true,
+    "Windows_nonzero_process_attribution_qualified": false,
+    "Windows_nonzero_endpoint_attribution_qualified": false
   },
   "latest_continuation_notes": "docs/SESSION-UNIFIED-FIREWALL-PROGRAM-OBSERVER-01.fa.md"
 }
