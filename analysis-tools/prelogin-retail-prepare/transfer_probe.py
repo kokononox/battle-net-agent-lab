@@ -2,6 +2,8 @@
 import ctypes,ipaddress,json,os,re,socket,struct,time
 from ctypes import wintypes as w
 from pathlib import Path
+import sys
+sys.path.append(str(Path(__file__).resolve().parents[2]/'agent-interface-lab'))
 import probe,path_guard,path_relation
 from retail_protocol import summarize,CODES
 STATES={'not_started','prerequisite_refused','pending','request_failed','finalization_refused','start_refused','observed','identity_changed','collection_refused'}

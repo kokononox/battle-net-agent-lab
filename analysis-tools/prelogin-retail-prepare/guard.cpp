@@ -20,7 +20,7 @@ struct Receipt {
 wstring env(const wchar_t* n){DWORD k=GetEnvironmentVariableW(n,nullptr,0);if(!k)return L"";wstring s(k,L'\0');GetEnvironmentVariableW(n,s.data(),k);s.resize(k-1);return s;}
 std::string ascii(const wstring&s){std::string r;for(auto c:s){if(c>127)return "";r+=(char)c;}return r;}
 bool identity(const std::string&s,bool hash){if(s.empty()||s.size()>(hash?40:30)||(hash&&s.size()!=40))return false;for(char c:s)if(hash?!(c>='0'&&c<='9'||c>='a'&&c<='f'):!(c>='0'&&c<='9'))return false;return true;}
-bool fresh(){return env(L"GITHUB_ACTIONS")==L"true"&&env(L"RUNNER_OS")==L"Windows"&&env(L"RUNNER_ENVIRONMENT")==L"github-hosted"&&env(L"GITHUB_EVENT_NAME")==L"push"&&env(L"GITHUB_RUN_ATTEMPT")==L"1"&&env(L"GITHUB_REF")==L"refs/heads/research/prelogin-telemetry-wow-data-provenance"&&env(L"RETAIL_PREPARE")==L"approved-retail-prepare-c9";}
+bool fresh(){return env(L"GITHUB_ACTIONS")==L"true"&&env(L"RUNNER_OS")==L"Windows"&&env(L"RUNNER_ENVIRONMENT")==L"github-hosted"&&env(L"GITHUB_EVENT_NAME")==L"push"&&env(L"GITHUB_RUN_ATTEMPT")==L"1"&&env(L"GITHUB_REF")==L"refs/heads/research/prelogin-telemetry-wow-data-provenance"&&env(L"RETAIL_PREPARE")==L"approved-retail-prepare-c10";}
 bool network(unsigned long long&n){PMIB_IF_TABLE2 t=nullptr;if(GetIfTable2(&t)!=NO_ERROR)return false;n=0;bool any=false;for(ULONG i=0;i<t->NumEntries;i++){auto&r=t->Table[i];if(r.Type==IF_TYPE_SOFTWARE_LOOPBACK||r.OperStatus!=IfOperStatusUp)continue;any=true;if(ULLONG_MAX-n<r.InOctets||ULLONG_MAX-n-r.InOctets<r.OutOctets){FreeMibTable(t);return false;}n+=r.InOctets+r.OutOctets;}FreeMibTable(t);return any;}
 bool disk(unsigned long long&n){auto temp=env(L"RUNNER_TEMP"),sys=env(L"SystemDrive")+L"\\";ULARGE_INTEGER a{},b{};if(temp.empty()||!GetDiskFreeSpaceExW(temp.c_str(),&a,nullptr,nullptr)||!GetDiskFreeSpaceExW(sys.c_str(),&b,nullptr,nullptr))return false;n=a.QuadPart<b.QuadPart?a.QuadPart:b.QuadPart;return true;}
 bool active(HANDLE job,DWORD&n){JOBOBJECT_BASIC_ACCOUNTING_INFORMATION i{};if(!QueryInformationJobObject(job,JobObjectBasicAccountingInformation,&i,sizeof(i),nullptr))return false;n=i.ActiveProcesses;return true;}
@@ -50,7 +50,7 @@ int wmain(int argc,wchar_t**argv){
  wchar_t self[32768];DWORD selflen=GetModuleFileNameW(nullptr,self,32768);wstring app,cmd;
  if(fixture){if(!selflen||selflen>=32768){r.status="launch_failed";finish();return 2;}app=self;cmd=quote(app)+L" fixture-child";}
  else {if(argc!=3){r.status="launch_failed";finish();return 2;}app=argv[2];auto script=env(L"GITHUB_WORKSPACE")+L"\\analysis-tools\\prelogin-retail-prepare\\run_prepare.py";if(quote(app).empty()||quote(script).empty()){r.status="launch_failed";finish();return 2;}cmd=quote(app)+L" "+quote(script);}
- if(!fixture&&!SetEnvironmentVariableW(L"RETAIL_SUPERVISED",L"job-c9")){r.status="launch_failed";finish();return 2;}
+ if(!fixture&&!SetEnvironmentVariableW(L"RETAIL_SUPERVISED",L"job-c10")){r.status="launch_failed";finish();return 2;}
  STARTUPINFOW si{};si.cb=sizeof(si);
  if(!CreateProcessW(app.c_str(),cmd.data(),nullptr,nullptr,FALSE,CREATE_SUSPENDED,nullptr,nullptr,&si,&pi)){r.error=GetLastError();r.status="launch_failed";finish();return 2;}
  if(!AssignProcessToJobObject(job,pi.hProcess)){r.error=GetLastError();r.status="assignment_failed";TerminateProcess(pi.hProcess,125);finish();return 2;}r.assigned=true;

@@ -1,4 +1,4 @@
-# Anonymous limited Retail transfer attempt — c9
+# Anonymous limited Retail transfer attempt — c10
 
 This step changes scope: after the proven non-finalizing form and repeated
 owned-path checks, one finalized=true request may be sent to /install/wow.
@@ -40,9 +40,19 @@ contents/names), and counts of ESTABLISHED IPv4 TCP endpoints owned by the same
 verified local Agent listener PID, bucketed by public fixed port categories.
 No PID, address, domain, token, payload or raw path is published. Counts omit
 IPv6/UDP/other Agent children, do not count bytes and cannot identify hardware
-uploads. No TLS decryption or packet capture in c9. An increasing file size may
+uploads. No TLS decryption or packet capture in c10. An increasing file size may
 be preallocation/metadata, not proof of downloaded playable content. Agent
 progress counters are reports, not independently verified wire bytes.
 
 Q2 game-file provenance/watermark analysis is not started. complete_installation
 and hardware_upload claims remain false. No game execution or account login.
+
+C9 never reached handshake/finalization: bootstrap_not_ready after language/
+Agent observation, no HTTP Agent requests. This does not establish which
+cleanup precondition failed. C10 records the bootstrap's original cleanup flag
+and at most4 post-cleanup checks /3 calls to the same existing stop_observed
+mechanism, sleeping1s between. Original result/cleanup flag are not rewritten;
+probe's own empty-process/identity/freshness requirements remain unchanged.
+The standalone sanitizer now sets its own probe import path and has a fresh
+interpreter test without PYTHONPATH. A missing standalone receipt is never
+inferred to mean a successful transfer.

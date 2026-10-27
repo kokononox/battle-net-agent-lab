@@ -70,7 +70,7 @@ class Reports(unittest.TestCase):
   d=r.blank('a'*40,'1');d['handshake']['source_commit']='b'*40;self.assertRaises(ValueError,r.validate,d)
  def test_duplicate_json(self):self.assertRaises(ValueError,r.load,b'{"x":1,"x":2}')
  def test_auth_guard(self):
-  e=dict(GITHUB_ACTIONS='true',RUNNER_OS='Windows',RUNNER_ENVIRONMENT='github-hosted',GITHUB_RUN_ATTEMPT='1',GITHUB_EVENT_NAME='push',GITHUB_REF=BRANCH,RETAIL_PREPARE='approved-retail-prepare-c9');self.assertTrue(authorized(e,'win32'));self.assertFalse(authorized(e,'linux'))
+  e=dict(GITHUB_ACTIONS='true',RUNNER_OS='Windows',RUNNER_ENVIRONMENT='github-hosted',GITHUB_RUN_ATTEMPT='1',GITHUB_EVENT_NAME='push',GITHUB_REF=BRANCH,RETAIL_PREPARE='approved-retail-prepare-c10');self.assertTrue(authorized(e,'win32'));self.assertFalse(authorized(e,'linux'))
   for k in e:
    d=e.copy();d[k]='wrong';self.assertFalse(authorized(d,'win32'))
 if __name__=='__main__':unittest.main()

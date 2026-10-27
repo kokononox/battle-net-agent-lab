@@ -1,5 +1,5 @@
 """Fresh owned Agent: one Retail initialization, never login/finalize/game payload."""
-import json,os,re,sys
+import json,os,re,sys,time
 from pathlib import Path
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 sys.path.insert(0,str(ROOT/'scripts'));sys.path.append(str(ROOT/'agent-interface-lab'));sys.path.append(str(HERE.parent/'prelogin-registry-stack'))
@@ -12,10 +12,10 @@ from report import blank,validate,ERRORS
 PIN='f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6'
 BRANCH='refs/heads/research/prelogin-telemetry-wow-data-provenance'
 def authorized(e,platform):
- return platform=='win32' and all(e.get(k)==v for k,v in dict(GITHUB_ACTIONS='true',RUNNER_OS='Windows',RUNNER_ENVIRONMENT='github-hosted',GITHUB_RUN_ATTEMPT='1',GITHUB_EVENT_NAME='push',GITHUB_REF=BRANCH,RETAIL_PREPARE='approved-retail-prepare-c9').items())
+ return platform=='win32' and all(e.get(k)==v for k,v in dict(GITHUB_ACTIONS='true',RUNNER_OS='Windows',RUNNER_ENVIRONMENT='github-hosted',GITHUB_RUN_ATTEMPT='1',GITHUB_EVENT_NAME='push',GITHUB_REF=BRANCH,RETAIL_PREPARE='approved-retail-prepare-c10').items())
 def main():
  if not authorized(os.environ,sys.platform):raise SystemExit('fresh_hosted_once_required')
- if os.environ.get('RETAIL_SUPERVISED')!='job-c9':raise SystemExit('independent_job_required')
+ if os.environ.get('RETAIL_SUPERVISED')!='job-c10':raise SystemExit('independent_job_required')
  r=blank(os.environ['GITHUB_SHA'],os.environ['GITHUB_RUN_ID']);validate(r);out=Path('output');out.mkdir(exist_ok=True)
  import observe_agent as lab
  original_fetch=lab.fetch_setup;original_observe=lab.observe;old_approval=os.environ.get('AGENT_INTERFACE_ONCE')
@@ -26,7 +26,17 @@ def main():
  def observe(*args,**kwargs):
   if kwargs.get('advance_language') is not True or kwargs.get('advance_install') is not False or kwargs.get('seconds')!=120:raise RuntimeError('bootstrap_scope')
   kwargs['retry_language_when_no_target']=True
-  return original_observe(*args,**kwargs)
+  result=original_observe(*args,**kwargs);b=r['bootstrap_settle'];b['original_cleanup_attempted']=result.get('cleanup_attempted')
+  if b['original_cleanup_attempted']is not True:b['status']='skipped';return result
+  try:
+   clean=lab.clean_environment(os.environ)
+   for attempt in range(4):
+    snapshot=lab.snapshot(clean);b['checks']+=1;b['last_process_count']=len(snapshot['processes'])
+    if not snapshot['processes']:b['status']='empty';break
+    b['status']='remaining'
+    if attempt<3:lab.stop_observed(snapshot,clean);b['stop_calls']+=1;time.sleep(1)
+  except Exception:b['status']='failed'
+  return result
  def identity(state,stage):
   if state not in probe.IDENTITY_STATES or stage not in probe.IDENTITY_STAGES:raise ValueError('identity')
   r['identity_checks']+=1;r['last_identity_state']=state
