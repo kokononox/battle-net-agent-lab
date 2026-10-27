@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "latest actual reopen receipt: all three local/effective outbound Block, firewall enabled True, effective local rules True, stable against saved prepared baseline across two fresh preflights; SSTP prior user-reported Connected, not queried here",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "UFW-PROGRAM-REVIEW-011 now passed actual Windows file dialog and one x86 EXE native observation; no saved program profile or Apply authority",
+  "latest_offline_candidate": "UFW-PROGRAM-CANDIDATE-01 protected local installer-program candidate recording after explicit GUI confirmation; destinations pending, no Apply authority; actual new Windows flow pending",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -130,7 +130,15 @@
     "program_picker_011_Windows_file_API_executed": true,
     "program_picker_011_Windows_one_file_observation_passed": true,
     "program_picker_011_Windows_x86_PE_observed": true,
-    "program_review_Windows_file_API_scope": "single success-path EXE observation via011 picker; live rejection/ACL/adversarial/race/large-file cases not tested; original01 invocation remains cancellation only"
+    "program_review_Windows_file_API_scope": "single success-path EXE observation via011 picker; live rejection/ACL/adversarial/race/large-file cases not tested; original01 invocation remains cancellation only",
+    "program_candidate_new_assertions": 236,
+    "program_candidate_journal_regression": 73,
+    "program_candidate_picker_regression": 260,
+    "program_candidate_PS_sources_parsed": 6,
+    "program_candidate_real_Linux_file_IO_tested": true,
+    "program_candidate_confirmation_Windows_executed": false,
+    "program_candidate_store_Windows_executed": false,
+    "program_candidate_PS51_JSON_contract_shim_tested": true
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -177,16 +185,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "implement protected local installer-profile candidate recording from a fresh local file selection/reobservation and explicit content-limited consent, then explicit per-program destination review; reuse proven file observer and protected-storage helpers without upgrading preparation/observation to Apply consent; diagnostic is not enough to reconstruct private program path/hash and user must not upload them",
-  "user_action_now": "none; successful picker/native observation needs no rerun now; retain current network/SSTP and protected prepared journal; no EXE execution, raw identity upload, Apply/Restore or trust assertion requested",
+  "next_step": "user optionally records selected installer EXE(s) locally via new admin same-account Save candidate form; inspect sanitized receipt before destination review; if write attempted but failed do not retry/delete; do not upload private candidate file; then implement per-program destination review and baseline/transport composition, not native Apply yet",
+  "user_action_now": "extract separate local folder; same-account Run as administrator Run-Candidate.cmd; choose existing installer EXE, inspect full private review, optionally Save candidate within 120 seconds or Cancel; return only UFW-PROGRAM-CANDIDATE-01 JSON; keep SSTP/network/baseline journal, no EXE execution or old-test rerun",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "actual Windows PS5.1 x64 receipt confirms file dialog completed without cancellation, one EXE selected/observed, x86 PE header, same-handle double hash matched, native identity observed and local review displayed; no raw identity in report, program execution, config save, trust check, firewall/journal/VPN/DNS change request or Apply authority",
-  "previous_sync_commit": "6937876ca2587ec46b0c85d346590a89ff6b129a",
+  "latest_progress": "implemented local explicit candidate review/save UI, three fresh passes of unchanged EXE observer, actor/time/content checks, new protected ProgramCandidates root with unchanged ACL/CreateNew helpers, strict checksummed one-record candidate/readback; 236 new model assertions with real Linux I/O passed, journal73 and picker260 regression rerun; imports do not access baseline journal or profile queries; native Windows candidate store/confirmation not yet run",
+  "previous_sync_commit": "6b0d9c861ae39058064bcad3a1f679f3f22a2812",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -384,5 +392,28 @@
     "same_handle_double_hash_matched": true,
     "local_private_review_displayed": true,
     "specific_Battle_net_installer_identity_verified_from_sanitized_report": false
+  },
+  "program_candidate": {
+    "scope": "record installer program selection only, separate protected candidate not an executable profile",
+    "root": "CommonApplicationData/UnifiedFW-ProgramCandidates-01",
+    "record": "one new UfwProgramCandidate-GUID/candidate.json, CreateNew, protected Administrators/SYSTEM, checksummed readback",
+    "administrator_required_for_protected_storage": true,
+    "explicit_local_Save_candidate_required": true,
+    "default_focus": "Cancel, no Save accept-button",
+    "consent_window_seconds": 120,
+    "fresh_program_observation_passes": 3,
+    "reader_picker_and_three_storage_modules_byte_unchanged": true,
+    "actor_and_content_checked": true,
+    "uncertain_after_write": "file may exist, no automatic delete or retry",
+    "phase": "programs_reviewed_destinations_pending",
+    "destinations_empty": true,
+    "raw_report_identity_exported": false,
+    "baseline_session_journal_access": false,
+    "baseline_linked": false,
+    "candidate_is_valid_compiler_grant_input": false,
+    "firewall_or_program_execution_authority": false,
+    "Windows_executed": false,
+    "package_sha256": "53c152d3db686a14bffafbe09715beaf0d21768180f18dbe04d3371d912301ed",
+    "ready_for_apply": false
   }
 }
