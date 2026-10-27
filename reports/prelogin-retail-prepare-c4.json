@@ -1,0 +1,712 @@
+{
+  "schema": "bnet-retail-prepare-3",
+  "source_commit": "6b2471c0c0f401ecc9a991ce2a08b3ea79792185",
+  "run_id": "40453657979",
+  "status": "form_observed",
+  "error_kind": null,
+  "product": "wow",
+  "test_profile": {
+    "region": "eu",
+    "locale": "enUS",
+    "platform": "win",
+    "architecture": "x86_64"
+  },
+  "bootstrap_pin_match": true,
+  "metadata": {
+    "version": "12.1.5.70575",
+    "build_config": "d718abcc42604d8efbd35aecfa5bb75b",
+    "versions_sha256": "e1a11b4928d4d87e6f8021c57d3f87271762978bbba2891f30e2ccd7c8099b9f",
+    "response_bytes": 1220
+  },
+  "form_details": {
+    "status": "observed",
+    "nodes": [
+      {
+        "path": [
+          "authentication"
+        ],
+        "type": "object",
+        "count": 1
+      },
+      {
+        "path": [
+          "authentication",
+          "error"
+        ],
+        "type": "number",
+        "count": null
+      },
+      {
+        "path": [
+          "eula"
+        ],
+        "type": "object",
+        "count": 2
+      },
+      {
+        "path": [
+          "eula",
+          "error"
+        ],
+        "type": "number",
+        "count": null
+      },
+      {
+        "path": [
+          "eula",
+          "eula"
+        ],
+        "type": "boolean",
+        "count": null
+      },
+      {
+        "path": [
+          "finalized"
+        ],
+        "type": "boolean",
+        "count": null
+      },
+      {
+        "path": [
+          "game_dir"
+        ],
+        "type": "object",
+        "count": 7
+      },
+      {
+        "path": [
+          "game_dir",
+          "default"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "game_dir",
+          "dirname"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "game_dir",
+          "error"
+        ],
+        "type": "number",
+        "count": null
+      },
+      {
+        "path": [
+          "game_dir",
+          "game_dir"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "game_dir",
+          "required_space"
+        ],
+        "type": "number",
+        "count": null
+      },
+      {
+        "path": [
+          "game_dir",
+          "required_space_info"
+        ],
+        "type": "object",
+        "count": 2
+      },
+      {
+        "path": [
+          "game_dir",
+          "required_space_info",
+          "size"
+        ],
+        "type": "number",
+        "count": null
+      },
+      {
+        "path": [
+          "game_dir",
+          "warning"
+        ],
+        "type": "number",
+        "count": null
+      },
+      {
+        "path": [
+          "language"
+        ],
+        "type": "object",
+        "count": 4
+      },
+      {
+        "path": [
+          "language",
+          "error"
+        ],
+        "type": "number",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "list"
+        ],
+        "type": "array",
+        "count": 11
+      },
+      {
+        "path": [
+          "language",
+          "list",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "list",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "list",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "list",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "list",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "list",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "list",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "list",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "list",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "list",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "list",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "speech"
+        ],
+        "type": "array",
+        "count": 11
+      },
+      {
+        "path": [
+          "language",
+          "speech",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "speech",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "speech",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "speech",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "speech",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "speech",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "speech",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "speech",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "speech",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "speech",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "speech",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "text"
+        ],
+        "type": "array",
+        "count": 11
+      },
+      {
+        "path": [
+          "language",
+          "text",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "text",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "text",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "text",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "text",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "text",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "text",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "text",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "text",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "text",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "language",
+          "text",
+          "*"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "min_spec"
+        ],
+        "type": "object",
+        "count": 7
+      },
+      {
+        "path": [
+          "min_spec",
+          "allow_arm_emulation"
+        ],
+        "type": "boolean",
+        "count": null
+      },
+      {
+        "path": [
+          "min_spec",
+          "error"
+        ],
+        "type": "number",
+        "count": null
+      },
+      {
+        "path": [
+          "min_spec",
+          "required_cpu_speed"
+        ],
+        "type": "array",
+        "count": 1
+      },
+      {
+        "path": [
+          "min_spec",
+          "required_cpu_speed",
+          "*"
+        ],
+        "type": "number",
+        "count": null
+      },
+      {
+        "path": [
+          "min_spec",
+          "required_os"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "min_spec",
+          "required_ram"
+        ],
+        "type": "number",
+        "count": null
+      },
+      {
+        "path": [
+          "min_spec",
+          "required_subversion"
+        ],
+        "type": "number",
+        "count": null
+      },
+      {
+        "path": [
+          "min_spec",
+          "requires_64bit"
+        ],
+        "type": "boolean",
+        "count": null
+      },
+      {
+        "path": [
+          "shortcut"
+        ],
+        "type": "string",
+        "count": null
+      },
+      {
+        "path": [
+          "tome_path"
+        ],
+        "type": "object",
+        "count": 1
+      },
+      {
+        "path": [
+          "tome_path",
+          "error"
+        ],
+        "type": "number",
+        "count": null
+      }
+    ],
+    "recognized_language_locales": [
+      "deDE",
+      "enUS",
+      "esES",
+      "esMX",
+      "frFR",
+      "itIT",
+      "koKR",
+      "ptBR",
+      "ruRU",
+      "zhCN",
+      "zhTW"
+    ],
+    "language_unknown_string_count": 0,
+    "required_space_bytes": 52000000000,
+    "eula_flag": true,
+    "eula_text_or_link_in_allowlisted_members": false,
+    "unknown_member_count": 1
+  },
+  "form_update": {
+    "status": "response_observed",
+    "attempted": true,
+    "destination_guard_passed": true,
+    "minimum_free_required_bytes": 62737418240,
+    "free_before_bytes": 235862560768,
+    "http_status": 201,
+    "response_bytes": 1663,
+    "response_has_form": true,
+    "response_schema_valid": true,
+    "response_finalized": false,
+    "response_eula_flag": true,
+    "response_game_dir_matches_requested": false,
+    "response_error_codes": {
+      "agent": 0,
+      "authentication": 0,
+      "min_spec": 0,
+      "game_dir": 0,
+      "eula": 0,
+      "tome_path": 0,
+      "language": 0
+    },
+    "unknown_response_fields": false
+  },
+  "handshake": {
+    "schema": "logged-out-agent-interface-1",
+    "source_commit": "6b2471c0c0f401ecc9a991ce2a08b3ea79792185",
+    "run_id": "40453657979",
+    "run_attempt": "1",
+    "status": "handshake_token_observed",
+    "bootstrap_status": "agent_process_observed",
+    "bootstrap_language_continued": true,
+    "bootstrap_account_login_attempted": false,
+    "bootstrap_game_download_requested": false,
+    "clean_hosted_windows_required": true,
+    "agent_signature_verified": true,
+    "agent_sha256": "ee5ef234ebe83004fff9e2937b60862436c698ed8908e89335fa105d80f3d630",
+    "process_path_verified": true,
+    "listener_owner_verified": true,
+    "listener_binding": "loopback",
+    "http_requests_attempted": 1,
+    "http_status": 200,
+    "response_bytes": 331,
+    "response_json_object": true,
+    "authorization_token_present": true,
+    "account_login_attempted": false,
+    "game_download_requested": false,
+    "game_update_requested": false,
+    "repair_requested": false,
+    "game_files_opened": 0,
+    "raw_response_exported": false,
+    "token_exported": false,
+    "account_login_requirement_proven": false,
+    "game_update_without_login_proven": false,
+    "retail_policy_proven": false,
+    "classic_download_authorized": false,
+    "free_disk_before_bytes": 235867394048,
+    "free_disk_after_bytes": 235862560768,
+    "installer_body_limit_bytes": 134217728,
+    "response_body_limit_bytes": 65536,
+    "bootstrap_observation_seconds": 120,
+    "agent_observation_seconds": 30,
+    "child_network_hard_byte_cap": false,
+    "cleanup_attempted": true
+  },
+  "identity_checks": 8,
+  "temp_image_verifications": 4,
+  "last_identity_state": "verified_temp_image",
+  "identity_failure_state": null,
+  "local_requests": 3,
+  "initial_summary_empty": true,
+  "initialization_attempted": true,
+  "initialization_http_status": 201,
+  "initialization_response_bytes": 1458,
+  "last_http_status": 201,
+  "form": {
+    "form_fields": [
+      "authentication",
+      "eula",
+      "finalized",
+      "game_dir",
+      "language",
+      "min_spec",
+      "shortcut",
+      "tome_path"
+    ],
+    "unknown_fields": false,
+    "form_schema_valid": true,
+    "error_codes": {
+      "agent": 0,
+      "authentication": 0,
+      "min_spec": 0,
+      "game_dir": 800,
+      "eula": 0,
+      "tome_path": 0,
+      "language": 704
+    },
+    "blockers": [
+      "eula_review_pending",
+      "game_dir_error",
+      "language_error"
+    ]
+  },
+  "limits": {
+    "finalization_requested": false,
+    "account_login_requested": false,
+    "country_fabricated": false,
+    "legal_terms_accepted": false,
+    "minimum_spec_bypassed": false,
+    "game_payload_download_requested": false,
+    "game_executed": false,
+    "user_install_accessed": false,
+    "token_exported": false,
+    "raw_response_exported": false,
+    "frida_requested": false,
+    "hardware_transmission_in_download_phase_proven": false,
+    "game_download_without_login_proven": false,
+    "initialization_may_trigger_network": true,
+    "child_network_hard_byte_cap": false,
+    "full_game_download_requested": false
+  }
+}
