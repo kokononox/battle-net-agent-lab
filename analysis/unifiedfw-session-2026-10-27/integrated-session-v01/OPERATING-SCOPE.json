@@ -1,0 +1,24 @@
+{
+  "schema": "ufw-integrated-first-flow-scope-01",
+  "delivery": "internal integration source, not a released Windows executable",
+  "first_flow": "review, backup, restricted manual runtime discovery, restore",
+  "requires_initial_SSTP": "already connected and freshly identified, exact transport locally reviewed",
+  "on_SSTP_disconnect": "stop capture; never add broad fallback; restore policy only after quiescence and valid exit consent",
+  "cold_start_reconnect": "out of first-flow scope; not waived as qualified",
+  "reboot_persistent_isolation": "out of first-flow scope",
+  "underlay_switch": "not claimed; fresh connection/interface evidence required",
+  "application_data_grants": 0,
+  "automatic_child_or_service_grants": false,
+  "fingerprint_prevention_claimed": false,
+  "admin_or_IPC_sandbox_claimed": false,
+  "initial_safety_prerequisites": [
+    "fresh local/effective semantic rule correlation",
+    "current local/effective outbound Block and immutable operation review binding",
+    "exact connected SSTP transport and disconnect guard",
+    "scoped native writer plus independent local recovery qualified",
+    "target/helper quiescence before restoring old Allows"
+  ],
+  "goal_unchanged": "one active application-bound browser/game/installer profile, program and destination grants over verified SSTP, initially Battle.net installer",
+  "complete_installation_supported_in_this_source": false,
+  "ready_for_apply": false
+}
