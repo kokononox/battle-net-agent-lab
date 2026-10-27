@@ -37,3 +37,7 @@ restore یا closed شدن از وجود evidence نتیجه نمی‌شود. ba
 ## اتصال بعدی
 
 [بررسی مستقل فرایندها](PROCESS-QUIESCENCE.fa.md) اکنون همین witness را در guard backend می‌خواند. نبود پوشش مستقل helper/service همچنان restore را مسدود می‌کند؛ census به مجوز قابل‌ذخیره تبدیل نمی‌شود.
+
+## ادامه: arm v02 و audit اصلی
+
+[اتصال رضایت خروج](EXIT-REVIEW.fa.md) plan اصلی و head/session_id دفتر audit را به arm v02 اضافه می‌کند. v01 قابل‌خواندن می‌ماند، اما مبنای audit تازه برایش حدس زده نمی‌شود و native Window/exit review بدون v02 معتبر اجازه نمی‌دهند.

@@ -24,7 +24,7 @@ RC 0.9.10 دورریختنی نیست: UI، ویرایش سیاست و تجرب�
 
 1. ثبت پایدارِ actor/انتخاب هدف و شواهد محدود helper در همان journal پیاده شد؛ [شرح و محدودیت](DURABLE-RUNTIME-WITNESS.fa.md). این witness سابقهٔ کامل سرویس/فرایند نیست و اختیار restore نمی‌دهد.
 2. بررسی مستقل فرایندها و guard متصل به backend پیاده شد؛ [شرح](PROCESS-QUIESCENCE.fa.md). خطای دسترسی یا شواهد ناقص اجازهٔ بازگرداندن Allow نمی‌دهد. پوشش مستقل helper/service هنوز فراهم نیست؛ census و exitهای audit به‌تنهایی authority نیستند.
-3. اتصال actor/audit/exit-consent به recovery بومی و همان ورودی/UI؛ pending قبل از picker و بررسی VPN دیده شود. recovery به EXE/VPN فعلی وابسته نشود.
+3. اتصال review/رضایت خروج محلی و audit baseline پایدار به recovery-first و همان backend پیاده شد؛ [شرح](EXIT-REVIEW.fa.md). ورودی نهایی و guard معتبر helper/service هنوز کامل نیستند؛ pending قبل از picker باقی می‌ماند و recovery به EXE/VPN فعلی وابسته نیست.
 4. سنجش و اصلاح هزینهٔ reader/lease برای تعداد قواعد واقعی، بدون تضعیف guard؛ سپس یک اعتبارسنجی هدفمند Windows برای جریان واحد.
 
 نسخهٔ اول فقط SSTP ازقبل‌وصل‌شده است. reconnect/cold-start/reboot و نصب کامل Battle.net هنوز تأیید نشده‌اند. تا تکمیل موارد بالا `ready_for_apply=false` است؛ grant برنامه، ZIP عمومی Apply یا درخواست diagnostic دستی تازه نداریم. موفقیت‌های storage/prepare/reopen/candidate/inventory ویندوز محفوظ‌اند، اما جای qualification این اتصال اجرایی را نمی‌گیرند.
