@@ -1,3 +1,15 @@
+# Strict point-in-time readback; absence of a pending audit file is not a baseline.
+function Assert-UfwIntegratedAuditBaseline($RuntimeOps,[string]$Actor,$Plan){
+ Assert-UfwRuntimeAuditPlan $Plan
+ if((& $RuntimeOps.Actor) -cne $Actor){throw 'ufw_unified_audit_recovery_binding'}
+ if($null -ne (& $RuntimeOps.Pending)){throw 'ufw_unified_audit_pending_changed'}
+ foreach($item in $Plan){
+  $actual=& $RuntimeOps.AuditQuery $item.id
+  if(($actual -isnot [int] -and $actual -isnot [uint32] -and $actual -isnot [long]) -or $actual -ne $item.before){throw 'ufw_unified_audit_restore_drift'}
+ }
+ if((& $RuntimeOps.Actor) -cne $Actor){throw 'ufw_unified_audit_recovery_binding'}
+ if($null -ne (& $RuntimeOps.Pending)){throw 'ufw_unified_audit_pending_changed'}
+}
 # Recover audit before policy, before any candidate picker/network observation.
 function Invoke-UfwIntegratedAuditRecovery($RuntimeOps,$ExpectedPending){
  foreach($k in @('Pending','Actor','Confirm','AuditQuery','AuditSet','Archive')){if(-not $RuntimeOps.ContainsKey($k) -or $RuntimeOps[$k] -isnot [scriptblock]){throw 'ufw_unified_audit_recovery_adapter'}}
@@ -16,7 +28,7 @@ function Invoke-UfwIntegratedAuditRecovery($RuntimeOps,$ExpectedPending){
  & $RuntimeOps.Archive $pending
  if($null -ne (& $RuntimeOps.Pending)){throw 'ufw_unified_audit_archive_unverified'}
  if((& $RuntimeOps.Actor) -cne $pending.data.actor_sid){throw 'ufw_unified_audit_recovery_binding'}
- foreach($item in $pending.data.audit_plan){if((& $RuntimeOps.AuditQuery $item.id) -ne $item.before){throw 'ufw_unified_audit_restore_drift'}}
+ Assert-UfwIntegratedAuditBaseline $RuntimeOps $pending.data.actor_sid $pending.data.audit_plan
  return $true
 }
 function New-UfwRecoveryFirstBindings($State,$RuntimeOps,[scriptblock]$PolicyRecovery){
@@ -36,14 +48,19 @@ function New-UfwRecoveryFirstBindings($State,$RuntimeOps,[scriptblock]$PolicyRec
   # Preserve the expected audit baseline across archive/policy callbacks.
   $auditProof=$null
   if($null -ne $pending.audit){$auditProof=Copy-UfwLocalData $pending.audit.data}
-  if($null -ne $pending.policy -and $null -ne $pending.audit){
+  if($null -ne $pending.policy){
    $policyBefore=Read-UfwUnifiedStorage $pending.policy
    $protocolBefore=Get-UfwLocalBackendState ([pscustomobject]@{storage=$pending.policy;view=$policyBefore.records[0].data})
    if($null -ne $protocolBefore.runtime_arm -and $protocolBefore.runtime_arm.schema -ceq 'ufw-runtime-arm-02'){
-    if($pending.audit.head -cne $protocolBefore.runtime_arm.audit_pending_head -or $pending.audit.data.session_id -cne $protocolBefore.runtime_arm.audit_session_id){throw 'ufw_unified_witness_audit_pending_mismatch'}
+    $arm=$protocolBefore.runtime_arm
+    if((& $b.runtime.Actor) -cne $arm.actor_sid){throw 'ufw_unified_witness_actor_mismatch'}
+    # Persisted original masks survive an already-archived audit journal.
+    $auditProof=[pscustomobject]@{actor_sid=$arm.actor_sid;audit_plan=(Copy-UfwLocalData $arm.audit_plan)}
+    if($null -ne $pending.audit -and ($pending.audit.head -cne $protocolBefore.runtime_arm.audit_pending_head -or $pending.audit.data.session_id -cne $protocolBefore.runtime_arm.audit_session_id -or (Get-UfwLocalJson $pending.audit.data.audit_plan) -cne (Get-UfwLocalJson $arm.audit_plan))){throw 'ufw_unified_witness_audit_pending_mismatch'}
    }
   }
   if(-not (Invoke-UfwIntegratedAuditRecovery $b.runtime $pending.audit)){return $r}
+  if($null -ne $auditProof){Assert-UfwIntegratedAuditBaseline $b.runtime $auditProof.actor_sid $auditProof.audit_plan}
   if($null -ne $pending.policy){
    $policyBack=Read-UfwUnifiedStorage $pending.policy
    $policyState=Get-UfwLocalBackendState ([pscustomobject]@{storage=$pending.policy;view=$policyBack.records[0].data})
@@ -61,7 +78,7 @@ function New-UfwRecoveryFirstBindings($State,$RuntimeOps,[scriptblock]$PolicyRec
   if($null -ne (& $b.runtime.Pending)){throw 'ufw_unified_audit_pending_changed'}
   if($null -ne $auditProof){
    if((& $b.runtime.Actor) -cne $auditProof.actor_sid){throw 'ufw_unified_audit_recovery_binding'}
-   foreach($item in $auditProof.audit_plan){if((& $b.runtime.AuditQuery $item.id) -ne $item.before){throw 'ufw_unified_audit_restore_drift'}}
+   Assert-UfwIntegratedAuditBaseline $b.runtime $auditProof.actor_sid $auditProof.audit_plan
   }
   $r.completed=$true;$r.restored=$true;return $r
  } $bound

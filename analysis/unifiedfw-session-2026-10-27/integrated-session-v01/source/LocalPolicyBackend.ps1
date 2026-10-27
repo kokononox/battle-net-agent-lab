@@ -168,12 +168,15 @@ function Recover-UfwLocalBackend($Context){
  if($state.closed){
   $fresh=Read-UfwLocalStableSnapshot $Context.io
   if((Get-UfwLocalSnapshotText $fresh.snapshot) -cne (Get-UfwLocalSnapshotText $Context.view.snapshot)){throw 'ufw_unified_native_closed_baseline_drift'}
+  Assert-UfwLocalBackendGuard $Context 'finish'
   return $true
  }
  for($i=$state.saved.Count-1-$state.restored;$i -ge 0;$i--){[void](Restore-UfwLocalSavedOperation $Context $state.saved[$i])}
  Assert-UfwLocalBackendGuard $Context 'finish'
  $fresh=Read-UfwLocalStableSnapshot $Context.io
  if((Get-UfwLocalSnapshotText $fresh.snapshot) -cne (Get-UfwLocalSnapshotText $Context.view.snapshot)){throw 'ufw_unified_native_recovery_baseline_drift'}
+ # Recheck actor/audit/consent after the potentially slow final policy read.
+ Assert-UfwLocalBackendGuard $Context 'finish'
  Write-UfwUnifiedStorage $Context.storage 'restored' ([pscustomobject]@{verified=$true})|Out-Null
  return $true
 }
@@ -243,6 +246,7 @@ function New-UfwLocalCoordinatorBindings($Context){
    if($s.closed -or $s.restored -ne $s.saved.Count -or $null -ne $s.restoring){throw 'ufw_unified_native_finish_order'}
    Assert-UfwLocalBackendGuard $c 'finish';$read=Read-UfwLocalStableSnapshot $c.io
    if((Get-UfwLocalSnapshotText $read.snapshot) -cne (Get-UfwLocalSnapshotText $c.view.snapshot)){throw 'ufw_unified_native_finish_drift'}
+   Assert-UfwLocalBackendGuard $c 'finish'
    Write-UfwUnifiedStorage $c.storage 'restored' ([pscustomobject]@{verified=$true})
   } $c)
  }
