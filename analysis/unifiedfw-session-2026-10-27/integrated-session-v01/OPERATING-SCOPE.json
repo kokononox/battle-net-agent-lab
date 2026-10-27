@@ -60,7 +60,12 @@
     "recovery_before_network_inspection": true,
     "lifecycle_exits_are_quiescence_authority": false,
     "native_complete_quiescence_probe_implemented": false,
-    "durable_process_recovery_witness_implemented": false,
-    "public_native_entrypoint_published": false
+    "durable_process_recovery_witness_implemented": true,
+    "public_native_entrypoint_published": false,
+    "witness_same_policy_journal": true,
+    "native_window_requires_durable_arm": true,
+    "witness_complete_process_service_coverage": false,
+    "witness_is_quiescence_authority": false,
+    "witness_Windows_qualified": false
   }
 }
