@@ -61,3 +61,7 @@
 ## مبنای ادامه پس از مرور تاریخچه
 
 [مبنای ادامه و ترتیب اتصال باقی‌مانده](CONTINUATION-BASELINE.fa.md) مشخص می‌کند چه چیز از RC و hotfixها حفظ می‌شود، کدام شکست‌ها مانع موفقیت فرضی هستند و مسیر تا ورودی واحد چیست. recovery پس از callback سیاست نیز baseline واقعی audit و actor را بازخوانی می‌کند.
+
+## شاهد پایدار پیش از اجرای دستی
+
+[شاهد پایدار نشست](DURABLE-RUNTIME-WITNESS.fa.md) arm و lifecycle evidence محدود را در همان journal ذخیره می‌کند. factory بومی بدون arm/readback و lock معتبر READY نمی‌دهد. بازخوانی witness به EXE/VPN زنده وابسته نیست و هیچ اختیار quiescence یا restore ایجاد نمی‌کند؛ probe مستقل و qualification بومی هنوز لازم‌اند.
