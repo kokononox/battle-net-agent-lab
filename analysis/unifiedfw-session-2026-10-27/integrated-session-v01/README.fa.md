@@ -53,3 +53,11 @@
 ## ادامهٔ فعلی: بازبینی زنده و registry
 
 `LiveReview.ps1` و `SessionRegistry.ps1`، adapter رضایت موقت bindشده به فایل/اتصال/طرح و قفل سراسری/یافتن pending را به همین جریان اضافه می‌کنند. scanner از parser قبلی backend استفاده می‌کند؛ guard بازیابی به VPN یا lease وابسته نیست و guard مستقل قبلی را دور نمی‌زند. [جزئیات و مرزهای واقعی](LIVE-REVIEW-REGISTRY.fa.md). این اتصال‌ها داخلی‌اند؛ launcher و UI/recovery/capture بومی نهایی و Windows/performance qualification هنوز کامل نیستند. gateها مسدود، grant برنامه صفر و ZIP تازه منتشر نشده است.
+
+## اتصال بعدی: candidate ثابت و recovery-first
+
+`RuntimeSession.ps1` همان collector را به candidate بررسی‌شده متصل می‌کند؛ انتخاب دوباره حذف، head/actor/digest بازخوانی و guardهای live/سیاست افزوده می‌شوند. `RecoveryFirst.ps1` بازیابی audit را پیش از policy و هر مشاهدهٔ VPN/انتخاب فایل اجرا می‌کند. شواهد exit به‌تنهایی اختیار quiescence نیست؛ بدون probe مستقل restore باید مسدود بماند. [شرح وضعیت و مانع واقعی باقی‌مانده](RUNTIME-RECOVERY-BINDING.fa.md). Windows launcher/recovery safety نهایی همچنان منتشر/تأیید نشده است.
+
+## مبنای ادامه پس از مرور تاریخچه
+
+[مبنای ادامه و ترتیب اتصال باقی‌مانده](CONTINUATION-BASELINE.fa.md) مشخص می‌کند چه چیز از RC و hotfixها حفظ می‌شود، کدام شکست‌ها مانع موفقیت فرضی هستند و مسیر تا ورودی واحد چیست. recovery پس از callback سیاست نیز baseline واقعی audit و actor را بازخوانی می‌کند.
