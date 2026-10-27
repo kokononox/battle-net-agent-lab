@@ -175,3 +175,10 @@ adapter جدید Windows storage در root مستقل InstallerSessions ساخت
 ۷۳ assertion جدید با فایل واقعی Linux و metadata ACL mock گذشت؛ recovery core با checkpoint واقعی و profile writer حافظه‌ای تا ۱۱ رکورد آزموده شد. ۷۸ core، ۵۴ reader، ۷۲ HF124 و ۴۷ runner rerun و parse چهار فایل گذشت. core/reader و payload کاربر unchanged اند. هیچ native firewall writer، migration ژورنال قدیمی، deployment یا no-leak/Apply authority نداریم.
 
 کاربر اقدام تازه ندارد؛ مرحلهٔ بعد fixture جداگانهٔ storage-only روی Windows برای همین adapter است، بدون تماس با ژورنال قدیمی یا تغییر شبکه. consent واقعی policy/SSTP و recovery native هنوز pending هستند؛ علت Block تاریخی حل نشده است.
+
+
+## جدیدترین تحویل — UFW-JOURNAL-STORAGE-01، فقط fixture ذخیره‌سازی
+
+[بسته، source و راهنمای اجرا](../analysis/unifiedfw-session-2026-10-27/journal-storage-test-v01/README.fa.md): سه module بدون تغییر بایت بسته‌بندی شدند. fixture جدید فقط در root جداگانهٔ ProgramData با دادهٔ ساختگی، ACL root/session/record/lock، CreateNew، stale head، exclusive lock، chain، ۱۱ checkpoint با recovery حافظه‌ای، baseline change و فساد/partial record را بررسی می‌کند. هیچ real profile query، consent/store واقعی، legacy journal یا تغییر network/rule/task/VPN اجرا نمی‌کند. پاک‌سازی غیرrecursive و مشروط به validation تمام ساختار است.
+
+۳۶ assertion بسته و ۷۳ ژورنال و parse پنج PS file/CMD و payload hash گذشتند؛ **Windows واقعی هنوز pending است**. simulation Linux native/ACL flagهای Windows را false نگه می‌دارد. اقدام کاربر فقط ZIP تازه در پوشهٔ جدا و Run-Test.cmd با admin همان حساب؛ SSTP/شبکه همان وضعیت. فقط JSON تشخیصی حتی failure برگردد. cleanup failure را با حذف/تکرار خودسرانه دنبال نکنید. engine Apply/Restore، consent نشست واقعی و همهٔ authorityهای ایزولاسیون همچنان غیرفعال‌اند؛ علت تاریخی Block حل نشده است.
