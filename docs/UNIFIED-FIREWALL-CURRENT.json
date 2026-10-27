@@ -4,9 +4,9 @@
   "base_commit": "f4ba758b1aa358e2a36c4fda7795072d7b700acc",
   "goal": "small dedicated Battle.net installer isolation foundation; authorized SSTP only",
   "user_has_independent_Windows_test_PC": true,
-  "latest_user_network_state": "user reports LAN SSTP connected after transient 734 on same router; cause unknown; no isolated reconnection qualification",
+  "latest_user_network_state": "user confirmed browser works without VPN after explicitly authorized normal-mode outbound Allow on all three local profiles; firewall still enabled, effective inbound Block; reboot afterward not tested",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "HF1.2.2 Prepare-only bulk integration",
+  "latest_offline_candidate": "HF1.2.3 recovery-contract and restored-state revalidation patch on HF1.2.2 candidate; source-only, not deployable",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -29,7 +29,12 @@
     "endpoint_v031_model_assertions": 61,
     "exact_transport_draft_model_assertions": 86,
     "local_review_model_assertions": 64,
-    "local_review_v011_model_assertions": 68
+    "local_review_v011_model_assertions": 68,
+    "HF123_PS_suites_passed": 45,
+    "HF123_Python_passed": 531,
+    "HF123_Python_skipped": 2,
+    "HF123_parsed_PS_files": 100,
+    "HF123_recovery_model_assertions": 49
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -76,16 +81,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "read v0.1.1 sanitized cache/host/match/stable counts from one unchanged-state Windows run; do not assume cache expiry or weaken uniqueness",
-  "user_action_now": "run separate SSTP-LOCAL-REVIEW-011 package without changing VPN/firewall; return sanitized JSON; local-only challenge acknowledgment or cancel if prompt reached",
+  "next_step": "offline protected legacy-journal migration/normal-mode exit record and read-only policy/controller provenance design; no live Apply or old Restore until deployable recovery path exists",
+  "user_action_now": "none; preserve restored ordinary internet and local backup; pause isolation Apply/Restore, local-review packages and live reconnection tests",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "v0.1 Windows local review stopped before prompt at unique endpoint gate; cause ambiguous due missing counts; reporting-only v0.1.1 adds sanitized counters, 68 local assertions plus prior regressions pass",
-  "previous_sync_commit": "d820b961217ff3fb4c2cf1e01bc2733331330598",
+  "latest_progress": "offline HF123 fixes local NotConfigured contract, stale restored early-return and UI success; fresh local/effective/rule revalidation required; 45 PS suites, 531 Python pass+2 skip, 49 new recovery assertions; no Windows deployment",
+  "previous_sync_commit": "4692c0a42f824df96c45136536eaac315109fba1",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -99,8 +104,30 @@
     "Ethernet_isolation_qualified": false
   },
   "profile_latest_user_reported": {
-    "connection_status": "Connected",
+    "connection_status": "Disconnected",
     "split_tunneling": false,
-    "change_scope": "single current-user SSTP profile; explicit user command; no automatic reconnect"
+    "change_scope": "single current-user SSTP profile; explicit user command; no automatic reconnect",
+    "status_source": "user confirmed browser works without VPN; no fresh native observer run"
+  },
+  "live_isolation_tests_paused": true,
+  "historical_HF11_recovery_receipt_scope": "completion receipt passed at the time; not proof of effective/persistent restoration after reboot; current incident supersedes broad success claims",
+  "original_baseline_restoration_currently_verified": false,
+  "recovery_incident": {
+    "evidence_source": "user-provided PowerShell output and confirmation; not agent-native Windows execution",
+    "journal_phase_reported": "restored",
+    "saved_before_local_outbound": "NotConfigured on all three",
+    "observed_persistent_and_effective_outbound": "Block on all three before normal-mode exit",
+    "explicit_normal_mode_exit_authorized": true,
+    "profile_backup_created_user_reported": true,
+    "only_default_outbound_changed_to": "Allow on all three local profiles",
+    "effective_inbound_after": "Block",
+    "firewall_enabled_after": true,
+    "internet_without_VPN_restored_user_reported": true,
+    "journal_modified_by_normal_mode_command": false,
+    "exact_original_baseline_restoration_claimed": false,
+    "root_cause_of_Block_after_reboot_proven": false,
+    "reboot_after_normal_mode_exit_tested": false,
+    "HF123_Windows_tested": false,
+    "legacy_NotConfigured_migration_implemented": false
   }
 }

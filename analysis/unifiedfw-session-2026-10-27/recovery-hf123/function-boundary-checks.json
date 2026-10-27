@@ -1,0 +1,41 @@
+{
+  "old_live_controller_not_upgraded": true,
+  "changes": [
+    {
+      "file": "app/isolation-native.ps1",
+      "changed_functions": [
+        "IsoNativeOps",
+        "IsoPrepare",
+        "IsoProfileSet"
+      ]
+    },
+    {
+      "file": "app/isolation-core.ps1",
+      "changed_functions": [
+        "Invoke-IsoArm",
+        "IsoAssertRecoveryReaders",
+        "IsoAssertRestorableProfileBaseline",
+        "IsoAssertRestoredState",
+        "Restore-IsoSession"
+      ]
+    },
+    {
+      "file": "app/isolation-worker.ps1",
+      "changed_functions": [
+        "IsoSummary"
+      ]
+    },
+    {
+      "file": "app/policy-mode-model.ps1",
+      "changed_functions": [
+        "Get-IsolationStatusText"
+      ]
+    }
+  ],
+  "Windows_API_executed": false,
+  "bulk_reader_and_Prepare_foreign_helpers_unchanged": true,
+  "expected_function_boundaries_verified": true,
+  "ready_for_apply": false,
+  "transport_compiler_rule_specs_unchanged": true,
+  "guardian_body_unchanged": true
+}

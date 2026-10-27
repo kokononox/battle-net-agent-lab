@@ -119,3 +119,8 @@ kernel تصمیم جدید زیر `reconnect-design-v01` اجراپذیر در �
 ## تازه‌ترین رسید — توقف بازبینی قبل از prompt
 
 [رسید و اصلاح v0.1.1](../analysis/unifiedfw-session-2026-10-27/local-review-v011/README.fa.md): v0.1 در review_unique_stable_endpoint_required متوقف شد؛ علت دقیق به دلیل نبود شمارنده معلوم نیست. نسخهٔ جدید فقط metrics بدون raw identity اضافه می‌کند؛ guardها تضعیف نشده‌اند. گام جاری یک اجرای بدون تغییر وضعیت و دریافت JSON جدید است؛ هیچ approval انسانی قبلی ثبت نشده است.
+
+
+## اولویت جدید — رخداد قطع اینترنت و HF1.2.3 آفلاین
+
+[شرح کامل و اصلاح](../analysis/unifiedfw-session-2026-10-27/recovery-hf123/README.fa.md). اینترنت بدون VPN با تغییر صریح و مجاز فقط خروجی پیش‌فرض به Allow برگشت؛ فایروال روشن ماند. ژورنال restored/before NotConfigured با وضعیت Block تطبیق نداشت. علت reboot ثابت نیست؛ باگ early-return و UI و قرارداد local NotConfigured در کپی آفلاین اصلاح شدند. ۴۵ PS suite و ۵۳۱ Python+۲ skip و ۴۹ recovery assertion گذشت. patch روی Windows نصب/تست نشده؛ source-only است. تمام درخواست‌های قبلی اجرای local-review/Apply/Restore فعلاً لغو/متوقف‌اند. کاربر اقدام تازه ندارد؛ backup را نگه دارد و اینترنت عادی را دست‌کاری نکند.

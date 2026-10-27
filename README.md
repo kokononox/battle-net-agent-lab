@@ -330,3 +330,8 @@ Latest development: [local-only SSTP draft review adapter](analysis/unifiedfw-se
 
 
 Latest diagnostic correction: [local review v0.1.1 privacy-safe endpoint counters](analysis/unifiedfw-session-2026-10-27/local-review-v011/README.fa.md). First Windows v0.1 run stopped before prompt at unique stable endpoint gate; root cause unknown. Reporting-only fix, 68 review model assertions and prior regressions pass; no gate relaxation or Apply authority.
+
+
+### Current priority: recovery correctness (supersedes pending local-review runs)
+
+[HF1.2.3 offline recovery patch and incident review](analysis/unifiedfw-session-2026-10-27/recovery-hf123/README.fa.md). User reports ordinary internet restored after explicit outbound-default Allow with firewall enabled. Legacy restored/NotConfigured evidence did not match Block runtime state. Offline patch: refuse unsupported local baseline, revalidate restored state and prevent misleading UI success. 45 PS suites, 531 Python pass+2 skip, 49 recovery assertions; no Windows patch/reboot qualification. Pause all isolation Apply/Restore and local-review packages.

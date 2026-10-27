@@ -1,0 +1,43 @@
+{
+  "baseline": "HF1.2.2 offline candidate built from immutable source plus previously committed overlay; not current deployed controller",
+  "immutable_base_commit": "f4ba758b1aa358e2a36c4fda7795072d7b700acc",
+  "previous_source_overlay": "analysis/unifiedfw-session-2026-10-27/source-overlay",
+  "self_contained_modified_files": true,
+  "changed_files": {
+    "app/isolation-core.ps1": {
+      "before_sha256": "6eb671a6d7452eb8a33a6b7a2bf7ec2a9df77c2d3f019f31d366f2c0e8e1aee2",
+      "after_sha256": "f2e9645558845911472f37627cac2277b3031de4025b957c8346dc7a676181ed"
+    },
+    "app/isolation-native.ps1": {
+      "before_sha256": "2677ad47214f9bd65fdece4aa6b24883d38aec15b240f1a50a8902e6111f1007",
+      "after_sha256": "d851e408a06c43cbd20e97d3a973f477e25b7ef27fc2f3c6666ad9a78838fc6c"
+    },
+    "app/isolation-worker.ps1": {
+      "before_sha256": "1326d4d77f85491d18d177cdbe5db89138814ba88a1eed3529da1e0014108fab",
+      "after_sha256": "36dcf7cf66f94edb8173b52fccd1a9f507ad03c70f46578856a4ac4966e79ccc"
+    },
+    "app/policy-mode-model.ps1": {
+      "before_sha256": "405b337c7e279576017c4535db1b78bf2b8b75f4d606e0356c222c3d7710a964",
+      "after_sha256": "157cc157c2c407831b80c429a6d9149cf1d5ee20888a09a6fa5ffc4dc392272a"
+    },
+    "tests/Test-IsolationCore.ps1": {
+      "before_sha256": "596b176bd6e88a5ae3c156daa37fbfd14ad5b497d04229a385a0c122f52e4722",
+      "after_sha256": "76dd1e47edbcd2ecb2d9835414edf4c77d30c615275705d30b8364197689bd9e"
+    },
+    "tests/Test-IsolationHotfix1.ps1": {
+      "before_sha256": "fc19bbbf9d266f8aefd1f52e04babda6c6afe0a8ade49245cbd561076fb4fcb4",
+      "after_sha256": "9ce3c36573bde37f428284507d6d3311b03046259e8f5508df7a5cb3e82c6a20"
+    },
+    "tests/Test-SystemIsolationModes.ps1": {
+      "before_sha256": "c40d2c8967cde10de70b35444d1d0b973ca3e642fcdca0b14805173a2ac9092e",
+      "after_sha256": "0d9b966c8f6aec384ef3cfdb8e00ba9af437646aea0f478e70b9e34815d037ea"
+    },
+    "tests/Test-IsolationRecovery123.ps1": {
+      "before_sha256": null,
+      "after_sha256": "890d92337f9e9862be345003c17325718cd01bbc30282f93ff05e442f4b35b16"
+    }
+  },
+  "deployable": false,
+  "Windows_patch_tested": false,
+  "ready_for_apply": false
+}
