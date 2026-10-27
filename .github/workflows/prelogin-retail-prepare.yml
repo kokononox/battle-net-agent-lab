@@ -1,0 +1,129 @@
+name: Logged-out Retail initialization form, no finalization
+on:
+  push:
+    branches: [research/prelogin-telemetry-wow-data-provenance]
+    paths:
+      - 'analysis-tools/prelogin-retail-prepare/**'
+      - '.github/workflows/prelogin-retail-prepare.yml'
+permissions: {}
+concurrency:
+  group: prelogin-retail-prepare-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  dispatch:
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: research/prelogin-telemetry-wow-data-provenance
+      - name: Publish typed start receipt
+        env:
+          SOURCE: ${{ github.sha }}
+          RUN: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          python3 analysis-tools/prelogin-retail-prepare/ci_status.py reports/prelogin-retail-prepare-ci.json "$SOURCE" "$RUN" dispatched
+          git config user.name prelogin-wire-report
+          git config user.email prelogin-wire-report@users.noreply.github.com
+          git add -- reports/prelogin-retail-prepare-ci.json
+          git commit -m 'lab: publish Retail preparation start receipt'
+          git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
+  observe:
+    needs: dispatch
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c1'
+    runs-on: windows-2025
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: No observation packages installed
+        id: preflight
+        run: python -c "import sys; assert not any(x == 'frida' or x.startswith('frida.') for x in sys.modules)"
+      - name: Existing safety suite and typed control tests
+        id: contracts
+        run: |
+          python scripts/run_safety_tests.py --output output
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest discover -s analysis-tools/prelogin-retail-prepare -p 'test_*.py' -v
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Owned signed Agent and one Retail preparation request
+        id: observation
+        timeout-minutes: 6
+        env:
+          RETAIL_PREPARE: approved-retail-prepare-c1
+        run: python analysis-tools/prelogin-retail-prepare/run_prepare.py
+      - name: Validate only counts and fixed labels
+        id: sanitize
+        if: always()
+        run: python analysis-tools/prelogin-retail-prepare/report.py output/prelogin-retail-prepare.json sanitized/prelogin-retail-prepare.json
+      - name: Record typed outcomes
+        if: always()
+        env:
+          SOURCE: ${{ github.sha }}
+          RUN: ${{ github.run_id }}
+          PREFLIGHT: ${{ steps.preflight.outcome }}
+          CONTRACTS: ${{ steps.contracts.outcome }}
+          OBSERVATION: ${{ steps.observation.outcome }}
+          SANITIZATION: ${{ steps.sanitize.outcome }}
+        run: python analysis-tools/prelogin-retail-prepare/ci_status.py sanitized/prelogin-retail-prepare-ci.json "$env:SOURCE" "$env:RUN" completed "$env:PREFLIGHT" "$env:CONTRACTS" "$env:OBSERVATION" "$env:SANITIZATION"
+      - name: Upload only the two typed summary files
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: prelogin-retail-prepare-summary
+          path: sanitized/
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: [dispatch, observe]
+    if: always() && needs.dispatch.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: research/prelogin-telemetry-wow-data-provenance
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: prelogin-retail-prepare-summary
+          path: incoming
+      - name: Revalidate source-bound reports and publish fixed paths only
+        env:
+          SOURCE: ${{ github.sha }}
+          RUN: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,os,sys
+          from pathlib import Path
+          sys.path.insert(0,'analysis-tools/prelogin-retail-prepare')
+          from ci_status import status
+          from report import load
+          r=json.loads(Path('incoming/prelogin-retail-prepare-ci.json').read_text())
+          expected=status(os.environ['SOURCE'],os.environ['RUN'],'completed',r['dependencies'],r['tests'],r['observation'],r['sanitization'])
+          if r!=expected:raise SystemExit('ci_identity_mismatch')
+          Path('reports/prelogin-retail-prepare-ci.json').write_text(json.dumps(r,indent=2)+'\n')
+          p=Path('incoming/prelogin-retail-prepare.json')
+          if p.exists():
+              d=load(p.read_bytes())
+              if d['source_commit']!=os.environ['SOURCE'] or d['run_id']!=os.environ['RUN']:raise SystemExit('control_identity_mismatch')
+              Path('reports/prelogin-retail-prepare-runtime.json').write_text(json.dumps(d,indent=2)+'\n')
+          PY
+          git config user.name prelogin-wire-report
+          git config user.email prelogin-wire-report@users.noreply.github.com
+          git add -- reports/prelogin-retail-prepare-ci.json
+          if test -f incoming/prelogin-retail-prepare.json; then git add -- reports/prelogin-retail-prepare-runtime.json; fi
+          git diff --cached --quiet && exit 0
+          git commit -m 'lab: publish sanitized Retail preparation evidence'
+          git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
