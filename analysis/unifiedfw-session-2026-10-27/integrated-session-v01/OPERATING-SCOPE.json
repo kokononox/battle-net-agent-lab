@@ -109,5 +109,15 @@
     "automatic_service_stop_or_network_grants": false,
     "native_Windows_qualified": false,
     "performance_qualified": false
+  },
+  "final_audit_verification": {
+    "original_arm_v02_plan_used_without_audit_pending": true,
+    "strict_numeric_mask_readback": true,
+    "actor_and_pending_recheck_after_audit_reads": true,
+    "finish_guard_after_final_policy_snapshot": true,
+    "dispatcher_recheck_after_policy_callback": true,
+    "closed_historical_journals_automatically_rescanned": false,
+    "atomic_OS_snapshot_claimed": false,
+    "native_Windows_qualified": false
   }
 }
