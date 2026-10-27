@@ -164,3 +164,14 @@ WmiPrvSE.exe فقط نام میزبان ثبت‌شده است؛ requester مع�
 ۷۸ assertion جدید pass: اتصال کامل getter-mock، pin mismatch، schema/baseline guards، ۸ خطای Save، ۳ خطای write، ۳ crash پس از write، resume بدون duplicate write، readback/drift/final-sweep و restored-stamp checks، baseline Block بدون Allow، عدم وابستگی به ترتیب property/row. ۵۴ reader و ۷۲ library و ۴۷ runner قبلی نیز rerun شدند؛ Windows و persistence واقعی آزموده نشده‌اند. full regression تاریخی rerun نشده و payload قبلی unchanged است.
 
 profile-stage completed یا سازگاری draft، preflight کامل/ایزولاسیون نیست؛ pending components در خروجی آشکار و ready_for_apply/no_leak_certified=false است. کاربر اقدام ندارد، سیستمش تغییر نکرده است. مرحلهٔ بعد authorization و journal جدید محافظت‌شده با failure tests پیش از native write است؛ old NotConfigured journal یا normal-mode receipt هیچ bypass مجوزی نمی‌گیرند.
+
+
+## جدیدترین توسعه — رضایت محدود و ژورنال مستقل ۰٫۱
+
+[کد و قرارداد](../analysis/unifiedfw-session-2026-10-27/session-journal-v01/README.fa.md): رضایت دقیق challenge برای prepare_profile_journal_only با session/baseline binding، مهلت ۱۲۰ ثانیه، بازخوانی پیش/پس write؛ scope عمداً authorizes_firewall_change=false است، نه consent اجرای ایزولاسیون. JSON consent_validated=true به‌تنهایی capability یا اثبات مستقل انسان نیست. public entry نوشتن هنوز غیرفعال است؛ تنها export capabilities است.
+
+adapter جدید Windows storage در root مستقل InstallerSessions ساخته شد؛ ACL هنگام ایجاد admin/SYSTEM و guard مسیر/owner/DACL دارد، اما API/ACL واقعی Windows آن آزموده نشده است. checkpointهای CreateNew شماره‌دار با lock انحصاری، Flush، checksum، hash-chain، schema/phase/flag checks و readback جایگزین overwrite می‌شوند. فایل مبهم پس از failure حفظ و write_attempted از موفقیت جدا می‌شود. hash-chain نه WORM/HMAC است، نه تضمین کشف tail rollback یا power-loss کامل.
+
+۷۳ assertion جدید با فایل واقعی Linux و metadata ACL mock گذشت؛ recovery core با checkpoint واقعی و profile writer حافظه‌ای تا ۱۱ رکورد آزموده شد. ۷۸ core، ۵۴ reader، ۷۲ HF124 و ۴۷ runner rerun و parse چهار فایل گذشت. core/reader و payload کاربر unchanged اند. هیچ native firewall writer، migration ژورنال قدیمی، deployment یا no-leak/Apply authority نداریم.
+
+کاربر اقدام تازه ندارد؛ مرحلهٔ بعد fixture جداگانهٔ storage-only روی Windows برای همین adapter است، بدون تماس با ژورنال قدیمی یا تغییر شبکه. consent واقعی policy/SSTP و recovery native هنوز pending هستند؛ علت Block تاریخی حل نشده است.
