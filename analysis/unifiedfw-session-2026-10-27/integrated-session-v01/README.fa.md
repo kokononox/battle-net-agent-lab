@@ -49,3 +49,7 @@
 1. bind مشاهدهٔ تازهٔ local/effective و پنجرهٔ review دقیق برنامه/حمل SSTP به نشست و رضایت معتبر؛ snapshot فعلی حفظ شود و دوباره از کاربر ارسال نشود.
 2. plan/dispatcher مشترک حمل و قواعد محلی پیاده شد؛ اکنون bind review، recovery مستقل، قفل سراسری و quiescence/قطع اتصال و بررسی هزینهٔ بازخوانی‌های تکراری لازم است. adapter خصوصی ساخت/تغییر/حذف وجود دارد اما ورودی زنده و qualification Windows ندارد.
 3. فقط پس از این اتصال، یک بستهٔ واحد و یک آزمون هدفمند روی PC آزمایشی؛ تا آن زمان نه ابزار تشخیصی دستی تازه، نه درخواست Disable قاعده و نه ادعای ready_for_apply.
+
+## ادامهٔ فعلی: بازبینی زنده و registry
+
+`LiveReview.ps1` و `SessionRegistry.ps1`، adapter رضایت موقت bindشده به فایل/اتصال/طرح و قفل سراسری/یافتن pending را به همین جریان اضافه می‌کنند. scanner از parser قبلی backend استفاده می‌کند؛ guard بازیابی به VPN یا lease وابسته نیست و guard مستقل قبلی را دور نمی‌زند. [جزئیات و مرزهای واقعی](LIVE-REVIEW-REGISTRY.fa.md). این اتصال‌ها داخلی‌اند؛ launcher و UI/recovery/capture بومی نهایی و Windows/performance qualification هنوز کامل نیستند. gateها مسدود، grant برنامه صفر و ZIP تازه منتشر نشده است.
