@@ -1,8 +1,8 @@
 {
-  "schema": "bnet-retail-transfer-3",
-  "source_commit": "d27b59bf390312ea66efbbe7caf065bfc94f200b",
-  "run_id": "40514160194",
-  "status": "pending",
+  "schema": "bnet-retail-transfer-4",
+  "source_commit": "33f3982a298d1ab0178e60e99fcd4aa42455d8db",
+  "run_id": "40515083421",
+  "status": "response_schema_unrecognized",
   "error_kind": null,
   "finalization_attempted": true,
   "start_attempted": false,
@@ -15,6 +15,13 @@
     "recognized_top_fields": [],
     "unknown_top_fields": 2,
     "owned_game_link": false
+  },
+  "response_diagnostic": {
+    "observed": true,
+    "recognized_top_fields": [],
+    "unknown_top_fields": 2,
+    "nodes": [],
+    "message_markers": []
   },
   "preflight_path_guard": {
     "status": "verified_existing_chain",

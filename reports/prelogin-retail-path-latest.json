@@ -1,7 +1,7 @@
 {
   "schema": "bnet-retail-path-review-1",
-  "source_commit": "4338450581085db8c3bc4ff9a01725ed9180f430",
-  "run_id": "40510959528",
+  "source_commit": "33f3982a298d1ab0178e60e99fcd4aa42455d8db",
+  "run_id": "40515083421",
   "status": "form_observed",
   "form_update": {
     "path_guard": {
@@ -23,7 +23,7 @@
     "attempted": true,
     "destination_guard_passed": true,
     "minimum_free_required_bytes": 62737418240,
-    "free_before_bytes": 157628866560,
+    "free_before_bytes": 157628747776,
     "http_status": 201,
     "response_bytes": 1664,
     "response_has_form": true,
@@ -52,10 +52,10 @@
     "language": 704
   },
   "identity_failure_state": null,
-  "identity_checks": 8,
-  "local_requests": 3,
+  "identity_checks": 11,
+  "local_requests": 4,
   "limits": {
-    "finalization_requested": false,
+    "finalization_requested": true,
     "account_login_requested": false,
     "country_fabricated": false,
     "legal_terms_accepted": false,
@@ -70,6 +70,6 @@
     "game_download_without_login_proven": false,
     "initialization_may_trigger_network": true,
     "child_network_hard_byte_cap": false,
-    "full_game_download_requested": false
+    "full_game_download_requested": true
   }
 }
