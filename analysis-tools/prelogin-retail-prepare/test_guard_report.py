@@ -3,7 +3,7 @@ import guard_report as g
 
 def rec(mode='fixture_timeout'):
  fixture=mode!='observe'
- return dict(schema='bnet-retail-supervisor-1',source_commit='a'*40,run_id='1',mode=mode,status='worker_completed' if not fixture else {'fixture_timeout':'time_limit','fixture_network':'network_limit','fixture_disk':'disk_limit'}[mode],root_exit_code=0 if not fixture else 125,network_scope='synthetic_fixture'if fixture else 'hostwide_adapter_counters',job_kill_on_close_configured=True,child_assigned_before_resume=True,child_resumed=True,termination_requested=True,job_drained=True,metrics_available=True,hard_network_byte_cap=False,game_transfer_requested=False,max_active_processes=2,final_active_processes=0,win32_error=0,elapsed_ms=3500 if fixture else 150000,time_limit_ms=3000 if fixture else 240000,network_threshold_bytes=2 if mode=='fixture_network'else 1073741824,network_delta_bytes=3 if mode=='fixture_network'else 0,minimum_free_bytes=0 if mode=='fixture_disk'else 20000000000,disk_reserve_bytes=10737418240,poll_interval_ms=250)
+ return dict(schema='bnet-retail-supervisor-2',source_commit='a'*40,run_id='1',mode=mode,status='worker_completed' if not fixture else {'fixture_timeout':'time_limit','fixture_network':'network_limit','fixture_disk':'disk_limit','fixture_phase_timeout':'phase_time_limit','fixture_phase_network':'phase_network_limit'}[mode],root_exit_code=0 if not fixture else 125,network_scope='synthetic_fixture'if fixture else 'hostwide_adapter_counters',job_kill_on_close_configured=True,child_assigned_before_resume=True,child_resumed=True,termination_requested=True,job_drained=True,metrics_available=True,hard_network_byte_cap=False,game_transfer_request_proven_by_supervisor=False,max_active_processes=2,final_active_processes=0,win32_error=0,elapsed_ms=3500 if fixture else 150000,time_limit_ms=3000 if fixture else 240000,network_threshold_bytes=2 if mode=='fixture_network'else 1073741824,network_delta_bytes=3 if mode=='fixture_network'else 0,minimum_free_bytes=0 if mode=='fixture_disk'else 20000000000,disk_reserve_bytes=10737418240,poll_interval_ms=250,transfer_phase_signal_seen=mode.startswith('fixture_phase_'),phase_elapsed_ms=30001 if mode=='fixture_phase_timeout'else 0,phase_network_delta_bytes=67108865 if mode=='fixture_phase_network'else 0,phase_time_limit_ms=30000,phase_network_threshold_bytes=67108864)
 class Receipts(unittest.TestCase):
  def test_modes(self):
   for mode in g.MODES:g.receipt(rec(mode))
@@ -14,7 +14,7 @@ class Receipts(unittest.TestCase):
  def test_need_job_drain(self):
   r=rec();r['job_drained']=False;self.assertFalse(g.fixture_passed(r))
  def test_fixed_flags(self):
-  for k in ('hard_network_byte_cap','game_transfer_requested'):
+  for k in ('hard_network_byte_cap','game_transfer_request_proven_by_supervisor'):
    r=rec();r[k]=True;self.assertRaises(ValueError,g.receipt,r)
  def test_resume_before_assignment_refused(self):
   r=rec();r['child_assigned_before_resume']=False;self.assertRaises(ValueError,g.receipt,r)

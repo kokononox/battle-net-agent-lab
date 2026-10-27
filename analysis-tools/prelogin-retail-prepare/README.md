@@ -1,54 +1,48 @@
-# Logged-out Retail non-finalizing preparation under independent supervision — c8
+# Anonymous limited Retail transfer attempt — c9
 
-Scope remains anonymous local handshake, GET /game, POST /install and one
-POST /install/wow with finalized=false + owned destination + enUS. No /update,
-finalized=true, account/country/legal acceptance, game execution or Q2 scanning.
+This step changes scope: after the proven non-finalizing form and repeated
+owned-path checks, one finalized=true request may be sent to /install/wow.
+No account, country or EULA/consent field is sent. Finalization can have network
+and installation side effects, even before /update. A zero EULA code or boolean
+is not interpreted as user consent or a legal-policy oracle. If authentication,
+minimum-spec, legal/form error, unknown schema, unexpected path, or unfinished
+finalization appears, stop; no retry or bypass.
 
-New native supervisor creates a Windows Job with KILL_ON_JOB_CLOSE, creates
-its worker suspended, assigns it before resume and supervises the whole worker
-process tree. Refuse if job setup/assignment/metrics fail: no ungated fallback.
-No BREAKAWAY_OK flags are requested. On return or limit, TerminateJobObject is
-called and active job processes are polled to zero (up to5s). This controls
-processes inside this Job, not unrelated processes/services or other jobs.
+Only after a finalized=true response with all known form errors zero and the
+same normalized owned path with verified existing ancestors, read a baseline
+GET /game/wow, POST /update {uid:wow}, then at most four GET /game/wow polls.
+Three-second HTTP socket timeouts, response65,536B cap, at most7 extra requests.
+The API may queue the whole product; this run does not wait for or claim a
+complete installation. It is an early transfer attempt that may stop before
+any actual transfer is observable. full_game_download_requested is conservatively
+set once finalization is attempted, not a claim of completion.
 
-Before real observation, three harmless native fixtures run. Each spawns an
-owned child and grandchild. Timeout is real wall time; network/disk conditions
-are SYNTHETIC inputs, not real traffic or a filled disk. Each gate requires
-max active>=2 and final active=0 after termination. The Agent is never launched
-unless all fixture gates pass. The Python driver stays outside the native Job.
+The proven native Job supervisor remains mandatory. Five native fixtures must
+pass (real wall timeout; synthetic global network/disk and synthetic transfer
+phase time/network conditions). Each must show >=2 active owned processes and
+zero at end. Before finalization the worker writes an intent signal; the native
+parent samples it and enforces an additional30s /64MiB HOSTWIDE counter threshold.
+Overall240s /1GiB /10GiB reserve limits remain; no limits reset or weakened.
+Neither byte threshold is a hard cap; 250ms polling permits overshoot. Phase
+baseline includes the previous sample interval and may include unrelated or
+prephase activity. No exact process-byte attribution from adapter counters.
+The signal is not proof of a request or transfer; it can precede a refused call.
 
-Observation limits: 240s, 1GiB hostwide adapter counter delta, 10GiB minimum
-free on both RUNNER_TEMP and system volume, 250ms polling. Interface counters
-can double-count across virtual adapters and include unrelated traffic. They
-are NOT per-Agent attribution or a hard byte cap: overshoot between samples
-is possible. Counter reset/read failure stops the Job. The guard's own
-crash/handle closure is covered by KILL_ON_JOB_CLOSE; not power failure or an
-unverified process that escaped this Job. An external service started through
-a broker is not automatically proven to be in the tree. No claim of universal
-containment. Full-game transfer is not requested in c7.
+Separate transfer receipt is atomically persisted before network attempts and
+after observations. On native termination the latest valid receipt may remain
+pending: it proves intent, not successful delivery. Final worker/form receipt
+may be absent when killed. Publish supervisor, transfer and form results
+independently with source/run binding; never use an older receipt as current.
 
-After lexical returned-path check, metadata-only lstat walks ancestors from
-root and refuses reparse/non-directory/error/outside paths. Missing tail is
-reported separately. No raw returned path is published or opened as a game
-file. This is a snapshot, not race-free file-handle containment. Revalidate
-before any future transfer.
+Evidence collected: only typed Agent progress flags/allowlisted counters,
+bounded owned-directory metadata totals (<=512 entries, depth<=8; no file
+contents/names), and counts of ESTABLISHED IPv4 TCP endpoints owned by the same
+verified local Agent listener PID, bucketed by public fixed port categories.
+No PID, address, domain, token, payload or raw path is published. Counts omit
+IPv6/UDP/other Agent children, do not count bytes and cannot identify hardware
+uploads. No TLS decryption or packet capture in c9. An increasing file size may
+be preallocation/metadata, not proof of downloaded playable content. Agent
+progress counters are reports, not independently verified wire bytes.
 
-Windows CI builds guard.cpp using installed MSVC. Native fixtures cannot be
-executed by Linux local tests. Only strict source-bound typed receipts,
-compact form summaries and numeric counters are published. Tokens, PIDs,
-paths, UI, raw logs/responses, binaries and UUIDs are not published.
-
-EULA=true still has unverified semantics and is NOT accepted by the tool.
-Zero form errors/finalized=false do not prove successful downloading or an
-absence of network side effects. No content/payload trace in c7.
-
-C6 failed at build_failed, before all native fixtures and before observation.
-C7 invokes an explicit batch file using call VsDevCmd and reports only bounded
-build stages, numeric exit codes and standard compiler diagnostic codes/line
-numbers. Raw build logs remain local and are not uploaded. This is a revised
-build path, not evidence that c6's original failure cause was proven.
-
-C7 compiler diagnostics identified missing declarations at the network-counter
-function (C2065/C3861 and cascading errors). C8 explicitly includes Winsock2,
-ws2tcpip and netioapi declarations before using MIB_IF_TABLE2/GetIfTable2.
-No fixture or Agent was executed in c7. No safety gate is removed in c8.
+Q2 game-file provenance/watermark analysis is not started. complete_installation
+and hardware_upload claims remain false. No game execution or account login.

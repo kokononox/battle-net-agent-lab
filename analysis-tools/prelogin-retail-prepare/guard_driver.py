@@ -35,7 +35,7 @@ def main():
  r=g.blank(os.environ['GITHUB_SHA'],os.environ['GITHUB_RUN_ID']);Path('output').mkdir(exist_ok=True)
  try:
   exe=build(r['build'])
-  for mode in ('fixture_timeout','fixture_network','fixture_disk'):
+  for mode in ('fixture_timeout','fixture_network','fixture_disk','fixture_phase_timeout','fixture_phase_network'):
    result=subprocess.run([str(exe),mode],timeout=20)
    rec=g.receipt(g.read('output/retail-supervisor-'+mode+'.json'));r['fixtures'][mode]=rec
    if result.returncode or not g.fixture_passed(rec):raise RuntimeError('fixture_failed')

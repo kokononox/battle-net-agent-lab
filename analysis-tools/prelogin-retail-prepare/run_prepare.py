@@ -7,14 +7,15 @@ import probe
 from retail_protocol import Session,summarize,discover,empty_summary
 import form_details
 import form_update
+import transfer_probe
 from report import blank,validate,ERRORS
 PIN='f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6'
 BRANCH='refs/heads/research/prelogin-telemetry-wow-data-provenance'
 def authorized(e,platform):
- return platform=='win32' and all(e.get(k)==v for k,v in dict(GITHUB_ACTIONS='true',RUNNER_OS='Windows',RUNNER_ENVIRONMENT='github-hosted',GITHUB_RUN_ATTEMPT='1',GITHUB_EVENT_NAME='push',GITHUB_REF=BRANCH,RETAIL_PREPARE='approved-retail-prepare-c8').items())
+ return platform=='win32' and all(e.get(k)==v for k,v in dict(GITHUB_ACTIONS='true',RUNNER_OS='Windows',RUNNER_ENVIRONMENT='github-hosted',GITHUB_RUN_ATTEMPT='1',GITHUB_EVENT_NAME='push',GITHUB_REF=BRANCH,RETAIL_PREPARE='approved-retail-prepare-c9').items())
 def main():
  if not authorized(os.environ,sys.platform):raise SystemExit('fresh_hosted_once_required')
- if os.environ.get('RETAIL_SUPERVISED')!='job-c8':raise SystemExit('independent_job_required')
+ if os.environ.get('RETAIL_SUPERVISED')!='job-c9':raise SystemExit('independent_job_required')
  r=blank(os.environ['GITHUB_SHA'],os.environ['GITHUB_RUN_ID']);validate(r);out=Path('output');out.mkdir(exist_ok=True)
  import observe_agent as lab
  original_fetch=lab.fetch_setup;original_observe=lab.observe;old_approval=os.environ.get('AGENT_INTERFACE_ONCE')
@@ -39,7 +40,9 @@ def main():
    r['initial_summary_empty']=True
    data=session.request('POST','/install')
    r['form_details']=form_details.describe(data.get('form'));r['form']=summarize(data);r['status']='form_observed' if r['form']['form_schema_valid'] else 'form_schema_unknown'
-   if r['status']=='form_observed':form_update.execute(session,data,r,lab.is_reparse)
+   if r['status']=='form_observed':
+    context=form_update.execute(session,data,r,lab.is_reparse)
+    if context is not None:transfer_probe.execute(session,context[0],context[1],r)
   except Exception as exc:r.update(status='request_failed',error_kind=type(exc).__name__ if type(exc).__name__ in ERRORS else 'other')
  try:
   try:r['metadata']=discover()
@@ -53,6 +56,9 @@ def main():
   lab.fetch_setup=original_fetch;lab.observe=original_observe
   if old_approval is None:os.environ.pop('AGENT_INTERFACE_ONCE',None)
   else:os.environ['AGENT_INTERFACE_ONCE']=old_approval
+  r['limits']['finalization_requested']=r['transfer']['finalization_attempted'];r['limits']['game_payload_download_requested']=r['transfer']['start_attempted']
+  r['limits']['full_game_download_requested']=r['transfer']['finalization_attempted']
+  transfer_probe.write(r['transfer'])
   validate(r);(out/'prelogin-retail-prepare.json').write_text(json.dumps(r,indent=2)+'\n')
-  print(json.dumps(dict(status=r['status'],initialization_attempted=r['initialization_attempted'],finalization_requested=False)))
+  print(json.dumps(dict(status=r['status'],initialization_attempted=r['initialization_attempted'],finalization_requested=r['transfer']['finalization_attempted'])))
 if __name__=='__main__':main()
