@@ -1,6 +1,6 @@
 # ادامهٔ جلسهٔ Unified Firewall
 
-آخرین ادامه: [رصدگر برنامه و وضعیت آزمون](../../docs/SESSION-UNIFIED-FIREWALL-PROGRAM-OBSERVER-01.fa.md).
+آخرین ادامه: [رصد زمان اجرا و gate پیش از READY](../../docs/SESSION-UNIFIED-FIREWALL-RUNTIME-CAPTURE-01.fa.md).
 
 اول [تحویل جامع](../../docs/SESSION-UNIFIED-FIREWALL-2026-10-27.fa.md) و [وضعیت جاری](../../docs/UNIFIED-FIREWALL-CURRENT.json) را بخوانید.
 
@@ -13,4 +13,6 @@
 
 این سینک raw chat، dump، pcap، اطلاعات ورود، آدرس سرور VPN، نام/مسیر شخصی، ژورنال محافظت‌شده یا backup خصوصی را منتشر نمی‌کند. اصلِ هدف: ابزار کوچک Battle.net؛ جلوگیری کامل از فینگرپرینت هنوز تأیید نشده است.
 
-- `program-observer-v01/`: ادامهٔ candidate موجود با انتخاب صریح/بازمشاهدهٔ فایل و TCP sampling غیرفعال، فقط پیشنهاد خصوصی و diagnostic پالایش‌شده؛ ۶۴۵ assertion جدید و۵۶۹ regression، Windows هنوز اجرا نشده، نه Apply.
+- `program-observer-v01/`: ادامهٔ candidate موجود با انتخاب صریح/بازمشاهدهٔ فایل و TCP sampling غیرفعال، فقط پیشنهاد خصوصی و diagnostic پالایش‌شده؛ ۶۴۵ assertion جدید و۵۶۹ regression، یک رسید Windows با صفر فرایند پایدار و صفر مقصد دریافت شد؛ qualification انتساب غیرصفر نیست، نه Apply.
+
+- `runtime-capture-v01/`: رصد رخدادهای زمان اجرا با audit موقت و بازیابی صریح؛ فقط پس از READY اجرای دستی هدف، بدون Allow جدید؛ recorder آزمایشی و نه تضمین ایزولاسیون.۷۱۸ assertion و۱۲۱۴ regression؛ Windows native هنوز تأیید نشده.
