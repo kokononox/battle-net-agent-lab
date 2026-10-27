@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "latest actual reopen receipt: all three local/effective outbound Block, firewall enabled True, effective local rules True, stable against saved prepared baseline across two fresh preflights; SSTP prior user-reported Connected, not queried here",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "UFW-PROGRAM-OBSERVER-01: actual Windows existing-candidate reopen/reobservation/15 passive samples/private zero-suggestion write succeeded; no stable selected process observed, no endpoint attribution qualified",
+  "latest_offline_candidate": "UFW-RUNTIME-CAPTURE-01: offline-tested runtime recorder; manual selected-target launch ONLY after READY and explicit temporary system-audit consent; Windows-native pending, not isolation-certified",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -144,7 +144,9 @@
     "program_candidate_Windows_program_count": 1,
     "program_candidate_Windows_destinations_count": 0,
     "program_observer_model_assertions": 645,
-    "program_observer_regression_assertions_rerun": 569
+    "program_observer_regression_assertions_rerun": 569,
+    "runtime_capture_model_assertions": 718,
+    "runtime_capture_regression_assertions": 1214
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -191,8 +193,8 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "do not repeat successful candidate/observer plumbing; design a separately consented controlled target observation and source for attempted/blocked connections without opening broad Allow; no execution until concrete scope and safety preconditions are approved; packet/native enforcement/SSTP gates remain",
-  "user_action_now": "none; do not rerun candidate or passive observer solely to fill output; do not launch installer, change network/SSTP/firewall, Apply or Restore; zero stable selected processes is not proof target was stopped, not safety/fingerprint proof; raw candidate/suggestions remain private",
+  "next_step": "First Windows experimental runtime capture: existing candidate, explicit local audit consent, conservative read-only firewall gate and denied diagnostic-child event selftest BEFORE READY; manual target run only after READY if recorder risks accepted; return sanitized diagnostic; no new Allow/Apply",
+  "user_action_now": "Read runtime README; use independent test PC only. No installer launch unless READY. Close target before End capture. If audit pending, same package explicit recovery only; never delete private state. If isolation guarantee is required, Cancel and do not execute target.",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
@@ -200,7 +202,7 @@
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
   "latest_progress": "actual Windows PS5.1 x64 receipt confirms payload verification, one selected program, local review/consent, protected candidate recorded/readback and three fresh program observation passes, write_status recorded_revalidated_no_authority; no raw identity export, publisher trust, EXE execution, baseline journal access, firewall/VPN/DNS changes requested; destinations pending and no Apply authority",
-  "previous_sync_commit": "73164ac70a7e2510b0c63c992d594a0588e47775",
+  "previous_sync_commit": "2d0a2584399c532bf7a34af99efc7606fc37c2c0",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -468,5 +470,41 @@
     "Windows_nonzero_process_attribution_qualified": false,
     "Windows_nonzero_endpoint_attribution_qualified": false
   },
-  "latest_continuation_notes": "docs/SESSION-UNIFIED-FIREWALL-PROGRAM-OBSERVER-01.fa.md"
+  "latest_continuation_notes": "docs/SESSION-UNIFIED-FIREWALL-RUNTIME-CAPTURE-01.fa.md",
+  "program_runtime_capture": {
+    "filename": "UFW-RUNTIME-CAPTURE-01.zip",
+    "sha256": "f04bc94e11d81b7af20752f0614c81aa30e202f1f103cf35977369fb69182607",
+    "bytes": 51924,
+    "manifest_sha256": "7a472445357791a211864f7c7f4491a84c75015e314ba0569e934d0f46eaa184",
+    "new_assertions": 718,
+    "regression_assertions": 1214,
+    "package_PS_files_parsed": 9,
+    "bootstrap_and_ZIP_verified": true,
+    "Windows_native_executed": false,
+    "administrator_required": true,
+    "read_only_candidate": true,
+    "maximum_capture_seconds": 90,
+    "temporary_system_audit_with_explicit_consent": true,
+    "native_denied_probe_required_before_READY": true,
+    "automatic_target_execution": false,
+    "automatic_destination_approval": false,
+    "ready_for_apply": false,
+    "source": "analysis/unifiedfw-session-2026-10-27/runtime-capture-v01",
+    "selected_target_automatic_execution": false,
+    "diagnostic_child_only": true,
+    "security_events": [
+      4688,
+      4689,
+      5156,
+      5157
+    ],
+    "private_root": "CommonApplicationData/UnifiedFW-RuntimeCapture-01",
+    "audit_recovery_pending_journal": true,
+    "complete_coverage": false,
+    "isolation_certified": false,
+    "no_leak_certified": false,
+    "fingerprint_prevention_certified": false,
+    "destinations_approved": false,
+    "limitations": "Recorder only, periodic guard not atomic; installer may change rules/services, target not killed/rolled back; no no-leak guarantee. Security records remain after normalized audit-mask restore."
+  }
 }
