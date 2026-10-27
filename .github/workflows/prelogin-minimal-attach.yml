@@ -1,0 +1,129 @@
+name: Prelogin ordinary-Popen minimal Frida attach without hooks
+on:
+  push:
+    branches: [research/prelogin-telemetry-wow-data-provenance]
+    paths:
+      - 'analysis-tools/prelogin-minimal-attach/**'
+      - '.github/workflows/prelogin-minimal-attach.yml'
+permissions: {}
+concurrency:
+  group: prelogin-minimal-attach-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  dispatch:
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved minimal attach b3'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: research/prelogin-telemetry-wow-data-provenance
+      - name: Publish typed start receipt
+        env:
+          SOURCE: ${{ github.sha }}
+          RUN: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          python3 analysis-tools/prelogin-minimal-attach/ci_status.py reports/prelogin-minimal-attach-ci.json "$SOURCE" "$RUN" dispatched
+          git config user.name prelogin-wire-report
+          git config user.email prelogin-wire-report@users.noreply.github.com
+          git add -- reports/prelogin-minimal-attach-ci.json
+          git commit -m 'lab: publish minimal attach control start receipt'
+          git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
+  observe:
+    needs: dispatch
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved minimal attach b3'
+    runs-on: windows-2025
+    timeout-minutes: 16
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Install pinned Frida dependency
+        id: preflight
+        run: python -m pip install --disable-pip-version-check frida==17.24.2
+      - name: Existing safety suite and typed control tests
+        id: contracts
+        run: |
+          python scripts/run_safety_tests.py --output output
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest discover -s analysis-tools/prelogin-minimal-attach -p 'test_*.py' -v
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Owned native x64/x86 gates then one minimal attach startup
+        id: observation
+        timeout-minutes: 10
+        env:
+          BNET_MINIMAL_ATTACH: approved-minimal-attach-b3
+        run: python analysis-tools/prelogin-minimal-attach/run_minimal.py
+      - name: Validate only counts and fixed labels
+        id: sanitize
+        if: always()
+        run: python analysis-tools/prelogin-minimal-attach/report.py output/prelogin-minimal-attach.json sanitized/prelogin-minimal-attach.json
+      - name: Record typed outcomes
+        if: always()
+        env:
+          SOURCE: ${{ github.sha }}
+          RUN: ${{ github.run_id }}
+          PREFLIGHT: ${{ steps.preflight.outcome }}
+          CONTRACTS: ${{ steps.contracts.outcome }}
+          OBSERVATION: ${{ steps.observation.outcome }}
+          SANITIZATION: ${{ steps.sanitize.outcome }}
+        run: python analysis-tools/prelogin-minimal-attach/ci_status.py sanitized/prelogin-minimal-attach-ci.json "$env:SOURCE" "$env:RUN" completed "$env:PREFLIGHT" "$env:CONTRACTS" "$env:OBSERVATION" "$env:SANITIZATION"
+      - name: Upload only the two typed summary files
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: prelogin-minimal-attach-summary
+          path: sanitized/
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: [dispatch, observe]
+    if: always() && needs.dispatch.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: research/prelogin-telemetry-wow-data-provenance
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: prelogin-minimal-attach-summary
+          path: incoming
+      - name: Revalidate source-bound reports and publish fixed paths only
+        env:
+          SOURCE: ${{ github.sha }}
+          RUN: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,os,sys
+          from pathlib import Path
+          sys.path.insert(0,'analysis-tools/prelogin-minimal-attach')
+          from ci_status import status
+          from report import load
+          r=json.loads(Path('incoming/prelogin-minimal-attach-ci.json').read_text())
+          expected=status(os.environ['SOURCE'],os.environ['RUN'],'completed',r['dependencies'],r['tests'],r['observation'],r['sanitization'])
+          if r!=expected:raise SystemExit('ci_identity_mismatch')
+          Path('reports/prelogin-minimal-attach-ci.json').write_text(json.dumps(r,indent=2)+'\n')
+          p=Path('incoming/prelogin-minimal-attach.json')
+          if p.exists():
+              d=load(p.read_bytes())
+              if d['source_commit']!=os.environ['SOURCE'] or d['run_id']!=os.environ['RUN']:raise SystemExit('control_identity_mismatch')
+              Path('reports/prelogin-minimal-attach-runtime.json').write_text(json.dumps(d,indent=2)+'\n')
+          PY
+          git config user.name prelogin-wire-report
+          git config user.email prelogin-wire-report@users.noreply.github.com
+          git add -- reports/prelogin-minimal-attach-ci.json
+          if test -f incoming/prelogin-minimal-attach.json; then git add -- reports/prelogin-minimal-attach-runtime.json; fi
+          git diff --cached --quiet && exit 0
+          git commit -m 'lab: publish sanitized minimal attach control evidence'
+          git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
