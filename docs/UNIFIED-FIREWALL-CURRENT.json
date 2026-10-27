@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "Latest Windows private-inventory receipt: 852 records across both stores, 5964 filters, private readback passed; all 106 active outbound Allows source Local with unique name candidates, NOT semantic/restore authority. No fresh SSTP/native integrated run since that receipt.",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "Internal integrated-session-v01: owned transport/quarantine plus private fresh SSTP+EXE memory-only review adapters, global exclusive registry/pending reopen using same backend parser, and independent restore guard. Native recovery safety/capture UI and performance qualification remain; NO new ZIP",
+  "latest_offline_candidate": "Internal integrated-session-v01: bound reviewed-candidate runtime collector, audit-before-policy recovery-only dispatch, conservative lifecycle exit evidence requiring an independent quiescence probe; no native full launcher, durable process recovery witness or Windows/performance qualification; NO new ZIP",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -663,7 +663,7 @@
     "SSTP_owned_transport_writer_implemented": true,
     "backend_native_Windows_qualification": false,
     "local_backend_tests": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/evidence/local-policy-backend-tests.json",
-    "local_backend_assertions": 103,
+    "local_backend_assertions": 105,
     "local_backend_durable_prefix_cuts": 14,
     "local_backend_error_cases": 15,
     "mixed_plan_and_journal_implemented": true,
@@ -681,7 +681,14 @@
     "live_review_registry_tests": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/evidence/live-session-adapter-tests.json",
     "live_review_registry_assertions": 56,
     "assembled_live_registry_coordinator_cases": 3,
-    "native_recovery_safety_and_UI_bound": false
+    "native_recovery_safety_and_UI_bound": false,
+    "reviewed_candidate_runtime_binding_implemented": true,
+    "audit_before_policy_recovery_dispatcher_implemented": true,
+    "post_policy_actor_and_audit_baseline_recheck_implemented": true,
+    "runtime_recovery_binding_assertions": 192,
+    "runtime_recovery_binding_cases": 28,
+    "native_complete_quiescence_probe_implemented": false,
+    "durable_target_helper_recovery_witness_implemented": false
   },
   "workflow_correction": {
     "user_objects_to_fragmented_manual_tests": true,
@@ -689,6 +696,8 @@
     "reuse_successful_existing_receipts": true,
     "do_not_present_internal_model_or_callback_test_as_native_ready": true
   },
-  "next_work": "Bind native audit recovery, authorized actor, target/helper quiescence and exit consent into one recovery-first entrypoint; bind selected candidate/runtime UI and live guard; qualify performance, then targeted integrated Windows validation. No fragmented diagnostics.",
-  "live_review_registry_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/LIVE-REVIEW-REGISTRY.fa.md"
+  "next_work": "Implement durable private actor/target/helper recovery witness and fail-closed complete native quiescence probe; bind independent exit consent and native recovery entrypoint/UI, qualify performance, then one targeted Windows integrated validation. Do not treat empty skip-errors process listing or lifecycle exits as quiescence authority.",
+  "live_review_registry_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/LIVE-REVIEW-REGISTRY.fa.md",
+  "runtime_recovery_binding_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/RUNTIME-RECOVERY-BINDING.fa.md",
+  "continuation_baseline": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/CONTINUATION-BASELINE.fa.md"
 }
