@@ -4,7 +4,7 @@
 
 کاربر تأکید کرد هدف، ابزار عملی و کوچک برای یک پروفایل برنامه‌محور فعال است، نه زنجیره‌ای از بسته‌های تشخیصی. هدف قبلی عوض نشده: ابتدا نصاب Battle.net؛ فقط برنامه‌های حالت فعال و مقصدهای تأییدشده روی SSTP، نه مجوز عمومی همان مقصد برای همهٔ برنامه‌ها. این مرحله اجزای موجود را به یک هماهنگ‌کننده وصل می‌کند و **آزمون دستی یا ZIP تشخیصی جدیدی از کاربر نمی‌خواهد**.
 
-**وضعیت دقیق:** مسیر واحد در کد و آزمون سرتاسری داخلی کار می‌کند. ژورنال فایل واقعی روی Linux و خودِ coordinator موجود رصدگر استفاده شده‌اند؛ اثرهای فایروال در آزمون حافظه‌ای‌اند. backend بومیِ تغییر Enabled/بازگردانی قواعد محلی اکنون در سورس به همان coordinator وصل است، اما حمل SSTP و review/recovery بومی نهایی هنوز به ورودی زنده وصل نشده‌اند؛ Windows setter واقعی اجرا نشده است. نسخهٔ Windows آمادهٔ Apply یا نصب کامل Battle.net معرفی نمی‌شود.
+**وضعیت دقیق:** مسیر واحد در کد و آزمون سرتاسری داخلی کار می‌کند. ژورنال فایل واقعی روی Linux و خودِ coordinator موجود رصدگر استفاده شده‌اند؛ اثرهای فایروال در آزمون حافظه‌ای‌اند. backend بومیِ تغییر Enabled/بازگردانی قواعد محلی و حمل متعلق به نشست اکنون در سورس به همان coordinator وصل‌اند، اما observer/review/recovery بومی نهایی هنوز به ورودی زنده وصل نشده‌اند؛ Windows setter واقعی اجرا نشده است. نسخهٔ Windows آمادهٔ Apply یا نصب کامل Battle.net معرفی نمی‌شود.
 
 ## آنچه واقعاً متصل شد
 
@@ -13,6 +13,8 @@
 - `StorageBridge.ps1`: adapter فایل واقعی، با helperهای خصوصی قبلیِ بدون تغییر؛ ریشهٔ جدید `UnifiedFW-IntegratedSessions-01`. هر نشست زیرپوشهٔ تصادفی، قفل انحصاری، فایل شماره‌دار CreateNew، Flush، hash chain، readback و کنترل stale head دارد. partial/gap/فایل نامنتظر/ادامه پس از بسته‌شدن رد می‌شود؛ overwrite، حذف یا تعمیر خودکار نداریم. این یک File adapter پیاده‌شده است؛ دوام power-loss و جریان ACL جدید روی Windows هنوز آزموده نشده‌اند.
 - `SemanticComparison.ps1`: مقایسهٔ type-aware رکوردهای ثبت‌شدهٔ local/effective؛ فقط metadata مشخص مشاهده‌ای کنار گذاشته می‌شود، همهٔ فیلترها و propertyهای ناشناخته در مقایسه می‌مانند. match، مالکیت، تازگی داده یا اختیار تغییر نیست. روی دادهٔ خصوصی واقعی کاربر اجرا نشده است.
 - `NativeReadiness.ps1`: موانع واقعی را در یک محل نگه می‌دارد. مسیر زنده تا حل آنها پیش از review/backup/mutation متوقف می‌شود؛ `qualified`های fixture منبع approval واقعی نیستند. callback قابل‌تعویض ابزار امنیتی در برابر توسعه‌دهنده یا مدیر مخرب نیست و public Apply منتشر نشده است.
+
+- `OwnedTransport.ps1` و `MixedPolicyBackend.ps1`: حمل متعلق به نشست با create-disabled، materialization هفت فیلتر قبل از enable و plan/dispatcher مشترک quarantine. همان parser دفتر برای result دارای observed pair و inverse استفاده می‌شود؛ نه engine دوم.۱۰۷assertion جدید mixed و۱۰۱assertion backend محلی عبور کردند؛ اثر Windows هنوز اجرا نشده است.
 
 ## اصلاح دامنه برای نسخهٔ اول
 
@@ -40,10 +42,10 @@
 
 ## ادامهٔ اجرایی در همین جریان
 
-[اتصال بومی قواعد محلی و بازیابی](NATIVE-LOCAL-BACKEND.fa.md) اضافه شد؛ کد واقعی NetSecurity reader/setter و prefix recovery وجود دارد، نه فقط مدل پایتون. آزمون اثر همچنان provider حافظه‌ای است و transport/live UI/recovery نهایی ناقص‌اند. این backend محدود هنوز plan مخلوط transport+quarantine را اجرا نمی‌کند. شواهد آن جدا از qualification Windows در QA-SUMMARY آمده‌اند.
+[اتصال بومی قواعد محلی و بازیابی](NATIVE-LOCAL-BACKEND.fa.md) اضافه شد؛ کد واقعی NetSecurity reader/setter و prefix recovery وجود دارد، نه فقط مدل پایتون. آزمون اثر همچنان provider حافظه‌ای است و transport/live UI/recovery نهایی ناقص‌اند. در ادامه، [حمل متعلق به نشست](OWNED-TRANSPORT.fa.md) به همان backend/دفتر وصل شد: create-disabled، materialize، enable، quarantine و inverse مشترک. reader اتصال واقعی و review زنده هنوز bind نشده‌اند. شواهد آن جدا از qualification Windows در QA-SUMMARY آمده‌اند.
 
 ## باقی‌ماندهٔ مشخص تا نسخهٔ قابل‌آزمون
 
 1. bind مشاهدهٔ تازهٔ local/effective و پنجرهٔ review دقیق برنامه/حمل SSTP به نشست و رضایت معتبر؛ snapshot فعلی حفظ شود و دوباره از کاربر ارسال نشود.
-2. تکمیل plan/dispatcher مشترک حمل متعلق به نشست با backend محلی جدید؛ سپس bind review، recovery مستقل، قفل سراسری و quiescence/قطع اتصال. setter خصوصی محلی پیاده شده اما ورودی زنده و qualification Windows ندارد.
+2. plan/dispatcher مشترک حمل و قواعد محلی پیاده شد؛ اکنون bind review، recovery مستقل، قفل سراسری و quiescence/قطع اتصال و بررسی هزینهٔ بازخوانی‌های تکراری لازم است. adapter خصوصی ساخت/تغییر/حذف وجود دارد اما ورودی زنده و qualification Windows ندارد.
 3. فقط پس از این اتصال، یک بستهٔ واحد و یک آزمون هدفمند روی PC آزمایشی؛ تا آن زمان نه ابزار تشخیصی دستی تازه، نه درخواست Disable قاعده و نه ادعای ready_for_apply.

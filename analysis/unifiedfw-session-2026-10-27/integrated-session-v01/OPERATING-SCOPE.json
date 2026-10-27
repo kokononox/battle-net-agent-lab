@@ -26,8 +26,19 @@
     "coordinator_local_adapters_implemented": true,
     "journal_prefix_recovery_implemented": true,
     "native_Windows_executed": false,
-    "owned_transport_writer_implemented": false,
-    "mixed_transport_quarantine_plan_supported": false,
+    "owned_transport_writer_implemented": true,
+    "mixed_transport_quarantine_plan_supported": true,
     "live_entrypoint_bound": false
+  },
+  "owned_transport": {
+    "starts_disabled": true,
+    "materialized_full_filter_receipt_before_enable": true,
+    "same_journal_as_quarantine": true,
+    "remove_disabled_exact_owned_object_only": true,
+    "application_data_grants": 0,
+    "native_SSTP_observation_and_review_bound": false,
+    "Windows_native_effects_executed": false,
+    "performance_qualified": false,
+    "live_entrypoint_published": false
   }
 }
