@@ -1,8 +1,8 @@
 {
-  "schema": "bnet-retail-transfer-2",
-  "source_commit": "eba33d7498742369c952600972d65094ed3e78c3",
-  "run_id": "40513016407",
-  "status": "finalization_refused",
+  "schema": "bnet-retail-transfer-3",
+  "source_commit": "d27b59bf390312ea66efbbe7caf065bfc94f200b",
+  "run_id": "40514160194",
+  "status": "pending",
   "error_kind": null,
   "finalization_attempted": true,
   "start_attempted": false,
@@ -10,6 +10,12 @@
   "polls": 0,
   "phase_signal_created": true,
   "phase_acknowledged": true,
+  "finalization_response_shape": {
+    "kind": "unknown",
+    "recognized_top_fields": [],
+    "unknown_top_fields": 2,
+    "owned_game_link": false
+  },
   "preflight_path_guard": {
     "status": "verified_existing_chain",
     "existing_components_checked": 4,
@@ -24,7 +30,7 @@
   "start_response_bytes": 0,
   "finalized_returned": null,
   "finalization_error_codes": {
-    "agent": 0,
+    "agent": null,
     "authentication": null,
     "min_spec": null,
     "game_dir": null,
@@ -34,7 +40,7 @@
   },
   "start_agent_error": null,
   "final_path_guard": {
-    "status": "refused",
+    "status": "not_observed",
     "existing_components_checked": 0,
     "missing_tail": false,
     "reparse_detected": false,
