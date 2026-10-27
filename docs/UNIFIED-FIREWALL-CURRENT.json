@@ -4,9 +4,9 @@
   "base_commit": "f4ba758b1aa358e2a36c4fda7795072d7b700acc",
   "goal": "one whole-system isolation engine with exactly one active application-bound browser/game/installer profile; only its explicitly specified program/destination/port grants over verified SSTP, all other applications blocked even to those destinations; initially complete Battle.net installer",
   "user_has_independent_Windows_test_PC": true,
-  "latest_user_network_state": "latest actual reopen receipt: all three local/effective outbound Block, firewall enabled True, effective local rules True, stable against saved prepared baseline across two fresh preflights; SSTP prior user-reported Connected, not queried here",
+  "latest_user_network_state": "Latest ALLOW-REVIEW-01 Windows receipt: all 3 ActiveStore profiles enabled/outbound Block; 426 visible rules, 106 enabled outbound Allow all outside exact runtime transport predicate, zero indeterminate reads. No fresh PersistentStore/full-filter backup/origin mapping or SSTP status query in this step.",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "UFW-ALLOW-REVIEW-01: standalone READ-ONLY aggregate explanation of runtime firewall gate mismatch; no candidate/audit/log access, no launch or settings changes",
+  "latest_offline_candidate": "Isolation transaction v0.1 OFFLINE MODEL ONLY: journal-before-effect, exact foreign-Allow toggle preview, transport-before-quarantine, explicit drift-refusing recovery and interrupted recovery resume; NO Windows Apply package/setter",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -147,7 +147,10 @@
     "program_observer_regression_assertions_rerun": 569,
     "runtime_capture_model_assertions": 718,
     "runtime_capture_regression_assertions": 1214,
-    "allow_review_model_assertions": 1617
+    "allow_review_model_assertions": 1617,
+    "isolation_transaction_model_methods": 11,
+    "isolation_transaction_prior_transport_assertions": 86,
+    "isolation_transaction_prior_profile_methods": 25
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -194,8 +197,8 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "Run standalone UFW-ALLOW-REVIEW-01 on same Windows PC and return only sanitized diagnostic, to classify mismatch reasons without altering rules or weakening runtime gate",
-  "user_action_now": "Extract new folder, same-account administrator Run-Review.cmd. Do not run installer, delete/disable rules, change VPN, export raw rules or send screenshots. No candidate selection/audit consent is needed.",
+  "next_step": "Develop separately consented private read-only full-filter inventory/origin correlation and independent baseline storage/readback adapter, plus exact SSTP/bootstrap and local recovery qualification. Do not disable rules or expose Apply from model assumptions or aggregate reports.",
+  "user_action_now": "No new Windows action or test package for this offline model milestone. Do not run installer or change rules/VPN. Prior Allow diagnostic completed and need not be repeated.",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
@@ -203,7 +206,7 @@
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
   "latest_progress": "actual Windows PS5.1 x64 receipt confirms payload verification, one selected program, local review/consent, protected candidate recorded/readback and three fresh program observation passes, write_status recorded_revalidated_no_authority; no raw identity export, publisher trust, EXE execution, baseline journal access, firewall/VPN/DNS changes requested; destinations pending and no Apply authority",
-  "previous_sync_commit": "1e76e2e125069eb8117878943068179d117d681f",
+  "previous_sync_commit": "8751f19e2c8fec4c29703c5409c1b9c0079dda94",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -471,7 +474,7 @@
     "Windows_nonzero_process_attribution_qualified": false,
     "Windows_nonzero_endpoint_attribution_qualified": false
   },
-  "latest_continuation_notes": "docs/SESSION-UNIFIED-FIREWALL-ALLOW-REVIEW-01.fa.md",
+  "latest_continuation_notes": "docs/SESSION-UNIFIED-FIREWALL-ISOLATION-TRANSACTION-01.fa.md",
   "program_runtime_capture": {
     "filename": "UFW-RUNTIME-CAPTURE-01.zip",
     "sha256": "f04bc94e11d81b7af20752f0614c81aa30e202f1f103cf35977369fb69182607",
@@ -533,7 +536,7 @@
     "aggregate_cases": 7,
     "package_PS_files_parsed": 3,
     "manifest_and_fresh_ZIP_verified": true,
-    "Windows_native_executed": false,
+    "Windows_native_executed": true,
     "firewall_audit_mutation": false,
     "target_execution": false,
     "raw_rule_identity_exported": false,
@@ -542,6 +545,35 @@
     "source": "analysis/unifiedfw-session-2026-10-27/allow-review-v01",
     "reason_counts_overlap": true,
     "original_runtime_acceptance_predicate_preserved": true,
-    "limits": "Aggregate mismatch counts only, no rule identities, not an atomic snapshot, no launch authority even if all match; read errors reported separately"
+    "limits": "Aggregate mismatch counts only, no rule identities, not an atomic snapshot, no launch authority even if all match; read errors reported separately",
+    "Windows_receipt": "analysis/unifiedfw-session-2026-10-27/allow-review-v01/evidence/Windows-allow-review-completed-106-mismatches.json",
+    "Windows_success_scope": {
+      "read_only_review_completed": true,
+      "three_profiles_enabled_and_outbound_Block": true,
+      "total_rules_observed": 426,
+      "enabled_outbound_Allow_examined": 106,
+      "runtime_transport_matches": 0,
+      "mismatches": 106,
+      "filter_reads_indeterminate": 0,
+      "reason_counts_overlap": true,
+      "not_a_native_policy_backup": true,
+      "not_a_whole_WFP_inventory": true,
+      "no_changes_or_execution_requested": true
+    }
+  },
+  "isolation_transaction_model": {
+    "source": "analysis/unifiedfw-session-2026-10-27/isolation-transaction-v01",
+    "scope": "capture-only restriction with zero application grants; existing fresh local/effective Block baseline prerequisite; no default/profile/inbound/foreign-Block changes",
+    "model_test_methods": 11,
+    "forward_write_ambiguity_cases": 60,
+    "recovery_crash_resume_steps": 10,
+    "actual_user_rule_inventory_imported": false,
+    "native_gates": "analysis/unifiedfw-session-2026-10-27/isolation-transaction-v01/NATIVE-GATES.json",
+    "native_executor_implemented": false,
+    "private_baseline_written": false,
+    "Windows_mutated": false,
+    "plan_executable": false,
+    "ready_for_apply": false,
+    "no_leak_certified": false
   }
 }
