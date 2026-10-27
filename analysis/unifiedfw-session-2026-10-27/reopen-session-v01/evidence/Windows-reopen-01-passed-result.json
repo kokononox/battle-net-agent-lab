@@ -1,0 +1,153 @@
+{
+  "schema": "ufw-reopen-session-diagnostic-01",
+  "completed": true,
+  "stage": "completed",
+  "code": "ufw_reopen_prepared_matches_current_no_authority",
+  "powershell_version": "5.1.26100.6899",
+  "is_64bit": true,
+  "payload_verified": true,
+  "validation": {
+    "schema": "ufw-readonly-reopen-result-01",
+    "completed": true,
+    "stage": "completed",
+    "code": "ufw_reopen_prepared_matches_current_no_authority",
+    "single_session_selected": true,
+    "existing_readonly_lock_acquired": true,
+    "record_validated": true,
+    "prepared_checkpoint_count": 1,
+    "baseline_profiles": [
+      {
+        "effective_allow_local_rules": "True",
+        "effective_enabled": "True",
+        "effective_outbound": "Block",
+        "local_allow_local_rules": "NotConfigured",
+        "local_enabled": "True",
+        "local_outbound": "Block",
+        "name": "Domain"
+      },
+      {
+        "effective_allow_local_rules": "True",
+        "effective_enabled": "True",
+        "effective_outbound": "Block",
+        "local_allow_local_rules": "NotConfigured",
+        "local_enabled": "True",
+        "local_outbound": "Block",
+        "name": "Private"
+      },
+      {
+        "effective_allow_local_rules": "True",
+        "effective_enabled": "True",
+        "effective_outbound": "Block",
+        "local_allow_local_rules": "NotConfigured",
+        "local_enabled": "True",
+        "local_outbound": "Block",
+        "name": "Public"
+      }
+    ],
+    "profile_observations": [
+      {
+        "core_completed": true,
+        "core_code": "ufw_core_profile_stage_only_no_apply",
+        "baseline_draft_constructible": true,
+        "reader_completed": true,
+        "reader_code": "ufw_read_observed_profiles_only",
+        "native_profile_reads_attempted": 4,
+        "two_observations_match": true,
+        "profiles": [
+          {
+            "name": "Domain",
+            "local_outbound": "Block",
+            "effective_outbound": "Block",
+            "local_enabled": "True",
+            "effective_enabled": "True",
+            "local_allow_local_rules": "NotConfigured",
+            "effective_allow_local_rules": "True"
+          },
+          {
+            "name": "Private",
+            "local_outbound": "Block",
+            "effective_outbound": "Block",
+            "local_enabled": "True",
+            "effective_enabled": "True",
+            "local_allow_local_rules": "NotConfigured",
+            "effective_allow_local_rules": "True"
+          },
+          {
+            "name": "Public",
+            "local_outbound": "Block",
+            "effective_outbound": "Block",
+            "local_enabled": "True",
+            "effective_enabled": "True",
+            "local_allow_local_rules": "NotConfigured",
+            "effective_allow_local_rules": "True"
+          }
+        ],
+        "reasons": []
+      },
+      {
+        "core_completed": true,
+        "core_code": "ufw_core_profile_stage_only_no_apply",
+        "baseline_draft_constructible": true,
+        "reader_completed": true,
+        "reader_code": "ufw_read_observed_profiles_only",
+        "native_profile_reads_attempted": 4,
+        "two_observations_match": true,
+        "profiles": [
+          {
+            "name": "Domain",
+            "local_outbound": "Block",
+            "effective_outbound": "Block",
+            "local_enabled": "True",
+            "effective_enabled": "True",
+            "local_allow_local_rules": "NotConfigured",
+            "effective_allow_local_rules": "True"
+          },
+          {
+            "name": "Private",
+            "local_outbound": "Block",
+            "effective_outbound": "Block",
+            "local_enabled": "True",
+            "effective_enabled": "True",
+            "local_allow_local_rules": "NotConfigured",
+            "effective_allow_local_rules": "True"
+          },
+          {
+            "name": "Public",
+            "local_outbound": "Block",
+            "effective_outbound": "Block",
+            "local_enabled": "True",
+            "effective_enabled": "True",
+            "local_allow_local_rules": "NotConfigured",
+            "effective_allow_local_rules": "True"
+          }
+        ],
+        "reasons": []
+      }
+    ],
+    "initial_profiles_match_baseline": true,
+    "final_profiles_match_baseline": true,
+    "record_bytes_unchanged_during_observation": true,
+    "session_selection_unchanged": true,
+    "lock_released": true,
+    "journal_write_requested": false,
+    "journal_repair_requested": false,
+    "real_legacy_journal_access_requested": false,
+    "firewall_change_requested": false,
+    "VPN_change_requested": false,
+    "DNS_query_generated": false,
+    "normal_mode_restored": false,
+    "original_restore_verified": false,
+    "reboot_qualified": false,
+    "ready_for_apply": false,
+    "no_leak_certified": false
+  },
+  "scope": "readonly_reopen_existing_prepared_session_no_authority",
+  "real_legacy_journal_access_requested": false,
+  "firewall_change_requested": false,
+  "VPN_change_requested": false,
+  "DNS_query_generated": false,
+  "journal_write_requested": false,
+  "journal_repair_requested": false,
+  "ready_for_apply": false,
+  "no_leak_certified": false
+}

@@ -4,9 +4,9 @@
   "base_commit": "f4ba758b1aa358e2a36c4fda7795072d7b700acc",
   "goal": "small dedicated Battle.net installer isolation foundation; authorized SSTP only",
   "user_has_independent_Windows_test_PC": true,
-  "latest_user_network_state": "latest preparation receipt confirms all three local/effective outbound Block with firewall enabled and effective local rules True throughout 3 preflights; latest user-reported SSTP connected, not measured by this package",
+  "latest_user_network_state": "latest actual reopen receipt: all three local/effective outbound Block, firewall enabled True, effective local rules True, stable against saved prepared baseline across two fresh preflights; SSTP prior user-reported Connected, not queried here",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "UFW-REOPEN-SESSION-01 independent read-only reopening/validation of exactly one existing prepared journal and two fresh current profile preflights; actual Windows run pending",
+  "latest_offline_candidate": "UFW-REOPEN-SESSION-01 now passed actual Windows PS5.1 x64 read-only existing prepared journal reopening and current baseline comparison; no native firewall execution authority",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -97,9 +97,15 @@
     "reopen_entry_fresh_Linux_child_process_tested": true,
     "reopen_entry_journal_assertions_rerun": 73,
     "reopen_entry_PS_files_parsed": 5,
-    "reopen_entry_Windows_executed": false,
+    "reopen_entry_Windows_executed": true,
     "reopen_entry_Windows_getters_mocked_in_model": true,
-    "reopen_entry_Windows_ACL_executed_in_model": false
+    "reopen_entry_Windows_ACL_executed_in_model": false,
+    "reopen_entry_Windows_passed": true,
+    "reopen_entry_Windows_existing_lock_and_ACL_passed": true,
+    "reopen_entry_Windows_existing_prepared_record_passed": true,
+    "reopen_entry_Windows_profile_getter_calls": 8,
+    "reopen_entry_Windows_record_bytes_unchanged": true,
+    "reopen_entry_Windows_lock_released": true
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -146,16 +152,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "user runs read-only reopen package once from new local folder, same account admin, existing journal retained; inspect sanitized receipt before later native recovery/rule/SSTP work; no Apply/Restore/new preparation/reboot/reconnect requested",
-  "user_action_now": "Run-Reopen.cmd as same-account administrator, keep network/SSTP unchanged; no consent prompt; return only new UFW-REOPEN-SESSION-01 diagnostic JSON, including failure; do not delete/alter protected journal or rerun preparation",
+  "next_step": "move from completed preparation/reopen plumbing to a minimal Battle.net installer isolation policy plan and explicit execution gates; reuse verified baseline, do not repeat successful diagnostics; resolve executable/destinations and approved SSTP transport/binding prerequisites before any native Apply; baseline alone cannot authorize writes; native recovery/rules/SSTP/reconnect remain unqualified",
+  "user_action_now": "none; keep the existing protected session and network/SSTP state; no repeat preparation/reopen, deletion/repair, legacy Apply/Restore, reboot or reconnect requested",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "read-only reopen entry passed 388 assertions across 24 base cases plus PS51 JSON contract shim, genuinely fresh Linux child process and static boundaries; actual Linux bytes/inventory unchanged except explicit test-injected faults; Windows getters/ACL mocked or not executed; journal 73 rerun; manifest/5 PS/bootstrap/ZIP verified; prior actual Windows preparation success retained",
-  "previous_sync_commit": "9621280942d9d23f0e8bb4cb899659662eee4b62",
+  "latest_progress": "actual Windows receipt confirms one existing prepared checkpoint validated, existing read-only lock acquired/released, two successful current profile preflights (8 getter calls), both match saved explicit Block baseline; record bytes and single-session selection unchanged during observation; no journal mutation/repair or firewall/VPN/DNS/legacy access requested",
+  "previous_sync_commit": "b985b070dfe5185cb042e783753862fa4b624c67",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -234,7 +240,7 @@
     "real_human_prompt_executed": true,
     "real_record_created_and_revalidated": true,
     "baseline_outbound": "Block on all three local/effective profiles",
-    "reopened_in_separate_process_verified": false
+    "reopened_in_separate_process_verified": true
   },
   "readonly_reopen_entry": {
     "scope": "existing prepared journal validation and current-profile comparison only",
@@ -249,8 +255,13 @@
     "snapshot_is_atomic": false,
     "protected_against_malicious_admin": false,
     "prior_session_identity_anchored_externally": false,
-    "Windows_executed": false,
+    "Windows_executed": true,
     "package_sha256": "87c534625fbbdaeec817e92add11b574e656ce70e86b95feed66f5379cfa687c",
-    "ready_for_apply": false
+    "ready_for_apply": false,
+    "Windows_passed": true,
+    "Windows_saved_baseline_matches_current": true,
+    "Windows_record_bytes_unchanged": true,
+    "reboot_qualified": false,
+    "external_historical_identity_anchor": false
   }
 }
