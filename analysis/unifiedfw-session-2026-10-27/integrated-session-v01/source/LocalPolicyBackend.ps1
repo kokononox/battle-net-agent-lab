@@ -163,6 +163,7 @@ function Recover-UfwLocalBackend($Context){
   return $true
  }
  for($i=$state.saved.Count-1-$state.restored;$i -ge 0;$i--){[void](Restore-UfwLocalSavedOperation $Context $state.saved[$i])}
+ Assert-UfwLocalBackendGuard $Context 'finish'
  $fresh=Read-UfwLocalStableSnapshot $Context.io
  if((Get-UfwLocalSnapshotText $fresh.snapshot) -cne (Get-UfwLocalSnapshotText $Context.view.snapshot)){throw 'ufw_unified_native_recovery_baseline_drift'}
  Write-UfwUnifiedStorage $Context.storage 'restored' ([pscustomobject]@{verified=$true})|Out-Null
