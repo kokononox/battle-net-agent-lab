@@ -124,3 +124,8 @@ kernel تصمیم جدید زیر `reconnect-design-v01` اجراپذیر در �
 ## اولویت جدید — رخداد قطع اینترنت و HF1.2.3 آفلاین
 
 [شرح کامل و اصلاح](../analysis/unifiedfw-session-2026-10-27/recovery-hf123/README.fa.md). اینترنت بدون VPN با تغییر صریح و مجاز فقط خروجی پیش‌فرض به Allow برگشت؛ فایروال روشن ماند. ژورنال restored/before NotConfigured با وضعیت Block تطبیق نداشت. علت reboot ثابت نیست؛ باگ early-return و UI و قرارداد local NotConfigured در کپی آفلاین اصلاح شدند. ۴۵ PS suite و ۵۳۱ Python+۲ skip و ۴۹ recovery assertion گذشت. patch روی Windows نصب/تست نشده؛ source-only است. تمام درخواست‌های قبلی اجرای local-review/Apply/Restore فعلاً لغو/متوقف‌اند. کاربر اقدام تازه ندارد؛ backup را نگه دارد و اینترنت عادی را دست‌کاری نکند.
+
+
+## آخرین توسعه — رکورد جداگانهٔ خروج به حالت عادی HF1.2.4
+
+[کد، قرارداد و مرز اعتماد](../analysis/unifiedfw-session-2026-10-27/normal-exit-hf124/README.fa.md): کتابخانهٔ واقعی Review/Record با consent دقیق، digest تازه، بررسی قواعد/پروفایل‌ها/task، قفل و CreateNew ساخته شد. ۷۲ assertion اختصاصی و ۴۶ PS suite و ۵۳۱ Python+۲ skip گذشتند. کد بازیابی/worker/UI/helperهای محافظت‌شده بدون تغییر بایت‌اند. ژورنال کاربر یا سیستمش تغییر نکرد؛ رکورد هنوز روی Windows کاربر نوشته نشده، migration و Apply-authority ندارد. کاربر اقدام تازه‌ای ندارد.

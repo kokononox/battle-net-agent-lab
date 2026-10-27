@@ -335,3 +335,6 @@ Latest diagnostic correction: [local review v0.1.1 privacy-safe endpoint counter
 ### Current priority: recovery correctness (supersedes pending local-review runs)
 
 [HF1.2.3 offline recovery patch and incident review](analysis/unifiedfw-session-2026-10-27/recovery-hf123/README.fa.md). User reports ordinary internet restored after explicit outbound-default Allow with firewall enabled. Legacy restored/NotConfigured evidence did not match Block runtime state. Offline patch: refuse unsupported local baseline, revalidate restored state and prevent misleading UI success. 45 PS suites, 531 Python pass+2 skip, 49 recovery assertions; no Windows patch/reboot qualification. Pause all isolation Apply/Restore and local-review packages.
+
+
+Latest offline extension: [HF1.2.4 separate normal-mode exit record library](analysis/unifiedfw-session-2026-10-27/normal-exit-hf124/README.fa.md). Explicit consent plus fresh digest/evidence, cooperative lock, protected CreateNew record; legacy journal unchanged and no isolation authority. 72 new assertions, 46 PS suites, 531 Python pass+2 skip; Windows ACL/deployment/runner integration not qualified. Keep live isolation tests paused.

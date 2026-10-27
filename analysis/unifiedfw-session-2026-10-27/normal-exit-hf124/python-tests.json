@@ -1,0 +1,22 @@
+{
+  "suite": "offline-HF124-normal-exit-python-regression",
+  "test_methods": 533,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 2,
+  "skipped_tests": [
+    {
+      "test": "test_native_write_functions_unchanged_legacy_detection_extended (test_unified_ux.UnifiedUXTests.test_native_write_functions_unchanged_legacy_detection_extended)",
+      "reason": "Comparison source unavailable outside build environment"
+    },
+    {
+      "test": "test_required_core_unchanged (test_unified_ux.UnifiedUXTests.test_required_core_unchanged)",
+      "reason": "Comparison source unavailable outside build environment"
+    }
+  ],
+  "passed": true,
+  "runtime": "3.13.15",
+  "platform": "linux",
+  "windows_firewall_tested": false,
+  "windows_gui_tested": false
+}

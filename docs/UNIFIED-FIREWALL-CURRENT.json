@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "user confirmed browser works without VPN after explicitly authorized normal-mode outbound Allow on all three local profiles; firewall still enabled, effective inbound Block; reboot afterward not tested",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "HF1.2.3 recovery-contract and restored-state revalidation patch on HF1.2.2 candidate; source-only, not deployable",
+  "latest_offline_candidate": "HF1.2.4 separate protected normal-mode exit record library on HF1.2.3; not deployed or worker-integrated",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -34,7 +34,12 @@
     "HF123_Python_passed": 531,
     "HF123_Python_skipped": 2,
     "HF123_parsed_PS_files": 100,
-    "HF123_recovery_model_assertions": 49
+    "HF123_recovery_model_assertions": 49,
+    "HF124_PS_suites_passed": 46,
+    "HF124_Python_passed": 531,
+    "HF124_Python_skipped": 2,
+    "HF124_parsed_PS_files": 102,
+    "HF124_normal_exit_model_assertions": 72
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -81,16 +86,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "offline protected legacy-journal migration/normal-mode exit record and read-only policy/controller provenance design; no live Apply or old Restore until deployable recovery path exists",
-  "user_action_now": "none; preserve restored ordinary internet and local backup; pause isolation Apply/Restore, local-review packages and live reconnection tests",
+  "next_step": "design/test controlled review-consent runner and Windows ACL/legacy-preservation qualification for separate exit record; maintain old-journal Apply refusal until an explicitly reviewed migration is implemented",
+  "user_action_now": "none; keep ordinary internet and backup; no live Apply/Restore, old local-review packages, normal-exit command or reconnect test requested",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "offline HF123 fixes local NotConfigured contract, stale restored early-return and UI success; fresh local/effective/rule revalidation required; 45 PS suites, 531 Python pass+2 skip, 49 new recovery assertions; no Windows deployment",
-  "previous_sync_commit": "4692c0a42f824df96c45136536eaac315109fba1",
+  "latest_progress": "HF124 library implements fresh Review/Record with explicit consent/digest, cooperative lock, private CreateNew record and revalidation; preserves legacy journal; 72 new assertions, 46 PS suites and prior Python regressions pass; no Windows deployment or Apply authority",
+  "previous_sync_commit": "3d9dd106b07aff018b9492bda3f0a6773dc88390",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -128,6 +133,11 @@
     "root_cause_of_Block_after_reboot_proven": false,
     "reboot_after_normal_mode_exit_tested": false,
     "HF123_Windows_tested": false,
-    "legacy_NotConfigured_migration_implemented": false
+    "legacy_NotConfigured_migration_implemented": false,
+    "separate_normal_mode_exit_record_library_implemented": true,
+    "separate_normal_mode_exit_record_created_on_user_PC": false,
+    "separate_normal_mode_exit_Windows_native_API_or_ACL_tested": false,
+    "separate_normal_mode_exit_worker_integrated": false,
+    "legacy_Apply_gate_bypassed": false
   }
 }
