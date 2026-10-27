@@ -136,3 +136,11 @@ preparation remain identical to D19; startup may itself cause network activity.
 The immutable post-arm baseline and all native budgets remain unchanged. A stop
 in this control cannot be attributed to a phase finalization/download request,
 but does not itself identify which process caused the hostwide bytes.
+
+D20 result: the acknowledged control completed its identity-only checkpoint
+with zero phase HTTP requests; the parent then stopped at 202,297,567 hostwide
+bytes in 250ms. No finalization/update occurred; the owned destination snapshot
+was empty. This excludes attribution of that threshold event to a phase HTTP
+request, **not** automatic Agent activity or other host traffic. See
+[the fixed-evidence report](../../docs/PRELOGIN-RETAIL-D20-CONTROL.fa.md).
+The offline `negative_control.py` rejects mixed-run and incomplete controls.
