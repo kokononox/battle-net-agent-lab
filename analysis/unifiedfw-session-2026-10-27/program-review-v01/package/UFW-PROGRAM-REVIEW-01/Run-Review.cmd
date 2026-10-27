@@ -1,0 +1,10 @@
+@echo off
+setlocal
+set "UFW_PROGRAM_ROOT=%~dp0"
+cd /d "%~dp0"
+echo Local Program Review 0.1 - READ EXE ONLY, NEVER EXECUTE. Keep VPN and network as they are.
+"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command "$ErrorActionPreference='Stop';try{$root=$env:UFW_PROGRAM_ROOT;if($root.StartsWith('\\')){throw 'Extract to a local folder'};$p=[IO.Path]::GetFullPath($root);while($p){if(([IO.File]::GetAttributes($p) -band [IO.FileAttributes]::ReparsePoint) -ne 0){throw 'No reparse folders allowed'};$q=[IO.Path]::GetDirectoryName($p);if($p -eq $q){break};$p=$q};$m=Join-Path $root 'PAYLOAD-SHA256.json';if(([IO.File]::GetAttributes($m) -band [IO.FileAttributes]::ReparsePoint) -ne 0 -or (Get-FileHash -LiteralPath $m -Algorithm SHA256).Hash -ne '8a18c0245487f5a8bd24f81e0a840d484339f4cc8771b4381329300ab3dcb1f8'){throw 'Manifest mismatch - stop'};$items=Get-Content -LiteralPath $m -Raw|ConvertFrom-Json;foreach($x in $items.PSObject.Properties){$rel=[string]$x.Name;if([IO.Path]::IsPathRooted($rel) -or $rel.Split('/') -contains '..' -or $rel.Contains('\')){throw 'Invalid payload path'};$f=Join-Path $root $rel;$p=$f;while($p -and $p.Length -ge $root.TrimEnd('\').Length){if(([IO.File]::GetAttributes($p) -band [IO.FileAttributes]::ReparsePoint) -ne 0){throw 'Reparse payload path'};$q=[IO.Path]::GetDirectoryName($p);if($p -eq $q){break};$p=$q};if((Get-FileHash -LiteralPath $f -Algorithm SHA256).Hash -ne $x.Value){throw ('Payload mismatch: '+$rel)}};foreach($n in @('ProgramReview.ps1','Run-Review.ps1')){Unblock-File -LiteralPath (Join-Path $root $n) -ErrorAction Stop};Write-Host 'Payload verified. Two package scripts unblocked.';& (Join-Path $root 'Run-Review.ps1');exit $LASTEXITCODE}catch{Write-Host 'STARTUP ERROR: package startup checks stopped; no review completed.';Write-Host 'If no new JSON exists, return this short message without private paths.';exit 1}"
+set "rc=%errorlevel%"
+if not "%rc%"=="0" echo Program observation not confirmed. Do not change firewall or VPN settings to force a pass.
+pause
+exit /b %rc%

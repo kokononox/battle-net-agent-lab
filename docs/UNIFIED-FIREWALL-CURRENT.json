@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "latest actual reopen receipt: all three local/effective outbound Block, firewall enabled True, effective local rules True, stable against saved prepared baseline across two fresh preflights; SSTP prior user-reported Connected, not queried here",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "application-bound profile draft compiler v01; source/model only, no Windows runner, recorder or native executor",
+  "latest_offline_candidate": "UFW-PROGRAM-REVIEW-01 local read-only EXE observer and private console review, no admin required; real Windows file API and WinPS51 runtime pending",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -111,7 +111,14 @@
     "app_profile_plan_Windows_executed": false,
     "app_profile_plan_recorder_implemented": false,
     "app_profile_plan_native_executor_implemented": false,
-    "app_profile_plan_transport_regression_assertions": 86
+    "app_profile_plan_transport_regression_assertions": 86,
+    "program_review_model_assertions": 147,
+    "program_review_CSharp_compiled_Linux": true,
+    "program_review_PS_files_parsed": 2,
+    "program_review_Windows_file_API_executed": false,
+    "program_review_WinPS51_executed": false,
+    "program_review_real_user_selection_executed": false,
+    "program_review_program_config_saved": false
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -158,16 +165,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "implement local read/review of real executable identities and explicitly scoped program/destination proposals for installer profile without firewall apply; then compose protected baseline and unchanged exact transport draft through explicit consent/native validation gates; do not repeat storage/preparation/reopen fixtures or implement all-program grants",
-  "user_action_now": "none; no new Windows package/test, Apply/Restore, capture, VPN/reboot change or private-data upload requested; preserve existing protected prepared journal",
+  "next_step": "user runs new normal-user local program observation for existing installer EXE without executing it; inspect sanitized result before persistence/review integration; next future stage must reobserve fresh files for local program-and-destination record and compose baseline/transport with explicit consent; do not infer trusted identity or Apply from this observation",
+  "user_action_now": "extract new separate local folder; normal double-click Run-Review.cmd (not admin); enter actual existing installer EXE full path, optional explicitly known helper paths, Enter finishes; preserve network/SSTP/journal; return only new UFW-PROGRAM-REVIEW-01 JSON, never path/hash/file ID/EXE/screenshot; no preparation/reopen rerun",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "implemented pure one-active-profile program/destination/port compiler with independent program-grant edges, no inactive profile union or child inheritance, canonical config/generation digest and strict shape validation; 25 test methods and 1000 offline predicate cases passed; existing exact SSTP transport 86 assertion regression passed unchanged; current app-bound decision supersedes all-program whitelist",
-  "previous_sync_commit": "19d80e7948298b41e28f0e26d4aec69126828bab",
+  "latest_progress": "implemented C# native read-only local EXE observer, parent handles pinned root-to-leaf before descent, reparse/network/hardlink rejection, final path/volume/file ID/metadata and two same-handle SHA256 checks, limited PE x86/x64 header inspection; normal-user local multi-selection review with sanitized report; 147 Linux/model assertions and CSharp compilation passed; no selected program execution, trust check, program config save, journal or firewall access",
+  "previous_sync_commit": "8fb09e640443350563e5eddc1fb1ffd870e9b8f6",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -321,6 +328,30 @@
     "program_identity_verified": false,
     "capture_implemented": false,
     "native_executor_implemented": false,
+    "ready_for_apply": false
+  },
+  "program_review": {
+    "source": "analysis/unifiedfw-session-2026-10-27/program-review-v01/package/UFW-PROGRAM-REVIEW-01/ProgramReader.cs",
+    "scope": "local EXE byte and handle observation, not program trust or authority",
+    "max_files": 16,
+    "max_single_file_bytes": 536870912,
+    "admin_required": false,
+    "selected_EXE_executed": false,
+    "signature_or_revocation_check_requested": false,
+    "parent_directory_pins": "root-to-leaf OPEN_REPARSE_POINT + BACKUP_SEMANTICS + FILE_READ_ATTRIBUTES, share read only, held through observation",
+    "file_open": "OPEN_EXISTING GENERIC_READ share read only OPEN_REPARSE_POINT; no writes/delete sharing",
+    "hardlink_count_required": 1,
+    "same_handle_hash_passes": 2,
+    "PE_header_architectures": [
+      "x86",
+      "x64"
+    ],
+    "final_path_and_metadata_compared": true,
+    "effective_file_ACL_or_publisher_trust_verified": false,
+    "raw_identity_in_report": false,
+    "program_config_saved": false,
+    "Windows_executed": false,
+    "package_sha256": "b45d8506d6bd6b3d6e8dfbc30d92a3161eae023f252a280919f3524b35736aa2",
     "ready_for_apply": false
   }
 }

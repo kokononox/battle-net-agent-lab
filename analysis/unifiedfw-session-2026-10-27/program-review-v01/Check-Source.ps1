@@ -1,0 +1,1 @@
+$ErrorActionPreference='Stop';$root='/data/ufw-program-review-v01/package/UFW-PROGRAM-REVIEW-01';$files=@(Get-ChildItem $root -Filter *.ps1);if($files.Count -ne 2){throw 'file_count'};foreach($f in $files){$t=$null;$e=$null;[void][Management.Automation.Language.Parser]::ParseFile($f.FullName,[ref]$t,[ref]$e);if($e.Count){throw 'parse'}};Write-Host 'Two package PS files parsed.'
