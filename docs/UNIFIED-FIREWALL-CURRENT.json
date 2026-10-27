@@ -33,18 +33,34 @@
     "DNS_bootstrap_solved": false,
     "certificate_bootstrap_solved": false,
     "production_integration": false,
-    "native_observer_Windows_verified": false,
+    "native_observer_Windows_verified": true,
     "native_observer_guardian_integrated": false,
-    "CurrentUser_SYSTEM_context_handling": "observer rejects mismatched SID; final coordination not implemented"
+    "CurrentUser_SYSTEM_context_handling": "observer rejects mismatched SID; final coordination not implemented",
+    "native_observer_Windows_verification_scope": "connected state only; two independent sanitized receipts",
+    "native_observer_Windows_disconnected_verified": false,
+    "native_observer_Windows_connecting_verified": false,
+    "cross_run_binding_comparison_tested": false,
+    "endpoint_verified": false
   },
-  "next_step": "run standalone observer read-only against existing Windows VPN state without dialing/disconnecting; inspect profile/RAS/interface chain before designing scoped executor",
-  "user_action_now": "one standalone read-only observer run; no Apply, Restore, VPN state change, or new network probe",
+  "next_step": "design read-only endpoint correlation/pin and service identity observation before any suspension/rebind executor; keep DNS/TLS/bootstrap and CurrentUser/SYSTEM gaps explicit",
+  "user_action_now": "none; do not repeat observer or change VPN/firewall settings",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "read-only native SSTP lifecycle observer v0.2 built; real C# helper compiled/layout checked in Linux; no Windows DLL API execution yet",
-  "previous_sync_commit": "4ada27c4cc0b0688c1a83bb44562ef60fddad0a3"
+  "latest_progress": "two actual Windows connected-state observer receipts passed profile/RAS/interface chain; no cross-run comparison, endpoint, bootstrap or enforcement qualification",
+  "previous_sync_commit": "8a7982081c58c2fa64b815d50bf72fe98c7717f8",
+  "underlay": {
+    "current_carrier_user_reported": "USB Wi-Fi dongle",
+    "carrier_independently_measured_in_receipt": false,
+    "planned_carrier": "Ethernet cable",
+    "required_design": "underlay-independent SSTP transport; application data stays on verified SSTP interface",
+    "fixed_physical_alias_or_index_allowed": false,
+    "Windows_Ethernet_tested": false,
+    "live_adapter_switch_tested": false,
+    "DHCP_DNS_route_bootstrap_solved": false,
+    "compiler_underlay_model_checks": 10
+  }
 }

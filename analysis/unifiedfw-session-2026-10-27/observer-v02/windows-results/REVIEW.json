@@ -1,0 +1,28 @@
+{
+  "schema": "sstp-observer-Windows-connected-review-02",
+  "Windows_connected_state_observed": true,
+  "identity_chain_verified_each_run": true,
+  "source_reports": [
+    {
+      "filename": "connected-run-01.json",
+      "source_filename": "SSTP-OBSERVER-02-20261027-015742-02fe1c8b.json",
+      "source_sha256": "ba431789a827691b03e07f2b46751479350c9a0511a32c043c61306c0cae5cff"
+    },
+    {
+      "filename": "connected-run-02.json",
+      "source_filename": "SSTP-OBSERVER-02-20261027-015856-16a9b486.json",
+      "source_sha256": "ba431789a827691b03e07f2b46751479350c9a0511a32c043c61306c0cae5cff"
+    }
+  ],
+  "disconnected_state_tested": false,
+  "connecting_state_tested": false,
+  "cross_run_binding_comparison_tested": false,
+  "real_reconnection_tested": false,
+  "endpoint_verified": false,
+  "DNS_bootstrap_verified": false,
+  "TLS_bootstrap_verified": false,
+  "firewall_or_VPN_change_requested": false,
+  "guardian_integrated": false,
+  "ready_for_Apply": false,
+  "no_leak_certified": false
+}
