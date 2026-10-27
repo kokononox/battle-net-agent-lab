@@ -59,3 +59,7 @@ coordinator موجود با همین callbackها در fixture از backup تا 
 ## ادامه: رضایت خروج محدود و مبنای audit پایدار
 
 `ExitReview.ps1` رابط کنسولی محلی و lease موقت رضایت را به همان recovery-first/backend وصل می‌کند. arm v02 plan و head/session_id دفتر audit اصلی را نگه می‌دارد؛ مقدار واقعی before ماسک‌ها در خروج لازم است و pending نامرتبط پیش از archive/اثر رد می‌شود. v01 بدون baseline به‌طور خودکار upgrade/approved نمی‌شود. cancel/drift/انقضا inverse یا closed موفق نمی‌سازد؛ هیچ reset/Allow عمومی نیست. جزئیات در `integrated-session-v01/EXIT-REVIEW.fa.md` است؛ helper/service guard، UI نهایی و Windows/performance qualification هنوز مانع‌اند. شمارش معتبر از QA-SUMMARY خوانده شود؛ آزمون دستی تازه درخواست نشد.
+
+## تطبیق محدود سرویس‌ها در بازیابی
+
+خوانندهٔ فقط‌خواندنی Win32_Service/Get-Service و تطبیق سرویس/PID در دو دور پیاده و به‌صورت factory به همان بازیابیِ دارای رضایت خروج متصل شد. [شرح دامنه](https://github.com/kokononox/battle-net-agent-lab/blob/analysis/entry-loader-startup-2026-10-23/analysis/unifiedfw-session-2026-10-27/integrated-session-v01/SERVICE-QUIESCENCE.fa.md). این بخش جای پوشش کامل helper/service/IPC نیست؛ callback مستقل همچنان لازم و production آن حل‌نشده است. native Windows qualification، entrypoint آماده و Apply تأیید نشده‌اند.
