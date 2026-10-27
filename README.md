@@ -1,5 +1,16 @@
 # WoW project continuity + bounded Battle.net Agent lab
 
+<!-- unifiedfw-session-20261027:start -->
+## جدیدترین ادامهٔ فایروال — بازیابی انجام شد؛ HF1.2.2 فقط آفلاین
+
+[تحویل کامل جلسه و کار باز](docs/SESSION-UNIFIED-FIREWALL-2026-10-27.fa.md) · [نشانگر ادامه](docs/UNIFIED-FIREWALL-LATEST.fa.md) · [وضعیت ماشین‌خوان](docs/UNIFIED-FIREWALL-CURRENT.json) · [سورس/رسیدها/آزمون‌ها](analysis/unifiedfw-session-2026-10-27/README.fa.md).
+
+HF1.1 در Apply واقعی با drift مربوط به InterfaceAlias متوقف شد؛ بازیابی محدود، چهار قانون خود برنامه، ۱۰۰ Allow و سه پروفایل را بازیابی کرد و کاربر برگشت اینترنت را تأیید کرد. سپس HF121 فقط‌خواندنی روی Windows چهار نمونه از هر Store را exact_match گزارش کرد؛ این تأیید همهٔ قوانین یا نبود نشتی نیست. HF1.2.2 خواندن گروهی را فقط در ساخت طرح Prepare ادغام کرده؛ ۴۴ suite PowerShell و ۵۳۱ آزمون Python موفق، دو skipped؛ ادغام کامل روی Windows هنوز آزموده نشده است.
+
+گام باز: اتصال مجدد SSTP در زمان فعال‌بودن ایزولاسیون. kernel تصمیم با ۶۷ بررسی ساخته شد؛ native observer/executor و bootstrap DNS/گواهی هنوز تکمیل نشده‌اند. Apply جدید انجام نشود. main، runtime، اطلاعات ورود، آدرس VPN و ژورنال خصوصی وارد این sync نمی‌شوند. بخش‌های پایین سابقهٔ سایر مسیرها هستند، نه دستور تکرار آزمایش.
+<!-- unifiedfw-session-20261027:end -->
+
+
 <!-- unifiedfw-session-20261024:start -->
 ## ادامهٔ فعلی — Unified Firewall ۰.۸.۱؛ نتیجه نامشخص، بازیابی تأییدشده
 

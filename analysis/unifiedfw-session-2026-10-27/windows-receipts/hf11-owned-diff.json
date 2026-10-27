@@ -1,0 +1,54 @@
+{
+  "schema": "hf11-recovery-readonly-diff-1",
+  "diagnostic_completed": true,
+  "firewall_modified": false,
+  "journal_modified": false,
+  "restore_attempted": false,
+  "expected_owned_rules": 4,
+  "session_phase": "arming_failed_no_automatic_allow",
+  "rule_checks": [
+    {
+      "Rule": 1,
+      "MatchesDisabled": false,
+      "MatchesEnabled": false,
+      "CurrentEnabled": "2"
+    },
+    {
+      "Rule": 2,
+      "MatchesDisabled": false,
+      "MatchesEnabled": false,
+      "CurrentEnabled": "2"
+    },
+    {
+      "Rule": 3,
+      "MatchesDisabled": true,
+      "MatchesEnabled": false,
+      "CurrentEnabled": "2"
+    },
+    {
+      "Rule": 4,
+      "MatchesDisabled": false,
+      "MatchesEnabled": false,
+      "CurrentEnabled": "2"
+    }
+  ],
+  "differences": [
+    {
+      "Rule": 1,
+      "Field": "interface.InterfaceAlias",
+      "OrderOnly": false
+    },
+    {
+      "Rule": 2,
+      "Field": "interface.InterfaceAlias",
+      "OrderOnly": false
+    },
+    {
+      "Rule": 4,
+      "Field": "interface.InterfaceAlias",
+      "OrderOnly": false
+    }
+  ],
+  "error_code": "",
+  "error_type": ""
+}

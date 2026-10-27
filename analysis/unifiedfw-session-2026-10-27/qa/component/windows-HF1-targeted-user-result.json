@@ -1,0 +1,52 @@
+{
+  "schema": "hf1-windows-targeted-test-1",
+  "completed": true,
+  "passed": true,
+  "Windows_native_task_tested": true,
+  "firewall_modified": false,
+  "packet_leak_tested": false,
+  "no_leak_certified": false,
+  "live_profile_reads": [
+    {
+      "store": "PersistentStore",
+      "profile": "Domain",
+      "reader_accepted": false,
+      "error": "iso_interface_exclusions_unreadable"
+    },
+    {
+      "store": "PersistentStore",
+      "profile": "Private",
+      "reader_accepted": false,
+      "error": "iso_interface_exclusions_unreadable"
+    },
+    {
+      "store": "PersistentStore",
+      "profile": "Public",
+      "reader_accepted": false,
+      "error": "iso_interface_exclusions_unreadable"
+    },
+    {
+      "store": "ActiveStore",
+      "profile": "Domain",
+      "reader_accepted": false,
+      "error": "iso_interface_exclusions_unreadable"
+    },
+    {
+      "store": "ActiveStore",
+      "profile": "Private",
+      "reader_accepted": false,
+      "error": "iso_interface_exclusions_unreadable"
+    },
+    {
+      "store": "ActiveStore",
+      "profile": "Public",
+      "reader_accepted": false,
+      "error": "iso_interface_exclusions_unreadable"
+    }
+  ],
+  "model_test_passed": true,
+  "task_preserved_on_drift": true,
+  "task_removed_after_restore": true,
+  "fixture_cleanup_verified": true,
+  "errors": []
+}

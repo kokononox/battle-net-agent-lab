@@ -1,0 +1,48 @@
+{
+  "base_commit": "f4ba758b1aa358e2a36c4fda7795072d7b700acc",
+  "source_changes": [
+    {
+      "path": "app/hf11_readiness.py",
+      "base_sha256": null,
+      "new_sha256": "5c2fb98c239e059f756932fe599ddd89d74c65011d981b2366e7ccce53c51fc9"
+    },
+    {
+      "path": "app/isolation-native.ps1",
+      "base_sha256": "4df85395689b74d38df926f7d22a35d2258c526eced64db12bff35b81e8d6a55",
+      "new_sha256": "526e357f5e21a87eb9200568044ba9c192384e9ef5e1c571ef1fda2888eb7328"
+    },
+    {
+      "path": "app/isolation-worker.ps1",
+      "base_sha256": "550c4d3902db74a77d024dbb8b6478cc91cd8f415a618faaf621a66aa80dfce6",
+      "new_sha256": "1326d4d77f85491d18d177cdbe5db89138814ba88a1eed3529da1e0014108fab"
+    },
+    {
+      "path": "app/policy_review.py",
+      "base_sha256": "08f36d9e1f9a7f3dd20dd5b49eafe3117154cb8dba1f35f266aa9a3c5fa0696c",
+      "new_sha256": "d61d865c05bb7db169ce93f26cd9b8ddf5da62f86ce1f3f7a74eaa8b510dcbc9"
+    },
+    {
+      "path": "app/ui.ps1",
+      "base_sha256": "f00a075042d2d763f79580524456e105140ac16ab91beb5deb7e4172e462caf0",
+      "new_sha256": "fcebd567f1fa154d5d1b1477133252c27efc48caffbf796e7dd38ef6f8d3200e"
+    },
+    {
+      "path": "tests/Test-IsolationHotfix1.ps1",
+      "base_sha256": null,
+      "new_sha256": "fc19bbbf9d266f8aefd1f52e04babda6c6afe0a8ade49245cbd561076fb4fcb4"
+    },
+    {
+      "path": "tests/Test-IsolationNativeModel.ps1",
+      "base_sha256": "9b79b860c4ff44de32b6880964d7ac7ff78ce0608da96c726a52d2e1f9870433",
+      "new_sha256": "e925376c896df29754ab3398cf3c449f79fd5aa7b2dc81ac2042b2d807be0191"
+    },
+    {
+      "path": "tests/test_hf11_readiness.py",
+      "base_sha256": null,
+      "new_sha256": "f379fe2504032a476831e021c6b06ea7d74ae028542adf13dc5509741556b25b"
+    }
+  ],
+  "lab_native_unchanged": true,
+  "lab_session_core_unchanged": true,
+  "isolation_transaction_core_unchanged": true
+}

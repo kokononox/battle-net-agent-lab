@@ -1,0 +1,44 @@
+{
+  "schema": "unifiedfw-session-continuity-20261027",
+  "branch": "analysis/entry-loader-startup-2026-10-23",
+  "base_commit": "f4ba758b1aa358e2a36c4fda7795072d7b700acc",
+  "goal": "small dedicated Battle.net installer isolation foundation; authorized SSTP only",
+  "user_has_independent_Windows_test_PC": true,
+  "latest_user_network_state": "internet restored after scoped recovery; user confirmed",
+  "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
+  "latest_offline_candidate": "HF1.2.2 Prepare-only bulk integration",
+  "candidate_ready_for_Apply": false,
+  "Windows_HF11_scoped_recovery_passed": true,
+  "Windows_HF121_sample_parity_passed": true,
+  "samples_per_store": 4,
+  "Windows_full_store_parity_proven": false,
+  "Windows_integrated_HF122_tested": false,
+  "Windows_reconnect_tested": false,
+  "timing_benchmark_performed": false,
+  "no_leak_certified": false,
+  "fingerprint_prevention_certified": false,
+  "tests": {
+    "HF122_PS_suites_passed": 44,
+    "HF122_Python_passed": 531,
+    "HF122_Python_skipped": 2,
+    "HF122_parsed_PS_files": 99,
+    "HF122_new_model_checks": 33,
+    "reconnect_decision_checks": 67
+  },
+  "reconnect": {
+    "decision_kernel_implemented": true,
+    "native_observer_implemented": false,
+    "native_executor_implemented": false,
+    "DNS_bootstrap_solved": false,
+    "certificate_bootstrap_solved": false,
+    "production_integration": false
+  },
+  "next_step": "validate native identity observations for disconnected/reconnected approved SSTP; then scoped suspension/rebind executor and explicit DNS/TLS bootstrap design",
+  "user_action_now": "none; no new Apply, reset or disconnect test",
+  "never_claim": [
+    "IP allowlist proves no fingerprint uploads",
+    "sample parity qualifies all rules",
+    "periodic guardian is atomic"
+  ],
+  "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials"
+}

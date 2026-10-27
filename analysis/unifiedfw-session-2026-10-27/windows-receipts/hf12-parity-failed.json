@@ -1,0 +1,51 @@
+{
+  "schema": "hf12-readonly-parity-1",
+  "diagnostic_completed": false,
+  "sampled_image_parity": false,
+  "full_store_parity_proven": false,
+  "optimization_approved": false,
+  "windows_API_attempted": true,
+  "firewall_mutation_requested": false,
+  "profile_mutation_requested": false,
+  "journal_accessed": false,
+  "VPN_change_requested": false,
+  "network_probe_requested": false,
+  "no_leak_certified": false,
+  "fingerprint_prevention_certified": false,
+  "timing_benchmark_performed": false,
+  "powershell_version": "5.1.26100.6899",
+  "is_64bit": true,
+  "stage": "completed",
+  "stores": [
+    {
+      "store": "PersistentStore",
+      "stage": "compare_1",
+      "completed": false,
+      "total_rules": 420,
+      "local_rules": 420,
+      "sample_count": 4,
+      "sample_results": [],
+      "error_code": "read_failed_see_stage",
+      "error_type": "PropertyNotFoundException",
+      "bulk_collections_expected": 8,
+      "atomic": false,
+      "sampled_parity": false
+    },
+    {
+      "store": "ActiveStore",
+      "stage": "compare_1",
+      "completed": false,
+      "total_rules": 420,
+      "local_rules": 420,
+      "sample_count": 4,
+      "sample_results": [],
+      "error_code": "read_failed_see_stage",
+      "error_type": "PropertyNotFoundException",
+      "bulk_collections_expected": 8,
+      "atomic": false,
+      "sampled_parity": false
+    }
+  ],
+  "error_code": "",
+  "error_type": ""
+}

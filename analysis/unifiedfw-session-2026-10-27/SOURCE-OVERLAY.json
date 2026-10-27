@@ -1,0 +1,125 @@
+{
+  "base_commit": "f4ba758b1aa358e2a36c4fda7795072d7b700acc",
+  "base_repo_directory": "analysis/unifiedfw-desktop-0.9.10-2026-10-25",
+  "overlay_directory": "source-overlay",
+  "usage": "copy base SOURCE tree to a scratch folder, then overlay these relative paths; not a deployable package",
+  "release_manifests_are_historical_HF11_not_valid_for_current_candidate": true,
+  "runtime_included": false,
+  "files": [
+    {
+      "path": "BUILD-INFO.json",
+      "sha256": "868b8dfb7a7096c650eec5367cd6a0f3ddb742bbc8dd7ff594b9d80d4ac99b98",
+      "bytes": 9688
+    },
+    {
+      "path": "Check-HF11.cmd",
+      "sha256": "557b9a2b4c837b04c2c450ce31c205455d8b7c57b6451970a1510a98bc820915",
+      "bytes": 109
+    },
+    {
+      "path": "HF11-Verified-Start.cmd",
+      "sha256": "6809878827819b36c04aa91745edcc51d89fa9a9b83d065ff317b1cf0cd952a4",
+      "bytes": 1956
+    },
+    {
+      "path": "MANIFEST-SHA256.json",
+      "sha256": "af2ec48074ba6ccd85cdea33836591d96c5286c8e46c914eba488703a0bd52c7",
+      "bytes": 27323
+    },
+    {
+      "path": "Open-HF11.cmd",
+      "sha256": "0063096fb7e14071c2fdc9904e7e96a4fb7f09bb5ef7516e1c52a6e7cc66d85f",
+      "bytes": 108
+    },
+    {
+      "path": "PAYLOAD-SHA256.json",
+      "sha256": "e9fceb0d2e776c05b0a724bbff4d39f6749fd2751c259b49a1ea2b79bc074d58",
+      "bytes": 27133
+    },
+    {
+      "path": "README.fa.md",
+      "sha256": "9ce22a000e6a1910752a9807270e0ccd433094c3a81939808f16b514e4408148",
+      "bytes": 8621
+    },
+    {
+      "path": "SOURCE-CHANGES-HF11.json",
+      "sha256": "c55d8747239fc4d6f0e446f461e84255fc5582551961127abfe581ce53d242be",
+      "bytes": 1870
+    },
+    {
+      "path": "app/hf11_readiness.py",
+      "sha256": "5c2fb98c239e059f756932fe599ddd89d74c65011d981b2366e7ccce53c51fc9",
+      "bytes": 2454
+    },
+    {
+      "path": "app/isolation-core.ps1",
+      "sha256": "6eb671a6d7452eb8a33a6b7a2bf7ec2a9df77c2d3f019f31d366f2c0e8e1aee2",
+      "bytes": 7341
+    },
+    {
+      "path": "app/isolation-native.ps1",
+      "sha256": "2677ad47214f9bd65fdece4aa6b24883d38aec15b240f1a50a8902e6111f1007",
+      "bytes": 24460
+    },
+    {
+      "path": "app/isolation-worker.ps1",
+      "sha256": "1326d4d77f85491d18d177cdbe5db89138814ba88a1eed3529da1e0014108fab",
+      "bytes": 14034
+    },
+    {
+      "path": "app/policy_review.py",
+      "sha256": "d61d865c05bb7db169ce93f26cd9b8ddf5da62f86ce1f3f7a74eaa8b510dcbc9",
+      "bytes": 15380
+    },
+    {
+      "path": "app/ui.ps1",
+      "sha256": "fcebd567f1fa154d5d1b1477133252c27efc48caffbf796e7dd38ef6f8d3200e",
+      "bytes": 58965
+    },
+    {
+      "path": "docs/README-BASE-0.9.10.fa.md",
+      "sha256": "8da01eb534404ba88efd3b3075a228b26a186981c59ff07653457dc40da3feda",
+      "bytes": 30124
+    },
+    {
+      "path": "experiments/isolation-bulk-read.ps1",
+      "sha256": "e4500b913b25645fa863d79432daf70c64ee9f9fdc0db3b88eebd8cd259c4d94",
+      "bytes": 1797
+    },
+    {
+      "path": "tests/Test-IsolationBulkPrototype.ps1",
+      "sha256": "6740437dd7e7cb08f36346d6835f1a93551c11340164ce73b0dac3786e1ff9d6",
+      "bytes": 3935
+    },
+    {
+      "path": "tests/Test-IsolationHF12.ps1",
+      "sha256": "dac266275d902a9569dfc7a2b2ab1291e6aff7e84ae2c992c58dd4187d7d2d8d",
+      "bytes": 6576
+    },
+    {
+      "path": "tests/Test-IsolationHotfix1.ps1",
+      "sha256": "fc19bbbf9d266f8aefd1f52e04babda6c6afe0a8ade49245cbd561076fb4fcb4",
+      "bytes": 7267
+    },
+    {
+      "path": "tests/Test-IsolationNativeModel.ps1",
+      "sha256": "c4a10652beb46cc9ef26a9dac75fbcac4f45808689af204246fc909f054e2f26",
+      "bytes": 6179
+    },
+    {
+      "path": "tests/Test-PrepareBulk.ps1",
+      "sha256": "950180d448296704583e4d89c8e4bc73b034c54c85b2dfe35051933eebfde3de",
+      "bytes": 7754
+    },
+    {
+      "path": "tests/Test-SystemIsolationModes.ps1",
+      "sha256": "c40d2c8967cde10de70b35444d1d0b973ca3e642fcdca0b14805173a2ac9092e",
+      "bytes": 8060
+    },
+    {
+      "path": "tests/test_hf11_readiness.py",
+      "sha256": "f379fe2504032a476831e021c6b06ea7d74ae028542adf13dc5509741556b25b",
+      "bytes": 1785
+    }
+  ]
+}

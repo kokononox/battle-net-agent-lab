@@ -1,0 +1,78 @@
+{
+  "schema": "hf11-windows-targeted-test-1",
+  "profile_readiness_passed": true,
+  "task_lifecycle_skipped_as_previously_passed": true,
+  "completed": true,
+  "passed": true,
+  "Windows_native_task_tested": false,
+  "firewall_modified": false,
+  "packet_leak_tested": false,
+  "no_leak_certified": false,
+  "live_profile_reads": [
+    {
+      "store": "PersistentStore",
+      "profile": "Domain",
+      "reader_accepted": true,
+      "error": "",
+      "field_present": true,
+      "value_is_null": false,
+      "cim_type": "StringArray",
+      "value_count": 1
+    },
+    {
+      "store": "PersistentStore",
+      "profile": "Private",
+      "reader_accepted": true,
+      "error": "",
+      "field_present": true,
+      "value_is_null": false,
+      "cim_type": "StringArray",
+      "value_count": 1
+    },
+    {
+      "store": "PersistentStore",
+      "profile": "Public",
+      "reader_accepted": true,
+      "error": "",
+      "field_present": true,
+      "value_is_null": false,
+      "cim_type": "StringArray",
+      "value_count": 1
+    },
+    {
+      "store": "ActiveStore",
+      "profile": "Domain",
+      "reader_accepted": true,
+      "error": "",
+      "field_present": true,
+      "value_is_null": true,
+      "cim_type": "StringArray",
+      "value_count": 0
+    },
+    {
+      "store": "ActiveStore",
+      "profile": "Private",
+      "reader_accepted": true,
+      "error": "",
+      "field_present": true,
+      "value_is_null": true,
+      "cim_type": "StringArray",
+      "value_count": 0
+    },
+    {
+      "store": "ActiveStore",
+      "profile": "Public",
+      "reader_accepted": true,
+      "error": "",
+      "field_present": true,
+      "value_is_null": true,
+      "cim_type": "StringArray",
+      "value_count": 0
+    }
+  ],
+  "model_test_passed": true,
+  "task_preserved_on_drift": false,
+  "task_removed_after_restore": false,
+  "fixture_cleanup_verified": true,
+  "errors": []
+}

@@ -1,0 +1,97 @@
+{
+  "schema": "hf121-readonly-parity-1",
+  "diagnostic_completed": true,
+  "sampled_image_parity": true,
+  "full_store_parity_proven": false,
+  "optimization_approved": false,
+  "windows_API_attempted": true,
+  "firewall_mutation_requested": false,
+  "profile_mutation_requested": false,
+  "journal_accessed": false,
+  "VPN_change_requested": false,
+  "network_probe_requested": false,
+  "no_leak_certified": false,
+  "fingerprint_prevention_certified": false,
+  "timing_benchmark_performed": false,
+  "powershell_version": "5.1.26100.6899",
+  "is_64bit": true,
+  "stage": "completed",
+  "stores": [
+    {
+      "store": "PersistentStore",
+      "stage": "completed",
+      "completed": true,
+      "total_rules": 420,
+      "local_rules": 420,
+      "sample_count": 4,
+      "sample_results": [
+        {
+          "index": 1,
+          "result": "exact_match",
+          "different_fields": []
+        },
+        {
+          "index": 2,
+          "result": "exact_match",
+          "different_fields": []
+        },
+        {
+          "index": 3,
+          "result": "exact_match",
+          "different_fields": []
+        },
+        {
+          "index": 4,
+          "result": "exact_match",
+          "different_fields": []
+        }
+      ],
+      "error_code": "",
+      "error_type": "",
+      "error_script": "",
+      "error_line": 0,
+      "bulk_collections_expected": 8,
+      "atomic": false,
+      "sampled_parity": true
+    },
+    {
+      "store": "ActiveStore",
+      "stage": "completed",
+      "completed": true,
+      "total_rules": 420,
+      "local_rules": 420,
+      "sample_count": 4,
+      "sample_results": [
+        {
+          "index": 1,
+          "result": "exact_match",
+          "different_fields": []
+        },
+        {
+          "index": 2,
+          "result": "exact_match",
+          "different_fields": []
+        },
+        {
+          "index": 3,
+          "result": "exact_match",
+          "different_fields": []
+        },
+        {
+          "index": 4,
+          "result": "exact_match",
+          "different_fields": []
+        }
+      ],
+      "error_code": "",
+      "error_type": "",
+      "error_script": "",
+      "error_line": 0,
+      "bulk_collections_expected": 8,
+      "atomic": false,
+      "sampled_parity": true
+    }
+  ],
+  "error_code": "",
+  "error_type": ""
+}
