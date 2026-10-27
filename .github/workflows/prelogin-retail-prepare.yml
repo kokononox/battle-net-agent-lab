@@ -1,4 +1,4 @@
-name: Logged-out Retail initialization form, no finalization
+name: Logged-out Retail non-finalizing form update
 on:
   push:
     branches: [research/prelogin-telemetry-wow-data-provenance]
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c3'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c4'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c3'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail prepare c4'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -55,11 +55,11 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python -m unittest discover -s analysis-tools/prelogin-retail-prepare -p 'test_*.py' -v
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: Owned signed Agent and one Retail preparation request
+      - name: Owned Agent and one non-finalizing Retail form update
         id: observation
         timeout-minutes: 6
         env:
-          RETAIL_PREPARE: approved-retail-prepare-c3
+          RETAIL_PREPARE: approved-retail-prepare-c4
         run: python analysis-tools/prelogin-retail-prepare/run_prepare.py
       - name: Validate only counts and fixed labels
         id: sanitize

@@ -4,18 +4,20 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2];sys.path.append(str(ROOT/'agent-interface-lab'))
 import probe
 import form_details
+import form_update
 from retail_protocol import FIELDS,CODES,BLOCKERS
 STATUSES={'not_started','discovery_failed','handshake_not_ready','request_failed','existing_products_refused','form_observed','form_schema_unknown','identity_changed','stopped'}
 ERRORS={None,'OSError','ValueError','RuntimeError','Stop','other'}
 def blank(source,run):
  h=probe.blank();h.update(source_commit=source,run_id=run,run_attempt='1')
- return dict(schema='bnet-retail-prepare-2',source_commit=source,run_id=run,status='not_started',error_kind=None,product='wow',test_profile=dict(region='eu',locale='enUS',platform='win',architecture='x86_64'),bootstrap_pin_match=None,metadata=None,form_details=form_details.blank(),handshake=h,identity_checks=0,temp_image_verifications=0,last_identity_state=None,identity_failure_state=None,local_requests=0,initial_summary_empty=False,initialization_attempted=False,initialization_http_status=None,initialization_response_bytes=0,last_http_status=None,form=dict(form_fields=[],unknown_fields=False,form_schema_valid=False,error_codes={k:None for k in ('agent',*CODES)},blockers=[]),limits=dict(finalization_requested=False,account_login_requested=False,country_fabricated=False,legal_terms_accepted=False,minimum_spec_bypassed=False,game_payload_download_requested=False,game_executed=False,user_install_accessed=False,token_exported=False,raw_response_exported=False,frida_requested=False,hardware_transmission_in_download_phase_proven=False,game_download_without_login_proven=False,initialization_may_trigger_network=True,child_network_hard_byte_cap=False,full_game_download_requested=False))
+ return dict(schema='bnet-retail-prepare-3',source_commit=source,run_id=run,status='not_started',error_kind=None,product='wow',test_profile=dict(region='eu',locale='enUS',platform='win',architecture='x86_64'),bootstrap_pin_match=None,metadata=None,form_details=form_details.blank(),form_update=form_update.blank(),handshake=h,identity_checks=0,temp_image_verifications=0,last_identity_state=None,identity_failure_state=None,local_requests=0,initial_summary_empty=False,initialization_attempted=False,initialization_http_status=None,initialization_response_bytes=0,last_http_status=None,form=dict(form_fields=[],unknown_fields=False,form_schema_valid=False,error_codes={k:None for k in ('agent',*CODES)},blockers=[]),limits=dict(finalization_requested=False,account_login_requested=False,country_fabricated=False,legal_terms_accepted=False,minimum_spec_bypassed=False,game_payload_download_requested=False,game_executed=False,user_install_accessed=False,token_exported=False,raw_response_exported=False,frida_requested=False,hardware_transmission_in_download_phase_proven=False,game_download_without_login_proven=False,initialization_may_trigger_network=True,child_network_hard_byte_cap=False,full_game_download_requested=False))
 
 def validate(r):
- if type(r) is not dict or set(r)!=set(blank('a'*40,'1')) or r['schema']!='bnet-retail-prepare-2':raise ValueError('fields')
+ if type(r) is not dict or set(r)!=set(blank('a'*40,'1')) or r['schema']!='bnet-retail-prepare-3':raise ValueError('fields')
  if type(r['source_commit']) is not str or re.fullmatch('[0-9a-f]{40}',r['source_commit']) is None or type(r['run_id']) is not str or re.fullmatch('[0-9]{1,30}',r['run_id']) is None:raise ValueError('identity')
  if r['status'] not in STATUSES or r['error_kind'] not in ERRORS or r['product']!='wow' or r['test_profile']!=blank('a'*40,'1')['test_profile']:raise ValueError('enum')
  if r['bootstrap_pin_match'] is not None and type(r['bootstrap_pin_match']) is not bool:raise ValueError('pin')
+ form_update.validate(r['form_update'])
  form_details.validate(r['form_details'])
  probe.validate(r['handshake'])
  if any(r['handshake'][k]!=r[k] for k in ('source_commit','run_id')):raise ValueError('handshake_identity')
@@ -26,7 +28,7 @@ def validate(r):
   for k,p in [('version',r'\d{1,4}\.\d{1,4}\.\d{1,4}\.\d{1,10}'),('build_config','[0-9a-f]{32}'),('versions_sha256','[0-9a-f]{64}')]:
    if type(m[k]) is not str or re.fullmatch(p,m[k]) is None:raise ValueError('metadata_identity')
   if type(m['response_bytes']) is not int or not 0<m['response_bytes']<=1024**2:raise ValueError('metadata_bytes')
- for k,cap in [('identity_checks',64),('temp_image_verifications',64),('local_requests',2),('initialization_response_bytes',65536)]:
+ for k,cap in [('identity_checks',64),('temp_image_verifications',64),('local_requests',3),('initialization_response_bytes',65536)]:
   if type(r[k]) is not int or not 0<=r[k]<=cap:raise ValueError('count')
  if r['temp_image_verifications']>r['identity_checks']:raise ValueError('identity_count')
  for k in ('last_identity_state','identity_failure_state'):
@@ -37,7 +39,10 @@ def validate(r):
  for k in ('initialization_http_status','last_http_status'):
   if r[k] is not None and (type(r[k]) is not int or not 100<=r[k]<=599):raise ValueError('http')
  if r['local_requests'] and (not r['handshake']['authorization_token_present'] or m is None):raise ValueError('session_required')
- if r['initialization_attempted'] and (r['local_requests']!=2 or not r['initial_summary_empty']):raise ValueError('initialization_guard')
+ if r['initialization_attempted'] and (r['local_requests']not in (2,3) or not r['initial_summary_empty']):raise ValueError('initialization_guard')
+ if r['form_update']['status']in {'response_observed','unexpected_finalized'} and (r['handshake']['status']!='handshake_token_observed' or r['identity_checks']<1):raise ValueError('update_identity_evidence')
+ if r['form_update']['attempted'] and (r['local_requests']!=3 or not r['initialization_attempted']):raise ValueError('update_request_guard')
+ if r['local_requests']==3 and not r['form_update']['attempted']:raise ValueError('extra_request')
  if not r['initialization_attempted'] and (r['initialization_http_status'] is not None or r['initialization_response_bytes']):raise ValueError('no_initialization')
  f=r['form']
  if type(f) is not dict or set(f)!={'form_fields','unknown_fields','form_schema_valid','error_codes','blockers'}:raise ValueError('form_schema')

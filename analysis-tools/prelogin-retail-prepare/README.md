@@ -1,49 +1,39 @@
-# Logged-out WoW Retail preparation (c3)
+# Logged-out WoW Retail form update (c4)
 
-Purpose: query the fresh, owned Battle.net Agent's Retail (`wow`, not Classic)
-installation preparation form without logging into a Battle.net account.
-EU/enUS Windows x64 is the experiment profile, not an inferred user preference.
+Fresh hosted Windows first-attempt approved push on the research branch only.
+Uses the pinned bootstrap and existing owned signed Agent / listener identity
+checks. Retains narrow same-hash signed temporary image verification.
 
-Execution is restricted to the approved first-attempt hosted Windows push on the
-research branch. Bootstrap must match the pinned SHA-256 and existing signature,
-process-image and listener-owner checks. A signed same-hash temporary image
-transition is allowed only through the existing narrow Agent identity verifier.
+Sequence: public EU versions discovery, bootstrap language-only observation,
+local anonymous handshake, one GET /game, one Retail POST /install, then at most
+one POST /install/wow with finalized=false. The last request contains only a new
+owned destination, language=[enUS], selected_asset_locale=enUS and
+selected_locale=enUS. No account, country, EULA or other consent parameter.
+No /update, finalization=true, install polling, game execution or retry.
 
-1. Fetch the public EU Retail versions table over HTTPS, no redirects/proxy.
-2. Observe the signed bootstrap, language-only UI; no Install button click.
-3. Launch the owned Agent through the existing anonymous local handshake.
-4. One GET /game, refuse unless exactly empty or integer error zero.
-5. One POST /install with the Retail initialization payload. No retries.
-6. Export fixed form field names, numeric error codes and blocker enums only.
-7. Stop and clean up the owned process tree.
+The last request is experimental: finalized=false is requested, but is NOT an
+independent guarantee that the current Agent has no side effects or cannot
+start work. No full game or content-start request is issued. Metadata and
+other child network traffic may occur; there is no hard child-byte cap. Owned
+Agent cleanup follows the response/error; HTTP timeout10s, observation step6m,
+job12m. No later request is made even if the server unexpectedly reports true.
+The report calls this unexpected_finalized, not a successful safe update.
 
-Local authorization token is not an account login token. It remains in memory.
-No /install/wow finalization, account login, game execution, EULA acceptance,
-country fabrication, minimum-spec bypass, user-install access, Frida or hooks.
-The initialization request can cause metadata/state/network activity; it is NOT
-a dry run and child traffic has no hard byte cap. No game-payload download or
-full game download is requested by this experiment. Metadata discovery does not
-prove which build the Agent actually selected or that downloading succeeds.
+Prerequisites: strict known initial form; authentication and minimum-spec error
+zero; initial finalized exactly false; enUS in all three language arrays;
+bounded required_space; a new empty directory beneath RUNNER_TEMP, fixed drive,
+no reparse ancestors, free space at least reported requirement plus 10GiB.
+Refuse rather than bypass or silently change another setting. These disk
+checks are not a full-download capacity guarantee.
 
-The public summary cannot establish hardware transmission during downloading,
-server receipt, download authorization, or game-file provenance. A zero
-preparation authentication error alone proves none of these. EULA presence
-always remains a review blocker, regardless of its returned boolean value.
+Only strict typed summaries, bounded structure and fixed known language enums
+are published. No raw tokens, UUIDs, paths, logs, UI, binaries or legal text.
+Initial form and response-after-update remain separate. EULA=true is not
+interpreted as consent or legal necessity. eula_review_pending is our
+conservative review rule, not an Agent error code.
 
-Only sanitized summaries and typed CI outcomes are uploaded, not raw responses,
-logs, tokens, identifiers, private paths, UI data or binaries. Unknown form
-fields fail schema validation and their labels/values are not exported.
+A 200/201, zero error, matching path or returned finalized=false cannot prove
+actual game transfer, a complete installation, absence of telemetry, or server
+storage. No packet/payload tracing in c4; Q2 remains queued.
 
 Tests: python -m unittest discover -s analysis-tools/prelogin-retail-prepare -p 'test_*.py' -v
-
-## c3: structural diagnosis only
-
-Same two local requests; no new write/finalization endpoint. Schema v2 adds
-bounded structure (fixed allowlisted labels and type/count only), exact known
-language locale enums found beneath language, numeric required_space when safe,
-and EULA boolean/presence diagnostics. Locale recognition is not proof of a
-selectable language or a successful install. required_space is Agent-reported,
-not an independently verified final disk/download size. An EULA boolean is not
-consent and no legal document is fabricated. Unknown labels and string values
-are suppressed, including absolute paths and legal text/URLs. Depth/node/count
-limits refuse oversized structure. Maximum sanitized report is 65536 bytes.
