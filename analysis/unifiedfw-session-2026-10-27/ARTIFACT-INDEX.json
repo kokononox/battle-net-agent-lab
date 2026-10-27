@@ -75,7 +75,7 @@
     "version": "INTEGRATED-SESSION-01-internal-source",
     "source": "integrated-session-v01",
     "filename": null,
-    "status": "Original audit baseline and explicit exit consent preserved. Added read-only CIM/SCM service and process PID corroboration and a factory composed into the same reviewed recovery backend; old factory not auto-replaced. This is necessary evidence, NOT complete helper/service/IPC coverage. Independent coverage remains required and unimplemented in production; native Windows/performance/UI qualification remain. No user package/test; ready_for_apply=false",
+    "status": "Original audit baseline and explicit exit consent preserved. Added read-only CIM/SCM service and process PID corroboration and a factory composed into the same reviewed recovery backend; old factory not auto-replaced. This is necessary evidence, NOT complete helper/service/IPC coverage. Independent coverage remains required and unimplemented in production; native Windows/performance/UI qualification remain. No user package/test; ready_for_apply=false Added dispatcher audit-baseline readback from arm v02 even without audit pending, strict numeric masks, and post-snapshot finish guard. Not atomic and no automatic historical closed-journal rescan.",
     "binary_in_repository": false,
     "live_review_registry_detail": "integrated-session-v01/LIVE-REVIEW-REGISTRY.fa.md",
     "native_live_recovery_and_capture_bound": false,
@@ -83,6 +83,7 @@
     "durable_runtime_witness_detail": "integrated-session-v01/DURABLE-RUNTIME-WITNESS.fa.md",
     "process_quiescence_detail": "integrated-session-v01/PROCESS-QUIESCENCE.fa.md",
     "exit_review_detail": "integrated-session-v01/EXIT-REVIEW.fa.md",
-    "service_quiescence_detail": "integrated-session-v01/SERVICE-QUIESCENCE.fa.md"
+    "service_quiescence_detail": "integrated-session-v01/SERVICE-QUIESCENCE.fa.md",
+    "final_audit_verification_detail": "integrated-session-v01/FINAL-AUDIT-VERIFICATION.fa.md"
   }
 ]
