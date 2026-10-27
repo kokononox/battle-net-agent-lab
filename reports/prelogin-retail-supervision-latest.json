@@ -1,7 +1,24 @@
 {
-  "schema": "bnet-retail-supervision-gate-1",
-  "source_commit": "7b903317825d5382cadbff830a8f1dd2bc0cc2ab",
-  "run_id": "40455690433",
+  "build": {
+    "stage": "compile",
+    "vswhere_exit_code": 0,
+    "installation_found": true,
+    "devcmd_found": true,
+    "compiler_exit_code": 2,
+    "compiler_error_codes": [
+      "C2065",
+      "C2146",
+      "C2530",
+      "C3536",
+      "C3861"
+    ],
+    "source_error_lines": [
+      21
+    ]
+  },
+  "schema": "bnet-retail-supervision-gate-2",
+  "source_commit": "842a59bb3ea9883d6a5503d5c22a0ad53a51a3df",
+  "run_id": "40456174479",
   "status": "refused",
   "error_kind": "build_failed",
   "fixtures": {},
