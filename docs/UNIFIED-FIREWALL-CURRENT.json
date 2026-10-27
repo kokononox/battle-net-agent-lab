@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "Latest ALLOW-REVIEW-01 Windows receipt: all 3 ActiveStore profiles enabled/outbound Block; 426 visible rules, 106 enabled outbound Allow all outside exact runtime transport predicate, zero indeterminate reads. No fresh PersistentStore/full-filter backup/origin mapping or SSTP status query in this step.",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "UFW-PRIVATE-INVENTORY-01: separately consented private two-store rule/filter/origin capture and file readback; public diagnostic counts only; Windows-native flow pending; no setter/Apply/restore authority",
+  "latest_offline_candidate": "Internal integrated-session-v01 coordinator with real journal IO and existing runtime bridge; NO released Windows entrypoint/ZIP, live native policy writer/restore not bound",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -153,7 +153,9 @@
     "isolation_transaction_prior_profile_methods": 25,
     "private_inventory_assertions": 172,
     "private_inventory_callback_cases": 19,
-    "private_inventory_regression_assertions": 1617
+    "private_inventory_regression_assertions": 1617,
+    "integrated_session_cases": 27,
+    "integrated_session_assertions": 123
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -200,8 +202,8 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "First Windows storage-only private inventory flow: explicit local consent; two stores with source trace and seven per-rule filters; header recheck/private ACL/CreateNew/readback. Return sanitized diagnostic ONLY, never private-policy-snapshot.json. Native semantic mapping, SSTP/bootstrap/recovery qualification remain before setter.",
-  "user_action_now": "Extract UFW-PRIVATE-INVENTORY-01 into new local folder; same-account administrator Run-Inventory.cmd; optional explicit Save private inventory only. Do not launch installer/change rules/VPN. Send only NEW UFW-PRIVATE-INVENTORY-01-*.json, even on failure/cancel. Never send private snapshot/screenshots/transcripts.",
+  "next_step": "Bind integrated local review/live semantic and exact connected-SSTP identity, then scoped native policy writer/restore/transport to the same journal plus local quiescence/recovery. Do not send another standalone diagnostic test. First Windows request only as one targeted integrated workflow when actually ready.",
+  "user_action_now": "None. Keep private snapshot local; do not repeat successful inventory, change rules/VPN, or launch installer. No fresh diagnostic ZIP is released in this integration milestone.",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
@@ -209,7 +211,7 @@
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
   "latest_progress": "actual Windows PS5.1 x64 receipt confirms payload verification, one selected program, local review/consent, protected candidate recorded/readback and three fresh program observation passes, write_status recorded_revalidated_no_authority; no raw identity export, publisher trust, EXE execution, baseline journal access, firewall/VPN/DNS changes requested; destinations pending and no Apply authority",
-  "previous_sync_commit": "3985b9282feee50fe15d53744ce75ce2cdcbad2b",
+  "previous_sync_commit": "2f8de6134d8cf8dffe251cc1b366a2fe8eceff91",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -477,7 +479,7 @@
     "Windows_nonzero_process_attribution_qualified": false,
     "Windows_nonzero_endpoint_attribution_qualified": false
   },
-  "latest_continuation_notes": "docs/SESSION-UNIFIED-FIREWALL-PRIVATE-INVENTORY-01.fa.md",
+  "latest_continuation_notes": "docs/SESSION-UNIFIED-FIREWALL-INTEGRATED-01.fa.md",
   "program_runtime_capture": {
     "filename": "UFW-RUNTIME-CAPTURE-01.zip",
     "sha256": "f04bc94e11d81b7af20752f0614c81aa30e202f1f103cf35977369fb69182607",
@@ -588,7 +590,7 @@
     "regression_assertions": 1617,
     "package_PS_files_parsed": 6,
     "manifest_and_fresh_ZIP_verified": true,
-    "Windows_native_executed": false,
+    "Windows_native_executed": true,
     "explicit_storage_consent": true,
     "firewall_audit_mutation": false,
     "legacy_journal_access": false,
@@ -618,6 +620,45 @@
     "full_WFP_coverage_verified": false,
     "local_name_candidate_is_semantic_equivalence": false,
     "local_name_candidate_is_write_authority": false,
-    "private_snapshot_created_on_user_PC": false
+    "private_snapshot_created_on_user_PC": true,
+    "Windows_receipt": "analysis/unifiedfw-session-2026-10-27/private-inventory-v01/evidence/Windows-private-inventory-completed.json",
+    "Windows_success_scope": {
+      "stores": 2,
+      "rule_records_across_both_stores": 852,
+      "filter_objects": 5964,
+      "profiles": 6,
+      "header_rechecks_match": true,
+      "private_write_readback_verified": true,
+      "active_outbound_Allow_Local": 106,
+      "unique_local_name_candidates": 106,
+      "semantic_equivalence_verified": false,
+      "filter_stability_verified": false,
+      "native_restore_qualified": false
+    }
+  },
+  "integration_workflow": {
+    "source": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01",
+    "single_flow_coordinator_implemented": true,
+    "existing_runtime_bridge_implemented": true,
+    "concrete_journal_storage_implemented": true,
+    "private_semantic_comparison_helper_implemented": true,
+    "integration_cases": 27,
+    "integration_assertions": 123,
+    "Linux_file_IO_executed": true,
+    "Windows_policy_writes_executed": false,
+    "native_writer_restore_bound": false,
+    "public_live_entrypoint_published": false,
+    "user_manual_test_requested": false,
+    "first_scope": "already-connected freshly identified SSTP; stop capture on disconnect; no cold-start/reconnect/reboot claims",
+    "operating_scope": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/OPERATING-SCOPE.json",
+    "complete_BattleNet_installation_supported": false,
+    "ready_for_apply": false,
+    "no_leak_certified": false
+  },
+  "workflow_correction": {
+    "user_objects_to_fragmented_manual_tests": true,
+    "do_not_request_new_diagnostic_packages_until_integrated_flow_ready": true,
+    "reuse_successful_existing_receipts": true,
+    "do_not_present_internal_model_or_callback_test_as_native_ready": true
   }
 }
