@@ -324,3 +324,6 @@ Latest Windows receipt: [v0.3.1 connected endpoint correlation passed](analysis/
 
 
 Latest offline development: [exact SSTP transport draft and bootstrap gates](analysis/unifiedfw-session-2026-10-27/exact-transport-plan-v01/README.fa.md). 86 model assertions passed; non-executable draft only, no endpoint approval authority, no firewall changes or Apply qualification.
+
+
+Latest development: [local-only SSTP draft review adapter](analysis/unifiedfw-session-2026-10-27/local-review-v01/README.fa.md), manual challenge plus post-prompt native revalidation. 64 new model assertions and prior regressions pass; Windows local review pending. No persistent approval authority or Apply qualification.

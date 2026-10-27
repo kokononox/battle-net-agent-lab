@@ -109,3 +109,8 @@ kernel تصمیم جدید زیر `reconnect-design-v01` اجراپذیر در �
 ## گام آفلاین بعد از مشاهدهٔ موفق — draft حمل دقیق
 
 [کد و مرزها](../analysis/unifiedfw-session-2026-10-27/exact-transport-plan-v01/README.fa.md) و [bootstrap gates](../analysis/unifiedfw-session-2026-10-27/exact-transport-plan-v01/BOOTSTRAP-GATES.fa.md). ۸۶ assertion مدل گذشت. این سازنده هیچ approval یا دستور اعمال نمی‌سازد؛ digest تنها fingerprint ورودی است و منبع اعتماد نیست. مرحلهٔ بعد adapter بازبینی محلی با native revalidation است. کاربر فعلاً اقدامی ندارد.
+
+
+## آخرین توسعه — بازبینی محلی draft مقصد
+
+[adapter و راهنما](../analysis/unifiedfw-session-2026-10-27/local-review-v01/README.fa.md): readerهای موجود به نمایش محلی، challenge دستی و revalidation پس از prompt وصل شدند. ۶۴ assertion جدید و رگرسیون‌های قبلی گذشتند. هیچ approval اجرایی/persistence یا Apply نداریم. اکنون یک اجرای بستهٔ جداگانه روی وضعیت فعلی Windows درخواست شده؛ raw console ارسال نشود، فقط JSON sanitized حتی در لغو/شکست. عبارت قدیمی «اقدام لازم نیست» مربوط به گام آفلاین قبلی است.

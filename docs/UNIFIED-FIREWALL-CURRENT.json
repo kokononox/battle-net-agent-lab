@@ -27,7 +27,8 @@
     "native_observer_model_checks": 84,
     "endpoint_v03_model_assertions": 58,
     "endpoint_v031_model_assertions": 61,
-    "exact_transport_draft_model_assertions": 86
+    "exact_transport_draft_model_assertions": 86,
+    "local_review_model_assertions": 64
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -63,19 +64,23 @@
     "within_run_binding_comparison_Windows_tested": true,
     "exact_transport_offline_draft_builder_implemented": true,
     "endpoint_approval_authority_implemented": false,
-    "endpoint_review_native_adapter_implemented": false,
-    "bootstrap_gate_design_documented": true
+    "endpoint_review_native_adapter_implemented": true,
+    "bootstrap_gate_design_documented": true,
+    "endpoint_local_draft_review_adapter_implemented": true,
+    "endpoint_local_draft_review_Windows_tested": false,
+    "endpoint_review_native_adapter_scope": "current-user connected-state memory-only draft acknowledgment; no approval authority",
+    "persistent_endpoint_approval_implemented": false
   },
-  "next_step": "implement local endpoint review adapter with fresh native profile/identity binding and protected approval design; keep DNS/TLS/underlay cold-bootstrap gates blocking execution",
-  "user_action_now": "none; no new Windows package, no observer repetition, no Apply or live reconnect test",
+  "next_step": "one local review Windows run without changing VPN/firewall; review sanitized acknowledgment/revalidation report; keep protected approval storage and bootstrap gates unimplemented",
+  "user_action_now": "run separate SSTP-LOCAL-REVIEW-01 package as administrator in same account; keep VPN connected; review raw details locally only, acknowledge draft or cancel, return only sanitized JSON",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "offline non-executable exact transport draft builder added; 86 assertions passed; no automatic cache promotion, no approval authority, no firewall/guardian integration",
-  "previous_sync_commit": "407051ff7901aa9361fd16435cd04d9600ff8c73",
+  "latest_progress": "local draft review adapter wired to unchanged native readers with local-only display, manual challenge and post-prompt revalidation; 64 new model assertions plus prior regressions pass; Windows run pending",
+  "previous_sync_commit": "b42fc14bfce5c665e74d8459df17a88882e1cf06",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
