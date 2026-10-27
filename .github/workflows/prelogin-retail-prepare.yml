@@ -1,4 +1,4 @@
-name: Logged-out Retail response field-alias diagnosis D17
+name: Logged-out Retail read-only post-finalization status D18
 on:
   push:
     branches: [research/prelogin-telemetry-wow-data-provenance]
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail response aliases d17'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved read-only retail status d18'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail response aliases d17'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved read-only retail status d18'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:

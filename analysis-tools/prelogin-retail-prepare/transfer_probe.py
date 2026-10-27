@@ -14,20 +14,21 @@ NUMERIC={'downloaded_bytes','bytes_downloaded','downloaded','total_bytes','bytes
 PORTS={'80','443','1119','3724','other'}
 def counts():return {k:0 for k in sorted(PORTS)}
 def blank(source,run):
- return dict(schema='bnet-retail-transfer-4',source_commit=source,run_id=run,status='not_started',error_kind=None,finalization_attempted=False,start_attempted=False,local_requests=0,polls=0,phase_signal_created=False,phase_acknowledged=False,finalization_response_shape=finalization_shape.blank(),response_diagnostic=response_diagnostic.blank(),preflight_path_guard=path_guard.blank(),finalization_http_status=None,start_http_status=None,finalization_response_bytes=0,start_response_bytes=0,finalized_returned=None,finalization_error_codes={k:None for k in ('agent',*CODES)},start_agent_error=None,final_path_guard=path_guard.blank(),final_path_relation=path_relation.blank(),baseline_progress=None,last_progress=None,baseline_files=None,last_files=None,baseline_connections=None,last_connections=None,account_parameter_sent=False,country_parameter_sent=False,legal_acceptance_parameter_sent=False,payload_exported=False,raw_paths_exported=False,complete_installation_proven=False,hardware_upload_proven=False)
+ return dict(schema='bnet-retail-transfer-5',source_commit=source,run_id=run,status='not_started',error_kind=None,finalization_attempted=False,start_attempted=False,local_requests=0,polls=0,phase_signal_created=False,phase_acknowledged=False,finalization_response_shape=finalization_shape.blank(),response_diagnostic=response_diagnostic.blank(),preflight_path_guard=path_guard.blank(),finalization_http_status=None,start_http_status=None,status_query_http_status=None,finalization_response_bytes=0,start_response_bytes=0,status_query_response_bytes=0,finalized_returned=None,finalization_error_codes={k:None for k in ('agent',*CODES)},start_agent_error=None,final_path_guard=path_guard.blank(),final_path_relation=path_relation.blank(),baseline_progress=None,last_progress=None,baseline_files=None,last_files=None,baseline_connections=None,last_connections=None,account_parameter_sent=False,country_parameter_sent=False,legal_acceptance_parameter_sent=False,payload_exported=False,raw_paths_exported=False,complete_installation_proven=False,hardware_upload_proven=False)
 def validate(r):
  keys=set(blank('a'*40,'1'))
+ if type(r)is dict and r.get('schema')in {'bnet-retail-transfer-1','bnet-retail-transfer-2','bnet-retail-transfer-3','bnet-retail-transfer-4'}:keys=keys-{'status_query_http_status','status_query_response_bytes'}
  if type(r)is dict and r.get('schema')in {'bnet-retail-transfer-1','bnet-retail-transfer-2','bnet-retail-transfer-3'}:keys=keys-{'response_diagnostic'}
  if type(r)is dict and r.get('schema')in {'bnet-retail-transfer-1','bnet-retail-transfer-2'}:keys=keys-{'finalization_response_shape'}
  if type(r)is dict and r.get('schema')=='bnet-retail-transfer-1':keys=keys-{'phase_acknowledged'}
- if type(r)is not dict or set(r)!=keys or r['schema']not in {'bnet-retail-transfer-1','bnet-retail-transfer-2','bnet-retail-transfer-3','bnet-retail-transfer-4'} or r['status']not in STATES or r['error_kind']not in {None,'OSError','ValueError','Stop','other'}:raise ValueError('transfer_schema')
+ if type(r)is not dict or set(r)!=keys or r['schema']not in {'bnet-retail-transfer-1','bnet-retail-transfer-2','bnet-retail-transfer-3','bnet-retail-transfer-4','bnet-retail-transfer-5'} or r['status']not in STATES or r['error_kind']not in {None,'OSError','ValueError','Stop','other'}:raise ValueError('transfer_schema')
  if type(r['source_commit'])is not str or not re.fullmatch('[0-9a-f]{40}',r['source_commit']) or type(r['run_id'])is not str or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('transfer_identity')
- if r['schema']=='bnet-retail-transfer-4':response_diagnostic.validate(r['response_diagnostic'])
- if r['schema']in {'bnet-retail-transfer-3','bnet-retail-transfer-4'}:
+ if r['schema']in {'bnet-retail-transfer-4','bnet-retail-transfer-5'}:response_diagnostic.validate(r['response_diagnostic'])
+ if r['schema']in {'bnet-retail-transfer-3','bnet-retail-transfer-4','bnet-retail-transfer-5'}:
   if r['status']=='product_state_observed' and(r['finalization_response_shape']['kind']!='product_state' or r['finalization_http_status']not in (200,201) or not r['finalization_response_bytes']):raise ValueError('product_state_evidence')
   finalization_shape.validate(r['finalization_response_shape'])
   if r['status']=='canonical_game_link_observed' and(r['finalization_response_shape']['kind']!='canonical_game_link' or r['finalization_http_status']not in (200,201) or not r['finalization_response_bytes']):raise ValueError('canonical_evidence')
- if r['schema']in {'bnet-retail-transfer-2','bnet-retail-transfer-3','bnet-retail-transfer-4'}:
+ if r['schema']in {'bnet-retail-transfer-2','bnet-retail-transfer-3','bnet-retail-transfer-4','bnet-retail-transfer-5'}:
   if type(r['phase_acknowledged'])is not bool:raise ValueError('ack_boolean')
   if r['phase_acknowledged'] and not r['phase_signal_created']:raise ValueError('ack_signal')
   if r['finalization_attempted'] and not r['phase_acknowledged']:raise ValueError('request_before_arm')
@@ -37,6 +38,10 @@ def validate(r):
   if r[k]is not False:raise ValueError('transfer_fixed')
  for k,cap in [('local_requests',7),('polls',4),('finalization_response_bytes',65536),('start_response_bytes',65536)]:
   if type(r[k])is not int or not 0<=r[k]<=cap:raise ValueError('transfer_count')
+ if r['schema']=='bnet-retail-transfer-5':
+  h=r['status_query_http_status'];b=r['status_query_response_bytes']
+  if h is not None and(type(h)is not int or not 100<=h<=599):raise ValueError('status_query_http')
+  if type(b)is not int or not 0<=b<=65536:raise ValueError('status_query_bytes')
  for k in ('finalization_http_status','start_http_status'):
   if r[k]is not None and(type(r[k])is not int or not 100<=r[k]<=599):raise ValueError('transfer_http')
  if r['finalized_returned']is not None and type(r['finalized_returned'])is not bool:raise ValueError('finalized')
@@ -192,25 +197,37 @@ def execute(session,target,configured,r):
    t['final_path_guard']=path_guard.inspect(target,str(target));write(t)
    if t['final_path_guard']['status']!='verified_existing_chain':return
    for _ in range(4):
-    observed=progress(request('GET','/game/wow'));t['polls']+=1
+    observed=progress(request('GET','/game/wow',stage='status_query'));t['polls']+=1
     if t['baseline_progress']is None:t['baseline_progress']=observed
     t['last_progress']=observed;write(t)
     t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
     time.sleep(1)
    return
-  if t['finalization_response_shape']['kind']!='form':t['status']='response_schema_unrecognized';return
+  if t['finalization_response_shape']['kind']!='form':
+   t['status']='response_schema_unrecognized';write(t)
+   diagnostic=t['response_diagnostic']
+   refused=bool(set(diagnostic['message_markers'])&{'authentication','legal','license','failure'}) or any(n['numeric_code']not in (None,0)for n in diagnostic['nodes'])
+   if refused:return
+   # A single read of the known, owned product status is not acceptance of this schema.
+   # Never /update, never follow an unknown URL, never retry finalization.
+   t['final_path_guard']=path_guard.inspect(target,str(target));write(t)
+   if t['final_path_guard']['status']!='verified_existing_chain':return
+   observed=progress(request('GET','/game/wow',stage='status_query'))
+   t['polls']=1;t['baseline_progress']=observed;t['last_progress']=observed;write(t)
+   t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
+   return
   s=summarize(data);t['finalization_error_codes']=s['error_codes'];f=data.get('form',{})
   if type(f)is not dict:t['status']='finalization_refused';return
   if type(f.get('finalized'))is bool:t['finalized_returned']=f['finalized']
   returned=f.get('game_dir',{}).get('game_dir') if type(f.get('game_dir'))is dict else None
   t['final_path_relation']=path_relation.classify(str(target),returned);t['final_path_guard']=path_guard.inspect(target,returned);write(t)
   if not s['form_schema_valid'] or t['finalized_returned']is not True or any(v!=0 for v in s['error_codes'].values()) or t['final_path_relation']['relation']not in {'exact_string','normalized_equal'} or t['final_path_guard']['status']!='verified_existing_chain':t['status']='finalization_refused';return
-  t['baseline_progress']=progress(request('GET','/game/wow'));write(t)
+  t['baseline_progress']=progress(request('GET','/game/wow',stage='status_query'));write(t)
   data=request('POST','/update',{'uid':'wow'},stage='start');v=data.get('error')
   if type(v)is int and 0<=v<=2**32:t['start_agent_error']=v
   if t['start_agent_error']!=0:t['status']='start_refused';return
   for _ in range(4):
-   t['last_progress']=progress(request('GET','/game/wow'));t['polls']+=1
+   t['last_progress']=progress(request('GET','/game/wow',stage='status_query'));t['polls']+=1
    t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
    time.sleep(1)
   t['status']='observed'

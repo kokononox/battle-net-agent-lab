@@ -34,8 +34,12 @@ class CanonicalObservation(unittest.TestCase):
   self.assertTrue(r['transfer']['baseline_progress']['installed']);self.assertFalse(r['transfer']['baseline_progress']['download_complete'])
   self.assertFalse(r['transfer']['start_attempted'])
   self.assertEqual([c.args for c in conn.request.call_args_list if c.args[0]=='POST'],[('POST','/install/wow')])
+ def test_explicit_refusal_never_queries_or_updates(self):
+  for data in ({'Code':42,'Message':'failed'},{'Message':'account auth required'}):
+   helper=fixtures.Transfer();r,conn=helper.simulate(final_response=data)
+   self.assertEqual(conn.request.call_count,1);self.assertFalse(r['transfer']['start_attempted'])
  def test_unknown_response_not_called_server_refusal(self):
   helper=fixtures.Transfer();r,conn=helper.simulate(final_response={'PRIVATE':'secret'})
-  self.assertEqual(r['transfer']['status'],'response_schema_unrecognized');self.assertEqual(conn.request.call_count,1)
+  self.assertEqual(r['transfer']['status'],'response_schema_unrecognized');self.assertEqual(conn.request.call_count,2);self.assertFalse(r['transfer']['start_attempted']);self.assertEqual(r['transfer']['status_query_http_status'],200)
 
 if __name__=='__main__':unittest.main()
