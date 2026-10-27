@@ -663,7 +663,7 @@
     "SSTP_owned_transport_writer_implemented": true,
     "backend_native_Windows_qualification": false,
     "local_backend_tests": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/evidence/local-policy-backend-tests.json",
-    "local_backend_assertions": 106,
+    "local_backend_assertions": 107,
     "local_backend_durable_prefix_cuts": 14,
     "local_backend_error_cases": 15,
     "mixed_plan_and_journal_implemented": true,
@@ -694,7 +694,14 @@
     "native_window_requires_durable_arm": true,
     "durable_witness_Windows_qualified": false,
     "runtime_witness_assertions": 132,
-    "runtime_witness_cases": 24
+    "runtime_witness_cases": 24,
+    "native_process_census_reader_implemented": true,
+    "independent_process_quiet_guard_bound_in_backend_fixture": true,
+    "independent_helper_service_coverage_guard_implemented": false,
+    "process_observer_Windows_qualified": false,
+    "backend_recovery_finish_guard_required": true,
+    "process_quiescence_assertions": 164,
+    "process_quiescence_cases": 29
   },
   "workflow_correction": {
     "user_objects_to_fragmented_manual_tests": true,
@@ -702,9 +709,10 @@
     "reuse_successful_existing_receipts": true,
     "do_not_present_internal_model_or_callback_test_as_native_ready": true
   },
-  "next_work": "Implement independent fail-closed native target/helper quiescence checks using durable arm plus partial lifecycle evidence without treating it as complete service/IPC coverage; bind native actor/audit/exit-consent recovery and UI, qualify performance, then one targeted Windows integrated validation. No new fragmented user tests.",
+  "next_work": "Complete an independently justified helper/service recovery safety binding and explicit local exit consent in the native recovery/UI; process census and observed exits alone are insufficient. Validate strict process visibility/usability and full-policy performance, then one targeted Windows integrated validation. Keep native complete quiescence and ready_for_apply false; no fragmented user test packages.",
   "live_review_registry_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/LIVE-REVIEW-REGISTRY.fa.md",
   "runtime_recovery_binding_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/RUNTIME-RECOVERY-BINDING.fa.md",
   "continuation_baseline": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/CONTINUATION-BASELINE.fa.md",
-  "durable_runtime_witness_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/DURABLE-RUNTIME-WITNESS.fa.md"
+  "durable_runtime_witness_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/DURABLE-RUNTIME-WITNESS.fa.md",
+  "process_quiescence_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/PROCESS-QUIESCENCE.fa.md"
 }
