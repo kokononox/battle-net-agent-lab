@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "latest actual reopen receipt: all three local/effective outbound Block, firewall enabled True, effective local rules True, stable against saved prepared baseline across two fresh preflights; SSTP prior user-reported Connected, not queried here",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "UFW-PROGRAM-REVIEW-01 local read-only EXE observer and private console review, no admin required; real Windows file API and WinPS51 runtime pending",
+  "latest_offline_candidate": "UFW-PROGRAM-REVIEW-011: user-requested Windows file picker instead of typed paths; unchanged native CSharp reader; actual picker/native file observation pending",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -121,7 +121,13 @@
     "program_review_program_config_saved": false,
     "program_review_Windows_runner_bootstrap_and_CSharp_load_passed": true,
     "program_review_Windows_empty_selection_cancellation_verified": true,
-    "program_review_Windows_real_EXE_observation_passed": false
+    "program_review_Windows_real_EXE_observation_passed": false,
+    "program_picker_011_new_assertions": 260,
+    "program_picker_011_mock_scenarios": 16,
+    "program_picker_011_prior_regression_assertions": 147,
+    "program_picker_011_native_reader_byte_unchanged": true,
+    "program_picker_011_Windows_dialog_executed": false,
+    "program_picker_011_Windows_file_API_executed": false
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -168,16 +174,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "clarify whether user has an existing installer EXE on the same test PC; if yes run current package and enter its actual full local path before blank Enter finishes; if absent do not substitute unrelated/fake EXE, ask user before obtaining installer; no new package or firewall changes needed",
-  "user_action_now": "answer whether actual installer EXE exists on same test PC; full path stays local, not in chat; current receipt is cancellation, not file API failure or observation success",
+  "next_step": "user selects existing installer EXE via new normal-user file window, inspect sanitized report; cancellation remains no native file observation and not success; do not repeat older typed-path package; persistence/program-destination review and Apply gates remain pending",
+  "user_action_now": "extract new separate folder; normal double-click Run-Review.cmd; choose existing local installer EXE and Open (selection only, not execution), Cancel if absent; return only UFW-PROGRAM-REVIEW-011 JSON, no paths/hash/fileIDs/EXE/screenshots; preserve SSTP/network/journal",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "actual Windows PS5.1 x64 program review runner payload check and CSharp load reached selection; returned successful cancellation with zero selected/observed EXEs and no review display; NOT a pass of native file identity API or real program observation",
-  "previous_sync_commit": "ff4d5b14c368c654538745fb3e2c801557839f37",
+  "latest_progress": "added OpenFileDialog selection (multiple explicit EXEs, max16), STA launcher, cancel/no observation path and whole-selection validation before file observer; native reader byte-identical; 260 new mock assertions in16 scenarios and147 prior reader/review regression passed; two PS1/bootstrap/manifest/ZIP verified; not a real Windows picker or file identity success",
+  "previous_sync_commit": "705900841ab1ca24471fd834320d7ef9915ccd3b",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -354,13 +360,21 @@
     "raw_identity_in_report": false,
     "program_config_saved": false,
     "Windows_executed": false,
-    "package_sha256": "b45d8506d6bd6b3d6e8dfbc30d92a3161eae023f252a280919f3524b35736aa2",
+    "package_sha256": "c45e6d205b669f56104f111d831886a34d46e75a42bc77dee57bd2c5aef99408",
     "ready_for_apply": false,
     "Windows_runner_executed": true,
     "Windows_runner_result": "cancelled_no_selection",
     "Windows_CSharp_load_reached": true,
     "Windows_file_API_executed": false,
     "real_program_selected_count": 0,
-    "Windows_executed_field_scope": "native file observation remains unexecuted; runner/CSharp load only has executed"
+    "Windows_executed_field_scope": "native file observation remains unexecuted; runner/CSharp load only has executed",
+    "current_package": "UFW-PROGRAM-REVIEW-011",
+    "selection_method": "Windows OpenFileDialog, no typed path prompt",
+    "launcher_STA": true,
+    "selection_max": 16,
+    "current_picker_Windows_executed": false,
+    "current_native_file_observation_Windows_executed": false,
+    "native_reader_byte_unchanged": true,
+    "shell_dialog_privacy_limit": "dialog may access metadata/icons/recent locations or network if navigated there; no absolute zero-traffic promise; choose local fixed-drive EXE, no network browsing/preview; report does not include path/hash/file ID"
   }
 }

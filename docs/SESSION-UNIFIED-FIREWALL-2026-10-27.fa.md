@@ -285,3 +285,12 @@ prepare/reopen plumbing فعلاً پاس شده و نباید دوباره از
 [receipt](../analysis/unifiedfw-session-2026-10-27/program-review-v01/evidence/Windows-program-review-01-cancelled-no-selection.json): Windows PS5.1.26100.6899 x64، payload_verified=true و code=ufw_program_cancelled_no_selection. selected_count=observed_count=0، review_displayed=false، results خالی. completed=true به معنی پایان صحیح مسیر لغو است؛ نه بررسی فایل واقعی. runner از load C# و dot-source به prompt رسیده است، اما Observe/Windows file API فراخوانی نشده‌اند. هیچ selected EXE اجرا، config ذخیره، trust check یا firewall/journal/VPN/DNS change درخواست نشده است.
 
 باید روشن شود نصاب EXE روی همان سیستم موجود است یا نه؛ در صورت وجود، همین بسته با مسیر واقعی محلی و Enter بعدی برای پایان انتخاب کافی است. مسیر/hash/EXE در چت ارسال نشود. در صورت نبود، فایل فرضی/نامربوط برای pass انتخاب نشود و دانلود/اجرای installer بدون درخواست کاربر انجام نشود. بسته یا تست عمومی تازه لازم نیست؛ این مرحله هنوز native identity observation موفق ندارد.
+
+
+## درخواست کاربر — انتخاب EXE با پنجره به جای تایپ مسیر
+
+[بستهٔ PROGRAM-REVIEW-011](../analysis/unifiedfw-session-2026-10-27/program-review-v011/package/UFW-PROGRAM-REVIEW-011/README-FA.md) اکنون Windows OpenFileDialog را باز می‌کند. یک EXE نصاب موجود با Open انتخاب شود؛ Open اینجا به معنی انتخاب است نه اجرای فایل. Ctrl multi-select helperهای مشخص اختیاری تا۱۶؛ فرزند/سرویس خودکار مجاز نیست. انتخاب بیش‌ازحد یا مسیر/تکرار نامعتبر پیش از observer رد می‌شود، truncation نداریم؛ Cancel فراخوانی observer ندارد و موفقیت native identity نیست. CMD معمولی/بدون admin با -STA؛ مسیر تایپی لازم نیست.
+
+هستهٔ C# همان بایت نسخهٔ قبلی است. ۲۶۰ assertion در۱۶ سناریوی mock جدید و۱۴۷ regression قبلی پاس شد؛ C# compile و parser/bootstrap/manifest/ZIP کنترل شدند. Windows dialog/file API واقعی این نسخه هنوز اجرا نشده‌اند. receipt نسخهٔ قبلی فقط cancellation صفر انتخاب بود و نباید pass هویت فایل تلقی شود. config برنامه persist نمی‌شود و این مرحله authority یا trust ایجاد نمی‌کند.
+
+پنجرهٔ سیستم برای listing/icons/metadata/recents می‌تواند filesystem/shell را بخواند و با مراجعه به Network دسترسی شبکه داشته باشد؛ AutoUpgrade=false/DereferenceLinks=false/RestoreDirectory=true تضمین sandbox/صفر ترافیک نیست. فقط local fixed-drive، بدون Network/preview، و هیچ عکس/مسیر/hash/fileID/EXE در چت ارسال نشود. فقط JSON تازه حتی در failure/cancel کافی است. شبکه/SSTP و journal قبلی همان وضعیت بماند؛ old typed-path، preparation/reopen یا Apply/Restore تکرار نشوند.
