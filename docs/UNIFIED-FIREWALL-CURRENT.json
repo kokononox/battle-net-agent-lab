@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "user confirmed browser works without VPN after explicitly authorized normal-mode outbound Allow on all three local profiles; firewall still enabled, effective inbound Block; reboot afterward not tested",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "NORMAL-EXIT-REVIEW-01 runner around byte-unchanged HF124 dependencies; Windows execution pending; not controller upgrade",
+  "latest_offline_candidate": "Minimal independent read-only profile foundation v01; no legacy runtime imports; not worker-integrated or deployed",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -46,7 +46,11 @@
     "normal_exit_runner_Windows_storage_tested": true,
     "normal_exit_runner_Windows_storage_passed": true,
     "normal_exit_runner_Windows_cleanup_passed": true,
-    "normal_exit_runner_real_review_passed": false
+    "normal_exit_runner_real_review_passed": false,
+    "minimal_readonly_model_assertions": 54,
+    "minimal_readonly_Windows_native_tested": false,
+    "minimal_readonly_HF124_assertions_rerun": 72,
+    "minimal_readonly_previous_runner_assertions_rerun": 47
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -93,16 +97,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "stop repeating historical WMI probes; keep live isolation paused; focus offline minimal read-only runtime dependencies and explicit restorable local/effective baseline gating; any later network-mode change requires explicit user authorization and before/after evidence",
-  "user_action_now": "none; keep present SSTP/network state; do not repeat package, old Apply/Restore, change Allow, or stop WmiPrvSE",
+  "next_step": "offline controlled integration of minimal read contract into small installer foundation preflight and reset-free recovery tests; do not relax legacy NotConfigured migration gate, claim Apply authority, or deploy old full runtime",
+  "user_action_now": "none; keep SSTP/network state unchanged; no repeat package, Apply/Restore/reconnect or Allow change requested",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "Windows 2082 events show all profiles Allow at local 06:29:09 then Block at local 07:23:05; Block UTC04:23:05.125 precedes runner filename UTC04:23:51 by ~46s, before its qualification/review; WmiPrvSE logged host, underlying requester unknown; WMI4 events yielded no ClientProcessId rows",
-  "previous_sync_commit": "768f03cbf1b27c4e27d404f0663662c50c6b90cd",
+  "latest_progress": "Independent profile reader built with single exported read-only entry, exact 3-profile checks, separated local/effective fields, typed exclusion validation, explicit NotConfigured handling, two matching observations/four total native getter calls on success, no writes or imports from legacy mutation runtime; 54 mocked assertions passed; Windows pending",
+  "previous_sync_commit": "328f623ebc41a94f426db9602d23121aa19ffd2b",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,

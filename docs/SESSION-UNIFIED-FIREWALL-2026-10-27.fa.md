@@ -148,3 +148,10 @@ storage fixture تماماً گذشت و cleanup موفق بود؛ real legacy j
 WmiPrvSE.exe فقط نام میزبان ثبت‌شده است؛ requester معلوم نیست. task شناخته‌شده صفر و process match فعلی صفر، عدم وجود writer گذشته را ثابت نمی‌کند. کاربر reboot یا بازکردن UI قدیمی را در فاصله رد کرده؛ SSTP متصل است. لاگ فعال با ۸۵۹ رکورد Circular است. WMI چهار event خواند ولی ردیف دارای ClientProcessId نداد؛ نبود requester دلیل نبود درخواست نیست. XPathهای قبلی namespace را لحاظ نمی‌کردند و باید با local-name اصلاح شوند؛ «فیلد خالی» قبلی مشکل parser بود.
 
 ممیزی top-level مسیر مستقیم setter در runner/review پیدا نکرد، اما اثبات رفتار پلتفرم نیست. آزمون/تغییر جدیدی روی سیستم درخواست نشود؛ WmiPrvSE را نبندید و Allow را کورکورانه تکرار نکنید. علت تاریخی هنوز حل نشده. live Apply/Restore/reconnect متوقف؛ ادامهٔ آفلاین باید به بنیاد کوچک نصاب Battle.net، reader حداقلی بدون بارگذاری mutatorهای نامرتبط و baseline صریح local/effective متمرکز بماند، نه گسترش بی‌پایان ابزار تشخیصی.
+
+
+## جدیدترین پیشرفت کد — reader حداقلی مستقل ۰٫۱
+
+[کد و قرارداد](../analysis/unifiedfw-session-2026-10-27/minimal-readonly-v01/README.fa.md): یک module مستقل با تنها entry خواندنی؛ هیچ dependency از runtime قدیمی و هیچ تعریف mutator ندارد. local/effective جدا، NotConfigured بدون coercion، coverage/encoding/exclusion guard و دو مشاهدهٔ برابر با چهار getter در مسیر موفق. Block مشاهدهٔ معتبر است نه normal mode یا protection. همهٔ authorityها false؛ snapshot اتمیک نیست.
+
+۵۴ assertion آفلاین با Windows getter mock گذشت؛ ۷۲ library و ۴۷ runner قبلی دوباره pass شدند. payload تحویل قبلی byte-unchanged است. ماژول جدید روی Windows آزموده نشده، worker-integrated یا deployed نیست. هیچ اقدام کاربری درخواست نمی‌شود؛ اینترنت/SSTP فعلی همان‌طور بماند و Apply/Restore/reconnect/Allow قدیمی تکرار نشود. مرحلهٔ بعد ادغام آفلاین قرارداد خواندن در preflight و آزمون reset-free recovery هستهٔ کوچک نصاب Battle.net است؛ این reader به‌تنهایی ابزار ایزولاسیون یا حل cold-start نیست.
