@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "latest actual reopen receipt: all three local/effective outbound Block, firewall enabled True, effective local rules True, stable against saved prepared baseline across two fresh preflights; SSTP prior user-reported Connected, not queried here",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "UFW-RUNTIME-CAPTURE-01: offline-tested runtime recorder; manual selected-target launch ONLY after READY and explicit temporary system-audit consent; Windows-native pending, not isolation-certified",
+  "latest_offline_candidate": "UFW-ALLOW-REVIEW-01: standalone READ-ONLY aggregate explanation of runtime firewall gate mismatch; no candidate/audit/log access, no launch or settings changes",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -146,7 +146,8 @@
     "program_observer_model_assertions": 645,
     "program_observer_regression_assertions_rerun": 569,
     "runtime_capture_model_assertions": 718,
-    "runtime_capture_regression_assertions": 1214
+    "runtime_capture_regression_assertions": 1214,
+    "allow_review_model_assertions": 1617
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -193,8 +194,8 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "First Windows experimental runtime capture: existing candidate, explicit local audit consent, conservative read-only firewall gate and denied diagnostic-child event selftest BEFORE READY; manual target run only after READY if recorder risks accepted; return sanitized diagnostic; no new Allow/Apply",
-  "user_action_now": "Read runtime README; use independent test PC only. No installer launch unless READY. Close target before End capture. If audit pending, same package explicit recovery only; never delete private state. If isolation guarantee is required, Cancel and do not execute target.",
+  "next_step": "Run standalone UFW-ALLOW-REVIEW-01 on same Windows PC and return only sanitized diagnostic, to classify mismatch reasons without altering rules or weakening runtime gate",
+  "user_action_now": "Extract new folder, same-account administrator Run-Review.cmd. Do not run installer, delete/disable rules, change VPN, export raw rules or send screenshots. No candidate selection/audit consent is needed.",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
@@ -202,7 +203,7 @@
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
   "latest_progress": "actual Windows PS5.1 x64 receipt confirms payload verification, one selected program, local review/consent, protected candidate recorded/readback and three fresh program observation passes, write_status recorded_revalidated_no_authority; no raw identity export, publisher trust, EXE execution, baseline journal access, firewall/VPN/DNS changes requested; destinations pending and no Apply authority",
-  "previous_sync_commit": "2d0a2584399c532bf7a34af99efc7606fc37c2c0",
+  "previous_sync_commit": "1e76e2e125069eb8117878943068179d117d681f",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -470,7 +471,7 @@
     "Windows_nonzero_process_attribution_qualified": false,
     "Windows_nonzero_endpoint_attribution_qualified": false
   },
-  "latest_continuation_notes": "docs/SESSION-UNIFIED-FIREWALL-RUNTIME-CAPTURE-01.fa.md",
+  "latest_continuation_notes": "docs/SESSION-UNIFIED-FIREWALL-ALLOW-REVIEW-01.fa.md",
   "program_runtime_capture": {
     "filename": "UFW-RUNTIME-CAPTURE-01.zip",
     "sha256": "f04bc94e11d81b7af20752f0614c81aa30e202f1f103cf35977369fb69182607",
@@ -505,6 +506,42 @@
     "no_leak_certified": false,
     "fingerprint_prevention_certified": false,
     "destinations_approved": false,
-    "limitations": "Recorder only, periodic guard not atomic; installer may change rules/services, target not killed/rolled back; no no-leak guarantee. Security records remain after normalized audit-mask restore."
+    "limitations": "Recorder only, periodic guard not atomic; installer may change rules/services, target not killed/rolled back; no no-leak guarantee. Security records remain after normalized audit-mask restore.",
+    "Windows_first_attempt": {
+      "receipt": "analysis/unifiedfw-session-2026-10-27/runtime-capture-v01/evidence/Windows-first-run-stopped-unreviewed-allow.json",
+      "payload_verified": true,
+      "PS51_x64_executed": true,
+      "candidate_read_verified": true,
+      "file_observation_passes": 1,
+      "stopped_stage": "read_only_firewall_gate",
+      "code": "ufw_runtime_unreviewed_allow_rules_no_launch",
+      "consent_received": false,
+      "audit_changed": false,
+      "audit_recovery_required": false,
+      "selftest_executed": false,
+      "READY_displayed": false,
+      "runtime_capture_qualified": false
+    }
+  },
+  "program_allow_review": {
+    "filename": "UFW-ALLOW-REVIEW-01.zip",
+    "sha256": "06b509076f8834c9f7a25e2124b1ab18b1d9e16857d759ea49e4ab726773e594",
+    "bytes": 10021,
+    "model_assertions": 1617,
+    "predicate_parity_cases": 512,
+    "endpoint_parity_cases": 18,
+    "aggregate_cases": 7,
+    "package_PS_files_parsed": 3,
+    "manifest_and_fresh_ZIP_verified": true,
+    "Windows_native_executed": false,
+    "firewall_audit_mutation": false,
+    "target_execution": false,
+    "raw_rule_identity_exported": false,
+    "runtime_execution_authorized": false,
+    "ready_for_apply": false,
+    "source": "analysis/unifiedfw-session-2026-10-27/allow-review-v01",
+    "reason_counts_overlap": true,
+    "original_runtime_acceptance_predicate_preserved": true,
+    "limits": "Aggregate mismatch counts only, no rule identities, not an atomic snapshot, no launch authority even if all match; read errors reported separately"
   }
 }
