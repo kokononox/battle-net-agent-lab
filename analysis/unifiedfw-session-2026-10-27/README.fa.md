@@ -1,5 +1,7 @@
 # ادامهٔ جلسهٔ Unified Firewall
 
+آخرین ادامه: [رصدگر برنامه و وضعیت آزمون](../../docs/SESSION-UNIFIED-FIREWALL-PROGRAM-OBSERVER-01.fa.md).
+
 اول [تحویل جامع](../../docs/SESSION-UNIFIED-FIREWALL-2026-10-27.fa.md) و [وضعیت جاری](../../docs/UNIFIED-FIREWALL-CURRENT.json) را بخوانید.
 
 - `source-overlay/`: تغییرات متنی نسبت به سورس پایهٔ immutable؛ [قرارداد بازسازی](SOURCE-OVERLAY.json). runtime نیست؛ manifestهای release داخل overlay تاریخیِ HF1.1 و برای کاندید فعلی نامعتبرند. این پوشه را روی برنامهٔ آزمایش جایگزین نکنید.
@@ -10,3 +12,5 @@
 - `ARTIFACT-INDEX.json`: هش بسته‌های تحویلی و وضعیت تاریخی/غیرقابل‌نصب؛ ZIP و runtime منتشر نشده‌اند.
 
 این سینک raw chat، dump، pcap، اطلاعات ورود، آدرس سرور VPN، نام/مسیر شخصی، ژورنال محافظت‌شده یا backup خصوصی را منتشر نمی‌کند. اصلِ هدف: ابزار کوچک Battle.net؛ جلوگیری کامل از فینگرپرینت هنوز تأیید نشده است.
+
+- `program-observer-v01/`: ادامهٔ candidate موجود با انتخاب صریح/بازمشاهدهٔ فایل و TCP sampling غیرفعال، فقط پیشنهاد خصوصی و diagnostic پالایش‌شده؛ ۶۴۵ assertion جدید و۵۶۹ regression، Windows هنوز اجرا نشده، نه Apply.
