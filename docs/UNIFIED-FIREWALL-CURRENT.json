@@ -4,9 +4,9 @@
   "base_commit": "f4ba758b1aa358e2a36c4fda7795072d7b700acc",
   "goal": "small dedicated Battle.net installer isolation foundation; authorized SSTP only",
   "user_has_independent_Windows_test_PC": true,
-  "latest_user_network_state": "latest user reports SSTP connected, no reboot since earlier authorized outbound Allow; later actual profile output showed local/effective outbound Block all three; historical Allow/no-VPN success is not current state",
+  "latest_user_network_state": "latest preparation receipt confirms all three local/effective outbound Block with firewall enabled and effective local rules True throughout 3 preflights; latest user-reported SSTP connected, not measured by this package",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "UFW-PREPARE-SESSION-01: dedicated real-profile read/review and optional preparation-only protected journal entry, Windows execution pending",
+  "latest_offline_candidate": "UFW-PREPARE-SESSION-01: real Windows PS5.1 x64 preparation-only entry passed; no native firewall writer or Apply authority",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -48,14 +48,14 @@
     "normal_exit_runner_Windows_cleanup_passed": true,
     "normal_exit_runner_real_review_passed": false,
     "minimal_readonly_model_assertions": 54,
-    "minimal_readonly_Windows_native_tested": false,
+    "minimal_readonly_Windows_native_tested": true,
     "minimal_readonly_HF124_assertions_rerun": 72,
     "minimal_readonly_previous_runner_assertions_rerun": 47,
     "installer_core_model_assertions": 78,
     "installer_core_reader_assertions_rerun": 54,
     "installer_core_HF124_assertions_rerun": 72,
     "installer_core_previous_runner_assertions_rerun": 47,
-    "installer_core_Windows_native_tested": false,
+    "installer_core_Windows_native_tested": true,
     "session_journal_new_assertions": 73,
     "session_journal_core_assertions_rerun": 78,
     "session_journal_reader_assertions_rerun": 54,
@@ -85,9 +85,13 @@
     "preparation_entry_PS_files_parsed": 5,
     "preparation_entry_real_Linux_record_IO_tested": true,
     "preparation_entry_Windows_getters_mocked": true,
-    "preparation_entry_real_human_prompt_executed": false,
-    "preparation_entry_Windows_executed": false,
-    "preparation_entry_user_record_created": false
+    "preparation_entry_real_human_prompt_executed": true,
+    "preparation_entry_Windows_executed": true,
+    "preparation_entry_user_record_created": true,
+    "preparation_entry_Windows_read_review_consent_save_postread_passed": true,
+    "preparation_entry_Windows_native_profile_calls": 12,
+    "minimal_readonly_Windows_native_scope": "real nested reader invoked by preparation runner, three preflights each 4 getters; standalone entry not run; no write",
+    "installer_core_Windows_native_scope": "preflight and draft construction within preparation runner only; native recovery not executed"
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -134,16 +138,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "user runs new preparation entry once, keeping network/SSTP unchanged; review current baseline and optionally type exact local challenge only for new preparation record; return sanitized diagnostic; inspect before any later stage",
-  "user_action_now": "same-account admin Run-Prepare.cmd from new separate local folder; exact PREPARE JOURNAL challenge is optional file-recording consent only, Enter cancels; no Apply/Restore/Allow/reconnect request",
+  "next_step": "implement and test separate-process read-only reopening/validation of the single new prepared session; validate root ACL, session/checkpoint chain, immutable receipt/baseline and compare fresh current profile observation; no mutation, automatic selection among multiple sessions, legacy access, Apply/Restore or firewall authority; prepare-only receipt is not native recovery or reboot qualification",
+  "user_action_now": "none; successful preparation runner needs no rerun, keep protected journal and present network/SSTP unchanged; do not delete/recreate session or run legacy Apply/Restore; next read-only validator not delivered yet",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "dedicated preparation entry passed 60 offline assertions including actual reader/core orchestrator with mocked Windows getters and real Linux checkpoint I/O; journal 73 rerun; 5 PS files/bootstrap/manifest/ZIP verified; user Windows storage fixture previously passed; new entry real Windows run and human prompt pending",
-  "previous_sync_commit": "266cc4bdd0bdc95acd4092f0b3c8d5a7a7c379d0",
+  "latest_progress": "user receipt confirms actual Windows PS5.1 x64 payload verification, real current-profile preflight, displayed review, accepted consent, native independent preparation journal saved/revalidated and postwrite fresh profile check; 3 preflights/12 getters, identical explicit Block baseline; no firewall/VPN/DNS/legacy change request or execution authority",
+  "previous_sync_commit": "3a5f48a43456b5f73e5054b65788b02aa72c1f89",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,
@@ -160,7 +164,7 @@
     "connection_status": "Connected",
     "split_tunneling": false,
     "change_scope": "single current-user SSTP profile; explicit user command; no automatic reconnect",
-    "status_source": "latest user statement during Block incident; no fresh native observer receipt after this statement"
+    "status_source": "SSTP Connected from prior user statement only; current preparation diagnostic does not query VPN status"
   },
   "live_isolation_tests_paused": true,
   "historical_HF11_recovery_receipt_scope": "completion receipt passed at the time; not proof of effective/persistent restoration after reboot; current incident supersedes broad success claims",
@@ -215,7 +219,13 @@
     "legacy_journal_access": false,
     "native_firewall_writer_present": false,
     "firewall_authority": false,
-    "Windows_execution_pending": true,
-    "ready_for_apply": false
+    "Windows_execution_pending": false,
+    "ready_for_apply": false,
+    "Windows_executed": true,
+    "Windows_preparation_passed": true,
+    "real_human_prompt_executed": true,
+    "real_record_created_and_revalidated": true,
+    "baseline_outbound": "Block on all three local/effective profiles",
+    "reopened_in_separate_process_verified": false
   }
 }

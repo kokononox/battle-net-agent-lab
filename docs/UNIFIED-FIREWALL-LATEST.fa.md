@@ -86,3 +86,14 @@ whole-array JSON clone در WinPS5.1 می‌تواند nested array بدهد. sh
 root جدید CommonApplicationData/UnifiedFW-InstallerSessions-01 از ژورنال قدیمی مستقل است؛ legacy read/migration، Apply/Restore، Block→Allow، rule/task/VPN/route/DNS changes انجام نمی‌شود. native recovery، policy/rules/SSTP integration، cold-start/reconnect، reboot، fingerprint و no-leak همچنان حل/تأیید نشده‌اند. هدف همان نصاب کوچک بتل‌نت است؛ این مرحله تنها مبنای بازیابی مستقل آن را ثبت می‌کند، نه محصول نهایی.
 
 وضعیت جاری برای جلوگیری از برداشت اشتباه: آخرین گفتهٔ کاربر SSTP connected، بدون reboot بعد از Allow قبلی؛ آخرین خروجی profileها Block محلی/موثر هر سه بود. علت برگشت Block مجهول است. موفقیت اینترنت بدون VPN پس از Allow یک رخداد تاریخی است نه اثبات وضعیت فعلی؛ normal-exit review بعد از Block آغاز شده و WmiPrvSE.exe فقط host است نه انتساب requester. هیچ آزمون زندهٔ Apply/Restore/reconnect درخواست نشده است.
+
+
+## نتیجهٔ واقعی Windows — PREPARE-SESSION-01 موفق شد
+
+[receipt پاک‌سازی‌شده](../analysis/unifiedfw-session-2026-10-27/prepare-session-v01/evidence/Windows-preparation-01-passed-result.json): Windows PS5.1.26100.6899 x64، payload verified، review_shown/consent_received/journal_preparation_recorded=true، code=ufw_journal_prepared_no_firewall_authority و write_status=prepared_and_revalidated_no_firewall_authority. سه preflight موفق با چهار getter در هرکدام (۱۲ query)؛ در هر سه، Domain/Private/Public local/effective outbound=Block، firewall enabled=True، effective localrules=True و local localrules=NotConfigured بدون تفاوت مشاهده شده‌اند. این یک نتیجهٔ actual Windows است، نه مدل Linux.
+
+بسته واقعاً profile reader/core preflight و ثبت نشست مستقل preparation را طی کرده؛ مرحلهٔ ذخیره‌سازی و بازخوانی داخلی و postwrite observation پاس شده‌اند. receipt هیچ challenge/session ID/private path ندارد. VPN در این runner query نمی‌شود؛ وضعیت SSTP از گفتهٔ قبلی کاربر است نه این receipt. legacy access/firewall/VPN/DNS changes requested=false، normal_mode_restored/original_restore_verified/ready_for_apply/no_leak_certified=false. بدون packet capture یا تله‌متری مستقل، این فیلدها ادعای اثبات جامع نبود هرگونه ترافیک/تغییر نیستند.
+
+موفقیت فقط preparation همین اجراست؛ بازکردن همان رکورد در process مستقل، reboot، native recovery، rule/SSTP binding و Apply هنوز تست نشده‌اند. baseline Block باید به عنوان Block نگه داشته شود، نه تبدیل بی‌اجازه به Allow یا ادعای اینترنت عادی. علت Block قبلی همچنان مجهول است. آزمون موفق را تکرار نکنید، journal را حذف/بازسازی نکنید و شبکه/SSTP را همان وضعیت نگه دارید.
+
+گام بعد محدود: ساخت و آزمون validator مستقل read-only برای بازخوانی نشست جدید و مقایسه با profile تازه؛ ACL root/session/record/lock، chain/checkpoint/receipt و baseline بررسی شود. اگر چند session باشد انتخاب خودکار آخرین ممنوع؛ بدون فایل خصوصی در چت، بدون write/migration/Apply/Restore یا اعطای authority. این validator هنوز تحویل/اجرا نشده و کاربر فعلاً اقدام ندارد.
