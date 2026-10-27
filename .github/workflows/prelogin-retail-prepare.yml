@@ -118,10 +118,12 @@ jobs:
           from report import load
           from guard_report import validate as validate_guard, read as read_guard
           from transfer_probe import validate as validate_transfer
+          from attempt_report import summarize as summarize_attempt
           r=json.loads(Path('incoming/prelogin-retail-prepare-ci.json').read_text())
           expected=status(os.environ['SOURCE'],os.environ['RUN'],'completed',r['dependencies'],r['tests'],r['observation'],r['sanitization'])
           if r!=expected:raise SystemExit('ci_identity_mismatch')
           Path('reports/prelogin-retail-prepare-ci.json').write_text(json.dumps(r,indent=2)+'\n')
+          guard=transfer=d=None
           guard_path=Path('incoming/retail-supervision.json')
           if guard_path.exists():
               guard=validate_guard(read_guard(guard_path))
@@ -139,10 +141,12 @@ jobs:
               Path('reports/prelogin-retail-prepare-runtime.json').write_text(json.dumps(d,indent=2)+'\n')
               compact=dict(schema='bnet-retail-path-review-1',source_commit=d['source_commit'],run_id=d['run_id'],status=d['status'],form_update=d['form_update'],initial_error_codes=d['form']['error_codes'],identity_failure_state=d['identity_failure_state'],identity_checks=d['identity_checks'],local_requests=d['local_requests'],limits=d['limits'])
               Path('reports/prelogin-retail-path-latest.json').write_text(json.dumps(compact,indent=2)+'\n')
+          attempt=summarize_attempt(os.environ['SOURCE'],os.environ['RUN'],r,guard,transfer,d)
+          Path('reports/prelogin-retail-attempt-latest.json').write_text(json.dumps(attempt,indent=2)+'\n')
           PY
           git config user.name prelogin-wire-report
           git config user.email prelogin-wire-report@users.noreply.github.com
-          git add -- reports/prelogin-retail-prepare-ci.json
+          git add -- reports/prelogin-retail-prepare-ci.json reports/prelogin-retail-attempt-latest.json
           if test -f incoming/prelogin-retail-prepare.json; then git add -- reports/prelogin-retail-prepare-runtime.json reports/prelogin-retail-path-latest.json; fi
           if test -f incoming/retail-supervision.json; then git add -- reports/prelogin-retail-supervision-latest.json; fi
           if test -f incoming/retail-transfer.json; then git add -- reports/prelogin-retail-transfer-latest.json; fi

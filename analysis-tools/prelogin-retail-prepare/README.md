@@ -56,3 +56,16 @@ probe's own empty-process/identity/freshness requirements remain unchanged.
 The standalone sanitizer now sets its own probe import path and has a fresh
 interpreter test without PYTHONPATH. A missing standalone receipt is never
 inferred to mean a successful transfer.
+
+## Independent attempt reconciliation (offline reporting fix)
+
+Use `reports/prelogin-retail-attempt-latest.json` for the source/run-bound combined
+state, not an older `prepare-runtime` file that survived worker termination.
+`attempt_report.py` reports missing receipts and ignores stale identities before
+consuming their schemas. Current malformed receipts are refused. Persisted
+`finalization_attempted`/`start_attempted` flags are labeled as intent, not HTTP
+delivery proof. CI publication derives this aggregate only from incoming validated
+receipts from the same run, including when the final worker/form receipt is absent.
+This reporting-only change does not trigger another approved target run, alter
+native guards, reset counter baselines, or raise any limits. See
+`docs/PRELOGIN-RETAIL-C10-RECONCILIATION.fa.md` for the offline C10 reconciliation.
