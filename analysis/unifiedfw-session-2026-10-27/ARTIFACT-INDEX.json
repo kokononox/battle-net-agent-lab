@@ -52,7 +52,15 @@
     "filename": "UFW-RUNTIME-CAPTURE-01.zip",
     "sha256": "f04bc94e11d81b7af20752f0614c81aa30e202f1f103cf35977369fb69182607",
     "bytes": 51924,
-    "status": "offline QA passed; Windows native pending; temporary audit requires local consent; manual target launch only after READY; recorder NOT isolation certification; proposals unapproved",
+    "status": "First Windows execution verified package/candidate then stopped at read-only firewall gate: unreviewed Allow; no audit change, READY or capture; Windows full runtime path unqualified",
+    "binary_in_repository": false
+  },
+  {
+    "version": "ALLOW-REVIEW-01-readonly",
+    "filename": "UFW-ALLOW-REVIEW-01.zip",
+    "sha256": "06b509076f8834c9f7a25e2124b1ab18b1d9e16857d759ea49e4ab726773e594",
+    "bytes": 10021,
+    "status": "offline QA passed; Windows native pending; aggregate mismatch categories only; no firewall/audit changes, candidate access or installer launch",
     "binary_in_repository": false
   }
 ]
