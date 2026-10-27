@@ -28,3 +28,7 @@
 - ادامهٔ داخلی `integrated-session-v01`: adapter بازبینی زندهٔ SSTP/EXE و lease موقت، global lock/scan و reopen با parser قبلی اضافه شدند؛ restore به VPN وابسته نیست. اثر Windows/UI نهایی و quiescence/performance هنوز تأیید نشده‌اند؛ ZIP جدید ندارد. جزئیات در `LIVE-REVIEW-REGISTRY.fa.md` و آمار نهایی در QA-SUMMARY است.
 
 - ادامهٔ داخلی همان جریان: candidate ثابت به collector قبلی bind و dispatcher بازیابی audit-before-policy اضافه شد؛ شواهد exit به‌تنهایی quiescence نیست. probe بومی کامل و شاهد پایدار فرایند برای recovery پس از crash هنوز مانع‌اند؛ Apply/Windows launcher منتشر نشده است. شرح در `integrated-session-v01/RUNTIME-RECOVERY-BINDING.fa.md`.
+
+## ادامه: شاهد پایدار در همان دفتر نشست
+
+`RuntimeWitness.ps1` پیش از Window، arm را در journal موجود flush/readback می‌کند و پس از collector، evidence محدود فرایندها را append می‌کند. registry همان نشست را پس از قطع بازمی‌خواند؛ factory بومی بدون witness معتبر READY نمی‌دهد. این evidence انتساب کامل helper/service یا authority بازگردانی Allow نیست؛ probe مستقل و recovery/UI بومی همچنان لازم‌اند. جزئیات در `integrated-session-v01/DURABLE-RUNTIME-WITNESS.fa.md`، نتیجهٔ آزمون‌ها در QA-SUMMARY است. اثر بومی Windows یا آزمون دستی تازه‌ای انجام/درخواست نشده است.

@@ -47,3 +47,7 @@ coordinator موجود با همین callbackها در fixture از backup تا 
 ## مبنای ادامهٔ بازبینی‌شده
 
 تطبیق RC، hotfixها و رسیدهای واقعی Windows در [مبنای ادامه](../analysis/unifiedfw-session-2026-10-27/integrated-session-v01/CONTINUATION-BASELINE.fa.md) ثبت شد. نه شروع دوباره، نه بازگشت مستقیم RC و نه آزمون دستی خرد مبنای ادامه نیست. اتصال ثابت collector و recovery-first تکمیل شد؛ تغییر audit/actor پس از callback سیاست و true فرضی بدون terminal معتبر نیز موفقیت نمی‌گیرند. شاهد پایدار و probe بومی مستقل هنوز مانع انتشار زنده هستند.
+
+## ادامه: شاهد پایدار در همان دفتر نشست
+
+`RuntimeWitness.ps1` پیش از Window، arm را در journal موجود flush/readback می‌کند و پس از collector، evidence محدود فرایندها را append می‌کند. registry همان نشست را پس از قطع بازمی‌خواند؛ factory بومی بدون witness معتبر READY نمی‌دهد. این evidence انتساب کامل helper/service یا authority بازگردانی Allow نیست؛ probe مستقل و recovery/UI بومی همچنان لازم‌اند. جزئیات در `integrated-session-v01/DURABLE-RUNTIME-WITNESS.fa.md`، نتیجهٔ آزمون‌ها در QA-SUMMARY است. اثر بومی Windows یا آزمون دستی تازه‌ای انجام/درخواست نشده است.
