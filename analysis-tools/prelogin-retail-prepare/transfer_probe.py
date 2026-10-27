@@ -139,13 +139,15 @@ def execute(session,target,configured,r):
    try:
     conn.request(method,path,body=body,headers={'Authorization':session.token,'User-Agent':'phoenix-agent/1.0','Content-Type':'application/json','Accept':'application/json','Accept-Encoding':'identity','Connection':'close'})
     response=conn.getresponse()
-    if stage is not None:t[stage+'_http_status']=response.status
+    if stage is not None:
+     t[stage+'_http_status']=response.status;write(t)
     if response.status not in (200,201) or response.getheader('Content-Encoding','identity').lower()not in ('','identity'):raise ValueError('http')
     n=response.getheader('Content-Length')
     if n is not None and(re.fullmatch('[0-9]{1,10}',n)is None or int(n)>65536):raise ValueError('length')
     raw=response.read(65537)
     if len(raw)>65536 or n is not None and len(raw)!=int(n):raise ValueError('body_limit')
-    if stage is not None:t[stage+'_response_bytes']=len(raw)
+    if stage is not None:
+     t[stage+'_response_bytes']=len(raw);write(t)
     data=probe.unique_json(raw)
     if session.verify()is not True:raise probe.Stop('identity_changed')
     return data
@@ -155,7 +157,7 @@ def execute(session,target,configured,r):
   if type(f)is not dict:t['status']='finalization_refused';return
   if type(f.get('finalized'))is bool:t['finalized_returned']=f['finalized']
   returned=f.get('game_dir',{}).get('game_dir') if type(f.get('game_dir'))is dict else None
-  t['final_path_relation']=path_relation.classify(str(target),returned);t['final_path_guard']=path_guard.inspect(target,returned)
+  t['final_path_relation']=path_relation.classify(str(target),returned);t['final_path_guard']=path_guard.inspect(target,returned);write(t)
   if not s['form_schema_valid'] or t['finalized_returned']is not True or any(v!=0 for v in s['error_codes'].values()) or t['final_path_relation']['relation']not in {'exact_string','normalized_equal'} or t['final_path_guard']['status']!='verified_existing_chain':t['status']='finalization_refused';return
   t['baseline_progress']=progress(request('GET','/game/wow'));write(t)
   data=request('POST','/update',{'uid':'wow'},stage='start');v=data.get('error')
