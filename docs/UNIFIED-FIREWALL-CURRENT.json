@@ -6,7 +6,7 @@
   "user_has_independent_Windows_test_PC": true,
   "latest_user_network_state": "user confirmed browser works without VPN after explicitly authorized normal-mode outbound Allow on all three local profiles; firewall still enabled, effective inbound Block; reboot afterward not tested",
   "deployed_lab_version": "0.9.10-HF1.1-LAB; failed live Apply then restored",
-  "latest_offline_candidate": "UFW-JOURNAL-STORAGE-01 Windows disposable storage-only qualification package; dependencies unchanged; awaiting user Windows JSON",
+  "latest_offline_candidate": "UFW-JOURNAL-STORAGE-011 fixture-only WinPS51 JSON-array compatibility fix; v01 Windows storage partial pass, corrected full Windows test pending",
   "candidate_ready_for_Apply": false,
   "Windows_HF11_scoped_recovery_passed": true,
   "Windows_HF121_sample_parity_passed": true,
@@ -67,7 +67,15 @@
     "journal_storage_package_model_assertions": 36,
     "journal_storage_package_journal_assertions_rerun": 73,
     "journal_storage_package_PS_files_parsed": 5,
-    "journal_storage_package_Windows_executed": false
+    "journal_storage_package_Windows_executed": false,
+    "journal_storage_01_Windows_partial_executed": true,
+    "journal_storage_01_Windows_ACL_initial_roundtrip_lock_passed": true,
+    "journal_storage_01_Windows_full_passed": false,
+    "journal_storage_01_Windows_cleanup_passed": true,
+    "journal_storage_011_fixture_assertions": 36,
+    "journal_storage_011_journal_assertions_rerun": 73,
+    "journal_storage_011_PS51_contract_assertions": 10,
+    "journal_storage_011_Windows_executed": false
   },
   "reconnect": {
     "decision_kernel_implemented": true,
@@ -114,16 +122,16 @@
     "endpoint_local_review_v011_Windows_tested": false,
     "endpoint_local_review_privacy_safe_metrics_implemented": true
   },
-  "next_step": "user runs only new UFW-JOURNAL-STORAGE-01, inspect sanitized diagnostic JSON and native ACL/cleanup results; no real preparation record or firewall writer yet",
-  "user_action_now": "extract new storage-only ZIP to separate local folder; same-account admin Run-Test.cmd; leave SSTP/network unchanged; return only new UFW-JOURNAL-STORAGE-01-*.json even failure; no old Apply/Restore or cleanup retry",
+  "next_step": "user runs only new UFW-JOURNAL-STORAGE-011 and returns sanitized JSON; do not treat old partial pass or shim as full Windows pass; no real preparation record, profile query or native firewall write requested",
+  "user_action_now": "extract v011 ZIP separately; same-account admin Run-Test.cmd; keep network/SSTP unchanged; return only new UFW-JOURNAL-STORAGE-011-*.json even failure; do not rerun v01 or change firewall to force pass",
   "never_claim": [
     "IP allowlist proves no fingerprint uploads",
     "sample parity qualifies all rules",
     "periodic guardian is atomic"
   ],
   "sync_scope": "source-only overlay, sanitized receipts, QA, handoff; no raw chat/runtime/binaries/private journal/credentials",
-  "latest_progress": "Storage-only Windows package built: private separate synthetic ProgramData root, ACL/file/lock/CreateNew/stale-head/hash-chain tests, 11 real file checkpoints with memory-only profile recovery, corruption/partial-record checks, strict nonrecursive cleanup; no real profile query or legacy journal access; Windows execution pending",
-  "previous_sync_commit": "f29e8e8f15dd92be105cda25248803a174591f57",
+  "latest_progress": "v01 Windows native storage/ACL/roundtrip/lock checks passed, memory recovery failed profile coverage and cleanup succeeded. Whole-array JSON contract modeled on PS7 reproduced exact error; row-wise fixture clone fixes it under same shim. Only fixture line changed, production modules and exact 3-profile guard unchanged; v011 awaits Windows JSON",
+  "previous_sync_commit": "ecd8f7041f4f1926ce9f8d054f261cce8cb96302",
   "underlay": {
     "current_carrier_user_reported": "Ethernet cable; user reports SSTP connected",
     "carrier_independently_measured_in_receipt": false,

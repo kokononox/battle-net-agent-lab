@@ -1,0 +1,11 @@
+--- v01/StorageFixture.ps1
++++ v011/StorageFixture.ps1
+@@ -68,7 +68,7 @@
+    param($p,$id,$d,$h)
+    $script:StorageFixture=[pscustomobject]@{root=$p;id=$id;data=$d;head=$h;writes=0;rows=@(foreach($e in $d.draft.entries){$row=ConvertFrom-Json (ConvertTo-Json $e.before -Compress);$row.local_outbound='Block';$row.effective_outbound='Block';$row})}
+    $ops=@{
+-    ReadProfiles={return @(ConvertFrom-Json (ConvertTo-Json -InputObject $script:StorageFixture.rows -Depth 16 -Compress))}
++    ReadProfiles={foreach($row in $script:StorageFixture.rows){ConvertFrom-Json -InputObject (ConvertTo-Json -InputObject $row -Depth 16 -Compress)}}
+     Save={param($draft)$ctx=$script:StorageFixture;$entry=[pscustomobject][ordered]@{receipt=$ctx.data.receipt;draft=$draft};$saved=Add-UfwPreparationCheckpoint $ctx.root $ctx.id $ctx.head 'model_checkpoint' $entry;$ctx.head=$saved.head}
+     WriteOutbound={param($name,$value)$ctx=$script:StorageFixture;if($name -cnotin @('Domain','Private','Public') -or $value -cne 'Allow'){throw 'ufw_fixture_memory_write_invalid'};$ctx.writes++;$row=@($ctx.rows|Where-Object{$_.name -ceq $name})[0];$row.local_outbound=$value;$row.effective_outbound=$value}
+    }

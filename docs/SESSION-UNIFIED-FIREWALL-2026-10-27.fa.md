@@ -182,3 +182,12 @@ adapter جدید Windows storage در root مستقل InstallerSessions ساخت
 [بسته، source و راهنمای اجرا](../analysis/unifiedfw-session-2026-10-27/journal-storage-test-v01/README.fa.md): سه module بدون تغییر بایت بسته‌بندی شدند. fixture جدید فقط در root جداگانهٔ ProgramData با دادهٔ ساختگی، ACL root/session/record/lock، CreateNew، stale head، exclusive lock، chain، ۱۱ checkpoint با recovery حافظه‌ای، baseline change و فساد/partial record را بررسی می‌کند. هیچ real profile query، consent/store واقعی، legacy journal یا تغییر network/rule/task/VPN اجرا نمی‌کند. پاک‌سازی غیرrecursive و مشروط به validation تمام ساختار است.
 
 ۳۶ assertion بسته و ۷۳ ژورنال و parse پنج PS file/CMD و payload hash گذشتند؛ **Windows واقعی هنوز pending است**. simulation Linux native/ACL flagهای Windows را false نگه می‌دارد. اقدام کاربر فقط ZIP تازه در پوشهٔ جدا و Run-Test.cmd با admin همان حساب؛ SSTP/شبکه همان وضعیت. فقط JSON تشخیصی حتی failure برگردد. cleanup failure را با حذف/تکرار خودسرانه دنبال نکنید. engine Apply/Restore، consent نشست واقعی و همهٔ authorityهای ایزولاسیون همچنان غیرفعال‌اند؛ علت تاریخی Block حل نشده است.
+
+
+## آخرین نتیجه و اصلاح — UFW-JOURNAL-STORAGE-011
+
+[تحویل اصلاحی و receipt](../analysis/unifiedfw-session-2026-10-27/journal-storage-test-v011/README.fa.md): v01 روی Windows، ACL و roundtrip/lock/no-overwrite/stale-head را پاس کرد و cleanup موفق بود، ولی memory-profile recovery با ufw_core_profile_coverage متوقف شد؛ full qualification پاس نشده است. falseهای مراحل بعد و count=0 را به معنی اجرای آن مراحل/نبود رکورد نگیرید.
+
+whole-array JSON clone در WinPS5.1 می‌تواند nested array بدهد. shim این قرارداد روی PS7 دقیقاً خطای v01 را بازتولید کرد و یک‌خط اصلاح row-wise clone در v011 کل fixture را عبور داد. سه module تولیدی و guard سه profile unchanged اند؛ ۳۶ fixture، ۷۳ journal و ۱۰ compatibility assertion گذشتند. **اجرای واقعی Windows نسخهٔ اصلاحی هنوز pending است.**
+
+کاربر فقط ZIP v011 در پوشهٔ جدا با admin همان حساب و بدون تغییر شبکه/SSTP اجرا کند؛ JSON جدید UFW-JOURNAL-STORAGE-011-*.json حتی failure برگردد. هیچ Apply/Restore/real session store، profile query یا legacy access درخواست نشده است.
