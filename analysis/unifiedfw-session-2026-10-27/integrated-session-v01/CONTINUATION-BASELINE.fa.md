@@ -23,7 +23,7 @@ RC 0.9.10 دورریختنی نیست: UI، ویرایش سیاست و تجرب�
 ## ترتیب ادامه تا یک جریان قابل استفاده
 
 1. ثبت پایدارِ actor/انتخاب هدف و شواهد محدود helper در همان journal پیاده شد؛ [شرح و محدودیت](DURABLE-RUNTIME-WITNESS.fa.md). این witness سابقهٔ کامل سرویس/فرایند نیست و اختیار restore نمی‌دهد.
-2. probe مستقل و محافظه‌کارانهٔ quiescence؛ خطای دسترسی یا شواهد ناقص اجازهٔ بازگرداندن Allow نمی‌دهد. نبود فرایند در reader قدیمیِ skip-errors یا exitهای audit به‌تنهایی کافی نیست. وضعیت IPC/service attribution باید صریحاً محدود بماند.
+2. بررسی مستقل فرایندها و guard متصل به backend پیاده شد؛ [شرح](PROCESS-QUIESCENCE.fa.md). خطای دسترسی یا شواهد ناقص اجازهٔ بازگرداندن Allow نمی‌دهد. پوشش مستقل helper/service هنوز فراهم نیست؛ census و exitهای audit به‌تنهایی authority نیستند.
 3. اتصال actor/audit/exit-consent به recovery بومی و همان ورودی/UI؛ pending قبل از picker و بررسی VPN دیده شود. recovery به EXE/VPN فعلی وابسته نشود.
 4. سنجش و اصلاح هزینهٔ reader/lease برای تعداد قواعد واقعی، بدون تضعیف guard؛ سپس یک اعتبارسنجی هدفمند Windows برای جریان واحد.
 

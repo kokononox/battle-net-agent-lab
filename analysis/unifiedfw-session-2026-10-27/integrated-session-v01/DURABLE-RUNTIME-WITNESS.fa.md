@@ -33,3 +33,7 @@ restore یا closed شدن از وجود evidence نتیجه نمی‌شود. ba
 آزمون `Test-RuntimeWitness.ps1` با collector واقعی، journal فایل واقعی و registry واقعیِ Linux اجرا می‌شود؛ اثرهای Windows fixture هستند. خطای arm پیش از UI، قطع پنجره، arm-only، reboot، head کهنه، record خراب، actor متفاوت، پاسخ موفقِ فرضی بدون terminal معتبر و guard بازیابی پوشش دارند. شمارش و نتیجهٔ معتبر در `evidence/QA-SUMMARY.json` و `evidence/runtime-witness-tests.json` است.
 
 قدم باقی: probe مستقل محافظه‌کارانهٔ فرایند/فرزندان و حدود service/IPC، اتصال guard بومی و رضایت خروج به recovery/UI، بررسی عملکرد و سپس یک اعتبارسنجی هدفمند Windows. ثبت پایدار پیاده شده، اما native recovery safety و `ready_for_apply` هنوز false هستند. هیچ grant، ZIP اجرایی، snapshot خصوصی یا آزمون دستی تازه از کاربر درخواست نشده است.
+
+## اتصال بعدی
+
+[بررسی مستقل فرایندها](PROCESS-QUIESCENCE.fa.md) اکنون همین witness را در guard backend می‌خواند. نبود پوشش مستقل helper/service همچنان restore را مسدود می‌کند؛ census به مجوز قابل‌ذخیره تبدیل نمی‌شود.

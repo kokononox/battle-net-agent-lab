@@ -67,5 +67,19 @@
     "witness_complete_process_service_coverage": false,
     "witness_is_quiescence_authority": false,
     "witness_Windows_qualified": false
+  },
+  "process_quiescence": {
+    "native_process_census_reader_implemented": true,
+    "two_pass_current_census_required": true,
+    "cross_enumerator_PID_correlation_required": true,
+    "access_errors_skipped": false,
+    "existing_guard_preserved": true,
+    "independent_helper_service_guard_required": true,
+    "helper_service_coverage_guard_implemented": false,
+    "backend_reopen_and_restore_tested_with_fixtures": true,
+    "recovery_finish_guard_required": true,
+    "process_observation_is_restore_authority": false,
+    "native_Windows_qualified": false,
+    "performance_qualified": false
   }
 }
