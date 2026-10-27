@@ -13,9 +13,14 @@ PIN='f4643a2086c0cecb1ab68cc601bf38c1a0a6f7ef5914ad03375cc9449385bec6'
 BRANCH='refs/heads/research/prelogin-telemetry-wow-data-provenance'
 def authorized(e,platform):
  return platform=='win32' and all(e.get(k)==v for k,v in dict(GITHUB_ACTIONS='true',RUNNER_OS='Windows',RUNNER_ENVIRONMENT='github-hosted',GITHUB_RUN_ATTEMPT='1',GITHUB_EVENT_NAME='push',GITHUB_REF=BRANCH,RETAIL_PREPARE='approved-retail-prepare-c10').items())
+def transfer_allowed(e):
+ scope=e.get('RETAIL_PREPARE_SCOPE','limited-transfer-c10')
+ if scope not in {'limited-transfer-c10','prepare-only-d11'}:raise ValueError('scope_refused')
+ return scope=='limited-transfer-c10'
 def main():
  if not authorized(os.environ,sys.platform):raise SystemExit('fresh_hosted_once_required')
  if os.environ.get('RETAIL_SUPERVISED')!='job-c10':raise SystemExit('independent_job_required')
+ allow_transfer=transfer_allowed(os.environ)
  r=blank(os.environ['GITHUB_SHA'],os.environ['GITHUB_RUN_ID']);validate(r);out=Path('output');out.mkdir(exist_ok=True)
  import observe_agent as lab
  original_fetch=lab.fetch_setup;original_observe=lab.observe;old_approval=os.environ.get('AGENT_INTERFACE_ONCE')
@@ -52,7 +57,7 @@ def main():
    r['form_details']=form_details.describe(data.get('form'));r['form']=summarize(data);r['status']='form_observed' if r['form']['form_schema_valid'] else 'form_schema_unknown'
    if r['status']=='form_observed':
     context=form_update.execute(session,data,r,lab.is_reparse)
-    if context is not None:transfer_probe.execute(session,context[0],context[1],r)
+    if context is not None and allow_transfer:transfer_probe.execute(session,context[0],context[1],r)
   except Exception as exc:r.update(status='request_failed',error_kind=type(exc).__name__ if type(exc).__name__ in ERRORS else 'other')
  try:
   try:r['metadata']=discover()
