@@ -36,6 +36,13 @@ function New-UfwRecoveryFirstBindings($State,$RuntimeOps,[scriptblock]$PolicyRec
   # Preserve the expected audit baseline across archive/policy callbacks.
   $auditProof=$null
   if($null -ne $pending.audit){$auditProof=Copy-UfwLocalData $pending.audit.data}
+  if($null -ne $pending.policy -and $null -ne $pending.audit){
+   $policyBefore=Read-UfwUnifiedStorage $pending.policy
+   $protocolBefore=Get-UfwLocalBackendState ([pscustomobject]@{storage=$pending.policy;view=$policyBefore.records[0].data})
+   if($null -ne $protocolBefore.runtime_arm -and $protocolBefore.runtime_arm.schema -ceq 'ufw-runtime-arm-02'){
+    if($pending.audit.head -cne $protocolBefore.runtime_arm.audit_pending_head -or $pending.audit.data.session_id -cne $protocolBefore.runtime_arm.audit_session_id){throw 'ufw_unified_witness_audit_pending_mismatch'}
+   }
+  }
   if(-not (Invoke-UfwIntegratedAuditRecovery $b.runtime $pending.audit)){return $r}
   if($null -ne $pending.policy){
    $policyBack=Read-UfwUnifiedStorage $pending.policy

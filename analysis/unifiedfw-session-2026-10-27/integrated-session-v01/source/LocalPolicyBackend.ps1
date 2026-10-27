@@ -1,7 +1,15 @@
 # Witness payloads are PRIVATE evidence, never quiescence/restore authority.
 function Assert-UfwRuntimeWitnessPayload($Data,[string]$Kind,[string]$Binding,$Arm){
  if($Kind -ceq 'runtime_arm'){
-  if((@($Data.PSObject.Properties.Name|Sort-Object)-join ',') -cne 'actor_sid,boot_marker,candidate_head,phase,programs_json,programs_sha256,schema,view_binding' -or $Data.schema -cne 'ufw-runtime-arm-01' -or $Data.phase -cne 'manual_window_may_open' -or $Data.view_binding -cne $Binding){throw 'ufw_unified_witness_arm_shape'}
+  $fields='actor_sid,boot_marker,candidate_head,phase,programs_json,programs_sha256,schema,view_binding'
+  if($Data.schema -ceq 'ufw-runtime-arm-02'){
+   $fields='actor_sid,audit_pending_head,audit_plan,audit_session_id,boot_marker,candidate_head,phase,programs_json,programs_sha256,schema,view_binding'
+   # The pinned runtime validator is required when opening v02 journals, not a
+   # replacement validator or user-supplied approval. It performs no native writes.
+   Assert-UfwRuntimeAuditPlan $Data.audit_plan
+   if($Data.audit_pending_head -isnot [string] -or $Data.audit_pending_head -cnotmatch '^[a-f0-9]{64}$' -or $Data.audit_session_id -isnot [string] -or $Data.audit_session_id -cnotmatch '^[a-f0-9]{32}$'){throw 'ufw_unified_witness_audit_binding'}
+  }elseif($Data.schema -cne 'ufw-runtime-arm-01'){throw 'ufw_unified_witness_arm_shape'}
+  if((@($Data.PSObject.Properties.Name|Sort-Object)-join ',') -cne $fields -or $Data.phase -cne 'manual_window_may_open' -or $Data.view_binding -cne $Binding){throw 'ufw_unified_witness_arm_shape'}
   if($Data.actor_sid -isnot [string] -or $Data.actor_sid -cnotmatch '^S-1-[0-9]+(-[0-9]+)+$'){throw 'ufw_unified_witness_actor'}
   foreach($k in @('boot_marker','candidate_head','programs_sha256','view_binding')){if($Data.$k -isnot [string] -or $Data.$k -cnotmatch '^[a-f0-9]{64}$'){throw 'ufw_unified_witness_binding'}}
   if($Data.programs_json -isnot [string] -or -not $Data.programs_json.StartsWith('[') -or $Data.programs_json.Length -gt 262144 -or (Get-UfwJournalHash $Data.programs_json) -cne $Data.programs_sha256){throw 'ufw_unified_witness_programs'}
