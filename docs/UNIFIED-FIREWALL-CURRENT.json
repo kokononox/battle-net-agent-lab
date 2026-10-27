@@ -663,7 +663,7 @@
     "SSTP_owned_transport_writer_implemented": true,
     "backend_native_Windows_qualification": false,
     "local_backend_tests": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/evidence/local-policy-backend-tests.json",
-    "local_backend_assertions": 107,
+    "local_backend_assertions": 108,
     "local_backend_durable_prefix_cuts": 14,
     "local_backend_error_cases": 15,
     "mixed_plan_and_journal_implemented": true,
@@ -701,7 +701,14 @@
     "process_observer_Windows_qualified": false,
     "backend_recovery_finish_guard_required": true,
     "process_quiescence_assertions": 164,
-    "process_quiescence_cases": 29
+    "process_quiescence_cases": 29,
+    "original_audit_baseline_persisted_in_arm_v02": true,
+    "audit_pending_head_and_session_correlated": true,
+    "explicit_exit_review_console_adapter_implemented": true,
+    "expiring_exit_consent_composed_into_recovery_backend": true,
+    "native_exit_UI_Windows_qualified": false,
+    "exit_review_assertions": 128,
+    "exit_review_cases": 27
   },
   "workflow_correction": {
     "user_objects_to_fragmented_manual_tests": true,
@@ -709,10 +716,11 @@
     "reuse_successful_existing_receipts": true,
     "do_not_present_internal_model_or_callback_test_as_native_ready": true
   },
-  "next_work": "Complete an independently justified helper/service recovery safety binding and explicit local exit consent in the native recovery/UI; process census and observed exits alone are insufficient. Validate strict process visibility/usability and full-policy performance, then one targeted Windows integrated validation. Keep native complete quiescence and ready_for_apply false; no fragmented user test packages.",
+  "next_work": "Resolve the independently justified helper/service safety scope and native binding rather than treating process census or user confirmation as complete IPC attribution; integrate the reviewed recovery/capture UI, qualify strict process visibility and full-policy performance, then one targeted Windows integrated validation. Explicit exit consent and original audit-baseline checks are implemented, not Windows-qualified. No new fragmented user tests; ready_for_apply remains false.",
   "live_review_registry_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/LIVE-REVIEW-REGISTRY.fa.md",
   "runtime_recovery_binding_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/RUNTIME-RECOVERY-BINDING.fa.md",
   "continuation_baseline": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/CONTINUATION-BASELINE.fa.md",
   "durable_runtime_witness_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/DURABLE-RUNTIME-WITNESS.fa.md",
-  "process_quiescence_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/PROCESS-QUIESCENCE.fa.md"
+  "process_quiescence_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/PROCESS-QUIESCENCE.fa.md",
+  "exit_review_detail": "analysis/unifiedfw-session-2026-10-27/integrated-session-v01/EXIT-REVIEW.fa.md"
 }
