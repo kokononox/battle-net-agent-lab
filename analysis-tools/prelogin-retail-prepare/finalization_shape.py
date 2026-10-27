@@ -1,6 +1,6 @@
 """Recognize a local product link without publishing/following arbitrary URLs."""
-FIELDS={'error','form','game','link','uid'}
-KINDS={'not_observed','form','canonical_game_link','unknown'}
+FIELDS={'error','form','game','link','uid','installed','download_complete'}
+KINDS={'not_observed','form','canonical_game_link','unknown','product_state'}
 def blank():return dict(kind='not_observed',recognized_top_fields=[],unknown_top_fields=0,owned_game_link=False)
 def validate(r):
  if type(r)is not dict or set(r)!=set(blank()) or r['kind']not in KINDS:raise ValueError('shape_schema')
@@ -17,6 +17,8 @@ def classify(data,port):
  if r['unknown_top_fields'] or type(port)is not int or not 1<=port<=65535:return r
  if 'error'in data and(type(data['error'])is not int or data['error']!=0):return r
  if 'uid'in data and data['uid']!='wow':return r
+ if set(data)<= {'installed','download_complete','error'} and type(data.get('installed'))is bool and type(data.get('download_complete'))is bool:
+  r['kind']='product_state';return validate(r)
  if set(data)<= {'game','error','uid'} and type(data.get('game'))is dict and set(data['game'])=={'link'}:link=data['game']['link']
  elif set(data)<= {'link','error','uid'}:link=data.get('link')
  else:return r

@@ -8,7 +8,7 @@ import probe,path_guard,path_relation
 import finalization_shape
 import response_diagnostic
 from retail_protocol import summarize,CODES
-STATES={'not_started','prerequisite_refused','pending','request_failed','finalization_refused','start_refused','observed','identity_changed','collection_refused','canonical_game_link_observed','response_schema_unrecognized'}
+STATES={'not_started','prerequisite_refused','pending','request_failed','finalization_refused','start_refused','observed','identity_changed','collection_refused','canonical_game_link_observed','response_schema_unrecognized','product_state_observed'}
 FIELDS={'installed','download_complete','playable','downloaded_bytes','bytes_downloaded','downloaded','total_bytes','bytes_total','download_size','download_progress','progress'}
 NUMERIC={'downloaded_bytes','bytes_downloaded','downloaded','total_bytes','bytes_total','download_size'}
 PORTS={'80','443','1119','3724','other'}
@@ -24,6 +24,7 @@ def validate(r):
  if type(r['source_commit'])is not str or not re.fullmatch('[0-9a-f]{40}',r['source_commit']) or type(r['run_id'])is not str or not re.fullmatch('[0-9]{1,30}',r['run_id']):raise ValueError('transfer_identity')
  if r['schema']=='bnet-retail-transfer-4':response_diagnostic.validate(r['response_diagnostic'])
  if r['schema']in {'bnet-retail-transfer-3','bnet-retail-transfer-4'}:
+  if r['status']=='product_state_observed' and(r['finalization_response_shape']['kind']!='product_state' or r['finalization_http_status']not in (200,201) or not r['finalization_response_bytes']):raise ValueError('product_state_evidence')
   finalization_shape.validate(r['finalization_response_shape'])
   if r['status']=='canonical_game_link_observed' and(r['finalization_response_shape']['kind']!='canonical_game_link' or r['finalization_http_status']not in (200,201) or not r['finalization_response_bytes']):raise ValueError('canonical_evidence')
  if r['schema']in {'bnet-retail-transfer-2','bnet-retail-transfer-3','bnet-retail-transfer-4'}:
@@ -183,9 +184,11 @@ def execute(session,target,configured,r):
     return data
    finally:conn.close()
   data=request('POST','/install/wow',dict(finalized=True,game_dir=str(target),language=['enUS'],selected_asset_locale='enUS',selected_locale='enUS'),stage='finalization')
-  if t['finalization_response_shape']['kind']=='canonical_game_link':
+  if t['finalization_response_shape']['kind']in {'canonical_game_link','product_state'}:
    # No /update after a different response shape. Read the exact owned endpoint only.
-   t['status']='canonical_game_link_observed';write(t)
+   t['status']='product_state_observed'if t['finalization_response_shape']['kind']=='product_state'else'canonical_game_link_observed'
+   if t['finalization_response_shape']['kind']=='product_state':t['baseline_progress']=progress(data);t['last_progress']=t['baseline_progress']
+   write(t)
    t['final_path_guard']=path_guard.inspect(target,str(target));write(t)
    if t['final_path_guard']['status']!='verified_existing_chain':return
    for _ in range(4):
