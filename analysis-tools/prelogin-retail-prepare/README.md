@@ -209,3 +209,19 @@ finalization. Parsed operation state/file metadata are now checkpointed before
 the post-response identity check, explicitly marked unconfirmed; such a pending
 checkpoint cannot authorize any subsequent start. Earlier confirmed states are
 retained; a successful check updates the last state to confirmed.
+
+
+## Consolidated attribution verdict (T1–T8)
+
+See [`PRELOGIN-RETAIL-ATTRIBUTION-VERDICT.fa.md`](../../docs/PRELOGIN-RETAIL-ATTRIBUTION-VERDICT.fa.md).
+T7 completed with zero harness product API requests and a positive owned TCP
+counter checkpoint. This is neither a payload classifier nor proof of a WoW
+asset download. T8 hit the unchanged phase guard before update; its current
+receipts are kept separate from historical operation-state files.
+
+`attribution_verdict.py` reproduces the limited findings from hash-bound frozen
+public receipts. `public_manifest_sizes.py` audits a separately fetched small
+public config, without fetching the large referenced manifests or changing any
+runtime budget. The encoded encoding object's declared size exceeds the 64 MiB
+phase threshold; the implication is conditional on needing that whole object
+inside the armed phase, not a causal identification of observed Agent traffic.

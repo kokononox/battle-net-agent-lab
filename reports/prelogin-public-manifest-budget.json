@@ -1,0 +1,35 @@
+{
+  "schema": "bnet-public-manifest-budget-1",
+  "config_url": "https://level3.ssl.blizzard.com/tpr/wow/config/d7/18/d718abcc42604d8efbd35aecfa5bb75b",
+  "build_config": "d718abcc42604d8efbd35aecfa5bb75b",
+  "build_name": "WOW-70575patch12.1.5_Retail",
+  "config_bytes": 87836,
+  "config_md5_verified": true,
+  "config_sha256": "9e24ff87e1c9067055f2a6bd9f59f393dc35d51ad69aaf175a1d1750353afc3b",
+  "manifests": {
+    "encoding": {
+      "content_key": "d724eae8fcffe481ec76d8a80b7b7bb9",
+      "encoding_key": "09bbef079e2e00af0b4796c3594fe938",
+      "decoded_bytes": 200240171,
+      "encoded_bytes": 188058470
+    },
+    "download": {
+      "content_key": "d2637fca813744c0c0658002bd1709c6",
+      "encoding_key": "24417f9055f24ef9a0e3369018ffc5c1",
+      "decoded_bytes": 74562380,
+      "encoded_bytes": 63424656
+    },
+    "install": {
+      "content_key": "8fef5697abe6472c6b9235a2b9f7c9f8",
+      "encoding_key": "77d2e5d7fb7ea30d9361fb258ceb56c0",
+      "decoded_bytes": 24078,
+      "encoded_bytes": 23106
+    }
+  },
+  "phase_threshold_bytes": 67108864,
+  "encoding_object_exceeds_phase_threshold": true,
+  "comparison_condition": "only_if_entire_object_needed_within_armed_phase",
+  "actual_agent_object_transfer_identified": false,
+  "game_payload_requested": false,
+  "guard_limits_changed": false
+}

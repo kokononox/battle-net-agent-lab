@@ -1,0 +1,81 @@
+{
+  "schema": "bnet-retail-transfer-6",
+  "source_commit": "1b3b75ae41062e70dd6aa0c54e57bfcdaec42d02",
+  "run_id": "40613881968",
+  "status": "not_started",
+  "start_authorization": "not_observed",
+  "error_kind": null,
+  "finalization_attempted": false,
+  "start_attempted": false,
+  "local_requests": 0,
+  "polls": 0,
+  "phase_signal_created": false,
+  "phase_acknowledged": false,
+  "finalization_response_shape": {
+    "kind": "not_observed",
+    "recognized_top_fields": [],
+    "unknown_top_fields": 0,
+    "owned_game_link": false,
+    "owned_install_link": false
+  },
+  "response_diagnostic": {
+    "observed": false,
+    "recognized_top_fields": [],
+    "unknown_top_fields": 0,
+    "nodes": [],
+    "message_markers": []
+  },
+  "preflight_path_guard": {
+    "status": "not_observed",
+    "existing_components_checked": 0,
+    "missing_tail": false,
+    "reparse_detected": false,
+    "absolute_containment_lexically_verified": false,
+    "race_free_containment_proven": false
+  },
+  "finalization_http_status": null,
+  "start_http_status": null,
+  "status_query_http_status": null,
+  "finalization_response_bytes": 0,
+  "start_response_bytes": 0,
+  "status_query_response_bytes": 0,
+  "finalized_returned": null,
+  "finalization_error_codes": {
+    "agent": null,
+    "authentication": null,
+    "min_spec": null,
+    "game_dir": null,
+    "eula": null,
+    "tome_path": null,
+    "language": null
+  },
+  "start_agent_error": null,
+  "final_path_guard": {
+    "status": "not_observed",
+    "existing_components_checked": 0,
+    "missing_tail": false,
+    "reparse_detected": false,
+    "absolute_containment_lexically_verified": false,
+    "race_free_containment_proven": false
+  },
+  "final_path_relation": {
+    "relation": "not_observed",
+    "child_depth": null,
+    "returned_absolute": null,
+    "returned_dot_segments": null,
+    "filesystem_containment_proven": false
+  },
+  "baseline_progress": null,
+  "last_progress": null,
+  "baseline_files": null,
+  "last_files": null,
+  "baseline_connections": null,
+  "last_connections": null,
+  "account_parameter_sent": false,
+  "country_parameter_sent": false,
+  "legal_acceptance_parameter_sent": false,
+  "payload_exported": false,
+  "raw_paths_exported": false,
+  "complete_installation_proven": false,
+  "hardware_upload_proven": false
+}
