@@ -51,6 +51,12 @@ def main():
   if state not in {'verified','verified_temp_image'} and r['identity_failure_state'] is None:r['identity_failure_state']=state
  def observer(token,port,verify):
   try:
+   control=os.environ.get('RETAIL_PREPRODUCT_CONTROL')
+   if control=='no-product-t7':
+    import preproduct_control
+    preproduct_control.execute(port,verify,r['source_commit'],r['run_id'])
+    r['status']='preproduct_control_observed';return
+   if control not in (None,''):raise ValueError('preproduct_scope')
    session=Session(port,token,verify,r)
    data=session.request('GET','/game')
    if not empty_summary(data):r['status']='existing_products_refused';return

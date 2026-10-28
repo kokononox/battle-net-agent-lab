@@ -7,7 +7,7 @@ import form_details
 import form_update
 import transfer_probe
 from retail_protocol import FIELDS,CODES,BLOCKERS
-STATUSES={'not_started','discovery_failed','handshake_not_ready','request_failed','existing_products_refused','form_observed','form_schema_unknown','identity_changed','stopped'}
+STATUSES={'preproduct_control_observed','not_started','discovery_failed','handshake_not_ready','request_failed','existing_products_refused','form_observed','form_schema_unknown','identity_changed','stopped'}
 ERRORS={None,'OSError','ValueError','RuntimeError','Stop','other'}
 def blank(source,run):
  h=probe.blank();h.update(source_commit=source,run_id=run,run_attempt='1')
@@ -68,6 +68,7 @@ def validate(r):
  for k,b in dict(agent='agent_error',**CODES).items():
   if f['error_codes'][k] and b not in f['blockers']:raise ValueError('code_blocker')
  if 'eula' in f['form_fields'] and 'eula_review_pending' not in f['blockers']:raise ValueError('legal_guard')
+ if r['status']=='preproduct_control_observed'and(r['local_requests']!=0 or r['initialization_attempted']or r['form_update']['attempted']or r['transfer']['local_requests']or r['transfer']['finalization_attempted']or r['transfer']['start_attempted']):raise ValueError('preproduct_scope')
  expected=blank('a'*40,'1')['limits']
  expected['finalization_requested']=r['transfer']['finalization_attempted']
  expected['game_payload_download_requested']=r['transfer']['start_attempted']
