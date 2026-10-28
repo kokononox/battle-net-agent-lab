@@ -3,8 +3,8 @@ import io,json,sys
 from contextlib import redirect_stdout
 
 def selftest(destination):
- import unittest,test_origin_check
- suite=unittest.defaultTestLoader.loadTestsFromModule(test_origin_check)
+ import unittest,test_origin_check,test_format_diagnostics
+ suite=unittest.TestSuite([unittest.defaultTestLoader.loadTestsFromModule(test_origin_check),unittest.defaultTestLoader.loadTestsFromModule(test_format_diagnostics)])
  result=unittest.TextTestRunner(stream=io.StringIO(),verbosity=0).run(suite)
  receipt=dict(schema='casc-origin-exe-selftest-1',tests_run=result.testsRun,failures=len(result.failures),errors=len(result.errors),skipped=len(result.skipped),passed=result.wasSuccessful())
  from pathlib import Path
@@ -15,9 +15,9 @@ def ui():
  import tkinter as tk
  from tkinter import ttk,filedialog,messagebox
  import queue,threading,origin_check
- app=tk.Tk();app.title('CASC Origin Check v2 - Offline');app.geometry('860x650');app.minsize(700,500)
+ app=tk.Tk();app.title('CASC Origin Check v3 - Offline');app.geometry('860x650');app.minsize(700,500)
  root=ttk.Frame(app,padding=18);root.pack(fill='both',expand=True)
- ttk.Label(root,text='CASC Origin Check v2',font=('Segoe UI',18,'bold')).pack(anchor='w')
+ ttk.Label(root,text='CASC Origin Check v3',font=('Segoe UI',18,'bold')).pack(anchor='w')
  ttk.Label(root,text='Read-only | No network | No login | Does not launch or change the game').pack(anchor='w',pady=(4,14))
  paths=[tk.StringVar(),tk.StringVar()]
  def choose(index):

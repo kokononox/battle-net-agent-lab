@@ -1,5 +1,6 @@
 """Read-only local CASC marker checker. Standard library only; no network I/O."""
 import hashlib,json,os,re,socket,stat,sys
+import format_diagnostics
 from pathlib import Path
 from marker_prefix import block_valid,MAX_PREFIX
 ARCH=re.compile(r'data\.([0-9]{3,})',re.IGNORECASE)
@@ -58,17 +59,18 @@ def inspect(root,batch_start=0):
    if int(m[1])<=255:selected.append((name,int(m[1])))
    else:unsupported+=1
  selected.sort(key=lambda x:(x[1],x[0]));total=len(selected);batch=selected[batch_start:batch_start+64]
+ host=socket.gethostname().encode('utf-8');current=hashlib.md5(host+b'data/data').digest()[2:9];negative=hashlib.md5(host+b'|bounded-negative-control|data/data').digest()[2:9]
+ diagnostics=format_diagnostics.blank()
  private=set();checked=[];matched=0;read=0
  for name,archive in batch:
-  path=folder/name;raw,fp=read_prefix(path);read+=len(raw);seeds=extract(raw,archive);private.update(seeds);matched+=bool(seeds);checked.append((path,fp))
+  path=folder/name;raw,fp=read_prefix(path);read+=len(raw);format_diagnostics.observe(raw,archive,current,negative,diagnostics);seeds=extract(raw,archive);private.update(seeds);matched+=bool(seeds);checked.append((path,fp))
  for path,fp in checked:
   if fingerprint(safe(path).stat())!=fp:raise Refused('source_changed')
- current=hashlib.md5(socket.gethostname().encode('utf-8')+b'data/data').digest()[2:9]
- summary=dict(batch_start=batch_start,archives_per_batch_limit=64,total_eligible_archives=total,unsupported_archive_ids=unsupported,total_archives_found=total+unsupported,archives_not_checked_this_run=total+unsupported-len(batch),archive_scan_complete=batch_start==0 and len(batch)==total and unsupported==0,more_archives_available=batch_start+len(batch)<total,next_batch_start=batch_start+64 if batch_start+len(batch)<total else None,archives_checked=len(batch),archives_with_supported_crosslink_block=matched,prefix_bytes_read=read,max_prefix_bytes=MAX_PREFIX,marker_variants=len(private),marker_layout_observed=bool(private),matches_current_hostname_prediction=current in private if private else None,scope='bounded_local_archive_prefixes_only',whole_game_scanned=False,account_identity_proven=False,unique_physical_machine_identity_proven=False,game_payload_watermark_proven=False,unforgeable_origin_proven=False,raw_paths_exported=False,raw_hostname_exported=False,identifier_hash_exported=False,network_requested=False,game_files_written=False)
+ summary=dict(format_diagnostics=format_diagnostics.validate(diagnostics),batch_start=batch_start,archives_per_batch_limit=64,total_eligible_archives=total,unsupported_archive_ids=unsupported,total_archives_found=total+unsupported,archives_not_checked_this_run=total+unsupported-len(batch),archive_scan_complete=batch_start==0 and len(batch)==total and unsupported==0,more_archives_available=batch_start+len(batch)<total,next_batch_start=batch_start+64 if batch_start+len(batch)<total else None,archives_checked=len(batch),archives_with_supported_crosslink_block=matched,prefix_bytes_read=read,max_prefix_bytes=MAX_PREFIX,marker_variants=len(private),marker_layout_observed=bool(private),matches_current_hostname_prediction=current in private if private else None,scope='bounded_local_archive_prefixes_only',whole_game_scanned=False,account_identity_proven=False,unique_physical_machine_identity_proven=False,game_payload_watermark_proven=False,unforgeable_origin_proven=False,raw_paths_exported=False,raw_hostname_exported=False,identifier_hash_exported=False,network_requested=False,game_files_written=False)
  return summary,private
 
 def main(args,batch_start=0):
- out=dict(schema='casc-offline-origin-check-2',tool_version='2.0',status='refused',error_kind=None,first=None,second=None,two_copy_marker_sets_equal=None,observed_batch_marker_sets_equal=None,comparison_scope='observed_archive_prefix_markers_only',full_file_equality_proven=False)
+ out=dict(schema='casc-offline-origin-check-3',tool_version='3.0',status='refused',error_kind=None,first=None,second=None,two_copy_marker_sets_equal=None,observed_batch_marker_sets_equal=None,comparison_scope='observed_archive_prefix_markers_only',full_file_equality_proven=False)
  try:
   if len(args)not in (1,2):raise Refused('one_or_two_local_directories_required')
   out['first'],first=inspect(args[0],batch_start)
