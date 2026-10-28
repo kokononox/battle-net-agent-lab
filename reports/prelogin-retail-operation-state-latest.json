@@ -1,0 +1,38 @@
+{
+  "schema": "bnet-retail-operation-state-1",
+  "source_commit": "b7151a66d494ddfe9ee8983079b152a24d00ddab",
+  "run_id": "40613265559",
+  "states": [
+    {
+      "resource": "install",
+      "recognized_top_fields": [
+        "download_complete",
+        "installed",
+        "playable",
+        "progress"
+      ],
+      "unknown_top_fields": 22,
+      "progress_fraction": 0.0,
+      "error_present": false,
+      "error_code": null,
+      "form_present": false,
+      "refusal_observed": false,
+      "flags": {
+        "download_complete": false,
+        "eula_required": null,
+        "installed": false,
+        "needs_authentication": null,
+        "playable": false,
+        "requires_authentication": null,
+        "requires_eula": null,
+        "requires_login": null
+      }
+    }
+  ],
+  "account_parameter_sent": false,
+  "legal_acceptance_parameter_sent": false,
+  "payload_exported": false,
+  "raw_paths_exported": false,
+  "complete_installation_proven": false,
+  "game_payload_proven": false
+}
