@@ -53,9 +53,9 @@ jobs:
         run: |
           python scripts/run_safety_tests.py --output output
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python -m unittest discover -s analysis-tools/prelogin-tcp-attribution -p 'test_*.py' -v
+          python analysis-tools/prelogin-retail-prepare/contract_runner.py attribution
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python -m unittest discover -s analysis-tools/prelogin-retail-prepare -p 'test_*.py' -v
+          python analysis-tools/prelogin-retail-prepare/contract_runner.py retail
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Owned Agent with explicitly approved 2GiB and 512MiB guard
         id: observation
