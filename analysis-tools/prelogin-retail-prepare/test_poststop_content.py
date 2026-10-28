@@ -109,7 +109,7 @@ class Markers(unittest.TestCase):
  def test_changing_hostname_seed_changes_expected_prefix(self):
   a=self.prefix('host-a');b=self.prefix('host-b');self.assertNotEqual(a,b);self.assertTrue(self.check(a,'host-a')['host_marker']['host_related_container_marker_observed']);self.assertFalse(self.check(a,'host-b')['host_marker']['host_related_container_marker_observed'])
  def test_legacy_t11_receipt_supported(self):
-  r=p.blank('a'*40,'1');r['schema']='bnet-retail-poststop-content-1';del r['host_marker'];del r['index_layout_states'];p.validate(r)
+  r=p.blank('a'*40,'1');r['schema']='bnet-retail-poststop-content-1';del r['host_marker'];del r['index_layout_states'];del r['prefix_marker'];p.validate(r)
  def test_no_private_seed_or_hostname_fields(self):
   for key in ('hostname','seed','hash'):
    r=p.blank('a'*40,'1');r['host_marker'][key]='PRIVATE'

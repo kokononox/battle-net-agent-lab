@@ -353,3 +353,18 @@ This is separate from full official object hashing and uses the same offline rea
 and live network/time/disk limits. A positive outcome would identify a host-related
 local container marker, not an account, unique physical machine, immutable origin,
 server-side tracking, same-file socket delivery, or changed game payload.
+
+## T13: close the marker filename blind spot
+
+T12's real post-stop receipt found zero eligible `data.NNN` archive prefixes,
+so it did NOT empirically test a live marker, and all 16 observed journals were
+unsupported by the conservative index parser. Do not promote that to absence.
+T13 additionally checks only the first 64 KiB of each regular owned file >=480 B,
+within the SAME aggregate 320 MiB offline read budget, regardless of its basename.
+An internal seven-byte prediction selects possible 480-byte contiguous blocks;
+all 16 distinct record keys, consistent archive byte, size/flags/tail structure
+and checksum A still must pass. A changed-hostname negative block prevents a
+positive verdict. At most 64 candidate blocks / 2048 file prefixes are examined.
+No additional network or game execution is introduced and live limits are unchanged.
+This measurement closes a bounded-prefix/name assumption only, not a whole-disk
+or whole-file absence test. Historical schema 1/2 receipts remain supported.

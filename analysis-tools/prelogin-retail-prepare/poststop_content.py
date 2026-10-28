@@ -4,7 +4,7 @@ CASC prefix indexes select candidates only; full EKey/chunks + CKey required.
 """
 import hashlib,json,os,re,stat,sys,threading,time,socket
 from pathlib import Path
-import content_probe as cp,guard_report as gr
+import content_probe as cp,guard_report as gr,marker_prefix
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'downloader'))
 import repair_core as core,local_casc as lc,decoded_payload,lookup3
 MAX_ENTRIES=2048
@@ -25,14 +25,18 @@ def marker_blank():
  return dict(method='hostname_plus_data_path_md5_7byte_crosslink_prediction',prediction_bound_before_form_post=False,local_hostname_prediction_unchanged=False,archive_prefixes_checked=0,records_checked=0,checksum_a_verified_records=0,structural_crosslink_records=0,prediction_matches=0,negative_control_matches=0,archives_with_all_16_predictions=0,host_related_container_marker_observed=False,raw_hostname_exported=False,identifier_digest_exported=False,account_identity_proven=False,globally_unique_machine_identity_proven=False,game_payload_watermark_proven=False,unforgeable_provenance_proven=False)
 
 def blank(source,run):
- r=dict(schema='bnet-retail-poststop-content-2',source_commit=source,run_id=run,status='pending',job_drained_verified=False,owned_empty_baseline_verified=False,build_reference_matched=False,entries=0,files=0,bytes_read=0,index_files=0,index_checksums_verified=0,prefix_candidates=0,hash_checks=0,entry_limit_reached=False,read_limit_reached=False,objects={k:False for k in ('build_config',*MANIFESTS,*cp.PATHS)},official_metadata_materialized=False,official_component_materialized=False,offline_time_limit_seconds=20)
- r['host_marker']=marker_blank();r['index_layout_states']={k:0 for k in INDEX_STATES};r.update({k:False for k in FIXED_FALSE});return r
+ r=dict(schema='bnet-retail-poststop-content-3',source_commit=source,run_id=run,status='pending',job_drained_verified=False,owned_empty_baseline_verified=False,build_reference_matched=False,entries=0,files=0,bytes_read=0,index_files=0,index_checksums_verified=0,prefix_candidates=0,hash_checks=0,entry_limit_reached=False,read_limit_reached=False,objects={k:False for k in ('build_config',*MANIFESTS,*cp.PATHS)},official_metadata_materialized=False,official_component_materialized=False,offline_time_limit_seconds=20)
+ r['prefix_marker']=marker_prefix.blank();r['host_marker']=marker_blank();r['index_layout_states']={k:0 for k in INDEX_STATES};r.update({k:False for k in FIXED_FALSE});return r
 
 def validate(r):
  keys=set(blank('a'*40,'1'))
+ if type(r)is dict and r.get('schema')in {'bnet-retail-poststop-content-1','bnet-retail-poststop-content-2'}:keys.remove('prefix_marker')
  if type(r)is dict and r.get('schema')=='bnet-retail-poststop-content-1':keys-={'host_marker','index_layout_states'}
- if type(r)is not dict or set(r)!=keys or r['schema']not in {'bnet-retail-poststop-content-1','bnet-retail-poststop-content-2'}:raise ValueError('post_schema')
+ if type(r)is not dict or set(r)!=keys or r['schema']not in {'bnet-retail-poststop-content-1','bnet-retail-poststop-content-2','bnet-retail-poststop-content-3'}:raise ValueError('post_schema')
  gr.identity(r)
+ if 'prefix_marker'in r:
+  marker_prefix.validate(r['prefix_marker'])
+  if r['prefix_marker']['host_related_container_marker_observed']and not all(r[k]for k in ('job_drained_verified','owned_empty_baseline_verified','build_reference_matched')):raise ValueError('prefix_job')
  if 'index_layout_states'in r:
   counts=r['index_layout_states']
   if type(counts)is not dict or set(counts)!=set(INDEX_STATES)or any(type(v)is not int or not 0<=v<=64 for v in counts.values())or sum(counts.values())>r['index_files']:raise ValueError('index_diagnostics')
@@ -168,7 +172,20 @@ class Audit:
      if stat.S_ISDIR(s.st_mode):walk(p,depth+1)
      else:core.regular(p);self.r['files']+=1;files.append((p,s.st_size))
   walk(target,0)
-  if prediction is not None:self.crosslinks(files,prediction)
+  if prediction is not None:
+   self.crosslinks(files,prediction)
+   pm=self.r['prefix_marker'];pm['prediction_bound_before_form_post']=True;pm['local_hostname_prediction_unchanged']=bytes.fromhex(prediction)==host_seed()
+   if not pm['local_hostname_prediction_unchanged']:raise ValueError('prefix_prediction_changed')
+   for p,size in files:
+    if size<480:continue
+    self.check();fp=core.fingerprint(core.regular(p).stat())
+    with p.open('rb')as f:
+     if core.fingerprint(os.fstat(f.fileno()))!=fp:raise core.RepairError('source_changed')
+     raw=Reader(f,self).read(min(size,marker_prefix.MAX_PREFIX))
+     if core.fingerprint(os.fstat(f.fileno()))!=fp:raise core.RepairError('source_changed')
+    if core.fingerprint(core.regular(p).stat())!=fp:raise core.RepairError('source_changed')
+    marker_prefix.scan(raw,bytes.fromhex(prediction),host_seed(b'|bounded-negative-control|'),pm)
+   save(self.r)
   refs=cp.reference()
   for p,size in files:
    self.check()
