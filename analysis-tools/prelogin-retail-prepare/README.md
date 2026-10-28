@@ -144,3 +144,10 @@ was empty. This excludes attribution of that threshold event to a phase HTTP
 request, **not** automatic Agent activity or other host traffic. See
 [the fixed-evidence report](../../docs/PRELOGIN-RETAIL-D20-CONTROL.fa.md).
 The offline `negative_control.py` rejects mixed-run and incomplete controls.
+
+
+T2 repeats the D20 zero-phase-HTTP control with a calibrated, source-bound
+per-connection observer. The first T2 attempt did not launch the target: the
+meter did not compile. Target-free build run40610911964 then compiled both
+units and revalidated exact known transfer counters. The next approved T2
+keeps all budget, ownership, pin and nonfinalizing control gates unchanged.
