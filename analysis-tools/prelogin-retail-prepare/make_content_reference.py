@@ -5,7 +5,7 @@ import hashlib,io,json,struct,sys,threading
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'downloader'))
 import target_metadata,decoded_payload
-ALLOWED={'utils/wowvoiceproxy.exe':'voice_proxy','utils/wowwindowsexceptionhandler.dll':'exception_handler'}
+ALLOWED={'utils/wowvoiceproxy.exe':'voice_proxy','utils/wowwindowsexceptionhandler.dll':'exception_handler','wow.exe':'client_executable','wow_loader.dll':'client_loader'}
 
 def parse(data):
  if type(data)is not bytes or not 10<=len(data)<=1048576 or data[:4]!=b'IN\x01\x10':raise ValueError('header')
@@ -25,7 +25,7 @@ def parse(data):
  matches={k:[]for k in ALLOWED.values()}
  for _ in range(entries):
   name=string().replace('\\','/').casefold();key=take(16).hex();size=int.from_bytes(take(4),'big')
-  if name in ALLOWED and 0<size<=4*1024**2:
+  if name in ALLOWED and 0<size<=128*1024**2:
    entry=dict(ckey=key,size=size)
    if entry not in matches[ALLOWED[name]]:matches[ALLOWED[name]].append(entry)
  if pos!=len(data)or any(not v or len(v)>4 for v in matches.values()):raise ValueError('entries')

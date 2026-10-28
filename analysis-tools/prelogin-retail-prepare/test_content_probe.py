@@ -55,7 +55,7 @@ class Content(unittest.TestCase):
    self.assertFalse(p.r['game_component_materialized'])
 class Manifest(unittest.TestCase):
  def decoded(self):
-  rows=[('Utils\\WowVoiceProxy.exe',b'v'),('Utils\\WowWindowsExceptionHandler.dll',b'e')];data=b'IN\x01\x10'+struct.pack('>HI',1,len(rows))+b'Windows\0'+b'\0\1'+b'\xc0'
+  rows=[('Utils\\WowVoiceProxy.exe',b'v'),('Utils\\WowWindowsExceptionHandler.dll',b'e'),('Wow.exe',b'w'),('wow_loader.dll',b'l')];data=b'IN\x01\x10'+struct.pack('>HI',1,len(rows))+b'Windows\0'+b'\0\1'+b'\xc0'
   for name,body in rows:data+=name.encode()+b'\0'+hashlib.md5(body).digest()+struct.pack('>I',len(body))
   return data
  def test_hash_bound_inputs_have_explicit_lf_checkout_policy(self):

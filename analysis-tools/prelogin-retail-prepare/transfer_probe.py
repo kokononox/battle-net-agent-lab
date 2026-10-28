@@ -164,7 +164,7 @@ def await_arm():
  raise ValueError('arm_timeout')
 
 def execute(session,target,configured,r):
- meter=None;content=None
+ meter=None;content=None;failure_stage='preparation'
  t=r['transfer'];write(t)
  try:
   u=r['form_update'];f=configured.get('form',{})
@@ -178,6 +178,8 @@ def execute(session,target,configured,r):
    import content_probe
    content=content_probe.Probe(target,r.get('metadata'),t['source_commit'],t['run_id'])
   elif content_scope not in (None,''):raise ValueError('content_scope')
+  if os.environ.get('RETAIL_CONTENT_WATCH')not in (None,'','concurrent-fixed-t10'):raise ValueError('watch_scope')
+  if os.environ.get('RETAIL_CONTENT_WATCH')=='concurrent-fixed-t10'and content is None:raise ValueError('watch_scope')
   meter_scope=os.environ.get('RETAIL_TCP_METER')
   if meter_scope=='owned-baseline-t2':
    import sys
@@ -195,6 +197,9 @@ def execute(session,target,configured,r):
   if await_arm()is not True:raise ValueError('arm_refused')
   t['phase_acknowledged']=True;write(t)
   def request(method,path,payload=None,stage=None):
+   nonlocal failure_stage
+   failure_stage='before_request'
+   if content is not None and content.watch_failed:raise ValueError('content_watch_refused')
    allowed={('POST','/install/wow'),('POST','/update'),('GET','/game/wow'),('GET','/install/wow'),('GET','/update/wow')}
    if os.environ.get('RETAIL_READ_ONLY_STATUS')=='response-uri-t3'and(method,path)==('POST','/update'):raise ValueError('readonly_scope')
    if (method,path)not in allowed or t['local_requests']>=7:raise ValueError('transfer_scope')
@@ -203,6 +208,8 @@ def execute(session,target,configured,r):
    if stage=='finalization':t['finalization_attempted']=True
    if stage=='start':t['start_attempted']=True
    write(t)
+   if stage=='start'and content is not None and os.environ.get('RETAIL_CONTENT_WATCH')=='concurrent-fixed-t10':content.start_watch()
+   failure_stage=stage if stage in {'start','finalization','status_query'}else'before_request'
    conn=session.factory('127.0.0.1',session.port,timeout=3)
    body=None if payload is None else json.dumps(payload,separators=(',',':')).encode('ascii')
    if body is not None and len(body)>4096:raise ValueError('body')
@@ -227,8 +234,11 @@ def execute(session,target,configured,r):
      checkpoint=operation_state.describe(data,'install'if path=='/install/wow'else'update',post_verified=False)
      operation_state.checkpoint(t['source_commit'],t['run_id'],checkpoint)
      # Fixed-path content verification must not wait behind a broad tree walk.
+     failure_stage='content'
      if content is not None:content.scan()
+     failure_stage='snapshot'
      t['last_files']=observe_files(target,t);write(t)
+    failure_stage='identity'
     if session.verify()is not True:raise probe.Stop('identity_changed')
     if checkpoint is not None:
      checkpoint['post_response_identity_verified']=True
@@ -253,6 +263,7 @@ def execute(session,target,configured,r):
    def save_states():operation_state.write(operation_state.receipt(t['source_commit'],t['run_id'],states))
    save_states();t['status']='operation_state_observed';write(t)
    t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=observe_files(target,t);write(t)
+   if content is not None and content.r['game_component_materialized']:return
    if os.environ.get('RETAIL_START_OPERATION')!='owned-install-t5' or not operation_state.eligible(states[0]):return
    t['final_path_guard']=path_guard.inspect(target,str(target));write(t)
    if t['final_path_guard']['status']!='verified_existing_chain':return
@@ -261,6 +272,7 @@ def execute(session,target,configured,r):
    code=started.get('error')
    if type(code)is int and 0<=code<=2**32:t['start_agent_error']=code
    if 'error'in started and t['start_agent_error']!=0:t['status']='start_refused';return
+   if content is not None and content.r['game_component_materialized']:return
    uri=started.get('response_uri');resource=None
    for label in ('install','update'):
     if uri in ('/'+label+'/wow','http://127.0.0.1:'+str(session.port)+'/'+label+'/wow'):resource=label
@@ -320,7 +332,10 @@ def execute(session,target,configured,r):
    time.sleep(1)
   t['status']='observed'
  except Exception as exc:
+  import failure_receipt
+  failure_receipt.write(failure_receipt.make(t['source_commit'],t['run_id'],failure_stage,exc))
   name=type(exc).__name__;t['error_kind']=name if name in {'OSError','ValueError','Stop'}else 'other';t['status']='identity_changed'if name=='Stop'else'request_failed'
  finally:
+  if content is not None:content.stop_watch()
   write(t)
   if meter is not None:meter_control.stop(meter)

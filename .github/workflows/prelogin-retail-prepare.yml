@@ -1,4 +1,4 @@
-name: Logged-out Retail approved content probe T9
+name: Logged-out Retail concurrent content witness T10
 on:
   push:
     branches: [research/prelogin-telemetry-wow-data-provenance]
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved 2GiB 512MiB Retail content proof t9'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved same-budget concurrent content witness t10'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved 2GiB 512MiB Retail content proof t9'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved same-budget concurrent content witness t10'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -67,6 +67,7 @@ jobs:
           RETAIL_TCP_METER: owned-baseline-t2
           RETAIL_BUDGET_PROFILE: approved-2g-512m-t9
           RETAIL_CONTENT_PROBE: official-install-t9
+          RETAIL_CONTENT_WATCH: concurrent-fixed-t10
           RETAIL_BOOTSTRAP_WAIT: original-120-t9
         run: python analysis-tools/prelogin-retail-prepare/guard_driver.py
       - name: Validate only counts and fixed labels
@@ -109,6 +110,10 @@ jobs:
         if: always()
         run: |
           if (Test-Path output/retail-snapshot-status.json) { python analysis-tools/prelogin-retail-prepare/snapshot_status.py output/retail-snapshot-status.json sanitized/retail-snapshot-status.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
+      - name: Validate fixed-label failure code when present
+        if: always()
+        run: |
+          if (Test-Path output/retail-failure.json) { python analysis-tools/prelogin-retail-prepare/failure_receipt.py output/retail-failure.json sanitized/retail-failure.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
       - name: Record typed outcomes
         if: always()
         env:
@@ -220,6 +225,11 @@ jobs:
               snap=snapshot_status.validate(read_guard('incoming/retail-snapshot-status.json'))
               if snap['source_commit']!=os.environ['SOURCE'] or snap['run_id']!=os.environ['RUN']:raise SystemExit('snapshot_identity_mismatch')
               Path('reports/prelogin-retail-snapshot-status-latest.json').write_text(json.dumps(snap,indent=2)+'\n')
+          if Path('incoming/retail-failure.json').exists():
+              import failure_receipt
+              fail=failure_receipt.validate(read_guard('incoming/retail-failure.json'))
+              if fail['source_commit']!=os.environ['SOURCE'] or fail['run_id']!=os.environ['RUN']:raise SystemExit('failure_identity_mismatch')
+              Path('reports/prelogin-retail-failure-latest.json').write_text(json.dumps(fail,indent=2)+'\n')
           attempt=summarize_attempt(os.environ['SOURCE'],os.environ['RUN'],r,guard,transfer,d)
           Path('reports/prelogin-retail-attempt-latest.json').write_text(json.dumps(attempt,indent=2)+'\n')
           PY
@@ -238,6 +248,7 @@ jobs:
           if test -f incoming/preproduct-control.json; then git add -- reports/prelogin-preproduct-control-latest.json; fi
           if test -f incoming/retail-content.json; then git add -- reports/prelogin-retail-content-latest.json; fi
           if test -f incoming/retail-snapshot-status.json; then git add -- reports/prelogin-retail-snapshot-status-latest.json; fi
+          if test -f incoming/retail-failure.json; then git add -- reports/prelogin-retail-failure-latest.json; fi
           git diff --cached --quiet && exit 0
           git commit -m 'lab: publish sanitized Retail preparation evidence'
           git push origin HEAD:research/prelogin-telemetry-wow-data-provenance

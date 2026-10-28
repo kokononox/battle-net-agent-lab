@@ -15,13 +15,14 @@ class PreparationScope(unittest.TestCase):
   text=Path(p.__file__).read_text()
   self.assertIn('if context is not None and allow_transfer:transfer_probe.execute',text)
   self.assertEqual(text.count('transfer_probe.execute('),1)
- def test_live_workflow_requires_explicit_budget_content_t9_approval(self):
+ def test_live_workflow_requires_explicit_same_budget_t10_approval(self):
   root=Path(p.__file__).resolve().parents[2]
   text=(root/'.github/workflows/prelogin-retail-prepare.yml').read_text()
   self.assertIn('RETAIL_PREPARE_SCOPE: limited-transfer-c10',text)
-  self.assertIn("github.event.head_commit.message == 'lab: approved 2GiB 512MiB Retail content proof t9'",text)
+  self.assertIn("github.event.head_commit.message == 'lab: approved same-budget concurrent content witness t10'",text)
   self.assertIn('RETAIL_BUDGET_PROFILE: approved-2g-512m-t9',text)
   self.assertIn('RETAIL_CONTENT_PROBE: official-install-t9',text)
+  self.assertIn('RETAIL_CONTENT_WATCH: concurrent-fixed-t10',text)
   self.assertNotIn('RETAIL_PREPRODUCT_CONTROL:',text)
   self.assertIn('RETAIL_START_OPERATION: owned-install-t5',text)
   self.assertNotIn('RETAIL_PREARM_QUIET:',text)

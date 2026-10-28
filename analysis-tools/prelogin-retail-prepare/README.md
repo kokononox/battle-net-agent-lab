@@ -283,3 +283,28 @@ bounded target run after the approved stop.
 Cancellation confirmed: follow-up run 40619129965 ended cancelled; stop-only run
 40619262177 ended skipped. The cancelled follow-up is not counted as new content
 evidence. No further target run remains active.
+
+
+## T10: renewed same-budget continuation
+
+The user asked to continue after T9. T10 keeps the approved 2 GiB / 512 MiB
+thresholds, 240 s / 30 s timers and 10 GiB reserve unchanged. A synchronized,
+read-only fixed-path watcher starts only immediately before the already-authorized
+owned `/update` HTTP request. It shares the 64-scan and eight-hash bounds with the main thread; it has a 4 s lifetime,
+50 ms polling, explicit stop/join and no network or executable capability.
+Unknown scope or watcher path-security failures refuse further requests.
+
+The corrected censored metadata enumeration also runs in this experiment;
+only `tree_limit` becomes unknown counts, never zero. Other errors remain fatal.
+New failure receipts expose a finite stage/type/reason code, never raw exception
+values. A positive official component match is still materialization evidence,
+not same-file socket delivery, complete game installation or hardware upload.
+
+T10 schema 2 additionally checks the build's main `Wow.exe` and
+`wow_loader.dll` from the same already verified public IN manifest, rather than
+assuming a helper must arrive first. The local read-only hash bound is explicitly
+128 MiB per candidate / 256 MiB cumulative declared hash work; this does NOT alter
+network thresholds, timers, or disk reserve. Reads are streaming and bounded by
+expected exact size plus one EOF byte, with before/open/after identity checks.
+Historical schema 1 receipts retain their original 16 MiB hash-work limit and
+two-component reference interpretation. Neither executable is ever launched.
