@@ -36,6 +36,10 @@ class Meter(unittest.TestCase):
   from unittest.mock import patch
   with patch.dict(c.os.environ,{},clear=True):
    with self.assertRaises(ValueError):c.start(1,1)
+ def test_sdk_headers_and_environment_api(self):
+  root=Path(c.__file__).parent
+  h=(root/'estats_common.h').read_text();s=(root/'tcp_meter.cpp').read_text()
+  self.assertIn('#include <ws2tcpip.h>',h);self.assertNotIn('getenv(',s);self.assertIn('GetEnvironmentVariableA',s)
  def test_native_keeps_process_handle_and_identity(self):
   s=Path(c.__file__).with_name('tcp_meter.cpp').read_text()
   for x in ('OpenProcess(SYNCHRONIZE','WaitForSingleObject(h,0)','r.dwOwningPid!=pid','listening==1','read_stats(v.row','now!=initial','Sleep(25)','k<200'):

@@ -68,10 +68,11 @@ void run(Report&r,DWORD pid,DWORD port){
  }
  r.status="time_limit";
 }
+std::string env(const char*name){char b[256]{};DWORD n=GetEnvironmentVariableA(name,b,sizeof(b));return n>0&&n<sizeof(b)?std::string(b,n):std::string();}
 int main(int argc,char**argv){
  if(argc!=3||!identity(argv[1],true)||!identity(argv[2],false))return 2;
- const char*a=getenv("RETAIL_SUPERVISED"),*b=getenv("RETAIL_PREPARE");if(!a||std::string(a)!="job-c10"||!b||std::string(b)!="approved-retail-prepare-c10")return 2;
- DWORD pid=0,port=0;if(!number(getenv("TCP_METER_PID"),pid)||!number(getenv("TCP_METER_PORT"),port)||port>65535)return 2;
+ if(env("RETAIL_SUPERVISED")!="job-c10"||env("RETAIL_PREPARE")!="approved-retail-prepare-c10")return 2;
+ DWORD pid=0,port=0;if(!number(env("TCP_METER_PID").c_str(),pid)||!number(env("TCP_METER_PORT").c_str(),port)||port>65535)return 2;
  Report r;r.source=argv[1];r.run=argv[2];try{run(r,pid,port);}catch(...){r.status="other";}write(r);
  return r.status=="completed"?0:2;
 }
