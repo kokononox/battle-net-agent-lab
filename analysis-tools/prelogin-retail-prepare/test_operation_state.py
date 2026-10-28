@@ -1,10 +1,13 @@
 import copy,json,unittest
 import operation_state as o
 class Operation(unittest.TestCase):
- def describe(self,**kw):return o.describe(dict(progress=0.0,download_complete=False,playable=False,**kw),'install')
+ def describe(self,**kw):return o.describe(dict(progress=0.0,download_complete=False,playable=False,**kw),'install',post_verified=True)
  def test_real_typed_operation_can_authorize_attempt_not_success(self):
   s=self.describe();self.assertTrue(o.eligible(s));self.assertIsNone(s['error_code']);self.assertFalse(s['error_present'])
   r=o.receipt('a'*40,'1',[s]);self.assertFalse(r['game_payload_proven']);self.assertFalse(r['complete_installation_proven'])
+ def test_pre_request_only_checkpoint_cannot_authorize_start(self):
+  s=o.describe({'progress':0.0,'download_complete':False},'install');self.assertFalse(o.eligible(s))
+  old=dict(s);old.pop('post_response_identity_verified');self.assertFalse(o.eligible(old))
  def test_explicit_auth_legal_and_error_are_not_bypassed(self):
   for kw in ({'error':4},{'error':True},{'requires_login':True},{'requires_login':1},{'requires_eula':True},{'authentication':{}},{'eula':False},{'error_code':42},{'message':'account login required'},{'errors':['PRIVATE']}):
    self.assertFalse(o.eligible(self.describe(**kw)))

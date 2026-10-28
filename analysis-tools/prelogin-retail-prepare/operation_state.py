@@ -6,7 +6,7 @@ FIELDS={'progress','download_complete','playable','installed','error','form','re
 BOOLS={'download_complete','playable','installed','requires_authentication','needs_authentication','requires_login','requires_eula','eula_required'}
 REFUSALS=BOOLS-{'download_complete','playable','installed'}
 
-def describe(data,resource):
+def describe(data,resource,post_verified=False):
  if type(data)is not dict or len(data)>128 or resource not in {'install','update','game'}:raise ValueError('operation_scope')
  value=data.get('progress');fraction=float(value)if type(value)in (int,float)and math.isfinite(value)and 0<=value<=1 else None
  error=data.get('error');error=error if type(error)is int and 0<=error<=2**32 else None
@@ -16,15 +16,16 @@ def describe(data,resource):
  refused=refused or any(k in data and type(data[k])is not bool for k in REFUSALS)or any(k in data for k in ('authentication','eula','min_spec','account_country'))or bool(data.get('errors'))or any(n['numeric_code']not in (None,0)for n in diagnostic['nodes'])
  recognized=sorted(set(data)&FIELDS)
  return validate_state(dict(resource=resource,recognized_top_fields=recognized,unknown_top_fields=len(set(data)-FIELDS),progress_fraction=fraction,
-    error_present='error'in data,error_code=error,form_present=type(data.get('form'))is dict,refusal_observed=refused,flags=flags))
+    post_response_identity_verified=post_verified,error_present='error'in data,error_code=error,form_present=type(data.get('form'))is dict,refusal_observed=refused,flags=flags))
 
 def validate_state(s):
- if type(s)is not dict or set(s)!={'resource','recognized_top_fields','unknown_top_fields','progress_fraction','error_present','error_code','form_present','refusal_observed','flags'}or s['resource']not in {'install','update','game'}:raise ValueError('state_schema')
+ if type(s)is dict and 'post_response_identity_verified'not in s:s=dict(s,post_response_identity_verified=False)
+ if type(s)is not dict or set(s)!={'resource','post_response_identity_verified','recognized_top_fields','unknown_top_fields','progress_fraction','error_present','error_code','form_present','refusal_observed','flags'}or s['resource']not in {'install','update','game'}:raise ValueError('state_schema')
  if type(s['recognized_top_fields'])is not list or any(type(k)is not str or k not in FIELDS for k in s['recognized_top_fields'])or len(set(s['recognized_top_fields']))!=len(s['recognized_top_fields']):raise ValueError('fields')
  if type(s['unknown_top_fields'])is not int or not 0<=s['unknown_top_fields']<=128:raise ValueError('count')
  v=s['progress_fraction']
  if v is not None and(type(v)not in (int,float)or not math.isfinite(v)or not 0<=v<=1):raise ValueError('fraction')
- for k in ('error_present','form_present','refusal_observed'):
+ for k in ('post_response_identity_verified','error_present','form_present','refusal_observed'):
   if type(s[k])is not bool:raise ValueError('boolean')
  if s['error_code']is not None and(type(s['error_code'])is not int or not 0<=s['error_code']<=2**32):raise ValueError('error')
  if not s['error_present']and s['error_code']is not None:raise ValueError('absent_error')
@@ -32,8 +33,8 @@ def validate_state(s):
  return s
 
 def eligible(s):
- validate_state(s)
- return s['resource']=='install'and not s['form_present']and not s['refusal_observed']and s['progress_fraction']is not None and s['progress_fraction']<1 and s['flags']['download_complete']is False and(not s['error_present']or s['error_code']==0)
+ s=validate_state(s)
+ return s['post_response_identity_verified']and s['resource']=='install'and not s['form_present']and not s['refusal_observed']and s['progress_fraction']is not None and s['progress_fraction']<1 and s['flags']['download_complete']is False and(not s['error_present']or s['error_code']==0)
 
 def receipt(source,run,states):
  r=dict(schema='bnet-retail-operation-state-1',source_commit=source,run_id=run,states=states,account_parameter_sent=False,legal_acceptance_parameter_sent=False,payload_exported=False,raw_paths_exported=False,complete_installation_proven=False,game_payload_proven=False)
@@ -48,6 +49,17 @@ def validate(r):
  return r
 def write(r):
  validate(r);p=Path('output/retail-operation-state.json');tmp=p.with_suffix('.tmp');tmp.write_text(json.dumps(r,indent=2)+'\n');tmp.replace(p)
+def checkpoint(source,run,state,confirmed=False):
+ p=Path('output/retail-operation-state.json');states=[]
+ if p.exists():
+  old=validate(guard_report.read(p))
+  if old['source_commit']!=source or old['run_id']!=run:raise ValueError('checkpoint_identity')
+  states=old['states']
+ if confirmed:
+  if not states or states[-1]['resource']!=state['resource']:raise ValueError('checkpoint_resource')
+  states[-1]=state
+ else:states.append(state)
+ write(receipt(source,run,states))
 if __name__=='__main__':
  import sys
  r=validate(guard_report.read(sys.argv[1]))

@@ -194,3 +194,18 @@ Public flow reference: BNetInstaller/Operations/InstallProductTask.cs at
 3aa2d98d866b393197da0b75d7381b7fff495ad9. Its country defaults and recent-login
 assumption are NOT imported into this test; credentials/legal requirements
 remain server-enforced, and explicit refusals stop the run.
+
+
+T5 reached one explicit /update (HTTP200) and a subsequent status GET (HTTP200),
+but the unchanged phase guard stopped the job during the post-response identity
+check. T6 adds at most2.5s of read-only readiness BEFORE the phase intent: three
+fresh 250ms TCP-meter intervals <=1MiB each, no connection turnover, no meter
+errors. All startup/preparation bytes and waiting time remain charged to the
+unchanged GLOBAL guard; the phase baseline is still armed once before any
+finalization request. There is no byte-budget reset, cap increase or requested
+transfer before acknowledgement. Quiet in this incomplete socket scope is only
+a readiness heuristic, not proof of total Agent/host silence. Failure refuses
+finalization. Parsed operation state/file metadata are now checkpointed before
+the post-response identity check, explicitly marked unconfirmed; such a pending
+checkpoint cannot authorize any subsequent start. Earlier confirmed states are
+retained; a successful check updates the last state to confirmed.

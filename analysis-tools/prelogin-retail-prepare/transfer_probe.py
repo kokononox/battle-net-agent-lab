@@ -167,6 +167,10 @@ def execute(session,target,configured,r):
    sys.path.insert(0,str(Path(__file__).resolve().parent.parent/'prelogin-tcp-attribution'))
    import meter_control
    meter=meter_control.start(owner,session.port)
+   if os.environ.get('RETAIL_PREARM_QUIET')=='bounded-t6':
+    import prearm_quiet
+    prearm_quiet.wait(t['source_commit'],t['run_id'])
+   elif os.environ.get('RETAIL_PREARM_QUIET')not in (None,''):raise ValueError('quiet_scope')
   elif meter_scope not in (None,''):raise ValueError('meter_scope')
   # Signal is an intent marker, not proof of transfer or permission to reset global limits.
   with Path('output/retail-transfer-active.signal').open('x')as signal:signal.write('active\n')
@@ -200,7 +204,16 @@ def execute(session,target,configured,r):
     data=probe.unique_json(raw)
     if stage=='finalization':
      t['finalization_response_shape']=finalization_shape.classify(data,session.port);t['response_diagnostic']=response_diagnostic.describe(data);write(t)
+    checkpoint=None
+    if method=='GET'and path in {'/install/wow','/update/wow'}:
+     import operation_state
+     checkpoint=operation_state.describe(data,'install'if path=='/install/wow'else'update',post_verified=False)
+     operation_state.checkpoint(t['source_commit'],t['run_id'],checkpoint)
+     t['last_files']=file_snapshot(target);write(t)
     if session.verify()is not True:raise probe.Stop('identity_changed')
+    if checkpoint is not None:
+     checkpoint['post_response_identity_verified']=True
+     operation_state.checkpoint(t['source_commit'],t['run_id'],checkpoint,confirmed=True)
     return data
    finally:conn.close()
   if os.environ.get('RETAIL_PHASE_CONTROL')=='identity-only-d20':
@@ -217,7 +230,7 @@ def execute(session,target,configured,r):
    state=request('GET','/install/wow',stage='status_query')
    if type(state.get('form'))is dict:final_form.write(final_form.describe(state,target,t['source_commit'],t['run_id']))
    import operation_state
-   states=[operation_state.describe(state,'install')]
+   states=[operation_state.describe(state,'install',post_verified=True)]
    def save_states():operation_state.write(operation_state.receipt(t['source_commit'],t['run_id'],states))
    save_states();t['status']='operation_state_observed';write(t)
    t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
@@ -235,7 +248,7 @@ def execute(session,target,configured,r):
    if resource is None and t['start_agent_error']==0:resource='install'
    if resource is None:t['status']='start_refused';return
    for _ in range(4):
-    result=request('GET','/'+resource+'/wow',stage='status_query');states.append(operation_state.describe(result,resource));save_states()
+    result=request('GET','/'+resource+'/wow',stage='status_query');states.append(operation_state.describe(result,resource,post_verified=True));save_states()
     t['last_progress']=progress(result);t['polls']+=1;t['status']='operation_start_observed';write(t)
     t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
     if states[-1]['refusal_observed']:return
