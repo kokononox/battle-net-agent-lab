@@ -1,11 +1,11 @@
 {
   "schema": "bnet-retail-content-probe-2",
-  "source_commit": "014a9b4d3e61b464d69f6e1e391bb20b177a7dcd",
-  "run_id": "40625410223",
+  "source_commit": "2135edd74e67d8d7725ed5ed720f9b15d0f1c476",
+  "run_id": "40626078291",
   "status": "observing",
   "build_reference_matched": true,
   "baseline_checked": true,
-  "scans": 64,
+  "scans": 10,
   "hash_checks": 0,
   "hashed_bytes": 0,
   "components": {
@@ -43,8 +43,8 @@
   "game_files_written_by_probe": false,
   "race_free_path_safety_proven": false,
   "watcher": {
-    "status": "bounded_complete",
-    "iterations": 55,
+    "status": "observing",
+    "iterations": 8,
     "interval_ms": 50,
     "time_limit_ms": 4000,
     "activation": "before_owned_update_http"

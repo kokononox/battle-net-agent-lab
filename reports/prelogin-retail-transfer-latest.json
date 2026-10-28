@@ -1,14 +1,14 @@
 {
   "schema": "bnet-retail-transfer-6",
-  "source_commit": "014a9b4d3e61b464d69f6e1e391bb20b177a7dcd",
-  "run_id": "40625410223",
+  "source_commit": "2135edd74e67d8d7725ed5ed720f9b15d0f1c476",
+  "run_id": "40626078291",
   "status": "operation_start_observed",
   "start_authorization": "owned_install_operation",
   "error_kind": null,
   "finalization_attempted": true,
   "start_attempted": true,
-  "local_requests": 7,
-  "polls": 4,
+  "local_requests": 4,
+  "polls": 1,
   "phase_signal_created": true,
   "phase_acknowledged": true,
   "finalization_response_shape": {
@@ -49,7 +49,7 @@
   "status_query_http_status": 200,
   "finalization_response_bytes": 65,
   "start_response_bytes": 64,
-  "status_query_response_bytes": 1837,
+  "status_query_response_bytes": 1830,
   "finalized_returned": null,
   "finalization_error_codes": {
     "agent": null,
@@ -95,16 +95,12 @@
     "directories": 0,
     "bytes": 0
   },
-  "last_files": {
-    "files": 322,
-    "directories": 11,
-    "bytes": 25728010
-  },
+  "last_files": null,
   "baseline_connections": {
     "1119": 0,
     "3724": 0,
     "443": 3,
-    "80": 1,
+    "80": 3,
     "other": 0
   },
   "last_connections": {
