@@ -1,0 +1,44 @@
+{
+  "schema": "bnet-retail-final-form-1",
+  "source_commit": "c61acd7aa2b5f968ffebb47a9e9c80c0a5b80f33",
+  "run_id": "40612323498",
+  "status": "observed",
+  "form_schema_valid": false,
+  "form_fields": [],
+  "unknown_fields": false,
+  "error_codes": {
+    "agent": null,
+    "authentication": null,
+    "min_spec": null,
+    "game_dir": null,
+    "eula": null,
+    "tome_path": null,
+    "language": null
+  },
+  "blockers": [
+    "schema_invalid"
+  ],
+  "finalized": null,
+  "eula_present": false,
+  "path_relation": {
+    "relation": "not_observed",
+    "child_depth": null,
+    "returned_absolute": null,
+    "returned_dot_segments": null,
+    "filesystem_containment_proven": false
+  },
+  "path_guard": {
+    "status": "refused",
+    "existing_components_checked": 0,
+    "missing_tail": false,
+    "reparse_detected": false,
+    "absolute_containment_lexically_verified": false,
+    "race_free_containment_proven": false
+  },
+  "query_resource": "owned_install_wow",
+  "account_parameter_sent": false,
+  "legal_acceptance_parameter_sent": false,
+  "raw_response_exported": false,
+  "raw_paths_exported": false,
+  "download_proven": false
+}

@@ -1,13 +1,13 @@
 {
   "schema": "bnet-retail-transfer-5",
-  "source_commit": "300b4cfcf56044181cc6b0bcbd701fabd2a1e55b",
-  "run_id": "40611880616",
-  "status": "response_schema_unrecognized",
+  "source_commit": "c61acd7aa2b5f968ffebb47a9e9c80c0a5b80f33",
+  "run_id": "40612323498",
+  "status": "final_form_state_observed",
   "error_kind": null,
   "finalization_attempted": true,
   "start_attempted": false,
   "local_requests": 2,
-  "polls": 1,
+  "polls": 0,
   "phase_signal_created": true,
   "phase_acknowledged": true,
   "finalization_response_shape": {
@@ -16,7 +16,8 @@
       "response_uri"
     ],
     "unknown_top_fields": 1,
-    "owned_game_link": false
+    "owned_game_link": false,
+    "owned_install_link": true
   },
   "response_diagnostic": {
     "observed": true,
@@ -47,7 +48,7 @@
   "status_query_http_status": 200,
   "finalization_response_bytes": 65,
   "start_response_bytes": 0,
-  "status_query_response_bytes": 2891,
+  "status_query_response_bytes": 1822,
   "finalized_returned": null,
   "finalization_error_codes": {
     "agent": null,
@@ -60,11 +61,11 @@
   },
   "start_agent_error": null,
   "final_path_guard": {
-    "status": "verified_existing_chain",
-    "existing_components_checked": 4,
+    "status": "not_observed",
+    "existing_components_checked": 0,
     "missing_tail": false,
     "reparse_detected": false,
-    "absolute_containment_lexically_verified": true,
+    "absolute_containment_lexically_verified": false,
     "race_free_containment_proven": false
   },
   "final_path_relation": {
@@ -74,30 +75,8 @@
     "returned_dot_segments": null,
     "filesystem_containment_proven": false
   },
-  "baseline_progress": {
-    "recognized_fields": [
-      "download_complete",
-      "installed",
-      "playable"
-    ],
-    "installed": false,
-    "download_complete": false,
-    "playable": false,
-    "counters": {},
-    "unknown_top_fields": 38
-  },
-  "last_progress": {
-    "recognized_fields": [
-      "download_complete",
-      "installed",
-      "playable"
-    ],
-    "installed": false,
-    "download_complete": false,
-    "playable": false,
-    "counters": {},
-    "unknown_top_fields": 38
-  },
+  "baseline_progress": null,
+  "last_progress": null,
   "baseline_files": {
     "files": 0,
     "directories": 0,
@@ -119,7 +98,7 @@
     "1119": 0,
     "3724": 0,
     "443": 3,
-    "80": 2,
+    "80": 1,
     "other": 0
   },
   "account_parameter_sent": false,
