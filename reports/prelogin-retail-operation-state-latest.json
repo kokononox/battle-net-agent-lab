@@ -1,7 +1,7 @@
 {
   "schema": "bnet-retail-operation-state-1",
-  "source_commit": "b7151a66d494ddfe9ee8983079b152a24d00ddab",
-  "run_id": "40613265559",
+  "source_commit": "da2e6721ba5770fc8a89472d2a8584575a428bf3",
+  "run_id": "40618511090",
   "states": [
     {
       "resource": "install",
@@ -13,6 +13,33 @@
       ],
       "unknown_top_fields": 22,
       "progress_fraction": 0.0,
+      "post_response_identity_verified": true,
+      "error_present": false,
+      "error_code": null,
+      "form_present": false,
+      "refusal_observed": false,
+      "flags": {
+        "download_complete": false,
+        "eula_required": null,
+        "installed": false,
+        "needs_authentication": null,
+        "playable": false,
+        "requires_authentication": null,
+        "requires_eula": null,
+        "requires_login": null
+      }
+    },
+    {
+      "resource": "update",
+      "recognized_top_fields": [
+        "download_complete",
+        "installed",
+        "playable",
+        "progress"
+      ],
+      "unknown_top_fields": 22,
+      "progress_fraction": 0.0,
+      "post_response_identity_verified": false,
       "error_present": false,
       "error_code": null,
       "form_present": false,
