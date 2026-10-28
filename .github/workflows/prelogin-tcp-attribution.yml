@@ -29,12 +29,14 @@ jobs:
         run: python analysis-tools/prelogin-tcp-attribution/run_fixture.py
       - name: Strict source-bound receipt only
         if: always()
-        run: python analysis-tools/prelogin-tcp-attribution/receipt.py output/tcp-fixture.json sanitized/tcp-fixture.json "${{ github.sha }}" "${{ github.run_id }}"
+        run: |
+          if (Test-Path output/tcp-build.json) { python analysis-tools/prelogin-tcp-attribution/build_receipt.py output/tcp-build.json sanitized/tcp-build.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
+          if (Test-Path output/tcp-fixture.json) { python analysis-tools/prelogin-tcp-attribution/receipt.py output/tcp-fixture.json sanitized/tcp-fixture.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:
           name: owned-tcp-calibration
-          path: sanitized/tcp-fixture.json
+          path: sanitized/
           if-no-files-found: error
           retention-days: 3
   publish:
@@ -59,10 +61,12 @@ jobs:
           RUN: ${{ github.run_id }}
         run: |
           set -euo pipefail
-          python3 analysis-tools/prelogin-tcp-attribution/receipt.py incoming-tcp/tcp-fixture.json reports/prelogin-tcp-calibration-t1.json "$SOURCE" "$RUN"
+          if test -f incoming-tcp/tcp-fixture.json; then python3 analysis-tools/prelogin-tcp-attribution/receipt.py incoming-tcp/tcp-fixture.json reports/prelogin-tcp-calibration-t1.json "$SOURCE" "$RUN"; fi
+          python3 analysis-tools/prelogin-tcp-attribution/build_receipt.py incoming-tcp/tcp-build.json reports/prelogin-tcp-build-latest.json "$SOURCE" "$RUN"
           git config user.name prelogin-wire-report
           git config user.email prelogin-wire-report@users.noreply.github.com
-          git add -- reports/prelogin-tcp-calibration-t1.json
+          git add -- reports/prelogin-tcp-build-latest.json
+          if test -f incoming-tcp/tcp-fixture.json; then git add -- reports/prelogin-tcp-calibration-t1.json; fi
           git diff --cached --quiet && exit 0
           git commit -m 'lab: publish owned TCP attribution calibration'
           git push origin HEAD:research/prelogin-telemetry-wow-data-provenance

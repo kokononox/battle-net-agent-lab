@@ -1,5 +1,6 @@
 """Fresh Windows: compile trusted fixture, execute only bounded loopback transfer."""
-import os,subprocess,sys
+import os,subprocess,sys,json,re
+import build_receipt
 from pathlib import Path
 import receipt
 HERE=Path(__file__).resolve().parent
@@ -17,14 +18,22 @@ def compile_source(name):
  if any('"'in str(p)or '\n'in str(p)for p in (dev,exe,source,log,bat)):raise SystemExit('build_scope')
  bat.write_text('@echo off\ncall "'+str(dev)+'" -no_logo -arch=x64 -host_arch=x64 >nul 2>&1\nif errorlevel 1 exit /b 90\ncl /nologo /EHsc /std:c++17 /W4 /Fe:"'+str(exe)+'" /Fo:"'+str(out/(name+'.obj'))+'" "'+str(source)+'" >"'+str(log)+'" 2>&1\nexit /b %errorlevel%\n')
  p=subprocess.run([os.environ.get('COMSPEC','cmd.exe'),'/d','/c',str(bat)],capture_output=True,timeout=90)
- if p.returncode or not exe.is_file():
-  import re
-  codes=sorted(set(re.findall(r'\b(?:C[0-9]{4}|LNK[0-9]{4})\b',log.read_text(errors='replace')[:65536])))
-  print({'build_failed':True,'compiler_codes':codes});raise SystemExit(2)
+ text=log.read_text(errors='replace')[:65536] if log.is_file()else ''
+ codes=sorted(set(re.findall(r'\b(?:C[0-9]{4}|D[0-9]{4}|LNK[0-9]{4})\b',text)))[:16] if p.returncode else []
+ lines=sorted(set(int(n)for n in re.findall(re.escape(name)+r'\.cpp\(([0-9]{1,4})(?:,[0-9]+)?\).*?(?:fatal error|error) ',text)))[:16]
+ destination=out/'tcp-build.json'
+ record=dict(schema='bnet-tcp-build-1',source_commit=os.environ['GITHUB_SHA'],run_id=os.environ['GITHUB_RUN_ID'],units=[])
+ if destination.exists():
+  record=build_receipt.validate(json.loads(destination.read_text()))
+  if record['source_commit']!=os.environ['GITHUB_SHA']or record['run_id']!=os.environ['GITHUB_RUN_ID']:raise RuntimeError('build_identity')
+ record['units']=[u for u in record['units']if u['unit']!=name]
+ record['units'].append(dict(unit=name,compiled=p.returncode==0 and exe.is_file(),exit_code=p.returncode,compiler_error_codes=codes,source_error_lines=lines))
+ build_receipt.validate(record);destination.write_text(json.dumps(record,indent=2)+'\n')
+ if p.returncode or not exe.is_file():raise RuntimeError('build_failed')
  return exe
 def main():
  if not allowed(os.environ,sys.platform):raise SystemExit('calibration_environment_required')
- exe=compile_source('tcp_fixture');out=Path('output').resolve()
+ exe=compile_source('tcp_fixture');compile_source('tcp_meter');out=Path('output').resolve()
  p=subprocess.run([str(exe),os.environ['GITHUB_SHA'],os.environ['GITHUB_RUN_ID']],capture_output=True,timeout=20)
  r=receipt.read(out/'tcp-fixture.json');print({'status':r['status'],'win32_error':r['win32_error']})
  if p.returncode:raise SystemExit(2)
