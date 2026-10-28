@@ -15,13 +15,13 @@ class PreparationScope(unittest.TestCase):
   text=Path(p.__file__).read_text()
   self.assertIn('if context is not None and allow_transfer:transfer_probe.execute',text)
   self.assertEqual(text.count('transfer_probe.execute('),1)
- def test_live_workflow_requires_explicit_zero_product_t7_approval(self):
+ def test_live_workflow_requires_explicit_checkpointed_t8_approval(self):
   root=Path(p.__file__).resolve().parents[2]
   text=(root/'.github/workflows/prelogin-retail-prepare.yml').read_text()
-  self.assertIn('RETAIL_PREPARE_SCOPE: prepare-only-d11',text)
-  self.assertIn("github.event.head_commit.message == 'lab: approved zero product request control t7'",text)
-  self.assertIn('RETAIL_PREPRODUCT_CONTROL: no-product-t7',text)
-  self.assertNotIn('RETAIL_START_OPERATION:',text)
+  self.assertIn('RETAIL_PREPARE_SCOPE: limited-transfer-c10',text)
+  self.assertIn("github.event.head_commit.message == 'lab: approved checkpointed bounded Retail operation t8'",text)
+  self.assertNotIn('RETAIL_PREPRODUCT_CONTROL:',text)
+  self.assertIn('RETAIL_START_OPERATION: owned-install-t5',text)
   self.assertNotIn('RETAIL_PREARM_QUIET:',text)
   self.assertNotIn("github.event.head_commit.message == 'lab: approved retail prepare c10'",text)
 

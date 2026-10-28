@@ -1,4 +1,4 @@
-name: Logged-out Agent before product requests T7
+name: Logged-out Retail checkpointed bounded operation T8
 on:
   push:
     branches: [research/prelogin-telemetry-wow-data-provenance]
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved zero product request control t7'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved checkpointed bounded Retail operation t8'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved zero product request control t7'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved checkpointed bounded Retail operation t8'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -57,14 +57,14 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python -m unittest discover -s analysis-tools/prelogin-retail-prepare -p 'test_*.py' -v
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: Owned Agent zero-product control under unchanged independent guard
+      - name: Owned Agent checkpointed operation under unchanged independent guard
         id: observation
         timeout-minutes: 6
         env:
           RETAIL_PREPARE: approved-retail-prepare-c10
-          RETAIL_PREPARE_SCOPE: prepare-only-d11
+          RETAIL_PREPARE_SCOPE: limited-transfer-c10
+          RETAIL_START_OPERATION: owned-install-t5
           RETAIL_TCP_METER: owned-baseline-t2
-          RETAIL_PREPRODUCT_CONTROL: no-product-t7
         run: python analysis-tools/prelogin-retail-prepare/guard_driver.py
       - name: Validate only counts and fixed labels
         id: sanitize

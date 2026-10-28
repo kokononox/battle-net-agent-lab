@@ -160,7 +160,7 @@ def execute(session,target,configured,r):
   returned=f.get('game_dir',{}).get('game_dir');t['preflight_path_guard']=path_guard.inspect(target,returned)
   if t['preflight_path_guard']['status']!='verified_existing_chain':t['status']='prerequisite_refused';return
   if session.verify()is not True:raise probe.Stop('identity_changed')
-  rows=tcp_rows();owner=owner_at(session.port,rows);t['baseline_connections']=connection_counts(session.port,owner,rows);t['baseline_files']=file_snapshot(target)
+  rows=tcp_rows();owner=owner_at(session.port,rows);t['baseline_connections']=connection_counts(session.port,owner,rows);t['baseline_files']=file_snapshot(target);write(t)
   meter_scope=os.environ.get('RETAIL_TCP_METER')
   if meter_scope=='owned-baseline-t2':
    import sys
