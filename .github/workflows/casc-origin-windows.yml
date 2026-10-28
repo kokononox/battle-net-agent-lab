@@ -10,7 +10,7 @@ concurrency:
 jobs:
   build:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: build standalone offline origin checker windows v1'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: build standalone offline origin checker windows v2'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -34,16 +34,16 @@ jobs:
         run: |
           $p = Start-Process -FilePath .\dist\CASCOriginCheck.exe -ArgumentList '--self-test', 'exe-selftest.json' -PassThru -Wait
           if ($p.ExitCode -ne 0) { Write-Output '::error title=bounded_build::exe_selftest_failed'; exit 1 }
-          python -c "import json; r=json.load(open('exe-selftest.json')); assert r['passed'] and r['tests_run']==10 and r['failures']==0 and r['errors']==0; print('::notice title=bounded_build::exe_selftest_passed=True')"
+          python -c "import json; r=json.load(open('exe-selftest.json')); assert r['passed'] and r['tests_run']==16 and r['failures']==0 and r['errors']==0; print('::notice title=bounded_build::exe_selftest_passed=True')"
       - name: Make fixed-field build receipt and package
         env:
           SOURCE: ${{ github.sha }}
           RUN: ${{ github.run_id }}
         run: |
-          python -c "import json,hashlib,os,pathlib,platform,shutil; p=pathlib.Path('dist/CASCOriginCheck.exe'); r=dict(schema='casc-origin-windows-build-1',source_commit=os.environ['SOURCE'],run_id=os.environ['RUN'],platform='windows-x64',python_version=platform.python_version(),pyinstaller_version='6.16.0',exe_bytes=p.stat().st_size,exe_sha256=hashlib.sha256(p.read_bytes()).hexdigest(),exe_selftest=json.load(open('exe-selftest.json')),unsigned=True,game_launched=False,account_login_performed=False,game_download_performed=False); pathlib.Path('dist/build-receipt.json').write_text(json.dumps(r,indent=2)+'\n'); shutil.copyfile('origin-check/README-Windows.fa.md','dist/README-Windows.fa.md')"
+          python -c "import json,hashlib,os,pathlib,platform,shutil; p=pathlib.Path('dist/CASCOriginCheck.exe'); r=dict(schema='casc-origin-windows-build-1',source_commit=os.environ['SOURCE'],run_id=os.environ['RUN'],platform='windows-x64',tool_version='2.0',python_version=platform.python_version(),pyinstaller_version='6.16.0',exe_bytes=p.stat().st_size,exe_sha256=hashlib.sha256(p.read_bytes()).hexdigest(),exe_selftest=json.load(open('exe-selftest.json')),unsigned=True,game_launched=False,account_login_performed=False,game_download_performed=False); pathlib.Path('dist/build-receipt.json').write_text(json.dumps(r,indent=2)+'\n'); shutil.copyfile('origin-check/README-Windows.fa.md','dist/README-Windows.fa.md')"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: CASCOriginCheck-Windows-x64
+          name: CASCOriginCheck-Windows-x64-v2
           path: dist/
           if-no-files-found: error
           retention-days: 14
@@ -59,7 +59,7 @@ jobs:
           ref: research/prelogin-telemetry-wow-data-provenance
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         with:
-          name: CASCOriginCheck-Windows-x64
+          name: CASCOriginCheck-Windows-x64-v2
           path: incoming
       - name: Publish only public executable build receipt
         env:

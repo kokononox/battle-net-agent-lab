@@ -33,4 +33,30 @@ class Offline(unittest.TestCase):
   with tempfile.TemporaryDirectory()as t:
    d=Path(t);(d/'real').write_bytes(prefix());os.link(d/'real',d/'data.000')
    with self.assertRaises(c.Refused):c.inspect(d)
+class Batches(unittest.TestCase):
+ def files(self,folder,count):
+  for i in range(count):(folder/('data.%03d'%i)).write_bytes(bytes(480))
+ def test_more_than64_no_longer_refused(self):
+  with tempfile.TemporaryDirectory()as t:
+   self.files(Path(t),70);r,_=c.inspect(t);self.assertEqual(r['archives_checked'],64);self.assertEqual(r['total_eligible_archives'],70);self.assertEqual(r['next_batch_start'],64);self.assertFalse(r['archive_scan_complete']);self.assertEqual(r['archives_not_checked_this_run'],6);self.assertLessEqual(r['prefix_bytes_read'],64*65536)
+ def test_next_batch_reads_remaining_only(self):
+  with tempfile.TemporaryDirectory()as t:
+   self.files(Path(t),70);r,_=c.inspect(t,64);self.assertEqual(r['archives_checked'],6);self.assertIsNone(r['next_batch_start']);self.assertFalse(r['archive_scan_complete']);self.assertFalse(r['whole_game_scanned'])
+ def test_invalid_cursor_refused(self):
+  with tempfile.TemporaryDirectory()as t:
+   for x in (-64,1,True,4097):
+    with self.assertRaises(c.Refused):c.inspect(t,x)
+ def test_unsupported_archive_ids_not_silently_complete(self):
+  with tempfile.TemporaryDirectory()as t:
+   (Path(t)/'data.256').write_bytes(bytes(480));r,_=c.inspect(t);self.assertEqual(r['unsupported_archive_ids'],1);self.assertFalse(r['archive_scan_complete']);self.assertEqual(r['archives_checked'],0)
+ def test_second_directory_shorter_batch_is_valid(self):
+  with tempfile.TemporaryDirectory()as t:
+   self.files(Path(t),2);r,_=c.inspect(t,64);self.assertEqual(r['archives_checked'],0);self.assertFalse(r['more_archives_available']);self.assertFalse(r['archive_scan_complete'])
+ def test_partial_batch_equality_not_full_set_claim(self):
+  import io,json
+  from contextlib import redirect_stdout
+  with tempfile.TemporaryDirectory()as t:
+   a=Path(t)/'a';b=Path(t)/'b';a.mkdir();b.mkdir();self.files(a,65);self.files(b,65);(a/'data.000').write_bytes(prefix());(b/'data.000').write_bytes(prefix());out=io.StringIO()
+   with redirect_stdout(out):code=c.main([str(a),str(b)])
+   r=json.loads(out.getvalue());self.assertEqual(code,0);self.assertTrue(r['observed_batch_marker_sets_equal']);self.assertIsNone(r['two_copy_marker_sets_equal']);self.assertEqual(r['tool_version'],'2.0')
 if __name__=='__main__':unittest.main()
