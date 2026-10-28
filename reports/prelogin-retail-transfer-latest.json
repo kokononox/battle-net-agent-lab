@@ -1,14 +1,14 @@
 {
   "schema": "bnet-retail-transfer-6",
-  "source_commit": "da2e6721ba5770fc8a89472d2a8584575a428bf3",
-  "run_id": "40618511090",
-  "status": "request_failed",
+  "source_commit": "014a9b4d3e61b464d69f6e1e391bb20b177a7dcd",
+  "run_id": "40625410223",
+  "status": "operation_start_observed",
   "start_authorization": "owned_install_operation",
-  "error_kind": "ValueError",
+  "error_kind": null,
   "finalization_attempted": true,
   "start_attempted": true,
-  "local_requests": 4,
-  "polls": 0,
+  "local_requests": 7,
+  "polls": 4,
   "phase_signal_created": true,
   "phase_acknowledged": true,
   "finalization_response_shape": {
@@ -49,7 +49,7 @@
   "status_query_http_status": 200,
   "finalization_response_bytes": 65,
   "start_response_bytes": 64,
-  "status_query_response_bytes": 1830,
+  "status_query_response_bytes": 1837,
   "finalized_returned": null,
   "finalization_error_codes": {
     "agent": null,
@@ -77,22 +77,34 @@
     "filesystem_containment_proven": false
   },
   "baseline_progress": null,
-  "last_progress": null,
+  "last_progress": {
+    "recognized_fields": [
+      "download_complete",
+      "installed",
+      "playable",
+      "progress"
+    ],
+    "installed": false,
+    "download_complete": false,
+    "playable": false,
+    "counters": {},
+    "unknown_top_fields": 22
+  },
   "baseline_files": {
     "files": 0,
     "directories": 0,
     "bytes": 0
   },
   "last_files": {
-    "files": 56,
+    "files": 322,
     "directories": 11,
-    "bytes": 2615574
+    "bytes": 25728010
   },
   "baseline_connections": {
     "1119": 0,
     "3724": 0,
     "443": 3,
-    "80": 3,
+    "80": 1,
     "other": 0
   },
   "last_connections": {

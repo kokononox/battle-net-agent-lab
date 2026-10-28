@@ -1,11 +1,11 @@
 {
-  "schema": "bnet-retail-content-probe-1",
-  "source_commit": "da2e6721ba5770fc8a89472d2a8584575a428bf3",
-  "run_id": "40618511090",
+  "schema": "bnet-retail-content-probe-2",
+  "source_commit": "014a9b4d3e61b464d69f6e1e391bb20b177a7dcd",
+  "run_id": "40625410223",
   "status": "observing",
   "build_reference_matched": true,
   "baseline_checked": true,
-  "scans": 1,
+  "scans": 64,
   "hash_checks": 0,
   "hashed_bytes": 0,
   "components": {
@@ -20,6 +20,18 @@
       "state": "absent",
       "observed_bytes": null,
       "matched_ckey": null
+    },
+    "client_executable": {
+      "baseline_absent": true,
+      "state": "absent",
+      "observed_bytes": null,
+      "matched_ckey": null
+    },
+    "client_loader": {
+      "baseline_absent": true,
+      "state": "absent",
+      "observed_bytes": null,
+      "matched_ckey": null
     }
   },
   "game_component_materialized": false,
@@ -29,5 +41,12 @@
   "payload_exported": false,
   "raw_paths_exported": false,
   "game_files_written_by_probe": false,
-  "race_free_path_safety_proven": false
+  "race_free_path_safety_proven": false,
+  "watcher": {
+    "status": "bounded_complete",
+    "iterations": 55,
+    "interval_ms": 50,
+    "time_limit_ms": 4000,
+    "activation": "before_owned_update_http"
+  }
 }

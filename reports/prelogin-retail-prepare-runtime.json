@@ -1,7 +1,7 @@
 {
   "schema": "bnet-retail-prepare-7",
-  "source_commit": "da2e6721ba5770fc8a89472d2a8584575a428bf3",
-  "run_id": "40618511090",
+  "source_commit": "014a9b4d3e61b464d69f6e1e391bb20b177a7dcd",
+  "run_id": "40625410223",
   "status": "form_observed",
   "error_kind": null,
   "product": "wow",
@@ -28,15 +28,15 @@
   },
   "transfer": {
     "schema": "bnet-retail-transfer-6",
-    "source_commit": "da2e6721ba5770fc8a89472d2a8584575a428bf3",
-    "run_id": "40618511090",
-    "status": "request_failed",
+    "source_commit": "014a9b4d3e61b464d69f6e1e391bb20b177a7dcd",
+    "run_id": "40625410223",
+    "status": "operation_start_observed",
     "start_authorization": "owned_install_operation",
-    "error_kind": "ValueError",
+    "error_kind": null,
     "finalization_attempted": true,
     "start_attempted": true,
-    "local_requests": 4,
-    "polls": 0,
+    "local_requests": 7,
+    "polls": 4,
     "phase_signal_created": true,
     "phase_acknowledged": true,
     "finalization_response_shape": {
@@ -77,7 +77,7 @@
     "status_query_http_status": 200,
     "finalization_response_bytes": 65,
     "start_response_bytes": 64,
-    "status_query_response_bytes": 1830,
+    "status_query_response_bytes": 1837,
     "finalized_returned": null,
     "finalization_error_codes": {
       "agent": null,
@@ -105,22 +105,34 @@
       "filesystem_containment_proven": false
     },
     "baseline_progress": null,
-    "last_progress": null,
+    "last_progress": {
+      "recognized_fields": [
+        "download_complete",
+        "installed",
+        "playable",
+        "progress"
+      ],
+      "installed": false,
+      "download_complete": false,
+      "playable": false,
+      "counters": {},
+      "unknown_top_fields": 22
+    },
     "baseline_files": {
       "files": 0,
       "directories": 0,
       "bytes": 0
     },
     "last_files": {
-      "files": 56,
+      "files": 322,
       "directories": 11,
-      "bytes": 2615574
+      "bytes": 25728010
     },
     "baseline_connections": {
       "1119": 0,
       "3724": 0,
       "443": 3,
-      "80": 3,
+      "80": 1,
       "other": 0
     },
     "last_connections": {
@@ -728,7 +740,7 @@
     "attempted": true,
     "destination_guard_passed": true,
     "minimum_free_required_bytes": 62737418240,
-    "free_before_bytes": 157625765888,
+    "free_before_bytes": 235857833984,
     "http_status": 201,
     "response_bytes": 1664,
     "response_has_form": true,
@@ -749,8 +761,8 @@
   },
   "handshake": {
     "schema": "logged-out-agent-interface-1",
-    "source_commit": "da2e6721ba5770fc8a89472d2a8584575a428bf3",
-    "run_id": "40618511090",
+    "source_commit": "014a9b4d3e61b464d69f6e1e391bb20b177a7dcd",
+    "run_id": "40625410223",
     "run_attempt": "1",
     "status": "handshake_token_observed",
     "bootstrap_status": "agent_process_observed",
@@ -765,7 +777,7 @@
     "listener_binding": "loopback",
     "http_requests_attempted": 1,
     "http_status": 200,
-    "response_bytes": 333,
+    "response_bytes": 330,
     "response_json_object": true,
     "authorization_token_present": true,
     "account_login_attempted": false,
@@ -779,8 +791,8 @@
     "game_update_without_login_proven": false,
     "retail_policy_proven": false,
     "classic_download_authorized": false,
-    "free_disk_before_bytes": 157630599168,
-    "free_disk_after_bytes": 157518352384,
+    "free_disk_before_bytes": 235862650880,
+    "free_disk_after_bytes": 235741405184,
     "installer_body_limit_bytes": 134217728,
     "response_body_limit_bytes": 65536,
     "bootstrap_observation_seconds": 120,
@@ -788,11 +800,11 @@
     "child_network_hard_byte_cap": false,
     "cleanup_attempted": true
   },
-  "identity_checks": 16,
-  "temp_image_verifications": 12,
+  "identity_checks": 23,
+  "temp_image_verifications": 7,
   "last_identity_state": "verified_temp_image",
   "identity_failure_state": null,
-  "local_requests": 7,
+  "local_requests": 10,
   "initial_summary_empty": true,
   "initialization_attempted": true,
   "initialization_http_status": 201,
