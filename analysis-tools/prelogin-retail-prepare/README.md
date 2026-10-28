@@ -167,3 +167,11 @@ requires recent sign-in, so it does not prove logged-out Retail installation.
 Only the exact owned /game/wow resource is recognized; unknown siblings remain
 unknown, raw URIs are never exported, and T3 forbids /update. Public source:
 https://github.com/barncastle/Battle.Net-Installer/blob/3aa2d98d866b393197da0b75d7381b7fff495ad9/BNetInstaller/Endpoints/ProductEndpoint.cs
+
+
+T4: if the finalization reply names the exact owned /install/wow resource,
+read that form once. Unknown sibling fields remain unknown. No URL from the
+response is followed generically, no finalization is retried, no /update or
+account/country/legal acceptance parameter is sent. The standalone source-bound
+final-form receipt records only field names, explicit numeric codes, finalized
+boolean and redacted containment checks; an absent error stays null.

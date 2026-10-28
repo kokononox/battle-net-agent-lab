@@ -1,4 +1,4 @@
-name: Logged-out Retail documented response-uri status T3
+name: Logged-out Retail final form-state read T4
 on:
   push:
     branches: [research/prelogin-telemetry-wow-data-provenance]
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved documented Retail status t3'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved read-only final form state t4'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved documented Retail status t3'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved read-only final form state t4'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -82,6 +82,10 @@ jobs:
           if (Test-Path output/tcp-build.json) { python analysis-tools/prelogin-tcp-attribution/build_receipt.py output/tcp-build.json sanitized/tcp-build.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
           if (Test-Path output/tcp-fixture.json) { python analysis-tools/prelogin-tcp-attribution/receipt.py output/tcp-fixture.json sanitized/tcp-fixture.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
           if (Test-Path output/tcp-meter.json) { python analysis-tools/prelogin-tcp-attribution/meter_receipt.py output/tcp-meter.json sanitized/tcp-meter.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
+      - name: Validate post-finalization form state when present
+        if: always()
+        run: |
+          if (Test-Path output/retail-final-form.json) { python analysis-tools/prelogin-retail-prepare/final_form.py output/retail-final-form.json sanitized/retail-final-form.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
       - name: Record typed outcomes
         if: always()
         env:
@@ -163,6 +167,11 @@ jobs:
               b=build_receipt.validate(json.loads(Path('incoming/tcp-build.json').read_text()))
               if b['source_commit']!=os.environ['SOURCE'] or b['run_id']!=os.environ['RUN']:raise SystemExit('tcp_build_identity_mismatch')
               Path('reports/prelogin-tcp-target-build-latest.json').write_text(json.dumps(b,indent=2)+'\n')
+          if Path('incoming/retail-final-form.json').exists():
+              import final_form
+              f=final_form.validate(read_guard('incoming/retail-final-form.json'))
+              if f['source_commit']!=os.environ['SOURCE'] or f['run_id']!=os.environ['RUN']:raise SystemExit('final_form_identity_mismatch')
+              Path('reports/prelogin-retail-final-form-latest.json').write_text(json.dumps(f,indent=2)+'\n')
           attempt=summarize_attempt(os.environ['SOURCE'],os.environ['RUN'],r,guard,transfer,d)
           Path('reports/prelogin-retail-attempt-latest.json').write_text(json.dumps(attempt,indent=2)+'\n')
           PY
@@ -175,6 +184,7 @@ jobs:
           if test -f incoming/tcp-build.json; then git add -- reports/prelogin-tcp-target-build-latest.json; fi
           if test -f incoming/tcp-fixture.json; then git add -- reports/prelogin-tcp-target-calibration-latest.json; fi
           if test -f incoming/tcp-meter.json; then git add -- reports/prelogin-owned-tcp-meter-latest.json; fi
+          if test -f incoming/retail-final-form.json; then git add -- reports/prelogin-retail-final-form-latest.json; fi
           git diff --cached --quiet && exit 0
           git commit -m 'lab: publish sanitized Retail preparation evidence'
           git push origin HEAD:research/prelogin-telemetry-wow-data-provenance

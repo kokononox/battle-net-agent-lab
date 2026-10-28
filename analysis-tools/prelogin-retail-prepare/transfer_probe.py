@@ -8,7 +8,7 @@ import probe,path_guard,path_relation
 import finalization_shape
 import response_diagnostic
 from retail_protocol import summarize,CODES
-STATES={'read_only_status_observed','identity_control_observed','not_started','prerequisite_refused','pending','request_failed','finalization_refused','start_refused','observed','identity_changed','collection_refused','canonical_game_link_observed','response_schema_unrecognized','product_state_observed'}
+STATES={'final_form_state_observed','read_only_status_observed','identity_control_observed','not_started','prerequisite_refused','pending','request_failed','finalization_refused','start_refused','observed','identity_changed','collection_refused','canonical_game_link_observed','response_schema_unrecognized','product_state_observed'}
 FIELDS={'installed','download_complete','playable','downloaded_bytes','bytes_downloaded','downloaded','total_bytes','bytes_total','download_size','download_progress','progress'}
 NUMERIC={'downloaded_bytes','bytes_downloaded','downloaded','total_bytes','bytes_total','download_size'}
 PORTS={'80','443','1119','3724','other'}
@@ -169,7 +169,7 @@ def execute(session,target,configured,r):
   if await_arm()is not True:raise ValueError('arm_refused')
   t['phase_acknowledged']=True;write(t)
   def request(method,path,payload=None,stage=None):
-   allowed={('POST','/install/wow'),('POST','/update'),('GET','/game/wow')}
+   allowed={('POST','/install/wow'),('POST','/update'),('GET','/game/wow'),('GET','/install/wow')}
    if os.environ.get('RETAIL_READ_ONLY_STATUS')=='response-uri-t3'and(method,path)==('POST','/update'):raise ValueError('readonly_scope')
    if (method,path)not in allowed or t['local_requests']>=7:raise ValueError('transfer_scope')
    if session.verify()is not True:raise probe.Stop('identity_changed')
@@ -206,6 +206,14 @@ def execute(session,target,configured,r):
    return
   if os.environ.get('RETAIL_PHASE_CONTROL')not in (None,''):raise ValueError('control_scope')
   data=request('POST','/install/wow',dict(finalized=True,game_dir=str(target),language=['enUS'],selected_asset_locale='enUS',selected_locale='enUS'),stage='finalization')
+  if t['finalization_response_shape'].get('owned_install_link')is True:
+   # Exact owned form resource from the documented response_uri contract. Read only.
+   import final_form
+   state=request('GET','/install/wow',stage='status_query')
+   final_form.write(final_form.describe(state,target,t['source_commit'],t['run_id']))
+   t['status']='final_form_state_observed';write(t)
+   t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
+   return
   if t['finalization_response_shape']['kind']in {'canonical_game_link','product_state'}:
    # No /update after a different response shape. Read the exact owned endpoint only.
    t['status']='product_state_observed'if t['finalization_response_shape']['kind']=='product_state'else'canonical_game_link_observed'
