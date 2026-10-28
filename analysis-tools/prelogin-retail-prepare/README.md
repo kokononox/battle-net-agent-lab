@@ -308,3 +308,30 @@ network thresholds, timers, or disk reserve. Reads are streaming and bounded by
 expected exact size plus one EOF byte, with before/open/after identity checks.
 Historical schema 1 receipts retain their original 16 MiB hash-work limit and
 two-component reference interpretation. Neither executable is ever launched.
+
+## T11: independent offline verification after Job drain
+
+T10 finished normally (run 40625410223), with all four post-start operation
+checkpoints identity-verified. The 64 shared scans found no fixed reference
+component; that is not evidence against packaged CASC content.
+
+T11 retains the same live network/time/disk limits and HTTP request bounds.
+Before non-finalizing form POST, it privately binds the new empty owned directory
+by source/run, device/inode and exact build reference. Only after native Job drain
+and zero active owned processes, a separate offline verifier reads that directory.
+No Agent restart, network request, game execution or game-file writes occur.
+The local-only verification window is 20 s, independently killed after 25 s;
+it does not extend the 240 s / 30 s live observation limits.
+
+Read limits: 2048 entries / depth 8; 320 MiB aggregate reads; at most 64 indexes,
+4 MiB per index / 16 MiB index total; 32 prefix candidates and 32 full hash attempts.
+Fixed public build config and IN references come from the previously hash-checked
+build d718abcc42604d8efbd35aecfa5bb75b. Small metadata and loose components are
+size-selected then fully hashed. Packaged manifests require checksum-verified
+revision-7 index layout, bounded same-directory fixed archive names, normalization
+of the supported 30-byte wrapper, complete EKey/header/chunks and decoded CKey.
+A 9-byte index prefix alone is never a content match. Unsupported or partial
+content remains unproven. Metadata and actual executable components have separate
+flags; no metadata-only finding is promoted to game-asset or socket evidence.
+Only aggregate counts and fixed labels are exported. Ownership records, source
+paths, index entries, archive payloads and decoded bytes never leave the runner.

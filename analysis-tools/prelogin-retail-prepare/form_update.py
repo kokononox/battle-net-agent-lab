@@ -66,6 +66,10 @@ def execute(session,initial_data,r,is_reparse,make_target=owned_target):
  try:
   required=prerequisites(initial_data);target=make_target(required,is_reparse,u)
   if not u['destination_guard_passed']:raise ValueError('destination')
+  if os.environ.get('RETAIL_POSTSTOP_CONTENT')=='owned-offline-t11':
+   import poststop_content
+   poststop_content.bind(target,r['metadata'],r['source_commit'],r['run_id'])
+  elif os.environ.get('RETAIL_POSTSTOP_CONTENT')not in (None,''):raise ValueError('post_scope')
  except Exception:u['status']='prerequisite_refused';return
  u['status']='request_failed'
  if session.verify()is not True:u['status']='identity_changed';return

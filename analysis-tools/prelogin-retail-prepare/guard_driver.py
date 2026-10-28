@@ -52,6 +52,15 @@ def main():
   r['observation']=g.receipt(g.read('output/retail-supervisor-observe.json'))
   expected='approved-2g-512m-t9'if os.environ.get('RETAIL_BUDGET_PROFILE')=='approved-2g-512m-t9'else 'legacy-c10'
   if r['observation'].get('budget_profile','legacy-c10')!=expected:raise RuntimeError('native_failed')
+  post_scope=os.environ.get('RETAIL_POSTSTOP_CONTENT')
+  if post_scope=='owned-offline-t11':
+   o=r['observation']
+   if not o['job_drained'] or o['final_active_processes']!=0:raise RuntimeError('native_failed')
+   # A separate offline local-read window, AFTER all owned Agent processes die.
+   # Does not restart Agent or extend native network/time/disk thresholds.
+   checked=subprocess.run([sys.executable,str(HERE/'poststop_content.py')],timeout=25)
+   if checked.returncode:raise RuntimeError('native_failed')
+  elif post_scope not in (None,''):raise RuntimeError('native_failed')
   if result.returncode:raise RuntimeError('native_failed')
   r['status']='completed'
  except Exception as exc:

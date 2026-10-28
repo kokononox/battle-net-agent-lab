@@ -1,4 +1,4 @@
-name: Logged-out Retail concurrent content witness T10
+name: Logged-out Retail offline content witness T11
 on:
   push:
     branches: [research/prelogin-telemetry-wow-data-provenance]
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved same-budget concurrent content witness t10'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved same-budget offline content witness t11'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved same-budget concurrent content witness t10'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved same-budget offline content witness t11'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -68,6 +68,7 @@ jobs:
           RETAIL_BUDGET_PROFILE: approved-2g-512m-t9
           RETAIL_CONTENT_PROBE: official-install-t9
           RETAIL_CONTENT_WATCH: concurrent-fixed-t10
+          RETAIL_POSTSTOP_CONTENT: owned-offline-t11
           RETAIL_BOOTSTRAP_WAIT: original-120-t9
         run: python analysis-tools/prelogin-retail-prepare/guard_driver.py
       - name: Validate only counts and fixed labels
@@ -114,6 +115,10 @@ jobs:
         if: always()
         run: |
           if (Test-Path output/retail-failure.json) { python analysis-tools/prelogin-retail-prepare/failure_receipt.py output/retail-failure.json sanitized/retail-failure.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
+      - name: Validate read-only post-drain witness when present
+        if: always()
+        run: |
+          if (Test-Path output/retail-poststop.json) { python analysis-tools/prelogin-retail-prepare/poststop_content.py output/retail-poststop.json sanitized/retail-poststop.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
       - name: Record typed outcomes
         if: always()
         env:
@@ -230,6 +235,12 @@ jobs:
               fail=failure_receipt.validate(read_guard('incoming/retail-failure.json'))
               if fail['source_commit']!=os.environ['SOURCE'] or fail['run_id']!=os.environ['RUN']:raise SystemExit('failure_identity_mismatch')
               Path('reports/prelogin-retail-failure-latest.json').write_text(json.dumps(fail,indent=2)+'\n')
+          if Path('incoming/retail-poststop.json').exists():
+              import poststop_content
+              post=poststop_content.validate(read_guard('incoming/retail-poststop.json'))
+              if post['source_commit']!=os.environ['SOURCE'] or post['run_id']!=os.environ['RUN']:raise SystemExit('post_identity_mismatch')
+              if guard is None or guard['observation'] is None or not guard['observation']['job_drained'] or guard['observation']['final_active_processes']!=0:raise SystemExit('post_not_drained')
+              Path('reports/prelogin-retail-poststop-latest.json').write_text(json.dumps(post,indent=2)+'\n')
           attempt=summarize_attempt(os.environ['SOURCE'],os.environ['RUN'],r,guard,transfer,d)
           Path('reports/prelogin-retail-attempt-latest.json').write_text(json.dumps(attempt,indent=2)+'\n')
           PY
@@ -249,6 +260,7 @@ jobs:
           if test -f incoming/retail-content.json; then git add -- reports/prelogin-retail-content-latest.json; fi
           if test -f incoming/retail-snapshot-status.json; then git add -- reports/prelogin-retail-snapshot-status-latest.json; fi
           if test -f incoming/retail-failure.json; then git add -- reports/prelogin-retail-failure-latest.json; fi
+          if test -f incoming/retail-poststop.json; then git add -- reports/prelogin-retail-poststop-latest.json; fi
           git diff --cached --quiet && exit 0
           git commit -m 'lab: publish sanitized Retail preparation evidence'
           git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
