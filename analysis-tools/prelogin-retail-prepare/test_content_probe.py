@@ -58,6 +58,11 @@ class Manifest(unittest.TestCase):
   rows=[('Utils\\WowVoiceProxy.exe',b'v'),('Utils\\WowWindowsExceptionHandler.dll',b'e')];data=b'IN\x01\x10'+struct.pack('>HI',1,len(rows))+b'Windows\0'+b'\0\1'+b'\xc0'
   for name,body in rows:data+=name.encode()+b'\0'+hashlib.md5(body).digest()+struct.pack('>I',len(body))
   return data
+ def test_hash_bound_inputs_have_explicit_lf_checkout_policy(self):
+  attributes=Path(__file__).resolve().parents[2]/'.gitattributes'
+  text=attributes.read_text()
+  self.assertIn('/analysis-tools/prelogin-retail-prepare/content_reference.json text eol=lf',text)
+  self.assertIn('/analysis-tools/prelogin-retail-prepare/testdata/attribution/*.json text eol=lf',text)
  def test_real_pinned_reference_is_bounded(self):
   r=c.reference();self.assertEqual(r['install_encoded_bytes'],23106);self.assertTrue(r['install_full_ekey_and_ckey_verified'])
  def test_parse_strict_bounds(self):

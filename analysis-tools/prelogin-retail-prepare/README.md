@@ -254,3 +254,10 @@ follow a successfully verified operation start. A positive match proves a known
 component materialized in the previously empty destination; it does NOT prove
 which socket delivered that exact file, full installation, or hardware upload.
 No account, country, EULA, minimum-spec bypass, game execution or user install.
+
+
+T9 pre-target portability diagnosis: the Windows checkout converted public,
+byte-hash-bound JSON to CRLF (`reference_has_crlf=true`, exact reference hash
+false, all 12 frozen receipt hashes unequal). The target did not launch. Scoped
+`.gitattributes` preserves LF for just these public inputs; no hash check,
+signature check, test, or runtime limit is disabled or normalized away.
