@@ -335,3 +335,21 @@ content remains unproven. Metadata and actual executable components have separat
 flags; no metadata-only finding is promoted to game-asset or socket evidence.
 Only aggregate counts and fixed labels are exported. Ownership records, source
 paths, index entries, archive payloads and decoded bytes never leave the runner.
+
+## T12: test a hostname-related CASC container marker hypothesis
+
+The public format reference https://wowdev.wiki/CASC#Data_Files describes 16
+30-byte cross-link records at the start of a local archive and a seven-byte
+retained slice of MD5(hostname + "data/data"). This is a hypothesis to test,
+NOT a result imported from the wiki, and NOT a game-file watermark claim.
+T12 binds a local prediction before the non-finalizing form POST, verifies the
+hostname prediction remains unchanged after all owned processes die, and compares
+only bounded 480-byte archive prefixes. Positive evidence requires all 16 distinct
+index records in at least one archive, correct archive number, length/flags/tail
+shape, checksum A for each header, and zero matches for a changed-hostname negative
+prediction. Checksum B is not validated; no entire-container integrity claim.
+No hostname, identifier hash, prefix bytes or private ownership record is exported.
+This is separate from full official object hashing and uses the same offline read
+and live network/time/disk limits. A positive outcome would identify a host-related
+local container marker, not an account, unique physical machine, immutable origin,
+server-side tracking, same-file socket delivery, or changed game payload.

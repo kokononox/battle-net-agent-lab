@@ -1,4 +1,4 @@
-name: Logged-out Retail offline content witness T11
+name: Logged-out Retail container marker witness T12
 on:
   push:
     branches: [research/prelogin-telemetry-wow-data-provenance]
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved same-budget offline content witness t11'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved same-budget container marker witness t12'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved same-budget offline content witness t11'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved same-budget container marker witness t12'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:

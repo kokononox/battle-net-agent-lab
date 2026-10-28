@@ -82,4 +82,36 @@ class Ownership(unittest.TestCase):
   audit=json.loads((Path(p.__file__).resolve().parents[2]/'reports/prelogin-public-manifest-budget.json').read_text())
   for label,spec in p.MANIFESTS.items():
    m=audit['manifests'][label];self.assertEqual((spec['ckey'],spec['ekey'],spec['decoded'],spec['encoded']),(m['content_key'],m['encoding_key'],m['decoded_bytes'],m['encoded_bytes']))
+class Markers(unittest.TestCase):
+ def audit(self):
+  r=p.blank('a'*40,'1');r.update(job_drained_verified=True,owned_empty_baseline_verified=True,build_reference_matched=True);return p.Audit(r)
+ def prefix(self,host='synthetic-download-host',archive=0,seed=None):
+  seed=hashlib.md5(host.encode()+b'data/data').digest()[2:9]if seed is None else seed
+  records=[]
+  for i in range(16):
+   key=bytes([i,archive])+seed+bytes(7);head=key[::-1]+(30).to_bytes(4,'little')+b'\x01\x00';records.append(head+lookup3.hashlittle(head,0x3D6BE971).to_bytes(4,'little')+bytes(4))
+  return b''.join(records)
+ def check(self,raw,host='synthetic-download-host',seed=None):
+  with tempfile.TemporaryDirectory()as t,patch.object(p.socket,'gethostname',return_value=host),patch.object(p,'save',side_effect=p.validate):
+   f=Path(t)/'data.000';f.write_bytes(raw);a=self.audit();a.crosslinks([(f,len(raw))],seed or p.host_seed().hex());return a.r
+ def test_all16_predicted_with_checksum_a(self):
+  r=self.check(self.prefix());m=r['host_marker'];self.assertTrue(m['host_related_container_marker_observed']);self.assertEqual(m['prediction_matches'],16);self.assertEqual(m['negative_control_matches'],0);self.assertFalse(m['game_payload_watermark_proven']);self.assertFalse(r['official_component_materialized'])
+ def test_different_hostname_is_not_a_match(self):
+  r=self.check(self.prefix(host='other-host'));self.assertFalse(r['host_marker']['host_related_container_marker_observed']);self.assertEqual(r['host_marker']['prediction_matches'],0)
+ def test_changed_header_checksums_rejected(self):
+  raw=bytearray(self.prefix());raw[22]^=1;r=self.check(bytes(raw));self.assertFalse(r['host_marker']['host_related_container_marker_observed']);self.assertEqual(r['host_marker']['checksum_a_verified_records'],15)
+ def test_duplicate_indices_not16proof(self):
+  raw=self.prefix();r=self.check(raw[:30]*16);self.assertFalse(r['host_marker']['host_related_container_marker_observed'])
+ def test_before_after_hostname_must_match(self):
+  with self.assertRaises(ValueError):self.check(self.prefix(),seed='11'*7)
+ def test_copy_of_prefix_preserves_marker(self):
+  original=self.prefix();copy=bytes(bytearray(original));self.assertTrue(self.check(copy)['host_marker']['host_related_container_marker_observed'])
+ def test_changing_hostname_seed_changes_expected_prefix(self):
+  a=self.prefix('host-a');b=self.prefix('host-b');self.assertNotEqual(a,b);self.assertTrue(self.check(a,'host-a')['host_marker']['host_related_container_marker_observed']);self.assertFalse(self.check(a,'host-b')['host_marker']['host_related_container_marker_observed'])
+ def test_legacy_t11_receipt_supported(self):
+  r=p.blank('a'*40,'1');r['schema']='bnet-retail-poststop-content-1';del r['host_marker'];del r['index_layout_states'];p.validate(r)
+ def test_no_private_seed_or_hostname_fields(self):
+  for key in ('hostname','seed','hash'):
+   r=p.blank('a'*40,'1');r['host_marker'][key]='PRIVATE'
+   with self.assertRaises(ValueError):p.validate(r)
 if __name__=='__main__':unittest.main()
