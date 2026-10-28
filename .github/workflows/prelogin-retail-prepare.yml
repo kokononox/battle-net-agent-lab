@@ -105,6 +105,10 @@ jobs:
         if: always()
         run: |
           if (Test-Path output/retail-content.json) { python analysis-tools/prelogin-retail-prepare/content_probe.py output/retail-content.json sanitized/retail-content.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
+      - name: Validate bounded metadata-enumeration status when present
+        if: always()
+        run: |
+          if (Test-Path output/retail-snapshot-status.json) { python analysis-tools/prelogin-retail-prepare/snapshot_status.py output/retail-snapshot-status.json sanitized/retail-snapshot-status.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
       - name: Record typed outcomes
         if: always()
         env:
@@ -211,6 +215,11 @@ jobs:
               content=content_probe.validate(read_guard('incoming/retail-content.json'))
               if content['source_commit']!=os.environ['SOURCE'] or content['run_id']!=os.environ['RUN']:raise SystemExit('content_identity_mismatch')
               Path('reports/prelogin-retail-content-latest.json').write_text(json.dumps(content,indent=2)+'\n')
+          if Path('incoming/retail-snapshot-status.json').exists():
+              import snapshot_status
+              snap=snapshot_status.validate(read_guard('incoming/retail-snapshot-status.json'))
+              if snap['source_commit']!=os.environ['SOURCE'] or snap['run_id']!=os.environ['RUN']:raise SystemExit('snapshot_identity_mismatch')
+              Path('reports/prelogin-retail-snapshot-status-latest.json').write_text(json.dumps(snap,indent=2)+'\n')
           attempt=summarize_attempt(os.environ['SOURCE'],os.environ['RUN'],r,guard,transfer,d)
           Path('reports/prelogin-retail-attempt-latest.json').write_text(json.dumps(attempt,indent=2)+'\n')
           PY
@@ -228,6 +237,7 @@ jobs:
           if test -f incoming/prearm-quiet.json; then git add -- reports/prelogin-retail-prearm-quiet-latest.json; fi
           if test -f incoming/preproduct-control.json; then git add -- reports/prelogin-preproduct-control-latest.json; fi
           if test -f incoming/retail-content.json; then git add -- reports/prelogin-retail-content-latest.json; fi
+          if test -f incoming/retail-snapshot-status.json; then git add -- reports/prelogin-retail-snapshot-status-latest.json; fi
           git diff --cached --quiet && exit 0
           git commit -m 'lab: publish sanitized Retail preparation evidence'
           git push origin HEAD:research/prelogin-telemetry-wow-data-provenance

@@ -112,6 +112,18 @@ def file_snapshot(target):
     if out['bytes']>2**50:raise ValueError('tree_bytes')
  return out
 
+def observe_files(target,t):
+ # Censor only an enumeration-count limit. Reparse/type/security errors still stop.
+ import snapshot_status
+ try:
+  result=file_snapshot(target)
+ except ValueError as exc:
+  if str(exc)!='tree_limit':raise
+  snapshot_status.record(t['source_commit'],t['run_id'],'entry_limit')
+  return None
+ snapshot_status.record(t['source_commit'],t['run_id'],'complete')
+ return result
+
 def tcp_rows():
  api=ctypes.WinDLL('iphlpapi',use_last_error=True).GetExtendedTcpTable;api.argtypes=[ctypes.c_void_p,ctypes.POINTER(w.DWORD),w.BOOL,w.ULONG,ctypes.c_int,w.ULONG];api.restype=w.DWORD
  size=w.DWORD(0);code=api(None,ctypes.byref(size),False,socket.AF_INET,5,0)
@@ -214,8 +226,9 @@ def execute(session,target,configured,r):
      import operation_state
      checkpoint=operation_state.describe(data,'install'if path=='/install/wow'else'update',post_verified=False)
      operation_state.checkpoint(t['source_commit'],t['run_id'],checkpoint)
-     t['last_files']=file_snapshot(target);write(t)
+     # Fixed-path content verification must not wait behind a broad tree walk.
      if content is not None:content.scan()
+     t['last_files']=observe_files(target,t);write(t)
     if session.verify()is not True:raise probe.Stop('identity_changed')
     if checkpoint is not None:
      checkpoint['post_response_identity_verified']=True
@@ -226,7 +239,7 @@ def execute(session,target,configured,r):
    # Negative control: same post-arm identity check, zero phase HTTP requests.
    if session.verify()is not True:raise probe.Stop('identity_changed')
    t['status']='identity_control_observed';write(t)
-   t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
+   t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=observe_files(target,t);write(t)
    return
   if os.environ.get('RETAIL_PHASE_CONTROL')not in (None,''):raise ValueError('control_scope')
   data=request('POST','/install/wow',dict(finalized=True,game_dir=str(target),language=['enUS'],selected_asset_locale='enUS',selected_locale='enUS'),stage='finalization')
@@ -239,7 +252,7 @@ def execute(session,target,configured,r):
    states=[operation_state.describe(state,'install',post_verified=True)]
    def save_states():operation_state.write(operation_state.receipt(t['source_commit'],t['run_id'],states))
    save_states();t['status']='operation_state_observed';write(t)
-   t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
+   t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=observe_files(target,t);write(t)
    if os.environ.get('RETAIL_START_OPERATION')!='owned-install-t5' or not operation_state.eligible(states[0]):return
    t['final_path_guard']=path_guard.inspect(target,str(target));write(t)
    if t['final_path_guard']['status']!='verified_existing_chain':return
@@ -256,7 +269,7 @@ def execute(session,target,configured,r):
    for _ in range(4):
     result=request('GET','/'+resource+'/wow',stage='status_query');states.append(operation_state.describe(result,resource,post_verified=True));save_states()
     t['last_progress']=progress(result);t['polls']+=1;t['status']='operation_start_observed';write(t)
-    t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
+    t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=observe_files(target,t);write(t)
     if states[-1]['refusal_observed']:return
     if content is not None and content.r['game_component_materialized']:return
     time.sleep(.25)
@@ -273,7 +286,7 @@ def execute(session,target,configured,r):
     observed=progress(request('GET','/game/wow',stage='status_query'));t['polls']+=1
     if t['baseline_progress']is None:t['baseline_progress']=observed
     t['last_progress']=observed;write(t)
-    t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
+    t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=observe_files(target,t);write(t)
     time.sleep(1)
    return
   if t['finalization_response_shape']['kind']!='form':
@@ -287,7 +300,7 @@ def execute(session,target,configured,r):
    if t['final_path_guard']['status']!='verified_existing_chain':return
    observed=progress(request('GET','/game/wow',stage='status_query'))
    t['polls']=1;t['baseline_progress']=observed;t['last_progress']=observed;write(t)
-   t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
+   t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=observe_files(target,t);write(t)
    return
   s=summarize(data);t['finalization_error_codes']=s['error_codes'];f=data.get('form',{})
   if type(f)is not dict:t['status']='finalization_refused';return
@@ -303,7 +316,7 @@ def execute(session,target,configured,r):
   if t['start_agent_error']!=0:t['status']='start_refused';return
   for _ in range(4):
    t['last_progress']=progress(request('GET','/game/wow',stage='status_query'));t['polls']+=1
-   t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
+   t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=observe_files(target,t);write(t)
    time.sleep(1)
   t['status']='observed'
  except Exception as exc:
