@@ -175,3 +175,22 @@ response is followed generically, no finalization is retried, no /update or
 account/country/legal acceptance parameter is sent. The standalone source-bound
 final-form receipt records only field names, explicit numeric codes, finalized
 boolean and redacted containment checks; an absent error stays null.
+
+
+T4 confirmed the exact /install/wow handoff but its GET is not a form. That is
+not an Agent error: it invalidates the old form-only interpretation. T5 records
+a typed operation state (finite numeric progress, download-complete boolean,
+explicit error/refusal indicators) and follows the public client's documented
+POST /update uid=wow only when that owned incomplete operation is recognized.
+Any form, authentication/legal indicator, malformed required flag, nonzero error
+or unknown operation schema refuses the start. No account/country/legal field
+is sent. Each request repeats the original identity checks, owned containment
+is rechecked, and every native time/network/disk budget remains unchanged.
+Schema6 records `owned_install_operation` authorization without fabricating a
+returned finalized flag or an absent Agent error zero. One update maximum and
+at most4 status polls (7 phase requests total). This is a bounded start attempt,
+not a claim of full installation or verified game payload.
+Public flow reference: BNetInstaller/Operations/InstallProductTask.cs at
+3aa2d98d866b393197da0b75d7381b7fff495ad9. Its country defaults and recent-login
+assumption are NOT imported into this test; credentials/legal requirements
+remain server-enforced, and explicit refusals stop the run.
