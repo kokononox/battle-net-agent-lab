@@ -1,24 +1,24 @@
 {
   "schema": "bnet-retail-attempt-1",
-  "source_commit": "2f04caa92717e085fb19543d031b73676eaa0e94",
-  "run_id": "40610437610",
+  "source_commit": "d4642ba6acb22356d95506178c16c99260a581aa",
+  "run_id": "40611080823",
   "ci": {
     "schema": "bnet-retail-prepare-ci-1",
-    "source_commit": "2f04caa92717e085fb19543d031b73676eaa0e94",
-    "run_id": "40610437610",
+    "source_commit": "d4642ba6acb22356d95506178c16c99260a581aa",
+    "run_id": "40611080823",
     "phase": "completed",
     "dependencies": "success",
     "tests": "success",
-    "observation": "failure",
-    "sanitization": "failure"
+    "observation": "success",
+    "sanitization": "success"
   },
   "supervisor_receipt": "current",
-  "transfer_receipt": "absent",
-  "form_receipt": "absent",
-  "supervisor_status": null,
-  "job_drained": null,
-  "final_active_processes": null,
-  "transfer_status": null,
+  "transfer_receipt": "current",
+  "form_receipt": "current",
+  "supervisor_status": "worker_completed",
+  "job_drained": true,
+  "final_active_processes": 0,
+  "transfer_status": "request_failed",
   "finalization_intent_recorded": false,
   "start_intent_recorded": false,
   "finalization_http_status": null,
@@ -30,5 +30,5 @@
   "hardware_upload_proven": false,
   "network_scope": "hostwide_adapter_counters",
   "hard_network_byte_cap": false,
-  "status": "evidence_incomplete"
+  "status": "worker_finished"
 }
