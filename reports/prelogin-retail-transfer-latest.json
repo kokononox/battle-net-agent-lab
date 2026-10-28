@@ -1,15 +1,15 @@
 {
   "schema": "bnet-retail-transfer-5",
-  "source_commit": "d4642ba6acb22356d95506178c16c99260a581aa",
-  "run_id": "40611080823",
-  "status": "request_failed",
-  "error_kind": "ValueError",
+  "source_commit": "b31d953f7dc1d5d852854694aa8c6808f83413bc",
+  "run_id": "40611478141",
+  "status": "identity_control_observed",
+  "error_kind": null,
   "finalization_attempted": false,
   "start_attempted": false,
   "local_requests": 0,
   "polls": 0,
-  "phase_signal_created": false,
-  "phase_acknowledged": false,
+  "phase_signal_created": true,
+  "phase_acknowledged": true,
   "finalization_response_shape": {
     "kind": "not_observed",
     "recognized_top_fields": [],
@@ -70,15 +70,25 @@
     "directories": 0,
     "bytes": 0
   },
-  "last_files": null,
+  "last_files": {
+    "files": 0,
+    "directories": 0,
+    "bytes": 0
+  },
   "baseline_connections": {
     "1119": 0,
     "3724": 0,
     "443": 3,
-    "80": 3,
+    "80": 5,
     "other": 0
   },
-  "last_connections": null,
+  "last_connections": {
+    "1119": 0,
+    "3724": 0,
+    "443": 3,
+    "80": 8,
+    "other": 0
+  },
   "account_parameter_sent": false,
   "country_parameter_sent": false,
   "legal_acceptance_parameter_sent": false,
