@@ -31,8 +31,13 @@ class ShortStartup(unittest.TestCase):
  def test_short_observation_keeps_original_scope_gate(self):
   text=Path(p.__file__).read_text()
   self.assertIn("kwargs.get('seconds')!=120",text)
-  self.assertIn("kwargs['seconds']=30",text)
-  self.assertIn("r['bootstrap_settle']['observation_seconds']=30",text)
+  self.assertIn("kwargs['seconds']=bootstrap_seconds(os.environ)",text)
+  self.assertIn("r['bootstrap_settle']['observation_seconds']=kwargs['seconds']",text)
+ def test_original_wait_requires_explicit_approved_profile(self):
+  self.assertEqual(p.bootstrap_seconds({}),30)
+  self.assertEqual(p.bootstrap_seconds({'RETAIL_BOOTSTRAP_WAIT':'original-120-t9','RETAIL_BUDGET_PROFILE':'approved-2g-512m-t9'}),120)
+  for e in ({'RETAIL_BOOTSTRAP_WAIT':'original-120-t9'},{'RETAIL_BOOTSTRAP_WAIT':'forever'},{'RETAIL_BOOTSTRAP_WAIT':True}):
+   with self.assertRaises(ValueError):p.bootstrap_seconds(e)
  def test_duration_report_refuses_unbounded_or_wrong_type(self):
   import report
   for v in (0,29,31,121,True,'30'):

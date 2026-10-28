@@ -67,6 +67,7 @@ jobs:
           RETAIL_TCP_METER: owned-baseline-t2
           RETAIL_BUDGET_PROFILE: approved-2g-512m-t9
           RETAIL_CONTENT_PROBE: official-install-t9
+          RETAIL_BOOTSTRAP_WAIT: original-120-t9
         run: python analysis-tools/prelogin-retail-prepare/guard_driver.py
       - name: Validate only counts and fixed labels
         id: sanitize

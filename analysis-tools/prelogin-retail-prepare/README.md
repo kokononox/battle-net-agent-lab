@@ -261,3 +261,12 @@ byte-hash-bound JSON to CRLF (`reference_has_crlf=true`, exact reference hash
 false, all 12 frozen receipt hashes unequal). The target did not launch. Scoped
 `.gitattributes` preserves LF for just these public inputs; no hash check,
 signature check, test, or runtime limit is disabled or normalized away.
+
+
+The LF-fixed T9 run 40618043591 passed all CI/native controls, but the bootstrap
+had not exposed Agent within the legacy 30 s observation. It cleanly returned
+`handshake_not_ready` with zero product requests; CI success was not a download
+success. `RETAIL_BOOTSTRAP_WAIT=original-120-t9` now restores the original bounded
+120 s passive bootstrap observation ONLY with the approved T9 budget profile.
+The native global time limit remains 240 s, and all bootstrap traffic/time stays
+charged to its existing global budget. No readiness or signature gate changes.

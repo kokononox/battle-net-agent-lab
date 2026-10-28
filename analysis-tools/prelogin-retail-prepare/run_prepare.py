@@ -17,6 +17,11 @@ def transfer_allowed(e):
  scope=e.get('RETAIL_PREPARE_SCOPE','limited-transfer-c10')
  if scope not in {'limited-transfer-c10','prepare-only-d11'}:raise ValueError('scope_refused')
  return scope=='limited-transfer-c10'
+def bootstrap_seconds(e):
+ mode=e.get('RETAIL_BOOTSTRAP_WAIT')
+ if mode in (None,''):return 30
+ if mode=='original-120-t9'and e.get('RETAIL_BUDGET_PROFILE')=='approved-2g-512m-t9':return 120
+ raise ValueError('bootstrap_wait_scope')
 def main():
  if not authorized(os.environ,sys.platform):raise SystemExit('fresh_hosted_once_required')
  if os.environ.get('RETAIL_SUPERVISED')!='job-c10':raise SystemExit('independent_job_required')
@@ -30,8 +35,8 @@ def main():
   return result
  def observe(*args,**kwargs):
   if kwargs.get('advance_language') is not True or kwargs.get('advance_install') is not False or kwargs.get('seconds')!=120:raise RuntimeError('bootstrap_scope')
-  # D19: shorten only passive startup observation; all readiness/identity gates remain.
-  kwargs['seconds']=30;r['bootstrap_settle']['observation_seconds']=30
+  # Default D19 startup is 30 s; explicit T9 mode restores the original 120 s within the unchanged global 240 s guard. All readiness/identity gates remain.
+  kwargs['seconds']=bootstrap_seconds(os.environ);r['bootstrap_settle']['observation_seconds']=kwargs['seconds']
   kwargs['retry_language_when_no_target']=True
   result=original_observe(*args,**kwargs);b=r['bootstrap_settle'];b['original_cleanup_attempted']=result.get('cleanup_attempted')
   if b['original_cleanup_attempted']is not True:b['status']='skipped';return result
