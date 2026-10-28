@@ -1,7 +1,7 @@
 {
   "schema": "bnet-retail-prepare-7",
-  "source_commit": "b31d953f7dc1d5d852854694aa8c6808f83413bc",
-  "run_id": "40611478141",
+  "source_commit": "300b4cfcf56044181cc6b0bcbd701fabd2a1e55b",
+  "run_id": "40611880616",
   "status": "form_observed",
   "error_kind": null,
   "product": "wow",
@@ -15,7 +15,7 @@
   "metadata": {
     "version": "12.1.5.70575",
     "build_config": "d718abcc42604d8efbd35aecfa5bb75b",
-    "versions_sha256": "72ed7fc6e5b2dff67e4674f51b1d5313f6b25dfd7269184a21c442331bcf9389",
+    "versions_sha256": "639c8dcfea4548c4e3efb451b6a6c9ea6b4acc44a8ff8e9edff732b075989f7a",
     "response_bytes": 1220
   },
   "bootstrap_settle": {
@@ -28,27 +28,38 @@
   },
   "transfer": {
     "schema": "bnet-retail-transfer-5",
-    "source_commit": "b31d953f7dc1d5d852854694aa8c6808f83413bc",
-    "run_id": "40611478141",
-    "status": "identity_control_observed",
+    "source_commit": "300b4cfcf56044181cc6b0bcbd701fabd2a1e55b",
+    "run_id": "40611880616",
+    "status": "response_schema_unrecognized",
     "error_kind": null,
-    "finalization_attempted": false,
+    "finalization_attempted": true,
     "start_attempted": false,
-    "local_requests": 0,
-    "polls": 0,
+    "local_requests": 2,
+    "polls": 1,
     "phase_signal_created": true,
     "phase_acknowledged": true,
     "finalization_response_shape": {
-      "kind": "not_observed",
-      "recognized_top_fields": [],
-      "unknown_top_fields": 0,
+      "kind": "unknown",
+      "recognized_top_fields": [
+        "response_uri"
+      ],
+      "unknown_top_fields": 1,
       "owned_game_link": false
     },
     "response_diagnostic": {
-      "observed": false,
-      "recognized_top_fields": [],
-      "unknown_top_fields": 0,
-      "nodes": [],
+      "observed": true,
+      "recognized_top_fields": [
+        "response_uri"
+      ],
+      "unknown_top_fields": 1,
+      "nodes": [
+        {
+          "field": "response_uri",
+          "type": "string",
+          "length": 12,
+          "numeric_code": null
+        }
+      ],
       "message_markers": []
     },
     "preflight_path_guard": {
@@ -59,12 +70,12 @@
       "absolute_containment_lexically_verified": true,
       "race_free_containment_proven": false
     },
-    "finalization_http_status": null,
+    "finalization_http_status": 200,
     "start_http_status": null,
-    "status_query_http_status": null,
-    "finalization_response_bytes": 0,
+    "status_query_http_status": 200,
+    "finalization_response_bytes": 65,
     "start_response_bytes": 0,
-    "status_query_response_bytes": 0,
+    "status_query_response_bytes": 2891,
     "finalized_returned": null,
     "finalization_error_codes": {
       "agent": null,
@@ -77,11 +88,11 @@
     },
     "start_agent_error": null,
     "final_path_guard": {
-      "status": "not_observed",
-      "existing_components_checked": 0,
+      "status": "verified_existing_chain",
+      "existing_components_checked": 4,
       "missing_tail": false,
       "reparse_detected": false,
-      "absolute_containment_lexically_verified": false,
+      "absolute_containment_lexically_verified": true,
       "race_free_containment_proven": false
     },
     "final_path_relation": {
@@ -91,30 +102,52 @@
       "returned_dot_segments": null,
       "filesystem_containment_proven": false
     },
-    "baseline_progress": null,
-    "last_progress": null,
+    "baseline_progress": {
+      "recognized_fields": [
+        "download_complete",
+        "installed",
+        "playable"
+      ],
+      "installed": false,
+      "download_complete": false,
+      "playable": false,
+      "counters": {},
+      "unknown_top_fields": 38
+    },
+    "last_progress": {
+      "recognized_fields": [
+        "download_complete",
+        "installed",
+        "playable"
+      ],
+      "installed": false,
+      "download_complete": false,
+      "playable": false,
+      "counters": {},
+      "unknown_top_fields": 38
+    },
     "baseline_files": {
       "files": 0,
       "directories": 0,
       "bytes": 0
     },
     "last_files": {
-      "files": 0,
-      "directories": 0,
-      "bytes": 0
+      "files": 2,
+      "directories": 2,
+      "bytes": 174
     },
     "baseline_connections": {
       "1119": 0,
       "3724": 0,
       "443": 3,
-      "80": 5,
+      "80": 3,
       "other": 0
     },
     "last_connections": {
       "1119": 0,
       "3724": 0,
       "443": 3,
-      "80": 8,
+      "80": 2,
       "other": 0
     },
     "account_parameter_sent": false,
@@ -715,7 +748,7 @@
     "attempted": true,
     "destination_guard_passed": true,
     "minimum_free_required_bytes": 62737418240,
-    "free_before_bytes": 157626732544,
+    "free_before_bytes": 157626675200,
     "http_status": 201,
     "response_bytes": 1664,
     "response_has_form": true,
@@ -736,8 +769,8 @@
   },
   "handshake": {
     "schema": "logged-out-agent-interface-1",
-    "source_commit": "b31d953f7dc1d5d852854694aa8c6808f83413bc",
-    "run_id": "40611478141",
+    "source_commit": "300b4cfcf56044181cc6b0bcbd701fabd2a1e55b",
+    "run_id": "40611880616",
     "run_attempt": "1",
     "status": "handshake_token_observed",
     "bootstrap_status": "agent_process_observed",
@@ -752,7 +785,7 @@
     "listener_binding": "loopback",
     "http_requests_attempted": 1,
     "http_status": 200,
-    "response_bytes": 331,
+    "response_bytes": 332,
     "response_json_object": true,
     "authorization_token_present": true,
     "account_login_attempted": false,
@@ -766,8 +799,8 @@
     "game_update_without_login_proven": false,
     "retail_policy_proven": false,
     "classic_download_authorized": false,
-    "free_disk_before_bytes": 157631492096,
-    "free_disk_after_bytes": 157626724352,
+    "free_disk_before_bytes": 157631434752,
+    "free_disk_after_bytes": 157622661120,
     "installer_body_limit_bytes": 134217728,
     "response_body_limit_bytes": 65536,
     "bootstrap_observation_seconds": 120,
@@ -775,11 +808,11 @@
     "child_network_hard_byte_cap": false,
     "cleanup_attempted": true
   },
-  "identity_checks": 10,
-  "temp_image_verifications": 0,
-  "last_identity_state": "verified",
+  "identity_checks": 13,
+  "temp_image_verifications": 9,
+  "last_identity_state": "verified_temp_image",
   "identity_failure_state": null,
-  "local_requests": 3,
+  "local_requests": 5,
   "initial_summary_empty": true,
   "initialization_attempted": true,
   "initialization_http_status": 201,
@@ -814,7 +847,7 @@
     ]
   },
   "limits": {
-    "finalization_requested": false,
+    "finalization_requested": true,
     "account_login_requested": false,
     "country_fabricated": false,
     "legal_terms_accepted": false,
@@ -829,6 +862,6 @@
     "game_download_without_login_proven": false,
     "initialization_may_trigger_network": true,
     "child_network_hard_byte_cap": false,
-    "full_game_download_requested": false
+    "full_game_download_requested": true
   }
 }
