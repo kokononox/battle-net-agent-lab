@@ -126,6 +126,8 @@ class WorkflowPublication(unittest.TestCase):
             shutil.copytree(root/'agent-interface-lab', work/'agent-interface-lab')
             shutil.copytree(Path(__file__).parent,
                             work/'analysis-tools/prelogin-retail-prepare')
+            shutil.copytree(root/'analysis-tools/prelogin-tcp-attribution',
+                            work/'analysis-tools/prelogin-tcp-attribution')
             incoming = work/'incoming'
             incoming.mkdir()
             (work/'reports').mkdir()

@@ -147,6 +147,7 @@ def await_arm():
  raise ValueError('arm_timeout')
 
 def execute(session,target,configured,r):
+ meter=None
  t=r['transfer'];write(t)
  try:
   u=r['form_update'];f=configured.get('form',{})
@@ -155,6 +156,13 @@ def execute(session,target,configured,r):
   if t['preflight_path_guard']['status']!='verified_existing_chain':t['status']='prerequisite_refused';return
   if session.verify()is not True:raise probe.Stop('identity_changed')
   rows=tcp_rows();owner=owner_at(session.port,rows);t['baseline_connections']=connection_counts(session.port,owner,rows);t['baseline_files']=file_snapshot(target)
+  meter_scope=os.environ.get('RETAIL_TCP_METER')
+  if meter_scope=='owned-baseline-t2':
+   import sys
+   sys.path.insert(0,str(Path(__file__).resolve().parent.parent/'prelogin-tcp-attribution'))
+   import meter_control
+   meter=meter_control.start(owner,session.port)
+  elif meter_scope not in (None,''):raise ValueError('meter_scope')
   # Signal is an intent marker, not proof of transfer or permission to reset global limits.
   with Path('output/retail-transfer-active.signal').open('x')as signal:signal.write('active\n')
   t['phase_signal_created']=True;t['status']='pending';write(t)
@@ -241,4 +249,6 @@ def execute(session,target,configured,r):
   t['status']='observed'
  except Exception as exc:
   name=type(exc).__name__;t['error_kind']=name if name in {'OSError','ValueError','Stop'}else 'other';t['status']='identity_changed'if name=='Stop'else'request_failed'
- finally:write(t)
+ finally:
+  write(t)
+  if meter is not None:meter_control.stop(meter)

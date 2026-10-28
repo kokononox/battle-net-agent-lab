@@ -1,4 +1,4 @@
-name: Logged-out Retail identity-only negative control D20
+name: Logged-out Retail owned TCP attribution control T2
 on:
   push:
     branches: [research/prelogin-telemetry-wow-data-provenance]
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail identity control d20'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned Agent TCP control t2'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved retail identity control d20'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned Agent TCP control t2'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -53,6 +53,8 @@ jobs:
         run: |
           python scripts/run_safety_tests.py --output output
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest discover -s analysis-tools/prelogin-tcp-attribution -p 'test_*.py' -v
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python -m unittest discover -s analysis-tools/prelogin-retail-prepare -p 'test_*.py' -v
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Owned Agent limited transfer under unchanged independent guard
@@ -62,6 +64,7 @@ jobs:
           RETAIL_PREPARE: approved-retail-prepare-c10
           RETAIL_PREPARE_SCOPE: limited-transfer-c10
           RETAIL_PHASE_CONTROL: identity-only-d20
+          RETAIL_TCP_METER: owned-baseline-t2
         run: python analysis-tools/prelogin-retail-prepare/guard_driver.py
       - name: Validate only counts and fixed labels
         id: sanitize
@@ -73,6 +76,11 @@ jobs:
       - name: Validate standalone transfer receipt
         if: always()
         run: python analysis-tools/prelogin-retail-prepare/transfer_sanitize.py output/retail-transfer.json sanitized/retail-transfer.json
+      - name: Validate calibrated socket receipts when present
+        if: always()
+        run: |
+          if (Test-Path output/tcp-fixture.json) { python analysis-tools/prelogin-tcp-attribution/receipt.py output/tcp-fixture.json sanitized/tcp-fixture.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
+          if (Test-Path output/tcp-meter.json) { python analysis-tools/prelogin-tcp-attribution/meter_receipt.py output/tcp-meter.json sanitized/tcp-meter.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
       - name: Record typed outcomes
         if: always()
         env:
@@ -143,6 +151,13 @@ jobs:
               Path('reports/prelogin-retail-prepare-runtime.json').write_text(json.dumps(d,indent=2)+'\n')
               compact=dict(schema='bnet-retail-path-review-1',source_commit=d['source_commit'],run_id=d['run_id'],status=d['status'],form_update=d['form_update'],initial_error_codes=d['form']['error_codes'],identity_failure_state=d['identity_failure_state'],identity_checks=d['identity_checks'],local_requests=d['local_requests'],limits=d['limits'])
               Path('reports/prelogin-retail-path-latest.json').write_text(json.dumps(compact,indent=2)+'\n')
+          sys.path.insert(0,'analysis-tools/prelogin-tcp-attribution')
+          import receipt as tcp_fixture, meter_receipt
+          for name,validator,destination in [('tcp-fixture.json',tcp_fixture,'prelogin-tcp-target-calibration-latest.json'),('tcp-meter.json',meter_receipt,'prelogin-owned-tcp-meter-latest.json')]:
+              if Path('incoming',name).exists():
+                  m=validator.read(Path('incoming',name))
+                  if m['source_commit']!=os.environ['SOURCE'] or m['run_id']!=os.environ['RUN']:raise SystemExit('tcp_identity_mismatch')
+                  Path('reports',destination).write_text(json.dumps(m,indent=2)+'\n')
           attempt=summarize_attempt(os.environ['SOURCE'],os.environ['RUN'],r,guard,transfer,d)
           Path('reports/prelogin-retail-attempt-latest.json').write_text(json.dumps(attempt,indent=2)+'\n')
           PY
@@ -152,6 +167,8 @@ jobs:
           if test -f incoming/prelogin-retail-prepare.json; then git add -- reports/prelogin-retail-prepare-runtime.json reports/prelogin-retail-path-latest.json; fi
           if test -f incoming/retail-supervision.json; then git add -- reports/prelogin-retail-supervision-latest.json; fi
           if test -f incoming/retail-transfer.json; then git add -- reports/prelogin-retail-transfer-latest.json; fi
+          if test -f incoming/tcp-fixture.json; then git add -- reports/prelogin-tcp-target-calibration-latest.json; fi
+          if test -f incoming/tcp-meter.json; then git add -- reports/prelogin-owned-tcp-meter-latest.json; fi
           git diff --cached --quiet && exit 0
           git commit -m 'lab: publish sanitized Retail preparation evidence'
           git push origin HEAD:research/prelogin-telemetry-wow-data-provenance

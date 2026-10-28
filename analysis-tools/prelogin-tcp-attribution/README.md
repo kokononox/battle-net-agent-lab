@@ -27,3 +27,22 @@ EnableCollection can expose undefined/random counters. We fail closed on both.
 DataBytes includes retransmissions, excludes TCP headers; ThruBytes counters are
 separate cumulative-ACK measures. Exact-match is required for this local control;
 a mismatch is a failed calibration, never rounded into a pass.
+
+## Owned Agent baseline observer T2
+
+Each target run first repeats the native known-transfer fixture using the shared
+`estats_common.h` read/enable implementation. Only then is the meter compiled and
+the unchanged guarded target allowed. The worker supplies the already-verified
+Agent listener's owner. The meter holds that original process object open, checks
+its continued existence and unique listener ownership, enables collection on up
+to128 established non-loopback IPv4 TCP rows of exactly that PID, and checkpoints
+25ms samples for at most200 iterations. Changed connection sets, failed reads,
+disabled collection or decreased counters stop observation; they are never zeros.
+No new endpoints are followed and the meter makes no socket connections.
+
+The baseline is established BEFORE phase arming. Its observation window is
+explicitly `pre_arm_baseline_to_last_checkpoint`, not a claim that every byte
+occurred after finalization. Existing/new/closed IPv6, UDP, short-lived TCP and
+other processes remain outside scope. An interrupted current checkpoint proves
+only its reported bounded interval, never later activity. Zero is not proof of
+zero total Agent traffic. Production Job killing includes the meter child.

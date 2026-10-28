@@ -39,6 +39,15 @@ def main():
    result=subprocess.run([str(exe),mode],timeout=20)
    rec=g.receipt(g.read('output/retail-supervisor-'+mode+'.json'));r['fixtures'][mode]=rec
    if result.returncode or not g.fixture_passed(rec):raise RuntimeError('fixture_failed')
+  if os.environ.get('RETAIL_TCP_METER')=='owned-baseline-t2':
+   sys.path.insert(0,str(HERE.parent/'prelogin-tcp-attribution'))
+   import run_fixture,receipt as calibration
+   fixture=run_fixture.compile_source('tcp_fixture')
+   checked=subprocess.run([str(fixture),r['source_commit'],r['run_id']],capture_output=True,timeout=20)
+   proof=calibration.read('output/tcp-fixture.json')
+   if checked.returncode or proof['status']!='calibrated' or any(proof[k]!=r[k]for k in ('source_commit','run_id')):raise RuntimeError('fixture_failed')
+   run_fixture.compile_source('tcp_meter')
+  elif os.environ.get('RETAIL_TCP_METER')not in (None,''):raise RuntimeError('fixture_failed')
   result=subprocess.run([str(exe),'observe',sys.executable],timeout=270)
   r['observation']=g.receipt(g.read('output/retail-supervisor-observe.json'))
   if result.returncode:raise RuntimeError('native_failed')

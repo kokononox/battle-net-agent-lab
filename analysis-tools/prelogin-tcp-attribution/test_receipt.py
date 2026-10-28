@@ -55,7 +55,7 @@ class Scope(unittest.TestCase):
   for k in ('RETAIL_PREPARE','RETAIL_SUPERVISED'):
    d=self.env();d[k]='yes';self.assertFalse(f.allowed(d,'win32'))
  def test_native_does_not_connect_external_or_launch_target(self):
-  s=Path(f.__file__).with_name('tcp_fixture.cpp').read_text()
+  s=Path(f.__file__).with_name('tcp_fixture.cpp').read_text()+Path(f.__file__).with_name('estats_common.h').read_text()
   self.assertIn('htonl(INADDR_LOOPBACK)',s);self.assertNotIn('CreateProcess',s)
   self.assertNotIn('getaddrinfo',s);self.assertIn('rw.EnableCollection!=TRUE',s)
   self.assertIn('r.dwOwningPid==GetCurrentProcessId()',s)
