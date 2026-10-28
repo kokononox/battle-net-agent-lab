@@ -270,3 +270,12 @@ success. `RETAIL_BOOTSTRAP_WAIT=original-120-t9` now restores the original bound
 120 s passive bootstrap observation ONLY with the approved T9 budget profile.
 The native global time limit remains 240 s, and all bootstrap traffic/time stays
 charged to its existing global budget. No readiness or signature gate changes.
+
+
+T9 bounded observation completed at run 40618511090 / source da2e6721ba5770fc8a89472d2a8584575a428bf3.
+The phase stop fired at the approved threshold; this is NOT content verification.
+Further target execution is paused after that stop. The subsequent snapshot-order
+and censored-count changes are locally tested preparation, not a new live result.
+A non-approval documentation commit intentionally cancels the queued follow-up
+through the workflow's existing concurrency group, rather than consuming another
+bounded target run after the approved stop.
