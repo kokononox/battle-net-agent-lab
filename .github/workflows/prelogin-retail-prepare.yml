@@ -1,4 +1,4 @@
-name: Logged-out Retail checkpointed bounded operation T8
+name: Logged-out Retail approved content probe T9
 on:
   push:
     branches: [research/prelogin-telemetry-wow-data-provenance]
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved checkpointed bounded Retail operation t8'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved 2GiB 512MiB Retail content proof t9'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved checkpointed bounded Retail operation t8'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved 2GiB 512MiB Retail content proof t9'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -57,7 +57,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python -m unittest discover -s analysis-tools/prelogin-retail-prepare -p 'test_*.py' -v
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: Owned Agent checkpointed operation under unchanged independent guard
+      - name: Owned Agent with explicitly approved 2GiB and 512MiB guard
         id: observation
         timeout-minutes: 6
         env:
@@ -65,6 +65,8 @@ jobs:
           RETAIL_PREPARE_SCOPE: limited-transfer-c10
           RETAIL_START_OPERATION: owned-install-t5
           RETAIL_TCP_METER: owned-baseline-t2
+          RETAIL_BUDGET_PROFILE: approved-2g-512m-t9
+          RETAIL_CONTENT_PROBE: official-install-t9
         run: python analysis-tools/prelogin-retail-prepare/guard_driver.py
       - name: Validate only counts and fixed labels
         id: sanitize
@@ -98,6 +100,10 @@ jobs:
         if: always()
         run: |
           if (Test-Path output/preproduct-control.json) { python analysis-tools/prelogin-retail-prepare/preproduct_control.py output/preproduct-control.json sanitized/preproduct-control.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
+      - name: Validate official content-only receipt when present
+        if: always()
+        run: |
+          if (Test-Path output/retail-content.json) { python analysis-tools/prelogin-retail-prepare/content_probe.py output/retail-content.json sanitized/retail-content.json "${{ github.sha }}" "${{ github.run_id }}"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }
       - name: Record typed outcomes
         if: always()
         env:
@@ -199,6 +205,11 @@ jobs:
               pc=preproduct_control.validate(json.loads(Path('incoming/preproduct-control.json').read_text()))
               if pc['source_commit']!=os.environ['SOURCE'] or pc['run_id']!=os.environ['RUN']:raise SystemExit('preproduct_identity_mismatch')
               Path('reports/prelogin-preproduct-control-latest.json').write_text(json.dumps(pc,indent=2)+'\n')
+          if Path('incoming/retail-content.json').exists():
+              import content_probe
+              content=content_probe.validate(read_guard('incoming/retail-content.json'))
+              if content['source_commit']!=os.environ['SOURCE'] or content['run_id']!=os.environ['RUN']:raise SystemExit('content_identity_mismatch')
+              Path('reports/prelogin-retail-content-latest.json').write_text(json.dumps(content,indent=2)+'\n')
           attempt=summarize_attempt(os.environ['SOURCE'],os.environ['RUN'],r,guard,transfer,d)
           Path('reports/prelogin-retail-attempt-latest.json').write_text(json.dumps(attempt,indent=2)+'\n')
           PY
@@ -215,6 +226,7 @@ jobs:
           if test -f incoming/retail-operation-state.json; then git add -- reports/prelogin-retail-operation-state-latest.json; fi
           if test -f incoming/prearm-quiet.json; then git add -- reports/prelogin-retail-prearm-quiet-latest.json; fi
           if test -f incoming/preproduct-control.json; then git add -- reports/prelogin-preproduct-control-latest.json; fi
+          if test -f incoming/retail-content.json; then git add -- reports/prelogin-retail-content-latest.json; fi
           git diff --cached --quiet && exit 0
           git commit -m 'lab: publish sanitized Retail preparation evidence'
           git push origin HEAD:research/prelogin-telemetry-wow-data-provenance

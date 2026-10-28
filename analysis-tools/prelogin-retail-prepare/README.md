@@ -225,3 +225,32 @@ public config, without fetching the large referenced manifests or changing any
 runtime budget. The encoded encoding object's declared size exceeds the 64 MiB
 phase threshold; the implication is conditional on needing that whole object
 inside the armed phase, not a causal identification of observed Agent traffic.
+
+
+## T9 explicit user-approved bounded content experiment
+
+The user approved a 2 GiB hostwide global threshold and 512 MiB hostwide phase
+threshold in chat. Time remains 240 s global / 30 s phase; disk reserve 10 GiB.
+Only `RETAIL_BUDGET_PROFILE=approved-2g-512m-t9` selects this named finite policy;
+unknown profiles are refused. All native synthetic stopping fixtures retain the
+legacy limits, and the shared selector has independent portable C++ tests.
+
+The small official install manifest was fetched separately as public metadata
+(23,106 encoded bytes, 24,078 decoded); its full EKey/BLTE checks and decoded CKey
+were verified against the checksum-bound config for build 12.1.5.70575. The
+reference contains only fixed public component names, sizes and content hashes;
+no game executable, raw response, local path or identifier is published.
+`make_content_reference.py` reproduces reference extraction from those two local
+public-metadata inputs. Install-policy tags are NOT interpreted; both official
+voice-proxy variants are accepted as components of this build, not as proof of
+architecture selection or complete installation.
+
+`content_probe.py` is read-only: checks both fixed owned layouts, requires absent
+baseline components and matching build identity, rejects reparse/hard links,
+limits per-file reads to 4 MiB plus a single extra-byte EOF check, at most eight
+hash attempts / 16 MiB declared hashed content, and validates before/open/after
+fingerprints. At most 64 scans and a 20 s passive observation (no extra HTTP)
+follow a successfully verified operation start. A positive match proves a known
+component materialized in the previously empty destination; it does NOT prove
+which socket delivered that exact file, full installation, or hardware upload.
+No account, country, EULA, minimum-spec bypass, game execution or user install.

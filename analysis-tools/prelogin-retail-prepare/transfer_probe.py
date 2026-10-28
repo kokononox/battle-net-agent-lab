@@ -152,7 +152,7 @@ def await_arm():
  raise ValueError('arm_timeout')
 
 def execute(session,target,configured,r):
- meter=None
+ meter=None;content=None
  t=r['transfer'];write(t)
  try:
   u=r['form_update'];f=configured.get('form',{})
@@ -161,6 +161,11 @@ def execute(session,target,configured,r):
   if t['preflight_path_guard']['status']!='verified_existing_chain':t['status']='prerequisite_refused';return
   if session.verify()is not True:raise probe.Stop('identity_changed')
   rows=tcp_rows();owner=owner_at(session.port,rows);t['baseline_connections']=connection_counts(session.port,owner,rows);t['baseline_files']=file_snapshot(target);write(t)
+  content_scope=os.environ.get('RETAIL_CONTENT_PROBE')
+  if content_scope=='official-install-t9':
+   import content_probe
+   content=content_probe.Probe(target,r.get('metadata'),t['source_commit'],t['run_id'])
+  elif content_scope not in (None,''):raise ValueError('content_scope')
   meter_scope=os.environ.get('RETAIL_TCP_METER')
   if meter_scope=='owned-baseline-t2':
    import sys
@@ -210,6 +215,7 @@ def execute(session,target,configured,r):
      checkpoint=operation_state.describe(data,'install'if path=='/install/wow'else'update',post_verified=False)
      operation_state.checkpoint(t['source_commit'],t['run_id'],checkpoint)
      t['last_files']=file_snapshot(target);write(t)
+     if content is not None:content.scan()
     if session.verify()is not True:raise probe.Stop('identity_changed')
     if checkpoint is not None:
      checkpoint['post_response_identity_verified']=True
@@ -252,7 +258,9 @@ def execute(session,target,configured,r):
     t['last_progress']=progress(result);t['polls']+=1;t['status']='operation_start_observed';write(t)
     t['last_connections']=connection_counts(session.port,owner,tcp_rows());t['last_files']=file_snapshot(target);write(t)
     if states[-1]['refusal_observed']:return
+    if content is not None and content.r['game_component_materialized']:return
     time.sleep(.25)
+   if content is not None:content.observe_bounded()
    return
   if t['finalization_response_shape']['kind']in {'canonical_game_link','product_state'}:
    # No /update after a different response shape. Read the exact owned endpoint only.

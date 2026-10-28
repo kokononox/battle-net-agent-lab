@@ -27,14 +27,15 @@ def validate_diagnostics(d):
 
 def receipt(r):
  keys={'schema','source_commit','run_id','mode','status','root_exit_code','network_scope'}|FLAGS|NUMS
- if type(r)is dict and r.get('schema')in {'bnet-retail-supervisor-3','bnet-retail-supervisor-4'}:keys=keys|{'network_diagnostics'}
- if type(r)is dict and r.get('schema')=='bnet-retail-supervisor-4':keys=keys|{'phase_arming_acknowledged','phase_baseline_policy'}
- if type(r)is not dict or set(r)!=keys or r['schema']not in {'bnet-retail-supervisor-2','bnet-retail-supervisor-3','bnet-retail-supervisor-4'} or r['mode']not in MODES or r['status']not in STATUSES:raise ValueError('receipt_schema')
+ if type(r)is dict and r.get('schema')in {'bnet-retail-supervisor-3','bnet-retail-supervisor-4','bnet-retail-supervisor-5'}:keys=keys|{'network_diagnostics'}
+ if type(r)is dict and r.get('schema')in {'bnet-retail-supervisor-4','bnet-retail-supervisor-5'}:keys=keys|{'phase_arming_acknowledged','phase_baseline_policy'}
+ if type(r)is dict and r.get('schema')=='bnet-retail-supervisor-5':keys=keys|{'budget_profile'}
+ if type(r)is not dict or set(r)!=keys or r['schema']not in {'bnet-retail-supervisor-2','bnet-retail-supervisor-3','bnet-retail-supervisor-4','bnet-retail-supervisor-5'} or r['mode']not in MODES or r['status']not in STATUSES:raise ValueError('receipt_schema')
  identity(r)
- if r['schema']=='bnet-retail-supervisor-4':
+ if r['schema']in {'bnet-retail-supervisor-4','bnet-retail-supervisor-5'}:
   if type(r['phase_arming_acknowledged'])is not bool or r['phase_baseline_policy']!='acknowledged_pre_request_snapshot':raise ValueError('arming_schema')
   if r['phase_arming_acknowledged'] and (not r['transfer_phase_signal_seen'] or r['mode']!='observe'):raise ValueError('arming_scope')
- if r['schema']in {'bnet-retail-supervisor-3','bnet-retail-supervisor-4'}:
+ if r['schema']in {'bnet-retail-supervisor-3','bnet-retail-supervisor-4','bnet-retail-supervisor-5'}:
   d=validate_diagnostics(r['network_diagnostics'])
   if d['phase_boundary_observed'] and (not r['transfer_phase_signal_seen'] or r['mode']!='observe'):raise ValueError('diagnostic_phase_scope')
  for k in FLAGS:
@@ -43,9 +44,14 @@ def receipt(r):
   if type(r[k])is not int or not 0<=r[k]<=2**64-1:raise ValueError('number')
  if r['root_exit_code']is not None and(type(r['root_exit_code'])is not int or not 0<=r['root_exit_code']<2**32):raise ValueError('exit')
  fixture=r['mode']!='observe'
- if r['network_scope']!=('synthetic_fixture' if fixture else 'hostwide_adapter_counters') or r['poll_interval_ms']!=250 or r['time_limit_ms']!=(3000 if fixture else 240000) or r['network_threshold_bytes']!=(2 if r['mode']=='fixture_network' else 1073741824) or r['disk_reserve_bytes']!=10737418240:raise ValueError('limits')
+ profile=r.get('budget_profile','legacy-c10')
+ if profile not in {'legacy-c10','approved-2g-512m-t9'}or fixture and profile!='legacy-c10':raise ValueError('budget_profile')
+ expanded=profile=='approved-2g-512m-t9'
+ total_limit=2147483648 if expanded else 1073741824
+ phase_limit=536870912 if expanded else 67108864
+ if r['network_scope']!=('synthetic_fixture' if fixture else 'hostwide_adapter_counters') or r['poll_interval_ms']!=250 or r['time_limit_ms']!=(3000 if fixture else 240000) or r['network_threshold_bytes']!=(2 if r['mode']=='fixture_network' else total_limit) or r['disk_reserve_bytes']!=10737418240:raise ValueError('limits')
  if r['hard_network_byte_cap']is not False or r['game_transfer_request_proven_by_supervisor']is not False:raise ValueError('fixed')
- if r['phase_time_limit_ms']!=30000 or r['phase_network_threshold_bytes']!=67108864:raise ValueError('phase_limits')
+ if r['phase_time_limit_ms']!=30000 or r['phase_network_threshold_bytes']!=phase_limit:raise ValueError('phase_limits')
  if not r['transfer_phase_signal_seen'] and (r['phase_elapsed_ms'] or r['phase_network_delta_bytes']):raise ValueError('phase_unobserved')
  if r['child_resumed'] and not(r['child_assigned_before_resume'] and r['job_kill_on_close_configured']):raise ValueError('resume')
  if r['job_drained'] and (not r['termination_requested'] or r['final_active_processes']!=0):raise ValueError('drain')

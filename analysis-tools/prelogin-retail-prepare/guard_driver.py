@@ -50,6 +50,8 @@ def main():
   elif os.environ.get('RETAIL_TCP_METER')not in (None,''):raise RuntimeError('fixture_failed')
   result=subprocess.run([str(exe),'observe',sys.executable],timeout=270)
   r['observation']=g.receipt(g.read('output/retail-supervisor-observe.json'))
+  expected='approved-2g-512m-t9'if os.environ.get('RETAIL_BUDGET_PROFILE')=='approved-2g-512m-t9'else 'legacy-c10'
+  if r['observation'].get('budget_profile','legacy-c10')!=expected:raise RuntimeError('native_failed')
   if result.returncode:raise RuntimeError('native_failed')
   r['status']='completed'
  except Exception as exc:
