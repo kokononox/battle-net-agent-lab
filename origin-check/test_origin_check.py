@@ -58,5 +58,5 @@ class Batches(unittest.TestCase):
   with tempfile.TemporaryDirectory()as t:
    a=Path(t)/'a';b=Path(t)/'b';a.mkdir();b.mkdir();self.files(a,65);self.files(b,65);(a/'data.000').write_bytes(prefix());(b/'data.000').write_bytes(prefix());out=io.StringIO()
    with redirect_stdout(out):code=c.main([str(a),str(b)])
-   r=json.loads(out.getvalue());self.assertEqual(code,0);self.assertTrue(r['observed_batch_marker_sets_equal']);self.assertIsNone(r['two_copy_marker_sets_equal']);self.assertEqual(r['tool_version'],'3.0')
+   r=json.loads(out.getvalue());self.assertEqual(code,0);self.assertTrue(r['observed_batch_marker_sets_equal']);self.assertIsNone(r['two_copy_marker_sets_equal']);self.assertEqual(r['tool_version'],'4.0')
 if __name__=='__main__':unittest.main()
