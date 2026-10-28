@@ -11,7 +11,8 @@ concurrency:
   cancel-in-progress: true
 jobs:
   calibrate:
-    if: github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned TCP counter calibration t1'
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned TCP counter calibration t1'
     runs-on: windows-2025
     timeout-minutes: 6
     permissions:
@@ -38,7 +39,8 @@ jobs:
           retention-days: 3
   publish:
     needs: calibrate
-    if: always() && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned TCP counter calibration t1'
+    if: >-
+      always() && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned TCP counter calibration t1'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:

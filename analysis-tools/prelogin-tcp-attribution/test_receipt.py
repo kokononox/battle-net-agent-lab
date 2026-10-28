@@ -43,6 +43,10 @@ class Receipt(unittest.TestCase):
    with self.assertRaises(ValueError):r.read(p)
 class Scope(unittest.TestCase):
  def env(self):return dict(GITHUB_ACTIONS='true',RUNNER_OS='Windows',RUNNER_ENVIRONMENT='github-hosted',GITHUB_EVENT_NAME='push',GITHUB_RUN_ATTEMPT='1',GITHUB_REF=f.BRANCH,TCP_CALIBRATION='approved-owned-tcp-t1')
+ def test_workflow_approval_uses_block_scalar(self):
+  text=(Path(f.__file__).resolve().parents[2]/'.github/workflows/prelogin-tcp-attribution.yml').read_text()
+  self.assertEqual(text.count('    if: >-'),2)
+  self.assertNotIn("if: github.run_attempt",text)
  def test_fresh_hosted_only(self):
   e=self.env();self.assertTrue(f.allowed(e,'win32'));self.assertFalse(f.allowed(e,'linux'))
   for k in e:
