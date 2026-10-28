@@ -1,0 +1,66 @@
+name: Owned loopback TCP attribution calibration T1
+on:
+  push:
+    branches: [research/prelogin-telemetry-wow-data-provenance]
+    paths:
+      - 'analysis-tools/prelogin-tcp-attribution/**'
+      - '.github/workflows/prelogin-tcp-attribution.yml'
+permissions: {}
+concurrency:
+  group: prelogin-tcp-calibration-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  calibrate:
+    if: github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned TCP counter calibration t1'
+    runs-on: windows-2025
+    timeout-minutes: 6
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Schema, negative-control and scope contracts
+        run: python -m unittest discover -s analysis-tools/prelogin-tcp-attribution -p 'test_*.py' -v
+      - name: Exact owned transfer and idle connection control
+        env:
+          TCP_CALIBRATION: approved-owned-tcp-t1
+        run: python analysis-tools/prelogin-tcp-attribution/run_fixture.py
+      - name: Strict source-bound receipt only
+        if: always()
+        run: python analysis-tools/prelogin-tcp-attribution/receipt.py output/tcp-fixture.json sanitized/tcp-fixture.json "${{ github.sha }}" "${{ github.run_id }}"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: owned-tcp-calibration
+          path: sanitized/tcp-fixture.json
+          if-no-files-found: error
+          retention-days: 3
+  publish:
+    needs: calibrate
+    if: always() && github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned TCP counter calibration t1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: research/prelogin-telemetry-wow-data-provenance
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: owned-tcp-calibration
+          path: incoming-tcp
+      - name: Revalidate and publish fixed report path
+        env:
+          SOURCE: ${{ github.sha }}
+          RUN: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          python3 analysis-tools/prelogin-tcp-attribution/receipt.py incoming-tcp/tcp-fixture.json reports/prelogin-tcp-calibration-t1.json "$SOURCE" "$RUN"
+          git config user.name prelogin-wire-report
+          git config user.email prelogin-wire-report@users.noreply.github.com
+          git add -- reports/prelogin-tcp-calibration-t1.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'lab: publish owned TCP attribution calibration'
+          git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
