@@ -276,6 +276,10 @@ T9 bounded observation completed at run 40618511090 / source da2e6721ba5770fc8a8
 The phase stop fired at the approved threshold; this is NOT content verification.
 Further target execution is paused after that stop. The subsequent snapshot-order
 and censored-count changes are locally tested preparation, not a new live result.
-A non-approval documentation commit intentionally cancels the queued follow-up
+A non-approval documentation commit intentionally cancels the follow-up attempt
 through the workflow's existing concurrency group, rather than consuming another
 bounded target run after the approved stop.
+
+Cancellation confirmed: follow-up run 40619129965 ended cancelled; stop-only run
+40619262177 ended skipped. The cancelled follow-up is not counted as new content
+evidence. No further target run remains active.
