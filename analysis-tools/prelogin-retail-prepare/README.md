@@ -151,3 +151,9 @@ per-connection observer. The first T2 attempt did not launch the target: the
 meter did not compile. Target-free build run40610911964 then compiled both
 units and revalidated exact known transfer counters. The next approved T2
 keeps all budget, ownership, pin and nonfinalizing control gates unchanged.
+
+The compiled T2 meter observed six owned external IPv4 TCP connections and
+333,304 incoming bytes before the phase was armed, but its ready marker used
+Windows text-mode CRLF while the Python gate correctly required exact LF.
+The worker refused before any phase request. Ready output is now explicitly
+binary; exact-marker success and CRLF refusal are covered by mocked IPC tests.

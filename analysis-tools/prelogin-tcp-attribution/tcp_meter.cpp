@@ -53,7 +53,7 @@ void run(Report&r,DWORD pid,DWORD port){
  }
  if(c.empty()){r.status="no_connections";return;}
  r.tracked=(unsigned int)c.size();r.start=GetTickCount64();r.ready=true;r.status="observing";write(r);
- {std::ofstream f("output/tcp-meter-ready.tmp");f<<"ready\n";f.close();if(!MoveFileExW(L"output/tcp-meter-ready.tmp",L"output/tcp-meter-ready.signal",MOVEFILE_REPLACE_EXISTING|MOVEFILE_WRITE_THROUGH)){r.status="write_failed";return;}}
+ {std::ofstream f("output/tcp-meter-ready.tmp",std::ios::binary);f<<"ready\n";f.close();if(!MoveFileExW(L"output/tcp-meter-ready.tmp",L"output/tcp-meter-ready.signal",MOVEFILE_REPLACE_EXISTING|MOVEFILE_WRITE_THROUGH)){r.status="write_failed";return;}}
  for(unsigned int k=0;k<200;k++){
   if(WaitForSingleObject(h,0)!=WAIT_TIMEOUT||!rows(pid,port,current)){r.status="owner_refused";return;}
   std::set<Key> now;for(const auto& row:current)now.insert(key(row));if(now!=initial){++r.changes;r.status="connection_set_changed";return;}
