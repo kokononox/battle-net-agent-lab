@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <set>
+#include <map>
 #include <array>
 #include <cstdlib>
 #pragma comment(lib,"iphlpapi.lib")
@@ -39,7 +40,7 @@ void write(const Report&r){
  <<",\"process_handle_held\":"<<b(r.handle)<<",\"listener_owner_verified\":"<<b(r.listener)<<",\"baseline_ready\":"<<b(r.ready)
  <<",\"tracked_connections\":"<<r.tracked<<",\"polls\":"<<r.polls<<",\"elapsed_ms\":"<<r.ms<<",\"failed_reads\":"<<r.failed<<",\"connection_set_changes\":"<<r.changes<<",\"counter_resets\":"<<r.resets
  <<",\"data_bytes_in_delta\":"<<r.delta.in<<",\"data_bytes_out_delta\":"<<r.delta.out<<",\"thru_bytes_received_delta\":"<<r.delta.received<<",\"thru_bytes_acked_delta\":"<<r.delta.acked
- <<",\"scope\":\"baseline_owned_external_ipv4_tcp_connections\",\"window\":\"pre_arm_baseline_to_last_checkpoint\",\"all_process_traffic_covered\":false,\"hardware_payload_proven\":false,\"raw_endpoints_exported\":false,\"payload_exported\":false,\"production_limits_changed\":false}\n";
+ <<",\"scope\":\"discovered_owned_external_ipv4_tcp_connections\",\"window\":\"first_baseline_to_last_checkpoint_per_connection\",\"all_process_traffic_covered\":false,\"hardware_payload_proven\":false,\"raw_endpoints_exported\":false,\"payload_exported\":false,\"production_limits_changed\":false}\n";
  f.close();MoveFileExW(L"output/tcp-meter.tmp",L"output/tcp-meter.json",MOVEFILE_REPLACE_EXISTING|MOVEFILE_WRITE_THROUGH);
 }
 void run(Report&r,DWORD pid,DWORD port){
@@ -54,10 +55,30 @@ void run(Report&r,DWORD pid,DWORD port){
  if(c.empty()){r.status="no_connections";return;}
  r.tracked=(unsigned int)c.size();r.start=GetTickCount64();r.ready=true;r.status="observing";write(r);
  {std::ofstream f("output/tcp-meter-ready.tmp",std::ios::binary);f<<"ready\n";f.close();if(!MoveFileExW(L"output/tcp-meter-ready.tmp",L"output/tcp-meter-ready.signal",MOVEFILE_REPLACE_EXISTING|MOVEFILE_WRITE_THROUGH)){r.status="write_failed";return;}}
+ Stats archived{};
  for(unsigned int k=0;k<200;k++){
   if(WaitForSingleObject(h,0)!=WAIT_TIMEOUT||!rows(pid,port,current)){r.status="owner_refused";return;}
-  std::set<Key> now;for(const auto& row:current)now.insert(key(row));if(now!=initial){++r.changes;r.status="connection_set_changed";return;}
-  Stats sum{};
+  std::set<Key> now;for(const auto& row:current)now.insert(key(row));
+  if(now!=initial){
+   ++r.changes;
+   // Closed sockets keep ONLY their last successfully read delta. Missed tails
+   // are never estimated. New sockets begin their own enabled-collection baseline.
+   for(auto it=c.begin();it!=c.end();){
+    if(now.find(key(it->row))==now.end()){
+     archived.in+=it->last.in-it->baseline.in;archived.out+=it->last.out-it->baseline.out;
+     archived.received+=it->last.received-it->baseline.received;archived.acked+=it->last.acked-it->baseline.acked;
+     it=c.erase(it);
+    }else ++it;
+   }
+   for(auto row:current)if(initial.find(key(row))==initial.end()){
+    if(r.tracked>=128){r.status="connection_limit";return;}
+    Conn v;v.row=row;r.error=enable(v.row);if(r.error){r.status="enable_failed";return;}
+    r.error=read_stats(v.row,v.baseline);if(r.error){++r.failed;r.status="read_failed";return;}
+    v.last=v.baseline;c.push_back(v);++r.tracked;
+   }
+   initial=now;
+  }
+  Stats sum=archived;
   for(auto&v:c){Stats s{};r.error=read_stats(v.row,s);if(r.error){++r.failed;r.status="read_failed";return;}
    if(s.in<v.last.in||s.out<v.last.out||s.received<v.last.received||s.acked<v.last.acked){++r.resets;r.status="counter_reset";return;}
    v.last=s;sum.in+=s.in-v.baseline.in;sum.out+=s.out-v.baseline.out;sum.received+=s.received-v.baseline.received;sum.acked+=s.acked-v.baseline.acked;

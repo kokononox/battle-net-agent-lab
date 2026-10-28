@@ -15,9 +15,11 @@ class Meter(unittest.TestCase):
    r=good();r[k]=False
    with self.assertRaises(ValueError):m.validate(r)
  def test_failed_read_not_valid_zero(self):
-  for k in ('failed_reads','counter_resets','connection_set_changes','win32_error'):
+  for k in ('failed_reads','counter_resets','win32_error'):
    r=good();r[k]=1
    with self.assertRaises(ValueError):m.validate(r)
+ def test_connection_turnover_keeps_explicit_partial_scope(self):
+  r=good();r['connection_set_changes']=3;m.validate(r);self.assertFalse(r['all_process_traffic_covered'])
  def test_no_complete_or_hardware_or_payload_claim(self):
   for k in ('all_process_traffic_covered','hardware_payload_proven','raw_endpoints_exported','payload_exported','production_limits_changed'):
    r=good();r[k]=True

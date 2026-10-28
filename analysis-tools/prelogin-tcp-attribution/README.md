@@ -46,3 +46,14 @@ occurred after finalization. Existing/new/closed IPv6, UDP, short-lived TCP and
 other processes remain outside scope. An interrupted current checkpoint proves
 only its reported bounded interval, never later activity. Zero is not proof of
 zero total Agent traffic. Production Job killing includes the meter child.
+
+
+T3 rolling observation: controlled T2 showed the Agent connection set changes
+quickly, so a stable-baseline-only collector is insufficient. Discovered rows
+remain tied to the held original process and verified listener. Each new socket
+requires a successful enable and its own baseline; closed sockets retain only
+the last successfully read delta, never an estimated tail. Up to128 connections
+over the whole run, 200 polls/25ms, and all native Job limits remain unchanged.
+Read errors/resets still stop collection. Counts are incomplete observed TCP data
+octets (including possible retransmissions), not unique game bytes. The explicit
+window/scope labels distinguish this from historical fixed-baseline checkpoints.

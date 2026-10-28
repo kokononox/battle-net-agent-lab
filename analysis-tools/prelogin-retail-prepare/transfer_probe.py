@@ -8,7 +8,7 @@ import probe,path_guard,path_relation
 import finalization_shape
 import response_diagnostic
 from retail_protocol import summarize,CODES
-STATES={'identity_control_observed','not_started','prerequisite_refused','pending','request_failed','finalization_refused','start_refused','observed','identity_changed','collection_refused','canonical_game_link_observed','response_schema_unrecognized','product_state_observed'}
+STATES={'read_only_status_observed','identity_control_observed','not_started','prerequisite_refused','pending','request_failed','finalization_refused','start_refused','observed','identity_changed','collection_refused','canonical_game_link_observed','response_schema_unrecognized','product_state_observed'}
 FIELDS={'installed','download_complete','playable','downloaded_bytes','bytes_downloaded','downloaded','total_bytes','bytes_total','download_size','download_progress','progress'}
 NUMERIC={'downloaded_bytes','bytes_downloaded','downloaded','total_bytes','bytes_total','download_size'}
 PORTS={'80','443','1119','3724','other'}
@@ -170,6 +170,7 @@ def execute(session,target,configured,r):
   t['phase_acknowledged']=True;write(t)
   def request(method,path,payload=None,stage=None):
    allowed={('POST','/install/wow'),('POST','/update'),('GET','/game/wow')}
+   if os.environ.get('RETAIL_READ_ONLY_STATUS')=='response-uri-t3'and(method,path)==('POST','/update'):raise ValueError('readonly_scope')
    if (method,path)not in allowed or t['local_requests']>=7:raise ValueError('transfer_scope')
    if session.verify()is not True:raise probe.Stop('identity_changed')
    t['local_requests']+=1;r['local_requests']+=1
@@ -239,6 +240,7 @@ def execute(session,target,configured,r):
   t['final_path_relation']=path_relation.classify(str(target),returned);t['final_path_guard']=path_guard.inspect(target,returned);write(t)
   if not s['form_schema_valid'] or t['finalized_returned']is not True or any(v!=0 for v in s['error_codes'].values()) or t['final_path_relation']['relation']not in {'exact_string','normalized_equal'} or t['final_path_guard']['status']!='verified_existing_chain':t['status']='finalization_refused';return
   t['baseline_progress']=progress(request('GET','/game/wow',stage='status_query'));write(t)
+  if os.environ.get('RETAIL_READ_ONLY_STATUS')=='response-uri-t3':t['status']='read_only_status_observed';return
   data=request('POST','/update',{'uid':'wow'},stage='start');v=data.get('error')
   if type(v)is int and 0<=v<=2**32:t['start_agent_error']=v
   if t['start_agent_error']!=0:t['status']='start_refused';return

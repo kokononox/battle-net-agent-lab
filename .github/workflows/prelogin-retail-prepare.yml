@@ -1,4 +1,4 @@
-name: Logged-out Retail owned TCP attribution control T2
+name: Logged-out Retail documented response-uri status T3
 on:
   push:
     branches: [research/prelogin-telemetry-wow-data-provenance]
@@ -12,7 +12,7 @@ concurrency:
 jobs:
   dispatch:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned Agent TCP control t2'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved documented Retail status t3'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -36,7 +36,7 @@ jobs:
   observe:
     needs: dispatch
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved owned Agent TCP control t2'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: approved documented Retail status t3'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -63,7 +63,7 @@ jobs:
         env:
           RETAIL_PREPARE: approved-retail-prepare-c10
           RETAIL_PREPARE_SCOPE: limited-transfer-c10
-          RETAIL_PHASE_CONTROL: identity-only-d20
+          RETAIL_READ_ONLY_STATUS: response-uri-t3
           RETAIL_TCP_METER: owned-baseline-t2
         run: python analysis-tools/prelogin-retail-prepare/guard_driver.py
       - name: Validate only counts and fixed labels

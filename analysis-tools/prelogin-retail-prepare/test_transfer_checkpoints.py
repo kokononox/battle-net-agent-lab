@@ -39,6 +39,10 @@ class Checkpoints(unittest.TestCase):
     saved=json.loads(Path('output/retail-transfer.json').read_text())
    finally:os.chdir(old)
   return saved,calls[0]
+ def test_readonly_status_never_posts_update_even_for_finalized_form(self):
+  with patch.dict(os.environ,{'RETAIL_READ_ONLY_STATUS':'response-uri-t3'}):
+   r,n=self.run_case()
+  self.assertEqual(n,2);self.assertFalse(r['start_attempted']);self.assertEqual(r['status'],'read_only_status_observed')
  def test_identity_control_never_requests_http(self):
   with patch.dict(os.environ,{'RETAIL_PHASE_CONTROL':'identity-only-d20'}):
    r,n=self.run_case()

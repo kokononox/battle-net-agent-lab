@@ -43,3 +43,14 @@ class CanonicalObservation(unittest.TestCase):
   self.assertEqual(r['transfer']['status'],'response_schema_unrecognized');self.assertEqual(conn.request.call_count,2);self.assertFalse(r['transfer']['start_attempted']);self.assertEqual(r['transfer']['status_query_http_status'],200)
 
 if __name__=='__main__':unittest.main()
+
+class ResponseUriContract(unittest.TestCase):
+ def test_exact_resource_uri_is_recognized(self):
+  r=s.classify({'response_uri':'/game/wow'},1234)
+  self.assertEqual(r['kind'],'canonical_game_link');self.assertTrue(r['owned_game_link'])
+ def test_unknown_sibling_is_not_silently_accepted(self):
+  r=s.classify({'response_uri':'/game/wow','PRIVATE':'SECRET'},1234)
+  self.assertEqual(r['kind'],'unknown');self.assertTrue(r['owned_game_link']);self.assertEqual(r['unknown_top_fields'],1)
+ def test_external_or_other_product_not_owned(self):
+  for uri in ('https://example.com/game/wow','http://127.0.0.1:9999/game/wow','/game/other','/game/wow?token=PRIVATE'):
+   self.assertFalse(s.classify({'response_uri':uri},1234)['owned_game_link'])

@@ -157,3 +157,13 @@ The compiled T2 meter observed six owned external IPv4 TCP connections and
 Windows text-mode CRLF while the Python gate correctly required exact LF.
 The worker refused before any phase request. Ready output is now explicitly
 binary; exact-marker success and CRLF refusal are covered by mocked IPC tests.
+
+
+T3 response contract hypothesis is grounded in the public source, not a guessed
+root label: barncastle/Battle.Net-Installer commit
+3aa2d98d866b393197da0b75d7381b7fff495ad9,
+BNetInstaller/Endpoints/ProductEndpoint.cs reads `response_uri`. Its README
+requires recent sign-in, so it does not prove logged-out Retail installation.
+Only the exact owned /game/wow resource is recognized; unknown siblings remain
+unknown, raw URIs are never exported, and T3 forbids /update. Public source:
+https://github.com/barncastle/Battle.Net-Installer/blob/3aa2d98d866b393197da0b75d7381b7fff495ad9/BNetInstaller/Endpoints/ProductEndpoint.cs

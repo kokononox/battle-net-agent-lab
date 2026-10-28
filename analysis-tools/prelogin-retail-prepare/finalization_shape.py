@@ -1,5 +1,5 @@
 """Recognize a local product link without publishing/following arbitrary URLs."""
-FIELDS={'error','form','game','link','uid','installed','download_complete'}
+FIELDS={'response_uri','error','form','game','link','uid','installed','download_complete'}
 KINDS={'not_observed','form','canonical_game_link','unknown','product_state'}
 def blank():return dict(kind='not_observed',recognized_top_fields=[],unknown_top_fields=0,owned_game_link=False)
 def validate(r):
@@ -14,7 +14,13 @@ def classify(data,port):
  if type(data)is not dict or len(data)>128:return r
  r['recognized_top_fields']=sorted(set(data)&FIELDS);r['unknown_top_fields']=len(set(data)-FIELDS)
  if type(data.get('form'))is dict:r['kind']='form';return r
- if r['unknown_top_fields'] or type(port)is not int or not 1<=port<=65535:return r
+ if type(port)is not int or not 1<=port<=65535:return r
+ allowed={'/game/wow','http://127.0.0.1:'+str(port)+'/game/wow'}
+ # Public ProductEndpoint contract supplies response_uri. Unknown siblings remain unknown.
+ if type(data.get('response_uri'))is str and data['response_uri']in allowed:r['owned_game_link']=True
+ if r['unknown_top_fields']:return validate(r)
+ if set(data)<={'response_uri','error'} and r['owned_game_link'] and ('error'not in data or type(data['error'])is int and data['error']==0):
+  r['kind']='canonical_game_link';return validate(r)
  if 'error'in data and(type(data['error'])is not int or data['error']!=0):return r
  if 'uid'in data and data['uid']!='wow':return r
  if set(data)<= {'installed','download_complete','error'} and type(data.get('installed'))is bool and type(data.get('download_complete'))is bool:
