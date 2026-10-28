@@ -1,7 +1,7 @@
 {
   "schema": "bnet-tcp-build-1",
-  "source_commit": "a6d7aabd302a5e279e0152026ef78d39df3fd9d3",
-  "run_id": "40610730114",
+  "source_commit": "706908ed1db1cad6547c645b7d3732850387bcdf",
+  "run_id": "40610911964",
   "units": [
     {
       "unit": "tcp_fixture",
@@ -12,12 +12,9 @@
     },
     {
       "unit": "tcp_meter",
-      "compiled": false,
-      "exit_code": 2,
-      "compiler_error_codes": [
-        "C3861",
-        "C4996"
-      ],
+      "compiled": true,
+      "exit_code": 0,
+      "compiler_error_codes": [],
       "source_error_lines": []
     }
   ]
