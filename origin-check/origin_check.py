@@ -70,7 +70,7 @@ def inspect(root,batch_start=0):
  return summary,private
 
 def main(args,batch_start=0):
- out=dict(schema='casc-offline-origin-check-4',tool_version='5.0',status='refused',error_kind=None,first=None,second=None,two_copy_marker_sets_equal=None,observed_batch_marker_sets_equal=None,comparison_scope='observed_archive_prefix_markers_only',full_file_equality_proven=False)
+ out=dict(schema='casc-offline-origin-check-4',tool_version='6.0',status='refused',error_kind=None,first=None,second=None,two_copy_marker_sets_equal=None,observed_batch_marker_sets_equal=None,comparison_scope='observed_archive_prefix_markers_only',full_file_equality_proven=False)
  try:
   if len(args)not in (1,2):raise Refused('one_or_two_local_directories_required')
   out['first'],first=inspect(args[0],batch_start)

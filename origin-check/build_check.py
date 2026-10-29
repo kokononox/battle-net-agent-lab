@@ -1,25 +1,27 @@
 """Read-only SAME-BUILD check of TWO small official components, not whole WoW."""
-import csv,hashlib,io,json,os,stat
+import csv,hashlib,io,json,os,stat,time
 from pathlib import Path
 import official_70448 as ref
 from origin_check import safe,fingerprint,Refused
 BUDGET=4*1024*1024
 
 def blank():
- return dict(schema='wow-official-component-check-1',tool_version='5.0',status='refused',error_kind=None,expected_product=ref.PRODUCT,expected_version=ref.VERSION,expected_build_key=ref.BUILD_KEY,active_build_matched=False,reference_config_url=ref.CONFIG_URL,reference_install_url=ref.INSTALL_URL,reference_install_ckey=ref.INSTALL_CKEY,reference_install_ekey=ref.INSTALL_EKEY,read_budget_bytes=BUDGET,bytes_read=0,components={k:dict(status='not_checked',observed_bytes=None,matched_public_ckey=None)for k in ref.FILES},verified_components=0,all_selected_components_match=False,client_executable_checked=False,client_loader_checked=False,archive_files_read=False,whole_game_scanned=False,copy_origin_proven=False,hostname_or_account_identity_proven=False,hardware_upload_proven=False,game_executed=False,network_requested=False,game_files_written=False,raw_paths_exported=False,unexpected_hashes_exported=False)
+ return dict(schema='wow-official-component-check-1',tool_version='6.0',status='refused',error_kind=None,expected_product=ref.PRODUCT,expected_version=ref.VERSION,expected_build_key=ref.BUILD_KEY,active_build_matched=False,reference_config_url=ref.CONFIG_URL,reference_install_url=ref.INSTALL_URL,reference_install_ckey=ref.INSTALL_CKEY,reference_install_ekey=ref.INSTALL_EKEY,read_budget_bytes=BUDGET,bytes_read=0,components={k:dict(status='not_checked',observed_bytes=None,matched_public_ckey=None)for k in ref.FILES},verified_components=0,all_selected_components_match=False,client_executable_checked=False,client_loader_checked=False,archive_files_read=False,whole_game_scanned=False,copy_origin_proven=False,hostname_or_account_identity_proven=False,hardware_upload_proven=False,game_executed=False,network_requested=False,game_files_written=False,raw_paths_exported=False,unexpected_hashes_exported=False)
 
 class Reader:
- def __init__(self,r):self.r=r
+ def __init__(self,r,budget=BUDGET,deadline=None):self.r=r;self.budget=budget;self.deadline=deadline
  def file(self,path,cap,digest=False):
+  if self.deadline is not None and time.monotonic()>=self.deadline:raise Refused('read_time_limit')
   p=safe(path);s=p.stat()
   if not stat.S_ISREG(s.st_mode)or s.st_nlink!=1:raise Refused('not_regular_unshared')
   before=fingerprint(s)
   if s.st_size>cap:raise Refused('file_size_limit')
-  if self.r['bytes_read']+s.st_size>BUDGET:raise Refused('read_budget_limit')
+  if self.r['bytes_read']+s.st_size>self.budget:raise Refused('read_budget_limit')
   result=hashlib.md5()if digest else bytearray();count=0
   with p.open('rb')as f:
    if fingerprint(os.fstat(f.fileno()))!=before:raise Refused('source_changed')
    while count<s.st_size:
+    if self.deadline is not None and time.monotonic()>=self.deadline:raise Refused('read_time_limit')
     b=f.read(min(65536,s.st_size-count))
     if not b:raise Refused('source_changed')
     count+=len(b);self.r['bytes_read']+=len(b)
