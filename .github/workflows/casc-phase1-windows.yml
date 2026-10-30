@@ -1,0 +1,87 @@
+name: Build offline CASC Phase 1 comparison
+on:
+  push:
+    branches: [research/prelogin-telemetry-wow-data-provenance]
+    paths: ['phase1-check/**', '.github/workflows/casc-phase1-windows.yml']
+permissions: {}
+concurrency:
+  group: casc-phase1-windows-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    if: >-
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: build standalone offline phase1 comparison v1'
+    runs-on: windows-2025
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Verify offline comparison contracts
+        shell: pwsh
+        env:
+          PYTHONPATH: phase1-check;origin-check
+        run: |
+          python -m unittest discover -s phase1-check -v
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -c "import tkinter; print('tkinter_available=True')"
+      - name: Install pinned packaging tool
+        run: python -m pip install --disable-pip-version-check pyinstaller==6.16.0
+      - name: Build independent windowed executable
+        run: python -m PyInstaller --noconfirm --clean --onefile --windowed --name CASCPhase1Compare --paths phase1-check --paths origin-check --hidden-import test_phase1 --distpath dist --workpath build/phase1 --specpath build phase1-check/phase1_app.py
+      - name: Run tests inside the built executable
+        shell: pwsh
+        run: |
+          $p = Start-Process -FilePath .\dist\CASCPhase1Compare.exe -ArgumentList '--self-test', 'phase1-selftest.json' -PassThru -Wait
+          if ($p.ExitCode -ne 0) { exit 1 }
+          python -c "import json; r=json.load(open('phase1-selftest.json')); assert r['passed'] and r['tests_run']==39 and r['failures']==0 and r['errors']==0"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $p = Start-Process -FilePath .\dist\CASCPhase1Compare.exe -ArgumentList '--ui-smoke-test', 'phase1-ui-smoke.json' -PassThru -Wait
+          if ($p.ExitCode -ne 0) { exit 1 }
+          python -c "import json; assert json.load(open('phase1-ui-smoke.json'))['passed'] is True"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Package executable and fixed-field public receipt
+        env:
+          SOURCE: ${{ github.sha }}
+          RUN: ${{ github.run_id }}
+        run: |
+          python -c "import json,hashlib,os,pathlib,platform,shutil; p=pathlib.Path('dist/CASCPhase1Compare.exe'); r=dict(schema='casc-phase1-windows-build-1',source_commit=os.environ['SOURCE'],run_id=os.environ['RUN'],platform='windows-x64',tool_version='1.0',read_budget_bytes=134217728,archive_prefix_bytes=1048576,archive_limit=64,private_keyed_snapshots=True,decoded_payload_comparison=False,python_version=platform.python_version(),pyinstaller_version='6.16.0',exe_bytes=p.stat().st_size,exe_sha256=hashlib.sha256(p.read_bytes()).hexdigest(),exe_selftest=json.load(open('phase1-selftest.json')),ui_smoke=json.load(open('phase1-ui-smoke.json')),unsigned=True,game_launched=False,account_login_performed=False,game_download_performed=False); pathlib.Path('dist/build-receipt.json').write_text(json.dumps(r,indent=2)+'\n'); shutil.copyfile('phase1-check/README.fa.md','dist/README.fa.md')"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: CASCPhase1Compare-Windows-x64-v1
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14
+  publish-receipt:
+    needs: build
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: research/prelogin-telemetry-wow-data-provenance
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: CASCPhase1Compare-Windows-x64-v1
+          path: incoming
+      - name: Publish only public build receipt
+        env:
+          SOURCE: ${{ github.sha }}
+          RUN: ${{ github.run_id }}
+        run: |
+          python3 - <<'PY'
+          import json,os,pathlib
+          r=json.loads(pathlib.Path('incoming/build-receipt.json').read_text())
+          assert r['source_commit']==os.environ['SOURCE'] and r['run_id']==os.environ['RUN'] and r['exe_selftest']['passed'] is True and r['ui_smoke']['passed'] is True and r['unsigned'] is True
+          pathlib.Path('reports/casc-phase1-windows-build.json').write_text(json.dumps(r,indent=2)+'\n')
+          PY
+          git config user.name prelogin-wire-report
+          git config user.email prelogin-wire-report@users.noreply.github.com
+          git add reports/casc-phase1-windows-build.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'lab: publish offline phase1 executable build receipt'
+          git push origin HEAD:research/prelogin-telemetry-wow-data-provenance
