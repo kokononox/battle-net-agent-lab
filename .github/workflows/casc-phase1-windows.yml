@@ -10,7 +10,7 @@ concurrency:
 jobs:
   build:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: build standalone offline phase1 comparison v1'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: build standalone offline phase1 comparison v1 diagnostics'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:
@@ -24,7 +24,7 @@ jobs:
         env:
           PYTHONPATH: phase1-check;origin-check
         run: |
-          python -m unittest discover -s phase1-check -v
+          python -c "import sys,unittest,io; sys.path[:0]=['phase1-check','origin-check']; r=unittest.TextTestRunner(stream=io.StringIO(),verbosity=2).run(unittest.defaultTestLoader.discover('phase1-check')); [print('::error title=phase1_contract::'+t.id()+' '+tb.splitlines()[-1][:250]) for t,tb in r.failures+r.errors]; print('tests_run='+str(r.testsRun)); sys.exit(0 if r.wasSuccessful() else 1)"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python -c "import tkinter; print('tkinter_available=True')"
       - name: Install pinned packaging tool
