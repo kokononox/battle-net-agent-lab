@@ -1,0 +1,36 @@
+{
+  "schema": "casc-phase1-windows-build-1",
+  "source_commit": "266ac47d0338ad247977c27f183ebddf4da7fb31",
+  "run_id": "40982981185",
+  "platform": "windows-x64",
+  "tool_version": "1.0",
+  "read_budget_bytes": 134217728,
+  "archive_prefix_bytes": 1048576,
+  "archive_limit": 64,
+  "private_keyed_snapshots": true,
+  "decoded_payload_comparison": false,
+  "python_version": "3.12.10",
+  "pyinstaller_version": "6.16.0",
+  "exe_bytes": 12970789,
+  "exe_sha256": "93a95a7578f2bd7427b20a7fa0ae4b4aad6ec8fb9d8670a4b44f6beb1dd97424",
+  "exe_selftest": {
+    "schema": "casc-phase1-selftest-1",
+    "tests_run": 39,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "ui_smoke": {
+    "schema": "casc-phase1-ui-smoke-1",
+    "passed": true,
+    "window_width": 960,
+    "window_height": 749,
+    "report_pane_height": 364,
+    "action_buttons": 6
+  },
+  "unsigned": true,
+  "game_launched": false,
+  "account_login_performed": false,
+  "game_download_performed": false
+}
