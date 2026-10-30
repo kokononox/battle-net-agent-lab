@@ -10,7 +10,7 @@ concurrency:
 jobs:
   build:
     if: >-
-      github.run_attempt == 1 && github.event.head_commit.message == 'lab: build standalone offline phase1 comparison v1 diagnostics'
+      github.run_attempt == 1 && github.event.head_commit.message == 'lab: build standalone offline phase1 comparison v1 compatibility'
     runs-on: windows-2025
     timeout-minutes: 12
     permissions:

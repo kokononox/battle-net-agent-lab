@@ -21,7 +21,7 @@ def safe(path):
   if q!=p and not stat.S_ISDIR(s.st_mode):raise Refused('ancestor_not_directory')
  return p
 
-def fp(s):return(s.st_dev,s.st_ino,s.st_size,s.st_mtime_ns,s.st_ctime_ns,s.st_nlink)
+def fp(s):return(s.st_dev,s.st_ino,s.st_size,s.st_mtime_ns,s.st_nlink)
 def canonical(x):return json.dumps(x,sort_keys=True,separators=(',',':'),ensure_ascii=True).encode('ascii')
 def token(key,domain,raw):return hmac.new(key,domain.encode('ascii')+b'\x00'+raw,hashlib.sha256).hexdigest()
 def key_ok(key):
